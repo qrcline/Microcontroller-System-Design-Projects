@@ -1,0 +1,875 @@
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"GLCD_SPIM_UDB_PM.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.data
+  18              		.align	2
+  19              		.type	GLCD_SPIM_UDB_backup, %object
+  20              		.size	GLCD_SPIM_UDB_backup, 2
+  21              	GLCD_SPIM_UDB_backup:
+  22 0000 00       		.byte	0
+  23 0001 11       		.byte	17
+  24 0002 0000     		.section	.text.GLCD_SPIM_UDB_SaveConfig,"ax",%progbits
+  25              		.align	2
+  26              		.global	GLCD_SPIM_UDB_SaveConfig
+  27              		.code	16
+  28              		.thumb_func
+  29              		.type	GLCD_SPIM_UDB_SaveConfig, %function
+  30              	GLCD_SPIM_UDB_SaveConfig:
+  31              	.LFB0:
+  32              		.file 1 "Generated_Source\\PSoC4\\GLCD_SPIM_UDB_PM.c"
+   1:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * File Name: GLCD_SPIM_UDB_PM.c
+   3:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Version 2.40
+   4:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+   5:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Description:
+   6:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  This file contains the setup, control and status commands to support
+   7:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  component operations in low power mode.
+   8:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+   9:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Note:
+  10:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  11:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+  18:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** #include "GLCD_SPIM_UDB_PVT.h"
+  19:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+  20:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** static GLCD_SPIM_UDB_BACKUP_STRUCT GLCD_SPIM_UDB_backup =
+  21:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** {
+  22:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     GLCD_SPIM_UDB_DISABLED,
+  23:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     GLCD_SPIM_UDB_BITCTR_INIT,
+  24:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #if(CY_UDB_V0)
+  25:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_TX_INIT_INTERRUPTS_MASK,
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 2
+
+
+  26:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_RX_INIT_INTERRUPTS_MASK
+  27:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #endif /* CY_UDB_V0 */
+  28:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** };
+  29:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+  30:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+  31:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** /*******************************************************************************
+  32:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Function Name: GLCD_SPIM_UDB_SaveConfig
+  33:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** ********************************************************************************
+  34:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  35:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Summary:
+  36:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  Saves SPIM configuration.
+  37:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  38:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Parameters:
+  39:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  None.
+  40:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  41:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Return:
+  42:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  None.
+  43:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  44:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Global Variables:
+  45:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_backup - modified when non-retention registers are saved.
+  46:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  47:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Reentrant:
+  48:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  No.
+  49:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  50:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *******************************************************************************/
+  51:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** void GLCD_SPIM_UDB_SaveConfig(void) 
+  52:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** {
+  33              		.loc 1 52 0
+  34              		.cfi_startproc
+  35 0000 80B5     		push	{r7, lr}
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 7, -8
+  38              		.cfi_offset 14, -4
+  39 0002 00AF     		add	r7, sp, #0
+  40              		.cfi_def_cfa_register 7
+  53:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     /* Store Status Mask registers */
+  54:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #if(CY_UDB_V0)
+  55:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****        GLCD_SPIM_UDB_backup.cntrPeriod      = GLCD_SPIM_UDB_COUNTER_PERIOD_REG;
+  56:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****        GLCD_SPIM_UDB_backup.saveSrTxIntMask = GLCD_SPIM_UDB_TX_STATUS_MASK_REG;
+  57:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****        GLCD_SPIM_UDB_backup.saveSrRxIntMask = GLCD_SPIM_UDB_RX_STATUS_MASK_REG;
+  58:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #endif /* (CY_UDB_V0) */
+  59:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** }
+  41              		.loc 1 59 0
+  42 0004 BD46     		mov	sp, r7
+  43              		@ sp needed
+  44 0006 80BD     		pop	{r7, pc}
+  45              		.cfi_endproc
+  46              	.LFE0:
+  47              		.size	GLCD_SPIM_UDB_SaveConfig, .-GLCD_SPIM_UDB_SaveConfig
+  48              		.section	.text.GLCD_SPIM_UDB_RestoreConfig,"ax",%progbits
+  49              		.align	2
+  50              		.global	GLCD_SPIM_UDB_RestoreConfig
+  51              		.code	16
+  52              		.thumb_func
+  53              		.type	GLCD_SPIM_UDB_RestoreConfig, %function
+  54              	GLCD_SPIM_UDB_RestoreConfig:
+  55              	.LFB1:
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 3
+
+
+  60:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+  61:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+  62:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** /*******************************************************************************
+  63:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Function Name: GLCD_SPIM_UDB_RestoreConfig
+  64:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** ********************************************************************************
+  65:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  66:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Summary:
+  67:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  Restores SPIM configuration.
+  68:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  69:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Parameters:
+  70:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  None.
+  71:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  72:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Return:
+  73:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  None.
+  74:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  75:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Global Variables:
+  76:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_backup - used when non-retention registers are restored.
+  77:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  78:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Side Effects:
+  79:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  If this API is called without first calling SaveConfig then in the following
+  80:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  registers will be default values from Customizer:
+  81:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_STATUS_MASK_REG and GLCD_SPIM_UDB_COUNTER_PERIOD_REG.
+  82:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  83:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *******************************************************************************/
+  84:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** void GLCD_SPIM_UDB_RestoreConfig(void) 
+  85:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** {
+  56              		.loc 1 85 0
+  57              		.cfi_startproc
+  58 0000 80B5     		push	{r7, lr}
+  59              		.cfi_def_cfa_offset 8
+  60              		.cfi_offset 7, -8
+  61              		.cfi_offset 14, -4
+  62 0002 00AF     		add	r7, sp, #0
+  63              		.cfi_def_cfa_register 7
+  86:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     /* Restore the data, saved by SaveConfig() function */
+  87:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #if(CY_UDB_V0)
+  88:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_COUNTER_PERIOD_REG = GLCD_SPIM_UDB_backup.cntrPeriod;
+  89:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_TX_STATUS_MASK_REG = ((uint8) GLCD_SPIM_UDB_backup.saveSrTxIntMask);
+  90:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_RX_STATUS_MASK_REG = ((uint8) GLCD_SPIM_UDB_backup.saveSrRxIntMask);
+  91:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #endif /* (CY_UDB_V0) */
+  92:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** }
+  64              		.loc 1 92 0
+  65 0004 BD46     		mov	sp, r7
+  66              		@ sp needed
+  67 0006 80BD     		pop	{r7, pc}
+  68              		.cfi_endproc
+  69              	.LFE1:
+  70              		.size	GLCD_SPIM_UDB_RestoreConfig, .-GLCD_SPIM_UDB_RestoreConfig
+  71              		.section	.text.GLCD_SPIM_UDB_Sleep,"ax",%progbits
+  72              		.align	2
+  73              		.global	GLCD_SPIM_UDB_Sleep
+  74              		.code	16
+  75              		.thumb_func
+  76              		.type	GLCD_SPIM_UDB_Sleep, %function
+  77              	GLCD_SPIM_UDB_Sleep:
+  78              	.LFB2:
+  93:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 4
+
+
+  94:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+  95:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** /*******************************************************************************
+  96:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Function Name: GLCD_SPIM_UDB_Sleep
+  97:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** ********************************************************************************
+  98:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+  99:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Summary:
+ 100:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  Prepare SPIM Component goes to sleep.
+ 101:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 102:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Parameters:
+ 103:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  None.
+ 104:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 105:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Return:
+ 106:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  None.
+ 107:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 108:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Global Variables:
+ 109:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_backup - modified when non-retention registers are saved.
+ 110:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 111:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Reentrant:
+ 112:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  No.
+ 113:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 114:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *******************************************************************************/
+ 115:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** void GLCD_SPIM_UDB_Sleep(void) 
+ 116:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** {
+  79              		.loc 1 116 0
+  80              		.cfi_startproc
+  81 0000 80B5     		push	{r7, lr}
+  82              		.cfi_def_cfa_offset 8
+  83              		.cfi_offset 7, -8
+  84              		.cfi_offset 14, -4
+  85 0002 00AF     		add	r7, sp, #0
+  86              		.cfi_def_cfa_register 7
+ 117:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     /* Save components enable state */
+ 118:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     GLCD_SPIM_UDB_backup.enableState = ((uint8) GLCD_SPIM_UDB_IS_ENABLED);
+  87              		.loc 1 118 0
+  88 0004 084B     		ldr	r3, .L4
+  89 0006 1B78     		ldrb	r3, [r3]
+  90 0008 DBB2     		uxtb	r3, r3
+  91 000a 1A1C     		mov	r2, r3
+  92 000c 1023     		mov	r3, #16
+  93 000e 1340     		and	r3, r2
+  94 0010 5A1E     		sub	r2, r3, #1
+  95 0012 9341     		sbc	r3, r3, r2
+  96 0014 DBB2     		uxtb	r3, r3
+  97 0016 1A1C     		mov	r2, r3
+  98 0018 044B     		ldr	r3, .L4+4
+  99 001a 1A70     		strb	r2, [r3]
+ 119:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+ 120:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     GLCD_SPIM_UDB_Stop();
+ 100              		.loc 1 120 0
+ 101 001c FFF7FEFF 		bl	GLCD_SPIM_UDB_Stop
+ 121:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     GLCD_SPIM_UDB_SaveConfig();
+ 102              		.loc 1 121 0
+ 103 0020 FFF7FEFF 		bl	GLCD_SPIM_UDB_SaveConfig
+ 122:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** }
+ 104              		.loc 1 122 0
+ 105 0024 BD46     		mov	sp, r7
+ 106              		@ sp needed
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 5
+
+
+ 107 0026 80BD     		pop	{r7, pc}
+ 108              	.L5:
+ 109              		.align	2
+ 110              	.L4:
+ 111 0028 92000F40 		.word	1074725010
+ 112 002c 00000000 		.word	GLCD_SPIM_UDB_backup
+ 113              		.cfi_endproc
+ 114              	.LFE2:
+ 115              		.size	GLCD_SPIM_UDB_Sleep, .-GLCD_SPIM_UDB_Sleep
+ 116              		.section	.text.GLCD_SPIM_UDB_Wakeup,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	GLCD_SPIM_UDB_Wakeup
+ 119              		.code	16
+ 120              		.thumb_func
+ 121              		.type	GLCD_SPIM_UDB_Wakeup, %function
+ 122              	GLCD_SPIM_UDB_Wakeup:
+ 123              	.LFB3:
+ 123:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+ 124:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+ 125:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** /*******************************************************************************
+ 126:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Function Name: GLCD_SPIM_UDB_Wakeup
+ 127:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** ********************************************************************************
+ 128:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 129:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Summary:
+ 130:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  Prepare SPIM Component to wake up.
+ 131:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 132:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Parameters:
+ 133:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  None.
+ 134:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 135:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Return:
+ 136:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  None.
+ 137:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 138:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Global Variables:
+ 139:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_backup - used when non-retention registers are restored.
+ 140:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_txBufferWrite - modified every function call - resets to
+ 141:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  zero.
+ 142:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_txBufferRead - modified every function call - resets to
+ 143:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  zero.
+ 144:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_rxBufferWrite - modified every function call - resets to
+ 145:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  zero.
+ 146:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  GLCD_SPIM_UDB_rxBufferRead - modified every function call - resets to
+ 147:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  zero.
+ 148:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 149:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** * Reentrant:
+ 150:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *  No.
+ 151:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *
+ 152:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** *******************************************************************************/
+ 153:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** void GLCD_SPIM_UDB_Wakeup(void) 
+ 154:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** {
+ 124              		.loc 1 154 0
+ 125              		.cfi_startproc
+ 126 0000 80B5     		push	{r7, lr}
+ 127              		.cfi_def_cfa_offset 8
+ 128              		.cfi_offset 7, -8
+ 129              		.cfi_offset 14, -4
+ 130 0002 00AF     		add	r7, sp, #0
+ 131              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 6
+
+
+ 155:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     GLCD_SPIM_UDB_RestoreConfig();
+ 132              		.loc 1 155 0
+ 133 0004 FFF7FEFF 		bl	GLCD_SPIM_UDB_RestoreConfig
+ 156:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+ 157:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+ 158:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_rxBufferFull  = 0u;
+ 159:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_rxBufferRead  = 0u;
+ 160:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_rxBufferWrite = 0u;
+ 161:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #endif /* (GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+ 162:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+ 163:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+ 164:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_txBufferFull  = 0u;
+ 165:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_txBufferRead  = 0u;
+ 166:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_txBufferWrite = 0u;
+ 167:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+ 168:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+ 169:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     /* Clear any data from the RX and TX FIFO */
+ 170:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     GLCD_SPIM_UDB_ClearFIFO();
+ 134              		.loc 1 170 0
+ 135 0008 FFF7FEFF 		bl	GLCD_SPIM_UDB_ClearFIFO
+ 171:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** 
+ 172:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     /* Restore components block enable state */
+ 173:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     if(0u != GLCD_SPIM_UDB_backup.enableState)
+ 136              		.loc 1 173 0
+ 137 000c 034B     		ldr	r3, .L8
+ 138 000e 1B78     		ldrb	r3, [r3]
+ 139 0010 002B     		cmp	r3, #0
+ 140 0012 01D0     		beq	.L6
+ 174:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     {
+ 175:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****         GLCD_SPIM_UDB_Enable();
+ 141              		.loc 1 175 0
+ 142 0014 FFF7FEFF 		bl	GLCD_SPIM_UDB_Enable
+ 143              	.L6:
+ 176:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c ****     }
+ 177:Generated_Source\PSoC4/GLCD_SPIM_UDB_PM.c **** }
+ 144              		.loc 1 177 0
+ 145 0018 BD46     		mov	sp, r7
+ 146              		@ sp needed
+ 147 001a 80BD     		pop	{r7, pc}
+ 148              	.L9:
+ 149              		.align	2
+ 150              	.L8:
+ 151 001c 00000000 		.word	GLCD_SPIM_UDB_backup
+ 152              		.cfi_endproc
+ 153              	.LFE3:
+ 154              		.size	GLCD_SPIM_UDB_Wakeup, .-GLCD_SPIM_UDB_Wakeup
+ 155              		.text
+ 156              	.Letext0:
+ 157              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 158              		.file 3 "Generated_Source\\PSoC4\\GLCD_SPIM_UDB.h"
+ 159              		.section	.debug_info,"",%progbits
+ 160              	.Ldebug_info0:
+ 161 0000 22010000 		.4byte	0x122
+ 162 0004 0400     		.2byte	0x4
+ 163 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 164 000a 04       		.byte	0x4
+ 165 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 7
+
+
+ 166 000c 0E000000 		.4byte	.LASF22
+ 167 0010 01       		.byte	0x1
+ 168 0011 41010000 		.4byte	.LASF23
+ 169 0015 08020000 		.4byte	.LASF24
+ 170 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 171 001d 00000000 		.4byte	0
+ 172 0021 00000000 		.4byte	.Ldebug_line0
+ 173 0025 02       		.uleb128 0x2
+ 174 0026 01       		.byte	0x1
+ 175 0027 06       		.byte	0x6
+ 176 0028 A3010000 		.4byte	.LASF0
+ 177 002c 02       		.uleb128 0x2
+ 178 002d 01       		.byte	0x1
+ 179 002e 08       		.byte	0x8
+ 180 002f 2E010000 		.4byte	.LASF1
+ 181 0033 02       		.uleb128 0x2
+ 182 0034 02       		.byte	0x2
+ 183 0035 05       		.byte	0x5
+ 184 0036 6B010000 		.4byte	.LASF2
+ 185 003a 02       		.uleb128 0x2
+ 186 003b 02       		.byte	0x2
+ 187 003c 07       		.byte	0x7
+ 188 003d 90010000 		.4byte	.LASF3
+ 189 0041 02       		.uleb128 0x2
+ 190 0042 04       		.byte	0x4
+ 191 0043 05       		.byte	0x5
+ 192 0044 7C010000 		.4byte	.LASF4
+ 193 0048 02       		.uleb128 0x2
+ 194 0049 04       		.byte	0x4
+ 195 004a 07       		.byte	0x7
+ 196 004b 05010000 		.4byte	.LASF5
+ 197 004f 02       		.uleb128 0x2
+ 198 0050 08       		.byte	0x8
+ 199 0051 05       		.byte	0x5
+ 200 0052 00000000 		.4byte	.LASF6
+ 201 0056 02       		.uleb128 0x2
+ 202 0057 08       		.byte	0x8
+ 203 0058 07       		.byte	0x7
+ 204 0059 17010000 		.4byte	.LASF7
+ 205 005d 03       		.uleb128 0x3
+ 206 005e 04       		.byte	0x4
+ 207 005f 05       		.byte	0x5
+ 208 0060 696E7400 		.ascii	"int\000"
+ 209 0064 02       		.uleb128 0x2
+ 210 0065 04       		.byte	0x4
+ 211 0066 07       		.byte	0x7
+ 212 0067 A8000000 		.4byte	.LASF8
+ 213 006b 04       		.uleb128 0x4
+ 214 006c FF000000 		.4byte	.LASF12
+ 215 0070 02       		.byte	0x2
+ 216 0071 B901     		.2byte	0x1b9
+ 217 0073 2C000000 		.4byte	0x2c
+ 218 0077 02       		.uleb128 0x2
+ 219 0078 04       		.byte	0x4
+ 220 0079 04       		.byte	0x4
+ 221 007a C4010000 		.4byte	.LASF9
+ 222 007e 02       		.uleb128 0x2
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 8
+
+
+ 223 007f 08       		.byte	0x8
+ 224 0080 04       		.byte	0x4
+ 225 0081 75010000 		.4byte	.LASF10
+ 226 0085 02       		.uleb128 0x2
+ 227 0086 01       		.byte	0x1
+ 228 0087 08       		.byte	0x8
+ 229 0088 3C010000 		.4byte	.LASF11
+ 230 008c 04       		.uleb128 0x4
+ 231 008d DE010000 		.4byte	.LASF13
+ 232 0091 02       		.byte	0x2
+ 233 0092 6302     		.2byte	0x263
+ 234 0094 98000000 		.4byte	0x98
+ 235 0098 05       		.uleb128 0x5
+ 236 0099 6B000000 		.4byte	0x6b
+ 237 009d 02       		.uleb128 0x2
+ 238 009e 04       		.byte	0x4
+ 239 009f 07       		.byte	0x7
+ 240 00a0 FF010000 		.4byte	.LASF14
+ 241 00a4 06       		.uleb128 0x6
+ 242 00a5 02       		.byte	0x2
+ 243 00a6 03       		.byte	0x3
+ 244 00a7 46       		.byte	0x46
+ 245 00a8 C5000000 		.4byte	0xc5
+ 246 00ac 07       		.uleb128 0x7
+ 247 00ad 9C000000 		.4byte	.LASF15
+ 248 00b1 03       		.byte	0x3
+ 249 00b2 48       		.byte	0x48
+ 250 00b3 6B000000 		.4byte	0x6b
+ 251 00b7 00       		.byte	0
+ 252 00b8 07       		.uleb128 0x7
+ 253 00b9 85010000 		.4byte	.LASF16
+ 254 00bd 03       		.byte	0x3
+ 255 00be 49       		.byte	0x49
+ 256 00bf 6B000000 		.4byte	0x6b
+ 257 00c3 01       		.byte	0x1
+ 258 00c4 00       		.byte	0
+ 259 00c5 08       		.uleb128 0x8
+ 260 00c6 E3010000 		.4byte	.LASF17
+ 261 00ca 03       		.byte	0x3
+ 262 00cb 4F       		.byte	0x4f
+ 263 00cc A4000000 		.4byte	0xa4
+ 264 00d0 09       		.uleb128 0x9
+ 265 00d1 E6000000 		.4byte	.LASF18
+ 266 00d5 01       		.byte	0x1
+ 267 00d6 33       		.byte	0x33
+ 268 00d7 00000000 		.4byte	.LFB0
+ 269 00db 08000000 		.4byte	.LFE0-.LFB0
+ 270 00df 01       		.uleb128 0x1
+ 271 00e0 9C       		.byte	0x9c
+ 272 00e1 09       		.uleb128 0x9
+ 273 00e2 CA000000 		.4byte	.LASF19
+ 274 00e6 01       		.byte	0x1
+ 275 00e7 54       		.byte	0x54
+ 276 00e8 00000000 		.4byte	.LFB1
+ 277 00ec 08000000 		.4byte	.LFE1-.LFB1
+ 278 00f0 01       		.uleb128 0x1
+ 279 00f1 9C       		.byte	0x9c
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 9
+
+
+ 280 00f2 0A       		.uleb128 0xa
+ 281 00f3 CA010000 		.4byte	.LASF20
+ 282 00f7 01       		.byte	0x1
+ 283 00f8 73       		.byte	0x73
+ 284 00f9 00000000 		.4byte	.LFB2
+ 285 00fd 30000000 		.4byte	.LFE2-.LFB2
+ 286 0101 01       		.uleb128 0x1
+ 287 0102 9C       		.byte	0x9c
+ 288 0103 0A       		.uleb128 0xa
+ 289 0104 B5000000 		.4byte	.LASF21
+ 290 0108 01       		.byte	0x1
+ 291 0109 99       		.byte	0x99
+ 292 010a 00000000 		.4byte	.LFB3
+ 293 010e 20000000 		.4byte	.LFE3-.LFB3
+ 294 0112 01       		.uleb128 0x1
+ 295 0113 9C       		.byte	0x9c
+ 296 0114 0B       		.uleb128 0xb
+ 297 0115 AF010000 		.4byte	.LASF25
+ 298 0119 01       		.byte	0x1
+ 299 011a 14       		.byte	0x14
+ 300 011b C5000000 		.4byte	0xc5
+ 301 011f 05       		.uleb128 0x5
+ 302 0120 03       		.byte	0x3
+ 303 0121 00000000 		.4byte	GLCD_SPIM_UDB_backup
+ 304 0125 00       		.byte	0
+ 305              		.section	.debug_abbrev,"",%progbits
+ 306              	.Ldebug_abbrev0:
+ 307 0000 01       		.uleb128 0x1
+ 308 0001 11       		.uleb128 0x11
+ 309 0002 01       		.byte	0x1
+ 310 0003 25       		.uleb128 0x25
+ 311 0004 0E       		.uleb128 0xe
+ 312 0005 13       		.uleb128 0x13
+ 313 0006 0B       		.uleb128 0xb
+ 314 0007 03       		.uleb128 0x3
+ 315 0008 0E       		.uleb128 0xe
+ 316 0009 1B       		.uleb128 0x1b
+ 317 000a 0E       		.uleb128 0xe
+ 318 000b 55       		.uleb128 0x55
+ 319 000c 17       		.uleb128 0x17
+ 320 000d 11       		.uleb128 0x11
+ 321 000e 01       		.uleb128 0x1
+ 322 000f 10       		.uleb128 0x10
+ 323 0010 17       		.uleb128 0x17
+ 324 0011 00       		.byte	0
+ 325 0012 00       		.byte	0
+ 326 0013 02       		.uleb128 0x2
+ 327 0014 24       		.uleb128 0x24
+ 328 0015 00       		.byte	0
+ 329 0016 0B       		.uleb128 0xb
+ 330 0017 0B       		.uleb128 0xb
+ 331 0018 3E       		.uleb128 0x3e
+ 332 0019 0B       		.uleb128 0xb
+ 333 001a 03       		.uleb128 0x3
+ 334 001b 0E       		.uleb128 0xe
+ 335 001c 00       		.byte	0
+ 336 001d 00       		.byte	0
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 10
+
+
+ 337 001e 03       		.uleb128 0x3
+ 338 001f 24       		.uleb128 0x24
+ 339 0020 00       		.byte	0
+ 340 0021 0B       		.uleb128 0xb
+ 341 0022 0B       		.uleb128 0xb
+ 342 0023 3E       		.uleb128 0x3e
+ 343 0024 0B       		.uleb128 0xb
+ 344 0025 03       		.uleb128 0x3
+ 345 0026 08       		.uleb128 0x8
+ 346 0027 00       		.byte	0
+ 347 0028 00       		.byte	0
+ 348 0029 04       		.uleb128 0x4
+ 349 002a 16       		.uleb128 0x16
+ 350 002b 00       		.byte	0
+ 351 002c 03       		.uleb128 0x3
+ 352 002d 0E       		.uleb128 0xe
+ 353 002e 3A       		.uleb128 0x3a
+ 354 002f 0B       		.uleb128 0xb
+ 355 0030 3B       		.uleb128 0x3b
+ 356 0031 05       		.uleb128 0x5
+ 357 0032 49       		.uleb128 0x49
+ 358 0033 13       		.uleb128 0x13
+ 359 0034 00       		.byte	0
+ 360 0035 00       		.byte	0
+ 361 0036 05       		.uleb128 0x5
+ 362 0037 35       		.uleb128 0x35
+ 363 0038 00       		.byte	0
+ 364 0039 49       		.uleb128 0x49
+ 365 003a 13       		.uleb128 0x13
+ 366 003b 00       		.byte	0
+ 367 003c 00       		.byte	0
+ 368 003d 06       		.uleb128 0x6
+ 369 003e 13       		.uleb128 0x13
+ 370 003f 01       		.byte	0x1
+ 371 0040 0B       		.uleb128 0xb
+ 372 0041 0B       		.uleb128 0xb
+ 373 0042 3A       		.uleb128 0x3a
+ 374 0043 0B       		.uleb128 0xb
+ 375 0044 3B       		.uleb128 0x3b
+ 376 0045 0B       		.uleb128 0xb
+ 377 0046 01       		.uleb128 0x1
+ 378 0047 13       		.uleb128 0x13
+ 379 0048 00       		.byte	0
+ 380 0049 00       		.byte	0
+ 381 004a 07       		.uleb128 0x7
+ 382 004b 0D       		.uleb128 0xd
+ 383 004c 00       		.byte	0
+ 384 004d 03       		.uleb128 0x3
+ 385 004e 0E       		.uleb128 0xe
+ 386 004f 3A       		.uleb128 0x3a
+ 387 0050 0B       		.uleb128 0xb
+ 388 0051 3B       		.uleb128 0x3b
+ 389 0052 0B       		.uleb128 0xb
+ 390 0053 49       		.uleb128 0x49
+ 391 0054 13       		.uleb128 0x13
+ 392 0055 38       		.uleb128 0x38
+ 393 0056 0B       		.uleb128 0xb
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 11
+
+
+ 394 0057 00       		.byte	0
+ 395 0058 00       		.byte	0
+ 396 0059 08       		.uleb128 0x8
+ 397 005a 16       		.uleb128 0x16
+ 398 005b 00       		.byte	0
+ 399 005c 03       		.uleb128 0x3
+ 400 005d 0E       		.uleb128 0xe
+ 401 005e 3A       		.uleb128 0x3a
+ 402 005f 0B       		.uleb128 0xb
+ 403 0060 3B       		.uleb128 0x3b
+ 404 0061 0B       		.uleb128 0xb
+ 405 0062 49       		.uleb128 0x49
+ 406 0063 13       		.uleb128 0x13
+ 407 0064 00       		.byte	0
+ 408 0065 00       		.byte	0
+ 409 0066 09       		.uleb128 0x9
+ 410 0067 2E       		.uleb128 0x2e
+ 411 0068 00       		.byte	0
+ 412 0069 3F       		.uleb128 0x3f
+ 413 006a 19       		.uleb128 0x19
+ 414 006b 03       		.uleb128 0x3
+ 415 006c 0E       		.uleb128 0xe
+ 416 006d 3A       		.uleb128 0x3a
+ 417 006e 0B       		.uleb128 0xb
+ 418 006f 3B       		.uleb128 0x3b
+ 419 0070 0B       		.uleb128 0xb
+ 420 0071 27       		.uleb128 0x27
+ 421 0072 19       		.uleb128 0x19
+ 422 0073 11       		.uleb128 0x11
+ 423 0074 01       		.uleb128 0x1
+ 424 0075 12       		.uleb128 0x12
+ 425 0076 06       		.uleb128 0x6
+ 426 0077 40       		.uleb128 0x40
+ 427 0078 18       		.uleb128 0x18
+ 428 0079 9742     		.uleb128 0x2117
+ 429 007b 19       		.uleb128 0x19
+ 430 007c 00       		.byte	0
+ 431 007d 00       		.byte	0
+ 432 007e 0A       		.uleb128 0xa
+ 433 007f 2E       		.uleb128 0x2e
+ 434 0080 00       		.byte	0
+ 435 0081 3F       		.uleb128 0x3f
+ 436 0082 19       		.uleb128 0x19
+ 437 0083 03       		.uleb128 0x3
+ 438 0084 0E       		.uleb128 0xe
+ 439 0085 3A       		.uleb128 0x3a
+ 440 0086 0B       		.uleb128 0xb
+ 441 0087 3B       		.uleb128 0x3b
+ 442 0088 0B       		.uleb128 0xb
+ 443 0089 27       		.uleb128 0x27
+ 444 008a 19       		.uleb128 0x19
+ 445 008b 11       		.uleb128 0x11
+ 446 008c 01       		.uleb128 0x1
+ 447 008d 12       		.uleb128 0x12
+ 448 008e 06       		.uleb128 0x6
+ 449 008f 40       		.uleb128 0x40
+ 450 0090 18       		.uleb128 0x18
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 12
+
+
+ 451 0091 9642     		.uleb128 0x2116
+ 452 0093 19       		.uleb128 0x19
+ 453 0094 00       		.byte	0
+ 454 0095 00       		.byte	0
+ 455 0096 0B       		.uleb128 0xb
+ 456 0097 34       		.uleb128 0x34
+ 457 0098 00       		.byte	0
+ 458 0099 03       		.uleb128 0x3
+ 459 009a 0E       		.uleb128 0xe
+ 460 009b 3A       		.uleb128 0x3a
+ 461 009c 0B       		.uleb128 0xb
+ 462 009d 3B       		.uleb128 0x3b
+ 463 009e 0B       		.uleb128 0xb
+ 464 009f 49       		.uleb128 0x49
+ 465 00a0 13       		.uleb128 0x13
+ 466 00a1 02       		.uleb128 0x2
+ 467 00a2 18       		.uleb128 0x18
+ 468 00a3 00       		.byte	0
+ 469 00a4 00       		.byte	0
+ 470 00a5 00       		.byte	0
+ 471              		.section	.debug_aranges,"",%progbits
+ 472 0000 34000000 		.4byte	0x34
+ 473 0004 0200     		.2byte	0x2
+ 474 0006 00000000 		.4byte	.Ldebug_info0
+ 475 000a 04       		.byte	0x4
+ 476 000b 00       		.byte	0
+ 477 000c 0000     		.2byte	0
+ 478 000e 0000     		.2byte	0
+ 479 0010 00000000 		.4byte	.LFB0
+ 480 0014 08000000 		.4byte	.LFE0-.LFB0
+ 481 0018 00000000 		.4byte	.LFB1
+ 482 001c 08000000 		.4byte	.LFE1-.LFB1
+ 483 0020 00000000 		.4byte	.LFB2
+ 484 0024 30000000 		.4byte	.LFE2-.LFB2
+ 485 0028 00000000 		.4byte	.LFB3
+ 486 002c 20000000 		.4byte	.LFE3-.LFB3
+ 487 0030 00000000 		.4byte	0
+ 488 0034 00000000 		.4byte	0
+ 489              		.section	.debug_ranges,"",%progbits
+ 490              	.Ldebug_ranges0:
+ 491 0000 00000000 		.4byte	.LFB0
+ 492 0004 08000000 		.4byte	.LFE0
+ 493 0008 00000000 		.4byte	.LFB1
+ 494 000c 08000000 		.4byte	.LFE1
+ 495 0010 00000000 		.4byte	.LFB2
+ 496 0014 30000000 		.4byte	.LFE2
+ 497 0018 00000000 		.4byte	.LFB3
+ 498 001c 20000000 		.4byte	.LFE3
+ 499 0020 00000000 		.4byte	0
+ 500 0024 00000000 		.4byte	0
+ 501              		.section	.debug_line,"",%progbits
+ 502              	.Ldebug_line0:
+ 503 0000 B2000000 		.section	.debug_str,"MS",%progbits,1
+ 503      02006000 
+ 503      00000201 
+ 503      FB0E0D00 
+ 503      01010101 
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 13
+
+
+ 504              	.LASF6:
+ 505 0000 6C6F6E67 		.ascii	"long long int\000"
+ 505      206C6F6E 
+ 505      6720696E 
+ 505      7400
+ 506              	.LASF22:
+ 507 000e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 507      4320342E 
+ 507      392E3320 
+ 507      32303135 
+ 507      30333033 
+ 508 0041 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 508      20726576 
+ 508      6973696F 
+ 508      6E203232 
+ 508      31323230 
+ 509 0074 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 509      66756E63 
+ 509      74696F6E 
+ 509      2D736563 
+ 509      74696F6E 
+ 510              	.LASF15:
+ 511 009c 656E6162 		.ascii	"enableState\000"
+ 511      6C655374 
+ 511      61746500 
+ 512              	.LASF8:
+ 513 00a8 756E7369 		.ascii	"unsigned int\000"
+ 513      676E6564 
+ 513      20696E74 
+ 513      00
+ 514              	.LASF21:
+ 515 00b5 474C4344 		.ascii	"GLCD_SPIM_UDB_Wakeup\000"
+ 515      5F535049 
+ 515      4D5F5544 
+ 515      425F5761 
+ 515      6B657570 
+ 516              	.LASF19:
+ 517 00ca 474C4344 		.ascii	"GLCD_SPIM_UDB_RestoreConfig\000"
+ 517      5F535049 
+ 517      4D5F5544 
+ 517      425F5265 
+ 517      73746F72 
+ 518              	.LASF18:
+ 519 00e6 474C4344 		.ascii	"GLCD_SPIM_UDB_SaveConfig\000"
+ 519      5F535049 
+ 519      4D5F5544 
+ 519      425F5361 
+ 519      7665436F 
+ 520              	.LASF12:
+ 521 00ff 75696E74 		.ascii	"uint8\000"
+ 521      3800
+ 522              	.LASF5:
+ 523 0105 6C6F6E67 		.ascii	"long unsigned int\000"
+ 523      20756E73 
+ 523      69676E65 
+ 523      6420696E 
+ 523      7400
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 14
+
+
+ 524              	.LASF7:
+ 525 0117 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 525      206C6F6E 
+ 525      6720756E 
+ 525      7369676E 
+ 525      65642069 
+ 526              	.LASF1:
+ 527 012e 756E7369 		.ascii	"unsigned char\000"
+ 527      676E6564 
+ 527      20636861 
+ 527      7200
+ 528              	.LASF11:
+ 529 013c 63686172 		.ascii	"char\000"
+ 529      00
+ 530              	.LASF23:
+ 531 0141 47656E65 		.ascii	"Generated_Source\\PSoC4\\GLCD_SPIM_UDB_PM.c\000"
+ 531      72617465 
+ 531      645F536F 
+ 531      75726365 
+ 531      5C50536F 
+ 532              	.LASF2:
+ 533 016b 73686F72 		.ascii	"short int\000"
+ 533      7420696E 
+ 533      7400
+ 534              	.LASF10:
+ 535 0175 646F7562 		.ascii	"double\000"
+ 535      6C6500
+ 536              	.LASF4:
+ 537 017c 6C6F6E67 		.ascii	"long int\000"
+ 537      20696E74 
+ 537      00
+ 538              	.LASF16:
+ 539 0185 636E7472 		.ascii	"cntrPeriod\000"
+ 539      50657269 
+ 539      6F6400
+ 540              	.LASF3:
+ 541 0190 73686F72 		.ascii	"short unsigned int\000"
+ 541      7420756E 
+ 541      7369676E 
+ 541      65642069 
+ 541      6E7400
+ 542              	.LASF0:
+ 543 01a3 7369676E 		.ascii	"signed char\000"
+ 543      65642063 
+ 543      68617200 
+ 544              	.LASF25:
+ 545 01af 474C4344 		.ascii	"GLCD_SPIM_UDB_backup\000"
+ 545      5F535049 
+ 545      4D5F5544 
+ 545      425F6261 
+ 545      636B7570 
+ 546              	.LASF9:
+ 547 01c4 666C6F61 		.ascii	"float\000"
+ 547      7400
+ 548              	.LASF20:
+ 549 01ca 474C4344 		.ascii	"GLCD_SPIM_UDB_Sleep\000"
+ 549      5F535049 
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccINdocy.s 			page 15
+
+
+ 549      4D5F5544 
+ 549      425F536C 
+ 549      65657000 
+ 550              	.LASF13:
+ 551 01de 72656738 		.ascii	"reg8\000"
+ 551      00
+ 552              	.LASF17:
+ 553 01e3 474C4344 		.ascii	"GLCD_SPIM_UDB_BACKUP_STRUCT\000"
+ 553      5F535049 
+ 553      4D5F5544 
+ 553      425F4241 
+ 553      434B5550 
+ 554              	.LASF14:
+ 555 01ff 73697A65 		.ascii	"sizetype\000"
+ 555      74797065 
+ 555      00
+ 556              	.LASF24:
+ 557 0208 433A5C55 		.ascii	"C:\\Users\\bolding\\OneDrive - Seattle Pacific Univ"
+ 557      73657273 
+ 557      5C626F6C 
+ 557      64696E67 
+ 557      5C4F6E65 
+ 558 0238 65727369 		.ascii	"ersity\\EE 3280\\Labs\\Assignment 0 - GLCD Test\\GL"
+ 558      74795C45 
+ 558      45203332 
+ 558      38305C4C 
+ 558      6162735C 
+ 559 0267 43445F54 		.ascii	"CD_Test1.cydsn\000"
+ 559      65737431 
+ 559      2E637964 
+ 559      736E00
+ 560              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,573 @@
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"GLCD_SPIM_UDB_INT.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.GLCD_SPIM_UDB_TX_ISR,"ax",%progbits
+  18              		.align	2
+  19              		.global	GLCD_SPIM_UDB_TX_ISR
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	GLCD_SPIM_UDB_TX_ISR, %function
+  23              	GLCD_SPIM_UDB_TX_ISR:
+  24              	.LFB0:
+  25              		.file 1 "Generated_Source\\PSoC4\\GLCD_SPIM_UDB_INT.c"
+   1:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * File Name: GLCD_SPIM_UDB_INT.c
+   3:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Version 2.40
+   4:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+   5:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Description:
+   6:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  This file provides all Interrupt Service Routine (ISR) for the SPI Master
+   7:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  component.
+   8:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+   9:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Note:
+  10:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  None.
+  11:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+  12:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** ********************************************************************************
+  13:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  19:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** #include "GLCD_SPIM_UDB_PVT.h"
+  20:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  21:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** /* User code required at start of ISR */
+  22:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** /* `#START GLCD_SPIM_UDB_ISR_START_DEF` */
+  23:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  24:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** /* `#END` */
+  25:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  26:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  27:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** /*******************************************************************************
+  28:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Function Name: GLCD_SPIM_UDB_TX_ISR
+  29:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** ********************************************************************************
+  30:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+  31:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Summary:
+  32:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  Interrupt Service Routine for TX portion of the SPI Master.
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 2
+
+
+  33:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+  34:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Parameters:
+  35:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  None.
+  36:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+  37:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Return:
+  38:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  None.
+  39:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+  40:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Global variables:
+  41:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  GLCD_SPIM_UDB_txBufferWrite - used for the account of the bytes which
+  42:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  have been written down in the TX software buffer.
+  43:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  GLCD_SPIM_UDB_txBufferRead - used for the account of the bytes which
+  44:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  have been read from the TX software buffer, modified when exist data to
+  45:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  sending and FIFO Not Full.
+  46:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  GLCD_SPIM_UDB_txBuffer[GLCD_SPIM_UDB_TX_BUFFER_SIZE] - used to store
+  47:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  data to sending.
+  48:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  All described above Global variables are used when Software Buffer is used.
+  49:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+  50:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *******************************************************************************/
+  51:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** CY_ISR(GLCD_SPIM_UDB_TX_ISR)
+  52:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** {
+  26              		.loc 1 52 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 00AF     		add	r7, sp, #0
+  33              		.cfi_def_cfa_register 7
+  53:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+  54:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         uint8 tmpStatus;
+  55:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+  56:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  57:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* User code required at start of ISR */
+  58:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* `#START GLCD_SPIM_UDB_TX_ISR_START` */
+  59:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  60:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* `#END` */
+  61:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  62:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+  63:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         /* Check if TX data buffer is not empty and there is space in TX FIFO */
+  64:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         while(GLCD_SPIM_UDB_txBufferRead != GLCD_SPIM_UDB_txBufferWrite)
+  65:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         {
+  66:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             tmpStatus = GLCD_SPIM_UDB_GET_STATUS_TX(GLCD_SPIM_UDB_swStatusTx);
+  67:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             GLCD_SPIM_UDB_swStatusTx = tmpStatus;
+  68:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  69:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             if(0u != (GLCD_SPIM_UDB_swStatusTx & GLCD_SPIM_UDB_STS_TX_FIFO_NOT_FULL))
+  70:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             {
+  71:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 if(0u == GLCD_SPIM_UDB_txBufferFull)
+  72:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 {
+  73:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                    GLCD_SPIM_UDB_txBufferRead++;
+  74:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  75:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                     if(GLCD_SPIM_UDB_txBufferRead >= GLCD_SPIM_UDB_TX_BUFFER_SIZE)
+  76:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                     {
+  77:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                         GLCD_SPIM_UDB_txBufferRead = 0u;
+  78:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                     }
+  79:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 }
+  80:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 else
+  81:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 {
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 3
+
+
+  82:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                     GLCD_SPIM_UDB_txBufferFull = 0u;
+  83:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 }
+  84:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  85:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 /* Move data from the Buffer to the FIFO */
+  86:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 CY_SET_REG16(GLCD_SPIM_UDB_TXDATA_PTR,
+  87:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                     GLCD_SPIM_UDB_txBuffer[GLCD_SPIM_UDB_txBufferRead]);
+  88:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             }
+  89:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             else
+  90:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             {
+  91:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 break;
+  92:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             }
+  93:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         }
+  94:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+  95:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         if(GLCD_SPIM_UDB_txBufferRead == GLCD_SPIM_UDB_txBufferWrite)
+  96:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         {
+  97:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             /* TX Buffer is EMPTY: disable interrupt on TX NOT FULL */
+  98:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             GLCD_SPIM_UDB_TX_STATUS_MASK_REG &= ((uint8) ~GLCD_SPIM_UDB_STS_TX_FIFO_NOT_FULL);
+  99:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         }
+ 100:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 101:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+ 102:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 103:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* User code required at end of ISR (Optional) */
+ 104:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* `#START GLCD_SPIM_UDB_TX_ISR_END` */
+ 105:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 106:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* `#END` */
+ 107:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** }
+  34              		.loc 1 107 0
+  35 0004 BD46     		mov	sp, r7
+  36              		@ sp needed
+  37 0006 80BD     		pop	{r7, pc}
+  38              		.cfi_endproc
+  39              	.LFE0:
+  40              		.size	GLCD_SPIM_UDB_TX_ISR, .-GLCD_SPIM_UDB_TX_ISR
+  41              		.section	.text.GLCD_SPIM_UDB_RX_ISR,"ax",%progbits
+  42              		.align	2
+  43              		.global	GLCD_SPIM_UDB_RX_ISR
+  44              		.code	16
+  45              		.thumb_func
+  46              		.type	GLCD_SPIM_UDB_RX_ISR, %function
+  47              	GLCD_SPIM_UDB_RX_ISR:
+  48              	.LFB1:
+ 108:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 109:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 110:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** /*******************************************************************************
+ 111:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Function Name: GLCD_SPIM_UDB_RX_ISR
+ 112:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** ********************************************************************************
+ 113:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+ 114:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Summary:
+ 115:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  Interrupt Service Routine for RX portion of the SPI Master.
+ 116:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+ 117:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Parameters:
+ 118:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  None.
+ 119:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+ 120:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Return:
+ 121:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  None.
+ 122:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+ 123:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** * Global variables:
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 4
+
+
+ 124:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  GLCD_SPIM_UDB_rxBufferWrite - used for the account of the bytes which
+ 125:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  have been written down in the RX software buffer modified when FIFO contains
+ 126:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  new data.
+ 127:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  GLCD_SPIM_UDB_rxBufferRead - used for the account of the bytes which
+ 128:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  have been read from the RX software buffer, modified when overflow occurred.
+ 129:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  GLCD_SPIM_UDB_rxBuffer[GLCD_SPIM_UDB_RX_BUFFER_SIZE] - used to store
+ 130:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  received data, modified when FIFO contains new data.
+ 131:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *  All described above Global variables are used when Software Buffer is used.
+ 132:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *
+ 133:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** *******************************************************************************/
+ 134:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** CY_ISR(GLCD_SPIM_UDB_RX_ISR)
+ 135:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** {
+  49              		.loc 1 135 0
+  50              		.cfi_startproc
+  51 0000 80B5     		push	{r7, lr}
+  52              		.cfi_def_cfa_offset 8
+  53              		.cfi_offset 7, -8
+  54              		.cfi_offset 14, -4
+  55 0002 00AF     		add	r7, sp, #0
+  56              		.cfi_def_cfa_register 7
+ 136:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+ 137:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         uint8 tmpStatus;
+ 138:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         uint16 rxData;
+ 139:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     #endif /* (GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+ 140:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 141:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* User code required at start of ISR */
+ 142:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* `#START GLCD_SPIM_UDB_RX_ISR_START` */
+ 143:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 144:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* `#END` */
+ 145:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 146:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+ 147:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 148:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         tmpStatus = GLCD_SPIM_UDB_GET_STATUS_RX(GLCD_SPIM_UDB_swStatusRx);
+ 149:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         GLCD_SPIM_UDB_swStatusRx = tmpStatus;
+ 150:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 151:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         /* Check if RX data FIFO has some data to be moved into the RX Buffer */
+ 152:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         while(0u != (GLCD_SPIM_UDB_swStatusRx & GLCD_SPIM_UDB_STS_RX_FIFO_NOT_EMPTY))
+ 153:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         {
+ 154:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             rxData = CY_GET_REG16(GLCD_SPIM_UDB_RXDATA_PTR);
+ 155:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 156:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             /* Set next pointer. */
+ 157:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             GLCD_SPIM_UDB_rxBufferWrite++;
+ 158:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             if(GLCD_SPIM_UDB_rxBufferWrite >= GLCD_SPIM_UDB_RX_BUFFER_SIZE)
+ 159:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             {
+ 160:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 GLCD_SPIM_UDB_rxBufferWrite = 0u;
+ 161:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             }
+ 162:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 163:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             if(GLCD_SPIM_UDB_rxBufferWrite == GLCD_SPIM_UDB_rxBufferRead)
+ 164:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             {
+ 165:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 GLCD_SPIM_UDB_rxBufferRead++;
+ 166:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 if(GLCD_SPIM_UDB_rxBufferRead >= GLCD_SPIM_UDB_RX_BUFFER_SIZE)
+ 167:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 {
+ 168:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                     GLCD_SPIM_UDB_rxBufferRead = 0u;
+ 169:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 }
+ 170:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 171:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****                 GLCD_SPIM_UDB_rxBufferFull = 1u;
+ 172:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             }
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 5
+
+
+ 173:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 174:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             /* Move data from the FIFO to the Buffer */
+ 175:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             GLCD_SPIM_UDB_rxBuffer[GLCD_SPIM_UDB_rxBufferWrite] = rxData;
+ 176:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 177:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             tmpStatus = GLCD_SPIM_UDB_GET_STATUS_RX(GLCD_SPIM_UDB_swStatusRx);
+ 178:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****             GLCD_SPIM_UDB_swStatusRx = tmpStatus;
+ 179:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****         }
+ 180:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 181:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     #endif /* (GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+ 182:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 183:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* User code required at end of ISR (Optional) */
+ 184:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* `#START GLCD_SPIM_UDB_RX_ISR_END` */
+ 185:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** 
+ 186:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c ****     /* `#END` */
+ 187:Generated_Source\PSoC4/GLCD_SPIM_UDB_INT.c **** }
+  57              		.loc 1 187 0
+  58 0004 BD46     		mov	sp, r7
+  59              		@ sp needed
+  60 0006 80BD     		pop	{r7, pc}
+  61              		.cfi_endproc
+  62              	.LFE1:
+  63              		.size	GLCD_SPIM_UDB_RX_ISR, .-GLCD_SPIM_UDB_RX_ISR
+  64              		.text
+  65              	.Letext0:
+  66              		.section	.debug_info,"",%progbits
+  67              	.Ldebug_info0:
+  68 0000 A6000000 		.4byte	0xa6
+  69 0004 0400     		.2byte	0x4
+  70 0006 00000000 		.4byte	.Ldebug_abbrev0
+  71 000a 04       		.byte	0x4
+  72 000b 01       		.uleb128 0x1
+  73 000c 0E000000 		.4byte	.LASF15
+  74 0010 01       		.byte	0x1
+  75 0011 18010000 		.4byte	.LASF16
+  76 0015 82010000 		.4byte	.LASF17
+  77 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  78 001d 00000000 		.4byte	0
+  79 0021 00000000 		.4byte	.Ldebug_line0
+  80 0025 02       		.uleb128 0x2
+  81 0026 01       		.byte	0x1
+  82 0027 06       		.byte	0x6
+  83 0028 5D010000 		.4byte	.LASF0
+  84 002c 02       		.uleb128 0x2
+  85 002d 01       		.byte	0x1
+  86 002e 08       		.byte	0x8
+  87 002f E7000000 		.4byte	.LASF1
+  88 0033 02       		.uleb128 0x2
+  89 0034 02       		.byte	0x2
+  90 0035 05       		.byte	0x5
+  91 0036 6F010000 		.4byte	.LASF2
+  92 003a 02       		.uleb128 0x2
+  93 003b 02       		.byte	0x2
+  94 003c 07       		.byte	0x7
+  95 003d 4A010000 		.4byte	.LASF3
+  96 0041 02       		.uleb128 0x2
+  97 0042 04       		.byte	0x4
+  98 0043 05       		.byte	0x5
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 6
+
+
+  99 0044 FA000000 		.4byte	.LASF4
+ 100 0048 02       		.uleb128 0x2
+ 101 0049 04       		.byte	0x4
+ 102 004a 07       		.byte	0x7
+ 103 004b BE000000 		.4byte	.LASF5
+ 104 004f 02       		.uleb128 0x2
+ 105 0050 08       		.byte	0x8
+ 106 0051 05       		.byte	0x5
+ 107 0052 00000000 		.4byte	.LASF6
+ 108 0056 02       		.uleb128 0x2
+ 109 0057 08       		.byte	0x8
+ 110 0058 07       		.byte	0x7
+ 111 0059 D0000000 		.4byte	.LASF7
+ 112 005d 03       		.uleb128 0x3
+ 113 005e 04       		.byte	0x4
+ 114 005f 05       		.byte	0x5
+ 115 0060 696E7400 		.ascii	"int\000"
+ 116 0064 02       		.uleb128 0x2
+ 117 0065 04       		.byte	0x4
+ 118 0066 07       		.byte	0x7
+ 119 0067 9C000000 		.4byte	.LASF8
+ 120 006b 02       		.uleb128 0x2
+ 121 006c 04       		.byte	0x4
+ 122 006d 04       		.byte	0x4
+ 123 006e 69010000 		.4byte	.LASF9
+ 124 0072 02       		.uleb128 0x2
+ 125 0073 08       		.byte	0x8
+ 126 0074 04       		.byte	0x4
+ 127 0075 43010000 		.4byte	.LASF10
+ 128 0079 02       		.uleb128 0x2
+ 129 007a 01       		.byte	0x1
+ 130 007b 08       		.byte	0x8
+ 131 007c F5000000 		.4byte	.LASF11
+ 132 0080 02       		.uleb128 0x2
+ 133 0081 04       		.byte	0x4
+ 134 0082 07       		.byte	0x7
+ 135 0083 79010000 		.4byte	.LASF12
+ 136 0087 04       		.uleb128 0x4
+ 137 0088 03010000 		.4byte	.LASF13
+ 138 008c 01       		.byte	0x1
+ 139 008d 33       		.byte	0x33
+ 140 008e 00000000 		.4byte	.LFB0
+ 141 0092 08000000 		.4byte	.LFE0-.LFB0
+ 142 0096 01       		.uleb128 0x1
+ 143 0097 9C       		.byte	0x9c
+ 144 0098 04       		.uleb128 0x4
+ 145 0099 A9000000 		.4byte	.LASF14
+ 146 009d 01       		.byte	0x1
+ 147 009e 86       		.byte	0x86
+ 148 009f 00000000 		.4byte	.LFB1
+ 149 00a3 08000000 		.4byte	.LFE1-.LFB1
+ 150 00a7 01       		.uleb128 0x1
+ 151 00a8 9C       		.byte	0x9c
+ 152 00a9 00       		.byte	0
+ 153              		.section	.debug_abbrev,"",%progbits
+ 154              	.Ldebug_abbrev0:
+ 155 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 7
+
+
+ 156 0001 11       		.uleb128 0x11
+ 157 0002 01       		.byte	0x1
+ 158 0003 25       		.uleb128 0x25
+ 159 0004 0E       		.uleb128 0xe
+ 160 0005 13       		.uleb128 0x13
+ 161 0006 0B       		.uleb128 0xb
+ 162 0007 03       		.uleb128 0x3
+ 163 0008 0E       		.uleb128 0xe
+ 164 0009 1B       		.uleb128 0x1b
+ 165 000a 0E       		.uleb128 0xe
+ 166 000b 55       		.uleb128 0x55
+ 167 000c 17       		.uleb128 0x17
+ 168 000d 11       		.uleb128 0x11
+ 169 000e 01       		.uleb128 0x1
+ 170 000f 10       		.uleb128 0x10
+ 171 0010 17       		.uleb128 0x17
+ 172 0011 00       		.byte	0
+ 173 0012 00       		.byte	0
+ 174 0013 02       		.uleb128 0x2
+ 175 0014 24       		.uleb128 0x24
+ 176 0015 00       		.byte	0
+ 177 0016 0B       		.uleb128 0xb
+ 178 0017 0B       		.uleb128 0xb
+ 179 0018 3E       		.uleb128 0x3e
+ 180 0019 0B       		.uleb128 0xb
+ 181 001a 03       		.uleb128 0x3
+ 182 001b 0E       		.uleb128 0xe
+ 183 001c 00       		.byte	0
+ 184 001d 00       		.byte	0
+ 185 001e 03       		.uleb128 0x3
+ 186 001f 24       		.uleb128 0x24
+ 187 0020 00       		.byte	0
+ 188 0021 0B       		.uleb128 0xb
+ 189 0022 0B       		.uleb128 0xb
+ 190 0023 3E       		.uleb128 0x3e
+ 191 0024 0B       		.uleb128 0xb
+ 192 0025 03       		.uleb128 0x3
+ 193 0026 08       		.uleb128 0x8
+ 194 0027 00       		.byte	0
+ 195 0028 00       		.byte	0
+ 196 0029 04       		.uleb128 0x4
+ 197 002a 2E       		.uleb128 0x2e
+ 198 002b 00       		.byte	0
+ 199 002c 3F       		.uleb128 0x3f
+ 200 002d 19       		.uleb128 0x19
+ 201 002e 03       		.uleb128 0x3
+ 202 002f 0E       		.uleb128 0xe
+ 203 0030 3A       		.uleb128 0x3a
+ 204 0031 0B       		.uleb128 0xb
+ 205 0032 3B       		.uleb128 0x3b
+ 206 0033 0B       		.uleb128 0xb
+ 207 0034 27       		.uleb128 0x27
+ 208 0035 19       		.uleb128 0x19
+ 209 0036 11       		.uleb128 0x11
+ 210 0037 01       		.uleb128 0x1
+ 211 0038 12       		.uleb128 0x12
+ 212 0039 06       		.uleb128 0x6
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 8
+
+
+ 213 003a 40       		.uleb128 0x40
+ 214 003b 18       		.uleb128 0x18
+ 215 003c 9742     		.uleb128 0x2117
+ 216 003e 19       		.uleb128 0x19
+ 217 003f 00       		.byte	0
+ 218 0040 00       		.byte	0
+ 219 0041 00       		.byte	0
+ 220              		.section	.debug_aranges,"",%progbits
+ 221 0000 24000000 		.4byte	0x24
+ 222 0004 0200     		.2byte	0x2
+ 223 0006 00000000 		.4byte	.Ldebug_info0
+ 224 000a 04       		.byte	0x4
+ 225 000b 00       		.byte	0
+ 226 000c 0000     		.2byte	0
+ 227 000e 0000     		.2byte	0
+ 228 0010 00000000 		.4byte	.LFB0
+ 229 0014 08000000 		.4byte	.LFE0-.LFB0
+ 230 0018 00000000 		.4byte	.LFB1
+ 231 001c 08000000 		.4byte	.LFE1-.LFB1
+ 232 0020 00000000 		.4byte	0
+ 233 0024 00000000 		.4byte	0
+ 234              		.section	.debug_ranges,"",%progbits
+ 235              	.Ldebug_ranges0:
+ 236 0000 00000000 		.4byte	.LFB0
+ 237 0004 08000000 		.4byte	.LFE0
+ 238 0008 00000000 		.4byte	.LFB1
+ 239 000c 08000000 		.4byte	.LFE1
+ 240 0010 00000000 		.4byte	0
+ 241 0014 00000000 		.4byte	0
+ 242              		.section	.debug_line,"",%progbits
+ 243              	.Ldebug_line0:
+ 244 0000 6C000000 		.section	.debug_str,"MS",%progbits,1
+ 244      02004100 
+ 244      00000201 
+ 244      FB0E0D00 
+ 244      01010101 
+ 245              	.LASF6:
+ 246 0000 6C6F6E67 		.ascii	"long long int\000"
+ 246      206C6F6E 
+ 246      6720696E 
+ 246      7400
+ 247              	.LASF15:
+ 248 000e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 248      4320342E 
+ 248      392E3320 
+ 248      32303135 
+ 248      30333033 
+ 249 0041 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 249      20726576 
+ 249      6973696F 
+ 249      6E203232 
+ 249      31323230 
+ 250 0074 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 250      66756E63 
+ 250      74696F6E 
+ 250      2D736563 
+ 250      74696F6E 
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 9
+
+
+ 251              	.LASF8:
+ 252 009c 756E7369 		.ascii	"unsigned int\000"
+ 252      676E6564 
+ 252      20696E74 
+ 252      00
+ 253              	.LASF14:
+ 254 00a9 474C4344 		.ascii	"GLCD_SPIM_UDB_RX_ISR\000"
+ 254      5F535049 
+ 254      4D5F5544 
+ 254      425F5258 
+ 254      5F495352 
+ 255              	.LASF5:
+ 256 00be 6C6F6E67 		.ascii	"long unsigned int\000"
+ 256      20756E73 
+ 256      69676E65 
+ 256      6420696E 
+ 256      7400
+ 257              	.LASF7:
+ 258 00d0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 258      206C6F6E 
+ 258      6720756E 
+ 258      7369676E 
+ 258      65642069 
+ 259              	.LASF1:
+ 260 00e7 756E7369 		.ascii	"unsigned char\000"
+ 260      676E6564 
+ 260      20636861 
+ 260      7200
+ 261              	.LASF11:
+ 262 00f5 63686172 		.ascii	"char\000"
+ 262      00
+ 263              	.LASF4:
+ 264 00fa 6C6F6E67 		.ascii	"long int\000"
+ 264      20696E74 
+ 264      00
+ 265              	.LASF13:
+ 266 0103 474C4344 		.ascii	"GLCD_SPIM_UDB_TX_ISR\000"
+ 266      5F535049 
+ 266      4D5F5544 
+ 266      425F5458 
+ 266      5F495352 
+ 267              	.LASF16:
+ 268 0118 47656E65 		.ascii	"Generated_Source\\PSoC4\\GLCD_SPIM_UDB_INT.c\000"
+ 268      72617465 
+ 268      645F536F 
+ 268      75726365 
+ 268      5C50536F 
+ 269              	.LASF10:
+ 270 0143 646F7562 		.ascii	"double\000"
+ 270      6C6500
+ 271              	.LASF3:
+ 272 014a 73686F72 		.ascii	"short unsigned int\000"
+ 272      7420756E 
+ 272      7369676E 
+ 272      65642069 
+ 272      6E7400
+ 273              	.LASF0:
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccUPayRE.s 			page 10
+
+
+ 274 015d 7369676E 		.ascii	"signed char\000"
+ 274      65642063 
+ 274      68617200 
+ 275              	.LASF9:
+ 276 0169 666C6F61 		.ascii	"float\000"
+ 276      7400
+ 277              	.LASF2:
+ 278 016f 73686F72 		.ascii	"short int\000"
+ 278      7420696E 
+ 278      7400
+ 279              	.LASF12:
+ 280 0179 73697A65 		.ascii	"sizetype\000"
+ 280      74797065 
+ 280      00
+ 281              	.LASF17:
+ 282 0182 433A5C55 		.ascii	"C:\\Users\\bolding\\OneDrive - Seattle Pacific Univ"
+ 282      73657273 
+ 282      5C626F6C 
+ 282      64696E67 
+ 282      5C4F6E65 
+ 283 01b2 65727369 		.ascii	"ersity\\EE 3280\\Labs\\Assignment 0 - GLCD Test\\GL"
+ 283      74795C45 
+ 283      45203332 
+ 283      38305C4C 
+ 283      6162735C 
+ 284 01e1 43445F54 		.ascii	"CD_Test1.cydsn\000"
+ 284      65737431 
+ 284      2E637964 
+ 284      736E00
+ 285              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

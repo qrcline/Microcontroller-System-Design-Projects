@@ -1,0 +1,8 @@
+D:\School\SPU\Spring 2018\Micro Controllers\HW\0\GLCD_Test1.cydsn\GLCD_Test1.cyprj|b65cf37c-abf0-4389-9ff0-9ee2283fc4dd
+D:\School\SPU\Spring 2018\Micro Controllers\HW\0\GLCD_Test1.cydsn\Shield_GLCD_Lib.cylib\Shield_GLCD_Lib.cyprj|a877193c-ffb1-4bff-ad7a-d6fa75c6c185
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|fefe42d3-16f6-4eca-b807-1e0c08e3f5d8
+C:\Users\quint\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|1bba3d84-e586-4baf-ac06-f35ca973448e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|48da8719-3f89-42b8-a925-d9a8d30a857b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|58212054-ceb5-4c80-9d42-22fcbeaa057a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|56629ddc-0050-4f27-91aa-636ef624ec5d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|a754d2c7-dd3f-484f-8517-b7563ae7cee5

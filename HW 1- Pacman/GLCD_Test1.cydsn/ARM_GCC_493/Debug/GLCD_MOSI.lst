@@ -1,0 +1,949 @@
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"GLCD_MOSI.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.GLCD_MOSI_Write,"ax",%progbits
+  18              		.align	2
+  19              		.global	GLCD_MOSI_Write
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	GLCD_MOSI_Write, %function
+  23              	GLCD_MOSI_Write:
+  24              	.LFB0:
+  25              		.file 1 "Generated_Source\\PSoC4\\GLCD_MOSI.c"
+   1:Generated_Source\PSoC4/GLCD_MOSI.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/GLCD_MOSI.c **** * File Name: GLCD_MOSI.c  
+   3:Generated_Source\PSoC4/GLCD_MOSI.c **** * Version 1.90
+   4:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+   5:Generated_Source\PSoC4/GLCD_MOSI.c **** * Description:
+   6:Generated_Source\PSoC4/GLCD_MOSI.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+   8:Generated_Source\PSoC4/GLCD_MOSI.c **** * Note:
+   9:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  10:Generated_Source\PSoC4/GLCD_MOSI.c **** ********************************************************************************
+  11:Generated_Source\PSoC4/GLCD_MOSI.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC4/GLCD_MOSI.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC4/GLCD_MOSI.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC4/GLCD_MOSI.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC4/GLCD_MOSI.c **** *******************************************************************************/
+  16:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  17:Generated_Source\PSoC4/GLCD_MOSI.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC4/GLCD_MOSI.c **** #include "GLCD_MOSI.h"
+  19:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  20:Generated_Source\PSoC4/GLCD_MOSI.c **** #define SetP4PinDriveMode(shift, mode)  \
+  21:Generated_Source\PSoC4/GLCD_MOSI.c ****     do { \
+  22:Generated_Source\PSoC4/GLCD_MOSI.c ****         GLCD_MOSI_PC =   (GLCD_MOSI_PC & \
+  23:Generated_Source\PSoC4/GLCD_MOSI.c ****                                 (uint32)(~(uint32)(GLCD_MOSI_DRIVE_MODE_IND_MASK << (GLCD_MOSI_DRIV
+  24:Generated_Source\PSoC4/GLCD_MOSI.c ****                                 (uint32)((uint32)(mode) << (GLCD_MOSI_DRIVE_MODE_BITS * (shift))); 
+  25:Generated_Source\PSoC4/GLCD_MOSI.c ****     } while (0)
+  26:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  27:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  28:Generated_Source\PSoC4/GLCD_MOSI.c **** /*******************************************************************************
+  29:Generated_Source\PSoC4/GLCD_MOSI.c **** * Function Name: GLCD_MOSI_Write
+  30:Generated_Source\PSoC4/GLCD_MOSI.c **** ********************************************************************************
+  31:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  32:Generated_Source\PSoC4/GLCD_MOSI.c **** * Summary:
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 2
+
+
+  33:Generated_Source\PSoC4/GLCD_MOSI.c **** *  Assign a new value to the digital port's data output register.  
+  34:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  35:Generated_Source\PSoC4/GLCD_MOSI.c **** * Parameters:  
+  36:Generated_Source\PSoC4/GLCD_MOSI.c **** *  prtValue:  The value to be assigned to the Digital Port. 
+  37:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  38:Generated_Source\PSoC4/GLCD_MOSI.c **** * Return: 
+  39:Generated_Source\PSoC4/GLCD_MOSI.c **** *  None 
+  40:Generated_Source\PSoC4/GLCD_MOSI.c **** *  
+  41:Generated_Source\PSoC4/GLCD_MOSI.c **** *******************************************************************************/
+  42:Generated_Source\PSoC4/GLCD_MOSI.c **** void GLCD_MOSI_Write(uint8 value) 
+  43:Generated_Source\PSoC4/GLCD_MOSI.c **** {
+  26              		.loc 1 43 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 84B0     		sub	sp, sp, #16
+  33              		.cfi_def_cfa_offset 24
+  34 0004 00AF     		add	r7, sp, #0
+  35              		.cfi_def_cfa_register 7
+  36 0006 021C     		mov	r2, r0
+  37 0008 FB1D     		add	r3, r7, #7
+  38 000a 1A70     		strb	r2, [r3]
+  44:Generated_Source\PSoC4/GLCD_MOSI.c ****     uint8 drVal = (uint8)(GLCD_MOSI_DR & (uint8)(~GLCD_MOSI_MASK));
+  39              		.loc 1 44 0
+  40 000c 0E4B     		ldr	r3, .L2
+  41 000e 1B68     		ldr	r3, [r3]
+  42 0010 DAB2     		uxtb	r2, r3
+  43 0012 0F23     		mov	r3, #15
+  44 0014 FB18     		add	r3, r7, r3
+  45 0016 1021     		mov	r1, #16
+  46 0018 8A43     		bic	r2, r1
+  47 001a 1A70     		strb	r2, [r3]
+  45:Generated_Source\PSoC4/GLCD_MOSI.c ****     drVal = (drVal | ((uint8)(value << GLCD_MOSI_SHIFT) & GLCD_MOSI_MASK));
+  48              		.loc 1 45 0
+  49 001c FB1D     		add	r3, r7, #7
+  50 001e 1B78     		ldrb	r3, [r3]
+  51 0020 1B01     		lsl	r3, r3, #4
+  52 0022 DBB2     		uxtb	r3, r3
+  53 0024 1022     		mov	r2, #16
+  54 0026 1340     		and	r3, r2
+  55 0028 D9B2     		uxtb	r1, r3
+  56 002a 0F23     		mov	r3, #15
+  57 002c FB18     		add	r3, r7, r3
+  58 002e 0F22     		mov	r2, #15
+  59 0030 BA18     		add	r2, r7, r2
+  60 0032 1278     		ldrb	r2, [r2]
+  61 0034 0A43     		orr	r2, r1
+  62 0036 1A70     		strb	r2, [r3]
+  46:Generated_Source\PSoC4/GLCD_MOSI.c ****     GLCD_MOSI_DR = (uint32)drVal;
+  63              		.loc 1 46 0
+  64 0038 034B     		ldr	r3, .L2
+  65 003a 0F22     		mov	r2, #15
+  66 003c BA18     		add	r2, r7, r2
+  67 003e 1278     		ldrb	r2, [r2]
+  68 0040 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 3
+
+
+  47:Generated_Source\PSoC4/GLCD_MOSI.c **** }
+  69              		.loc 1 47 0
+  70 0042 BD46     		mov	sp, r7
+  71 0044 04B0     		add	sp, sp, #16
+  72              		@ sp needed
+  73 0046 80BD     		pop	{r7, pc}
+  74              	.L3:
+  75              		.align	2
+  76              	.L2:
+  77 0048 00030440 		.word	1074004736
+  78              		.cfi_endproc
+  79              	.LFE0:
+  80              		.size	GLCD_MOSI_Write, .-GLCD_MOSI_Write
+  81              		.section	.text.GLCD_MOSI_SetDriveMode,"ax",%progbits
+  82              		.align	2
+  83              		.global	GLCD_MOSI_SetDriveMode
+  84              		.code	16
+  85              		.thumb_func
+  86              		.type	GLCD_MOSI_SetDriveMode, %function
+  87              	GLCD_MOSI_SetDriveMode:
+  88              	.LFB1:
+  48:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  49:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  50:Generated_Source\PSoC4/GLCD_MOSI.c **** /*******************************************************************************
+  51:Generated_Source\PSoC4/GLCD_MOSI.c **** * Function Name: GLCD_MOSI_SetDriveMode
+  52:Generated_Source\PSoC4/GLCD_MOSI.c **** ********************************************************************************
+  53:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  54:Generated_Source\PSoC4/GLCD_MOSI.c **** * Summary:
+  55:Generated_Source\PSoC4/GLCD_MOSI.c **** *  Change the drive mode on the pins of the port.
+  56:Generated_Source\PSoC4/GLCD_MOSI.c **** * 
+  57:Generated_Source\PSoC4/GLCD_MOSI.c **** * Parameters:  
+  58:Generated_Source\PSoC4/GLCD_MOSI.c **** *  mode:  Change the pins to this drive mode.
+  59:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  60:Generated_Source\PSoC4/GLCD_MOSI.c **** * Return: 
+  61:Generated_Source\PSoC4/GLCD_MOSI.c **** *  None
+  62:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  63:Generated_Source\PSoC4/GLCD_MOSI.c **** *******************************************************************************/
+  64:Generated_Source\PSoC4/GLCD_MOSI.c **** void GLCD_MOSI_SetDriveMode(uint8 mode) 
+  65:Generated_Source\PSoC4/GLCD_MOSI.c **** {
+  89              		.loc 1 65 0
+  90              		.cfi_startproc
+  91 0000 80B5     		push	{r7, lr}
+  92              		.cfi_def_cfa_offset 8
+  93              		.cfi_offset 7, -8
+  94              		.cfi_offset 14, -4
+  95 0002 82B0     		sub	sp, sp, #8
+  96              		.cfi_def_cfa_offset 16
+  97 0004 00AF     		add	r7, sp, #0
+  98              		.cfi_def_cfa_register 7
+  99 0006 021C     		mov	r2, r0
+ 100 0008 FB1D     		add	r3, r7, #7
+ 101 000a 1A70     		strb	r2, [r3]
+  66:Generated_Source\PSoC4/GLCD_MOSI.c **** 	SetP4PinDriveMode(GLCD_MOSI__0__SHIFT, mode);
+ 102              		.loc 1 66 0
+ 103 000c 064B     		ldr	r3, .L5
+ 104 000e 064A     		ldr	r2, .L5
+ 105 0010 1268     		ldr	r2, [r2]
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 4
+
+
+ 106 0012 0649     		ldr	r1, .L5+4
+ 107 0014 1140     		and	r1, r2
+ 108 0016 FA1D     		add	r2, r7, #7
+ 109 0018 1278     		ldrb	r2, [r2]
+ 110 001a 1203     		lsl	r2, r2, #12
+ 111 001c 0A43     		orr	r2, r1
+ 112 001e 1A60     		str	r2, [r3]
+  67:Generated_Source\PSoC4/GLCD_MOSI.c **** }
+ 113              		.loc 1 67 0
+ 114 0020 BD46     		mov	sp, r7
+ 115 0022 02B0     		add	sp, sp, #8
+ 116              		@ sp needed
+ 117 0024 80BD     		pop	{r7, pc}
+ 118              	.L6:
+ 119 0026 C046     		.align	2
+ 120              	.L5:
+ 121 0028 08030440 		.word	1074004744
+ 122 002c FF8FFFFF 		.word	-28673
+ 123              		.cfi_endproc
+ 124              	.LFE1:
+ 125              		.size	GLCD_MOSI_SetDriveMode, .-GLCD_MOSI_SetDriveMode
+ 126              		.section	.text.GLCD_MOSI_Read,"ax",%progbits
+ 127              		.align	2
+ 128              		.global	GLCD_MOSI_Read
+ 129              		.code	16
+ 130              		.thumb_func
+ 131              		.type	GLCD_MOSI_Read, %function
+ 132              	GLCD_MOSI_Read:
+ 133              	.LFB2:
+  68:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  69:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  70:Generated_Source\PSoC4/GLCD_MOSI.c **** /*******************************************************************************
+  71:Generated_Source\PSoC4/GLCD_MOSI.c **** * Function Name: GLCD_MOSI_Read
+  72:Generated_Source\PSoC4/GLCD_MOSI.c **** ********************************************************************************
+  73:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  74:Generated_Source\PSoC4/GLCD_MOSI.c **** * Summary:
+  75:Generated_Source\PSoC4/GLCD_MOSI.c **** *  Read the current value on the pins of the Digital Port in right justified 
+  76:Generated_Source\PSoC4/GLCD_MOSI.c **** *  form.
+  77:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  78:Generated_Source\PSoC4/GLCD_MOSI.c **** * Parameters:  
+  79:Generated_Source\PSoC4/GLCD_MOSI.c **** *  None 
+  80:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  81:Generated_Source\PSoC4/GLCD_MOSI.c **** * Return: 
+  82:Generated_Source\PSoC4/GLCD_MOSI.c **** *  Returns the current value of the Digital Port as a right justified number
+  83:Generated_Source\PSoC4/GLCD_MOSI.c **** *  
+  84:Generated_Source\PSoC4/GLCD_MOSI.c **** * Note:
+  85:Generated_Source\PSoC4/GLCD_MOSI.c **** *  Macro GLCD_MOSI_ReadPS calls this function. 
+  86:Generated_Source\PSoC4/GLCD_MOSI.c **** *  
+  87:Generated_Source\PSoC4/GLCD_MOSI.c **** *******************************************************************************/
+  88:Generated_Source\PSoC4/GLCD_MOSI.c **** uint8 GLCD_MOSI_Read(void) 
+  89:Generated_Source\PSoC4/GLCD_MOSI.c **** {
+ 134              		.loc 1 89 0
+ 135              		.cfi_startproc
+ 136 0000 80B5     		push	{r7, lr}
+ 137              		.cfi_def_cfa_offset 8
+ 138              		.cfi_offset 7, -8
+ 139              		.cfi_offset 14, -4
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 5
+
+
+ 140 0002 00AF     		add	r7, sp, #0
+ 141              		.cfi_def_cfa_register 7
+  90:Generated_Source\PSoC4/GLCD_MOSI.c ****     return (uint8)((GLCD_MOSI_PS & GLCD_MOSI_MASK) >> GLCD_MOSI_SHIFT);
+ 142              		.loc 1 90 0
+ 143 0004 044B     		ldr	r3, .L9
+ 144 0006 1B68     		ldr	r3, [r3]
+ 145 0008 1022     		mov	r2, #16
+ 146 000a 1340     		and	r3, r2
+ 147 000c 1B09     		lsr	r3, r3, #4
+ 148 000e DBB2     		uxtb	r3, r3
+  91:Generated_Source\PSoC4/GLCD_MOSI.c **** }
+ 149              		.loc 1 91 0
+ 150 0010 181C     		mov	r0, r3
+ 151 0012 BD46     		mov	sp, r7
+ 152              		@ sp needed
+ 153 0014 80BD     		pop	{r7, pc}
+ 154              	.L10:
+ 155 0016 C046     		.align	2
+ 156              	.L9:
+ 157 0018 04030440 		.word	1074004740
+ 158              		.cfi_endproc
+ 159              	.LFE2:
+ 160              		.size	GLCD_MOSI_Read, .-GLCD_MOSI_Read
+ 161              		.section	.text.GLCD_MOSI_ReadDataReg,"ax",%progbits
+ 162              		.align	2
+ 163              		.global	GLCD_MOSI_ReadDataReg
+ 164              		.code	16
+ 165              		.thumb_func
+ 166              		.type	GLCD_MOSI_ReadDataReg, %function
+ 167              	GLCD_MOSI_ReadDataReg:
+ 168              	.LFB3:
+  92:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  93:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+  94:Generated_Source\PSoC4/GLCD_MOSI.c **** /*******************************************************************************
+  95:Generated_Source\PSoC4/GLCD_MOSI.c **** * Function Name: GLCD_MOSI_ReadDataReg
+  96:Generated_Source\PSoC4/GLCD_MOSI.c **** ********************************************************************************
+  97:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+  98:Generated_Source\PSoC4/GLCD_MOSI.c **** * Summary:
+  99:Generated_Source\PSoC4/GLCD_MOSI.c **** *  Read the current value assigned to a Digital Port's data output register
+ 100:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+ 101:Generated_Source\PSoC4/GLCD_MOSI.c **** * Parameters:  
+ 102:Generated_Source\PSoC4/GLCD_MOSI.c **** *  None 
+ 103:Generated_Source\PSoC4/GLCD_MOSI.c **** *
+ 104:Generated_Source\PSoC4/GLCD_MOSI.c **** * Return: 
+ 105:Generated_Source\PSoC4/GLCD_MOSI.c **** *  Returns the current value assigned to the Digital Port's data output register
+ 106:Generated_Source\PSoC4/GLCD_MOSI.c **** *  
+ 107:Generated_Source\PSoC4/GLCD_MOSI.c **** *******************************************************************************/
+ 108:Generated_Source\PSoC4/GLCD_MOSI.c **** uint8 GLCD_MOSI_ReadDataReg(void) 
+ 109:Generated_Source\PSoC4/GLCD_MOSI.c **** {
+ 169              		.loc 1 109 0
+ 170              		.cfi_startproc
+ 171 0000 80B5     		push	{r7, lr}
+ 172              		.cfi_def_cfa_offset 8
+ 173              		.cfi_offset 7, -8
+ 174              		.cfi_offset 14, -4
+ 175 0002 00AF     		add	r7, sp, #0
+ 176              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 6
+
+
+ 110:Generated_Source\PSoC4/GLCD_MOSI.c ****     return (uint8)((GLCD_MOSI_DR & GLCD_MOSI_MASK) >> GLCD_MOSI_SHIFT);
+ 177              		.loc 1 110 0
+ 178 0004 044B     		ldr	r3, .L13
+ 179 0006 1B68     		ldr	r3, [r3]
+ 180 0008 1022     		mov	r2, #16
+ 181 000a 1340     		and	r3, r2
+ 182 000c 1B09     		lsr	r3, r3, #4
+ 183 000e DBB2     		uxtb	r3, r3
+ 111:Generated_Source\PSoC4/GLCD_MOSI.c **** }
+ 184              		.loc 1 111 0
+ 185 0010 181C     		mov	r0, r3
+ 186 0012 BD46     		mov	sp, r7
+ 187              		@ sp needed
+ 188 0014 80BD     		pop	{r7, pc}
+ 189              	.L14:
+ 190 0016 C046     		.align	2
+ 191              	.L13:
+ 192 0018 00030440 		.word	1074004736
+ 193              		.cfi_endproc
+ 194              	.LFE3:
+ 195              		.size	GLCD_MOSI_ReadDataReg, .-GLCD_MOSI_ReadDataReg
+ 196              		.section	.text.GLCD_MOSI_ClearInterrupt,"ax",%progbits
+ 197              		.align	2
+ 198              		.global	GLCD_MOSI_ClearInterrupt
+ 199              		.code	16
+ 200              		.thumb_func
+ 201              		.type	GLCD_MOSI_ClearInterrupt, %function
+ 202              	GLCD_MOSI_ClearInterrupt:
+ 203              	.LFB4:
+ 112:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+ 113:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+ 114:Generated_Source\PSoC4/GLCD_MOSI.c **** /* If Interrupts Are Enabled for this Pins component */ 
+ 115:Generated_Source\PSoC4/GLCD_MOSI.c **** #if defined(GLCD_MOSI_INTSTAT) 
+ 116:Generated_Source\PSoC4/GLCD_MOSI.c **** 
+ 117:Generated_Source\PSoC4/GLCD_MOSI.c ****     /*******************************************************************************
+ 118:Generated_Source\PSoC4/GLCD_MOSI.c ****     * Function Name: GLCD_MOSI_ClearInterrupt
+ 119:Generated_Source\PSoC4/GLCD_MOSI.c ****     ********************************************************************************
+ 120:Generated_Source\PSoC4/GLCD_MOSI.c ****     *
+ 121:Generated_Source\PSoC4/GLCD_MOSI.c ****     * Summary:
+ 122:Generated_Source\PSoC4/GLCD_MOSI.c ****     *  Clears any active interrupts attached to port and returns the value of the 
+ 123:Generated_Source\PSoC4/GLCD_MOSI.c ****     *  interrupt status register.
+ 124:Generated_Source\PSoC4/GLCD_MOSI.c ****     *
+ 125:Generated_Source\PSoC4/GLCD_MOSI.c ****     * Parameters:  
+ 126:Generated_Source\PSoC4/GLCD_MOSI.c ****     *  None 
+ 127:Generated_Source\PSoC4/GLCD_MOSI.c ****     *
+ 128:Generated_Source\PSoC4/GLCD_MOSI.c ****     * Return: 
+ 129:Generated_Source\PSoC4/GLCD_MOSI.c ****     *  Returns the value of the interrupt status register
+ 130:Generated_Source\PSoC4/GLCD_MOSI.c ****     *  
+ 131:Generated_Source\PSoC4/GLCD_MOSI.c ****     *******************************************************************************/
+ 132:Generated_Source\PSoC4/GLCD_MOSI.c ****     uint8 GLCD_MOSI_ClearInterrupt(void) 
+ 133:Generated_Source\PSoC4/GLCD_MOSI.c ****     {
+ 204              		.loc 1 133 0
+ 205              		.cfi_startproc
+ 206 0000 80B5     		push	{r7, lr}
+ 207              		.cfi_def_cfa_offset 8
+ 208              		.cfi_offset 7, -8
+ 209              		.cfi_offset 14, -4
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 7
+
+
+ 210 0002 82B0     		sub	sp, sp, #8
+ 211              		.cfi_def_cfa_offset 16
+ 212 0004 00AF     		add	r7, sp, #0
+ 213              		.cfi_def_cfa_register 7
+ 134:Generated_Source\PSoC4/GLCD_MOSI.c **** 		uint8 maskedStatus = (uint8)(GLCD_MOSI_INTSTAT & GLCD_MOSI_MASK);
+ 214              		.loc 1 134 0
+ 215 0006 094B     		ldr	r3, .L17
+ 216 0008 1B68     		ldr	r3, [r3]
+ 217 000a DAB2     		uxtb	r2, r3
+ 218 000c FB1D     		add	r3, r7, #7
+ 219 000e 1021     		mov	r1, #16
+ 220 0010 0A40     		and	r2, r1
+ 221 0012 1A70     		strb	r2, [r3]
+ 135:Generated_Source\PSoC4/GLCD_MOSI.c **** 		GLCD_MOSI_INTSTAT = maskedStatus;
+ 222              		.loc 1 135 0
+ 223 0014 054B     		ldr	r3, .L17
+ 224 0016 FA1D     		add	r2, r7, #7
+ 225 0018 1278     		ldrb	r2, [r2]
+ 226 001a 1A60     		str	r2, [r3]
+ 136:Generated_Source\PSoC4/GLCD_MOSI.c ****         return maskedStatus >> GLCD_MOSI_SHIFT;
+ 227              		.loc 1 136 0
+ 228 001c FB1D     		add	r3, r7, #7
+ 229 001e 1B78     		ldrb	r3, [r3]
+ 230 0020 1B09     		lsr	r3, r3, #4
+ 231 0022 DBB2     		uxtb	r3, r3
+ 137:Generated_Source\PSoC4/GLCD_MOSI.c ****     }
+ 232              		.loc 1 137 0
+ 233 0024 181C     		mov	r0, r3
+ 234 0026 BD46     		mov	sp, r7
+ 235 0028 02B0     		add	sp, sp, #8
+ 236              		@ sp needed
+ 237 002a 80BD     		pop	{r7, pc}
+ 238              	.L18:
+ 239              		.align	2
+ 240              	.L17:
+ 241 002c 10030440 		.word	1074004752
+ 242              		.cfi_endproc
+ 243              	.LFE4:
+ 244              		.size	GLCD_MOSI_ClearInterrupt, .-GLCD_MOSI_ClearInterrupt
+ 245              		.text
+ 246              	.Letext0:
+ 247              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 248              		.section	.debug_info,"",%progbits
+ 249              	.Ldebug_info0:
+ 250 0000 4A010000 		.4byte	0x14a
+ 251 0004 0400     		.2byte	0x4
+ 252 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 253 000a 04       		.byte	0x4
+ 254 000b 01       		.uleb128 0x1
+ 255 000c B4000000 		.4byte	.LASF24
+ 256 0010 01       		.byte	0x1
+ 257 0011 25000000 		.4byte	.LASF25
+ 258 0015 49010000 		.4byte	.LASF26
+ 259 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 260 001d 00000000 		.4byte	0
+ 261 0021 00000000 		.4byte	.Ldebug_line0
+ 262 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 8
+
+
+ 263 0026 01       		.byte	0x1
+ 264 0027 06       		.byte	0x6
+ 265 0028 19020000 		.4byte	.LASF0
+ 266 002c 02       		.uleb128 0x2
+ 267 002d 01       		.byte	0x1
+ 268 002e 08       		.byte	0x8
+ 269 002f 4E000000 		.4byte	.LASF1
+ 270 0033 02       		.uleb128 0x2
+ 271 0034 02       		.byte	0x2
+ 272 0035 05       		.byte	0x5
+ 273 0036 00020000 		.4byte	.LASF2
+ 274 003a 02       		.uleb128 0x2
+ 275 003b 02       		.byte	0x2
+ 276 003c 07       		.byte	0x7
+ 277 003d 74000000 		.4byte	.LASF3
+ 278 0041 02       		.uleb128 0x2
+ 279 0042 04       		.byte	0x4
+ 280 0043 05       		.byte	0x5
+ 281 0044 10020000 		.4byte	.LASF4
+ 282 0048 02       		.uleb128 0x2
+ 283 0049 04       		.byte	0x4
+ 284 004a 07       		.byte	0x7
+ 285 004b 62000000 		.4byte	.LASF5
+ 286 004f 02       		.uleb128 0x2
+ 287 0050 08       		.byte	0x8
+ 288 0051 05       		.byte	0x5
+ 289 0052 E0010000 		.4byte	.LASF6
+ 290 0056 02       		.uleb128 0x2
+ 291 0057 08       		.byte	0x8
+ 292 0058 07       		.byte	0x7
+ 293 0059 C4010000 		.4byte	.LASF7
+ 294 005d 03       		.uleb128 0x3
+ 295 005e 04       		.byte	0x4
+ 296 005f 05       		.byte	0x5
+ 297 0060 696E7400 		.ascii	"int\000"
+ 298 0064 02       		.uleb128 0x2
+ 299 0065 04       		.byte	0x4
+ 300 0066 07       		.byte	0x7
+ 301 0067 B7010000 		.4byte	.LASF8
+ 302 006b 04       		.uleb128 0x4
+ 303 006c 0A020000 		.4byte	.LASF9
+ 304 0070 02       		.byte	0x2
+ 305 0071 B901     		.2byte	0x1b9
+ 306 0073 2C000000 		.4byte	0x2c
+ 307 0077 04       		.uleb128 0x4
+ 308 0078 42010000 		.4byte	.LASF10
+ 309 007c 02       		.byte	0x2
+ 310 007d BB01     		.2byte	0x1bb
+ 311 007f 48000000 		.4byte	0x48
+ 312 0083 02       		.uleb128 0x2
+ 313 0084 04       		.byte	0x4
+ 314 0085 04       		.byte	0x4
+ 315 0086 48000000 		.4byte	.LASF11
+ 316 008a 02       		.uleb128 0x2
+ 317 008b 08       		.byte	0x8
+ 318 008c 04       		.byte	0x4
+ 319 008d 97000000 		.4byte	.LASF12
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 9
+
+
+ 320 0091 02       		.uleb128 0x2
+ 321 0092 01       		.byte	0x1
+ 322 0093 08       		.byte	0x8
+ 323 0094 FB010000 		.4byte	.LASF13
+ 324 0098 04       		.uleb128 0x4
+ 325 0099 00000000 		.4byte	.LASF14
+ 326 009d 02       		.byte	0x2
+ 327 009e 6502     		.2byte	0x265
+ 328 00a0 A4000000 		.4byte	0xa4
+ 329 00a4 05       		.uleb128 0x5
+ 330 00a5 77000000 		.4byte	0x77
+ 331 00a9 06       		.uleb128 0x6
+ 332 00aa 87000000 		.4byte	.LASF15
+ 333 00ae 01       		.byte	0x1
+ 334 00af 2A       		.byte	0x2a
+ 335 00b0 00000000 		.4byte	.LFB0
+ 336 00b4 4C000000 		.4byte	.LFE0-.LFB0
+ 337 00b8 01       		.uleb128 0x1
+ 338 00b9 9C       		.byte	0x9c
+ 339 00ba DB000000 		.4byte	0xdb
+ 340 00be 07       		.uleb128 0x7
+ 341 00bf 1F000000 		.4byte	.LASF17
+ 342 00c3 01       		.byte	0x1
+ 343 00c4 2A       		.byte	0x2a
+ 344 00c5 6B000000 		.4byte	0x6b
+ 345 00c9 02       		.uleb128 0x2
+ 346 00ca 91       		.byte	0x91
+ 347 00cb 6F       		.sleb128 -17
+ 348 00cc 08       		.uleb128 0x8
+ 349 00cd 5C000000 		.4byte	.LASF22
+ 350 00d1 01       		.byte	0x1
+ 351 00d2 2C       		.byte	0x2c
+ 352 00d3 6B000000 		.4byte	0x6b
+ 353 00d7 02       		.uleb128 0x2
+ 354 00d8 91       		.byte	0x91
+ 355 00d9 77       		.sleb128 -9
+ 356 00da 00       		.byte	0
+ 357 00db 06       		.uleb128 0x6
+ 358 00dc 34020000 		.4byte	.LASF16
+ 359 00e0 01       		.byte	0x1
+ 360 00e1 40       		.byte	0x40
+ 361 00e2 00000000 		.4byte	.LFB1
+ 362 00e6 30000000 		.4byte	.LFE1-.LFB1
+ 363 00ea 01       		.uleb128 0x1
+ 364 00eb 9C       		.byte	0x9c
+ 365 00ec FF000000 		.4byte	0xff
+ 366 00f0 07       		.uleb128 0x7
+ 367 00f1 DB010000 		.4byte	.LASF18
+ 368 00f5 01       		.byte	0x1
+ 369 00f6 40       		.byte	0x40
+ 370 00f7 6B000000 		.4byte	0x6b
+ 371 00fb 02       		.uleb128 0x2
+ 372 00fc 91       		.byte	0x91
+ 373 00fd 77       		.sleb128 -9
+ 374 00fe 00       		.byte	0
+ 375 00ff 09       		.uleb128 0x9
+ 376 0100 25020000 		.4byte	.LASF19
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 10
+
+
+ 377 0104 01       		.byte	0x1
+ 378 0105 58       		.byte	0x58
+ 379 0106 6B000000 		.4byte	0x6b
+ 380 010a 00000000 		.4byte	.LFB2
+ 381 010e 1C000000 		.4byte	.LFE2-.LFB2
+ 382 0112 01       		.uleb128 0x1
+ 383 0113 9C       		.byte	0x9c
+ 384 0114 09       		.uleb128 0x9
+ 385 0115 9E000000 		.4byte	.LASF20
+ 386 0119 01       		.byte	0x1
+ 387 011a 6C       		.byte	0x6c
+ 388 011b 6B000000 		.4byte	0x6b
+ 389 011f 00000000 		.4byte	.LFB3
+ 390 0123 1C000000 		.4byte	.LFE3-.LFB3
+ 391 0127 01       		.uleb128 0x1
+ 392 0128 9C       		.byte	0x9c
+ 393 0129 0A       		.uleb128 0xa
+ 394 012a 06000000 		.4byte	.LASF21
+ 395 012e 01       		.byte	0x1
+ 396 012f 84       		.byte	0x84
+ 397 0130 6B000000 		.4byte	0x6b
+ 398 0134 00000000 		.4byte	.LFB4
+ 399 0138 30000000 		.4byte	.LFE4-.LFB4
+ 400 013c 01       		.uleb128 0x1
+ 401 013d 9C       		.byte	0x9c
+ 402 013e 08       		.uleb128 0x8
+ 403 013f EE010000 		.4byte	.LASF23
+ 404 0143 01       		.byte	0x1
+ 405 0144 86       		.byte	0x86
+ 406 0145 6B000000 		.4byte	0x6b
+ 407 0149 02       		.uleb128 0x2
+ 408 014a 91       		.byte	0x91
+ 409 014b 77       		.sleb128 -9
+ 410 014c 00       		.byte	0
+ 411 014d 00       		.byte	0
+ 412              		.section	.debug_abbrev,"",%progbits
+ 413              	.Ldebug_abbrev0:
+ 414 0000 01       		.uleb128 0x1
+ 415 0001 11       		.uleb128 0x11
+ 416 0002 01       		.byte	0x1
+ 417 0003 25       		.uleb128 0x25
+ 418 0004 0E       		.uleb128 0xe
+ 419 0005 13       		.uleb128 0x13
+ 420 0006 0B       		.uleb128 0xb
+ 421 0007 03       		.uleb128 0x3
+ 422 0008 0E       		.uleb128 0xe
+ 423 0009 1B       		.uleb128 0x1b
+ 424 000a 0E       		.uleb128 0xe
+ 425 000b 55       		.uleb128 0x55
+ 426 000c 17       		.uleb128 0x17
+ 427 000d 11       		.uleb128 0x11
+ 428 000e 01       		.uleb128 0x1
+ 429 000f 10       		.uleb128 0x10
+ 430 0010 17       		.uleb128 0x17
+ 431 0011 00       		.byte	0
+ 432 0012 00       		.byte	0
+ 433 0013 02       		.uleb128 0x2
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 11
+
+
+ 434 0014 24       		.uleb128 0x24
+ 435 0015 00       		.byte	0
+ 436 0016 0B       		.uleb128 0xb
+ 437 0017 0B       		.uleb128 0xb
+ 438 0018 3E       		.uleb128 0x3e
+ 439 0019 0B       		.uleb128 0xb
+ 440 001a 03       		.uleb128 0x3
+ 441 001b 0E       		.uleb128 0xe
+ 442 001c 00       		.byte	0
+ 443 001d 00       		.byte	0
+ 444 001e 03       		.uleb128 0x3
+ 445 001f 24       		.uleb128 0x24
+ 446 0020 00       		.byte	0
+ 447 0021 0B       		.uleb128 0xb
+ 448 0022 0B       		.uleb128 0xb
+ 449 0023 3E       		.uleb128 0x3e
+ 450 0024 0B       		.uleb128 0xb
+ 451 0025 03       		.uleb128 0x3
+ 452 0026 08       		.uleb128 0x8
+ 453 0027 00       		.byte	0
+ 454 0028 00       		.byte	0
+ 455 0029 04       		.uleb128 0x4
+ 456 002a 16       		.uleb128 0x16
+ 457 002b 00       		.byte	0
+ 458 002c 03       		.uleb128 0x3
+ 459 002d 0E       		.uleb128 0xe
+ 460 002e 3A       		.uleb128 0x3a
+ 461 002f 0B       		.uleb128 0xb
+ 462 0030 3B       		.uleb128 0x3b
+ 463 0031 05       		.uleb128 0x5
+ 464 0032 49       		.uleb128 0x49
+ 465 0033 13       		.uleb128 0x13
+ 466 0034 00       		.byte	0
+ 467 0035 00       		.byte	0
+ 468 0036 05       		.uleb128 0x5
+ 469 0037 35       		.uleb128 0x35
+ 470 0038 00       		.byte	0
+ 471 0039 49       		.uleb128 0x49
+ 472 003a 13       		.uleb128 0x13
+ 473 003b 00       		.byte	0
+ 474 003c 00       		.byte	0
+ 475 003d 06       		.uleb128 0x6
+ 476 003e 2E       		.uleb128 0x2e
+ 477 003f 01       		.byte	0x1
+ 478 0040 3F       		.uleb128 0x3f
+ 479 0041 19       		.uleb128 0x19
+ 480 0042 03       		.uleb128 0x3
+ 481 0043 0E       		.uleb128 0xe
+ 482 0044 3A       		.uleb128 0x3a
+ 483 0045 0B       		.uleb128 0xb
+ 484 0046 3B       		.uleb128 0x3b
+ 485 0047 0B       		.uleb128 0xb
+ 486 0048 27       		.uleb128 0x27
+ 487 0049 19       		.uleb128 0x19
+ 488 004a 11       		.uleb128 0x11
+ 489 004b 01       		.uleb128 0x1
+ 490 004c 12       		.uleb128 0x12
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 12
+
+
+ 491 004d 06       		.uleb128 0x6
+ 492 004e 40       		.uleb128 0x40
+ 493 004f 18       		.uleb128 0x18
+ 494 0050 9742     		.uleb128 0x2117
+ 495 0052 19       		.uleb128 0x19
+ 496 0053 01       		.uleb128 0x1
+ 497 0054 13       		.uleb128 0x13
+ 498 0055 00       		.byte	0
+ 499 0056 00       		.byte	0
+ 500 0057 07       		.uleb128 0x7
+ 501 0058 05       		.uleb128 0x5
+ 502 0059 00       		.byte	0
+ 503 005a 03       		.uleb128 0x3
+ 504 005b 0E       		.uleb128 0xe
+ 505 005c 3A       		.uleb128 0x3a
+ 506 005d 0B       		.uleb128 0xb
+ 507 005e 3B       		.uleb128 0x3b
+ 508 005f 0B       		.uleb128 0xb
+ 509 0060 49       		.uleb128 0x49
+ 510 0061 13       		.uleb128 0x13
+ 511 0062 02       		.uleb128 0x2
+ 512 0063 18       		.uleb128 0x18
+ 513 0064 00       		.byte	0
+ 514 0065 00       		.byte	0
+ 515 0066 08       		.uleb128 0x8
+ 516 0067 34       		.uleb128 0x34
+ 517 0068 00       		.byte	0
+ 518 0069 03       		.uleb128 0x3
+ 519 006a 0E       		.uleb128 0xe
+ 520 006b 3A       		.uleb128 0x3a
+ 521 006c 0B       		.uleb128 0xb
+ 522 006d 3B       		.uleb128 0x3b
+ 523 006e 0B       		.uleb128 0xb
+ 524 006f 49       		.uleb128 0x49
+ 525 0070 13       		.uleb128 0x13
+ 526 0071 02       		.uleb128 0x2
+ 527 0072 18       		.uleb128 0x18
+ 528 0073 00       		.byte	0
+ 529 0074 00       		.byte	0
+ 530 0075 09       		.uleb128 0x9
+ 531 0076 2E       		.uleb128 0x2e
+ 532 0077 00       		.byte	0
+ 533 0078 3F       		.uleb128 0x3f
+ 534 0079 19       		.uleb128 0x19
+ 535 007a 03       		.uleb128 0x3
+ 536 007b 0E       		.uleb128 0xe
+ 537 007c 3A       		.uleb128 0x3a
+ 538 007d 0B       		.uleb128 0xb
+ 539 007e 3B       		.uleb128 0x3b
+ 540 007f 0B       		.uleb128 0xb
+ 541 0080 27       		.uleb128 0x27
+ 542 0081 19       		.uleb128 0x19
+ 543 0082 49       		.uleb128 0x49
+ 544 0083 13       		.uleb128 0x13
+ 545 0084 11       		.uleb128 0x11
+ 546 0085 01       		.uleb128 0x1
+ 547 0086 12       		.uleb128 0x12
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 13
+
+
+ 548 0087 06       		.uleb128 0x6
+ 549 0088 40       		.uleb128 0x40
+ 550 0089 18       		.uleb128 0x18
+ 551 008a 9742     		.uleb128 0x2117
+ 552 008c 19       		.uleb128 0x19
+ 553 008d 00       		.byte	0
+ 554 008e 00       		.byte	0
+ 555 008f 0A       		.uleb128 0xa
+ 556 0090 2E       		.uleb128 0x2e
+ 557 0091 01       		.byte	0x1
+ 558 0092 3F       		.uleb128 0x3f
+ 559 0093 19       		.uleb128 0x19
+ 560 0094 03       		.uleb128 0x3
+ 561 0095 0E       		.uleb128 0xe
+ 562 0096 3A       		.uleb128 0x3a
+ 563 0097 0B       		.uleb128 0xb
+ 564 0098 3B       		.uleb128 0x3b
+ 565 0099 0B       		.uleb128 0xb
+ 566 009a 27       		.uleb128 0x27
+ 567 009b 19       		.uleb128 0x19
+ 568 009c 49       		.uleb128 0x49
+ 569 009d 13       		.uleb128 0x13
+ 570 009e 11       		.uleb128 0x11
+ 571 009f 01       		.uleb128 0x1
+ 572 00a0 12       		.uleb128 0x12
+ 573 00a1 06       		.uleb128 0x6
+ 574 00a2 40       		.uleb128 0x40
+ 575 00a3 18       		.uleb128 0x18
+ 576 00a4 9742     		.uleb128 0x2117
+ 577 00a6 19       		.uleb128 0x19
+ 578 00a7 00       		.byte	0
+ 579 00a8 00       		.byte	0
+ 580 00a9 00       		.byte	0
+ 581              		.section	.debug_aranges,"",%progbits
+ 582 0000 3C000000 		.4byte	0x3c
+ 583 0004 0200     		.2byte	0x2
+ 584 0006 00000000 		.4byte	.Ldebug_info0
+ 585 000a 04       		.byte	0x4
+ 586 000b 00       		.byte	0
+ 587 000c 0000     		.2byte	0
+ 588 000e 0000     		.2byte	0
+ 589 0010 00000000 		.4byte	.LFB0
+ 590 0014 4C000000 		.4byte	.LFE0-.LFB0
+ 591 0018 00000000 		.4byte	.LFB1
+ 592 001c 30000000 		.4byte	.LFE1-.LFB1
+ 593 0020 00000000 		.4byte	.LFB2
+ 594 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 595 0028 00000000 		.4byte	.LFB3
+ 596 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 597 0030 00000000 		.4byte	.LFB4
+ 598 0034 30000000 		.4byte	.LFE4-.LFB4
+ 599 0038 00000000 		.4byte	0
+ 600 003c 00000000 		.4byte	0
+ 601              		.section	.debug_ranges,"",%progbits
+ 602              	.Ldebug_ranges0:
+ 603 0000 00000000 		.4byte	.LFB0
+ 604 0004 4C000000 		.4byte	.LFE0
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 14
+
+
+ 605 0008 00000000 		.4byte	.LFB1
+ 606 000c 30000000 		.4byte	.LFE1
+ 607 0010 00000000 		.4byte	.LFB2
+ 608 0014 1C000000 		.4byte	.LFE2
+ 609 0018 00000000 		.4byte	.LFB3
+ 610 001c 1C000000 		.4byte	.LFE3
+ 611 0020 00000000 		.4byte	.LFB4
+ 612 0024 30000000 		.4byte	.LFE4
+ 613 0028 00000000 		.4byte	0
+ 614 002c 00000000 		.4byte	0
+ 615              		.section	.debug_line,"",%progbits
+ 616              	.Ldebug_line0:
+ 617 0000 A9000000 		.section	.debug_str,"MS",%progbits,1
+ 617      02004600 
+ 617      00000201 
+ 617      FB0E0D00 
+ 617      01010101 
+ 618              	.LASF14:
+ 619 0000 72656733 		.ascii	"reg32\000"
+ 619      3200
+ 620              	.LASF21:
+ 621 0006 474C4344 		.ascii	"GLCD_MOSI_ClearInterrupt\000"
+ 621      5F4D4F53 
+ 621      495F436C 
+ 621      65617249 
+ 621      6E746572 
+ 622              	.LASF17:
+ 623 001f 76616C75 		.ascii	"value\000"
+ 623      6500
+ 624              	.LASF25:
+ 625 0025 47656E65 		.ascii	"Generated_Source\\PSoC4\\GLCD_MOSI.c\000"
+ 625      72617465 
+ 625      645F536F 
+ 625      75726365 
+ 625      5C50536F 
+ 626              	.LASF11:
+ 627 0048 666C6F61 		.ascii	"float\000"
+ 627      7400
+ 628              	.LASF1:
+ 629 004e 756E7369 		.ascii	"unsigned char\000"
+ 629      676E6564 
+ 629      20636861 
+ 629      7200
+ 630              	.LASF22:
+ 631 005c 64725661 		.ascii	"drVal\000"
+ 631      6C00
+ 632              	.LASF5:
+ 633 0062 6C6F6E67 		.ascii	"long unsigned int\000"
+ 633      20756E73 
+ 633      69676E65 
+ 633      6420696E 
+ 633      7400
+ 634              	.LASF3:
+ 635 0074 73686F72 		.ascii	"short unsigned int\000"
+ 635      7420756E 
+ 635      7369676E 
+ 635      65642069 
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 15
+
+
+ 635      6E7400
+ 636              	.LASF15:
+ 637 0087 474C4344 		.ascii	"GLCD_MOSI_Write\000"
+ 637      5F4D4F53 
+ 637      495F5772 
+ 637      69746500 
+ 638              	.LASF12:
+ 639 0097 646F7562 		.ascii	"double\000"
+ 639      6C6500
+ 640              	.LASF20:
+ 641 009e 474C4344 		.ascii	"GLCD_MOSI_ReadDataReg\000"
+ 641      5F4D4F53 
+ 641      495F5265 
+ 641      61644461 
+ 641      74615265 
+ 642              	.LASF24:
+ 643 00b4 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 643      4320342E 
+ 643      392E3320 
+ 643      32303135 
+ 643      30333033 
+ 644 00e7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 644      20726576 
+ 644      6973696F 
+ 644      6E203232 
+ 644      31323230 
+ 645 011a 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 645      66756E63 
+ 645      74696F6E 
+ 645      2D736563 
+ 645      74696F6E 
+ 646              	.LASF10:
+ 647 0142 75696E74 		.ascii	"uint32\000"
+ 647      333200
+ 648              	.LASF26:
+ 649 0149 433A5C55 		.ascii	"C:\\Users\\bolding\\OneDrive - Seattle Pacific Univ"
+ 649      73657273 
+ 649      5C626F6C 
+ 649      64696E67 
+ 649      5C4F6E65 
+ 650 0179 65727369 		.ascii	"ersity\\EE 3280\\Labs\\Assignment 0 - GLCD Test\\GL"
+ 650      74795C45 
+ 650      45203332 
+ 650      38305C4C 
+ 650      6162735C 
+ 651 01a8 43445F54 		.ascii	"CD_Test1.cydsn\000"
+ 651      65737431 
+ 651      2E637964 
+ 651      736E00
+ 652              	.LASF8:
+ 653 01b7 756E7369 		.ascii	"unsigned int\000"
+ 653      676E6564 
+ 653      20696E74 
+ 653      00
+ 654              	.LASF7:
+ 655 01c4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 655      206C6F6E 
+ARM GAS  C:\Users\bolding\AppData\Local\Temp\ccuUBCpR.s 			page 16
+
+
+ 655      6720756E 
+ 655      7369676E 
+ 655      65642069 
+ 656              	.LASF18:
+ 657 01db 6D6F6465 		.ascii	"mode\000"
+ 657      00
+ 658              	.LASF6:
+ 659 01e0 6C6F6E67 		.ascii	"long long int\000"
+ 659      206C6F6E 
+ 659      6720696E 
+ 659      7400
+ 660              	.LASF23:
+ 661 01ee 6D61736B 		.ascii	"maskedStatus\000"
+ 661      65645374 
+ 661      61747573 
+ 661      00
+ 662              	.LASF13:
+ 663 01fb 63686172 		.ascii	"char\000"
+ 663      00
+ 664              	.LASF2:
+ 665 0200 73686F72 		.ascii	"short int\000"
+ 665      7420696E 
+ 665      7400
+ 666              	.LASF9:
+ 667 020a 75696E74 		.ascii	"uint8\000"
+ 667      3800
+ 668              	.LASF4:
+ 669 0210 6C6F6E67 		.ascii	"long int\000"
+ 669      20696E74 
+ 669      00
+ 670              	.LASF0:
+ 671 0219 7369676E 		.ascii	"signed char\000"
+ 671      65642063 
+ 671      68617200 
+ 672              	.LASF19:
+ 673 0225 474C4344 		.ascii	"GLCD_MOSI_Read\000"
+ 673      5F4D4F53 
+ 673      495F5265 
+ 673      616400
+ 674              	.LASF16:
+ 675 0234 474C4344 		.ascii	"GLCD_MOSI_SetDriveMode\000"
+ 675      5F4D4F53 
+ 675      495F5365 
+ 675      74447269 
+ 675      76654D6F 
+ 676              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

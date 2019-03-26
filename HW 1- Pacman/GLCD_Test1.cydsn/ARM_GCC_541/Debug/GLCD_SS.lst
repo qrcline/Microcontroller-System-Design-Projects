@@ -1,0 +1,959 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"GLCD_SS.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.GLCD_SS_Write,"ax",%progbits
+  20              		.align	2
+  21              		.global	GLCD_SS_Write
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	GLCD_SS_Write, %function
+  25              	GLCD_SS_Write:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\GLCD_SS.c"
+   1:Generated_Source\PSoC4/GLCD_SS.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/GLCD_SS.c **** * File Name: GLCD_SS.c  
+   3:Generated_Source\PSoC4/GLCD_SS.c **** * Version 1.90
+   4:Generated_Source\PSoC4/GLCD_SS.c **** *
+   5:Generated_Source\PSoC4/GLCD_SS.c **** * Description:
+   6:Generated_Source\PSoC4/GLCD_SS.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC4/GLCD_SS.c **** *
+   8:Generated_Source\PSoC4/GLCD_SS.c **** * Note:
+   9:Generated_Source\PSoC4/GLCD_SS.c **** *
+  10:Generated_Source\PSoC4/GLCD_SS.c **** ********************************************************************************
+  11:Generated_Source\PSoC4/GLCD_SS.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC4/GLCD_SS.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC4/GLCD_SS.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC4/GLCD_SS.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC4/GLCD_SS.c **** *******************************************************************************/
+  16:Generated_Source\PSoC4/GLCD_SS.c **** 
+  17:Generated_Source\PSoC4/GLCD_SS.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC4/GLCD_SS.c **** #include "GLCD_SS.h"
+  19:Generated_Source\PSoC4/GLCD_SS.c **** 
+  20:Generated_Source\PSoC4/GLCD_SS.c **** #define SetP4PinDriveMode(shift, mode)  \
+  21:Generated_Source\PSoC4/GLCD_SS.c ****     do { \
+  22:Generated_Source\PSoC4/GLCD_SS.c ****         GLCD_SS_PC =   (GLCD_SS_PC & \
+  23:Generated_Source\PSoC4/GLCD_SS.c ****                                 (uint32)(~(uint32)(GLCD_SS_DRIVE_MODE_IND_MASK << (GLCD_SS_DRIVE_MO
+  24:Generated_Source\PSoC4/GLCD_SS.c ****                                 (uint32)((uint32)(mode) << (GLCD_SS_DRIVE_MODE_BITS * (shift))); \
+  25:Generated_Source\PSoC4/GLCD_SS.c ****     } while (0)
+  26:Generated_Source\PSoC4/GLCD_SS.c **** 
+  27:Generated_Source\PSoC4/GLCD_SS.c **** 
+  28:Generated_Source\PSoC4/GLCD_SS.c **** /*******************************************************************************
+  29:Generated_Source\PSoC4/GLCD_SS.c **** * Function Name: GLCD_SS_Write
+  30:Generated_Source\PSoC4/GLCD_SS.c **** ********************************************************************************
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 2
+
+
+  31:Generated_Source\PSoC4/GLCD_SS.c **** *
+  32:Generated_Source\PSoC4/GLCD_SS.c **** * Summary:
+  33:Generated_Source\PSoC4/GLCD_SS.c **** *  Assign a new value to the digital port's data output register.  
+  34:Generated_Source\PSoC4/GLCD_SS.c **** *
+  35:Generated_Source\PSoC4/GLCD_SS.c **** * Parameters:  
+  36:Generated_Source\PSoC4/GLCD_SS.c **** *  prtValue:  The value to be assigned to the Digital Port. 
+  37:Generated_Source\PSoC4/GLCD_SS.c **** *
+  38:Generated_Source\PSoC4/GLCD_SS.c **** * Return: 
+  39:Generated_Source\PSoC4/GLCD_SS.c **** *  None 
+  40:Generated_Source\PSoC4/GLCD_SS.c **** *  
+  41:Generated_Source\PSoC4/GLCD_SS.c **** *******************************************************************************/
+  42:Generated_Source\PSoC4/GLCD_SS.c **** void GLCD_SS_Write(uint8 value) 
+  43:Generated_Source\PSoC4/GLCD_SS.c **** {
+  28              		.loc 1 43 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 84B0     		sub	sp, sp, #16
+  37              		.cfi_def_cfa_offset 24
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 0200     		movs	r2, r0
+  41 0008 FB1D     		adds	r3, r7, #7
+  42 000a 1A70     		strb	r2, [r3]
+  44:Generated_Source\PSoC4/GLCD_SS.c ****     uint8 drVal = (uint8)(GLCD_SS_DR & (uint8)(~GLCD_SS_MASK));
+  43              		.loc 1 44 0
+  44 000c 0F4B     		ldr	r3, .L2
+  45 000e 1B68     		ldr	r3, [r3]
+  46 0010 DAB2     		uxtb	r2, r3
+  47 0012 0F23     		movs	r3, #15
+  48 0014 FB18     		adds	r3, r7, r3
+  49 0016 4021     		movs	r1, #64
+  50 0018 8A43     		bics	r2, r1
+  51 001a 1A70     		strb	r2, [r3]
+  45:Generated_Source\PSoC4/GLCD_SS.c ****     drVal = (drVal | ((uint8)(value << GLCD_SS_SHIFT) & GLCD_SS_MASK));
+  52              		.loc 1 45 0
+  53 001c FB1D     		adds	r3, r7, #7
+  54 001e 1B78     		ldrb	r3, [r3]
+  55 0020 9B01     		lsls	r3, r3, #6
+  56 0022 DBB2     		uxtb	r3, r3
+  57 0024 4022     		movs	r2, #64
+  58 0026 1340     		ands	r3, r2
+  59 0028 D9B2     		uxtb	r1, r3
+  60 002a 0F23     		movs	r3, #15
+  61 002c FB18     		adds	r3, r7, r3
+  62 002e 0F22     		movs	r2, #15
+  63 0030 BA18     		adds	r2, r7, r2
+  64 0032 1278     		ldrb	r2, [r2]
+  65 0034 0A43     		orrs	r2, r1
+  66 0036 1A70     		strb	r2, [r3]
+  46:Generated_Source\PSoC4/GLCD_SS.c ****     GLCD_SS_DR = (uint32)drVal;
+  67              		.loc 1 46 0
+  68 0038 044B     		ldr	r3, .L2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 3
+
+
+  69 003a 0F22     		movs	r2, #15
+  70 003c BA18     		adds	r2, r7, r2
+  71 003e 1278     		ldrb	r2, [r2]
+  72 0040 1A60     		str	r2, [r3]
+  47:Generated_Source\PSoC4/GLCD_SS.c **** }
+  73              		.loc 1 47 0
+  74 0042 C046     		nop
+  75 0044 BD46     		mov	sp, r7
+  76 0046 04B0     		add	sp, sp, #16
+  77              		@ sp needed
+  78 0048 80BD     		pop	{r7, pc}
+  79              	.L3:
+  80 004a C046     		.align	2
+  81              	.L2:
+  82 004c 00000440 		.word	1074003968
+  83              		.cfi_endproc
+  84              	.LFE0:
+  85              		.size	GLCD_SS_Write, .-GLCD_SS_Write
+  86              		.section	.text.GLCD_SS_SetDriveMode,"ax",%progbits
+  87              		.align	2
+  88              		.global	GLCD_SS_SetDriveMode
+  89              		.code	16
+  90              		.thumb_func
+  91              		.type	GLCD_SS_SetDriveMode, %function
+  92              	GLCD_SS_SetDriveMode:
+  93              	.LFB1:
+  48:Generated_Source\PSoC4/GLCD_SS.c **** 
+  49:Generated_Source\PSoC4/GLCD_SS.c **** 
+  50:Generated_Source\PSoC4/GLCD_SS.c **** /*******************************************************************************
+  51:Generated_Source\PSoC4/GLCD_SS.c **** * Function Name: GLCD_SS_SetDriveMode
+  52:Generated_Source\PSoC4/GLCD_SS.c **** ********************************************************************************
+  53:Generated_Source\PSoC4/GLCD_SS.c **** *
+  54:Generated_Source\PSoC4/GLCD_SS.c **** * Summary:
+  55:Generated_Source\PSoC4/GLCD_SS.c **** *  Change the drive mode on the pins of the port.
+  56:Generated_Source\PSoC4/GLCD_SS.c **** * 
+  57:Generated_Source\PSoC4/GLCD_SS.c **** * Parameters:  
+  58:Generated_Source\PSoC4/GLCD_SS.c **** *  mode:  Change the pins to this drive mode.
+  59:Generated_Source\PSoC4/GLCD_SS.c **** *
+  60:Generated_Source\PSoC4/GLCD_SS.c **** * Return: 
+  61:Generated_Source\PSoC4/GLCD_SS.c **** *  None
+  62:Generated_Source\PSoC4/GLCD_SS.c **** *
+  63:Generated_Source\PSoC4/GLCD_SS.c **** *******************************************************************************/
+  64:Generated_Source\PSoC4/GLCD_SS.c **** void GLCD_SS_SetDriveMode(uint8 mode) 
+  65:Generated_Source\PSoC4/GLCD_SS.c **** {
+  94              		.loc 1 65 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 8
+  97              		@ frame_needed = 1, uses_anonymous_args = 0
+  98 0000 80B5     		push	{r7, lr}
+  99              		.cfi_def_cfa_offset 8
+ 100              		.cfi_offset 7, -8
+ 101              		.cfi_offset 14, -4
+ 102 0002 82B0     		sub	sp, sp, #8
+ 103              		.cfi_def_cfa_offset 16
+ 104 0004 00AF     		add	r7, sp, #0
+ 105              		.cfi_def_cfa_register 7
+ 106 0006 0200     		movs	r2, r0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 4
+
+
+ 107 0008 FB1D     		adds	r3, r7, #7
+ 108 000a 1A70     		strb	r2, [r3]
+  66:Generated_Source\PSoC4/GLCD_SS.c **** 	SetP4PinDriveMode(GLCD_SS__0__SHIFT, mode);
+ 109              		.loc 1 66 0
+ 110 000c 064B     		ldr	r3, .L5
+ 111 000e 064A     		ldr	r2, .L5
+ 112 0010 1268     		ldr	r2, [r2]
+ 113 0012 0649     		ldr	r1, .L5+4
+ 114 0014 1140     		ands	r1, r2
+ 115 0016 FA1D     		adds	r2, r7, #7
+ 116 0018 1278     		ldrb	r2, [r2]
+ 117 001a 9204     		lsls	r2, r2, #18
+ 118 001c 0A43     		orrs	r2, r1
+ 119 001e 1A60     		str	r2, [r3]
+  67:Generated_Source\PSoC4/GLCD_SS.c **** }
+ 120              		.loc 1 67 0
+ 121 0020 C046     		nop
+ 122 0022 BD46     		mov	sp, r7
+ 123 0024 02B0     		add	sp, sp, #8
+ 124              		@ sp needed
+ 125 0026 80BD     		pop	{r7, pc}
+ 126              	.L6:
+ 127              		.align	2
+ 128              	.L5:
+ 129 0028 08000440 		.word	1074003976
+ 130 002c FFFFE3FF 		.word	-1835009
+ 131              		.cfi_endproc
+ 132              	.LFE1:
+ 133              		.size	GLCD_SS_SetDriveMode, .-GLCD_SS_SetDriveMode
+ 134              		.section	.text.GLCD_SS_Read,"ax",%progbits
+ 135              		.align	2
+ 136              		.global	GLCD_SS_Read
+ 137              		.code	16
+ 138              		.thumb_func
+ 139              		.type	GLCD_SS_Read, %function
+ 140              	GLCD_SS_Read:
+ 141              	.LFB2:
+  68:Generated_Source\PSoC4/GLCD_SS.c **** 
+  69:Generated_Source\PSoC4/GLCD_SS.c **** 
+  70:Generated_Source\PSoC4/GLCD_SS.c **** /*******************************************************************************
+  71:Generated_Source\PSoC4/GLCD_SS.c **** * Function Name: GLCD_SS_Read
+  72:Generated_Source\PSoC4/GLCD_SS.c **** ********************************************************************************
+  73:Generated_Source\PSoC4/GLCD_SS.c **** *
+  74:Generated_Source\PSoC4/GLCD_SS.c **** * Summary:
+  75:Generated_Source\PSoC4/GLCD_SS.c **** *  Read the current value on the pins of the Digital Port in right justified 
+  76:Generated_Source\PSoC4/GLCD_SS.c **** *  form.
+  77:Generated_Source\PSoC4/GLCD_SS.c **** *
+  78:Generated_Source\PSoC4/GLCD_SS.c **** * Parameters:  
+  79:Generated_Source\PSoC4/GLCD_SS.c **** *  None 
+  80:Generated_Source\PSoC4/GLCD_SS.c **** *
+  81:Generated_Source\PSoC4/GLCD_SS.c **** * Return: 
+  82:Generated_Source\PSoC4/GLCD_SS.c **** *  Returns the current value of the Digital Port as a right justified number
+  83:Generated_Source\PSoC4/GLCD_SS.c **** *  
+  84:Generated_Source\PSoC4/GLCD_SS.c **** * Note:
+  85:Generated_Source\PSoC4/GLCD_SS.c **** *  Macro GLCD_SS_ReadPS calls this function. 
+  86:Generated_Source\PSoC4/GLCD_SS.c **** *  
+  87:Generated_Source\PSoC4/GLCD_SS.c **** *******************************************************************************/
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 5
+
+
+  88:Generated_Source\PSoC4/GLCD_SS.c **** uint8 GLCD_SS_Read(void) 
+  89:Generated_Source\PSoC4/GLCD_SS.c **** {
+ 142              		.loc 1 89 0
+ 143              		.cfi_startproc
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 1, uses_anonymous_args = 0
+ 146 0000 80B5     		push	{r7, lr}
+ 147              		.cfi_def_cfa_offset 8
+ 148              		.cfi_offset 7, -8
+ 149              		.cfi_offset 14, -4
+ 150 0002 00AF     		add	r7, sp, #0
+ 151              		.cfi_def_cfa_register 7
+  90:Generated_Source\PSoC4/GLCD_SS.c ****     return (uint8)((GLCD_SS_PS & GLCD_SS_MASK) >> GLCD_SS_SHIFT);
+ 152              		.loc 1 90 0
+ 153 0004 044B     		ldr	r3, .L9
+ 154 0006 1B68     		ldr	r3, [r3]
+ 155 0008 4022     		movs	r2, #64
+ 156 000a 1340     		ands	r3, r2
+ 157 000c 9B09     		lsrs	r3, r3, #6
+ 158 000e DBB2     		uxtb	r3, r3
+  91:Generated_Source\PSoC4/GLCD_SS.c **** }
+ 159              		.loc 1 91 0
+ 160 0010 1800     		movs	r0, r3
+ 161 0012 BD46     		mov	sp, r7
+ 162              		@ sp needed
+ 163 0014 80BD     		pop	{r7, pc}
+ 164              	.L10:
+ 165 0016 C046     		.align	2
+ 166              	.L9:
+ 167 0018 04000440 		.word	1074003972
+ 168              		.cfi_endproc
+ 169              	.LFE2:
+ 170              		.size	GLCD_SS_Read, .-GLCD_SS_Read
+ 171              		.section	.text.GLCD_SS_ReadDataReg,"ax",%progbits
+ 172              		.align	2
+ 173              		.global	GLCD_SS_ReadDataReg
+ 174              		.code	16
+ 175              		.thumb_func
+ 176              		.type	GLCD_SS_ReadDataReg, %function
+ 177              	GLCD_SS_ReadDataReg:
+ 178              	.LFB3:
+  92:Generated_Source\PSoC4/GLCD_SS.c **** 
+  93:Generated_Source\PSoC4/GLCD_SS.c **** 
+  94:Generated_Source\PSoC4/GLCD_SS.c **** /*******************************************************************************
+  95:Generated_Source\PSoC4/GLCD_SS.c **** * Function Name: GLCD_SS_ReadDataReg
+  96:Generated_Source\PSoC4/GLCD_SS.c **** ********************************************************************************
+  97:Generated_Source\PSoC4/GLCD_SS.c **** *
+  98:Generated_Source\PSoC4/GLCD_SS.c **** * Summary:
+  99:Generated_Source\PSoC4/GLCD_SS.c **** *  Read the current value assigned to a Digital Port's data output register
+ 100:Generated_Source\PSoC4/GLCD_SS.c **** *
+ 101:Generated_Source\PSoC4/GLCD_SS.c **** * Parameters:  
+ 102:Generated_Source\PSoC4/GLCD_SS.c **** *  None 
+ 103:Generated_Source\PSoC4/GLCD_SS.c **** *
+ 104:Generated_Source\PSoC4/GLCD_SS.c **** * Return: 
+ 105:Generated_Source\PSoC4/GLCD_SS.c **** *  Returns the current value assigned to the Digital Port's data output register
+ 106:Generated_Source\PSoC4/GLCD_SS.c **** *  
+ 107:Generated_Source\PSoC4/GLCD_SS.c **** *******************************************************************************/
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 6
+
+
+ 108:Generated_Source\PSoC4/GLCD_SS.c **** uint8 GLCD_SS_ReadDataReg(void) 
+ 109:Generated_Source\PSoC4/GLCD_SS.c **** {
+ 179              		.loc 1 109 0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 1, uses_anonymous_args = 0
+ 183 0000 80B5     		push	{r7, lr}
+ 184              		.cfi_def_cfa_offset 8
+ 185              		.cfi_offset 7, -8
+ 186              		.cfi_offset 14, -4
+ 187 0002 00AF     		add	r7, sp, #0
+ 188              		.cfi_def_cfa_register 7
+ 110:Generated_Source\PSoC4/GLCD_SS.c ****     return (uint8)((GLCD_SS_DR & GLCD_SS_MASK) >> GLCD_SS_SHIFT);
+ 189              		.loc 1 110 0
+ 190 0004 044B     		ldr	r3, .L13
+ 191 0006 1B68     		ldr	r3, [r3]
+ 192 0008 4022     		movs	r2, #64
+ 193 000a 1340     		ands	r3, r2
+ 194 000c 9B09     		lsrs	r3, r3, #6
+ 195 000e DBB2     		uxtb	r3, r3
+ 111:Generated_Source\PSoC4/GLCD_SS.c **** }
+ 196              		.loc 1 111 0
+ 197 0010 1800     		movs	r0, r3
+ 198 0012 BD46     		mov	sp, r7
+ 199              		@ sp needed
+ 200 0014 80BD     		pop	{r7, pc}
+ 201              	.L14:
+ 202 0016 C046     		.align	2
+ 203              	.L13:
+ 204 0018 00000440 		.word	1074003968
+ 205              		.cfi_endproc
+ 206              	.LFE3:
+ 207              		.size	GLCD_SS_ReadDataReg, .-GLCD_SS_ReadDataReg
+ 208              		.section	.text.GLCD_SS_ClearInterrupt,"ax",%progbits
+ 209              		.align	2
+ 210              		.global	GLCD_SS_ClearInterrupt
+ 211              		.code	16
+ 212              		.thumb_func
+ 213              		.type	GLCD_SS_ClearInterrupt, %function
+ 214              	GLCD_SS_ClearInterrupt:
+ 215              	.LFB4:
+ 112:Generated_Source\PSoC4/GLCD_SS.c **** 
+ 113:Generated_Source\PSoC4/GLCD_SS.c **** 
+ 114:Generated_Source\PSoC4/GLCD_SS.c **** /* If Interrupts Are Enabled for this Pins component */ 
+ 115:Generated_Source\PSoC4/GLCD_SS.c **** #if defined(GLCD_SS_INTSTAT) 
+ 116:Generated_Source\PSoC4/GLCD_SS.c **** 
+ 117:Generated_Source\PSoC4/GLCD_SS.c ****     /*******************************************************************************
+ 118:Generated_Source\PSoC4/GLCD_SS.c ****     * Function Name: GLCD_SS_ClearInterrupt
+ 119:Generated_Source\PSoC4/GLCD_SS.c ****     ********************************************************************************
+ 120:Generated_Source\PSoC4/GLCD_SS.c ****     *
+ 121:Generated_Source\PSoC4/GLCD_SS.c ****     * Summary:
+ 122:Generated_Source\PSoC4/GLCD_SS.c ****     *  Clears any active interrupts attached to port and returns the value of the 
+ 123:Generated_Source\PSoC4/GLCD_SS.c ****     *  interrupt status register.
+ 124:Generated_Source\PSoC4/GLCD_SS.c ****     *
+ 125:Generated_Source\PSoC4/GLCD_SS.c ****     * Parameters:  
+ 126:Generated_Source\PSoC4/GLCD_SS.c ****     *  None 
+ 127:Generated_Source\PSoC4/GLCD_SS.c ****     *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 7
+
+
+ 128:Generated_Source\PSoC4/GLCD_SS.c ****     * Return: 
+ 129:Generated_Source\PSoC4/GLCD_SS.c ****     *  Returns the value of the interrupt status register
+ 130:Generated_Source\PSoC4/GLCD_SS.c ****     *  
+ 131:Generated_Source\PSoC4/GLCD_SS.c ****     *******************************************************************************/
+ 132:Generated_Source\PSoC4/GLCD_SS.c ****     uint8 GLCD_SS_ClearInterrupt(void) 
+ 133:Generated_Source\PSoC4/GLCD_SS.c ****     {
+ 216              		.loc 1 133 0
+ 217              		.cfi_startproc
+ 218              		@ args = 0, pretend = 0, frame = 8
+ 219              		@ frame_needed = 1, uses_anonymous_args = 0
+ 220 0000 80B5     		push	{r7, lr}
+ 221              		.cfi_def_cfa_offset 8
+ 222              		.cfi_offset 7, -8
+ 223              		.cfi_offset 14, -4
+ 224 0002 82B0     		sub	sp, sp, #8
+ 225              		.cfi_def_cfa_offset 16
+ 226 0004 00AF     		add	r7, sp, #0
+ 227              		.cfi_def_cfa_register 7
+ 134:Generated_Source\PSoC4/GLCD_SS.c **** 		uint8 maskedStatus = (uint8)(GLCD_SS_INTSTAT & GLCD_SS_MASK);
+ 228              		.loc 1 134 0
+ 229 0006 094B     		ldr	r3, .L17
+ 230 0008 1B68     		ldr	r3, [r3]
+ 231 000a DAB2     		uxtb	r2, r3
+ 232 000c FB1D     		adds	r3, r7, #7
+ 233 000e 4021     		movs	r1, #64
+ 234 0010 0A40     		ands	r2, r1
+ 235 0012 1A70     		strb	r2, [r3]
+ 135:Generated_Source\PSoC4/GLCD_SS.c **** 		GLCD_SS_INTSTAT = maskedStatus;
+ 236              		.loc 1 135 0
+ 237 0014 054B     		ldr	r3, .L17
+ 238 0016 FA1D     		adds	r2, r7, #7
+ 239 0018 1278     		ldrb	r2, [r2]
+ 240 001a 1A60     		str	r2, [r3]
+ 136:Generated_Source\PSoC4/GLCD_SS.c ****         return maskedStatus >> GLCD_SS_SHIFT;
+ 241              		.loc 1 136 0
+ 242 001c FB1D     		adds	r3, r7, #7
+ 243 001e 1B78     		ldrb	r3, [r3]
+ 244 0020 9B09     		lsrs	r3, r3, #6
+ 245 0022 DBB2     		uxtb	r3, r3
+ 137:Generated_Source\PSoC4/GLCD_SS.c ****     }
+ 246              		.loc 1 137 0
+ 247 0024 1800     		movs	r0, r3
+ 248 0026 BD46     		mov	sp, r7
+ 249 0028 02B0     		add	sp, sp, #8
+ 250              		@ sp needed
+ 251 002a 80BD     		pop	{r7, pc}
+ 252              	.L18:
+ 253              		.align	2
+ 254              	.L17:
+ 255 002c 10000440 		.word	1074003984
+ 256              		.cfi_endproc
+ 257              	.LFE4:
+ 258              		.size	GLCD_SS_ClearInterrupt, .-GLCD_SS_ClearInterrupt
+ 259              		.text
+ 260              	.Letext0:
+ 261              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 262              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 8
+
+
+ 263              	.Ldebug_info0:
+ 264 0000 4A010000 		.4byte	0x14a
+ 265 0004 0400     		.2byte	0x4
+ 266 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 267 000a 04       		.byte	0x4
+ 268 000b 01       		.uleb128 0x1
+ 269 000c D7000000 		.4byte	.LASF24
+ 270 0010 0C       		.byte	0xc
+ 271 0011 21000000 		.4byte	.LASF25
+ 272 0015 5C000000 		.4byte	.LASF26
+ 273 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 274 001d 00000000 		.4byte	0
+ 275 0021 00000000 		.4byte	.Ldebug_line0
+ 276 0025 02       		.uleb128 0x2
+ 277 0026 01       		.byte	0x1
+ 278 0027 06       		.byte	0x6
+ 279 0028 F0010000 		.4byte	.LASF0
+ 280 002c 02       		.uleb128 0x2
+ 281 002d 01       		.byte	0x1
+ 282 002e 08       		.byte	0x8
+ 283 002f 9E000000 		.4byte	.LASF1
+ 284 0033 02       		.uleb128 0x2
+ 285 0034 02       		.byte	0x2
+ 286 0035 05       		.byte	0x5
+ 287 0036 D7010000 		.4byte	.LASF2
+ 288 003a 02       		.uleb128 0x2
+ 289 003b 02       		.byte	0x2
+ 290 003c 07       		.byte	0x7
+ 291 003d C4000000 		.4byte	.LASF3
+ 292 0041 02       		.uleb128 0x2
+ 293 0042 04       		.byte	0x4
+ 294 0043 05       		.byte	0x5
+ 295 0044 E7010000 		.4byte	.LASF4
+ 296 0048 02       		.uleb128 0x2
+ 297 0049 04       		.byte	0x4
+ 298 004a 07       		.byte	0x7
+ 299 004b B2000000 		.4byte	.LASF5
+ 300 004f 02       		.uleb128 0x2
+ 301 0050 08       		.byte	0x8
+ 302 0051 05       		.byte	0x5
+ 303 0052 B7010000 		.4byte	.LASF6
+ 304 0056 02       		.uleb128 0x2
+ 305 0057 08       		.byte	0x8
+ 306 0058 07       		.byte	0x7
+ 307 0059 9B010000 		.4byte	.LASF7
+ 308 005d 03       		.uleb128 0x3
+ 309 005e 04       		.byte	0x4
+ 310 005f 05       		.byte	0x5
+ 311 0060 696E7400 		.ascii	"int\000"
+ 312 0064 02       		.uleb128 0x2
+ 313 0065 04       		.byte	0x4
+ 314 0066 07       		.byte	0x7
+ 315 0067 80010000 		.4byte	.LASF8
+ 316 006b 04       		.uleb128 0x4
+ 317 006c E1010000 		.4byte	.LASF9
+ 318 0070 02       		.byte	0x2
+ 319 0071 B901     		.2byte	0x1b9
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 9
+
+
+ 320 0073 2C000000 		.4byte	0x2c
+ 321 0077 04       		.uleb128 0x4
+ 322 0078 79010000 		.4byte	.LASF10
+ 323 007c 02       		.byte	0x2
+ 324 007d BB01     		.2byte	0x1bb
+ 325 007f 48000000 		.4byte	0x48
+ 326 0083 02       		.uleb128 0x2
+ 327 0084 04       		.byte	0x4
+ 328 0085 04       		.byte	0x4
+ 329 0086 56000000 		.4byte	.LASF11
+ 330 008a 02       		.uleb128 0x2
+ 331 008b 08       		.byte	0x8
+ 332 008c 04       		.byte	0x4
+ 333 008d 65010000 		.4byte	.LASF12
+ 334 0091 02       		.uleb128 0x2
+ 335 0092 01       		.byte	0x1
+ 336 0093 08       		.byte	0x8
+ 337 0094 D2010000 		.4byte	.LASF13
+ 338 0098 04       		.uleb128 0x4
+ 339 0099 00000000 		.4byte	.LASF14
+ 340 009d 02       		.byte	0x2
+ 341 009e 6502     		.2byte	0x265
+ 342 00a0 A4000000 		.4byte	0xa4
+ 343 00a4 05       		.uleb128 0x5
+ 344 00a5 77000000 		.4byte	0x77
+ 345 00a9 06       		.uleb128 0x6
+ 346 00aa 8D010000 		.4byte	.LASF15
+ 347 00ae 01       		.byte	0x1
+ 348 00af 2A       		.byte	0x2a
+ 349 00b0 00000000 		.4byte	.LFB0
+ 350 00b4 50000000 		.4byte	.LFE0-.LFB0
+ 351 00b8 01       		.uleb128 0x1
+ 352 00b9 9C       		.byte	0x9c
+ 353 00ba DB000000 		.4byte	0xdb
+ 354 00be 07       		.uleb128 0x7
+ 355 00bf 1B000000 		.4byte	.LASF17
+ 356 00c3 01       		.byte	0x1
+ 357 00c4 2A       		.byte	0x2a
+ 358 00c5 6B000000 		.4byte	0x6b
+ 359 00c9 02       		.uleb128 0x2
+ 360 00ca 91       		.byte	0x91
+ 361 00cb 6F       		.sleb128 -17
+ 362 00cc 08       		.uleb128 0x8
+ 363 00cd AC000000 		.4byte	.LASF22
+ 364 00d1 01       		.byte	0x1
+ 365 00d2 2C       		.byte	0x2c
+ 366 00d3 6B000000 		.4byte	0x6b
+ 367 00d7 02       		.uleb128 0x2
+ 368 00d8 91       		.byte	0x91
+ 369 00d9 77       		.sleb128 -9
+ 370 00da 00       		.byte	0
+ 371 00db 06       		.uleb128 0x6
+ 372 00dc 06000000 		.4byte	.LASF16
+ 373 00e0 01       		.byte	0x1
+ 374 00e1 40       		.byte	0x40
+ 375 00e2 00000000 		.4byte	.LFB1
+ 376 00e6 30000000 		.4byte	.LFE1-.LFB1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 10
+
+
+ 377 00ea 01       		.uleb128 0x1
+ 378 00eb 9C       		.byte	0x9c
+ 379 00ec FF000000 		.4byte	0xff
+ 380 00f0 07       		.uleb128 0x7
+ 381 00f1 B2010000 		.4byte	.LASF18
+ 382 00f5 01       		.byte	0x1
+ 383 00f6 40       		.byte	0x40
+ 384 00f7 6B000000 		.4byte	0x6b
+ 385 00fb 02       		.uleb128 0x2
+ 386 00fc 91       		.byte	0x91
+ 387 00fd 77       		.sleb128 -9
+ 388 00fe 00       		.byte	0
+ 389 00ff 09       		.uleb128 0x9
+ 390 0100 6C010000 		.4byte	.LASF19
+ 391 0104 01       		.byte	0x1
+ 392 0105 58       		.byte	0x58
+ 393 0106 6B000000 		.4byte	0x6b
+ 394 010a 00000000 		.4byte	.LFB2
+ 395 010e 1C000000 		.4byte	.LFE2-.LFB2
+ 396 0112 01       		.uleb128 0x1
+ 397 0113 9C       		.byte	0x9c
+ 398 0114 09       		.uleb128 0x9
+ 399 0115 42000000 		.4byte	.LASF20
+ 400 0119 01       		.byte	0x1
+ 401 011a 6C       		.byte	0x6c
+ 402 011b 6B000000 		.4byte	0x6b
+ 403 011f 00000000 		.4byte	.LFB3
+ 404 0123 1C000000 		.4byte	.LFE3-.LFB3
+ 405 0127 01       		.uleb128 0x1
+ 406 0128 9C       		.byte	0x9c
+ 407 0129 0A       		.uleb128 0xa
+ 408 012a FC010000 		.4byte	.LASF21
+ 409 012e 01       		.byte	0x1
+ 410 012f 84       		.byte	0x84
+ 411 0130 6B000000 		.4byte	0x6b
+ 412 0134 00000000 		.4byte	.LFB4
+ 413 0138 30000000 		.4byte	.LFE4-.LFB4
+ 414 013c 01       		.uleb128 0x1
+ 415 013d 9C       		.byte	0x9c
+ 416 013e 08       		.uleb128 0x8
+ 417 013f C5010000 		.4byte	.LASF23
+ 418 0143 01       		.byte	0x1
+ 419 0144 86       		.byte	0x86
+ 420 0145 6B000000 		.4byte	0x6b
+ 421 0149 02       		.uleb128 0x2
+ 422 014a 91       		.byte	0x91
+ 423 014b 77       		.sleb128 -9
+ 424 014c 00       		.byte	0
+ 425 014d 00       		.byte	0
+ 426              		.section	.debug_abbrev,"",%progbits
+ 427              	.Ldebug_abbrev0:
+ 428 0000 01       		.uleb128 0x1
+ 429 0001 11       		.uleb128 0x11
+ 430 0002 01       		.byte	0x1
+ 431 0003 25       		.uleb128 0x25
+ 432 0004 0E       		.uleb128 0xe
+ 433 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 11
+
+
+ 434 0006 0B       		.uleb128 0xb
+ 435 0007 03       		.uleb128 0x3
+ 436 0008 0E       		.uleb128 0xe
+ 437 0009 1B       		.uleb128 0x1b
+ 438 000a 0E       		.uleb128 0xe
+ 439 000b 55       		.uleb128 0x55
+ 440 000c 17       		.uleb128 0x17
+ 441 000d 11       		.uleb128 0x11
+ 442 000e 01       		.uleb128 0x1
+ 443 000f 10       		.uleb128 0x10
+ 444 0010 17       		.uleb128 0x17
+ 445 0011 00       		.byte	0
+ 446 0012 00       		.byte	0
+ 447 0013 02       		.uleb128 0x2
+ 448 0014 24       		.uleb128 0x24
+ 449 0015 00       		.byte	0
+ 450 0016 0B       		.uleb128 0xb
+ 451 0017 0B       		.uleb128 0xb
+ 452 0018 3E       		.uleb128 0x3e
+ 453 0019 0B       		.uleb128 0xb
+ 454 001a 03       		.uleb128 0x3
+ 455 001b 0E       		.uleb128 0xe
+ 456 001c 00       		.byte	0
+ 457 001d 00       		.byte	0
+ 458 001e 03       		.uleb128 0x3
+ 459 001f 24       		.uleb128 0x24
+ 460 0020 00       		.byte	0
+ 461 0021 0B       		.uleb128 0xb
+ 462 0022 0B       		.uleb128 0xb
+ 463 0023 3E       		.uleb128 0x3e
+ 464 0024 0B       		.uleb128 0xb
+ 465 0025 03       		.uleb128 0x3
+ 466 0026 08       		.uleb128 0x8
+ 467 0027 00       		.byte	0
+ 468 0028 00       		.byte	0
+ 469 0029 04       		.uleb128 0x4
+ 470 002a 16       		.uleb128 0x16
+ 471 002b 00       		.byte	0
+ 472 002c 03       		.uleb128 0x3
+ 473 002d 0E       		.uleb128 0xe
+ 474 002e 3A       		.uleb128 0x3a
+ 475 002f 0B       		.uleb128 0xb
+ 476 0030 3B       		.uleb128 0x3b
+ 477 0031 05       		.uleb128 0x5
+ 478 0032 49       		.uleb128 0x49
+ 479 0033 13       		.uleb128 0x13
+ 480 0034 00       		.byte	0
+ 481 0035 00       		.byte	0
+ 482 0036 05       		.uleb128 0x5
+ 483 0037 35       		.uleb128 0x35
+ 484 0038 00       		.byte	0
+ 485 0039 49       		.uleb128 0x49
+ 486 003a 13       		.uleb128 0x13
+ 487 003b 00       		.byte	0
+ 488 003c 00       		.byte	0
+ 489 003d 06       		.uleb128 0x6
+ 490 003e 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 12
+
+
+ 491 003f 01       		.byte	0x1
+ 492 0040 3F       		.uleb128 0x3f
+ 493 0041 19       		.uleb128 0x19
+ 494 0042 03       		.uleb128 0x3
+ 495 0043 0E       		.uleb128 0xe
+ 496 0044 3A       		.uleb128 0x3a
+ 497 0045 0B       		.uleb128 0xb
+ 498 0046 3B       		.uleb128 0x3b
+ 499 0047 0B       		.uleb128 0xb
+ 500 0048 27       		.uleb128 0x27
+ 501 0049 19       		.uleb128 0x19
+ 502 004a 11       		.uleb128 0x11
+ 503 004b 01       		.uleb128 0x1
+ 504 004c 12       		.uleb128 0x12
+ 505 004d 06       		.uleb128 0x6
+ 506 004e 40       		.uleb128 0x40
+ 507 004f 18       		.uleb128 0x18
+ 508 0050 9742     		.uleb128 0x2117
+ 509 0052 19       		.uleb128 0x19
+ 510 0053 01       		.uleb128 0x1
+ 511 0054 13       		.uleb128 0x13
+ 512 0055 00       		.byte	0
+ 513 0056 00       		.byte	0
+ 514 0057 07       		.uleb128 0x7
+ 515 0058 05       		.uleb128 0x5
+ 516 0059 00       		.byte	0
+ 517 005a 03       		.uleb128 0x3
+ 518 005b 0E       		.uleb128 0xe
+ 519 005c 3A       		.uleb128 0x3a
+ 520 005d 0B       		.uleb128 0xb
+ 521 005e 3B       		.uleb128 0x3b
+ 522 005f 0B       		.uleb128 0xb
+ 523 0060 49       		.uleb128 0x49
+ 524 0061 13       		.uleb128 0x13
+ 525 0062 02       		.uleb128 0x2
+ 526 0063 18       		.uleb128 0x18
+ 527 0064 00       		.byte	0
+ 528 0065 00       		.byte	0
+ 529 0066 08       		.uleb128 0x8
+ 530 0067 34       		.uleb128 0x34
+ 531 0068 00       		.byte	0
+ 532 0069 03       		.uleb128 0x3
+ 533 006a 0E       		.uleb128 0xe
+ 534 006b 3A       		.uleb128 0x3a
+ 535 006c 0B       		.uleb128 0xb
+ 536 006d 3B       		.uleb128 0x3b
+ 537 006e 0B       		.uleb128 0xb
+ 538 006f 49       		.uleb128 0x49
+ 539 0070 13       		.uleb128 0x13
+ 540 0071 02       		.uleb128 0x2
+ 541 0072 18       		.uleb128 0x18
+ 542 0073 00       		.byte	0
+ 543 0074 00       		.byte	0
+ 544 0075 09       		.uleb128 0x9
+ 545 0076 2E       		.uleb128 0x2e
+ 546 0077 00       		.byte	0
+ 547 0078 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 13
+
+
+ 548 0079 19       		.uleb128 0x19
+ 549 007a 03       		.uleb128 0x3
+ 550 007b 0E       		.uleb128 0xe
+ 551 007c 3A       		.uleb128 0x3a
+ 552 007d 0B       		.uleb128 0xb
+ 553 007e 3B       		.uleb128 0x3b
+ 554 007f 0B       		.uleb128 0xb
+ 555 0080 27       		.uleb128 0x27
+ 556 0081 19       		.uleb128 0x19
+ 557 0082 49       		.uleb128 0x49
+ 558 0083 13       		.uleb128 0x13
+ 559 0084 11       		.uleb128 0x11
+ 560 0085 01       		.uleb128 0x1
+ 561 0086 12       		.uleb128 0x12
+ 562 0087 06       		.uleb128 0x6
+ 563 0088 40       		.uleb128 0x40
+ 564 0089 18       		.uleb128 0x18
+ 565 008a 9742     		.uleb128 0x2117
+ 566 008c 19       		.uleb128 0x19
+ 567 008d 00       		.byte	0
+ 568 008e 00       		.byte	0
+ 569 008f 0A       		.uleb128 0xa
+ 570 0090 2E       		.uleb128 0x2e
+ 571 0091 01       		.byte	0x1
+ 572 0092 3F       		.uleb128 0x3f
+ 573 0093 19       		.uleb128 0x19
+ 574 0094 03       		.uleb128 0x3
+ 575 0095 0E       		.uleb128 0xe
+ 576 0096 3A       		.uleb128 0x3a
+ 577 0097 0B       		.uleb128 0xb
+ 578 0098 3B       		.uleb128 0x3b
+ 579 0099 0B       		.uleb128 0xb
+ 580 009a 27       		.uleb128 0x27
+ 581 009b 19       		.uleb128 0x19
+ 582 009c 49       		.uleb128 0x49
+ 583 009d 13       		.uleb128 0x13
+ 584 009e 11       		.uleb128 0x11
+ 585 009f 01       		.uleb128 0x1
+ 586 00a0 12       		.uleb128 0x12
+ 587 00a1 06       		.uleb128 0x6
+ 588 00a2 40       		.uleb128 0x40
+ 589 00a3 18       		.uleb128 0x18
+ 590 00a4 9742     		.uleb128 0x2117
+ 591 00a6 19       		.uleb128 0x19
+ 592 00a7 00       		.byte	0
+ 593 00a8 00       		.byte	0
+ 594 00a9 00       		.byte	0
+ 595              		.section	.debug_aranges,"",%progbits
+ 596 0000 3C000000 		.4byte	0x3c
+ 597 0004 0200     		.2byte	0x2
+ 598 0006 00000000 		.4byte	.Ldebug_info0
+ 599 000a 04       		.byte	0x4
+ 600 000b 00       		.byte	0
+ 601 000c 0000     		.2byte	0
+ 602 000e 0000     		.2byte	0
+ 603 0010 00000000 		.4byte	.LFB0
+ 604 0014 50000000 		.4byte	.LFE0-.LFB0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 14
+
+
+ 605 0018 00000000 		.4byte	.LFB1
+ 606 001c 30000000 		.4byte	.LFE1-.LFB1
+ 607 0020 00000000 		.4byte	.LFB2
+ 608 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 609 0028 00000000 		.4byte	.LFB3
+ 610 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 611 0030 00000000 		.4byte	.LFB4
+ 612 0034 30000000 		.4byte	.LFE4-.LFB4
+ 613 0038 00000000 		.4byte	0
+ 614 003c 00000000 		.4byte	0
+ 615              		.section	.debug_ranges,"",%progbits
+ 616              	.Ldebug_ranges0:
+ 617 0000 00000000 		.4byte	.LFB0
+ 618 0004 50000000 		.4byte	.LFE0
+ 619 0008 00000000 		.4byte	.LFB1
+ 620 000c 30000000 		.4byte	.LFE1
+ 621 0010 00000000 		.4byte	.LFB2
+ 622 0014 1C000000 		.4byte	.LFE2
+ 623 0018 00000000 		.4byte	.LFB3
+ 624 001c 1C000000 		.4byte	.LFE3
+ 625 0020 00000000 		.4byte	.LFB4
+ 626 0024 30000000 		.4byte	.LFE4
+ 627 0028 00000000 		.4byte	0
+ 628 002c 00000000 		.4byte	0
+ 629              		.section	.debug_line,"",%progbits
+ 630              	.Ldebug_line0:
+ 631 0000 A7000000 		.section	.debug_str,"MS",%progbits,1
+ 631      02004400 
+ 631      00000201 
+ 631      FB0E0D00 
+ 631      01010101 
+ 632              	.LASF14:
+ 633 0000 72656733 		.ascii	"reg32\000"
+ 633      3200
+ 634              	.LASF16:
+ 635 0006 474C4344 		.ascii	"GLCD_SS_SetDriveMode\000"
+ 635      5F53535F 
+ 635      53657444 
+ 635      72697665 
+ 635      4D6F6465 
+ 636              	.LASF17:
+ 637 001b 76616C75 		.ascii	"value\000"
+ 637      6500
+ 638              	.LASF25:
+ 639 0021 47656E65 		.ascii	"Generated_Source\\PSoC4\\GLCD_SS.c\000"
+ 639      72617465 
+ 639      645F536F 
+ 639      75726365 
+ 639      5C50536F 
+ 640              	.LASF20:
+ 641 0042 474C4344 		.ascii	"GLCD_SS_ReadDataReg\000"
+ 641      5F53535F 
+ 641      52656164 
+ 641      44617461 
+ 641      52656700 
+ 642              	.LASF11:
+ 643 0056 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 15
+
+
+ 643      7400
+ 644              	.LASF26:
+ 645 005c 443A5C53 		.ascii	"D:\\School\\SPU\\Spring 2018\\Micro Controllers\\HW"
+ 645      63686F6F 
+ 645      6C5C5350 
+ 645      555C5370 
+ 645      72696E67 
+ 646 008a 5C305C47 		.ascii	"\\0\\GLCD_Test1.cydsn\000"
+ 646      4C43445F 
+ 646      54657374 
+ 646      312E6379 
+ 646      64736E00 
+ 647              	.LASF1:
+ 648 009e 756E7369 		.ascii	"unsigned char\000"
+ 648      676E6564 
+ 648      20636861 
+ 648      7200
+ 649              	.LASF22:
+ 650 00ac 64725661 		.ascii	"drVal\000"
+ 650      6C00
+ 651              	.LASF5:
+ 652 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 652      20756E73 
+ 652      69676E65 
+ 652      6420696E 
+ 652      7400
+ 653              	.LASF3:
+ 654 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 654      7420756E 
+ 654      7369676E 
+ 654      65642069 
+ 654      6E7400
+ 655              	.LASF24:
+ 656 00d7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 656      43313120 
+ 656      352E342E 
+ 656      31203230 
+ 656      31363036 
+ 657 010a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 657      20726576 
+ 657      6973696F 
+ 657      6E203233 
+ 657      37373135 
+ 658 013d 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 658      66756E63 
+ 658      74696F6E 
+ 658      2D736563 
+ 658      74696F6E 
+ 659              	.LASF12:
+ 660 0165 646F7562 		.ascii	"double\000"
+ 660      6C6500
+ 661              	.LASF19:
+ 662 016c 474C4344 		.ascii	"GLCD_SS_Read\000"
+ 662      5F53535F 
+ 662      52656164 
+ 662      00
+ 663              	.LASF10:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSaC0Qy.s 			page 16
+
+
+ 664 0179 75696E74 		.ascii	"uint32\000"
+ 664      333200
+ 665              	.LASF8:
+ 666 0180 756E7369 		.ascii	"unsigned int\000"
+ 666      676E6564 
+ 666      20696E74 
+ 666      00
+ 667              	.LASF15:
+ 668 018d 474C4344 		.ascii	"GLCD_SS_Write\000"
+ 668      5F53535F 
+ 668      57726974 
+ 668      6500
+ 669              	.LASF7:
+ 670 019b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 670      206C6F6E 
+ 670      6720756E 
+ 670      7369676E 
+ 670      65642069 
+ 671              	.LASF18:
+ 672 01b2 6D6F6465 		.ascii	"mode\000"
+ 672      00
+ 673              	.LASF6:
+ 674 01b7 6C6F6E67 		.ascii	"long long int\000"
+ 674      206C6F6E 
+ 674      6720696E 
+ 674      7400
+ 675              	.LASF23:
+ 676 01c5 6D61736B 		.ascii	"maskedStatus\000"
+ 676      65645374 
+ 676      61747573 
+ 676      00
+ 677              	.LASF13:
+ 678 01d2 63686172 		.ascii	"char\000"
+ 678      00
+ 679              	.LASF2:
+ 680 01d7 73686F72 		.ascii	"short int\000"
+ 680      7420696E 
+ 680      7400
+ 681              	.LASF9:
+ 682 01e1 75696E74 		.ascii	"uint8\000"
+ 682      3800
+ 683              	.LASF4:
+ 684 01e7 6C6F6E67 		.ascii	"long int\000"
+ 684      20696E74 
+ 684      00
+ 685              	.LASF0:
+ 686 01f0 7369676E 		.ascii	"signed char\000"
+ 686      65642063 
+ 686      68617200 
+ 687              	.LASF21:
+ 688 01fc 474C4344 		.ascii	"GLCD_SS_ClearInterrupt\000"
+ 688      5F53535F 
+ 688      436C6561 
+ 688      72496E74 
+ 688      65727275 
+ 689              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

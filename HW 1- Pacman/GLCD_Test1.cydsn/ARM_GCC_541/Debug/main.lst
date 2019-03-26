@@ -1,0 +1,978 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.comm	GLCD_FONT8x16,1552,4
+  20              		.section	.text.pretty_lines,"ax",%progbits
+  21              		.align	2
+  22              		.global	pretty_lines
+  23              		.code	16
+  24              		.thumb_func
+  25              		.type	pretty_lines, %function
+  26              	pretty_lines:
+  27              	.LFB34:
+  28              		.file 1 "main.c"
+   1:main.c        **** 
+   2:main.c        **** // Test program to confirm operation of PSoC 4 Pioneer Board and Graphical LCD
+   3:main.c        **** // For documentation on the GLCD Library: Click on the Datasheets tab in the Workspace Explorer and
+   4:main.c        **** //        API documentation is at the bottom of the Datasheet
+   5:main.c        **** 
+   6:main.c        **** #include <device.h>
+   7:main.c        **** #include <header01.h>
+   8:main.c        **** 
+   9:main.c        **** void pretty_lines(int color){
+  29              		.loc 1 9 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 16
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37 0002 86B0     		sub	sp, sp, #24
+  38              		.cfi_def_cfa_offset 32
+  39 0004 02AF     		add	r7, sp, #8
+  40              		.cfi_def_cfa 7, 24
+  41 0006 7860     		str	r0, [r7, #4]
+  10:main.c        ****     // make some decorations around the edges by drawing lines
+  11:main.c        ****     int i;
+  12:main.c        ****     for (i = 0; i < 126; i+=5){
+  42              		.loc 1 12 0
+  43 0008 0023     		movs	r3, #0
+  44 000a FB60     		str	r3, [r7, #12]
+  45 000c 1AE0     		b	.L2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 2
+
+
+  46              	.L3:
+  13:main.c        ****         GLCD_DrawLine(2+i,2,126,2+i, color);
+  47              		.loc 1 13 0 discriminator 3
+  48 000e FB68     		ldr	r3, [r7, #12]
+  49 0010 981C     		adds	r0, r3, #2
+  50 0012 FB68     		ldr	r3, [r7, #12]
+  51 0014 9A1C     		adds	r2, r3, #2
+  52 0016 7B68     		ldr	r3, [r7, #4]
+  53 0018 0093     		str	r3, [sp]
+  54 001a 1300     		movs	r3, r2
+  55 001c 7E22     		movs	r2, #126
+  56 001e 0221     		movs	r1, #2
+  57 0020 FFF7FEFF 		bl	GLCD_DrawLine
+  14:main.c        ****         GLCD_DrawLine(126-i,126,2,126-i, color);
+  58              		.loc 1 14 0 discriminator 3
+  59 0024 FB68     		ldr	r3, [r7, #12]
+  60 0026 7E22     		movs	r2, #126
+  61 0028 D01A     		subs	r0, r2, r3
+  62 002a FB68     		ldr	r3, [r7, #12]
+  63 002c 7E22     		movs	r2, #126
+  64 002e D21A     		subs	r2, r2, r3
+  65 0030 7B68     		ldr	r3, [r7, #4]
+  66 0032 0093     		str	r3, [sp]
+  67 0034 1300     		movs	r3, r2
+  68 0036 0222     		movs	r2, #2
+  69 0038 7E21     		movs	r1, #126
+  70 003a FFF7FEFF 		bl	GLCD_DrawLine
+  12:main.c        ****         GLCD_DrawLine(2+i,2,126,2+i, color);
+  71              		.loc 1 12 0 discriminator 3
+  72 003e FB68     		ldr	r3, [r7, #12]
+  73 0040 0533     		adds	r3, r3, #5
+  74 0042 FB60     		str	r3, [r7, #12]
+  75              	.L2:
+  12:main.c        ****         GLCD_DrawLine(2+i,2,126,2+i, color);
+  76              		.loc 1 12 0 is_stmt 0 discriminator 1
+  77 0044 FB68     		ldr	r3, [r7, #12]
+  78 0046 7D2B     		cmp	r3, #125
+  79 0048 E1DD     		ble	.L3
+  15:main.c        ****     }
+  16:main.c        **** }
+  80              		.loc 1 16 0 is_stmt 1
+  81 004a C046     		nop
+  82 004c BD46     		mov	sp, r7
+  83 004e 04B0     		add	sp, sp, #16
+  84              		@ sp needed
+  85 0050 80BD     		pop	{r7, pc}
+  86              		.cfi_endproc
+  87              	.LFE34:
+  88              		.size	pretty_lines, .-pretty_lines
+  89 0052 C046     		.section	.rodata
+  90              		.align	2
+  91              	.LC0:
+  92 0000 5175696E 		.ascii	"Quinton\000"
+  92      746F6E00 
+  93              		.align	2
+  94              	.LC2:
+  95 0008 436C696E 		.ascii	"Cline\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 3
+
+
+  95      6500
+  96              		.section	.text.main,"ax",%progbits
+  97              		.align	2
+  98              		.global	main
+  99              		.code	16
+ 100              		.thumb_func
+ 101              		.type	main, %function
+ 102              	main:
+ 103              	.LFB35:
+  17:main.c        **** int main()
+  18:main.c        **** {
+ 104              		.loc 1 18 0
+ 105              		.cfi_startproc
+ 106              		@ args = 0, pretend = 0, frame = 8
+ 107              		@ frame_needed = 1, uses_anonymous_args = 0
+ 108 0000 90B5     		push	{r4, r7, lr}
+ 109              		.cfi_def_cfa_offset 12
+ 110              		.cfi_offset 4, -12
+ 111              		.cfi_offset 7, -8
+ 112              		.cfi_offset 14, -4
+ 113 0002 85B0     		sub	sp, sp, #20
+ 114              		.cfi_def_cfa_offset 32
+ 115 0004 02AF     		add	r7, sp, #8
+ 116              		.cfi_def_cfa 7, 24
+  19:main.c        ****     int16 i;       // counter variable -- int16 will take up less room than int32
+  20:main.c        ****     int16 x = CENTER;  // x and y coordinates for center of circle
+ 117              		.loc 1 20 0
+ 118 0006 3B1D     		adds	r3, r7, #4
+ 119 0008 3E22     		movs	r2, #62
+ 120 000a 1A80     		strh	r2, [r3]
+  21:main.c        ****     int16 y = 62;
+ 121              		.loc 1 21 0
+ 122 000c BB1C     		adds	r3, r7, #2
+ 123 000e 3E22     		movs	r2, #62
+ 124 0010 1A80     		strh	r2, [r3]
+  22:main.c        **** 	
+  23:main.c        **** 	// Initialize LCD
+  24:main.c        ****     GLCD_Start();  
+ 125              		.loc 1 24 0
+ 126 0012 FFF7FEFF 		bl	GLCD_Start
+  25:main.c        ****     Backlight_Write(1);       // turn on backlight
+ 127              		.loc 1 25 0
+ 128 0016 0120     		movs	r0, #1
+ 129 0018 FFF7FEFF 		bl	Backlight_Write
+  26:main.c        ****     
+  27:main.c        ****     LED_Blue_Write(1); LED_Green_Write(1); LED_Red_Write(1); // turn off all LEDs (1 means off)
+ 130              		.loc 1 27 0
+ 131 001c 0120     		movs	r0, #1
+ 132 001e FFF7FEFF 		bl	LED_Blue_Write
+ 133 0022 0120     		movs	r0, #1
+ 134 0024 FFF7FEFF 		bl	LED_Green_Write
+ 135 0028 0120     		movs	r0, #1
+ 136 002a FFF7FEFF 		bl	LED_Red_Write
+  28:main.c        ****  
+  29:main.c        ****     
+  30:main.c        ****     // clear LCD to crimson color
+  31:main.c        ****     GLCD_Clear(GLCD_CRIMSON);
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 4
+
+
+ 137              		.loc 1 31 0
+ 138 002e 574B     		ldr	r3, .L15
+ 139 0030 1800     		movs	r0, r3
+ 140 0032 FFF7FEFF 		bl	GLCD_Clear
+  32:main.c        ****         
+  33:main.c        ****     // Draw a filled circle in maroon by drawing a series of circles of increasing radius 
+  34:main.c        ****     for (i = 0; i<40; i++) {
+ 141              		.loc 1 34 0
+ 142 0036 BB1D     		adds	r3, r7, #6
+ 143 0038 0022     		movs	r2, #0
+ 144 003a 1A80     		strh	r2, [r3]
+ 145 003c 14E0     		b	.L5
+ 146              	.L6:
+  35:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_MAROON);
+ 147              		.loc 1 35 0 discriminator 3
+ 148 003e 3B1D     		adds	r3, r7, #4
+ 149 0040 0020     		movs	r0, #0
+ 150 0042 185E     		ldrsh	r0, [r3, r0]
+ 151 0044 BB1C     		adds	r3, r7, #2
+ 152 0046 0021     		movs	r1, #0
+ 153 0048 595E     		ldrsh	r1, [r3, r1]
+ 154 004a BB1D     		adds	r3, r7, #6
+ 155 004c 0022     		movs	r2, #0
+ 156 004e 9A5E     		ldrsh	r2, [r3, r2]
+ 157 0050 8023     		movs	r3, #128
+ 158 0052 1B01     		lsls	r3, r3, #4
+ 159 0054 FFF7FEFF 		bl	GLCD_DrawCircle
+  34:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_MAROON);
+ 160              		.loc 1 34 0 discriminator 3
+ 161 0058 BB1D     		adds	r3, r7, #6
+ 162 005a 0022     		movs	r2, #0
+ 163 005c 9B5E     		ldrsh	r3, [r3, r2]
+ 164 005e 9BB2     		uxth	r3, r3
+ 165 0060 0133     		adds	r3, r3, #1
+ 166 0062 9AB2     		uxth	r2, r3
+ 167 0064 BB1D     		adds	r3, r7, #6
+ 168 0066 1A80     		strh	r2, [r3]
+ 169              	.L5:
+  34:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_MAROON);
+ 170              		.loc 1 34 0 is_stmt 0 discriminator 1
+ 171 0068 BB1D     		adds	r3, r7, #6
+ 172 006a 0022     		movs	r2, #0
+ 173 006c 9B5E     		ldrsh	r3, [r3, r2]
+ 174 006e 272B     		cmp	r3, #39
+ 175 0070 E5DD     		ble	.L6
+  36:main.c        ****     }
+  37:main.c        ****     
+  38:main.c        ****     // Draw a thick white circle by drawing several white circles of increasing radius
+  39:main.c        ****     for (i = 35; i< 38; i++) {
+ 176              		.loc 1 39 0 is_stmt 1
+ 177 0072 BB1D     		adds	r3, r7, #6
+ 178 0074 2322     		movs	r2, #35
+ 179 0076 1A80     		strh	r2, [r3]
+ 180 0078 13E0     		b	.L7
+ 181              	.L8:
+  40:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_WHITE);
+ 182              		.loc 1 40 0 discriminator 3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 5
+
+
+ 183 007a 3B1D     		adds	r3, r7, #4
+ 184 007c 0020     		movs	r0, #0
+ 185 007e 185E     		ldrsh	r0, [r3, r0]
+ 186 0080 BB1C     		adds	r3, r7, #2
+ 187 0082 0021     		movs	r1, #0
+ 188 0084 595E     		ldrsh	r1, [r3, r1]
+ 189 0086 BB1D     		adds	r3, r7, #6
+ 190 0088 0022     		movs	r2, #0
+ 191 008a 9A5E     		ldrsh	r2, [r3, r2]
+ 192 008c 404B     		ldr	r3, .L15+4
+ 193 008e FFF7FEFF 		bl	GLCD_DrawCircle
+  39:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_WHITE);
+ 194              		.loc 1 39 0 discriminator 3
+ 195 0092 BB1D     		adds	r3, r7, #6
+ 196 0094 0022     		movs	r2, #0
+ 197 0096 9B5E     		ldrsh	r3, [r3, r2]
+ 198 0098 9BB2     		uxth	r3, r3
+ 199 009a 0133     		adds	r3, r3, #1
+ 200 009c 9AB2     		uxth	r2, r3
+ 201 009e BB1D     		adds	r3, r7, #6
+ 202 00a0 1A80     		strh	r2, [r3]
+ 203              	.L7:
+  39:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_WHITE);
+ 204              		.loc 1 39 0 is_stmt 0 discriminator 1
+ 205 00a2 BB1D     		adds	r3, r7, #6
+ 206 00a4 0022     		movs	r2, #0
+ 207 00a6 9B5E     		ldrsh	r3, [r3, r2]
+ 208 00a8 252B     		cmp	r3, #37
+ 209 00aa E6DD     		ble	.L8
+  41:main.c        ****     }
+  42:main.c        ****     
+  43:main.c        ****     // Display the words "SPU" and "ECS"
+  44:main.c        ****     GLCD_PrintString("Quinton", x-20, y-27, GLCD_WHITE, GLCD_MAROON);
+ 210              		.loc 1 44 0 is_stmt 1
+ 211 00ac 3B1D     		adds	r3, r7, #4
+ 212 00ae 0022     		movs	r2, #0
+ 213 00b0 9B5E     		ldrsh	r3, [r3, r2]
+ 214 00b2 143B     		subs	r3, r3, #20
+ 215 00b4 1900     		movs	r1, r3
+ 216 00b6 BB1C     		adds	r3, r7, #2
+ 217 00b8 0022     		movs	r2, #0
+ 218 00ba 9B5E     		ldrsh	r3, [r3, r2]
+ 219 00bc 1B3B     		subs	r3, r3, #27
+ 220 00be 1A00     		movs	r2, r3
+ 221 00c0 334C     		ldr	r4, .L15+4
+ 222 00c2 3448     		ldr	r0, .L15+8
+ 223 00c4 8023     		movs	r3, #128
+ 224 00c6 1B01     		lsls	r3, r3, #4
+ 225 00c8 0093     		str	r3, [sp]
+ 226 00ca 2300     		movs	r3, r4
+ 227 00cc FFF7FEFF 		bl	GLCD_PrintString
+  45:main.c        ****     GLCD_PrintString("Cline", x, y-20, GLCD_WHITE, GLCD_MAROON);
+ 228              		.loc 1 45 0
+ 229 00d0 3B1D     		adds	r3, r7, #4
+ 230 00d2 0021     		movs	r1, #0
+ 231 00d4 595E     		ldrsh	r1, [r3, r1]
+ 232 00d6 BB1C     		adds	r3, r7, #2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 6
+
+
+ 233 00d8 0022     		movs	r2, #0
+ 234 00da 9B5E     		ldrsh	r3, [r3, r2]
+ 235 00dc 143B     		subs	r3, r3, #20
+ 236 00de 1A00     		movs	r2, r3
+ 237 00e0 2B4C     		ldr	r4, .L15+4
+ 238 00e2 2D48     		ldr	r0, .L15+12
+ 239 00e4 8023     		movs	r3, #128
+ 240 00e6 1B01     		lsls	r3, r3, #4
+ 241 00e8 0093     		str	r3, [sp]
+ 242 00ea 2300     		movs	r3, r4
+ 243 00ec FFF7FEFF 		bl	GLCD_PrintString
+  46:main.c        ****     
+  47:main.c        ****     // Draw some decorative lines in white
+  48:main.c        ****     pretty_lines(GLCD_WHITE);
+ 244              		.loc 1 48 0
+ 245 00f0 274B     		ldr	r3, .L15+4
+ 246 00f2 1800     		movs	r0, r3
+ 247 00f4 FFF7FEFF 		bl	pretty_lines
+ 248              	.L14:
+  49:main.c        ****     
+  50:main.c        ****     // endless loop - there is nothing to return to, so better to just loop forever
+  51:main.c        ****     while(1) {
+  52:main.c        ****     LED_Blue_Write(1); LED_Green_Write(1); LED_Red_Write(1);   // make sure all LEDs are off
+ 249              		.loc 1 52 0
+ 250 00f8 0120     		movs	r0, #1
+ 251 00fa FFF7FEFF 		bl	LED_Blue_Write
+ 252 00fe 0120     		movs	r0, #1
+ 253 0100 FFF7FEFF 		bl	LED_Green_Write
+ 254 0104 0120     		movs	r0, #1
+ 255 0106 FFF7FEFF 		bl	LED_Red_Write
+  53:main.c        ****     
+  54:main.c        ****     // If A pressed, turn on Green LED and draw lines in Green
+  55:main.c        ****      if (A_Read()==0) {
+ 256              		.loc 1 55 0
+ 257 010a FFF7FEFF 		bl	A_Read
+ 258 010e 031E     		subs	r3, r0, #0
+ 259 0110 05D1     		bne	.L9
+  56:main.c        ****          LED_Green_Write(0);   
+ 260              		.loc 1 56 0
+ 261 0112 0020     		movs	r0, #0
+ 262 0114 FFF7FEFF 		bl	LED_Green_Write
+  57:main.c        ****         pretty_lines(GLCD_GREEN);
+ 263              		.loc 1 57 0
+ 264 0118 F020     		movs	r0, #240
+ 265 011a FFF7FEFF 		bl	pretty_lines
+ 266              	.L9:
+  58:main.c        ****         }
+  59:main.c        ****     
+  60:main.c        ****     // If B pressed, turn on Green and Red LEDs (Yellow) and draw lines in Yellow
+  61:main.c        ****     if (B_Read()==0) {
+ 267              		.loc 1 61 0
+ 268 011e FFF7FEFF 		bl	B_Read
+ 269 0122 031E     		subs	r3, r0, #0
+ 270 0124 0AD1     		bne	.L10
+  62:main.c        ****          LED_Green_Write(0);  
+ 271              		.loc 1 62 0
+ 272 0126 0020     		movs	r0, #0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 7
+
+
+ 273 0128 FFF7FEFF 		bl	LED_Green_Write
+  63:main.c        ****          LED_Red_Write(0);
+ 274              		.loc 1 63 0
+ 275 012c 0020     		movs	r0, #0
+ 276 012e FFF7FEFF 		bl	LED_Red_Write
+  64:main.c        ****         pretty_lines(GLCD_YELLOW);
+ 277              		.loc 1 64 0
+ 278 0132 FF23     		movs	r3, #255
+ 279 0134 1B01     		lsls	r3, r3, #4
+ 280 0136 1800     		movs	r0, r3
+ 281 0138 FFF7FEFF 		bl	pretty_lines
+ 282              	.L10:
+  65:main.c        ****         }
+  66:main.c        ****     
+  67:main.c        ****     // If C pressed, turn on Blue LED and draw lines in Blue
+  68:main.c        ****     if (C_Read()==0) {
+ 283              		.loc 1 68 0
+ 284 013c FFF7FEFF 		bl	C_Read
+ 285 0140 031E     		subs	r3, r0, #0
+ 286 0142 05D1     		bne	.L11
+  69:main.c        ****          LED_Blue_Write(0); 
+ 287              		.loc 1 69 0
+ 288 0144 0020     		movs	r0, #0
+ 289 0146 FFF7FEFF 		bl	LED_Blue_Write
+  70:main.c        ****         pretty_lines(GLCD_BLUE);
+ 290              		.loc 1 70 0
+ 291 014a 0F20     		movs	r0, #15
+ 292 014c FFF7FEFF 		bl	pretty_lines
+ 293              	.L11:
+  71:main.c        ****         }
+  72:main.c        ****     
+  73:main.c        ****     // If D pressed, turn on Red LED and draw lines in Red
+  74:main.c        ****     if (D_Read()==0) {
+ 294              		.loc 1 74 0
+ 295 0150 FFF7FEFF 		bl	D_Read
+ 296 0154 031E     		subs	r3, r0, #0
+ 297 0156 07D1     		bne	.L12
+  75:main.c        ****          LED_Red_Write(0);  
+ 298              		.loc 1 75 0
+ 299 0158 0020     		movs	r0, #0
+ 300 015a FFF7FEFF 		bl	LED_Red_Write
+  76:main.c        ****         pretty_lines(GLCD_RED);        
+ 301              		.loc 1 76 0
+ 302 015e F023     		movs	r3, #240
+ 303 0160 1B01     		lsls	r3, r3, #4
+ 304 0162 1800     		movs	r0, r3
+ 305 0164 FFF7FEFF 		bl	pretty_lines
+ 306              	.L12:
+  77:main.c        ****         }
+  78:main.c        ****         
+  79:main.c        **** 
+  80:main.c        ****     
+  81:main.c        ****     // If joystick center pushed, turn on Blue and Red LEDs and draw lines in White
+  82:main.c        ****     if (Joy_Center_Read()==0) {
+ 307              		.loc 1 82 0
+ 308 0168 FFF7FEFF 		bl	Joy_Center_Read
+ 309 016c 031E     		subs	r3, r0, #0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 8
+
+
+ 310 016e C3D1     		bne	.L14
+  83:main.c        ****          LED_Blue_Write(0); 
+ 311              		.loc 1 83 0
+ 312 0170 0020     		movs	r0, #0
+ 313 0172 FFF7FEFF 		bl	LED_Blue_Write
+  84:main.c        ****          LED_Red_Write(0);
+ 314              		.loc 1 84 0
+ 315 0176 0020     		movs	r0, #0
+ 316 0178 FFF7FEFF 		bl	LED_Red_Write
+  85:main.c        ****         LED_Green_Write(0);
+ 317              		.loc 1 85 0
+ 318 017c 0020     		movs	r0, #0
+ 319 017e FFF7FEFF 		bl	LED_Green_Write
+  86:main.c        ****         pretty_lines(GLCD_WHITE);
+ 320              		.loc 1 86 0
+ 321 0182 034B     		ldr	r3, .L15+4
+ 322 0184 1800     		movs	r0, r3
+ 323 0186 FFF7FEFF 		bl	pretty_lines
+  87:main.c        ****         }
+  88:main.c        ****        
+  89:main.c        ****     }
+ 324              		.loc 1 89 0
+ 325 018a B5E7     		b	.L14
+ 326              	.L16:
+ 327              		.align	2
+ 328              	.L15:
+ 329 018c 130D0000 		.word	3347
+ 330 0190 FF0F0000 		.word	4095
+ 331 0194 00000000 		.word	.LC0
+ 332 0198 08000000 		.word	.LC2
+ 333              		.cfi_endproc
+ 334              	.LFE35:
+ 335              		.size	main, .-main
+ 336              		.text
+ 337              	.Letext0:
+ 338              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 339              		.file 3 "Generated_Source\\PSoC4/GLCD.h"
+ 340              		.section	.debug_info,"",%progbits
+ 341              	.Ldebug_info0:
+ 342 0000 42010000 		.4byte	0x142
+ 343 0004 0400     		.2byte	0x4
+ 344 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 345 000a 04       		.byte	0x4
+ 346 000b 01       		.uleb128 0x1
+ 347 000c DB000000 		.4byte	.LASF18
+ 348 0010 0C       		.byte	0xc
+ 349 0011 7B000000 		.4byte	.LASF19
+ 350 0015 72010000 		.4byte	.LASF20
+ 351 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 352 001d 00000000 		.4byte	0
+ 353 0021 00000000 		.4byte	.Ldebug_line0
+ 354 0025 02       		.uleb128 0x2
+ 355 0026 01       		.byte	0x1
+ 356 0027 06       		.byte	0x6
+ 357 0028 A5000000 		.4byte	.LASF0
+ 358 002c 02       		.uleb128 0x2
+ 359 002d 01       		.byte	0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 9
+
+
+ 360 002e 08       		.byte	0x8
+ 361 002f 68000000 		.4byte	.LASF1
+ 362 0033 02       		.uleb128 0x2
+ 363 0034 02       		.byte	0x2
+ 364 0035 05       		.byte	0x5
+ 365 0036 D1000000 		.4byte	.LASF2
+ 366 003a 02       		.uleb128 0x2
+ 367 003b 02       		.byte	0x2
+ 368 003c 07       		.byte	0x7
+ 369 003d 92000000 		.4byte	.LASF3
+ 370 0041 02       		.uleb128 0x2
+ 371 0042 04       		.byte	0x4
+ 372 0043 05       		.byte	0x5
+ 373 0044 82000000 		.4byte	.LASF4
+ 374 0048 02       		.uleb128 0x2
+ 375 0049 04       		.byte	0x4
+ 376 004a 07       		.byte	0x7
+ 377 004b 33000000 		.4byte	.LASF5
+ 378 004f 02       		.uleb128 0x2
+ 379 0050 08       		.byte	0x8
+ 380 0051 05       		.byte	0x5
+ 381 0052 00000000 		.4byte	.LASF6
+ 382 0056 02       		.uleb128 0x2
+ 383 0057 08       		.byte	0x8
+ 384 0058 07       		.byte	0x7
+ 385 0059 4B000000 		.4byte	.LASF7
+ 386 005d 03       		.uleb128 0x3
+ 387 005e 04       		.byte	0x4
+ 388 005f 05       		.byte	0x5
+ 389 0060 696E7400 		.ascii	"int\000"
+ 390 0064 02       		.uleb128 0x2
+ 391 0065 04       		.byte	0x4
+ 392 0066 07       		.byte	0x7
+ 393 0067 1B000000 		.4byte	.LASF8
+ 394 006b 04       		.uleb128 0x4
+ 395 006c 2D000000 		.4byte	.LASF9
+ 396 0070 02       		.byte	0x2
+ 397 0071 B901     		.2byte	0x1b9
+ 398 0073 2C000000 		.4byte	0x2c
+ 399 0077 04       		.uleb128 0x4
+ 400 0078 CB000000 		.4byte	.LASF10
+ 401 007c 02       		.byte	0x2
+ 402 007d BD01     		.2byte	0x1bd
+ 403 007f 33000000 		.4byte	0x33
+ 404 0083 02       		.uleb128 0x2
+ 405 0084 04       		.byte	0x4
+ 406 0085 04       		.byte	0x4
+ 407 0086 62000000 		.4byte	.LASF11
+ 408 008a 02       		.uleb128 0x2
+ 409 008b 08       		.byte	0x8
+ 410 008c 04       		.byte	0x4
+ 411 008d 8B000000 		.4byte	.LASF12
+ 412 0091 02       		.uleb128 0x2
+ 413 0092 01       		.byte	0x1
+ 414 0093 08       		.byte	0x8
+ 415 0094 76000000 		.4byte	.LASF13
+ 416 0098 02       		.uleb128 0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 10
+
+
+ 417 0099 08       		.byte	0x8
+ 418 009a 04       		.byte	0x4
+ 419 009b BF000000 		.4byte	.LASF14
+ 420 009f 02       		.uleb128 0x2
+ 421 00a0 04       		.byte	0x4
+ 422 00a1 07       		.byte	0x7
+ 423 00a2 69010000 		.4byte	.LASF15
+ 424 00a6 05       		.uleb128 0x5
+ 425 00a7 0E000000 		.4byte	.LASF16
+ 426 00ab 01       		.byte	0x1
+ 427 00ac 09       		.byte	0x9
+ 428 00ad 00000000 		.4byte	.LFB34
+ 429 00b1 52000000 		.4byte	.LFE34-.LFB34
+ 430 00b5 01       		.uleb128 0x1
+ 431 00b6 9C       		.byte	0x9c
+ 432 00b7 D6000000 		.4byte	0xd6
+ 433 00bb 06       		.uleb128 0x6
+ 434 00bc 45000000 		.4byte	.LASF21
+ 435 00c0 01       		.byte	0x1
+ 436 00c1 09       		.byte	0x9
+ 437 00c2 5D000000 		.4byte	0x5d
+ 438 00c6 02       		.uleb128 0x2
+ 439 00c7 91       		.byte	0x91
+ 440 00c8 6C       		.sleb128 -20
+ 441 00c9 07       		.uleb128 0x7
+ 442 00ca 6900     		.ascii	"i\000"
+ 443 00cc 01       		.byte	0x1
+ 444 00cd 0B       		.byte	0xb
+ 445 00ce 5D000000 		.4byte	0x5d
+ 446 00d2 02       		.uleb128 0x2
+ 447 00d3 91       		.byte	0x91
+ 448 00d4 74       		.sleb128 -12
+ 449 00d5 00       		.byte	0
+ 450 00d6 08       		.uleb128 0x8
+ 451 00d7 28000000 		.4byte	.LASF17
+ 452 00db 01       		.byte	0x1
+ 453 00dc 11       		.byte	0x11
+ 454 00dd 5D000000 		.4byte	0x5d
+ 455 00e1 00000000 		.4byte	.LFB35
+ 456 00e5 9C010000 		.4byte	.LFE35-.LFB35
+ 457 00e9 01       		.uleb128 0x1
+ 458 00ea 9C       		.byte	0x9c
+ 459 00eb 14010000 		.4byte	0x114
+ 460 00ef 07       		.uleb128 0x7
+ 461 00f0 6900     		.ascii	"i\000"
+ 462 00f2 01       		.byte	0x1
+ 463 00f3 13       		.byte	0x13
+ 464 00f4 77000000 		.4byte	0x77
+ 465 00f8 02       		.uleb128 0x2
+ 466 00f9 91       		.byte	0x91
+ 467 00fa 6E       		.sleb128 -18
+ 468 00fb 07       		.uleb128 0x7
+ 469 00fc 7800     		.ascii	"x\000"
+ 470 00fe 01       		.byte	0x1
+ 471 00ff 14       		.byte	0x14
+ 472 0100 77000000 		.4byte	0x77
+ 473 0104 02       		.uleb128 0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 11
+
+
+ 474 0105 91       		.byte	0x91
+ 475 0106 6C       		.sleb128 -20
+ 476 0107 07       		.uleb128 0x7
+ 477 0108 7900     		.ascii	"y\000"
+ 478 010a 01       		.byte	0x1
+ 479 010b 15       		.byte	0x15
+ 480 010c 77000000 		.4byte	0x77
+ 481 0110 02       		.uleb128 0x2
+ 482 0111 91       		.byte	0x91
+ 483 0112 6A       		.sleb128 -22
+ 484 0113 00       		.byte	0
+ 485 0114 09       		.uleb128 0x9
+ 486 0115 2A010000 		.4byte	0x12a
+ 487 0119 2A010000 		.4byte	0x12a
+ 488 011d 0A       		.uleb128 0xa
+ 489 011e 9F000000 		.4byte	0x9f
+ 490 0122 60       		.byte	0x60
+ 491 0123 0A       		.uleb128 0xa
+ 492 0124 9F000000 		.4byte	0x9f
+ 493 0128 0F       		.byte	0xf
+ 494 0129 00       		.byte	0
+ 495 012a 0B       		.uleb128 0xb
+ 496 012b 6B000000 		.4byte	0x6b
+ 497 012f 0C       		.uleb128 0xc
+ 498 0130 B1000000 		.4byte	.LASF22
+ 499 0134 03       		.byte	0x3
+ 500 0135 42       		.byte	0x42
+ 501 0136 40010000 		.4byte	0x140
+ 502 013a 05       		.uleb128 0x5
+ 503 013b 03       		.byte	0x3
+ 504 013c 00000000 		.4byte	GLCD_FONT8x16
+ 505 0140 0B       		.uleb128 0xb
+ 506 0141 14010000 		.4byte	0x114
+ 507 0145 00       		.byte	0
+ 508              		.section	.debug_abbrev,"",%progbits
+ 509              	.Ldebug_abbrev0:
+ 510 0000 01       		.uleb128 0x1
+ 511 0001 11       		.uleb128 0x11
+ 512 0002 01       		.byte	0x1
+ 513 0003 25       		.uleb128 0x25
+ 514 0004 0E       		.uleb128 0xe
+ 515 0005 13       		.uleb128 0x13
+ 516 0006 0B       		.uleb128 0xb
+ 517 0007 03       		.uleb128 0x3
+ 518 0008 0E       		.uleb128 0xe
+ 519 0009 1B       		.uleb128 0x1b
+ 520 000a 0E       		.uleb128 0xe
+ 521 000b 55       		.uleb128 0x55
+ 522 000c 17       		.uleb128 0x17
+ 523 000d 11       		.uleb128 0x11
+ 524 000e 01       		.uleb128 0x1
+ 525 000f 10       		.uleb128 0x10
+ 526 0010 17       		.uleb128 0x17
+ 527 0011 00       		.byte	0
+ 528 0012 00       		.byte	0
+ 529 0013 02       		.uleb128 0x2
+ 530 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 12
+
+
+ 531 0015 00       		.byte	0
+ 532 0016 0B       		.uleb128 0xb
+ 533 0017 0B       		.uleb128 0xb
+ 534 0018 3E       		.uleb128 0x3e
+ 535 0019 0B       		.uleb128 0xb
+ 536 001a 03       		.uleb128 0x3
+ 537 001b 0E       		.uleb128 0xe
+ 538 001c 00       		.byte	0
+ 539 001d 00       		.byte	0
+ 540 001e 03       		.uleb128 0x3
+ 541 001f 24       		.uleb128 0x24
+ 542 0020 00       		.byte	0
+ 543 0021 0B       		.uleb128 0xb
+ 544 0022 0B       		.uleb128 0xb
+ 545 0023 3E       		.uleb128 0x3e
+ 546 0024 0B       		.uleb128 0xb
+ 547 0025 03       		.uleb128 0x3
+ 548 0026 08       		.uleb128 0x8
+ 549 0027 00       		.byte	0
+ 550 0028 00       		.byte	0
+ 551 0029 04       		.uleb128 0x4
+ 552 002a 16       		.uleb128 0x16
+ 553 002b 00       		.byte	0
+ 554 002c 03       		.uleb128 0x3
+ 555 002d 0E       		.uleb128 0xe
+ 556 002e 3A       		.uleb128 0x3a
+ 557 002f 0B       		.uleb128 0xb
+ 558 0030 3B       		.uleb128 0x3b
+ 559 0031 05       		.uleb128 0x5
+ 560 0032 49       		.uleb128 0x49
+ 561 0033 13       		.uleb128 0x13
+ 562 0034 00       		.byte	0
+ 563 0035 00       		.byte	0
+ 564 0036 05       		.uleb128 0x5
+ 565 0037 2E       		.uleb128 0x2e
+ 566 0038 01       		.byte	0x1
+ 567 0039 3F       		.uleb128 0x3f
+ 568 003a 19       		.uleb128 0x19
+ 569 003b 03       		.uleb128 0x3
+ 570 003c 0E       		.uleb128 0xe
+ 571 003d 3A       		.uleb128 0x3a
+ 572 003e 0B       		.uleb128 0xb
+ 573 003f 3B       		.uleb128 0x3b
+ 574 0040 0B       		.uleb128 0xb
+ 575 0041 27       		.uleb128 0x27
+ 576 0042 19       		.uleb128 0x19
+ 577 0043 11       		.uleb128 0x11
+ 578 0044 01       		.uleb128 0x1
+ 579 0045 12       		.uleb128 0x12
+ 580 0046 06       		.uleb128 0x6
+ 581 0047 40       		.uleb128 0x40
+ 582 0048 18       		.uleb128 0x18
+ 583 0049 9642     		.uleb128 0x2116
+ 584 004b 19       		.uleb128 0x19
+ 585 004c 01       		.uleb128 0x1
+ 586 004d 13       		.uleb128 0x13
+ 587 004e 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 13
+
+
+ 588 004f 00       		.byte	0
+ 589 0050 06       		.uleb128 0x6
+ 590 0051 05       		.uleb128 0x5
+ 591 0052 00       		.byte	0
+ 592 0053 03       		.uleb128 0x3
+ 593 0054 0E       		.uleb128 0xe
+ 594 0055 3A       		.uleb128 0x3a
+ 595 0056 0B       		.uleb128 0xb
+ 596 0057 3B       		.uleb128 0x3b
+ 597 0058 0B       		.uleb128 0xb
+ 598 0059 49       		.uleb128 0x49
+ 599 005a 13       		.uleb128 0x13
+ 600 005b 02       		.uleb128 0x2
+ 601 005c 18       		.uleb128 0x18
+ 602 005d 00       		.byte	0
+ 603 005e 00       		.byte	0
+ 604 005f 07       		.uleb128 0x7
+ 605 0060 34       		.uleb128 0x34
+ 606 0061 00       		.byte	0
+ 607 0062 03       		.uleb128 0x3
+ 608 0063 08       		.uleb128 0x8
+ 609 0064 3A       		.uleb128 0x3a
+ 610 0065 0B       		.uleb128 0xb
+ 611 0066 3B       		.uleb128 0x3b
+ 612 0067 0B       		.uleb128 0xb
+ 613 0068 49       		.uleb128 0x49
+ 614 0069 13       		.uleb128 0x13
+ 615 006a 02       		.uleb128 0x2
+ 616 006b 18       		.uleb128 0x18
+ 617 006c 00       		.byte	0
+ 618 006d 00       		.byte	0
+ 619 006e 08       		.uleb128 0x8
+ 620 006f 2E       		.uleb128 0x2e
+ 621 0070 01       		.byte	0x1
+ 622 0071 3F       		.uleb128 0x3f
+ 623 0072 19       		.uleb128 0x19
+ 624 0073 03       		.uleb128 0x3
+ 625 0074 0E       		.uleb128 0xe
+ 626 0075 3A       		.uleb128 0x3a
+ 627 0076 0B       		.uleb128 0xb
+ 628 0077 3B       		.uleb128 0x3b
+ 629 0078 0B       		.uleb128 0xb
+ 630 0079 49       		.uleb128 0x49
+ 631 007a 13       		.uleb128 0x13
+ 632 007b 11       		.uleb128 0x11
+ 633 007c 01       		.uleb128 0x1
+ 634 007d 12       		.uleb128 0x12
+ 635 007e 06       		.uleb128 0x6
+ 636 007f 40       		.uleb128 0x40
+ 637 0080 18       		.uleb128 0x18
+ 638 0081 9642     		.uleb128 0x2116
+ 639 0083 19       		.uleb128 0x19
+ 640 0084 01       		.uleb128 0x1
+ 641 0085 13       		.uleb128 0x13
+ 642 0086 00       		.byte	0
+ 643 0087 00       		.byte	0
+ 644 0088 09       		.uleb128 0x9
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 14
+
+
+ 645 0089 01       		.uleb128 0x1
+ 646 008a 01       		.byte	0x1
+ 647 008b 49       		.uleb128 0x49
+ 648 008c 13       		.uleb128 0x13
+ 649 008d 01       		.uleb128 0x1
+ 650 008e 13       		.uleb128 0x13
+ 651 008f 00       		.byte	0
+ 652 0090 00       		.byte	0
+ 653 0091 0A       		.uleb128 0xa
+ 654 0092 21       		.uleb128 0x21
+ 655 0093 00       		.byte	0
+ 656 0094 49       		.uleb128 0x49
+ 657 0095 13       		.uleb128 0x13
+ 658 0096 2F       		.uleb128 0x2f
+ 659 0097 0B       		.uleb128 0xb
+ 660 0098 00       		.byte	0
+ 661 0099 00       		.byte	0
+ 662 009a 0B       		.uleb128 0xb
+ 663 009b 26       		.uleb128 0x26
+ 664 009c 00       		.byte	0
+ 665 009d 49       		.uleb128 0x49
+ 666 009e 13       		.uleb128 0x13
+ 667 009f 00       		.byte	0
+ 668 00a0 00       		.byte	0
+ 669 00a1 0C       		.uleb128 0xc
+ 670 00a2 34       		.uleb128 0x34
+ 671 00a3 00       		.byte	0
+ 672 00a4 03       		.uleb128 0x3
+ 673 00a5 0E       		.uleb128 0xe
+ 674 00a6 3A       		.uleb128 0x3a
+ 675 00a7 0B       		.uleb128 0xb
+ 676 00a8 3B       		.uleb128 0x3b
+ 677 00a9 0B       		.uleb128 0xb
+ 678 00aa 49       		.uleb128 0x49
+ 679 00ab 13       		.uleb128 0x13
+ 680 00ac 3F       		.uleb128 0x3f
+ 681 00ad 19       		.uleb128 0x19
+ 682 00ae 02       		.uleb128 0x2
+ 683 00af 18       		.uleb128 0x18
+ 684 00b0 00       		.byte	0
+ 685 00b1 00       		.byte	0
+ 686 00b2 00       		.byte	0
+ 687              		.section	.debug_aranges,"",%progbits
+ 688 0000 24000000 		.4byte	0x24
+ 689 0004 0200     		.2byte	0x2
+ 690 0006 00000000 		.4byte	.Ldebug_info0
+ 691 000a 04       		.byte	0x4
+ 692 000b 00       		.byte	0
+ 693 000c 0000     		.2byte	0
+ 694 000e 0000     		.2byte	0
+ 695 0010 00000000 		.4byte	.LFB34
+ 696 0014 52000000 		.4byte	.LFE34-.LFB34
+ 697 0018 00000000 		.4byte	.LFB35
+ 698 001c 9C010000 		.4byte	.LFE35-.LFB35
+ 699 0020 00000000 		.4byte	0
+ 700 0024 00000000 		.4byte	0
+ 701              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 15
+
+
+ 702              	.Ldebug_ranges0:
+ 703 0000 00000000 		.4byte	.LFB34
+ 704 0004 52000000 		.4byte	.LFE34
+ 705 0008 00000000 		.4byte	.LFB35
+ 706 000c 9C010000 		.4byte	.LFE35
+ 707 0010 00000000 		.4byte	0
+ 708 0014 00000000 		.4byte	0
+ 709              		.section	.debug_line,"",%progbits
+ 710              	.Ldebug_line0:
+ 711 0000 C7000000 		.section	.debug_str,"MS",%progbits,1
+ 711      02004B00 
+ 711      00000201 
+ 711      FB0E0D00 
+ 711      01010101 
+ 712              	.LASF6:
+ 713 0000 6C6F6E67 		.ascii	"long long int\000"
+ 713      206C6F6E 
+ 713      6720696E 
+ 713      7400
+ 714              	.LASF16:
+ 715 000e 70726574 		.ascii	"pretty_lines\000"
+ 715      74795F6C 
+ 715      696E6573 
+ 715      00
+ 716              	.LASF8:
+ 717 001b 756E7369 		.ascii	"unsigned int\000"
+ 717      676E6564 
+ 717      20696E74 
+ 717      00
+ 718              	.LASF17:
+ 719 0028 6D61696E 		.ascii	"main\000"
+ 719      00
+ 720              	.LASF9:
+ 721 002d 75696E74 		.ascii	"uint8\000"
+ 721      3800
+ 722              	.LASF5:
+ 723 0033 6C6F6E67 		.ascii	"long unsigned int\000"
+ 723      20756E73 
+ 723      69676E65 
+ 723      6420696E 
+ 723      7400
+ 724              	.LASF21:
+ 725 0045 636F6C6F 		.ascii	"color\000"
+ 725      7200
+ 726              	.LASF7:
+ 727 004b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 727      206C6F6E 
+ 727      6720756E 
+ 727      7369676E 
+ 727      65642069 
+ 728              	.LASF11:
+ 729 0062 666C6F61 		.ascii	"float\000"
+ 729      7400
+ 730              	.LASF1:
+ 731 0068 756E7369 		.ascii	"unsigned char\000"
+ 731      676E6564 
+ 731      20636861 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 16
+
+
+ 731      7200
+ 732              	.LASF13:
+ 733 0076 63686172 		.ascii	"char\000"
+ 733      00
+ 734              	.LASF19:
+ 735 007b 6D61696E 		.ascii	"main.c\000"
+ 735      2E6300
+ 736              	.LASF4:
+ 737 0082 6C6F6E67 		.ascii	"long int\000"
+ 737      20696E74 
+ 737      00
+ 738              	.LASF12:
+ 739 008b 646F7562 		.ascii	"double\000"
+ 739      6C6500
+ 740              	.LASF3:
+ 741 0092 73686F72 		.ascii	"short unsigned int\000"
+ 741      7420756E 
+ 741      7369676E 
+ 741      65642069 
+ 741      6E7400
+ 742              	.LASF0:
+ 743 00a5 7369676E 		.ascii	"signed char\000"
+ 743      65642063 
+ 743      68617200 
+ 744              	.LASF22:
+ 745 00b1 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 745      5F464F4E 
+ 745      54387831 
+ 745      3600
+ 746              	.LASF14:
+ 747 00bf 6C6F6E67 		.ascii	"long double\000"
+ 747      20646F75 
+ 747      626C6500 
+ 748              	.LASF10:
+ 749 00cb 696E7431 		.ascii	"int16\000"
+ 749      3600
+ 750              	.LASF2:
+ 751 00d1 73686F72 		.ascii	"short int\000"
+ 751      7420696E 
+ 751      7400
+ 752              	.LASF18:
+ 753 00db 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 753      43313120 
+ 753      352E342E 
+ 753      31203230 
+ 753      31363036 
+ 754 010e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 754      20726576 
+ 754      6973696F 
+ 754      6E203233 
+ 754      37373135 
+ 755 0141 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 755      66756E63 
+ 755      74696F6E 
+ 755      2D736563 
+ 755      74696F6E 
+ 756              	.LASF15:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccFNTQN9.s 			page 17
+
+
+ 757 0169 73697A65 		.ascii	"sizetype\000"
+ 757      74797065 
+ 757      00
+ 758              	.LASF20:
+ 759 0172 443A5C53 		.ascii	"D:\\School\\SPU\\Spring 2018\\Micro Controllers\\HW"
+ 759      63686F6F 
+ 759      6C5C5350 
+ 759      555C5370 
+ 759      72696E67 
+ 760 01a0 5C305C47 		.ascii	"\\0\\GLCD_Test1.cydsn\000"
+ 760      4C43445F 
+ 760      54657374 
+ 760      312E6379 
+ 760      64736E00 
+ 761              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,3915 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"GLCD.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.comm	GLCD_FONT8x16,1552,4
+  20              		.comm	GLCD_driver,1,1
+  21              		.bss
+  22              		.align	2
+  23              	GLCD_x_offset:
+  24 0000 00000000 		.space	4
+  25              		.align	2
+  26              	GLCD_y_offset:
+  27 0004 00000000 		.space	4
+  28              		.section	.text.GLCD_Command,"ax",%progbits
+  29              		.align	2
+  30              		.global	GLCD_Command
+  31              		.code	16
+  32              		.thumb_func
+  33              		.type	GLCD_Command, %function
+  34              	GLCD_Command:
+  35              	.LFB0:
+  36              		.file 1 "Generated_Source\\PSoC4\\GLCD.c"
+   1:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/GLCD.c **** * File Name: GLCD.c  
+   3:Generated_Source\PSoC4/GLCD.c **** * Version 0.3
+   4:Generated_Source\PSoC4/GLCD.c **** *
+   5:Generated_Source\PSoC4/GLCD.c **** *  Description:
+   6:Generated_Source\PSoC4/GLCD.c **** *    This file contains all the API for the SparkFun Color Graphics
+   7:Generated_Source\PSoC4/GLCD.c **** *    Arduino Shield board which uses a Nokia 6100 LCD.
+   8:Generated_Source\PSoC4/GLCD.c **** *
+   9:Generated_Source\PSoC4/GLCD.c **** * Note:  This code has been tested with the Philips PCF8833 controller, but not
+  10:Generated_Source\PSoC4/GLCD.c **** *        the EPSON S115D10 controller as of release 0.3.
+  11:Generated_Source\PSoC4/GLCD.c **** *
+  12:Generated_Source\PSoC4/GLCD.c **** *        Code has been optimized for a 32-bit processor such as the Cortex
+  13:Generated_Source\PSoC4/GLCD.c **** *        M0 or M3.
+  14:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************
+  15:Generated_Source\PSoC4/GLCD.c **** * The following firmware was developed by Cypress Semiconductor
+  16:Generated_Source\PSoC4/GLCD.c **** * This work is licensed under a Creative Commons Attribution 3.0 Unported License.
+  17:Generated_Source\PSoC4/GLCD.c **** *
+  18:Generated_Source\PSoC4/GLCD.c **** * http://creativecommons.org/licenses/by/3.0/deed.en_US
+  19:Generated_Source\PSoC4/GLCD.c **** * 
+  20:Generated_Source\PSoC4/GLCD.c **** * You are free to:
+  21:Generated_Source\PSoC4/GLCD.c **** * -To Share — to copy, distribute and transmit the work 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 2
+
+
+  22:Generated_Source\PSoC4/GLCD.c **** * -To Remix — to adapt the work 
+  23:Generated_Source\PSoC4/GLCD.c **** * -To make commercial use of the work
+  24:Generated_Source\PSoC4/GLCD.c **** *
+  25:Generated_Source\PSoC4/GLCD.c **** * Much of this code was ported from the LCD_driver code by Mark Sproul
+  26:Generated_Source\PSoC4/GLCD.c **** * and Peter DavenPort.  Also the tutorial by James P. Lynch
+  27:Generated_Source\PSoC4/GLCD.c **** * on how the controller works was invaluable.
+  28:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************/
+  29:Generated_Source\PSoC4/GLCD.c **** #include "cytypes.h"
+  30:Generated_Source\PSoC4/GLCD.c **** #include "GLCD.h"
+  31:Generated_Source\PSoC4/GLCD.c **** #include "GLCD_SPIM_UDB.h"
+  32:Generated_Source\PSoC4/GLCD.c **** #include "GLCD_Reset.h"
+  33:Generated_Source\PSoC4/GLCD.c **** #include "cyfitter.h"
+  34:Generated_Source\PSoC4/GLCD.c **** 
+  35:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_SPIM_TYPE == GLCD_SPIM_SCB_TYPE)
+  36:Generated_Source\PSoC4/GLCD.c **** #include "GLCD_SPIM_UDB_SPI_UART.h"
+  37:Generated_Source\PSoC4/GLCD.c **** #endif
+  38:Generated_Source\PSoC4/GLCD.c **** 
+  39:Generated_Source\PSoC4/GLCD.c **** uint8 GLCD_driver;
+  40:Generated_Source\PSoC4/GLCD.c **** 				
+  41:Generated_Source\PSoC4/GLCD.c **** static int32 GLCD_x_offset = 0;
+  42:Generated_Source\PSoC4/GLCD.c **** static int32 GLCD_y_offset = 0;
+  43:Generated_Source\PSoC4/GLCD.c **** 
+  44:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+  45:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_Command
+  46:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+  47:Generated_Source\PSoC4/GLCD.c **** *
+  48:Generated_Source\PSoC4/GLCD.c **** * Summary:
+  49:Generated_Source\PSoC4/GLCD.c **** *  This function sends a command to the LCD controller.  
+  50:Generated_Source\PSoC4/GLCD.c **** *
+  51:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+  52:Generated_Source\PSoC4/GLCD.c **** *  cmdData:  This is the command to be sent to the LCD controller  
+  53:Generated_Source\PSoC4/GLCD.c **** *
+  54:Generated_Source\PSoC4/GLCD.c **** * Return: 
+  55:Generated_Source\PSoC4/GLCD.c **** *  None 
+  56:Generated_Source\PSoC4/GLCD.c **** *  
+  57:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+  58:Generated_Source\PSoC4/GLCD.c **** void GLCD_Command(uint32 cmdData)
+  59:Generated_Source\PSoC4/GLCD.c **** {
+  37              		.loc 1 59 0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 8
+  40              		@ frame_needed = 1, uses_anonymous_args = 0
+  41 0000 80B5     		push	{r7, lr}
+  42              		.cfi_def_cfa_offset 8
+  43              		.cfi_offset 7, -8
+  44              		.cfi_offset 14, -4
+  45 0002 82B0     		sub	sp, sp, #8
+  46              		.cfi_def_cfa_offset 16
+  47 0004 00AF     		add	r7, sp, #0
+  48              		.cfi_def_cfa_register 7
+  49 0006 7860     		str	r0, [r7, #4]
+  60:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_SPIM_TYPE == GLCD_SPIM_UDB_TYPE)
+  61:Generated_Source\PSoC4/GLCD.c ****   while((GLCD_SPIM_UDB_ReadTxStatus() & (GLCD_SPIM_UDB_STS_SPI_DONE | GLCD_SPIM_UDB_STS_SPI_IDLE) )
+  50              		.loc 1 61 0
+  51 0008 C046     		nop
+  52              	.L2:
+  53              		.loc 1 61 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 3
+
+
+  54 000a FFF7FEFF 		bl	GLCD_SPIM_UDB_ReadTxStatus
+  55 000e 0300     		movs	r3, r0
+  56 0010 1A00     		movs	r2, r3
+  57 0012 1123     		movs	r3, #17
+  58 0014 1340     		ands	r3, r2
+  59 0016 F8D0     		beq	.L2
+  62:Generated_Source\PSoC4/GLCD.c ****   GLCD_SPIM_UDB_WriteTxData((uint16)cmdData);
+  60              		.loc 1 62 0 is_stmt 1
+  61 0018 7B68     		ldr	r3, [r7, #4]
+  62 001a 9BB2     		uxth	r3, r3
+  63 001c 1800     		movs	r0, r3
+  64 001e FFF7FEFF 		bl	GLCD_SPIM_UDB_WriteTxData
+  63:Generated_Source\PSoC4/GLCD.c **** #endif
+  64:Generated_Source\PSoC4/GLCD.c **** 
+  65:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_SPIM_TYPE == GLCD_SPIM_SCB_TYPE)
+  66:Generated_Source\PSoC4/GLCD.c ****     GLCD_SPIM_UDB_SpiUartWriteTxData(cmdData);
+  67:Generated_Source\PSoC4/GLCD.c **** #endif
+  68:Generated_Source\PSoC4/GLCD.c **** }
+  65              		.loc 1 68 0
+  66 0022 C046     		nop
+  67 0024 BD46     		mov	sp, r7
+  68 0026 02B0     		add	sp, sp, #8
+  69              		@ sp needed
+  70 0028 80BD     		pop	{r7, pc}
+  71              		.cfi_endproc
+  72              	.LFE0:
+  73              		.size	GLCD_Command, .-GLCD_Command
+  74 002a C046     		.section	.text.GLCD_Data,"ax",%progbits
+  75              		.align	2
+  76              		.global	GLCD_Data
+  77              		.code	16
+  78              		.thumb_func
+  79              		.type	GLCD_Data, %function
+  80              	GLCD_Data:
+  81              	.LFB1:
+  69:Generated_Source\PSoC4/GLCD.c **** 
+  70:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+  71:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_Data
+  72:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+  73:Generated_Source\PSoC4/GLCD.c **** *
+  74:Generated_Source\PSoC4/GLCD.c **** * Summary:
+  75:Generated_Source\PSoC4/GLCD.c **** *  This function sends raw data to the controller.  The 9th bit is set to signal
+  76:Generated_Source\PSoC4/GLCD.c **** *  the controller that it information is data and not a command.
+  77:Generated_Source\PSoC4/GLCD.c **** *
+  78:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+  79:Generated_Source\PSoC4/GLCD.c **** *  rawData:  The data to be sent to the controller. 
+  80:Generated_Source\PSoC4/GLCD.c **** *
+  81:Generated_Source\PSoC4/GLCD.c **** * Return: 
+  82:Generated_Source\PSoC4/GLCD.c **** *  None 
+  83:Generated_Source\PSoC4/GLCD.c **** *  
+  84:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+  85:Generated_Source\PSoC4/GLCD.c **** void GLCD_Data(uint32 rawData)
+  86:Generated_Source\PSoC4/GLCD.c **** {	
+  82              		.loc 1 86 0
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 16
+  85              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 4
+
+
+  86 0000 80B5     		push	{r7, lr}
+  87              		.cfi_def_cfa_offset 8
+  88              		.cfi_offset 7, -8
+  89              		.cfi_offset 14, -4
+  90 0002 84B0     		sub	sp, sp, #16
+  91              		.cfi_def_cfa_offset 24
+  92 0004 00AF     		add	r7, sp, #0
+  93              		.cfi_def_cfa_register 7
+  94 0006 7860     		str	r0, [r7, #4]
+  87:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_SPIM_TYPE == GLCD_SPIM_UDB_TYPE)
+  88:Generated_Source\PSoC4/GLCD.c ****     uint16 data16;
+  89:Generated_Source\PSoC4/GLCD.c ****     data16 = (uint16)rawData | 0x0100;
+  95              		.loc 1 89 0
+  96 0008 7B68     		ldr	r3, [r7, #4]
+  97 000a 1BB2     		sxth	r3, r3
+  98 000c 8022     		movs	r2, #128
+  99 000e 5200     		lsls	r2, r2, #1
+ 100 0010 1343     		orrs	r3, r2
+ 101 0012 1AB2     		sxth	r2, r3
+ 102 0014 0E23     		movs	r3, #14
+ 103 0016 FB18     		adds	r3, r7, r3
+ 104 0018 1A80     		strh	r2, [r3]
+  90:Generated_Source\PSoC4/GLCD.c **** 	
+  91:Generated_Source\PSoC4/GLCD.c ****     while((GLCD_SPIM_UDB_ReadTxStatus() & (GLCD_SPIM_UDB_STS_SPI_DONE | GLCD_SPIM_UDB_STS_SPI_IDLE)
+ 105              		.loc 1 91 0
+ 106 001a C046     		nop
+ 107              	.L4:
+ 108              		.loc 1 91 0 is_stmt 0 discriminator 1
+ 109 001c FFF7FEFF 		bl	GLCD_SPIM_UDB_ReadTxStatus
+ 110 0020 0300     		movs	r3, r0
+ 111 0022 1A00     		movs	r2, r3
+ 112 0024 1123     		movs	r3, #17
+ 113 0026 1340     		ands	r3, r2
+ 114 0028 F8D0     		beq	.L4
+  92:Generated_Source\PSoC4/GLCD.c ****     GLCD_SPIM_UDB_WriteTxData(data16);
+ 115              		.loc 1 92 0 is_stmt 1
+ 116 002a 0E23     		movs	r3, #14
+ 117 002c FB18     		adds	r3, r7, r3
+ 118 002e 1B88     		ldrh	r3, [r3]
+ 119 0030 1800     		movs	r0, r3
+ 120 0032 FFF7FEFF 		bl	GLCD_SPIM_UDB_WriteTxData
+  93:Generated_Source\PSoC4/GLCD.c **** #endif
+  94:Generated_Source\PSoC4/GLCD.c **** 
+  95:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_SPIM_TYPE == GLCD_SPIM_SCB_TYPE)
+  96:Generated_Source\PSoC4/GLCD.c **** 
+  97:Generated_Source\PSoC4/GLCD.c ****     rawData = rawData | 0x00000100;
+  98:Generated_Source\PSoC4/GLCD.c ****     GLCD_SPIM_UDB_SpiUartWriteTxData(rawData);
+  99:Generated_Source\PSoC4/GLCD.c **** #endif
+ 100:Generated_Source\PSoC4/GLCD.c **** 
+ 101:Generated_Source\PSoC4/GLCD.c **** }
+ 121              		.loc 1 101 0
+ 122 0036 C046     		nop
+ 123 0038 BD46     		mov	sp, r7
+ 124 003a 04B0     		add	sp, sp, #16
+ 125              		@ sp needed
+ 126 003c 80BD     		pop	{r7, pc}
+ 127              		.cfi_endproc
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 5
+
+
+ 128              	.LFE1:
+ 129              		.size	GLCD_Data, .-GLCD_Data
+ 130 003e C046     		.section	.text.GLCD_Start,"ax",%progbits
+ 131              		.align	2
+ 132              		.global	GLCD_Start
+ 133              		.code	16
+ 134              		.thumb_func
+ 135              		.type	GLCD_Start, %function
+ 136              	GLCD_Start:
+ 137              	.LFB2:
+ 102:Generated_Source\PSoC4/GLCD.c **** 
+ 103:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 104:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_Start
+ 105:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 106:Generated_Source\PSoC4/GLCD.c **** *
+ 107:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 108:Generated_Source\PSoC4/GLCD.c **** *  This function initializes the SPI interface and the LCD controller.  
+ 109:Generated_Source\PSoC4/GLCD.c **** *
+ 110:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 111:Generated_Source\PSoC4/GLCD.c **** *  None:   
+ 112:Generated_Source\PSoC4/GLCD.c **** *
+ 113:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 114:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 115:Generated_Source\PSoC4/GLCD.c **** *  
+ 116:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 117:Generated_Source\PSoC4/GLCD.c **** void GLCD_Start(void)
+ 118:Generated_Source\PSoC4/GLCD.c **** {
+ 138              		.loc 1 118 0
+ 139              		.cfi_startproc
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 1, uses_anonymous_args = 0
+ 142 0000 80B5     		push	{r7, lr}
+ 143              		.cfi_def_cfa_offset 8
+ 144              		.cfi_offset 7, -8
+ 145              		.cfi_offset 14, -4
+ 146 0002 00AF     		add	r7, sp, #0
+ 147              		.cfi_def_cfa_register 7
+ 119:Generated_Source\PSoC4/GLCD.c **** 	
+ 120:Generated_Source\PSoC4/GLCD.c **** 	GLCD_SPIM_UDB_Start();
+ 148              		.loc 1 120 0
+ 149 0004 FFF7FEFF 		bl	GLCD_SPIM_UDB_Start
+ 121:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_SPIM_TYPE == GLCD_SPIM_SCB_TYPE)
+ 122:Generated_Source\PSoC4/GLCD.c ****     GLCD_SPIM_UDB_SpiSetActiveSlaveSelect(3u);
+ 123:Generated_Source\PSoC4/GLCD.c **** #endif
+ 124:Generated_Source\PSoC4/GLCD.c **** 
+ 125:Generated_Source\PSoC4/GLCD.c **** 	CyDelayUs(20);			            /* 20us delay    */
+ 150              		.loc 1 125 0
+ 151 0008 1420     		movs	r0, #20
+ 152 000a FFF7FEFF 		bl	CyDelayUs
+ 126:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Reset_Write(0x00);	/* Display Reset */
+ 153              		.loc 1 126 0
+ 154 000e 0020     		movs	r0, #0
+ 155 0010 FFF7FEFF 		bl	GLCD_Reset_Write
+ 127:Generated_Source\PSoC4/GLCD.c **** 	CyDelay(200);			            /* 200ms delay   */
+ 156              		.loc 1 127 0
+ 157 0014 C820     		movs	r0, #200
+ 158 0016 FFF7FEFF 		bl	CyDelay
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 6
+
+
+ 128:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Reset_Write(0xFF);	/* Release Reset */
+ 159              		.loc 1 128 0
+ 160 001a FF20     		movs	r0, #255
+ 161 001c FFF7FEFF 		bl	GLCD_Reset_Write
+ 129:Generated_Source\PSoC4/GLCD.c **** 	CyDelay(200);			            /* 200ms delay   */
+ 162              		.loc 1 129 0
+ 163 0020 C820     		movs	r0, #200
+ 164 0022 FFF7FEFF 		bl	CyDelay
+ 130:Generated_Source\PSoC4/GLCD.c **** 	
+ 131:Generated_Source\PSoC4/GLCD.c **** #if(GLCD_Controller == GLCD_EPSON)
+ 132:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_DISCTL);	/*  Display control (0xCA)         */
+ 133:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x0C);		/* 12 = 1100 - CL dividing ratio [don't divide] switching period 8H (default) */
+ 134:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x20);		/* nlines/4 - 1 = 132/4 - 1 = 32 duty              */
+ 135:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x00);		/* No inversely highlighted lines                  */
+ 136:Generated_Source\PSoC4/GLCD.c **** 	
+ 137:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_COMSCN);	  /* common scanning direction     */
+ 138:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x01);		                  /* 1->68, 132<-69 scan direction */
+ 139:Generated_Source\PSoC4/GLCD.c **** 	
+ 140:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_OSCON);	  /* internal oscialltor ON        */
+ 141:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_SLEEPOUT);  /* sleep out                     */    
+ 142:Generated_Source\PSoC4/GLCD.c **** 	
+ 143:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_PWRCTR);	  /* Power ctrl                    */
+ 144:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x0F);	                      /* everything on, no external reference  resistors  */
+ 145:Generated_Source\PSoC4/GLCD.c **** 	
+ 146:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_DINVON);	  /* invert display mode           */
+ 147:Generated_Source\PSoC4/GLCD.c **** 	
+ 148:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_DATCTL);	  /* data control                  */
+ 149:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x03);		/* Inverse page address, reverse rotation column address, column scan-direction	
+ 150:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x00);		                  /* normal RGB arrangement                 */
+ 151:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x02);		                  /* 16-bit Grayscale Type A (12-bit color) */
+ 152:Generated_Source\PSoC4/GLCD.c **** 	
+ 153:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_SETCONST);	/* Electronic volume, this is the contrast/brightness        */
+ 154:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(GLCD_CONST_DEFAULT);  /* Volume (contrast) setting - fine tuning, original (0-63)  */
+ 155:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(3);			                    /* Internal resistor ratio - coarse adjustment (0-7)         *
+ 156:Generated_Source\PSoC4/GLCD.c **** 	
+ 157:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_NOP);	        /* nop */
+ 158:Generated_Source\PSoC4/GLCD.c **** 
+ 159:Generated_Source\PSoC4/GLCD.c **** 	CyDelay(100);
+ 160:Generated_Source\PSoC4/GLCD.c **** 
+ 161:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_DISPON);	     /*  Display on */
+ 162:Generated_Source\PSoC4/GLCD.c **** #endif
+ 163:Generated_Source\PSoC4/GLCD.c **** 
+ 164:Generated_Source\PSoC4/GLCD.c **** #if(GLCD_Controller == GLCD_PHILIPS) /* Driver is Philips */
+ 165:Generated_Source\PSoC4/GLCD.c **** 
+ 166:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_SLEEPOUT);	 /* Sleep Out          */
+ 165              		.loc 1 166 0
+ 166 0026 1120     		movs	r0, #17
+ 167 0028 FFF7FEFF 		bl	GLCD_Command
+ 167:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_BSTRON);       /* Booster voltage on */
+ 168              		.loc 1 167 0
+ 169 002c 0320     		movs	r0, #3
+ 170 002e FFF7FEFF 		bl	GLCD_Command
+ 168:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_DISPON);		 /* Display on         */
+ 171              		.loc 1 168 0
+ 172 0032 2920     		movs	r0, #41
+ 173 0034 FFF7FEFF 		bl	GLCD_Command
+ 169:Generated_Source\PSoC4/GLCD.c **** 	
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 7
+
+
+ 170:Generated_Source\PSoC4/GLCD.c **** 	/* 12-bit color pixel format:  */
+ 171:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_COLMOD);		 /* Color interface format     */
+ 174              		.loc 1 171 0
+ 175 0038 3A20     		movs	r0, #58
+ 176 003a FFF7FEFF 		bl	GLCD_Command
+ 172:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(0x03);			                 /* 0b011 is 12-bit/pixel mode */
+ 177              		.loc 1 172 0
+ 178 003e 0320     		movs	r0, #3
+ 179 0040 FFF7FEFF 		bl	GLCD_Data
+ 173:Generated_Source\PSoC4/GLCD.c **** 	
+ 174:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_MADCTL);		 /* Memory Access Control      */
+ 180              		.loc 1 174 0
+ 181 0044 3620     		movs	r0, #54
+ 182 0046 FFF7FEFF 		bl	GLCD_Command
+ 175:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_SETCONST);     /* Set Contrast               */          
+ 183              		.loc 1 175 0
+ 184 004a 2520     		movs	r0, #37
+ 185 004c FFF7FEFF 		bl	GLCD_Command
+ 176:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(GLCD_CONST_DEFAULT);
+ 186              		.loc 1 176 0
+ 187 0050 3020     		movs	r0, #48
+ 188 0052 FFF7FEFF 		bl	GLCD_Data
+ 177:Generated_Source\PSoC4/GLCD.c **** 	
+ 178:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_NOP);	
+ 189              		.loc 1 178 0
+ 190 0056 0020     		movs	r0, #0
+ 191 0058 FFF7FEFF 		bl	GLCD_Command
+ 179:Generated_Source\PSoC4/GLCD.c **** #endif
+ 180:Generated_Source\PSoC4/GLCD.c **** 
+ 181:Generated_Source\PSoC4/GLCD.c ****   	GLCD_Contrast(60);                           /* Set default contrast  */
+ 192              		.loc 1 181 0
+ 193 005c 3C20     		movs	r0, #60
+ 194 005e FFF7FEFF 		bl	GLCD_Contrast
+ 182:Generated_Source\PSoC4/GLCD.c ****   	GLCD_Clear(GLCD_BLACK);          /* Clear screen to black */
+ 195              		.loc 1 182 0
+ 196 0062 0020     		movs	r0, #0
+ 197 0064 FFF7FEFF 		bl	GLCD_Clear
+ 183:Generated_Source\PSoC4/GLCD.c **** }
+ 198              		.loc 1 183 0
+ 199 0068 C046     		nop
+ 200 006a BD46     		mov	sp, r7
+ 201              		@ sp needed
+ 202 006c 80BD     		pop	{r7, pc}
+ 203              		.cfi_endproc
+ 204              	.LFE2:
+ 205              		.size	GLCD_Start, .-GLCD_Start
+ 206 006e C046     		.section	.text.GLCD_Stop,"ax",%progbits
+ 207              		.align	2
+ 208              		.global	GLCD_Stop
+ 209              		.code	16
+ 210              		.thumb_func
+ 211              		.type	GLCD_Stop, %function
+ 212              	GLCD_Stop:
+ 213              	.LFB3:
+ 184:Generated_Source\PSoC4/GLCD.c **** 
+ 185:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 186:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_Stop
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 8
+
+
+ 187:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 188:Generated_Source\PSoC4/GLCD.c **** *
+ 189:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 190:Generated_Source\PSoC4/GLCD.c **** *  This function clears the LCD to black and turns off the display.  
+ 191:Generated_Source\PSoC4/GLCD.c **** *
+ 192:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 193:Generated_Source\PSoC4/GLCD.c **** *   None:   
+ 194:Generated_Source\PSoC4/GLCD.c **** *
+ 195:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 196:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 197:Generated_Source\PSoC4/GLCD.c **** *  
+ 198:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 199:Generated_Source\PSoC4/GLCD.c **** void GLCD_Stop(void)
+ 200:Generated_Source\PSoC4/GLCD.c **** {
+ 214              		.loc 1 200 0
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 0
+ 217              		@ frame_needed = 1, uses_anonymous_args = 0
+ 218 0000 80B5     		push	{r7, lr}
+ 219              		.cfi_def_cfa_offset 8
+ 220              		.cfi_offset 7, -8
+ 221              		.cfi_offset 14, -4
+ 222 0002 00AF     		add	r7, sp, #0
+ 223              		.cfi_def_cfa_register 7
+ 201:Generated_Source\PSoC4/GLCD.c ****    GLCD_Clear(GLCD_BLACK);
+ 224              		.loc 1 201 0
+ 225 0004 0020     		movs	r0, #0
+ 226 0006 FFF7FEFF 		bl	GLCD_Clear
+ 202:Generated_Source\PSoC4/GLCD.c ****    GLCD_Command(GLCD_DISPOFF);
+ 227              		.loc 1 202 0
+ 228 000a 2820     		movs	r0, #40
+ 229 000c FFF7FEFF 		bl	GLCD_Command
+ 203:Generated_Source\PSoC4/GLCD.c **** }
+ 230              		.loc 1 203 0
+ 231 0010 C046     		nop
+ 232 0012 BD46     		mov	sp, r7
+ 233              		@ sp needed
+ 234 0014 80BD     		pop	{r7, pc}
+ 235              		.cfi_endproc
+ 236              	.LFE3:
+ 237              		.size	GLCD_Stop, .-GLCD_Stop
+ 238 0016 C046     		.section	.text.GLCD_Clear,"ax",%progbits
+ 239              		.align	2
+ 240              		.global	GLCD_Clear
+ 241              		.code	16
+ 242              		.thumb_func
+ 243              		.type	GLCD_Clear, %function
+ 244              	GLCD_Clear:
+ 245              	.LFB4:
+ 204:Generated_Source\PSoC4/GLCD.c **** 
+ 205:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 206:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_Clear
+ 207:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 208:Generated_Source\PSoC4/GLCD.c **** *
+ 209:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 210:Generated_Source\PSoC4/GLCD.c **** *  Clear the display.  
+ 211:Generated_Source\PSoC4/GLCD.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 9
+
+
+ 212:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 213:Generated_Source\PSoC4/GLCD.c **** *  color: Color to clear display with. 
+ 214:Generated_Source\PSoC4/GLCD.c **** *
+ 215:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 216:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 217:Generated_Source\PSoC4/GLCD.c **** *  
+ 218:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 219:Generated_Source\PSoC4/GLCD.c **** void GLCD_Clear(int32 color)
+ 220:Generated_Source\PSoC4/GLCD.c **** {
+ 246              		.loc 1 220 0
+ 247              		.cfi_startproc
+ 248              		@ args = 0, pretend = 0, frame = 16
+ 249              		@ frame_needed = 1, uses_anonymous_args = 0
+ 250 0000 80B5     		push	{r7, lr}
+ 251              		.cfi_def_cfa_offset 8
+ 252              		.cfi_offset 7, -8
+ 253              		.cfi_offset 14, -4
+ 254 0002 84B0     		sub	sp, sp, #16
+ 255              		.cfi_def_cfa_offset 24
+ 256 0004 00AF     		add	r7, sp, #0
+ 257              		.cfi_def_cfa_register 7
+ 258 0006 7860     		str	r0, [r7, #4]
+ 221:Generated_Source\PSoC4/GLCD.c ****     int32 i;
+ 222:Generated_Source\PSoC4/GLCD.c **** 
+ 223:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_PAGEADDR);
+ 259              		.loc 1 223 0
+ 260 0008 2B20     		movs	r0, #43
+ 261 000a FFF7FEFF 		bl	GLCD_Command
+ 224:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(GLCD_MINX);
+ 262              		.loc 1 224 0
+ 263 000e 0020     		movs	r0, #0
+ 264 0010 FFF7FEFF 		bl	GLCD_Data
+ 225:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(GLCD_MAXX);
+ 265              		.loc 1 225 0
+ 266 0014 8320     		movs	r0, #131
+ 267 0016 FFF7FEFF 		bl	GLCD_Data
+ 226:Generated_Source\PSoC4/GLCD.c **** 
+ 227:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_COLADDR);
+ 268              		.loc 1 227 0
+ 269 001a 2A20     		movs	r0, #42
+ 270 001c FFF7FEFF 		bl	GLCD_Command
+ 228:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(GLCD_MINY);
+ 271              		.loc 1 228 0
+ 272 0020 0020     		movs	r0, #0
+ 273 0022 FFF7FEFF 		bl	GLCD_Data
+ 229:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(GLCD_MAXY);
+ 274              		.loc 1 229 0
+ 275 0026 8320     		movs	r0, #131
+ 276 0028 FFF7FEFF 		bl	GLCD_Data
+ 230:Generated_Source\PSoC4/GLCD.c **** 
+ 231:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_RAMWR);
+ 277              		.loc 1 231 0
+ 278 002c 2C20     		movs	r0, #44
+ 279 002e FFF7FEFF 		bl	GLCD_Command
+ 232:Generated_Source\PSoC4/GLCD.c **** 
+ 233:Generated_Source\PSoC4/GLCD.c **** 
+ 234:Generated_Source\PSoC4/GLCD.c **** 	for( i=0; i < (GLCD_MAXX*GLCD_MAXY)/2; i++)
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 10
+
+
+ 280              		.loc 1 234 0
+ 281 0032 0023     		movs	r3, #0
+ 282 0034 FB60     		str	r3, [r7, #12]
+ 283 0036 1AE0     		b	.L8
+ 284              	.L9:
+ 235:Generated_Source\PSoC4/GLCD.c **** 	{
+ 236:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Data((color>>4)&0x00FF);
+ 285              		.loc 1 236 0 discriminator 3
+ 286 0038 7B68     		ldr	r3, [r7, #4]
+ 287 003a 1B11     		asrs	r3, r3, #4
+ 288 003c 1A00     		movs	r2, r3
+ 289 003e FF23     		movs	r3, #255
+ 290 0040 1340     		ands	r3, r2
+ 291 0042 1800     		movs	r0, r3
+ 292 0044 FFF7FEFF 		bl	GLCD_Data
+ 237:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Data(((color&0x0F)<<4)|(color>>8));
+ 293              		.loc 1 237 0 discriminator 3
+ 294 0048 7B68     		ldr	r3, [r7, #4]
+ 295 004a 1B01     		lsls	r3, r3, #4
+ 296 004c FF22     		movs	r2, #255
+ 297 004e 1A40     		ands	r2, r3
+ 298 0050 7B68     		ldr	r3, [r7, #4]
+ 299 0052 1B12     		asrs	r3, r3, #8
+ 300 0054 1343     		orrs	r3, r2
+ 301 0056 1800     		movs	r0, r3
+ 302 0058 FFF7FEFF 		bl	GLCD_Data
+ 238:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Data(color&0x0FF);
+ 303              		.loc 1 238 0 discriminator 3
+ 304 005c 7B68     		ldr	r3, [r7, #4]
+ 305 005e FF22     		movs	r2, #255
+ 306 0060 1340     		ands	r3, r2
+ 307 0062 1800     		movs	r0, r3
+ 308 0064 FFF7FEFF 		bl	GLCD_Data
+ 234:Generated_Source\PSoC4/GLCD.c **** 	{
+ 309              		.loc 1 234 0 discriminator 3
+ 310 0068 FB68     		ldr	r3, [r7, #12]
+ 311 006a 0133     		adds	r3, r3, #1
+ 312 006c FB60     		str	r3, [r7, #12]
+ 313              	.L8:
+ 234:Generated_Source\PSoC4/GLCD.c **** 	{
+ 314              		.loc 1 234 0 is_stmt 0 discriminator 1
+ 315 006e FB68     		ldr	r3, [r7, #12]
+ 316 0070 064A     		ldr	r2, .L10
+ 317 0072 9342     		cmp	r3, r2
+ 318 0074 E0D9     		bls	.L9
+ 239:Generated_Source\PSoC4/GLCD.c **** 	}
+ 240:Generated_Source\PSoC4/GLCD.c **** 
+ 241:Generated_Source\PSoC4/GLCD.c **** 	GLCD_x_offset = 0;
+ 319              		.loc 1 241 0 is_stmt 1
+ 320 0076 064B     		ldr	r3, .L10+4
+ 321 0078 0022     		movs	r2, #0
+ 322 007a 1A60     		str	r2, [r3]
+ 242:Generated_Source\PSoC4/GLCD.c **** 	GLCD_y_offset = 0;
+ 323              		.loc 1 242 0
+ 324 007c 054B     		ldr	r3, .L10+8
+ 325 007e 0022     		movs	r2, #0
+ 326 0080 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 11
+
+
+ 243:Generated_Source\PSoC4/GLCD.c **** }
+ 327              		.loc 1 243 0
+ 328 0082 C046     		nop
+ 329 0084 BD46     		mov	sp, r7
+ 330 0086 04B0     		add	sp, sp, #16
+ 331              		@ sp needed
+ 332 0088 80BD     		pop	{r7, pc}
+ 333              	.L11:
+ 334 008a C046     		.align	2
+ 335              	.L10:
+ 336 008c 83210000 		.word	8579
+ 337 0090 00000000 		.word	GLCD_x_offset
+ 338 0094 04000000 		.word	GLCD_y_offset
+ 339              		.cfi_endproc
+ 340              	.LFE4:
+ 341              		.size	GLCD_Clear, .-GLCD_Clear
+ 342              		.section	.text.GLCD_Contrast,"ax",%progbits
+ 343              		.align	2
+ 344              		.global	GLCD_Contrast
+ 345              		.code	16
+ 346              		.thumb_func
+ 347              		.type	GLCD_Contrast, %function
+ 348              	GLCD_Contrast:
+ 349              	.LFB5:
+ 244:Generated_Source\PSoC4/GLCD.c **** 
+ 245:Generated_Source\PSoC4/GLCD.c **** 
+ 246:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 247:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_Contrast
+ 248:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 249:Generated_Source\PSoC4/GLCD.c **** *
+ 250:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 251:Generated_Source\PSoC4/GLCD.c **** *  Set color contrast  
+ 252:Generated_Source\PSoC4/GLCD.c **** *
+ 253:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 254:Generated_Source\PSoC4/GLCD.c **** *  setting: Contrast value.  
+ 255:Generated_Source\PSoC4/GLCD.c **** *
+ 256:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 257:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 258:Generated_Source\PSoC4/GLCD.c **** *  
+ 259:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 260:Generated_Source\PSoC4/GLCD.c **** void GLCD_Contrast(int32 setting)
+ 261:Generated_Source\PSoC4/GLCD.c **** {
+ 350              		.loc 1 261 0
+ 351              		.cfi_startproc
+ 352              		@ args = 0, pretend = 0, frame = 8
+ 353              		@ frame_needed = 1, uses_anonymous_args = 0
+ 354 0000 80B5     		push	{r7, lr}
+ 355              		.cfi_def_cfa_offset 8
+ 356              		.cfi_offset 7, -8
+ 357              		.cfi_offset 14, -4
+ 358 0002 82B0     		sub	sp, sp, #8
+ 359              		.cfi_def_cfa_offset 16
+ 360 0004 00AF     		add	r7, sp, #0
+ 361              		.cfi_def_cfa_register 7
+ 362 0006 7860     		str	r0, [r7, #4]
+ 262:Generated_Source\PSoC4/GLCD.c ****     setting &= GLCD_CONST_MASK;	                /* Mask off contrast value */
+ 363              		.loc 1 262 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 12
+
+
+ 364 0008 7B68     		ldr	r3, [r7, #4]
+ 365 000a 7F22     		movs	r2, #127
+ 366 000c 1340     		ands	r3, r2
+ 367 000e 7B60     		str	r3, [r7, #4]
+ 263:Generated_Source\PSoC4/GLCD.c ****     GLCD_Command(GLCD_SETCONST);	/* Set Contrast            */
+ 368              		.loc 1 263 0
+ 369 0010 2520     		movs	r0, #37
+ 370 0012 FFF7FEFF 		bl	GLCD_Command
+ 264:Generated_Source\PSoC4/GLCD.c ****     GLCD_Data(setting);	                    
+ 371              		.loc 1 264 0
+ 372 0016 7B68     		ldr	r3, [r7, #4]
+ 373 0018 1800     		movs	r0, r3
+ 374 001a FFF7FEFF 		bl	GLCD_Data
+ 265:Generated_Source\PSoC4/GLCD.c **** 
+ 266:Generated_Source\PSoC4/GLCD.c **** #if(GLCD_Controller == GLCD_EPSON)  /* Only required for Epson */
+ 267:Generated_Source\PSoC4/GLCD.c ****     GLCD_Data(3);			
+ 268:Generated_Source\PSoC4/GLCD.c **** #endif
+ 269:Generated_Source\PSoC4/GLCD.c **** 
+ 270:Generated_Source\PSoC4/GLCD.c **** }
+ 375              		.loc 1 270 0
+ 376 001e C046     		nop
+ 377 0020 BD46     		mov	sp, r7
+ 378 0022 02B0     		add	sp, sp, #8
+ 379              		@ sp needed
+ 380 0024 80BD     		pop	{r7, pc}
+ 381              		.cfi_endproc
+ 382              	.LFE5:
+ 383              		.size	GLCD_Contrast, .-GLCD_Contrast
+ 384 0026 C046     		.section	.text.GLCD_SwapColors,"ax",%progbits
+ 385              		.align	2
+ 386              		.global	GLCD_SwapColors
+ 387              		.code	16
+ 388              		.thumb_func
+ 389              		.type	GLCD_SwapColors, %function
+ 390              	GLCD_SwapColors:
+ 391              	.LFB6:
+ 271:Generated_Source\PSoC4/GLCD.c **** 
+ 272:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 273:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_SwapColors
+ 274:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 275:Generated_Source\PSoC4/GLCD.c **** *
+ 276:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 277:Generated_Source\PSoC4/GLCD.c **** *   Swaps colors between Epson and Philips mode.  
+ 278:Generated_Source\PSoC4/GLCD.c **** *
+ 279:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 280:Generated_Source\PSoC4/GLCD.c **** *  prtValue:  The value  
+ 281:Generated_Source\PSoC4/GLCD.c **** *
+ 282:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 283:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 284:Generated_Source\PSoC4/GLCD.c **** *  Added by Steve Sparks @ Big Nerd Ranch.
+ 285:Generated_Source\PSoC4/GLCD.c **** *  This swaps the Epson RGB order into the Philips RGB order. (Or, vice versa, I suppose.)
+ 286:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 287:Generated_Source\PSoC4/GLCD.c **** int32 GLCD_SwapColors(int32 in)
+ 288:Generated_Source\PSoC4/GLCD.c **** {
+ 392              		.loc 1 288 0
+ 393              		.cfi_startproc
+ 394              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 13
+
+
+ 395              		@ frame_needed = 1, uses_anonymous_args = 0
+ 396 0000 80B5     		push	{r7, lr}
+ 397              		.cfi_def_cfa_offset 8
+ 398              		.cfi_offset 7, -8
+ 399              		.cfi_offset 14, -4
+ 400 0002 82B0     		sub	sp, sp, #8
+ 401              		.cfi_def_cfa_offset 16
+ 402 0004 00AF     		add	r7, sp, #0
+ 403              		.cfi_def_cfa_register 7
+ 404 0006 7860     		str	r0, [r7, #4]
+ 289:Generated_Source\PSoC4/GLCD.c ****     return ((in & 0x000F)<<8)|(in & 0x00F0)|((in & 0x0F00)>>8);
+ 405              		.loc 1 289 0
+ 406 0008 7B68     		ldr	r3, [r7, #4]
+ 407 000a 1A02     		lsls	r2, r3, #8
+ 408 000c F023     		movs	r3, #240
+ 409 000e 1B01     		lsls	r3, r3, #4
+ 410 0010 1A40     		ands	r2, r3
+ 411 0012 7B68     		ldr	r3, [r7, #4]
+ 412 0014 F021     		movs	r1, #240
+ 413 0016 0B40     		ands	r3, r1
+ 414 0018 1A43     		orrs	r2, r3
+ 415 001a 7B68     		ldr	r3, [r7, #4]
+ 416 001c 1B12     		asrs	r3, r3, #8
+ 417 001e 0F21     		movs	r1, #15
+ 418 0020 0B40     		ands	r3, r1
+ 419 0022 1343     		orrs	r3, r2
+ 290:Generated_Source\PSoC4/GLCD.c **** }
+ 420              		.loc 1 290 0
+ 421 0024 1800     		movs	r0, r3
+ 422 0026 BD46     		mov	sp, r7
+ 423 0028 02B0     		add	sp, sp, #8
+ 424              		@ sp needed
+ 425 002a 80BD     		pop	{r7, pc}
+ 426              		.cfi_endproc
+ 427              	.LFE6:
+ 428              		.size	GLCD_SwapColors, .-GLCD_SwapColors
+ 429              		.section	.text.GLCD_Pixel,"ax",%progbits
+ 430              		.align	2
+ 431              		.global	GLCD_Pixel
+ 432              		.code	16
+ 433              		.thumb_func
+ 434              		.type	GLCD_Pixel, %function
+ 435              	GLCD_Pixel:
+ 436              	.LFB7:
+ 291:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 292:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_Pixel
+ 293:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 294:Generated_Source\PSoC4/GLCD.c **** *
+ 295:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 296:Generated_Source\PSoC4/GLCD.c **** *  Draw Pixel  
+ 297:Generated_Source\PSoC4/GLCD.c **** *
+ 298:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 299:Generated_Source\PSoC4/GLCD.c **** *  x,y:    Location to draw the pixel
+ 300:Generated_Source\PSoC4/GLCD.c **** *  color:  Color of the pixel
+ 301:Generated_Source\PSoC4/GLCD.c **** *
+ 302:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 303:Generated_Source\PSoC4/GLCD.c **** *  None 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 14
+
+
+ 304:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 305:Generated_Source\PSoC4/GLCD.c **** void GLCD_Pixel(int32 x, int32 y, int32 color)
+ 306:Generated_Source\PSoC4/GLCD.c **** {
+ 437              		.loc 1 306 0
+ 438              		.cfi_startproc
+ 439              		@ args = 0, pretend = 0, frame = 16
+ 440              		@ frame_needed = 1, uses_anonymous_args = 0
+ 441 0000 80B5     		push	{r7, lr}
+ 442              		.cfi_def_cfa_offset 8
+ 443              		.cfi_offset 7, -8
+ 444              		.cfi_offset 14, -4
+ 445 0002 84B0     		sub	sp, sp, #16
+ 446              		.cfi_def_cfa_offset 24
+ 447 0004 00AF     		add	r7, sp, #0
+ 448              		.cfi_def_cfa_register 7
+ 449 0006 F860     		str	r0, [r7, #12]
+ 450 0008 B960     		str	r1, [r7, #8]
+ 451 000a 7A60     		str	r2, [r7, #4]
+ 307:Generated_Source\PSoC4/GLCD.c ****     y =	(GLCD_COL_HEIGHT - 1) - y;
+ 452              		.loc 1 307 0
+ 453 000c BB68     		ldr	r3, [r7, #8]
+ 454 000e 8322     		movs	r2, #131
+ 455 0010 D31A     		subs	r3, r2, r3
+ 456 0012 BB60     		str	r3, [r7, #8]
+ 308:Generated_Source\PSoC4/GLCD.c ****     x = (GLCD_ROW_LENGTH - 1) - x;
+ 457              		.loc 1 308 0
+ 458 0014 FB68     		ldr	r3, [r7, #12]
+ 459 0016 8322     		movs	r2, #131
+ 460 0018 D31A     		subs	r3, r2, r3
+ 461 001a FB60     		str	r3, [r7, #12]
+ 309:Generated_Source\PSoC4/GLCD.c **** 
+ 310:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_Controller == GLCD_EPSON) /* EPSON     */
+ 311:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_PAGEADDR);    /* Set page  */
+ 312:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(x);
+ 313:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(GLCD_ENDPAGE);
+ 314:Generated_Source\PSoC4/GLCD.c **** 
+ 315:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_COLADDR);     /* Set column */
+ 316:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(y);
+ 317:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(GLCD_ENDCOL);
+ 318:Generated_Source\PSoC4/GLCD.c **** 
+ 319:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_RAMWR);       /* Write color data */
+ 320:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((color>>4)&0x00FF);
+ 321:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(((color&0x0F)<<4)|(color>>8));
+ 322:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(color&0x0FF);
+ 323:Generated_Source\PSoC4/GLCD.c **** #endif
+ 324:Generated_Source\PSoC4/GLCD.c **** 
+ 325:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_Controller == GLCD_PHILIPS) /* PHILIPS   */
+ 326:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_PAGEADDR);      /* Set page  */
+ 462              		.loc 1 326 0
+ 463 001c 2B20     		movs	r0, #43
+ 464 001e FFF7FEFF 		bl	GLCD_Command
+ 327:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)x);
+ 465              		.loc 1 327 0
+ 466 0022 FB68     		ldr	r3, [r7, #12]
+ 467 0024 FF22     		movs	r2, #255
+ 468 0026 1340     		ands	r3, r2
+ 469 0028 1800     		movs	r0, r3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 15
+
+
+ 470 002a FFF7FEFF 		bl	GLCD_Data
+ 328:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)x);
+ 471              		.loc 1 328 0
+ 472 002e FB68     		ldr	r3, [r7, #12]
+ 473 0030 FF22     		movs	r2, #255
+ 474 0032 1340     		ands	r3, r2
+ 475 0034 1800     		movs	r0, r3
+ 476 0036 FFF7FEFF 		bl	GLCD_Data
+ 329:Generated_Source\PSoC4/GLCD.c **** 
+ 330:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_COLADDR);       /* Set column */
+ 477              		.loc 1 330 0
+ 478 003a 2A20     		movs	r0, #42
+ 479 003c FFF7FEFF 		bl	GLCD_Command
+ 331:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)y);
+ 480              		.loc 1 331 0
+ 481 0040 BB68     		ldr	r3, [r7, #8]
+ 482 0042 FF22     		movs	r2, #255
+ 483 0044 1340     		ands	r3, r2
+ 484 0046 1800     		movs	r0, r3
+ 485 0048 FFF7FEFF 		bl	GLCD_Data
+ 332:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)y);
+ 486              		.loc 1 332 0
+ 487 004c BB68     		ldr	r3, [r7, #8]
+ 488 004e FF22     		movs	r2, #255
+ 489 0050 1340     		ands	r3, r2
+ 490 0052 1800     		movs	r0, r3
+ 491 0054 FFF7FEFF 		bl	GLCD_Data
+ 333:Generated_Source\PSoC4/GLCD.c **** 
+ 334:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_RAMWR);         /* Write color data */
+ 492              		.loc 1 334 0
+ 493 0058 2C20     		movs	r0, #44
+ 494 005a FFF7FEFF 		bl	GLCD_Command
+ 335:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)((color>>4)&0x00FF));
+ 495              		.loc 1 335 0
+ 496 005e 7B68     		ldr	r3, [r7, #4]
+ 497 0060 1B11     		asrs	r3, r3, #4
+ 498 0062 1A00     		movs	r2, r3
+ 499 0064 FF23     		movs	r3, #255
+ 500 0066 1340     		ands	r3, r2
+ 501 0068 1800     		movs	r0, r3
+ 502 006a FFF7FEFF 		bl	GLCD_Data
+ 336:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)(((color&0x0F)<<4)|0x00));
+ 503              		.loc 1 336 0
+ 504 006e 7B68     		ldr	r3, [r7, #4]
+ 505 0070 1B01     		lsls	r3, r3, #4
+ 506 0072 1A00     		movs	r2, r3
+ 507 0074 FF23     		movs	r3, #255
+ 508 0076 1340     		ands	r3, r2
+ 509 0078 1800     		movs	r0, r3
+ 510 007a FFF7FEFF 		bl	GLCD_Data
+ 337:Generated_Source\PSoC4/GLCD.c **** #endif
+ 338:Generated_Source\PSoC4/GLCD.c **** }
+ 511              		.loc 1 338 0
+ 512 007e C046     		nop
+ 513 0080 BD46     		mov	sp, r7
+ 514 0082 04B0     		add	sp, sp, #16
+ 515              		@ sp needed
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 16
+
+
+ 516 0084 80BD     		pop	{r7, pc}
+ 517              		.cfi_endproc
+ 518              	.LFE7:
+ 519              		.size	GLCD_Pixel, .-GLCD_Pixel
+ 520 0086 C046     		.section	.text.GLCD_DrawCircle,"ax",%progbits
+ 521              		.align	2
+ 522              		.global	GLCD_DrawCircle
+ 523              		.code	16
+ 524              		.thumb_func
+ 525              		.type	GLCD_DrawCircle, %function
+ 526              	GLCD_DrawCircle:
+ 527              	.LFB8:
+ 339:Generated_Source\PSoC4/GLCD.c **** 
+ 340:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 341:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_DrawCircle
+ 342:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 343:Generated_Source\PSoC4/GLCD.c **** *
+ 344:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 345:Generated_Source\PSoC4/GLCD.c **** *  Draw a circle on the display given a start point and radius.  
+ 346:Generated_Source\PSoC4/GLCD.c **** *
+ 347:Generated_Source\PSoC4/GLCD.c **** *  This code uses Bresenham's Circle Algorithm. 
+ 348:Generated_Source\PSoC4/GLCD.c **** *
+ 349:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 350:Generated_Source\PSoC4/GLCD.c **** *  x0, y0: Center of circle
+ 351:Generated_Source\PSoC4/GLCD.c **** *  radius: Radius of circle
+ 352:Generated_Source\PSoC4/GLCD.c **** *  color:  Color of circle
+ 353:Generated_Source\PSoC4/GLCD.c **** *
+ 354:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 355:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 356:Generated_Source\PSoC4/GLCD.c **** *  
+ 357:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 358:Generated_Source\PSoC4/GLCD.c **** void GLCD_DrawCircle (int32 x0, int32 y0, int32 radius, int32 color)
+ 359:Generated_Source\PSoC4/GLCD.c **** {
+ 528              		.loc 1 359 0
+ 529              		.cfi_startproc
+ 530              		@ args = 0, pretend = 0, frame = 40
+ 531              		@ frame_needed = 1, uses_anonymous_args = 0
+ 532 0000 80B5     		push	{r7, lr}
+ 533              		.cfi_def_cfa_offset 8
+ 534              		.cfi_offset 7, -8
+ 535              		.cfi_offset 14, -4
+ 536 0002 8AB0     		sub	sp, sp, #40
+ 537              		.cfi_def_cfa_offset 48
+ 538 0004 00AF     		add	r7, sp, #0
+ 539              		.cfi_def_cfa_register 7
+ 540 0006 F860     		str	r0, [r7, #12]
+ 541 0008 B960     		str	r1, [r7, #8]
+ 542 000a 7A60     		str	r2, [r7, #4]
+ 543 000c 3B60     		str	r3, [r7]
+ 360:Generated_Source\PSoC4/GLCD.c **** 	int32 f = 1 - radius;
+ 544              		.loc 1 360 0
+ 545 000e 7B68     		ldr	r3, [r7, #4]
+ 546 0010 0122     		movs	r2, #1
+ 547 0012 D31A     		subs	r3, r2, r3
+ 548 0014 7B62     		str	r3, [r7, #36]
+ 361:Generated_Source\PSoC4/GLCD.c **** 	int32 ddF_x = 0;
+ 549              		.loc 1 361 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 17
+
+
+ 550 0016 0023     		movs	r3, #0
+ 551 0018 3B62     		str	r3, [r7, #32]
+ 362:Generated_Source\PSoC4/GLCD.c **** 	int32 ddF_y = -2 * radius;
+ 552              		.loc 1 362 0
+ 553 001a 7A68     		ldr	r2, [r7, #4]
+ 554 001c 1300     		movs	r3, r2
+ 555 001e DB07     		lsls	r3, r3, #31
+ 556 0020 9B1A     		subs	r3, r3, r2
+ 557 0022 5B00     		lsls	r3, r3, #1
+ 558 0024 FB61     		str	r3, [r7, #28]
+ 363:Generated_Source\PSoC4/GLCD.c **** 	int32 x = 0;
+ 559              		.loc 1 363 0
+ 560 0026 0023     		movs	r3, #0
+ 561 0028 BB61     		str	r3, [r7, #24]
+ 364:Generated_Source\PSoC4/GLCD.c **** 	int32 y = radius;
+ 562              		.loc 1 364 0
+ 563 002a 7B68     		ldr	r3, [r7, #4]
+ 564 002c 7B61     		str	r3, [r7, #20]
+ 365:Generated_Source\PSoC4/GLCD.c **** 
+ 366:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Pixel(x0, y0 + radius, color);
+ 565              		.loc 1 366 0
+ 566 002e BA68     		ldr	r2, [r7, #8]
+ 567 0030 7B68     		ldr	r3, [r7, #4]
+ 568 0032 D118     		adds	r1, r2, r3
+ 569 0034 3A68     		ldr	r2, [r7]
+ 570 0036 FB68     		ldr	r3, [r7, #12]
+ 571 0038 1800     		movs	r0, r3
+ 572 003a FFF7FEFF 		bl	GLCD_Pixel
+ 367:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Pixel(x0, y0 - radius, color);
+ 573              		.loc 1 367 0
+ 574 003e BA68     		ldr	r2, [r7, #8]
+ 575 0040 7B68     		ldr	r3, [r7, #4]
+ 576 0042 D11A     		subs	r1, r2, r3
+ 577 0044 3A68     		ldr	r2, [r7]
+ 578 0046 FB68     		ldr	r3, [r7, #12]
+ 579 0048 1800     		movs	r0, r3
+ 580 004a FFF7FEFF 		bl	GLCD_Pixel
+ 368:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Pixel( x0 + radius, y0, color);
+ 581              		.loc 1 368 0
+ 582 004e FA68     		ldr	r2, [r7, #12]
+ 583 0050 7B68     		ldr	r3, [r7, #4]
+ 584 0052 D318     		adds	r3, r2, r3
+ 585 0054 3A68     		ldr	r2, [r7]
+ 586 0056 B968     		ldr	r1, [r7, #8]
+ 587 0058 1800     		movs	r0, r3
+ 588 005a FFF7FEFF 		bl	GLCD_Pixel
+ 369:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Pixel( x0 - radius, y0, color);
+ 589              		.loc 1 369 0
+ 590 005e FA68     		ldr	r2, [r7, #12]
+ 591 0060 7B68     		ldr	r3, [r7, #4]
+ 592 0062 D31A     		subs	r3, r2, r3
+ 593 0064 3A68     		ldr	r2, [r7]
+ 594 0066 B968     		ldr	r1, [r7, #8]
+ 595 0068 1800     		movs	r0, r3
+ 596 006a FFF7FEFF 		bl	GLCD_Pixel
+ 370:Generated_Source\PSoC4/GLCD.c **** 
+ 371:Generated_Source\PSoC4/GLCD.c **** 	while(x < y)
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 18
+
+
+ 597              		.loc 1 371 0
+ 598 006e 67E0     		b	.L17
+ 599              	.L19:
+ 372:Generated_Source\PSoC4/GLCD.c **** 	{
+ 373:Generated_Source\PSoC4/GLCD.c **** 		if(f >= 0)
+ 600              		.loc 1 373 0
+ 601 0070 7B6A     		ldr	r3, [r7, #36]
+ 602 0072 002B     		cmp	r3, #0
+ 603 0074 09DB     		blt	.L18
+ 374:Generated_Source\PSoC4/GLCD.c **** 		{
+ 375:Generated_Source\PSoC4/GLCD.c **** 			y--;
+ 604              		.loc 1 375 0
+ 605 0076 7B69     		ldr	r3, [r7, #20]
+ 606 0078 013B     		subs	r3, r3, #1
+ 607 007a 7B61     		str	r3, [r7, #20]
+ 376:Generated_Source\PSoC4/GLCD.c **** 			ddF_y += 2;
+ 608              		.loc 1 376 0
+ 609 007c FB69     		ldr	r3, [r7, #28]
+ 610 007e 0233     		adds	r3, r3, #2
+ 611 0080 FB61     		str	r3, [r7, #28]
+ 377:Generated_Source\PSoC4/GLCD.c **** 			f += ddF_y;
+ 612              		.loc 1 377 0
+ 613 0082 7A6A     		ldr	r2, [r7, #36]
+ 614 0084 FB69     		ldr	r3, [r7, #28]
+ 615 0086 D318     		adds	r3, r2, r3
+ 616 0088 7B62     		str	r3, [r7, #36]
+ 617              	.L18:
+ 378:Generated_Source\PSoC4/GLCD.c **** 		}
+ 379:Generated_Source\PSoC4/GLCD.c **** 		x++;
+ 618              		.loc 1 379 0
+ 619 008a BB69     		ldr	r3, [r7, #24]
+ 620 008c 0133     		adds	r3, r3, #1
+ 621 008e BB61     		str	r3, [r7, #24]
+ 380:Generated_Source\PSoC4/GLCD.c **** 		ddF_x += 2;
+ 622              		.loc 1 380 0
+ 623 0090 3B6A     		ldr	r3, [r7, #32]
+ 624 0092 0233     		adds	r3, r3, #2
+ 625 0094 3B62     		str	r3, [r7, #32]
+ 381:Generated_Source\PSoC4/GLCD.c **** 		f += ddF_x + 1;
+ 626              		.loc 1 381 0
+ 627 0096 3B6A     		ldr	r3, [r7, #32]
+ 628 0098 0133     		adds	r3, r3, #1
+ 629 009a 7A6A     		ldr	r2, [r7, #36]
+ 630 009c D318     		adds	r3, r2, r3
+ 631 009e 7B62     		str	r3, [r7, #36]
+ 382:Generated_Source\PSoC4/GLCD.c **** 
+ 383:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Pixel(x0 + x, y0 + y, color);
+ 632              		.loc 1 383 0
+ 633 00a0 FA68     		ldr	r2, [r7, #12]
+ 634 00a2 BB69     		ldr	r3, [r7, #24]
+ 635 00a4 D018     		adds	r0, r2, r3
+ 636 00a6 BA68     		ldr	r2, [r7, #8]
+ 637 00a8 7B69     		ldr	r3, [r7, #20]
+ 638 00aa D318     		adds	r3, r2, r3
+ 639 00ac 3A68     		ldr	r2, [r7]
+ 640 00ae 1900     		movs	r1, r3
+ 641 00b0 FFF7FEFF 		bl	GLCD_Pixel
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 19
+
+
+ 384:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Pixel(x0 - x, y0 + y, color);
+ 642              		.loc 1 384 0
+ 643 00b4 FA68     		ldr	r2, [r7, #12]
+ 644 00b6 BB69     		ldr	r3, [r7, #24]
+ 645 00b8 D01A     		subs	r0, r2, r3
+ 646 00ba BA68     		ldr	r2, [r7, #8]
+ 647 00bc 7B69     		ldr	r3, [r7, #20]
+ 648 00be D318     		adds	r3, r2, r3
+ 649 00c0 3A68     		ldr	r2, [r7]
+ 650 00c2 1900     		movs	r1, r3
+ 651 00c4 FFF7FEFF 		bl	GLCD_Pixel
+ 385:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Pixel( x0 + x, y0 - y, color);
+ 652              		.loc 1 385 0
+ 653 00c8 FA68     		ldr	r2, [r7, #12]
+ 654 00ca BB69     		ldr	r3, [r7, #24]
+ 655 00cc D018     		adds	r0, r2, r3
+ 656 00ce BA68     		ldr	r2, [r7, #8]
+ 657 00d0 7B69     		ldr	r3, [r7, #20]
+ 658 00d2 D31A     		subs	r3, r2, r3
+ 659 00d4 3A68     		ldr	r2, [r7]
+ 660 00d6 1900     		movs	r1, r3
+ 661 00d8 FFF7FEFF 		bl	GLCD_Pixel
+ 386:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Pixel( x0 - x, y0 - y, color);
+ 662              		.loc 1 386 0
+ 663 00dc FA68     		ldr	r2, [r7, #12]
+ 664 00de BB69     		ldr	r3, [r7, #24]
+ 665 00e0 D01A     		subs	r0, r2, r3
+ 666 00e2 BA68     		ldr	r2, [r7, #8]
+ 667 00e4 7B69     		ldr	r3, [r7, #20]
+ 668 00e6 D31A     		subs	r3, r2, r3
+ 669 00e8 3A68     		ldr	r2, [r7]
+ 670 00ea 1900     		movs	r1, r3
+ 671 00ec FFF7FEFF 		bl	GLCD_Pixel
+ 387:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Pixel( x0 + y, y0 + x, color);
+ 672              		.loc 1 387 0
+ 673 00f0 FA68     		ldr	r2, [r7, #12]
+ 674 00f2 7B69     		ldr	r3, [r7, #20]
+ 675 00f4 D018     		adds	r0, r2, r3
+ 676 00f6 BA68     		ldr	r2, [r7, #8]
+ 677 00f8 BB69     		ldr	r3, [r7, #24]
+ 678 00fa D318     		adds	r3, r2, r3
+ 679 00fc 3A68     		ldr	r2, [r7]
+ 680 00fe 1900     		movs	r1, r3
+ 681 0100 FFF7FEFF 		bl	GLCD_Pixel
+ 388:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Pixel( x0 - y, y0 + x, color);
+ 682              		.loc 1 388 0
+ 683 0104 FA68     		ldr	r2, [r7, #12]
+ 684 0106 7B69     		ldr	r3, [r7, #20]
+ 685 0108 D01A     		subs	r0, r2, r3
+ 686 010a BA68     		ldr	r2, [r7, #8]
+ 687 010c BB69     		ldr	r3, [r7, #24]
+ 688 010e D318     		adds	r3, r2, r3
+ 689 0110 3A68     		ldr	r2, [r7]
+ 690 0112 1900     		movs	r1, r3
+ 691 0114 FFF7FEFF 		bl	GLCD_Pixel
+ 389:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Pixel( x0 + y, y0 - x, color);
+ 692              		.loc 1 389 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 20
+
+
+ 693 0118 FA68     		ldr	r2, [r7, #12]
+ 694 011a 7B69     		ldr	r3, [r7, #20]
+ 695 011c D018     		adds	r0, r2, r3
+ 696 011e BA68     		ldr	r2, [r7, #8]
+ 697 0120 BB69     		ldr	r3, [r7, #24]
+ 698 0122 D31A     		subs	r3, r2, r3
+ 699 0124 3A68     		ldr	r2, [r7]
+ 700 0126 1900     		movs	r1, r3
+ 701 0128 FFF7FEFF 		bl	GLCD_Pixel
+ 390:Generated_Source\PSoC4/GLCD.c **** 		GLCD_Pixel( x0 - y, y0 - x, color);
+ 702              		.loc 1 390 0
+ 703 012c FA68     		ldr	r2, [r7, #12]
+ 704 012e 7B69     		ldr	r3, [r7, #20]
+ 705 0130 D01A     		subs	r0, r2, r3
+ 706 0132 BA68     		ldr	r2, [r7, #8]
+ 707 0134 BB69     		ldr	r3, [r7, #24]
+ 708 0136 D31A     		subs	r3, r2, r3
+ 709 0138 3A68     		ldr	r2, [r7]
+ 710 013a 1900     		movs	r1, r3
+ 711 013c FFF7FEFF 		bl	GLCD_Pixel
+ 712              	.L17:
+ 371:Generated_Source\PSoC4/GLCD.c **** 	{
+ 713              		.loc 1 371 0
+ 714 0140 BA69     		ldr	r2, [r7, #24]
+ 715 0142 7B69     		ldr	r3, [r7, #20]
+ 716 0144 9A42     		cmp	r2, r3
+ 717 0146 93DB     		blt	.L19
+ 391:Generated_Source\PSoC4/GLCD.c **** 	}
+ 392:Generated_Source\PSoC4/GLCD.c **** }
+ 718              		.loc 1 392 0
+ 719 0148 C046     		nop
+ 720 014a BD46     		mov	sp, r7
+ 721 014c 0AB0     		add	sp, sp, #40
+ 722              		@ sp needed
+ 723 014e 80BD     		pop	{r7, pc}
+ 724              		.cfi_endproc
+ 725              	.LFE8:
+ 726              		.size	GLCD_DrawCircle, .-GLCD_DrawCircle
+ 727              		.section	.text.GLCD_PrintChar,"ax",%progbits
+ 728              		.align	2
+ 729              		.global	GLCD_PrintChar
+ 730              		.code	16
+ 731              		.thumb_func
+ 732              		.type	GLCD_PrintChar, %function
+ 733              	GLCD_PrintChar:
+ 734              	.LFB9:
+ 393:Generated_Source\PSoC4/GLCD.c **** 
+ 394:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 395:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_PrintChar
+ 396:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 397:Generated_Source\PSoC4/GLCD.c **** *
+ 398:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 399:Generated_Source\PSoC4/GLCD.c **** *  Print a character on the display.  
+ 400:Generated_Source\PSoC4/GLCD.c **** *
+ 401:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 402:Generated_Source\PSoC4/GLCD.c **** *  c:       ASCII character to be printed
+ 403:Generated_Source\PSoC4/GLCD.c **** *  x,y:     Location where character will be printed.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 21
+
+
+ 404:Generated_Source\PSoC4/GLCD.c **** *  fColor:  Foreground color
+ 405:Generated_Source\PSoC4/GLCD.c **** *  bColor:  Background color
+ 406:Generated_Source\PSoC4/GLCD.c **** *
+ 407:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 408:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 409:Generated_Source\PSoC4/GLCD.c **** *  
+ 410:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 411:Generated_Source\PSoC4/GLCD.c **** void GLCD_PrintChar(uint8 c, int32 x, int32 y, int32 fColor, int32 bColor)
+ 412:Generated_Source\PSoC4/GLCD.c **** {
+ 735              		.loc 1 412 0
+ 736              		.cfi_startproc
+ 737              		@ args = 4, pretend = 0, frame = 64
+ 738              		@ frame_needed = 1, uses_anonymous_args = 0
+ 739 0000 80B5     		push	{r7, lr}
+ 740              		.cfi_def_cfa_offset 8
+ 741              		.cfi_offset 7, -8
+ 742              		.cfi_offset 14, -4
+ 743 0002 90B0     		sub	sp, sp, #64
+ 744              		.cfi_def_cfa_offset 72
+ 745 0004 00AF     		add	r7, sp, #0
+ 746              		.cfi_def_cfa_register 7
+ 747 0006 B960     		str	r1, [r7, #8]
+ 748 0008 7A60     		str	r2, [r7, #4]
+ 749 000a 3B60     		str	r3, [r7]
+ 750 000c 0F23     		movs	r3, #15
+ 751 000e FB18     		adds	r3, r7, r3
+ 752 0010 021C     		adds	r2, r0, #0
+ 753 0012 1A70     		strb	r2, [r3]
+ 413:Generated_Source\PSoC4/GLCD.c **** 	y	=	(GLCD_COL_HEIGHT - 1) - y; /* make display "right" side up */
+ 754              		.loc 1 413 0
+ 755 0014 7B68     		ldr	r3, [r7, #4]
+ 756 0016 8322     		movs	r2, #131
+ 757 0018 D31A     		subs	r3, r2, r3
+ 758 001a 7B60     		str	r3, [r7, #4]
+ 414:Generated_Source\PSoC4/GLCD.c **** 	x	=	(GLCD_ROW_LENGTH - 2) - x;
+ 759              		.loc 1 414 0
+ 760 001c BB68     		ldr	r3, [r7, #8]
+ 761 001e 8222     		movs	r2, #130
+ 762 0020 D31A     		subs	r3, r2, r3
+ 763 0022 BB60     		str	r3, [r7, #8]
+ 415:Generated_Source\PSoC4/GLCD.c **** 
+ 416:Generated_Source\PSoC4/GLCD.c **** 	int32             i,j;
+ 417:Generated_Source\PSoC4/GLCD.c **** 	int32    nCols;
+ 418:Generated_Source\PSoC4/GLCD.c **** 	int32    nRows;
+ 419:Generated_Source\PSoC4/GLCD.c **** 	int32    nBytes;
+ 420:Generated_Source\PSoC4/GLCD.c **** 	uint8    PixelRow;
+ 421:Generated_Source\PSoC4/GLCD.c **** 	uint8    Mask;
+ 422:Generated_Source\PSoC4/GLCD.c **** 	int32    Word0;
+ 423:Generated_Source\PSoC4/GLCD.c **** 	int32    Word1;
+ 424:Generated_Source\PSoC4/GLCD.c **** 	uint8   *pFont;
+ 425:Generated_Source\PSoC4/GLCD.c **** 	uint8   *pChar;
+ 426:Generated_Source\PSoC4/GLCD.c **** 
+ 427:Generated_Source\PSoC4/GLCD.c **** 	/* Get pointer to the beginning of the selected font table  */
+ 428:Generated_Source\PSoC4/GLCD.c **** 	pFont = (uint8 *)GLCD_FONT8x16;
+ 764              		.loc 1 428 0
+ 765 0024 594B     		ldr	r3, .L29
+ 766 0026 7B62     		str	r3, [r7, #36]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 22
+
+
+ 429:Generated_Source\PSoC4/GLCD.c **** 	
+ 430:Generated_Source\PSoC4/GLCD.c **** 	/* Get the nColumns, nRows and nBytes.                      */
+ 431:Generated_Source\PSoC4/GLCD.c **** 	nCols = *pFont;
+ 767              		.loc 1 431 0
+ 768 0028 7B6A     		ldr	r3, [r7, #36]
+ 769 002a 1B78     		ldrb	r3, [r3]
+ 770 002c 3B62     		str	r3, [r7, #32]
+ 432:Generated_Source\PSoC4/GLCD.c **** 	nRows = *(pFont + 1);
+ 771              		.loc 1 432 0
+ 772 002e 7B6A     		ldr	r3, [r7, #36]
+ 773 0030 0133     		adds	r3, r3, #1
+ 774 0032 1B78     		ldrb	r3, [r3]
+ 775 0034 FB61     		str	r3, [r7, #28]
+ 433:Generated_Source\PSoC4/GLCD.c **** 	nBytes = *(pFont + 2);
+ 776              		.loc 1 433 0
+ 777 0036 7B6A     		ldr	r3, [r7, #36]
+ 778 0038 0233     		adds	r3, r3, #2
+ 779 003a 1B78     		ldrb	r3, [r3]
+ 780 003c BB61     		str	r3, [r7, #24]
+ 434:Generated_Source\PSoC4/GLCD.c **** 	
+ 435:Generated_Source\PSoC4/GLCD.c **** 	/* Get pointer to the last byte of the desired character    */
+ 436:Generated_Source\PSoC4/GLCD.c **** 	pChar = pFont + (nBytes * (c - 0x1F)) + nBytes - 1;
+ 781              		.loc 1 436 0
+ 782 003e 0F23     		movs	r3, #15
+ 783 0040 FB18     		adds	r3, r7, r3
+ 784 0042 1B78     		ldrb	r3, [r3]
+ 785 0044 1F3B     		subs	r3, r3, #31
+ 786 0046 BA69     		ldr	r2, [r7, #24]
+ 787 0048 5343     		muls	r3, r2
+ 788 004a 1A00     		movs	r2, r3
+ 789 004c BB69     		ldr	r3, [r7, #24]
+ 790 004e D318     		adds	r3, r2, r3
+ 791 0050 013B     		subs	r3, r3, #1
+ 792 0052 7A6A     		ldr	r2, [r7, #36]
+ 793 0054 D318     		adds	r3, r2, r3
+ 794 0056 BB62     		str	r3, [r7, #40]
+ 437:Generated_Source\PSoC4/GLCD.c **** 
+ 438:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_Controller == GLCD_EPSON)
+ 439:Generated_Source\PSoC4/GLCD.c **** 	/* Row address set */
+ 440:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_PAGEADDR);
+ 441:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(x);
+ 442:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((x + nRows - 1));
+ 443:Generated_Source\PSoC4/GLCD.c **** 	/* Column address set */
+ 444:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_COLADDR);
+ 445:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data(y);
+ 446:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((y + nCols - 1));
+ 447:Generated_Source\PSoC4/GLCD.c **** 
+ 448:Generated_Source\PSoC4/GLCD.c **** 	/* Write Memory */
+ 449:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_RAMWR);
+ 450:Generated_Source\PSoC4/GLCD.c **** 	/* Loop on each row, working backwards from the bottom to the top  */
+ 451:Generated_Source\PSoC4/GLCD.c **** 	for (i = nRows - 1; i >= 0; i--) {
+ 452:Generated_Source\PSoC4/GLCD.c **** 		/* Copy pixel row from font table and then decrement row       */
+ 453:Generated_Source\PSoC4/GLCD.c **** 		PixelRow = *pChar++;
+ 454:Generated_Source\PSoC4/GLCD.c **** 		/* Loop on each pixel in the row (left to right)               */
+ 455:Generated_Source\PSoC4/GLCD.c **** 		/* Note: we do two pixels each loop                            */
+ 456:Generated_Source\PSoC4/GLCD.c **** 		Mask = 0x80;
+ 457:Generated_Source\PSoC4/GLCD.c **** 		for (j = 0; j < nCols; j += 2) 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 23
+
+
+ 458:Generated_Source\PSoC4/GLCD.c **** 		{
+ 459:Generated_Source\PSoC4/GLCD.c **** 			/* If pixel bit set, use foreground color; else use the background color. */
+ 460:Generated_Source\PSoC4/GLCD.c **** 			/* Now get the pixel color for two successive pixels                      */
+ 461:Generated_Source\PSoC4/GLCD.c **** 			if ((PixelRow & Mask) == 0)
+ 462:Generated_Source\PSoC4/GLCD.c **** 			{
+ 463:Generated_Source\PSoC4/GLCD.c **** 				Word0 = bColor;
+ 464:Generated_Source\PSoC4/GLCD.c **** 			}
+ 465:Generated_Source\PSoC4/GLCD.c **** 			else
+ 466:Generated_Source\PSoC4/GLCD.c **** 			{
+ 467:Generated_Source\PSoC4/GLCD.c **** 				Word0 = fColor;
+ 468:Generated_Source\PSoC4/GLCD.c **** 			}
+ 469:Generated_Source\PSoC4/GLCD.c **** 			
+ 470:Generated_Source\PSoC4/GLCD.c **** 			Mask = Mask >> 1;
+ 471:Generated_Source\PSoC4/GLCD.c **** 			if ((PixelRow & Mask) == 0)
+ 472:Generated_Source\PSoC4/GLCD.c **** 			{
+ 473:Generated_Source\PSoC4/GLCD.c **** 				Word1 = bColor;
+ 474:Generated_Source\PSoC4/GLCD.c **** 			}
+ 475:Generated_Source\PSoC4/GLCD.c **** 			else
+ 476:Generated_Source\PSoC4/GLCD.c **** 			{
+ 477:Generated_Source\PSoC4/GLCD.c **** 				Word1 = fColor;
+ 478:Generated_Source\PSoC4/GLCD.c **** 			}
+ 479:Generated_Source\PSoC4/GLCD.c **** 			Mask = Mask >> 1;
+ 480:Generated_Source\PSoC4/GLCD.c **** 			/* Use this information to output three data bytes  */
+ 481:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Data((uint8)((Word0 >> 4) & 0xFF));
+ 482:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Data((uint8)(((Word0 & 0xF) << 4) | ((Word1 >> 8) & 0xF)));
+ 483:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Data((uint8)(Word1 & 0xFF));
+ 484:Generated_Source\PSoC4/GLCD.c **** 		}
+ 485:Generated_Source\PSoC4/GLCD.c **** 	}
+ 486:Generated_Source\PSoC4/GLCD.c **** #endif
+ 487:Generated_Source\PSoC4/GLCD.c **** 
+ 488:Generated_Source\PSoC4/GLCD.c **** #if (GLCD_Controller == GLCD_PHILIPS)
+ 489:Generated_Source\PSoC4/GLCD.c **** 
+ 490:Generated_Source\PSoC4/GLCD.c **** 	/* Set row address     */
+ 491:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_PAGEADDR);
+ 795              		.loc 1 491 0
+ 796 0058 2B20     		movs	r0, #43
+ 797 005a FFF7FEFF 		bl	GLCD_Command
+ 492:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)x);
+ 798              		.loc 1 492 0
+ 799 005e BB68     		ldr	r3, [r7, #8]
+ 800 0060 FF22     		movs	r2, #255
+ 801 0062 1340     		ands	r3, r2
+ 802 0064 1800     		movs	r0, r3
+ 803 0066 FFF7FEFF 		bl	GLCD_Data
+ 493:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)(x + nRows - 1));
+ 804              		.loc 1 493 0
+ 805 006a BB68     		ldr	r3, [r7, #8]
+ 806 006c DAB2     		uxtb	r2, r3
+ 807 006e FB69     		ldr	r3, [r7, #28]
+ 808 0070 DBB2     		uxtb	r3, r3
+ 809 0072 D318     		adds	r3, r2, r3
+ 810 0074 DBB2     		uxtb	r3, r3
+ 811 0076 013B     		subs	r3, r3, #1
+ 812 0078 DBB2     		uxtb	r3, r3
+ 813 007a 1800     		movs	r0, r3
+ 814 007c FFF7FEFF 		bl	GLCD_Data
+ 494:Generated_Source\PSoC4/GLCD.c ****     /* Set column address  */
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 24
+
+
+ 495:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_COLADDR);
+ 815              		.loc 1 495 0
+ 816 0080 2A20     		movs	r0, #42
+ 817 0082 FFF7FEFF 		bl	GLCD_Command
+ 496:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)y);
+ 818              		.loc 1 496 0
+ 819 0086 7B68     		ldr	r3, [r7, #4]
+ 820 0088 FF22     		movs	r2, #255
+ 821 008a 1340     		ands	r3, r2
+ 822 008c 1800     		movs	r0, r3
+ 823 008e FFF7FEFF 		bl	GLCD_Data
+ 497:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Data((uint8)(y + nCols - 1));
+ 824              		.loc 1 497 0
+ 825 0092 7B68     		ldr	r3, [r7, #4]
+ 826 0094 DAB2     		uxtb	r2, r3
+ 827 0096 3B6A     		ldr	r3, [r7, #32]
+ 828 0098 DBB2     		uxtb	r3, r3
+ 829 009a D318     		adds	r3, r2, r3
+ 830 009c DBB2     		uxtb	r3, r3
+ 831 009e 013B     		subs	r3, r3, #1
+ 832 00a0 DBB2     		uxtb	r3, r3
+ 833 00a2 1800     		movs	r0, r3
+ 834 00a4 FFF7FEFF 		bl	GLCD_Data
+ 498:Generated_Source\PSoC4/GLCD.c **** 
+ 499:Generated_Source\PSoC4/GLCD.c **** 	/* Write to display memory */
+ 500:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Command(GLCD_RAMWR);
+ 835              		.loc 1 500 0
+ 836 00a8 2C20     		movs	r0, #44
+ 837 00aa FFF7FEFF 		bl	GLCD_Command
+ 501:Generated_Source\PSoC4/GLCD.c **** 	/* loop on each row, working backwards from the bottom to the top.  */
+ 502:Generated_Source\PSoC4/GLCD.c **** 	pChar+=nBytes-1;  /* Stick pChar at the end of the row, need to reverse print on phillips */
+ 838              		.loc 1 502 0
+ 839 00ae BB69     		ldr	r3, [r7, #24]
+ 840 00b0 013B     		subs	r3, r3, #1
+ 841 00b2 BA6A     		ldr	r2, [r7, #40]
+ 842 00b4 D318     		adds	r3, r2, r3
+ 843 00b6 BB62     		str	r3, [r7, #40]
+ 503:Generated_Source\PSoC4/GLCD.c **** 	for (i = nRows - 1; i >= 0; i--) {
+ 844              		.loc 1 503 0
+ 845 00b8 FB69     		ldr	r3, [r7, #28]
+ 846 00ba 013B     		subs	r3, r3, #1
+ 847 00bc FB63     		str	r3, [r7, #60]
+ 848 00be 5DE0     		b	.L21
+ 849              	.L28:
+ 504:Generated_Source\PSoC4/GLCD.c **** 		/* copy pixel row from font table and then decrement row.  */
+ 505:Generated_Source\PSoC4/GLCD.c **** 		PixelRow = *pChar--;
+ 850              		.loc 1 505 0
+ 851 00c0 BB6A     		ldr	r3, [r7, #40]
+ 852 00c2 5A1E     		subs	r2, r3, #1
+ 853 00c4 BA62     		str	r2, [r7, #40]
+ 854 00c6 1722     		movs	r2, #23
+ 855 00c8 BA18     		adds	r2, r7, r2
+ 856 00ca 1B78     		ldrb	r3, [r3]
+ 857 00cc 1370     		strb	r3, [r2]
+ 506:Generated_Source\PSoC4/GLCD.c **** 		/* Loop on each pixel in the row (left to right)  */
+ 507:Generated_Source\PSoC4/GLCD.c **** 		/* Note: we do two pixels each loop               */
+ 508:Generated_Source\PSoC4/GLCD.c **** 		Mask = 0x01;  
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 25
+
+
+ 858              		.loc 1 508 0
+ 859 00ce 3723     		movs	r3, #55
+ 860 00d0 FB18     		adds	r3, r7, r3
+ 861 00d2 0122     		movs	r2, #1
+ 862 00d4 1A70     		strb	r2, [r3]
+ 509:Generated_Source\PSoC4/GLCD.c **** 		for (j = 0; j < nCols; j += 2) 
+ 863              		.loc 1 509 0
+ 864 00d6 0023     		movs	r3, #0
+ 865 00d8 BB63     		str	r3, [r7, #56]
+ 866 00da 48E0     		b	.L22
+ 867              	.L27:
+ 510:Generated_Source\PSoC4/GLCD.c **** 		{
+ 511:Generated_Source\PSoC4/GLCD.c **** 			/* If pixel bit set, use foreground color; else use the background color  */
+ 512:Generated_Source\PSoC4/GLCD.c **** 			/* Get the pixel color for two successive pixels                          */
+ 513:Generated_Source\PSoC4/GLCD.c **** 			if ((PixelRow & Mask) == 0)
+ 868              		.loc 1 513 0
+ 869 00dc 1723     		movs	r3, #23
+ 870 00de FB18     		adds	r3, r7, r3
+ 871 00e0 3722     		movs	r2, #55
+ 872 00e2 BA18     		adds	r2, r7, r2
+ 873 00e4 1B78     		ldrb	r3, [r3]
+ 874 00e6 1278     		ldrb	r2, [r2]
+ 875 00e8 1340     		ands	r3, r2
+ 876 00ea DBB2     		uxtb	r3, r3
+ 877 00ec 002B     		cmp	r3, #0
+ 878 00ee 02D1     		bne	.L23
+ 514:Generated_Source\PSoC4/GLCD.c **** 				Word0 = bColor;
+ 879              		.loc 1 514 0
+ 880 00f0 BB6C     		ldr	r3, [r7, #72]
+ 881 00f2 3B63     		str	r3, [r7, #48]
+ 882 00f4 01E0     		b	.L24
+ 883              	.L23:
+ 515:Generated_Source\PSoC4/GLCD.c **** 			else
+ 516:Generated_Source\PSoC4/GLCD.c **** 				Word0 = fColor;
+ 884              		.loc 1 516 0
+ 885 00f6 3B68     		ldr	r3, [r7]
+ 886 00f8 3B63     		str	r3, [r7, #48]
+ 887              	.L24:
+ 517:Generated_Source\PSoC4/GLCD.c **** 			Mask = Mask << 1; 
+ 888              		.loc 1 517 0
+ 889 00fa 3723     		movs	r3, #55
+ 890 00fc FA18     		adds	r2, r7, r3
+ 891 00fe 3723     		movs	r3, #55
+ 892 0100 FB18     		adds	r3, r7, r3
+ 893 0102 1B78     		ldrb	r3, [r3]
+ 894 0104 DB18     		adds	r3, r3, r3
+ 895 0106 1370     		strb	r3, [r2]
+ 518:Generated_Source\PSoC4/GLCD.c **** 			if ((PixelRow & Mask) == 0)
+ 896              		.loc 1 518 0
+ 897 0108 1723     		movs	r3, #23
+ 898 010a FB18     		adds	r3, r7, r3
+ 899 010c 3722     		movs	r2, #55
+ 900 010e BA18     		adds	r2, r7, r2
+ 901 0110 1B78     		ldrb	r3, [r3]
+ 902 0112 1278     		ldrb	r2, [r2]
+ 903 0114 1340     		ands	r3, r2
+ 904 0116 DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 26
+
+
+ 905 0118 002B     		cmp	r3, #0
+ 906 011a 02D1     		bne	.L25
+ 519:Generated_Source\PSoC4/GLCD.c **** 				Word1 = bColor;
+ 907              		.loc 1 519 0
+ 908 011c BB6C     		ldr	r3, [r7, #72]
+ 909 011e FB62     		str	r3, [r7, #44]
+ 910 0120 01E0     		b	.L26
+ 911              	.L25:
+ 520:Generated_Source\PSoC4/GLCD.c **** 			else
+ 521:Generated_Source\PSoC4/GLCD.c **** 				Word1 = fColor;
+ 912              		.loc 1 521 0
+ 913 0122 3B68     		ldr	r3, [r7]
+ 914 0124 FB62     		str	r3, [r7, #44]
+ 915              	.L26:
+ 522:Generated_Source\PSoC4/GLCD.c **** 			Mask = Mask << 1; 
+ 916              		.loc 1 522 0 discriminator 2
+ 917 0126 3723     		movs	r3, #55
+ 918 0128 FA18     		adds	r2, r7, r3
+ 919 012a 3723     		movs	r3, #55
+ 920 012c FB18     		adds	r3, r7, r3
+ 921 012e 1B78     		ldrb	r3, [r3]
+ 922 0130 DB18     		adds	r3, r3, r3
+ 923 0132 1370     		strb	r3, [r2]
+ 523:Generated_Source\PSoC4/GLCD.c **** 			/* use this information to output three data bytes */
+ 524:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Data((Word0 >> 4) & 0xFF);
+ 924              		.loc 1 524 0 discriminator 2
+ 925 0134 3B6B     		ldr	r3, [r7, #48]
+ 926 0136 1B11     		asrs	r3, r3, #4
+ 927 0138 1A00     		movs	r2, r3
+ 928 013a FF23     		movs	r3, #255
+ 929 013c 1340     		ands	r3, r2
+ 930 013e 1800     		movs	r0, r3
+ 931 0140 FFF7FEFF 		bl	GLCD_Data
+ 525:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Data(((Word0 & 0xF) << 4) | ((Word1 >> 8) & 0xF));
+ 932              		.loc 1 525 0 discriminator 2
+ 933 0144 3B6B     		ldr	r3, [r7, #48]
+ 934 0146 1B01     		lsls	r3, r3, #4
+ 935 0148 FF22     		movs	r2, #255
+ 936 014a 1A40     		ands	r2, r3
+ 937 014c FB6A     		ldr	r3, [r7, #44]
+ 938 014e 1B12     		asrs	r3, r3, #8
+ 939 0150 0F21     		movs	r1, #15
+ 940 0152 0B40     		ands	r3, r1
+ 941 0154 1343     		orrs	r3, r2
+ 942 0156 1800     		movs	r0, r3
+ 943 0158 FFF7FEFF 		bl	GLCD_Data
+ 526:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Data(Word1 & 0xFF);
+ 944              		.loc 1 526 0 discriminator 2
+ 945 015c FB6A     		ldr	r3, [r7, #44]
+ 946 015e FF22     		movs	r2, #255
+ 947 0160 1340     		ands	r3, r2
+ 948 0162 1800     		movs	r0, r3
+ 949 0164 FFF7FEFF 		bl	GLCD_Data
+ 509:Generated_Source\PSoC4/GLCD.c **** 		{
+ 950              		.loc 1 509 0 discriminator 2
+ 951 0168 BB6B     		ldr	r3, [r7, #56]
+ 952 016a 0233     		adds	r3, r3, #2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 27
+
+
+ 953 016c BB63     		str	r3, [r7, #56]
+ 954              	.L22:
+ 509:Generated_Source\PSoC4/GLCD.c **** 		{
+ 955              		.loc 1 509 0 is_stmt 0 discriminator 1
+ 956 016e BA6B     		ldr	r2, [r7, #56]
+ 957 0170 3B6A     		ldr	r3, [r7, #32]
+ 958 0172 9A42     		cmp	r2, r3
+ 959 0174 B2DB     		blt	.L27
+ 503:Generated_Source\PSoC4/GLCD.c **** 		/* copy pixel row from font table and then decrement row.  */
+ 960              		.loc 1 503 0 is_stmt 1 discriminator 2
+ 961 0176 FB6B     		ldr	r3, [r7, #60]
+ 962 0178 013B     		subs	r3, r3, #1
+ 963 017a FB63     		str	r3, [r7, #60]
+ 964              	.L21:
+ 503:Generated_Source\PSoC4/GLCD.c **** 		/* copy pixel row from font table and then decrement row.  */
+ 965              		.loc 1 503 0 is_stmt 0 discriminator 1
+ 966 017c FB6B     		ldr	r3, [r7, #60]
+ 967 017e 002B     		cmp	r3, #0
+ 968 0180 9EDA     		bge	.L28
+ 527:Generated_Source\PSoC4/GLCD.c **** 		}
+ 528:Generated_Source\PSoC4/GLCD.c **** 	}
+ 529:Generated_Source\PSoC4/GLCD.c **** #endif
+ 530:Generated_Source\PSoC4/GLCD.c **** }
+ 969              		.loc 1 530 0 is_stmt 1
+ 970 0182 C046     		nop
+ 971 0184 BD46     		mov	sp, r7
+ 972 0186 10B0     		add	sp, sp, #64
+ 973              		@ sp needed
+ 974 0188 80BD     		pop	{r7, pc}
+ 975              	.L30:
+ 976 018a C046     		.align	2
+ 977              	.L29:
+ 978 018c 00000000 		.word	GLCD_FONT8x16
+ 979              		.cfi_endproc
+ 980              	.LFE9:
+ 981              		.size	GLCD_PrintChar, .-GLCD_PrintChar
+ 982              		.section	.text.GLCD_PrintString,"ax",%progbits
+ 983              		.align	2
+ 984              		.global	GLCD_PrintString
+ 985              		.code	16
+ 986              		.thumb_func
+ 987              		.type	GLCD_PrintString, %function
+ 988              	GLCD_PrintString:
+ 989              	.LFB10:
+ 531:Generated_Source\PSoC4/GLCD.c **** 
+ 532:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 533:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_PrintString
+ 534:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 535:Generated_Source\PSoC4/GLCD.c **** *
+ 536:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 537:Generated_Source\PSoC4/GLCD.c **** *  Print a string horizontally on the display.  
+ 538:Generated_Source\PSoC4/GLCD.c **** *
+ 539:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 540:Generated_Source\PSoC4/GLCD.c **** *  pString:  Pointer to null terminated string to be displayed.
+ 541:Generated_Source\PSoC4/GLCD.c **** *  x,y:      Location where string is to be printed
+ 542:Generated_Source\PSoC4/GLCD.c **** *  fColor:   Forground Color
+ 543:Generated_Source\PSoC4/GLCD.c **** *  bColor:   Background Color
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 28
+
+
+ 544:Generated_Source\PSoC4/GLCD.c **** *
+ 545:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 546:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 547:Generated_Source\PSoC4/GLCD.c **** *  
+ 548:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 549:Generated_Source\PSoC4/GLCD.c **** void GLCD_PrintString(char *pString, int32 x, int32 y, int32 fColor, int32 bColor)
+ 550:Generated_Source\PSoC4/GLCD.c **** {
+ 990              		.loc 1 550 0
+ 991              		.cfi_startproc
+ 992              		@ args = 4, pretend = 0, frame = 24
+ 993              		@ frame_needed = 1, uses_anonymous_args = 0
+ 994 0000 90B5     		push	{r4, r7, lr}
+ 995              		.cfi_def_cfa_offset 12
+ 996              		.cfi_offset 4, -12
+ 997              		.cfi_offset 7, -8
+ 998              		.cfi_offset 14, -4
+ 999 0002 89B0     		sub	sp, sp, #36
+ 1000              		.cfi_def_cfa_offset 48
+ 1001 0004 02AF     		add	r7, sp, #8
+ 1002              		.cfi_def_cfa 7, 40
+ 1003 0006 F860     		str	r0, [r7, #12]
+ 1004 0008 B960     		str	r1, [r7, #8]
+ 1005 000a 7A60     		str	r2, [r7, #4]
+ 1006 000c 3B60     		str	r3, [r7]
+ 551:Generated_Source\PSoC4/GLCD.c **** 	x = x + 16;
+ 1007              		.loc 1 551 0
+ 1008 000e BB68     		ldr	r3, [r7, #8]
+ 1009 0010 1033     		adds	r3, r3, #16
+ 1010 0012 BB60     		str	r3, [r7, #8]
+ 552:Generated_Source\PSoC4/GLCD.c **** 	y = y + 8;
+ 1011              		.loc 1 552 0
+ 1012 0014 7B68     		ldr	r3, [r7, #4]
+ 1013 0016 0833     		adds	r3, r3, #8
+ 1014 0018 7B60     		str	r3, [r7, #4]
+ 553:Generated_Source\PSoC4/GLCD.c ****     int32 originalY = y;
+ 1015              		.loc 1 553 0
+ 1016 001a 7B68     		ldr	r3, [r7, #4]
+ 1017 001c 7B61     		str	r3, [r7, #20]
+ 554:Generated_Source\PSoC4/GLCD.c **** 
+ 555:Generated_Source\PSoC4/GLCD.c **** 	/* Loop until null-terminator is found */
+ 556:Generated_Source\PSoC4/GLCD.c **** 	while (*pString != 0x00) 
+ 1018              		.loc 1 556 0
+ 1019 001e 19E0     		b	.L32
+ 1020              	.L35:
+ 557:Generated_Source\PSoC4/GLCD.c **** 	{
+ 558:Generated_Source\PSoC4/GLCD.c **** 		/* Draw the character        */
+ 559:Generated_Source\PSoC4/GLCD.c **** 		GLCD_PrintChar(*pString++, x, y, fColor, bColor);
+ 1021              		.loc 1 559 0
+ 1022 0020 FB68     		ldr	r3, [r7, #12]
+ 1023 0022 5A1C     		adds	r2, r3, #1
+ 1024 0024 FA60     		str	r2, [r7, #12]
+ 1025 0026 1878     		ldrb	r0, [r3]
+ 1026 0028 3C68     		ldr	r4, [r7]
+ 1027 002a 7A68     		ldr	r2, [r7, #4]
+ 1028 002c B968     		ldr	r1, [r7, #8]
+ 1029 002e BB6A     		ldr	r3, [r7, #40]
+ 1030 0030 0093     		str	r3, [sp]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 29
+
+
+ 1031 0032 2300     		movs	r3, r4
+ 1032 0034 FFF7FEFF 		bl	GLCD_PrintChar
+ 560:Generated_Source\PSoC4/GLCD.c **** 		/* Advance the y position    */
+ 561:Generated_Source\PSoC4/GLCD.c **** 		y = y + 8;
+ 1033              		.loc 1 561 0
+ 1034 0038 7B68     		ldr	r3, [r7, #4]
+ 1035 003a 0833     		adds	r3, r3, #8
+ 1036 003c 7B60     		str	r3, [r7, #4]
+ 562:Generated_Source\PSoC4/GLCD.c **** 		/* Bail out if y exceeds 131 */
+ 563:Generated_Source\PSoC4/GLCD.c **** 		if (y > 131) 
+ 1037              		.loc 1 563 0
+ 1038 003e 7B68     		ldr	r3, [r7, #4]
+ 1039 0040 832B     		cmp	r3, #131
+ 1040 0042 04DD     		ble	.L33
+ 564:Generated_Source\PSoC4/GLCD.c **** 		{
+ 565:Generated_Source\PSoC4/GLCD.c ****             x = x + 16;
+ 1041              		.loc 1 565 0
+ 1042 0044 BB68     		ldr	r3, [r7, #8]
+ 1043 0046 1033     		adds	r3, r3, #16
+ 1044 0048 BB60     		str	r3, [r7, #8]
+ 566:Generated_Source\PSoC4/GLCD.c ****             y = originalY;
+ 1045              		.loc 1 566 0
+ 1046 004a 7B69     		ldr	r3, [r7, #20]
+ 1047 004c 7B60     		str	r3, [r7, #4]
+ 1048              	.L33:
+ 567:Generated_Source\PSoC4/GLCD.c ****         }
+ 568:Generated_Source\PSoC4/GLCD.c ****         if (x > 131) break;
+ 1049              		.loc 1 568 0
+ 1050 004e BB68     		ldr	r3, [r7, #8]
+ 1051 0050 832B     		cmp	r3, #131
+ 1052 0052 04DC     		bgt	.L36
+ 1053              	.L32:
+ 556:Generated_Source\PSoC4/GLCD.c **** 	{
+ 1054              		.loc 1 556 0
+ 1055 0054 FB68     		ldr	r3, [r7, #12]
+ 1056 0056 1B78     		ldrb	r3, [r3]
+ 1057 0058 002B     		cmp	r3, #0
+ 1058 005a E1D1     		bne	.L35
+ 569:Generated_Source\PSoC4/GLCD.c **** 	}
+ 570:Generated_Source\PSoC4/GLCD.c **** }
+ 1059              		.loc 1 570 0
+ 1060 005c 00E0     		b	.L34
+ 1061              	.L36:
+ 568:Generated_Source\PSoC4/GLCD.c **** 	}
+ 1062              		.loc 1 568 0
+ 1063 005e C046     		nop
+ 1064              	.L34:
+ 1065              		.loc 1 570 0
+ 1066 0060 C046     		nop
+ 1067 0062 BD46     		mov	sp, r7
+ 1068 0064 07B0     		add	sp, sp, #28
+ 1069              		@ sp needed
+ 1070 0066 90BD     		pop	{r4, r7, pc}
+ 1071              		.cfi_endproc
+ 1072              	.LFE10:
+ 1073              		.size	GLCD_PrintString, .-GLCD_PrintString
+ 1074              		.section	.text.GLCD_DrawLine,"ax",%progbits
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 30
+
+
+ 1075              		.align	2
+ 1076              		.global	GLCD_DrawLine
+ 1077              		.code	16
+ 1078              		.thumb_func
+ 1079              		.type	GLCD_DrawLine, %function
+ 1080              	GLCD_DrawLine:
+ 1081              	.LFB11:
+ 571:Generated_Source\PSoC4/GLCD.c **** 
+ 572:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 573:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_DrawLine
+ 574:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 575:Generated_Source\PSoC4/GLCD.c **** *
+ 576:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 577:Generated_Source\PSoC4/GLCD.c **** *  Draw a line on the display.  
+ 578:Generated_Source\PSoC4/GLCD.c **** *
+ 579:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 580:Generated_Source\PSoC4/GLCD.c **** *  x0, y0:  The beginning endpoint
+ 581:Generated_Source\PSoC4/GLCD.c **** *  x1, y1:  The end endpoint.
+ 582:Generated_Source\PSoC4/GLCD.c **** *  color:   Color of the line.
+ 583:Generated_Source\PSoC4/GLCD.c **** *
+ 584:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 585:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 586:Generated_Source\PSoC4/GLCD.c **** *  
+ 587:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 588:Generated_Source\PSoC4/GLCD.c **** void GLCD_DrawLine(int32 x0, int32 y0, int32 x1, int32 y1, int32 color)
+ 589:Generated_Source\PSoC4/GLCD.c **** {
+ 1082              		.loc 1 589 0
+ 1083              		.cfi_startproc
+ 1084              		@ args = 4, pretend = 0, frame = 40
+ 1085              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1086 0000 80B5     		push	{r7, lr}
+ 1087              		.cfi_def_cfa_offset 8
+ 1088              		.cfi_offset 7, -8
+ 1089              		.cfi_offset 14, -4
+ 1090 0002 8AB0     		sub	sp, sp, #40
+ 1091              		.cfi_def_cfa_offset 48
+ 1092 0004 00AF     		add	r7, sp, #0
+ 1093              		.cfi_def_cfa_register 7
+ 1094 0006 F860     		str	r0, [r7, #12]
+ 1095 0008 B960     		str	r1, [r7, #8]
+ 1096 000a 7A60     		str	r2, [r7, #4]
+ 1097 000c 3B60     		str	r3, [r7]
+ 590:Generated_Source\PSoC4/GLCD.c **** 	int32 dy = y1 - y0; /* Difference between y0 and y1 */
+ 1098              		.loc 1 590 0
+ 1099 000e 3A68     		ldr	r2, [r7]
+ 1100 0010 BB68     		ldr	r3, [r7, #8]
+ 1101 0012 D31A     		subs	r3, r2, r3
+ 1102 0014 7B62     		str	r3, [r7, #36]
+ 591:Generated_Source\PSoC4/GLCD.c **** 	int32 dx = x1 - x0; /* Difference between x0 and x1 */
+ 1103              		.loc 1 591 0
+ 1104 0016 7A68     		ldr	r2, [r7, #4]
+ 1105 0018 FB68     		ldr	r3, [r7, #12]
+ 1106 001a D31A     		subs	r3, r2, r3
+ 1107 001c 3B62     		str	r3, [r7, #32]
+ 592:Generated_Source\PSoC4/GLCD.c **** 	int32 stepx, stepy;
+ 593:Generated_Source\PSoC4/GLCD.c **** 
+ 594:Generated_Source\PSoC4/GLCD.c **** 	if (dy < 0)
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 31
+
+
+ 1108              		.loc 1 594 0
+ 1109 001e 7B6A     		ldr	r3, [r7, #36]
+ 1110 0020 002B     		cmp	r3, #0
+ 1111 0022 06DA     		bge	.L38
+ 595:Generated_Source\PSoC4/GLCD.c **** 	{
+ 596:Generated_Source\PSoC4/GLCD.c **** 		dy = -dy;
+ 1112              		.loc 1 596 0
+ 1113 0024 7B6A     		ldr	r3, [r7, #36]
+ 1114 0026 5B42     		rsbs	r3, r3, #0
+ 1115 0028 7B62     		str	r3, [r7, #36]
+ 597:Generated_Source\PSoC4/GLCD.c **** 		stepy = -1;
+ 1116              		.loc 1 597 0
+ 1117 002a 0123     		movs	r3, #1
+ 1118 002c 5B42     		rsbs	r3, r3, #0
+ 1119 002e BB61     		str	r3, [r7, #24]
+ 1120 0030 01E0     		b	.L39
+ 1121              	.L38:
+ 598:Generated_Source\PSoC4/GLCD.c **** 	}
+ 599:Generated_Source\PSoC4/GLCD.c **** 	else
+ 600:Generated_Source\PSoC4/GLCD.c **** 	{
+ 601:Generated_Source\PSoC4/GLCD.c **** 		stepy = 1;
+ 1122              		.loc 1 601 0
+ 1123 0032 0123     		movs	r3, #1
+ 1124 0034 BB61     		str	r3, [r7, #24]
+ 1125              	.L39:
+ 602:Generated_Source\PSoC4/GLCD.c **** 	}
+ 603:Generated_Source\PSoC4/GLCD.c **** 
+ 604:Generated_Source\PSoC4/GLCD.c **** 	if (dx < 0)
+ 1126              		.loc 1 604 0
+ 1127 0036 3B6A     		ldr	r3, [r7, #32]
+ 1128 0038 002B     		cmp	r3, #0
+ 1129 003a 06DA     		bge	.L40
+ 605:Generated_Source\PSoC4/GLCD.c **** 	{
+ 606:Generated_Source\PSoC4/GLCD.c **** 		dx = -dx;
+ 1130              		.loc 1 606 0
+ 1131 003c 3B6A     		ldr	r3, [r7, #32]
+ 1132 003e 5B42     		rsbs	r3, r3, #0
+ 1133 0040 3B62     		str	r3, [r7, #32]
+ 607:Generated_Source\PSoC4/GLCD.c **** 		stepx = -1;
+ 1134              		.loc 1 607 0
+ 1135 0042 0123     		movs	r3, #1
+ 1136 0044 5B42     		rsbs	r3, r3, #0
+ 1137 0046 FB61     		str	r3, [r7, #28]
+ 1138 0048 01E0     		b	.L41
+ 1139              	.L40:
+ 608:Generated_Source\PSoC4/GLCD.c **** 	}
+ 609:Generated_Source\PSoC4/GLCD.c **** 	else
+ 610:Generated_Source\PSoC4/GLCD.c **** 	{
+ 611:Generated_Source\PSoC4/GLCD.c **** 		stepx = 1;
+ 1140              		.loc 1 611 0
+ 1141 004a 0123     		movs	r3, #1
+ 1142 004c FB61     		str	r3, [r7, #28]
+ 1143              	.L41:
+ 612:Generated_Source\PSoC4/GLCD.c **** 	}
+ 613:Generated_Source\PSoC4/GLCD.c **** 
+ 614:Generated_Source\PSoC4/GLCD.c **** 	dy <<= 1; /* dy is now 2*dy  */
+ 1144              		.loc 1 614 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 32
+
+
+ 1145 004e 7B6A     		ldr	r3, [r7, #36]
+ 1146 0050 5B00     		lsls	r3, r3, #1
+ 1147 0052 7B62     		str	r3, [r7, #36]
+ 615:Generated_Source\PSoC4/GLCD.c **** 	dx <<= 1; /* dx is now 2*dx  */
+ 1148              		.loc 1 615 0
+ 1149 0054 3B6A     		ldr	r3, [r7, #32]
+ 1150 0056 5B00     		lsls	r3, r3, #1
+ 1151 0058 3B62     		str	r3, [r7, #32]
+ 616:Generated_Source\PSoC4/GLCD.c **** 	GLCD_Pixel(x0, y0, color);
+ 1152              		.loc 1 616 0
+ 1153 005a 3A6B     		ldr	r2, [r7, #48]
+ 1154 005c B968     		ldr	r1, [r7, #8]
+ 1155 005e FB68     		ldr	r3, [r7, #12]
+ 1156 0060 1800     		movs	r0, r3
+ 1157 0062 FFF7FEFF 		bl	GLCD_Pixel
+ 617:Generated_Source\PSoC4/GLCD.c **** 
+ 618:Generated_Source\PSoC4/GLCD.c **** 	if (dx > dy) 
+ 1158              		.loc 1 618 0
+ 1159 0066 3A6A     		ldr	r2, [r7, #32]
+ 1160 0068 7B6A     		ldr	r3, [r7, #36]
+ 1161 006a 9A42     		cmp	r2, r3
+ 1162 006c 23DD     		ble	.L42
+ 1163              	.LBB2:
+ 619:Generated_Source\PSoC4/GLCD.c **** 	{
+ 620:Generated_Source\PSoC4/GLCD.c **** 		int fraction = dy - (dx >> 1);
+ 1164              		.loc 1 620 0
+ 1165 006e 3B6A     		ldr	r3, [r7, #32]
+ 1166 0070 5B10     		asrs	r3, r3, #1
+ 1167 0072 7A6A     		ldr	r2, [r7, #36]
+ 1168 0074 D31A     		subs	r3, r2, r3
+ 1169 0076 7B61     		str	r3, [r7, #20]
+ 621:Generated_Source\PSoC4/GLCD.c **** 		while (x0 != x1)
+ 1170              		.loc 1 621 0
+ 1171 0078 18E0     		b	.L43
+ 1172              	.L45:
+ 622:Generated_Source\PSoC4/GLCD.c **** 		{
+ 623:Generated_Source\PSoC4/GLCD.c **** 			if (fraction >= 0)
+ 1173              		.loc 1 623 0
+ 1174 007a 7B69     		ldr	r3, [r7, #20]
+ 1175 007c 002B     		cmp	r3, #0
+ 1176 007e 07DB     		blt	.L44
+ 624:Generated_Source\PSoC4/GLCD.c **** 			{
+ 625:Generated_Source\PSoC4/GLCD.c **** 				y0 += stepy;
+ 1177              		.loc 1 625 0
+ 1178 0080 BA68     		ldr	r2, [r7, #8]
+ 1179 0082 BB69     		ldr	r3, [r7, #24]
+ 1180 0084 D318     		adds	r3, r2, r3
+ 1181 0086 BB60     		str	r3, [r7, #8]
+ 626:Generated_Source\PSoC4/GLCD.c **** 				fraction -= dx;
+ 1182              		.loc 1 626 0
+ 1183 0088 7A69     		ldr	r2, [r7, #20]
+ 1184 008a 3B6A     		ldr	r3, [r7, #32]
+ 1185 008c D31A     		subs	r3, r2, r3
+ 1186 008e 7B61     		str	r3, [r7, #20]
+ 1187              	.L44:
+ 627:Generated_Source\PSoC4/GLCD.c **** 			}
+ 628:Generated_Source\PSoC4/GLCD.c **** 			x0 += stepx;
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 33
+
+
+ 1188              		.loc 1 628 0
+ 1189 0090 FA68     		ldr	r2, [r7, #12]
+ 1190 0092 FB69     		ldr	r3, [r7, #28]
+ 1191 0094 D318     		adds	r3, r2, r3
+ 1192 0096 FB60     		str	r3, [r7, #12]
+ 629:Generated_Source\PSoC4/GLCD.c **** 			fraction += dy;
+ 1193              		.loc 1 629 0
+ 1194 0098 7A69     		ldr	r2, [r7, #20]
+ 1195 009a 7B6A     		ldr	r3, [r7, #36]
+ 1196 009c D318     		adds	r3, r2, r3
+ 1197 009e 7B61     		str	r3, [r7, #20]
+ 630:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Pixel(x0, y0, color);
+ 1198              		.loc 1 630 0
+ 1199 00a0 3A6B     		ldr	r2, [r7, #48]
+ 1200 00a2 B968     		ldr	r1, [r7, #8]
+ 1201 00a4 FB68     		ldr	r3, [r7, #12]
+ 1202 00a6 1800     		movs	r0, r3
+ 1203 00a8 FFF7FEFF 		bl	GLCD_Pixel
+ 1204              	.L43:
+ 621:Generated_Source\PSoC4/GLCD.c **** 		{
+ 1205              		.loc 1 621 0
+ 1206 00ac FA68     		ldr	r2, [r7, #12]
+ 1207 00ae 7B68     		ldr	r3, [r7, #4]
+ 1208 00b0 9A42     		cmp	r2, r3
+ 1209 00b2 E2D1     		bne	.L45
+ 1210              	.LBE2:
+ 631:Generated_Source\PSoC4/GLCD.c **** 		}
+ 632:Generated_Source\PSoC4/GLCD.c **** 	}
+ 633:Generated_Source\PSoC4/GLCD.c **** 	else
+ 634:Generated_Source\PSoC4/GLCD.c **** 	{
+ 635:Generated_Source\PSoC4/GLCD.c **** 		int fraction = dx - (dy >> 1);
+ 636:Generated_Source\PSoC4/GLCD.c **** 		while (y0 != y1)
+ 637:Generated_Source\PSoC4/GLCD.c **** 		{
+ 638:Generated_Source\PSoC4/GLCD.c **** 			if (fraction >= 0)
+ 639:Generated_Source\PSoC4/GLCD.c **** 			{
+ 640:Generated_Source\PSoC4/GLCD.c **** 				x0 += stepx;
+ 641:Generated_Source\PSoC4/GLCD.c **** 				fraction -= dy;
+ 642:Generated_Source\PSoC4/GLCD.c **** 			}
+ 643:Generated_Source\PSoC4/GLCD.c **** 			y0 += stepy;
+ 644:Generated_Source\PSoC4/GLCD.c **** 			fraction += dx;
+ 645:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Pixel( x0, y0, color);
+ 646:Generated_Source\PSoC4/GLCD.c **** 		}
+ 647:Generated_Source\PSoC4/GLCD.c **** 	}
+ 648:Generated_Source\PSoC4/GLCD.c **** }
+ 1211              		.loc 1 648 0
+ 1212 00b4 22E0     		b	.L50
+ 1213              	.L42:
+ 1214              	.LBB3:
+ 635:Generated_Source\PSoC4/GLCD.c **** 		while (y0 != y1)
+ 1215              		.loc 1 635 0
+ 1216 00b6 7B6A     		ldr	r3, [r7, #36]
+ 1217 00b8 5B10     		asrs	r3, r3, #1
+ 1218 00ba 3A6A     		ldr	r2, [r7, #32]
+ 1219 00bc D31A     		subs	r3, r2, r3
+ 1220 00be 3B61     		str	r3, [r7, #16]
+ 636:Generated_Source\PSoC4/GLCD.c **** 		{
+ 1221              		.loc 1 636 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 34
+
+
+ 1222 00c0 18E0     		b	.L47
+ 1223              	.L49:
+ 638:Generated_Source\PSoC4/GLCD.c **** 			{
+ 1224              		.loc 1 638 0
+ 1225 00c2 3B69     		ldr	r3, [r7, #16]
+ 1226 00c4 002B     		cmp	r3, #0
+ 1227 00c6 07DB     		blt	.L48
+ 640:Generated_Source\PSoC4/GLCD.c **** 				fraction -= dy;
+ 1228              		.loc 1 640 0
+ 1229 00c8 FA68     		ldr	r2, [r7, #12]
+ 1230 00ca FB69     		ldr	r3, [r7, #28]
+ 1231 00cc D318     		adds	r3, r2, r3
+ 1232 00ce FB60     		str	r3, [r7, #12]
+ 641:Generated_Source\PSoC4/GLCD.c **** 			}
+ 1233              		.loc 1 641 0
+ 1234 00d0 3A69     		ldr	r2, [r7, #16]
+ 1235 00d2 7B6A     		ldr	r3, [r7, #36]
+ 1236 00d4 D31A     		subs	r3, r2, r3
+ 1237 00d6 3B61     		str	r3, [r7, #16]
+ 1238              	.L48:
+ 643:Generated_Source\PSoC4/GLCD.c **** 			fraction += dx;
+ 1239              		.loc 1 643 0
+ 1240 00d8 BA68     		ldr	r2, [r7, #8]
+ 1241 00da BB69     		ldr	r3, [r7, #24]
+ 1242 00dc D318     		adds	r3, r2, r3
+ 1243 00de BB60     		str	r3, [r7, #8]
+ 644:Generated_Source\PSoC4/GLCD.c **** 			GLCD_Pixel( x0, y0, color);
+ 1244              		.loc 1 644 0
+ 1245 00e0 3A69     		ldr	r2, [r7, #16]
+ 1246 00e2 3B6A     		ldr	r3, [r7, #32]
+ 1247 00e4 D318     		adds	r3, r2, r3
+ 1248 00e6 3B61     		str	r3, [r7, #16]
+ 645:Generated_Source\PSoC4/GLCD.c **** 		}
+ 1249              		.loc 1 645 0
+ 1250 00e8 3A6B     		ldr	r2, [r7, #48]
+ 1251 00ea B968     		ldr	r1, [r7, #8]
+ 1252 00ec FB68     		ldr	r3, [r7, #12]
+ 1253 00ee 1800     		movs	r0, r3
+ 1254 00f0 FFF7FEFF 		bl	GLCD_Pixel
+ 1255              	.L47:
+ 636:Generated_Source\PSoC4/GLCD.c **** 		{
+ 1256              		.loc 1 636 0
+ 1257 00f4 BA68     		ldr	r2, [r7, #8]
+ 1258 00f6 3B68     		ldr	r3, [r7]
+ 1259 00f8 9A42     		cmp	r2, r3
+ 1260 00fa E2D1     		bne	.L49
+ 1261              	.L50:
+ 1262              	.LBE3:
+ 1263              		.loc 1 648 0
+ 1264 00fc C046     		nop
+ 1265 00fe BD46     		mov	sp, r7
+ 1266 0100 0AB0     		add	sp, sp, #40
+ 1267              		@ sp needed
+ 1268 0102 80BD     		pop	{r7, pc}
+ 1269              		.cfi_endproc
+ 1270              	.LFE11:
+ 1271              		.size	GLCD_DrawLine, .-GLCD_DrawLine
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 35
+
+
+ 1272              		.section	.text.GLCD_DrawRect,"ax",%progbits
+ 1273              		.align	2
+ 1274              		.global	GLCD_DrawRect
+ 1275              		.code	16
+ 1276              		.thumb_func
+ 1277              		.type	GLCD_DrawRect, %function
+ 1278              	GLCD_DrawRect:
+ 1279              	.LFB12:
+ 649:Generated_Source\PSoC4/GLCD.c **** 
+ 650:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 651:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_DrawRect
+ 652:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 653:Generated_Source\PSoC4/GLCD.c **** *
+ 654:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 655:Generated_Source\PSoC4/GLCD.c **** *  Draw a rectangle, filled or not.  
+ 656:Generated_Source\PSoC4/GLCD.c **** *
+ 657:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 658:Generated_Source\PSoC4/GLCD.c **** *  x0, y0:  The upper lefthand corner.
+ 659:Generated_Source\PSoC4/GLCD.c **** *  x1, y1:  The lower right corner.
+ 660:Generated_Source\PSoC4/GLCD.c **** *  fill:    Non-Zero if retangle is to be filled.
+ 661:Generated_Source\PSoC4/GLCD.c **** *  color:   Color for rectangle, border and fill.
+ 662:Generated_Source\PSoC4/GLCD.c **** *
+ 663:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 664:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 665:Generated_Source\PSoC4/GLCD.c **** *  
+ 666:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 667:Generated_Source\PSoC4/GLCD.c **** void GLCD_DrawRect(int32 x0, int32 y0, int32 x1, int32 y1, int32 fill, int32 color)
+ 668:Generated_Source\PSoC4/GLCD.c **** {	
+ 1280              		.loc 1 668 0
+ 1281              		.cfi_startproc
+ 1282              		@ args = 8, pretend = 0, frame = 24
+ 1283              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1284 0000 90B5     		push	{r4, r7, lr}
+ 1285              		.cfi_def_cfa_offset 12
+ 1286              		.cfi_offset 4, -12
+ 1287              		.cfi_offset 7, -8
+ 1288              		.cfi_offset 14, -4
+ 1289 0002 89B0     		sub	sp, sp, #36
+ 1290              		.cfi_def_cfa_offset 48
+ 1291 0004 02AF     		add	r7, sp, #8
+ 1292              		.cfi_def_cfa 7, 40
+ 1293 0006 F860     		str	r0, [r7, #12]
+ 1294 0008 B960     		str	r1, [r7, #8]
+ 1295 000a 7A60     		str	r2, [r7, #4]
+ 1296 000c 3B60     		str	r3, [r7]
+ 669:Generated_Source\PSoC4/GLCD.c ****      int xDiff;
+ 670:Generated_Source\PSoC4/GLCD.c **** 	/* Check if the rectangle is to be filled    */
+ 671:Generated_Source\PSoC4/GLCD.c **** 	if (fill != 0)
+ 1297              		.loc 1 671 0
+ 1298 000e BB6A     		ldr	r3, [r7, #40]
+ 1299 0010 002B     		cmp	r3, #0
+ 1300 0012 28D0     		beq	.L52
+ 672:Generated_Source\PSoC4/GLCD.c **** 	{	
+ 673:Generated_Source\PSoC4/GLCD.c ****         /* Find the difference between the x vars */
+ 674:Generated_Source\PSoC4/GLCD.c **** 		if(x0 > x1)
+ 1301              		.loc 1 674 0
+ 1302 0014 FA68     		ldr	r2, [r7, #12]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 36
+
+
+ 1303 0016 7B68     		ldr	r3, [r7, #4]
+ 1304 0018 9A42     		cmp	r2, r3
+ 1305 001a 04DD     		ble	.L53
+ 675:Generated_Source\PSoC4/GLCD.c **** 		{
+ 676:Generated_Source\PSoC4/GLCD.c **** 			xDiff = x0 - x1; 
+ 1306              		.loc 1 676 0
+ 1307 001c FA68     		ldr	r2, [r7, #12]
+ 1308 001e 7B68     		ldr	r3, [r7, #4]
+ 1309 0020 D31A     		subs	r3, r2, r3
+ 1310 0022 7B61     		str	r3, [r7, #20]
+ 1311 0024 1BE0     		b	.L55
+ 1312              	.L53:
+ 677:Generated_Source\PSoC4/GLCD.c **** 		}
+ 678:Generated_Source\PSoC4/GLCD.c **** 		else
+ 679:Generated_Source\PSoC4/GLCD.c **** 		{
+ 680:Generated_Source\PSoC4/GLCD.c **** 			xDiff = x1 - x0;
+ 1313              		.loc 1 680 0
+ 1314 0026 7A68     		ldr	r2, [r7, #4]
+ 1315 0028 FB68     		ldr	r3, [r7, #12]
+ 1316 002a D31A     		subs	r3, r2, r3
+ 1317 002c 7B61     		str	r3, [r7, #20]
+ 681:Generated_Source\PSoC4/GLCD.c **** 		}
+ 682:Generated_Source\PSoC4/GLCD.c **** 	
+ 683:Generated_Source\PSoC4/GLCD.c **** 	    /* Fill it with lines  */
+ 684:Generated_Source\PSoC4/GLCD.c **** 		while(xDiff >= 0)
+ 1318              		.loc 1 684 0
+ 1319 002e 16E0     		b	.L55
+ 1320              	.L58:
+ 685:Generated_Source\PSoC4/GLCD.c **** 		{
+ 686:Generated_Source\PSoC4/GLCD.c **** 			GLCD_DrawLine(x0, y0, x0, y1, color);
+ 1321              		.loc 1 686 0
+ 1322 0030 3C68     		ldr	r4, [r7]
+ 1323 0032 FA68     		ldr	r2, [r7, #12]
+ 1324 0034 B968     		ldr	r1, [r7, #8]
+ 1325 0036 F868     		ldr	r0, [r7, #12]
+ 1326 0038 FB6A     		ldr	r3, [r7, #44]
+ 1327 003a 0093     		str	r3, [sp]
+ 1328 003c 2300     		movs	r3, r4
+ 1329 003e FFF7FEFF 		bl	GLCD_DrawLine
+ 687:Generated_Source\PSoC4/GLCD.c **** 		
+ 688:Generated_Source\PSoC4/GLCD.c **** 			if(x0 > x1)
+ 1330              		.loc 1 688 0
+ 1331 0042 FA68     		ldr	r2, [r7, #12]
+ 1332 0044 7B68     		ldr	r3, [r7, #4]
+ 1333 0046 9A42     		cmp	r2, r3
+ 1334 0048 03DD     		ble	.L56
+ 689:Generated_Source\PSoC4/GLCD.c **** 				x0--;
+ 1335              		.loc 1 689 0
+ 1336 004a FB68     		ldr	r3, [r7, #12]
+ 1337 004c 013B     		subs	r3, r3, #1
+ 1338 004e FB60     		str	r3, [r7, #12]
+ 1339 0050 02E0     		b	.L57
+ 1340              	.L56:
+ 690:Generated_Source\PSoC4/GLCD.c **** 			else
+ 691:Generated_Source\PSoC4/GLCD.c **** 				x0++;
+ 1341              		.loc 1 691 0
+ 1342 0052 FB68     		ldr	r3, [r7, #12]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 37
+
+
+ 1343 0054 0133     		adds	r3, r3, #1
+ 1344 0056 FB60     		str	r3, [r7, #12]
+ 1345              	.L57:
+ 692:Generated_Source\PSoC4/GLCD.c **** 		
+ 693:Generated_Source\PSoC4/GLCD.c **** 			xDiff--;
+ 1346              		.loc 1 693 0
+ 1347 0058 7B69     		ldr	r3, [r7, #20]
+ 1348 005a 013B     		subs	r3, r3, #1
+ 1349 005c 7B61     		str	r3, [r7, #20]
+ 1350              	.L55:
+ 684:Generated_Source\PSoC4/GLCD.c **** 		{
+ 1351              		.loc 1 684 0
+ 1352 005e 7B69     		ldr	r3, [r7, #20]
+ 1353 0060 002B     		cmp	r3, #0
+ 1354 0062 E5DA     		bge	.L58
+ 694:Generated_Source\PSoC4/GLCD.c **** 		}
+ 695:Generated_Source\PSoC4/GLCD.c **** 
+ 696:Generated_Source\PSoC4/GLCD.c **** 	}
+ 697:Generated_Source\PSoC4/GLCD.c **** 	else 
+ 698:Generated_Source\PSoC4/GLCD.c **** 	{
+ 699:Generated_Source\PSoC4/GLCD.c **** 		/* Draw the four sides of the rectangle */
+ 700:Generated_Source\PSoC4/GLCD.c **** 		GLCD_DrawLine(x0, y0, x1, y0, color);
+ 701:Generated_Source\PSoC4/GLCD.c **** 		GLCD_DrawLine(x0, y1, x1, y1, color);
+ 702:Generated_Source\PSoC4/GLCD.c **** 		GLCD_DrawLine(x0, y0, x0, y1, color);
+ 703:Generated_Source\PSoC4/GLCD.c **** 		GLCD_DrawLine(x1, y0, x1, y1, color);
+ 704:Generated_Source\PSoC4/GLCD.c **** 	}
+ 705:Generated_Source\PSoC4/GLCD.c **** }
+ 1355              		.loc 1 705 0
+ 1356 0064 23E0     		b	.L60
+ 1357              	.L52:
+ 700:Generated_Source\PSoC4/GLCD.c **** 		GLCD_DrawLine(x0, y1, x1, y1, color);
+ 1358              		.loc 1 700 0
+ 1359 0066 BC68     		ldr	r4, [r7, #8]
+ 1360 0068 7A68     		ldr	r2, [r7, #4]
+ 1361 006a B968     		ldr	r1, [r7, #8]
+ 1362 006c F868     		ldr	r0, [r7, #12]
+ 1363 006e FB6A     		ldr	r3, [r7, #44]
+ 1364 0070 0093     		str	r3, [sp]
+ 1365 0072 2300     		movs	r3, r4
+ 1366 0074 FFF7FEFF 		bl	GLCD_DrawLine
+ 701:Generated_Source\PSoC4/GLCD.c **** 		GLCD_DrawLine(x0, y0, x0, y1, color);
+ 1367              		.loc 1 701 0
+ 1368 0078 3C68     		ldr	r4, [r7]
+ 1369 007a 7A68     		ldr	r2, [r7, #4]
+ 1370 007c 3968     		ldr	r1, [r7]
+ 1371 007e F868     		ldr	r0, [r7, #12]
+ 1372 0080 FB6A     		ldr	r3, [r7, #44]
+ 1373 0082 0093     		str	r3, [sp]
+ 1374 0084 2300     		movs	r3, r4
+ 1375 0086 FFF7FEFF 		bl	GLCD_DrawLine
+ 702:Generated_Source\PSoC4/GLCD.c **** 		GLCD_DrawLine(x1, y0, x1, y1, color);
+ 1376              		.loc 1 702 0
+ 1377 008a 3C68     		ldr	r4, [r7]
+ 1378 008c FA68     		ldr	r2, [r7, #12]
+ 1379 008e B968     		ldr	r1, [r7, #8]
+ 1380 0090 F868     		ldr	r0, [r7, #12]
+ 1381 0092 FB6A     		ldr	r3, [r7, #44]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 38
+
+
+ 1382 0094 0093     		str	r3, [sp]
+ 1383 0096 2300     		movs	r3, r4
+ 1384 0098 FFF7FEFF 		bl	GLCD_DrawLine
+ 703:Generated_Source\PSoC4/GLCD.c **** 	}
+ 1385              		.loc 1 703 0
+ 1386 009c 3C68     		ldr	r4, [r7]
+ 1387 009e 7A68     		ldr	r2, [r7, #4]
+ 1388 00a0 B968     		ldr	r1, [r7, #8]
+ 1389 00a2 7868     		ldr	r0, [r7, #4]
+ 1390 00a4 FB6A     		ldr	r3, [r7, #44]
+ 1391 00a6 0093     		str	r3, [sp]
+ 1392 00a8 2300     		movs	r3, r4
+ 1393 00aa FFF7FEFF 		bl	GLCD_DrawLine
+ 1394              	.L60:
+ 1395              		.loc 1 705 0
+ 1396 00ae C046     		nop
+ 1397 00b0 BD46     		mov	sp, r7
+ 1398 00b2 07B0     		add	sp, sp, #28
+ 1399              		@ sp needed
+ 1400 00b4 90BD     		pop	{r4, r7, pc}
+ 1401              		.cfi_endproc
+ 1402              	.LFE12:
+ 1403              		.size	GLCD_DrawRect, .-GLCD_DrawRect
+ 1404 00b6 C046     		.section	.text.GLCD_Off,"ax",%progbits
+ 1405              		.align	2
+ 1406              		.global	GLCD_Off
+ 1407              		.code	16
+ 1408              		.thumb_func
+ 1409              		.type	GLCD_Off, %function
+ 1410              	GLCD_Off:
+ 1411              	.LFB13:
+ 706:Generated_Source\PSoC4/GLCD.c **** 
+ 707:Generated_Source\PSoC4/GLCD.c **** 
+ 708:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 709:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_Off
+ 710:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 711:Generated_Source\PSoC4/GLCD.c **** *
+ 712:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 713:Generated_Source\PSoC4/GLCD.c **** *  Turn off display
+ 714:Generated_Source\PSoC4/GLCD.c **** *
+ 715:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 716:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 717:Generated_Source\PSoC4/GLCD.c **** *
+ 718:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 719:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 720:Generated_Source\PSoC4/GLCD.c **** *  
+ 721:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 722:Generated_Source\PSoC4/GLCD.c **** void GLCD_Off(void)		/* Turn off the display  */
+ 723:Generated_Source\PSoC4/GLCD.c **** {
+ 1412              		.loc 1 723 0
+ 1413              		.cfi_startproc
+ 1414              		@ args = 0, pretend = 0, frame = 0
+ 1415              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1416 0000 80B5     		push	{r7, lr}
+ 1417              		.cfi_def_cfa_offset 8
+ 1418              		.cfi_offset 7, -8
+ 1419              		.cfi_offset 14, -4
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 39
+
+
+ 1420 0002 00AF     		add	r7, sp, #0
+ 1421              		.cfi_def_cfa_register 7
+ 724:Generated_Source\PSoC4/GLCD.c ****     GLCD_Command(GLCD_DISPOFF);
+ 1422              		.loc 1 724 0
+ 1423 0004 2820     		movs	r0, #40
+ 1424 0006 FFF7FEFF 		bl	GLCD_Command
+ 725:Generated_Source\PSoC4/GLCD.c **** }
+ 1425              		.loc 1 725 0
+ 1426 000a C046     		nop
+ 1427 000c BD46     		mov	sp, r7
+ 1428              		@ sp needed
+ 1429 000e 80BD     		pop	{r7, pc}
+ 1430              		.cfi_endproc
+ 1431              	.LFE13:
+ 1432              		.size	GLCD_Off, .-GLCD_Off
+ 1433              		.section	.text.GLCD_On,"ax",%progbits
+ 1434              		.align	2
+ 1435              		.global	GLCD_On
+ 1436              		.code	16
+ 1437              		.thumb_func
+ 1438              		.type	GLCD_On, %function
+ 1439              	GLCD_On:
+ 1440              	.LFB14:
+ 726:Generated_Source\PSoC4/GLCD.c **** 
+ 727:Generated_Source\PSoC4/GLCD.c **** /*******************************************************************************
+ 728:Generated_Source\PSoC4/GLCD.c **** * Function Name: GLCD_On
+ 729:Generated_Source\PSoC4/GLCD.c **** ********************************************************************************
+ 730:Generated_Source\PSoC4/GLCD.c **** *
+ 731:Generated_Source\PSoC4/GLCD.c **** * Summary:
+ 732:Generated_Source\PSoC4/GLCD.c **** *  Turn on display
+ 733:Generated_Source\PSoC4/GLCD.c **** *
+ 734:Generated_Source\PSoC4/GLCD.c **** * Parameters:  
+ 735:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 736:Generated_Source\PSoC4/GLCD.c **** *
+ 737:Generated_Source\PSoC4/GLCD.c **** * Return: 
+ 738:Generated_Source\PSoC4/GLCD.c **** *  None 
+ 739:Generated_Source\PSoC4/GLCD.c **** *  
+ 740:Generated_Source\PSoC4/GLCD.c **** *******************************************************************************/
+ 741:Generated_Source\PSoC4/GLCD.c **** void GLCD_On(void)		/* Turn on the display */
+ 742:Generated_Source\PSoC4/GLCD.c **** {
+ 1441              		.loc 1 742 0
+ 1442              		.cfi_startproc
+ 1443              		@ args = 0, pretend = 0, frame = 0
+ 1444              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1445 0000 80B5     		push	{r7, lr}
+ 1446              		.cfi_def_cfa_offset 8
+ 1447              		.cfi_offset 7, -8
+ 1448              		.cfi_offset 14, -4
+ 1449 0002 00AF     		add	r7, sp, #0
+ 1450              		.cfi_def_cfa_register 7
+ 743:Generated_Source\PSoC4/GLCD.c ****     GLCD_Command(GLCD_DISPON);
+ 1451              		.loc 1 743 0
+ 1452 0004 2920     		movs	r0, #41
+ 1453 0006 FFF7FEFF 		bl	GLCD_Command
+ 744:Generated_Source\PSoC4/GLCD.c **** }
+ 1454              		.loc 1 744 0
+ 1455 000a C046     		nop
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 40
+
+
+ 1456 000c BD46     		mov	sp, r7
+ 1457              		@ sp needed
+ 1458 000e 80BD     		pop	{r7, pc}
+ 1459              		.cfi_endproc
+ 1460              	.LFE14:
+ 1461              		.size	GLCD_On, .-GLCD_On
+ 1462              		.text
+ 1463              	.Letext0:
+ 1464              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 1465              		.file 3 "Generated_Source\\PSoC4\\GLCD.h"
+ 1466              		.section	.debug_info,"",%progbits
+ 1467              	.Ldebug_info0:
+ 1468 0000 D2050000 		.4byte	0x5d2
+ 1469 0004 0400     		.2byte	0x4
+ 1470 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1471 000a 04       		.byte	0x4
+ 1472 000b 01       		.uleb128 0x1
+ 1473 000c 53010000 		.4byte	.LASF62
+ 1474 0010 0C       		.byte	0xc
+ 1475 0011 26000000 		.4byte	.LASF63
+ 1476 0015 2C020000 		.4byte	.LASF64
+ 1477 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1478 001d 00000000 		.4byte	0
+ 1479 0021 00000000 		.4byte	.Ldebug_line0
+ 1480 0025 02       		.uleb128 0x2
+ 1481 0026 01       		.byte	0x1
+ 1482 0027 06       		.byte	0x6
+ 1483 0028 5A000000 		.4byte	.LASF0
+ 1484 002c 02       		.uleb128 0x2
+ 1485 002d 01       		.byte	0x1
+ 1486 002e 08       		.byte	0x8
+ 1487 002f B0020000 		.4byte	.LASF1
+ 1488 0033 02       		.uleb128 0x2
+ 1489 0034 02       		.byte	0x2
+ 1490 0035 05       		.byte	0x5
+ 1491 0036 C4020000 		.4byte	.LASF2
+ 1492 003a 02       		.uleb128 0x2
+ 1493 003b 02       		.byte	0x2
+ 1494 003c 07       		.byte	0x7
+ 1495 003d 31010000 		.4byte	.LASF3
+ 1496 0041 02       		.uleb128 0x2
+ 1497 0042 04       		.byte	0x4
+ 1498 0043 05       		.byte	0x5
+ 1499 0044 75000000 		.4byte	.LASF4
+ 1500 0048 02       		.uleb128 0x2
+ 1501 0049 04       		.byte	0x4
+ 1502 004a 07       		.byte	0x7
+ 1503 004b 02010000 		.4byte	.LASF5
+ 1504 004f 02       		.uleb128 0x2
+ 1505 0050 08       		.byte	0x8
+ 1506 0051 05       		.byte	0x5
+ 1507 0052 4C000000 		.4byte	.LASF6
+ 1508 0056 02       		.uleb128 0x2
+ 1509 0057 08       		.byte	0x8
+ 1510 0058 07       		.byte	0x7
+ 1511 0059 0F000000 		.4byte	.LASF7
+ 1512 005d 03       		.uleb128 0x3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 41
+
+
+ 1513 005e 04       		.byte	0x4
+ 1514 005f 05       		.byte	0x5
+ 1515 0060 696E7400 		.ascii	"int\000"
+ 1516 0064 02       		.uleb128 0x2
+ 1517 0065 04       		.byte	0x4
+ 1518 0066 07       		.byte	0x7
+ 1519 0067 E5000000 		.4byte	.LASF8
+ 1520 006b 04       		.uleb128 0x4
+ 1521 006c 7E000000 		.4byte	.LASF9
+ 1522 0070 02       		.byte	0x2
+ 1523 0071 B901     		.2byte	0x1b9
+ 1524 0073 2C000000 		.4byte	0x2c
+ 1525 0077 04       		.uleb128 0x4
+ 1526 0078 00000000 		.4byte	.LASF10
+ 1527 007c 02       		.byte	0x2
+ 1528 007d BA01     		.2byte	0x1ba
+ 1529 007f 3A000000 		.4byte	0x3a
+ 1530 0083 04       		.uleb128 0x4
+ 1531 0084 A7000000 		.4byte	.LASF11
+ 1532 0088 02       		.byte	0x2
+ 1533 0089 BB01     		.2byte	0x1bb
+ 1534 008b 48000000 		.4byte	0x48
+ 1535 008f 04       		.uleb128 0x4
+ 1536 0090 6F000000 		.4byte	.LASF12
+ 1537 0094 02       		.byte	0x2
+ 1538 0095 BE01     		.2byte	0x1be
+ 1539 0097 41000000 		.4byte	0x41
+ 1540 009b 02       		.uleb128 0x2
+ 1541 009c 04       		.byte	0x4
+ 1542 009d 04       		.byte	0x4
+ 1543 009e 8D020000 		.4byte	.LASF13
+ 1544 00a2 02       		.uleb128 0x2
+ 1545 00a3 08       		.byte	0x8
+ 1546 00a4 04       		.byte	0x4
+ 1547 00a5 95000000 		.4byte	.LASF14
+ 1548 00a9 02       		.uleb128 0x2
+ 1549 00aa 01       		.byte	0x1
+ 1550 00ab 08       		.byte	0x8
+ 1551 00ac D9020000 		.4byte	.LASF15
+ 1552 00b0 02       		.uleb128 0x2
+ 1553 00b1 08       		.byte	0x8
+ 1554 00b2 04       		.byte	0x4
+ 1555 00b3 12020000 		.4byte	.LASF16
+ 1556 00b7 02       		.uleb128 0x2
+ 1557 00b8 04       		.byte	0x4
+ 1558 00b9 07       		.byte	0x7
+ 1559 00ba FB010000 		.4byte	.LASF17
+ 1560 00be 05       		.uleb128 0x5
+ 1561 00bf 04       		.byte	0x4
+ 1562 00c0 A9000000 		.4byte	0xa9
+ 1563 00c4 06       		.uleb128 0x6
+ 1564 00c5 80020000 		.4byte	.LASF18
+ 1565 00c9 01       		.byte	0x1
+ 1566 00ca 3A       		.byte	0x3a
+ 1567 00cb 00000000 		.4byte	.LFB0
+ 1568 00cf 2A000000 		.4byte	.LFE0-.LFB0
+ 1569 00d3 01       		.uleb128 0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 42
+
+
+ 1570 00d4 9C       		.byte	0x9c
+ 1571 00d5 E8000000 		.4byte	0xe8
+ 1572 00d9 07       		.uleb128 0x7
+ 1573 00da 4B010000 		.4byte	.LASF20
+ 1574 00de 01       		.byte	0x1
+ 1575 00df 3A       		.byte	0x3a
+ 1576 00e0 83000000 		.4byte	0x83
+ 1577 00e4 02       		.uleb128 0x2
+ 1578 00e5 91       		.byte	0x91
+ 1579 00e6 74       		.sleb128 -12
+ 1580 00e7 00       		.byte	0
+ 1581 00e8 06       		.uleb128 0x6
+ 1582 00e9 4D030000 		.4byte	.LASF19
+ 1583 00ed 01       		.byte	0x1
+ 1584 00ee 55       		.byte	0x55
+ 1585 00ef 00000000 		.4byte	.LFB1
+ 1586 00f3 3E000000 		.4byte	.LFE1-.LFB1
+ 1587 00f7 01       		.uleb128 0x1
+ 1588 00f8 9C       		.byte	0x9c
+ 1589 00f9 1A010000 		.4byte	0x11a
+ 1590 00fd 07       		.uleb128 0x7
+ 1591 00fe 07000000 		.4byte	.LASF21
+ 1592 0102 01       		.byte	0x1
+ 1593 0103 55       		.byte	0x55
+ 1594 0104 83000000 		.4byte	0x83
+ 1595 0108 02       		.uleb128 0x2
+ 1596 0109 91       		.byte	0x91
+ 1597 010a 6C       		.sleb128 -20
+ 1598 010b 08       		.uleb128 0x8
+ 1599 010c 06030000 		.4byte	.LASF26
+ 1600 0110 01       		.byte	0x1
+ 1601 0111 58       		.byte	0x58
+ 1602 0112 77000000 		.4byte	0x77
+ 1603 0116 02       		.uleb128 0x2
+ 1604 0117 91       		.byte	0x91
+ 1605 0118 76       		.sleb128 -10
+ 1606 0119 00       		.byte	0
+ 1607 011a 09       		.uleb128 0x9
+ 1608 011b 26010000 		.4byte	.LASF22
+ 1609 011f 01       		.byte	0x1
+ 1610 0120 75       		.byte	0x75
+ 1611 0121 00000000 		.4byte	.LFB2
+ 1612 0125 6E000000 		.4byte	.LFE2-.LFB2
+ 1613 0129 01       		.uleb128 0x1
+ 1614 012a 9C       		.byte	0x9c
+ 1615 012b 09       		.uleb128 0x9
+ 1616 012c BD000000 		.4byte	.LASF23
+ 1617 0130 01       		.byte	0x1
+ 1618 0131 C7       		.byte	0xc7
+ 1619 0132 00000000 		.4byte	.LFB3
+ 1620 0136 16000000 		.4byte	.LFE3-.LFB3
+ 1621 013a 01       		.uleb128 0x1
+ 1622 013b 9C       		.byte	0x9c
+ 1623 013c 06       		.uleb128 0x6
+ 1624 013d 9C000000 		.4byte	.LASF24
+ 1625 0141 01       		.byte	0x1
+ 1626 0142 DB       		.byte	0xdb
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 43
+
+
+ 1627 0143 00000000 		.4byte	.LFB4
+ 1628 0147 98000000 		.4byte	.LFE4-.LFB4
+ 1629 014b 01       		.uleb128 0x1
+ 1630 014c 9C       		.byte	0x9c
+ 1631 014d 6C010000 		.4byte	0x16c
+ 1632 0151 07       		.uleb128 0x7
+ 1633 0152 D3020000 		.4byte	.LASF25
+ 1634 0156 01       		.byte	0x1
+ 1635 0157 DB       		.byte	0xdb
+ 1636 0158 8F000000 		.4byte	0x8f
+ 1637 015c 02       		.uleb128 0x2
+ 1638 015d 91       		.byte	0x91
+ 1639 015e 6C       		.sleb128 -20
+ 1640 015f 0A       		.uleb128 0xa
+ 1641 0160 6900     		.ascii	"i\000"
+ 1642 0162 01       		.byte	0x1
+ 1643 0163 DD       		.byte	0xdd
+ 1644 0164 8F000000 		.4byte	0x8f
+ 1645 0168 02       		.uleb128 0x2
+ 1646 0169 91       		.byte	0x91
+ 1647 016a 74       		.sleb128 -12
+ 1648 016b 00       		.byte	0
+ 1649 016c 0B       		.uleb128 0xb
+ 1650 016d 04020000 		.4byte	.LASF27
+ 1651 0171 01       		.byte	0x1
+ 1652 0172 0401     		.2byte	0x104
+ 1653 0174 00000000 		.4byte	.LFB5
+ 1654 0178 26000000 		.4byte	.LFE5-.LFB5
+ 1655 017c 01       		.uleb128 0x1
+ 1656 017d 9C       		.byte	0x9c
+ 1657 017e 92010000 		.4byte	0x192
+ 1658 0182 0C       		.uleb128 0xc
+ 1659 0183 29030000 		.4byte	.LASF28
+ 1660 0187 01       		.byte	0x1
+ 1661 0188 0401     		.2byte	0x104
+ 1662 018a 8F000000 		.4byte	0x8f
+ 1663 018e 02       		.uleb128 0x2
+ 1664 018f 91       		.byte	0x91
+ 1665 0190 74       		.sleb128 -12
+ 1666 0191 00       		.byte	0
+ 1667 0192 0D       		.uleb128 0xd
+ 1668 0193 3D030000 		.4byte	.LASF65
+ 1669 0197 01       		.byte	0x1
+ 1670 0198 1F01     		.2byte	0x11f
+ 1671 019a 8F000000 		.4byte	0x8f
+ 1672 019e 00000000 		.4byte	.LFB6
+ 1673 01a2 2C000000 		.4byte	.LFE6-.LFB6
+ 1674 01a6 01       		.uleb128 0x1
+ 1675 01a7 9C       		.byte	0x9c
+ 1676 01a8 BB010000 		.4byte	0x1bb
+ 1677 01ac 0E       		.uleb128 0xe
+ 1678 01ad 696E00   		.ascii	"in\000"
+ 1679 01b0 01       		.byte	0x1
+ 1680 01b1 1F01     		.2byte	0x11f
+ 1681 01b3 8F000000 		.4byte	0x8f
+ 1682 01b7 02       		.uleb128 0x2
+ 1683 01b8 91       		.byte	0x91
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 44
+
+
+ 1684 01b9 74       		.sleb128 -12
+ 1685 01ba 00       		.byte	0
+ 1686 01bb 0B       		.uleb128 0xb
+ 1687 01bc FB020000 		.4byte	.LASF29
+ 1688 01c0 01       		.byte	0x1
+ 1689 01c1 3101     		.2byte	0x131
+ 1690 01c3 00000000 		.4byte	.LFB7
+ 1691 01c7 86000000 		.4byte	.LFE7-.LFB7
+ 1692 01cb 01       		.uleb128 0x1
+ 1693 01cc 9C       		.byte	0x9c
+ 1694 01cd FB010000 		.4byte	0x1fb
+ 1695 01d1 0E       		.uleb128 0xe
+ 1696 01d2 7800     		.ascii	"x\000"
+ 1697 01d4 01       		.byte	0x1
+ 1698 01d5 3101     		.2byte	0x131
+ 1699 01d7 8F000000 		.4byte	0x8f
+ 1700 01db 02       		.uleb128 0x2
+ 1701 01dc 91       		.byte	0x91
+ 1702 01dd 74       		.sleb128 -12
+ 1703 01de 0E       		.uleb128 0xe
+ 1704 01df 7900     		.ascii	"y\000"
+ 1705 01e1 01       		.byte	0x1
+ 1706 01e2 3101     		.2byte	0x131
+ 1707 01e4 8F000000 		.4byte	0x8f
+ 1708 01e8 02       		.uleb128 0x2
+ 1709 01e9 91       		.byte	0x91
+ 1710 01ea 70       		.sleb128 -16
+ 1711 01eb 0C       		.uleb128 0xc
+ 1712 01ec D3020000 		.4byte	.LASF25
+ 1713 01f0 01       		.byte	0x1
+ 1714 01f1 3101     		.2byte	0x131
+ 1715 01f3 8F000000 		.4byte	0x8f
+ 1716 01f7 02       		.uleb128 0x2
+ 1717 01f8 91       		.byte	0x91
+ 1718 01f9 6C       		.sleb128 -20
+ 1719 01fa 00       		.byte	0
+ 1720 01fb 0B       		.uleb128 0xb
+ 1721 01fc D5000000 		.4byte	.LASF30
+ 1722 0200 01       		.byte	0x1
+ 1723 0201 6601     		.2byte	0x166
+ 1724 0203 00000000 		.4byte	.LFB8
+ 1725 0207 50010000 		.4byte	.LFE8-.LFB8
+ 1726 020b 01       		.uleb128 0x1
+ 1727 020c 9C       		.byte	0x9c
+ 1728 020d 91020000 		.4byte	0x291
+ 1729 0211 0E       		.uleb128 0xe
+ 1730 0212 783000   		.ascii	"x0\000"
+ 1731 0215 01       		.byte	0x1
+ 1732 0216 6601     		.2byte	0x166
+ 1733 0218 8F000000 		.4byte	0x8f
+ 1734 021c 02       		.uleb128 0x2
+ 1735 021d 91       		.byte	0x91
+ 1736 021e 5C       		.sleb128 -36
+ 1737 021f 0E       		.uleb128 0xe
+ 1738 0220 793000   		.ascii	"y0\000"
+ 1739 0223 01       		.byte	0x1
+ 1740 0224 6601     		.2byte	0x166
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 45
+
+
+ 1741 0226 8F000000 		.4byte	0x8f
+ 1742 022a 02       		.uleb128 0x2
+ 1743 022b 91       		.byte	0x91
+ 1744 022c 58       		.sleb128 -40
+ 1745 022d 0C       		.uleb128 0xc
+ 1746 022e ED010000 		.4byte	.LASF31
+ 1747 0232 01       		.byte	0x1
+ 1748 0233 6601     		.2byte	0x166
+ 1749 0235 8F000000 		.4byte	0x8f
+ 1750 0239 02       		.uleb128 0x2
+ 1751 023a 91       		.byte	0x91
+ 1752 023b 54       		.sleb128 -44
+ 1753 023c 0C       		.uleb128 0xc
+ 1754 023d D3020000 		.4byte	.LASF25
+ 1755 0241 01       		.byte	0x1
+ 1756 0242 6601     		.2byte	0x166
+ 1757 0244 8F000000 		.4byte	0x8f
+ 1758 0248 02       		.uleb128 0x2
+ 1759 0249 91       		.byte	0x91
+ 1760 024a 50       		.sleb128 -48
+ 1761 024b 0F       		.uleb128 0xf
+ 1762 024c 6600     		.ascii	"f\000"
+ 1763 024e 01       		.byte	0x1
+ 1764 024f 6801     		.2byte	0x168
+ 1765 0251 8F000000 		.4byte	0x8f
+ 1766 0255 02       		.uleb128 0x2
+ 1767 0256 91       		.byte	0x91
+ 1768 0257 74       		.sleb128 -12
+ 1769 0258 10       		.uleb128 0x10
+ 1770 0259 14010000 		.4byte	.LASF32
+ 1771 025d 01       		.byte	0x1
+ 1772 025e 6901     		.2byte	0x169
+ 1773 0260 8F000000 		.4byte	0x8f
+ 1774 0264 02       		.uleb128 0x2
+ 1775 0265 91       		.byte	0x91
+ 1776 0266 70       		.sleb128 -16
+ 1777 0267 10       		.uleb128 0x10
+ 1778 0268 1A010000 		.4byte	.LASF33
+ 1779 026c 01       		.byte	0x1
+ 1780 026d 6A01     		.2byte	0x16a
+ 1781 026f 8F000000 		.4byte	0x8f
+ 1782 0273 02       		.uleb128 0x2
+ 1783 0274 91       		.byte	0x91
+ 1784 0275 6C       		.sleb128 -20
+ 1785 0276 0F       		.uleb128 0xf
+ 1786 0277 7800     		.ascii	"x\000"
+ 1787 0279 01       		.byte	0x1
+ 1788 027a 6B01     		.2byte	0x16b
+ 1789 027c 8F000000 		.4byte	0x8f
+ 1790 0280 02       		.uleb128 0x2
+ 1791 0281 91       		.byte	0x91
+ 1792 0282 68       		.sleb128 -24
+ 1793 0283 0F       		.uleb128 0xf
+ 1794 0284 7900     		.ascii	"y\000"
+ 1795 0286 01       		.byte	0x1
+ 1796 0287 6C01     		.2byte	0x16c
+ 1797 0289 8F000000 		.4byte	0x8f
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 46
+
+
+ 1798 028d 02       		.uleb128 0x2
+ 1799 028e 91       		.byte	0x91
+ 1800 028f 64       		.sleb128 -28
+ 1801 0290 00       		.byte	0
+ 1802 0291 0B       		.uleb128 0xb
+ 1803 0292 AE000000 		.4byte	.LASF34
+ 1804 0296 01       		.byte	0x1
+ 1805 0297 9B01     		.2byte	0x19b
+ 1806 0299 00000000 		.4byte	.LFB9
+ 1807 029d 90010000 		.4byte	.LFE9-.LFB9
+ 1808 02a1 01       		.uleb128 0x1
+ 1809 02a2 9C       		.byte	0x9c
+ 1810 02a3 90030000 		.4byte	0x390
+ 1811 02a7 0E       		.uleb128 0xe
+ 1812 02a8 6300     		.ascii	"c\000"
+ 1813 02aa 01       		.byte	0x1
+ 1814 02ab 9B01     		.2byte	0x19b
+ 1815 02ad 6B000000 		.4byte	0x6b
+ 1816 02b1 02       		.uleb128 0x2
+ 1817 02b2 91       		.byte	0x91
+ 1818 02b3 47       		.sleb128 -57
+ 1819 02b4 0E       		.uleb128 0xe
+ 1820 02b5 7800     		.ascii	"x\000"
+ 1821 02b7 01       		.byte	0x1
+ 1822 02b8 9B01     		.2byte	0x19b
+ 1823 02ba 8F000000 		.4byte	0x8f
+ 1824 02be 02       		.uleb128 0x2
+ 1825 02bf 91       		.byte	0x91
+ 1826 02c0 40       		.sleb128 -64
+ 1827 02c1 0E       		.uleb128 0xe
+ 1828 02c2 7900     		.ascii	"y\000"
+ 1829 02c4 01       		.byte	0x1
+ 1830 02c5 9B01     		.2byte	0x19b
+ 1831 02c7 8F000000 		.4byte	0x8f
+ 1832 02cb 03       		.uleb128 0x3
+ 1833 02cc 91       		.byte	0x91
+ 1834 02cd BC7F     		.sleb128 -68
+ 1835 02cf 0C       		.uleb128 0xc
+ 1836 02d0 44010000 		.4byte	.LASF35
+ 1837 02d4 01       		.byte	0x1
+ 1838 02d5 9B01     		.2byte	0x19b
+ 1839 02d7 8F000000 		.4byte	0x8f
+ 1840 02db 03       		.uleb128 0x3
+ 1841 02dc 91       		.byte	0x91
+ 1842 02dd B87F     		.sleb128 -72
+ 1843 02df 0C       		.uleb128 0xc
+ 1844 02e0 A1020000 		.4byte	.LASF36
+ 1845 02e4 01       		.byte	0x1
+ 1846 02e5 9B01     		.2byte	0x19b
+ 1847 02e7 8F000000 		.4byte	0x8f
+ 1848 02eb 02       		.uleb128 0x2
+ 1849 02ec 91       		.byte	0x91
+ 1850 02ed 00       		.sleb128 0
+ 1851 02ee 0F       		.uleb128 0xf
+ 1852 02ef 6900     		.ascii	"i\000"
+ 1853 02f1 01       		.byte	0x1
+ 1854 02f2 A001     		.2byte	0x1a0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 47
+
+
+ 1855 02f4 8F000000 		.4byte	0x8f
+ 1856 02f8 02       		.uleb128 0x2
+ 1857 02f9 91       		.byte	0x91
+ 1858 02fa 74       		.sleb128 -12
+ 1859 02fb 0F       		.uleb128 0xf
+ 1860 02fc 6A00     		.ascii	"j\000"
+ 1861 02fe 01       		.byte	0x1
+ 1862 02ff A001     		.2byte	0x1a0
+ 1863 0301 8F000000 		.4byte	0x8f
+ 1864 0305 02       		.uleb128 0x2
+ 1865 0306 91       		.byte	0x91
+ 1866 0307 70       		.sleb128 -16
+ 1867 0308 10       		.uleb128 0x10
+ 1868 0309 7A020000 		.4byte	.LASF37
+ 1869 030d 01       		.byte	0x1
+ 1870 030e A101     		.2byte	0x1a1
+ 1871 0310 8F000000 		.4byte	0x8f
+ 1872 0314 02       		.uleb128 0x2
+ 1873 0315 91       		.byte	0x91
+ 1874 0316 58       		.sleb128 -40
+ 1875 0317 10       		.uleb128 0x10
+ 1876 0318 20010000 		.4byte	.LASF38
+ 1877 031c 01       		.byte	0x1
+ 1878 031d A201     		.2byte	0x1a2
+ 1879 031f 8F000000 		.4byte	0x8f
+ 1880 0323 02       		.uleb128 0x2
+ 1881 0324 91       		.byte	0x91
+ 1882 0325 54       		.sleb128 -44
+ 1883 0326 10       		.uleb128 0x10
+ 1884 0327 F4010000 		.4byte	.LASF39
+ 1885 032b 01       		.byte	0x1
+ 1886 032c A301     		.2byte	0x1a3
+ 1887 032e 8F000000 		.4byte	0x8f
+ 1888 0332 02       		.uleb128 0x2
+ 1889 0333 91       		.byte	0x91
+ 1890 0334 50       		.sleb128 -48
+ 1891 0335 10       		.uleb128 0x10
+ 1892 0336 66000000 		.4byte	.LASF40
+ 1893 033a 01       		.byte	0x1
+ 1894 033b A401     		.2byte	0x1a4
+ 1895 033d 6B000000 		.4byte	0x6b
+ 1896 0341 02       		.uleb128 0x2
+ 1897 0342 91       		.byte	0x91
+ 1898 0343 4F       		.sleb128 -49
+ 1899 0344 10       		.uleb128 0x10
+ 1900 0345 ED020000 		.4byte	.LASF41
+ 1901 0349 01       		.byte	0x1
+ 1902 034a A501     		.2byte	0x1a5
+ 1903 034c 6B000000 		.4byte	0x6b
+ 1904 0350 02       		.uleb128 0x2
+ 1905 0351 91       		.byte	0x91
+ 1906 0352 6F       		.sleb128 -17
+ 1907 0353 10       		.uleb128 0x10
+ 1908 0354 6E020000 		.4byte	.LASF42
+ 1909 0358 01       		.byte	0x1
+ 1910 0359 A601     		.2byte	0x1a6
+ 1911 035b 8F000000 		.4byte	0x8f
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 48
+
+
+ 1912 035f 02       		.uleb128 0x2
+ 1913 0360 91       		.byte	0x91
+ 1914 0361 68       		.sleb128 -24
+ 1915 0362 10       		.uleb128 0x10
+ 1916 0363 74020000 		.4byte	.LASF43
+ 1917 0367 01       		.byte	0x1
+ 1918 0368 A701     		.2byte	0x1a7
+ 1919 036a 8F000000 		.4byte	0x8f
+ 1920 036e 02       		.uleb128 0x2
+ 1921 036f 91       		.byte	0x91
+ 1922 0370 64       		.sleb128 -28
+ 1923 0371 10       		.uleb128 0x10
+ 1924 0372 E7020000 		.4byte	.LASF44
+ 1925 0376 01       		.byte	0x1
+ 1926 0377 A801     		.2byte	0x1a8
+ 1927 0379 90030000 		.4byte	0x390
+ 1928 037d 02       		.uleb128 0x2
+ 1929 037e 91       		.byte	0x91
+ 1930 037f 5C       		.sleb128 -36
+ 1931 0380 10       		.uleb128 0x10
+ 1932 0381 BE020000 		.4byte	.LASF45
+ 1933 0385 01       		.byte	0x1
+ 1934 0386 A901     		.2byte	0x1a9
+ 1935 0388 90030000 		.4byte	0x390
+ 1936 038c 02       		.uleb128 0x2
+ 1937 038d 91       		.byte	0x91
+ 1938 038e 60       		.sleb128 -32
+ 1939 038f 00       		.byte	0
+ 1940 0390 05       		.uleb128 0x5
+ 1941 0391 04       		.byte	0x4
+ 1942 0392 6B000000 		.4byte	0x6b
+ 1943 0396 0B       		.uleb128 0xb
+ 1944 0397 84000000 		.4byte	.LASF46
+ 1945 039b 01       		.byte	0x1
+ 1946 039c 2502     		.2byte	0x225
+ 1947 039e 00000000 		.4byte	.LFB10
+ 1948 03a2 68000000 		.4byte	.LFE10-.LFB10
+ 1949 03a6 01       		.uleb128 0x1
+ 1950 03a7 9C       		.byte	0x9c
+ 1951 03a8 03040000 		.4byte	0x403
+ 1952 03ac 0C       		.uleb128 0xc
+ 1953 03ad A8020000 		.4byte	.LASF47
+ 1954 03b1 01       		.byte	0x1
+ 1955 03b2 2502     		.2byte	0x225
+ 1956 03b4 BE000000 		.4byte	0xbe
+ 1957 03b8 02       		.uleb128 0x2
+ 1958 03b9 91       		.byte	0x91
+ 1959 03ba 64       		.sleb128 -28
+ 1960 03bb 0E       		.uleb128 0xe
+ 1961 03bc 7800     		.ascii	"x\000"
+ 1962 03be 01       		.byte	0x1
+ 1963 03bf 2502     		.2byte	0x225
+ 1964 03c1 8F000000 		.4byte	0x8f
+ 1965 03c5 02       		.uleb128 0x2
+ 1966 03c6 91       		.byte	0x91
+ 1967 03c7 60       		.sleb128 -32
+ 1968 03c8 0E       		.uleb128 0xe
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 49
+
+
+ 1969 03c9 7900     		.ascii	"y\000"
+ 1970 03cb 01       		.byte	0x1
+ 1971 03cc 2502     		.2byte	0x225
+ 1972 03ce 8F000000 		.4byte	0x8f
+ 1973 03d2 02       		.uleb128 0x2
+ 1974 03d3 91       		.byte	0x91
+ 1975 03d4 5C       		.sleb128 -36
+ 1976 03d5 0C       		.uleb128 0xc
+ 1977 03d6 44010000 		.4byte	.LASF35
+ 1978 03da 01       		.byte	0x1
+ 1979 03db 2502     		.2byte	0x225
+ 1980 03dd 8F000000 		.4byte	0x8f
+ 1981 03e1 02       		.uleb128 0x2
+ 1982 03e2 91       		.byte	0x91
+ 1983 03e3 58       		.sleb128 -40
+ 1984 03e4 0C       		.uleb128 0xc
+ 1985 03e5 A1020000 		.4byte	.LASF36
+ 1986 03e9 01       		.byte	0x1
+ 1987 03ea 2502     		.2byte	0x225
+ 1988 03ec 8F000000 		.4byte	0x8f
+ 1989 03f0 02       		.uleb128 0x2
+ 1990 03f1 91       		.byte	0x91
+ 1991 03f2 00       		.sleb128 0
+ 1992 03f3 10       		.uleb128 0x10
+ 1993 03f4 F8000000 		.4byte	.LASF48
+ 1994 03f8 01       		.byte	0x1
+ 1995 03f9 2902     		.2byte	0x229
+ 1996 03fb 8F000000 		.4byte	0x8f
+ 1997 03ff 02       		.uleb128 0x2
+ 1998 0400 91       		.byte	0x91
+ 1999 0401 6C       		.sleb128 -20
+ 2000 0402 00       		.byte	0
+ 2001 0403 0B       		.uleb128 0xb
+ 2002 0404 0D030000 		.4byte	.LASF49
+ 2003 0408 01       		.byte	0x1
+ 2004 0409 4C02     		.2byte	0x24c
+ 2005 040b 00000000 		.4byte	.LFB11
+ 2006 040f 04010000 		.4byte	.LFE11-.LFB11
+ 2007 0413 01       		.uleb128 0x1
+ 2008 0414 9C       		.byte	0x9c
+ 2009 0415 D1040000 		.4byte	0x4d1
+ 2010 0419 0E       		.uleb128 0xe
+ 2011 041a 783000   		.ascii	"x0\000"
+ 2012 041d 01       		.byte	0x1
+ 2013 041e 4C02     		.2byte	0x24c
+ 2014 0420 8F000000 		.4byte	0x8f
+ 2015 0424 02       		.uleb128 0x2
+ 2016 0425 91       		.byte	0x91
+ 2017 0426 5C       		.sleb128 -36
+ 2018 0427 0E       		.uleb128 0xe
+ 2019 0428 793000   		.ascii	"y0\000"
+ 2020 042b 01       		.byte	0x1
+ 2021 042c 4C02     		.2byte	0x24c
+ 2022 042e 8F000000 		.4byte	0x8f
+ 2023 0432 02       		.uleb128 0x2
+ 2024 0433 91       		.byte	0x91
+ 2025 0434 58       		.sleb128 -40
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 50
+
+
+ 2026 0435 0E       		.uleb128 0xe
+ 2027 0436 783100   		.ascii	"x1\000"
+ 2028 0439 01       		.byte	0x1
+ 2029 043a 4C02     		.2byte	0x24c
+ 2030 043c 8F000000 		.4byte	0x8f
+ 2031 0440 02       		.uleb128 0x2
+ 2032 0441 91       		.byte	0x91
+ 2033 0442 54       		.sleb128 -44
+ 2034 0443 0E       		.uleb128 0xe
+ 2035 0444 793100   		.ascii	"y1\000"
+ 2036 0447 01       		.byte	0x1
+ 2037 0448 4C02     		.2byte	0x24c
+ 2038 044a 8F000000 		.4byte	0x8f
+ 2039 044e 02       		.uleb128 0x2
+ 2040 044f 91       		.byte	0x91
+ 2041 0450 50       		.sleb128 -48
+ 2042 0451 0C       		.uleb128 0xc
+ 2043 0452 D3020000 		.4byte	.LASF25
+ 2044 0456 01       		.byte	0x1
+ 2045 0457 4C02     		.2byte	0x24c
+ 2046 0459 8F000000 		.4byte	0x8f
+ 2047 045d 02       		.uleb128 0x2
+ 2048 045e 91       		.byte	0x91
+ 2049 045f 00       		.sleb128 0
+ 2050 0460 0F       		.uleb128 0xf
+ 2051 0461 647900   		.ascii	"dy\000"
+ 2052 0464 01       		.byte	0x1
+ 2053 0465 4E02     		.2byte	0x24e
+ 2054 0467 8F000000 		.4byte	0x8f
+ 2055 046b 02       		.uleb128 0x2
+ 2056 046c 91       		.byte	0x91
+ 2057 046d 74       		.sleb128 -12
+ 2058 046e 0F       		.uleb128 0xf
+ 2059 046f 647800   		.ascii	"dx\000"
+ 2060 0472 01       		.byte	0x1
+ 2061 0473 4F02     		.2byte	0x24f
+ 2062 0475 8F000000 		.4byte	0x8f
+ 2063 0479 02       		.uleb128 0x2
+ 2064 047a 91       		.byte	0x91
+ 2065 047b 70       		.sleb128 -16
+ 2066 047c 10       		.uleb128 0x10
+ 2067 047d 31030000 		.4byte	.LASF50
+ 2068 0481 01       		.byte	0x1
+ 2069 0482 5002     		.2byte	0x250
+ 2070 0484 8F000000 		.4byte	0x8f
+ 2071 0488 02       		.uleb128 0x2
+ 2072 0489 91       		.byte	0x91
+ 2073 048a 6C       		.sleb128 -20
+ 2074 048b 10       		.uleb128 0x10
+ 2075 048c 37030000 		.4byte	.LASF51
+ 2076 0490 01       		.byte	0x1
+ 2077 0491 5002     		.2byte	0x250
+ 2078 0493 8F000000 		.4byte	0x8f
+ 2079 0497 02       		.uleb128 0x2
+ 2080 0498 91       		.byte	0x91
+ 2081 0499 68       		.sleb128 -24
+ 2082 049a 11       		.uleb128 0x11
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 51
+
+
+ 2083 049b 6E000000 		.4byte	.LBB2
+ 2084 049f 46000000 		.4byte	.LBE2-.LBB2
+ 2085 04a3 B7040000 		.4byte	0x4b7
+ 2086 04a7 10       		.uleb128 0x10
+ 2087 04a8 F2020000 		.4byte	.LASF52
+ 2088 04ac 01       		.byte	0x1
+ 2089 04ad 6C02     		.2byte	0x26c
+ 2090 04af 5D000000 		.4byte	0x5d
+ 2091 04b3 02       		.uleb128 0x2
+ 2092 04b4 91       		.byte	0x91
+ 2093 04b5 64       		.sleb128 -28
+ 2094 04b6 00       		.byte	0
+ 2095 04b7 12       		.uleb128 0x12
+ 2096 04b8 B6000000 		.4byte	.LBB3
+ 2097 04bc 46000000 		.4byte	.LBE3-.LBB3
+ 2098 04c0 10       		.uleb128 0x10
+ 2099 04c1 F2020000 		.4byte	.LASF52
+ 2100 04c5 01       		.byte	0x1
+ 2101 04c6 7B02     		.2byte	0x27b
+ 2102 04c8 5D000000 		.4byte	0x5d
+ 2103 04cc 02       		.uleb128 0x2
+ 2104 04cd 91       		.byte	0x91
+ 2105 04ce 60       		.sleb128 -32
+ 2106 04cf 00       		.byte	0
+ 2107 04d0 00       		.byte	0
+ 2108 04d1 0B       		.uleb128 0xb
+ 2109 04d2 1E020000 		.4byte	.LASF53
+ 2110 04d6 01       		.byte	0x1
+ 2111 04d7 9B02     		.2byte	0x29b
+ 2112 04d9 00000000 		.4byte	.LFB12
+ 2113 04dd B6000000 		.4byte	.LFE12-.LFB12
+ 2114 04e1 01       		.uleb128 0x1
+ 2115 04e2 9C       		.byte	0x9c
+ 2116 04e3 4D050000 		.4byte	0x54d
+ 2117 04e7 0E       		.uleb128 0xe
+ 2118 04e8 783000   		.ascii	"x0\000"
+ 2119 04eb 01       		.byte	0x1
+ 2120 04ec 9B02     		.2byte	0x29b
+ 2121 04ee 8F000000 		.4byte	0x8f
+ 2122 04f2 02       		.uleb128 0x2
+ 2123 04f3 91       		.byte	0x91
+ 2124 04f4 64       		.sleb128 -28
+ 2125 04f5 0E       		.uleb128 0xe
+ 2126 04f6 793000   		.ascii	"y0\000"
+ 2127 04f9 01       		.byte	0x1
+ 2128 04fa 9B02     		.2byte	0x29b
+ 2129 04fc 8F000000 		.4byte	0x8f
+ 2130 0500 02       		.uleb128 0x2
+ 2131 0501 91       		.byte	0x91
+ 2132 0502 60       		.sleb128 -32
+ 2133 0503 0E       		.uleb128 0xe
+ 2134 0504 783100   		.ascii	"x1\000"
+ 2135 0507 01       		.byte	0x1
+ 2136 0508 9B02     		.2byte	0x29b
+ 2137 050a 8F000000 		.4byte	0x8f
+ 2138 050e 02       		.uleb128 0x2
+ 2139 050f 91       		.byte	0x91
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 52
+
+
+ 2140 0510 5C       		.sleb128 -36
+ 2141 0511 0E       		.uleb128 0xe
+ 2142 0512 793100   		.ascii	"y1\000"
+ 2143 0515 01       		.byte	0x1
+ 2144 0516 9B02     		.2byte	0x29b
+ 2145 0518 8F000000 		.4byte	0x8f
+ 2146 051c 02       		.uleb128 0x2
+ 2147 051d 91       		.byte	0x91
+ 2148 051e 58       		.sleb128 -40
+ 2149 051f 0C       		.uleb128 0xc
+ 2150 0520 CE020000 		.4byte	.LASF54
+ 2151 0524 01       		.byte	0x1
+ 2152 0525 9B02     		.2byte	0x29b
+ 2153 0527 8F000000 		.4byte	0x8f
+ 2154 052b 02       		.uleb128 0x2
+ 2155 052c 91       		.byte	0x91
+ 2156 052d 00       		.sleb128 0
+ 2157 052e 0C       		.uleb128 0xc
+ 2158 052f D3020000 		.4byte	.LASF25
+ 2159 0533 01       		.byte	0x1
+ 2160 0534 9B02     		.2byte	0x29b
+ 2161 0536 8F000000 		.4byte	0x8f
+ 2162 053a 02       		.uleb128 0x2
+ 2163 053b 91       		.byte	0x91
+ 2164 053c 04       		.sleb128 4
+ 2165 053d 10       		.uleb128 0x10
+ 2166 053e F2000000 		.4byte	.LASF55
+ 2167 0542 01       		.byte	0x1
+ 2168 0543 9D02     		.2byte	0x29d
+ 2169 0545 5D000000 		.4byte	0x5d
+ 2170 0549 02       		.uleb128 0x2
+ 2171 054a 91       		.byte	0x91
+ 2172 054b 6C       		.sleb128 -20
+ 2173 054c 00       		.byte	0
+ 2174 054d 13       		.uleb128 0x13
+ 2175 054e DE020000 		.4byte	.LASF56
+ 2176 0552 01       		.byte	0x1
+ 2177 0553 D202     		.2byte	0x2d2
+ 2178 0555 00000000 		.4byte	.LFB13
+ 2179 0559 10000000 		.4byte	.LFE13-.LFB13
+ 2180 055d 01       		.uleb128 0x1
+ 2181 055e 9C       		.byte	0x9c
+ 2182 055f 13       		.uleb128 0x13
+ 2183 0560 44000000 		.4byte	.LASF57
+ 2184 0564 01       		.byte	0x1
+ 2185 0565 E502     		.2byte	0x2e5
+ 2186 0567 00000000 		.4byte	.LFB14
+ 2187 056b 10000000 		.4byte	.LFE14-.LFB14
+ 2188 056f 01       		.uleb128 0x1
+ 2189 0570 9C       		.byte	0x9c
+ 2190 0571 08       		.uleb128 0x8
+ 2191 0572 93020000 		.4byte	.LASF58
+ 2192 0576 01       		.byte	0x1
+ 2193 0577 29       		.byte	0x29
+ 2194 0578 8F000000 		.4byte	0x8f
+ 2195 057c 05       		.uleb128 0x5
+ 2196 057d 03       		.byte	0x3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 53
+
+
+ 2197 057e 00000000 		.4byte	GLCD_x_offset
+ 2198 0582 08       		.uleb128 0x8
+ 2199 0583 C7000000 		.4byte	.LASF59
+ 2200 0587 01       		.byte	0x1
+ 2201 0588 2A       		.byte	0x2a
+ 2202 0589 8F000000 		.4byte	0x8f
+ 2203 058d 05       		.uleb128 0x5
+ 2204 058e 03       		.byte	0x3
+ 2205 058f 04000000 		.4byte	GLCD_y_offset
+ 2206 0593 14       		.uleb128 0x14
+ 2207 0594 A9050000 		.4byte	0x5a9
+ 2208 0598 A9050000 		.4byte	0x5a9
+ 2209 059c 15       		.uleb128 0x15
+ 2210 059d B7000000 		.4byte	0xb7
+ 2211 05a1 60       		.byte	0x60
+ 2212 05a2 15       		.uleb128 0x15
+ 2213 05a3 B7000000 		.4byte	0xb7
+ 2214 05a7 0F       		.byte	0xf
+ 2215 05a8 00       		.byte	0
+ 2216 05a9 16       		.uleb128 0x16
+ 2217 05aa 6B000000 		.4byte	0x6b
+ 2218 05ae 17       		.uleb128 0x17
+ 2219 05af 1B030000 		.4byte	.LASF60
+ 2220 05b3 03       		.byte	0x3
+ 2221 05b4 42       		.byte	0x42
+ 2222 05b5 BF050000 		.4byte	0x5bf
+ 2223 05b9 05       		.uleb128 0x5
+ 2224 05ba 03       		.byte	0x3
+ 2225 05bb 00000000 		.4byte	GLCD_FONT8x16
+ 2226 05bf 16       		.uleb128 0x16
+ 2227 05c0 93050000 		.4byte	0x593
+ 2228 05c4 17       		.uleb128 0x17
+ 2229 05c5 E1010000 		.4byte	.LASF61
+ 2230 05c9 01       		.byte	0x1
+ 2231 05ca 27       		.byte	0x27
+ 2232 05cb 6B000000 		.4byte	0x6b
+ 2233 05cf 05       		.uleb128 0x5
+ 2234 05d0 03       		.byte	0x3
+ 2235 05d1 00000000 		.4byte	GLCD_driver
+ 2236 05d5 00       		.byte	0
+ 2237              		.section	.debug_abbrev,"",%progbits
+ 2238              	.Ldebug_abbrev0:
+ 2239 0000 01       		.uleb128 0x1
+ 2240 0001 11       		.uleb128 0x11
+ 2241 0002 01       		.byte	0x1
+ 2242 0003 25       		.uleb128 0x25
+ 2243 0004 0E       		.uleb128 0xe
+ 2244 0005 13       		.uleb128 0x13
+ 2245 0006 0B       		.uleb128 0xb
+ 2246 0007 03       		.uleb128 0x3
+ 2247 0008 0E       		.uleb128 0xe
+ 2248 0009 1B       		.uleb128 0x1b
+ 2249 000a 0E       		.uleb128 0xe
+ 2250 000b 55       		.uleb128 0x55
+ 2251 000c 17       		.uleb128 0x17
+ 2252 000d 11       		.uleb128 0x11
+ 2253 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 54
+
+
+ 2254 000f 10       		.uleb128 0x10
+ 2255 0010 17       		.uleb128 0x17
+ 2256 0011 00       		.byte	0
+ 2257 0012 00       		.byte	0
+ 2258 0013 02       		.uleb128 0x2
+ 2259 0014 24       		.uleb128 0x24
+ 2260 0015 00       		.byte	0
+ 2261 0016 0B       		.uleb128 0xb
+ 2262 0017 0B       		.uleb128 0xb
+ 2263 0018 3E       		.uleb128 0x3e
+ 2264 0019 0B       		.uleb128 0xb
+ 2265 001a 03       		.uleb128 0x3
+ 2266 001b 0E       		.uleb128 0xe
+ 2267 001c 00       		.byte	0
+ 2268 001d 00       		.byte	0
+ 2269 001e 03       		.uleb128 0x3
+ 2270 001f 24       		.uleb128 0x24
+ 2271 0020 00       		.byte	0
+ 2272 0021 0B       		.uleb128 0xb
+ 2273 0022 0B       		.uleb128 0xb
+ 2274 0023 3E       		.uleb128 0x3e
+ 2275 0024 0B       		.uleb128 0xb
+ 2276 0025 03       		.uleb128 0x3
+ 2277 0026 08       		.uleb128 0x8
+ 2278 0027 00       		.byte	0
+ 2279 0028 00       		.byte	0
+ 2280 0029 04       		.uleb128 0x4
+ 2281 002a 16       		.uleb128 0x16
+ 2282 002b 00       		.byte	0
+ 2283 002c 03       		.uleb128 0x3
+ 2284 002d 0E       		.uleb128 0xe
+ 2285 002e 3A       		.uleb128 0x3a
+ 2286 002f 0B       		.uleb128 0xb
+ 2287 0030 3B       		.uleb128 0x3b
+ 2288 0031 05       		.uleb128 0x5
+ 2289 0032 49       		.uleb128 0x49
+ 2290 0033 13       		.uleb128 0x13
+ 2291 0034 00       		.byte	0
+ 2292 0035 00       		.byte	0
+ 2293 0036 05       		.uleb128 0x5
+ 2294 0037 0F       		.uleb128 0xf
+ 2295 0038 00       		.byte	0
+ 2296 0039 0B       		.uleb128 0xb
+ 2297 003a 0B       		.uleb128 0xb
+ 2298 003b 49       		.uleb128 0x49
+ 2299 003c 13       		.uleb128 0x13
+ 2300 003d 00       		.byte	0
+ 2301 003e 00       		.byte	0
+ 2302 003f 06       		.uleb128 0x6
+ 2303 0040 2E       		.uleb128 0x2e
+ 2304 0041 01       		.byte	0x1
+ 2305 0042 3F       		.uleb128 0x3f
+ 2306 0043 19       		.uleb128 0x19
+ 2307 0044 03       		.uleb128 0x3
+ 2308 0045 0E       		.uleb128 0xe
+ 2309 0046 3A       		.uleb128 0x3a
+ 2310 0047 0B       		.uleb128 0xb
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 55
+
+
+ 2311 0048 3B       		.uleb128 0x3b
+ 2312 0049 0B       		.uleb128 0xb
+ 2313 004a 27       		.uleb128 0x27
+ 2314 004b 19       		.uleb128 0x19
+ 2315 004c 11       		.uleb128 0x11
+ 2316 004d 01       		.uleb128 0x1
+ 2317 004e 12       		.uleb128 0x12
+ 2318 004f 06       		.uleb128 0x6
+ 2319 0050 40       		.uleb128 0x40
+ 2320 0051 18       		.uleb128 0x18
+ 2321 0052 9642     		.uleb128 0x2116
+ 2322 0054 19       		.uleb128 0x19
+ 2323 0055 01       		.uleb128 0x1
+ 2324 0056 13       		.uleb128 0x13
+ 2325 0057 00       		.byte	0
+ 2326 0058 00       		.byte	0
+ 2327 0059 07       		.uleb128 0x7
+ 2328 005a 05       		.uleb128 0x5
+ 2329 005b 00       		.byte	0
+ 2330 005c 03       		.uleb128 0x3
+ 2331 005d 0E       		.uleb128 0xe
+ 2332 005e 3A       		.uleb128 0x3a
+ 2333 005f 0B       		.uleb128 0xb
+ 2334 0060 3B       		.uleb128 0x3b
+ 2335 0061 0B       		.uleb128 0xb
+ 2336 0062 49       		.uleb128 0x49
+ 2337 0063 13       		.uleb128 0x13
+ 2338 0064 02       		.uleb128 0x2
+ 2339 0065 18       		.uleb128 0x18
+ 2340 0066 00       		.byte	0
+ 2341 0067 00       		.byte	0
+ 2342 0068 08       		.uleb128 0x8
+ 2343 0069 34       		.uleb128 0x34
+ 2344 006a 00       		.byte	0
+ 2345 006b 03       		.uleb128 0x3
+ 2346 006c 0E       		.uleb128 0xe
+ 2347 006d 3A       		.uleb128 0x3a
+ 2348 006e 0B       		.uleb128 0xb
+ 2349 006f 3B       		.uleb128 0x3b
+ 2350 0070 0B       		.uleb128 0xb
+ 2351 0071 49       		.uleb128 0x49
+ 2352 0072 13       		.uleb128 0x13
+ 2353 0073 02       		.uleb128 0x2
+ 2354 0074 18       		.uleb128 0x18
+ 2355 0075 00       		.byte	0
+ 2356 0076 00       		.byte	0
+ 2357 0077 09       		.uleb128 0x9
+ 2358 0078 2E       		.uleb128 0x2e
+ 2359 0079 00       		.byte	0
+ 2360 007a 3F       		.uleb128 0x3f
+ 2361 007b 19       		.uleb128 0x19
+ 2362 007c 03       		.uleb128 0x3
+ 2363 007d 0E       		.uleb128 0xe
+ 2364 007e 3A       		.uleb128 0x3a
+ 2365 007f 0B       		.uleb128 0xb
+ 2366 0080 3B       		.uleb128 0x3b
+ 2367 0081 0B       		.uleb128 0xb
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 56
+
+
+ 2368 0082 27       		.uleb128 0x27
+ 2369 0083 19       		.uleb128 0x19
+ 2370 0084 11       		.uleb128 0x11
+ 2371 0085 01       		.uleb128 0x1
+ 2372 0086 12       		.uleb128 0x12
+ 2373 0087 06       		.uleb128 0x6
+ 2374 0088 40       		.uleb128 0x40
+ 2375 0089 18       		.uleb128 0x18
+ 2376 008a 9642     		.uleb128 0x2116
+ 2377 008c 19       		.uleb128 0x19
+ 2378 008d 00       		.byte	0
+ 2379 008e 00       		.byte	0
+ 2380 008f 0A       		.uleb128 0xa
+ 2381 0090 34       		.uleb128 0x34
+ 2382 0091 00       		.byte	0
+ 2383 0092 03       		.uleb128 0x3
+ 2384 0093 08       		.uleb128 0x8
+ 2385 0094 3A       		.uleb128 0x3a
+ 2386 0095 0B       		.uleb128 0xb
+ 2387 0096 3B       		.uleb128 0x3b
+ 2388 0097 0B       		.uleb128 0xb
+ 2389 0098 49       		.uleb128 0x49
+ 2390 0099 13       		.uleb128 0x13
+ 2391 009a 02       		.uleb128 0x2
+ 2392 009b 18       		.uleb128 0x18
+ 2393 009c 00       		.byte	0
+ 2394 009d 00       		.byte	0
+ 2395 009e 0B       		.uleb128 0xb
+ 2396 009f 2E       		.uleb128 0x2e
+ 2397 00a0 01       		.byte	0x1
+ 2398 00a1 3F       		.uleb128 0x3f
+ 2399 00a2 19       		.uleb128 0x19
+ 2400 00a3 03       		.uleb128 0x3
+ 2401 00a4 0E       		.uleb128 0xe
+ 2402 00a5 3A       		.uleb128 0x3a
+ 2403 00a6 0B       		.uleb128 0xb
+ 2404 00a7 3B       		.uleb128 0x3b
+ 2405 00a8 05       		.uleb128 0x5
+ 2406 00a9 27       		.uleb128 0x27
+ 2407 00aa 19       		.uleb128 0x19
+ 2408 00ab 11       		.uleb128 0x11
+ 2409 00ac 01       		.uleb128 0x1
+ 2410 00ad 12       		.uleb128 0x12
+ 2411 00ae 06       		.uleb128 0x6
+ 2412 00af 40       		.uleb128 0x40
+ 2413 00b0 18       		.uleb128 0x18
+ 2414 00b1 9642     		.uleb128 0x2116
+ 2415 00b3 19       		.uleb128 0x19
+ 2416 00b4 01       		.uleb128 0x1
+ 2417 00b5 13       		.uleb128 0x13
+ 2418 00b6 00       		.byte	0
+ 2419 00b7 00       		.byte	0
+ 2420 00b8 0C       		.uleb128 0xc
+ 2421 00b9 05       		.uleb128 0x5
+ 2422 00ba 00       		.byte	0
+ 2423 00bb 03       		.uleb128 0x3
+ 2424 00bc 0E       		.uleb128 0xe
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 57
+
+
+ 2425 00bd 3A       		.uleb128 0x3a
+ 2426 00be 0B       		.uleb128 0xb
+ 2427 00bf 3B       		.uleb128 0x3b
+ 2428 00c0 05       		.uleb128 0x5
+ 2429 00c1 49       		.uleb128 0x49
+ 2430 00c2 13       		.uleb128 0x13
+ 2431 00c3 02       		.uleb128 0x2
+ 2432 00c4 18       		.uleb128 0x18
+ 2433 00c5 00       		.byte	0
+ 2434 00c6 00       		.byte	0
+ 2435 00c7 0D       		.uleb128 0xd
+ 2436 00c8 2E       		.uleb128 0x2e
+ 2437 00c9 01       		.byte	0x1
+ 2438 00ca 3F       		.uleb128 0x3f
+ 2439 00cb 19       		.uleb128 0x19
+ 2440 00cc 03       		.uleb128 0x3
+ 2441 00cd 0E       		.uleb128 0xe
+ 2442 00ce 3A       		.uleb128 0x3a
+ 2443 00cf 0B       		.uleb128 0xb
+ 2444 00d0 3B       		.uleb128 0x3b
+ 2445 00d1 05       		.uleb128 0x5
+ 2446 00d2 27       		.uleb128 0x27
+ 2447 00d3 19       		.uleb128 0x19
+ 2448 00d4 49       		.uleb128 0x49
+ 2449 00d5 13       		.uleb128 0x13
+ 2450 00d6 11       		.uleb128 0x11
+ 2451 00d7 01       		.uleb128 0x1
+ 2452 00d8 12       		.uleb128 0x12
+ 2453 00d9 06       		.uleb128 0x6
+ 2454 00da 40       		.uleb128 0x40
+ 2455 00db 18       		.uleb128 0x18
+ 2456 00dc 9742     		.uleb128 0x2117
+ 2457 00de 19       		.uleb128 0x19
+ 2458 00df 01       		.uleb128 0x1
+ 2459 00e0 13       		.uleb128 0x13
+ 2460 00e1 00       		.byte	0
+ 2461 00e2 00       		.byte	0
+ 2462 00e3 0E       		.uleb128 0xe
+ 2463 00e4 05       		.uleb128 0x5
+ 2464 00e5 00       		.byte	0
+ 2465 00e6 03       		.uleb128 0x3
+ 2466 00e7 08       		.uleb128 0x8
+ 2467 00e8 3A       		.uleb128 0x3a
+ 2468 00e9 0B       		.uleb128 0xb
+ 2469 00ea 3B       		.uleb128 0x3b
+ 2470 00eb 05       		.uleb128 0x5
+ 2471 00ec 49       		.uleb128 0x49
+ 2472 00ed 13       		.uleb128 0x13
+ 2473 00ee 02       		.uleb128 0x2
+ 2474 00ef 18       		.uleb128 0x18
+ 2475 00f0 00       		.byte	0
+ 2476 00f1 00       		.byte	0
+ 2477 00f2 0F       		.uleb128 0xf
+ 2478 00f3 34       		.uleb128 0x34
+ 2479 00f4 00       		.byte	0
+ 2480 00f5 03       		.uleb128 0x3
+ 2481 00f6 08       		.uleb128 0x8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 58
+
+
+ 2482 00f7 3A       		.uleb128 0x3a
+ 2483 00f8 0B       		.uleb128 0xb
+ 2484 00f9 3B       		.uleb128 0x3b
+ 2485 00fa 05       		.uleb128 0x5
+ 2486 00fb 49       		.uleb128 0x49
+ 2487 00fc 13       		.uleb128 0x13
+ 2488 00fd 02       		.uleb128 0x2
+ 2489 00fe 18       		.uleb128 0x18
+ 2490 00ff 00       		.byte	0
+ 2491 0100 00       		.byte	0
+ 2492 0101 10       		.uleb128 0x10
+ 2493 0102 34       		.uleb128 0x34
+ 2494 0103 00       		.byte	0
+ 2495 0104 03       		.uleb128 0x3
+ 2496 0105 0E       		.uleb128 0xe
+ 2497 0106 3A       		.uleb128 0x3a
+ 2498 0107 0B       		.uleb128 0xb
+ 2499 0108 3B       		.uleb128 0x3b
+ 2500 0109 05       		.uleb128 0x5
+ 2501 010a 49       		.uleb128 0x49
+ 2502 010b 13       		.uleb128 0x13
+ 2503 010c 02       		.uleb128 0x2
+ 2504 010d 18       		.uleb128 0x18
+ 2505 010e 00       		.byte	0
+ 2506 010f 00       		.byte	0
+ 2507 0110 11       		.uleb128 0x11
+ 2508 0111 0B       		.uleb128 0xb
+ 2509 0112 01       		.byte	0x1
+ 2510 0113 11       		.uleb128 0x11
+ 2511 0114 01       		.uleb128 0x1
+ 2512 0115 12       		.uleb128 0x12
+ 2513 0116 06       		.uleb128 0x6
+ 2514 0117 01       		.uleb128 0x1
+ 2515 0118 13       		.uleb128 0x13
+ 2516 0119 00       		.byte	0
+ 2517 011a 00       		.byte	0
+ 2518 011b 12       		.uleb128 0x12
+ 2519 011c 0B       		.uleb128 0xb
+ 2520 011d 01       		.byte	0x1
+ 2521 011e 11       		.uleb128 0x11
+ 2522 011f 01       		.uleb128 0x1
+ 2523 0120 12       		.uleb128 0x12
+ 2524 0121 06       		.uleb128 0x6
+ 2525 0122 00       		.byte	0
+ 2526 0123 00       		.byte	0
+ 2527 0124 13       		.uleb128 0x13
+ 2528 0125 2E       		.uleb128 0x2e
+ 2529 0126 00       		.byte	0
+ 2530 0127 3F       		.uleb128 0x3f
+ 2531 0128 19       		.uleb128 0x19
+ 2532 0129 03       		.uleb128 0x3
+ 2533 012a 0E       		.uleb128 0xe
+ 2534 012b 3A       		.uleb128 0x3a
+ 2535 012c 0B       		.uleb128 0xb
+ 2536 012d 3B       		.uleb128 0x3b
+ 2537 012e 05       		.uleb128 0x5
+ 2538 012f 27       		.uleb128 0x27
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 59
+
+
+ 2539 0130 19       		.uleb128 0x19
+ 2540 0131 11       		.uleb128 0x11
+ 2541 0132 01       		.uleb128 0x1
+ 2542 0133 12       		.uleb128 0x12
+ 2543 0134 06       		.uleb128 0x6
+ 2544 0135 40       		.uleb128 0x40
+ 2545 0136 18       		.uleb128 0x18
+ 2546 0137 9642     		.uleb128 0x2116
+ 2547 0139 19       		.uleb128 0x19
+ 2548 013a 00       		.byte	0
+ 2549 013b 00       		.byte	0
+ 2550 013c 14       		.uleb128 0x14
+ 2551 013d 01       		.uleb128 0x1
+ 2552 013e 01       		.byte	0x1
+ 2553 013f 49       		.uleb128 0x49
+ 2554 0140 13       		.uleb128 0x13
+ 2555 0141 01       		.uleb128 0x1
+ 2556 0142 13       		.uleb128 0x13
+ 2557 0143 00       		.byte	0
+ 2558 0144 00       		.byte	0
+ 2559 0145 15       		.uleb128 0x15
+ 2560 0146 21       		.uleb128 0x21
+ 2561 0147 00       		.byte	0
+ 2562 0148 49       		.uleb128 0x49
+ 2563 0149 13       		.uleb128 0x13
+ 2564 014a 2F       		.uleb128 0x2f
+ 2565 014b 0B       		.uleb128 0xb
+ 2566 014c 00       		.byte	0
+ 2567 014d 00       		.byte	0
+ 2568 014e 16       		.uleb128 0x16
+ 2569 014f 26       		.uleb128 0x26
+ 2570 0150 00       		.byte	0
+ 2571 0151 49       		.uleb128 0x49
+ 2572 0152 13       		.uleb128 0x13
+ 2573 0153 00       		.byte	0
+ 2574 0154 00       		.byte	0
+ 2575 0155 17       		.uleb128 0x17
+ 2576 0156 34       		.uleb128 0x34
+ 2577 0157 00       		.byte	0
+ 2578 0158 03       		.uleb128 0x3
+ 2579 0159 0E       		.uleb128 0xe
+ 2580 015a 3A       		.uleb128 0x3a
+ 2581 015b 0B       		.uleb128 0xb
+ 2582 015c 3B       		.uleb128 0x3b
+ 2583 015d 0B       		.uleb128 0xb
+ 2584 015e 49       		.uleb128 0x49
+ 2585 015f 13       		.uleb128 0x13
+ 2586 0160 3F       		.uleb128 0x3f
+ 2587 0161 19       		.uleb128 0x19
+ 2588 0162 02       		.uleb128 0x2
+ 2589 0163 18       		.uleb128 0x18
+ 2590 0164 00       		.byte	0
+ 2591 0165 00       		.byte	0
+ 2592 0166 00       		.byte	0
+ 2593              		.section	.debug_aranges,"",%progbits
+ 2594 0000 8C000000 		.4byte	0x8c
+ 2595 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 60
+
+
+ 2596 0006 00000000 		.4byte	.Ldebug_info0
+ 2597 000a 04       		.byte	0x4
+ 2598 000b 00       		.byte	0
+ 2599 000c 0000     		.2byte	0
+ 2600 000e 0000     		.2byte	0
+ 2601 0010 00000000 		.4byte	.LFB0
+ 2602 0014 2A000000 		.4byte	.LFE0-.LFB0
+ 2603 0018 00000000 		.4byte	.LFB1
+ 2604 001c 3E000000 		.4byte	.LFE1-.LFB1
+ 2605 0020 00000000 		.4byte	.LFB2
+ 2606 0024 6E000000 		.4byte	.LFE2-.LFB2
+ 2607 0028 00000000 		.4byte	.LFB3
+ 2608 002c 16000000 		.4byte	.LFE3-.LFB3
+ 2609 0030 00000000 		.4byte	.LFB4
+ 2610 0034 98000000 		.4byte	.LFE4-.LFB4
+ 2611 0038 00000000 		.4byte	.LFB5
+ 2612 003c 26000000 		.4byte	.LFE5-.LFB5
+ 2613 0040 00000000 		.4byte	.LFB6
+ 2614 0044 2C000000 		.4byte	.LFE6-.LFB6
+ 2615 0048 00000000 		.4byte	.LFB7
+ 2616 004c 86000000 		.4byte	.LFE7-.LFB7
+ 2617 0050 00000000 		.4byte	.LFB8
+ 2618 0054 50010000 		.4byte	.LFE8-.LFB8
+ 2619 0058 00000000 		.4byte	.LFB9
+ 2620 005c 90010000 		.4byte	.LFE9-.LFB9
+ 2621 0060 00000000 		.4byte	.LFB10
+ 2622 0064 68000000 		.4byte	.LFE10-.LFB10
+ 2623 0068 00000000 		.4byte	.LFB11
+ 2624 006c 04010000 		.4byte	.LFE11-.LFB11
+ 2625 0070 00000000 		.4byte	.LFB12
+ 2626 0074 B6000000 		.4byte	.LFE12-.LFB12
+ 2627 0078 00000000 		.4byte	.LFB13
+ 2628 007c 10000000 		.4byte	.LFE13-.LFB13
+ 2629 0080 00000000 		.4byte	.LFB14
+ 2630 0084 10000000 		.4byte	.LFE14-.LFB14
+ 2631 0088 00000000 		.4byte	0
+ 2632 008c 00000000 		.4byte	0
+ 2633              		.section	.debug_ranges,"",%progbits
+ 2634              	.Ldebug_ranges0:
+ 2635 0000 00000000 		.4byte	.LFB0
+ 2636 0004 2A000000 		.4byte	.LFE0
+ 2637 0008 00000000 		.4byte	.LFB1
+ 2638 000c 3E000000 		.4byte	.LFE1
+ 2639 0010 00000000 		.4byte	.LFB2
+ 2640 0014 6E000000 		.4byte	.LFE2
+ 2641 0018 00000000 		.4byte	.LFB3
+ 2642 001c 16000000 		.4byte	.LFE3
+ 2643 0020 00000000 		.4byte	.LFB4
+ 2644 0024 98000000 		.4byte	.LFE4
+ 2645 0028 00000000 		.4byte	.LFB5
+ 2646 002c 26000000 		.4byte	.LFE5
+ 2647 0030 00000000 		.4byte	.LFB6
+ 2648 0034 2C000000 		.4byte	.LFE6
+ 2649 0038 00000000 		.4byte	.LFB7
+ 2650 003c 86000000 		.4byte	.LFE7
+ 2651 0040 00000000 		.4byte	.LFB8
+ 2652 0044 50010000 		.4byte	.LFE8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 61
+
+
+ 2653 0048 00000000 		.4byte	.LFB9
+ 2654 004c 90010000 		.4byte	.LFE9
+ 2655 0050 00000000 		.4byte	.LFB10
+ 2656 0054 68000000 		.4byte	.LFE10
+ 2657 0058 00000000 		.4byte	.LFB11
+ 2658 005c 04010000 		.4byte	.LFE11
+ 2659 0060 00000000 		.4byte	.LFB12
+ 2660 0064 B6000000 		.4byte	.LFE12
+ 2661 0068 00000000 		.4byte	.LFB13
+ 2662 006c 10000000 		.4byte	.LFE13
+ 2663 0070 00000000 		.4byte	.LFB14
+ 2664 0074 10000000 		.4byte	.LFE14
+ 2665 0078 00000000 		.4byte	0
+ 2666 007c 00000000 		.4byte	0
+ 2667              		.section	.debug_line,"",%progbits
+ 2668              	.Ldebug_line0:
+ 2669 0000 6F020000 		.section	.debug_str,"MS",%progbits,1
+ 2669      02004B00 
+ 2669      00000201 
+ 2669      FB0E0D00 
+ 2669      01010101 
+ 2670              	.LASF10:
+ 2671 0000 75696E74 		.ascii	"uint16\000"
+ 2671      313600
+ 2672              	.LASF21:
+ 2673 0007 72617744 		.ascii	"rawData\000"
+ 2673      61746100 
+ 2674              	.LASF7:
+ 2675 000f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2675      206C6F6E 
+ 2675      6720756E 
+ 2675      7369676E 
+ 2675      65642069 
+ 2676              	.LASF63:
+ 2677 0026 47656E65 		.ascii	"Generated_Source\\PSoC4\\GLCD.c\000"
+ 2677      72617465 
+ 2677      645F536F 
+ 2677      75726365 
+ 2677      5C50536F 
+ 2678              	.LASF57:
+ 2679 0044 474C4344 		.ascii	"GLCD_On\000"
+ 2679      5F4F6E00 
+ 2680              	.LASF6:
+ 2681 004c 6C6F6E67 		.ascii	"long long int\000"
+ 2681      206C6F6E 
+ 2681      6720696E 
+ 2681      7400
+ 2682              	.LASF0:
+ 2683 005a 7369676E 		.ascii	"signed char\000"
+ 2683      65642063 
+ 2683      68617200 
+ 2684              	.LASF40:
+ 2685 0066 50697865 		.ascii	"PixelRow\000"
+ 2685      6C526F77 
+ 2685      00
+ 2686              	.LASF12:
+ 2687 006f 696E7433 		.ascii	"int32\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 62
+
+
+ 2687      3200
+ 2688              	.LASF4:
+ 2689 0075 6C6F6E67 		.ascii	"long int\000"
+ 2689      20696E74 
+ 2689      00
+ 2690              	.LASF9:
+ 2691 007e 75696E74 		.ascii	"uint8\000"
+ 2691      3800
+ 2692              	.LASF46:
+ 2693 0084 474C4344 		.ascii	"GLCD_PrintString\000"
+ 2693      5F507269 
+ 2693      6E745374 
+ 2693      72696E67 
+ 2693      00
+ 2694              	.LASF14:
+ 2695 0095 646F7562 		.ascii	"double\000"
+ 2695      6C6500
+ 2696              	.LASF24:
+ 2697 009c 474C4344 		.ascii	"GLCD_Clear\000"
+ 2697      5F436C65 
+ 2697      617200
+ 2698              	.LASF11:
+ 2699 00a7 75696E74 		.ascii	"uint32\000"
+ 2699      333200
+ 2700              	.LASF34:
+ 2701 00ae 474C4344 		.ascii	"GLCD_PrintChar\000"
+ 2701      5F507269 
+ 2701      6E744368 
+ 2701      617200
+ 2702              	.LASF23:
+ 2703 00bd 474C4344 		.ascii	"GLCD_Stop\000"
+ 2703      5F53746F 
+ 2703      7000
+ 2704              	.LASF59:
+ 2705 00c7 474C4344 		.ascii	"GLCD_y_offset\000"
+ 2705      5F795F6F 
+ 2705      66667365 
+ 2705      7400
+ 2706              	.LASF30:
+ 2707 00d5 474C4344 		.ascii	"GLCD_DrawCircle\000"
+ 2707      5F447261 
+ 2707      77436972 
+ 2707      636C6500 
+ 2708              	.LASF8:
+ 2709 00e5 756E7369 		.ascii	"unsigned int\000"
+ 2709      676E6564 
+ 2709      20696E74 
+ 2709      00
+ 2710              	.LASF55:
+ 2711 00f2 78446966 		.ascii	"xDiff\000"
+ 2711      6600
+ 2712              	.LASF48:
+ 2713 00f8 6F726967 		.ascii	"originalY\000"
+ 2713      696E616C 
+ 2713      5900
+ 2714              	.LASF5:
+ 2715 0102 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 63
+
+
+ 2715      20756E73 
+ 2715      69676E65 
+ 2715      6420696E 
+ 2715      7400
+ 2716              	.LASF32:
+ 2717 0114 6464465F 		.ascii	"ddF_x\000"
+ 2717      7800
+ 2718              	.LASF33:
+ 2719 011a 6464465F 		.ascii	"ddF_y\000"
+ 2719      7900
+ 2720              	.LASF38:
+ 2721 0120 6E526F77 		.ascii	"nRows\000"
+ 2721      7300
+ 2722              	.LASF22:
+ 2723 0126 474C4344 		.ascii	"GLCD_Start\000"
+ 2723      5F537461 
+ 2723      727400
+ 2724              	.LASF3:
+ 2725 0131 73686F72 		.ascii	"short unsigned int\000"
+ 2725      7420756E 
+ 2725      7369676E 
+ 2725      65642069 
+ 2725      6E7400
+ 2726              	.LASF35:
+ 2727 0144 66436F6C 		.ascii	"fColor\000"
+ 2727      6F7200
+ 2728              	.LASF20:
+ 2729 014b 636D6444 		.ascii	"cmdData\000"
+ 2729      61746100 
+ 2730              	.LASF62:
+ 2731 0153 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2731      43313120 
+ 2731      352E342E 
+ 2731      31203230 
+ 2731      31363036 
+ 2732 0186 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 2732      20726576 
+ 2732      6973696F 
+ 2732      6E203233 
+ 2732      37373135 
+ 2733 01b9 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2733      66756E63 
+ 2733      74696F6E 
+ 2733      2D736563 
+ 2733      74696F6E 
+ 2734              	.LASF61:
+ 2735 01e1 474C4344 		.ascii	"GLCD_driver\000"
+ 2735      5F647269 
+ 2735      76657200 
+ 2736              	.LASF31:
+ 2737 01ed 72616469 		.ascii	"radius\000"
+ 2737      757300
+ 2738              	.LASF39:
+ 2739 01f4 6E427974 		.ascii	"nBytes\000"
+ 2739      657300
+ 2740              	.LASF17:
+ 2741 01fb 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 64
+
+
+ 2741      74797065 
+ 2741      00
+ 2742              	.LASF27:
+ 2743 0204 474C4344 		.ascii	"GLCD_Contrast\000"
+ 2743      5F436F6E 
+ 2743      74726173 
+ 2743      7400
+ 2744              	.LASF16:
+ 2745 0212 6C6F6E67 		.ascii	"long double\000"
+ 2745      20646F75 
+ 2745      626C6500 
+ 2746              	.LASF53:
+ 2747 021e 474C4344 		.ascii	"GLCD_DrawRect\000"
+ 2747      5F447261 
+ 2747      77526563 
+ 2747      7400
+ 2748              	.LASF64:
+ 2749 022c 443A5C53 		.ascii	"D:\\School\\SPU\\Spring 2018\\Micro Controllers\\HW"
+ 2749      63686F6F 
+ 2749      6C5C5350 
+ 2749      555C5370 
+ 2749      72696E67 
+ 2750 025a 5C305C47 		.ascii	"\\0\\GLCD_Test1.cydsn\000"
+ 2750      4C43445F 
+ 2750      54657374 
+ 2750      312E6379 
+ 2750      64736E00 
+ 2751              	.LASF42:
+ 2752 026e 576F7264 		.ascii	"Word0\000"
+ 2752      3000
+ 2753              	.LASF43:
+ 2754 0274 576F7264 		.ascii	"Word1\000"
+ 2754      3100
+ 2755              	.LASF37:
+ 2756 027a 6E436F6C 		.ascii	"nCols\000"
+ 2756      7300
+ 2757              	.LASF18:
+ 2758 0280 474C4344 		.ascii	"GLCD_Command\000"
+ 2758      5F436F6D 
+ 2758      6D616E64 
+ 2758      00
+ 2759              	.LASF13:
+ 2760 028d 666C6F61 		.ascii	"float\000"
+ 2760      7400
+ 2761              	.LASF58:
+ 2762 0293 474C4344 		.ascii	"GLCD_x_offset\000"
+ 2762      5F785F6F 
+ 2762      66667365 
+ 2762      7400
+ 2763              	.LASF36:
+ 2764 02a1 62436F6C 		.ascii	"bColor\000"
+ 2764      6F7200
+ 2765              	.LASF47:
+ 2766 02a8 70537472 		.ascii	"pString\000"
+ 2766      696E6700 
+ 2767              	.LASF1:
+ 2768 02b0 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 65
+
+
+ 2768      676E6564 
+ 2768      20636861 
+ 2768      7200
+ 2769              	.LASF45:
+ 2770 02be 70436861 		.ascii	"pChar\000"
+ 2770      7200
+ 2771              	.LASF2:
+ 2772 02c4 73686F72 		.ascii	"short int\000"
+ 2772      7420696E 
+ 2772      7400
+ 2773              	.LASF54:
+ 2774 02ce 66696C6C 		.ascii	"fill\000"
+ 2774      00
+ 2775              	.LASF25:
+ 2776 02d3 636F6C6F 		.ascii	"color\000"
+ 2776      7200
+ 2777              	.LASF15:
+ 2778 02d9 63686172 		.ascii	"char\000"
+ 2778      00
+ 2779              	.LASF56:
+ 2780 02de 474C4344 		.ascii	"GLCD_Off\000"
+ 2780      5F4F6666 
+ 2780      00
+ 2781              	.LASF44:
+ 2782 02e7 70466F6E 		.ascii	"pFont\000"
+ 2782      7400
+ 2783              	.LASF41:
+ 2784 02ed 4D61736B 		.ascii	"Mask\000"
+ 2784      00
+ 2785              	.LASF52:
+ 2786 02f2 66726163 		.ascii	"fraction\000"
+ 2786      74696F6E 
+ 2786      00
+ 2787              	.LASF29:
+ 2788 02fb 474C4344 		.ascii	"GLCD_Pixel\000"
+ 2788      5F506978 
+ 2788      656C00
+ 2789              	.LASF26:
+ 2790 0306 64617461 		.ascii	"data16\000"
+ 2790      313600
+ 2791              	.LASF49:
+ 2792 030d 474C4344 		.ascii	"GLCD_DrawLine\000"
+ 2792      5F447261 
+ 2792      774C696E 
+ 2792      6500
+ 2793              	.LASF60:
+ 2794 031b 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 2794      5F464F4E 
+ 2794      54387831 
+ 2794      3600
+ 2795              	.LASF28:
+ 2796 0329 73657474 		.ascii	"setting\000"
+ 2796      696E6700 
+ 2797              	.LASF50:
+ 2798 0331 73746570 		.ascii	"stepx\000"
+ 2798      7800
+ 2799              	.LASF51:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cc24qra6.s 			page 66
+
+
+ 2800 0337 73746570 		.ascii	"stepy\000"
+ 2800      7900
+ 2801              	.LASF65:
+ 2802 033d 474C4344 		.ascii	"GLCD_SwapColors\000"
+ 2802      5F537761 
+ 2802      70436F6C 
+ 2802      6F727300 
+ 2803              	.LASF19:
+ 2804 034d 474C4344 		.ascii	"GLCD_Data\000"
+ 2804      5F446174 
+ 2804      6100
+ 2805              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,8 @@
+D:/School/SPU/Spring\ 2018/Micro\ Controllers/HW/0/GLCD_Test1.cydsn/ARM_GCC_541/Debug/CyBootAsmGnu.o : D:/School/SPU/Spring\ 2018/Micro\ Controllers/HW/0/GLCD_Test1.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s D:/School/SPU/Spring\ 2018/Micro\ Controllers/HW/0/GLCD_Test1.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc D:/School/SPU/Spring\ 2018/Micro\ Controllers/HW/0/GLCD_Test1.cydsn/Generated_Source/PSoC4/cyfittergnu.inc 
+
+D:/School/SPU/Spring\ 2018/Micro\ Controllers/HW/0/GLCD_Test1.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s : 
+
+D:/School/SPU/Spring\ 2018/Micro\ Controllers/HW/0/GLCD_Test1.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc : 
+
+D:/School/SPU/Spring\ 2018/Micro\ Controllers/HW/0/GLCD_Test1.cydsn/Generated_Source/PSoC4/cyfittergnu.inc : 
+

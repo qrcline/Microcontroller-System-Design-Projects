@@ -1,0 +1,20 @@
+Last Modified Date & Time: 03/23/2018 16:11:39
+
+GLCD_Test1: TopDesign.cysch
+	Backlight [v1.90] to [v2.20]
+	LED_Red [v1.90] to [v2.20]
+	LED_Blue [v1.90] to [v2.20]
+	LED_Green [v1.90] to [v2.20]
+	A [v1.90] to [v2.20]
+	C [v1.90] to [v2.20]
+	D [v1.90] to [v2.20]
+	B [v1.90] to [v2.20]
+	Joy_Center [v1.90] to [v2.20]
+	Button [v1.90] to [v2.20]
+
+GLCD_Test1: GLCD_Test1.cydwr
+	cy_boot [v4.0] to [v5.50]
+	cy_lfclk [v1.0] to [v1.10]
+	LIN_Dynamic [v3.20] to [v3.40]
+
+

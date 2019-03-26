@@ -1,0 +1,1126 @@
+Archive member included to satisfy reference by file (symbol)
+
+.\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                              .\ARM_GCC_541\Debug\main.o (GLCD_Start)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+                              .\ARM_GCC_541\Debug\main.o (GLCD_FONT8x16)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+                              .\ARM_GCC_541\Debug\main.o (Backlight_Write)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+                              .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o) (GLCD_Reset_Write)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                              .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o) (GLCD_SPIM_UDB_ReadTxStatus)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+                              .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o) (GLCD_SPIM_UDB_IntClock_Start)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+                              .\ARM_GCC_541\Debug\cyfitter_cfg.o (CySysClkWriteImoFreq)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+                              .\ARM_GCC_541\Debug\main.o (LED_Red_Write)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+                              .\ARM_GCC_541\Debug\main.o (LED_Blue_Write)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+                              .\ARM_GCC_541\Debug\main.o (LED_Green_Write)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+                              .\ARM_GCC_541\Debug\main.o (Joy_Center_Read)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+                              .\ARM_GCC_541\Debug\main.o (A_Read)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+                              .\ARM_GCC_541\Debug\main.o (C_Read)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+                              .\ARM_GCC_541\Debug\main.o (D_Read)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+                              .\ARM_GCC_541\Debug\main.o (B_Read)
+.\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+                              .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o) (CyDelayCycles)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
+                              .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o) (__aeabi_uidiv)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+                              .\ARM_GCC_541\Debug\Cm0Start.o (__errno)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o (exit)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o) (_global_impure_ptr)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o (__libc_init_array)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+                              .\ARM_GCC_541\Debug\cyfitter_cfg.o (memcpy)
+c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+                              c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o (memset)
+
+Allocating common symbols
+Common symbol       size              file
+
+GLCD_driver         0x1               .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+GLCD_SPIM_UDB_swStatusTx
+                    0x1               .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+GLCD_SPIM_UDB_swStatusRx
+                    0x1               .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+ .data          0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .text          0x00000000       0x78 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\main.o
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\main.o
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\main.o
+ COMMON         0x00000000        0x0 .\ARM_GCC_541\Debug\main.o
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYCONFIGCPY
+                0x00000000       0x20 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\cymetadata.o
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\cymetadata.o
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\cymetadata.o
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\Cm0Start.o
+ .data          0x00000000        0x4 .\ARM_GCC_541\Debug\Cm0Start.o
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\Cm0Start.o
+ .text._exit    0x00000000       0x14 .\ARM_GCC_541\Debug\Cm0Start.o
+ .text._sbrk    0x00000000       0x54 .\ARM_GCC_541\Debug\Cm0Start.o
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .text.GLCD_Stop
+                0x00000000       0x18 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .text.GLCD_SwapColors
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .text.GLCD_DrawRect
+                0x00000000       0xb8 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .text.GLCD_Off
+                0x00000000       0x10 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .text.GLCD_On  0x00000000       0x10 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ COMMON         0x00000000        0x1 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .text.Backlight_SetDriveMode
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .text.Backlight_Read
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .text.Backlight_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .text.Backlight_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .text.Backlight_ClearInterrupt
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .text.GLCD_Reset_SetDriveMode
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .text.GLCD_Reset_Read
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .text.GLCD_Reset_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .text.GLCD_Reset_ClearInterrupt
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_Stop
+                0x00000000       0x58 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_DisableTxInt
+                0x00000000        0xc .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_DisableRxInt
+                0x00000000        0xc .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_SetTxInterruptMode
+                0x00000000       0x20 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_SetRxInterruptMode
+                0x00000000       0x20 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_ReadRxData
+                0x00000000       0x20 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_GetRxBufferSize
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_GetTxBufferSize
+                0x00000000       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_ClearRxBuffer
+                0x00000000       0x28 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_ClearTxBuffer
+                0x00000000       0x6c .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_PutArray
+                0x00000000       0x54 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_EnableInt
+                0x00000000       0x14 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_DisableInt
+                0x00000000       0x14 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_SetInterruptMode
+                0x00000000       0x34 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text.GLCD_SPIM_UDB_ReadStatus
+                0x00000000       0x40 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ COMMON         0x00000000        0x2 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .text.GLCD_SPIM_UDB_IntClock_Stop
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .text.GLCD_SPIM_UDB_IntClock_SetFractionalDividerRegister
+                0x00000000       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .text.GLCD_SPIM_UDB_IntClock_GetDividerRegister
+                0x00000000       0x14 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .text.GLCD_SPIM_UDB_IntClock_GetFractionalDividerRegister
+                0x00000000        0xc .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .bss           0x00000000       0x18 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysClkImoStart
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysClkImoStop
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysClkWriteHfclkDirect
+                0x00000000       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysEnablePumpClock
+                0x00000000       0x50 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysClkGetSysclkSource
+                0x00000000       0x34 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysClkWriteSysclkDiv
+                0x00000000       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysLvdEnable
+                0x00000000       0x64 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysLvdDisable
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysLvdGetInterruptSource
+                0x00000000       0x18 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysLvdClearInterrupt
+                0x00000000       0x14 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysGetResetReason
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyDisableInts
+                0x00000000       0x24 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyEnableInts
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntSetSysVector
+                0x00000000       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntGetSysVector
+                0x00000000       0x34 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntSetVector
+                0x00000000       0x4c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntGetVector
+                0x00000000       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntSetPriority
+                0x00000000       0xa8 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntGetPriority
+                0x00000000       0x58 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntEnable
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntGetState
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntDisable
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntSetPending
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyIntClearPending
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySoftwareReset
+                0x00000000       0x24 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyDelayFreq
+                0x00000000       0x84 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickStart
+                0x00000000       0x24 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickInit
+                0x00000000       0x60 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickEnable
+                0x00000000       0x20 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickStop
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickEnableInterrupt
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickDisableInterrupt
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickSetReload
+                0x00000000       0x20 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickGetReload
+                0x00000000       0x18 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickGetValue
+                0x00000000       0x18 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickGetCountFlag
+                0x00000000       0x18 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickClear
+                0x00000000       0x14 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickSetCallback
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickGetCallback
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CySysTickServiceCallbacks
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text.CyGetUniqueId
+                0x00000000       0xc0 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .text.LED_Red_SetDriveMode
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .text.LED_Red_Read
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .text.LED_Red_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .text.LED_Red_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .text.LED_Red_ClearInterrupt
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .text.LED_Blue_SetDriveMode
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .text.LED_Blue_Read
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .text.LED_Blue_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .text.LED_Blue_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .text.LED_Blue_ClearInterrupt
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .text.LED_Green_SetDriveMode
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .text.LED_Green_Read
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .text.LED_Green_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .text.LED_Green_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .text.LED_Green_ClearInterrupt
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .text.Joy_Center_SetDriveMode
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .text.Joy_Center_Write
+                0x00000000       0x50 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .text.Joy_Center_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .text.Joy_Center_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .text.Joy_Center_ClearInterrupt
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .text.A_SetDriveMode
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .text.A_Write  0x00000000       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .text.A_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .text.A_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .text.A_ClearInterrupt
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .text.C_SetDriveMode
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .text.C_Write  0x00000000       0x4c .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .text.C_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .text.C_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .text.C_ClearInterrupt
+                0x00000000       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .text.D_SetDriveMode
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .text.D_Write  0x00000000       0x50 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .text.D_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .text.D_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .text.D_ClearInterrupt
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .text          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .text.B_SetDriveMode
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .text.B_Write  0x00000000       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .text.B_ReadDataReg
+                0x00000000       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .text.B_SetInterruptMode
+                0x00000000       0x44 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .text.B_ClearInterrupt
+                0x00000000       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .data          0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+ .bss           0x00000000        0x0 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+ .text          0x00000000      0x114 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
+ .text          0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .text.exit     0x00000000       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x00000000        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000         0x00008000         xr
+ram              0x20000000         0x00001000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+START GROUP
+LOAD .\ARM_GCC_541\Debug\main.o
+LOAD .\ARM_GCC_541\Debug\cyfitter_cfg.o
+LOAD .\ARM_GCC_541\Debug\cymetadata.o
+LOAD .\ARM_GCC_541\Debug\Cm0Start.o
+LOAD .\ARM_GCC_541\Debug\GLCD_Test1.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libc_nano.a
+END GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+START GROUP
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libc.a
+LOAD c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libnosys.a
+END GROUP
+                0x00000000                CY_APPL_ORIGIN = 0x0
+                0x00000080                CY_FLASH_ROW_SIZE = 0x80
+                0x00000001                CY_APPL_NUM = 0x1
+                0x00000001                CY_APPL_MAX = 0x1
+                0x00000040                CY_METADATA_SIZE = 0x40
+                0x00000000                CY_APPL_LOADABLE = 0x0
+                0x00000000                CY_CHECKSUM_EXCLUDE_SIZE = ALIGN (0x0, CY_FLASH_ROW_SIZE)
+                0x00000000                CY_APP_FOR_STACK_AND_COPIER = 0x0
+                [!provide]                PROVIDE (__cy_heap_start, _end)
+                0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
+                0x20001000                PROVIDE (__cy_stack, (ORIGIN (ram) + LENGTH (ram)))
+                [!provide]                PROVIDE (__cy_heap_end, (__cy_stack - 0x400))
+
+.cybootloader   0x00000000        0x0
+ *(.cybootloader)
+                0x00000000                appl1_start = CY_APPL_ORIGIN?CY_APPL_ORIGIN:ALIGN (CY_FLASH_ROW_SIZE)
+                0x00003f80                appl2_start = (appl1_start + ALIGN ((((LENGTH (rom) - appl1_start) - (0x2 * CY_FLASH_ROW_SIZE)) / 0x2), CY_FLASH_ROW_SIZE))
+                0x00000000                appl_start = (CY_APPL_NUM == 0x1)?appl1_start:appl2_start
+                0x00000001                cy_project_type_bootloader = (appl_start == 0x0)?0x1:0x0
+                0x00000000                cy_project_type_app_for_stack_and_copier = (CY_APP_FOR_STACK_AND_COPIER == 0x1)?0x1:0x0
+
+.text           0x00000000     0x1446
+ CREATE_OBJECT_SYMBOLS
+                0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
+ *(.romvectors)
+ .romvectors    0x00000000       0x10 .\ARM_GCC_541\Debug\Cm0Start.o
+                0x00000000                RomVectors
+                0x00000001                ASSERT ((. != __cy_interrupt_vector), No interrupt vector)
+                0x00000001                ASSERT (CY_APPL_ORIGIN?(SIZEOF (.cybootloader) <= CY_APPL_ORIGIN):0x1, Wrong image location)
+                0x00000010                PROVIDE (__cy_reset, Reset)
+ *(.text.Reset)
+ .text.Reset    0x00000010        0x8 .\ARM_GCC_541\Debug\Cm0Start.o
+                0x00000010                Reset
+                0x00000001                ASSERT ((. != __cy_reset), No reset code)
+ *(.psocinit)
+ .psocinit      0x00000018      0x26c .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000008c                cyfitter_cfg
+                0x00000284                . = MAX (., 0x100)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x00000284       0x60 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .text.pretty_lines
+                0x000002e4       0x54 .\ARM_GCC_541\Debug\main.o
+                0x000002e4                pretty_lines
+ .text.main     0x00000338      0x19c .\ARM_GCC_541\Debug\main.o
+                0x00000338                main
+ .text.CYMEMZERO
+                0x000004d4       0x20 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.CYCONFIGCPYCODE
+                0x000004f4       0x20 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.cfg_write_bytes32
+                0x00000514       0x84 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.AnalogSetDefault
+                0x00000598        0xc .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .text.IntDefaultHandler
+                0x000005a4       0x14 .\ARM_GCC_541\Debug\Cm0Start.o
+                0x000005a4                IntDefaultHandler
+ .text.Start_c  0x000005b8       0x98 .\ARM_GCC_541\Debug\Cm0Start.o
+                0x000005b8                Start_c
+ .text.initialize_psoc
+                0x00000650       0x64 .\ARM_GCC_541\Debug\Cm0Start.o
+                0x00000650                initialize_psoc
+ .text.GLCD_Command
+                0x000006b4       0x2c .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x000006b4                GLCD_Command
+ .text.GLCD_Data
+                0x000006e0       0x40 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x000006e0                GLCD_Data
+ .text.GLCD_Start
+                0x00000720       0x70 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x00000720                GLCD_Start
+ .text.GLCD_Clear
+                0x00000790       0x98 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x00000790                GLCD_Clear
+ .text.GLCD_Contrast
+                0x00000828       0x28 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x00000828                GLCD_Contrast
+ .text.GLCD_Pixel
+                0x00000850       0x88 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x00000850                GLCD_Pixel
+ .text.GLCD_DrawCircle
+                0x000008d8      0x150 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x000008d8                GLCD_DrawCircle
+ .text.GLCD_PrintChar
+                0x00000a28      0x190 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x00000a28                GLCD_PrintChar
+ .text.GLCD_PrintString
+                0x00000bb8       0x68 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x00000bb8                GLCD_PrintString
+ .text.GLCD_DrawLine
+                0x00000c20      0x104 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                0x00000c20                GLCD_DrawLine
+ .text.Backlight_Write
+                0x00000d24       0x4c .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+                0x00000d24                Backlight_Write
+ .text.GLCD_Reset_Write
+                0x00000d70       0x50 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+                0x00000d70                GLCD_Reset_Write
+ .text.GLCD_SPIM_UDB_Init
+                0x00000dc0       0x34 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000dc0                GLCD_SPIM_UDB_Init
+ .text.GLCD_SPIM_UDB_Enable
+                0x00000df4       0x6c .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000df4                GLCD_SPIM_UDB_Enable
+ .text.GLCD_SPIM_UDB_Start
+                0x00000e60       0x24 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000e60                GLCD_SPIM_UDB_Start
+ .text.GLCD_SPIM_UDB_EnableTxInt
+                0x00000e84        0xc .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000e84                GLCD_SPIM_UDB_EnableTxInt
+ .text.GLCD_SPIM_UDB_EnableRxInt
+                0x00000e90        0xc .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000e90                GLCD_SPIM_UDB_EnableRxInt
+ .text.GLCD_SPIM_UDB_ReadTxStatus
+                0x00000e9c       0x20 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000e9c                GLCD_SPIM_UDB_ReadTxStatus
+ .text.GLCD_SPIM_UDB_ReadRxStatus
+                0x00000ebc       0x20 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000ebc                GLCD_SPIM_UDB_ReadRxStatus
+ .text.GLCD_SPIM_UDB_WriteTxData
+                0x00000edc       0x34 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000edc                GLCD_SPIM_UDB_WriteTxData
+ .text.GLCD_SPIM_UDB_ClearFIFO
+                0x00000f10       0x88 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x00000f10                GLCD_SPIM_UDB_ClearFIFO
+ .text.GLCD_SPIM_UDB_IntClock_Start
+                0x00000f98       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+                0x00000f98                GLCD_SPIM_UDB_IntClock_Start
+ .text.CySysClkWriteImoFreq
+                0x00000fb4      0x1ec .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+                0x00000fb4                CySysClkWriteImoFreq
+ .text.CyHalt   0x000011a0       0x18 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+                0x000011a0                CyHalt
+ .text.CyDelay  0x000011b8       0x4c .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+                0x000011b8                CyDelay
+ .text.CyDelayUs
+                0x00001204       0x28 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+                0x00001204                CyDelayUs
+ .text.LED_Red_Write
+                0x0000122c       0x50 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+                0x0000122c                LED_Red_Write
+ .text.LED_Blue_Write
+                0x0000127c       0x50 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+                0x0000127c                LED_Blue_Write
+ .text.LED_Green_Write
+                0x000012cc       0x50 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+                0x000012cc                LED_Green_Write
+ .text.Joy_Center_Read
+                0x0000131c       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+                0x0000131c                Joy_Center_Read
+ .text.A_Read   0x00001338       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+                0x00001338                A_Read
+ .text.C_Read   0x00001354       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+                0x00001354                C_Read
+ .text.D_Read   0x00001370       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+                0x00001370                D_Read
+ .text.B_Read   0x0000138c       0x1c .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+                0x0000138c                B_Read
+ .text          0x000013a8       0x24 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+                0x000013a8                CyDelayCycles
+                0x000013bc                CyEnterCriticalSection
+                0x000013c4                CyExitCriticalSection
+ .text.__errno  0x000013cc        0xc c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+                0x000013cc                __errno
+ .text.__libc_init_array
+                0x000013d8       0x4c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+                0x000013d8                __libc_init_array
+ .text.memcpy   0x00001424       0x12 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00001424                memcpy
+ .text.memset   0x00001436       0x10 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+                0x00001436                memset
+ *(.plt)
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x00001446        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00001446        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00001446        0x0 linker stubs
+ *(.bootloader)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ *(.gcc_except_table)
+
+.v4_bx          0x00001448        0x0
+ .v4_bx         0x00001448        0x0 linker stubs
+
+.iplt           0x00001448        0x0
+ .iplt          0x00001448        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame       0x00001448        0x4
+ *(.eh_frame)
+ .eh_frame      0x00001448        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .eh_frame      0x00001448        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+                [!provide]                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x0000144c                __exidx_end = .
+
+.rodata         0x0000144c      0x8dc
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x0000144c        0xe .\ARM_GCC_541\Debug\main.o
+ *fill*         0x0000145a        0x2 
+ .rodata        0x0000145c      0x258 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .rodata        0x000016b4      0x610 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+                0x000016b4                GLCD_FONT8x16
+ .rodata        0x00001cc4       0x2e .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+                0x00001cc4                cyImoFreqMhz2Reg
+ .rodata.str1.1
+                0x00001cf2        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+                0x00001cf4                . = ALIGN (0x4)
+ *(.init)
+ .init          0x00001cf4        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+                0x00001cf4                _init
+ .init          0x00001cf8        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+                0x00001d00                . = ALIGN (0x4)
+                0x00001d00                __preinit_array_start = .
+ *(.preinit_array)
+                0x00001d00                __preinit_array_end = .
+                0x00001d00                . = ALIGN (0x4)
+                0x00001d00                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x00001d00        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .init_array    0x00001d04        0x4 .\ARM_GCC_541\Debug\Cm0Start.o
+                0x00001d08                __init_array_end = .
+                0x00001d08                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x00001d08        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+                0x00001d08                _fini
+ .fini          0x00001d0c        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+                0x00001d14                . = ALIGN (0x4)
+                0x00001d14                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x00001d14        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x00001d18                __fini_array_end = .
+                0x00001d18                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x00001d18                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x00001d18                . = ALIGN (0x4)
+                0x00001d18                __cy_regions = .
+                0x00001d18        0x4 LONG 0x1d28 __cy_region_init_ram
+                0x00001d1c        0x4 LONG 0x200000c8 __cy_region_start_data
+                0x00001d20        0x4 LONG 0x80 __cy_region_init_size_ram
+                0x00001d24        0x4 LONG 0x28 __cy_region_zero_size_ram
+                0x00001d28                __cy_regions_end = .
+                0x00001d28                . = ALIGN (0x8)
+                0x00001d28                _etext = .
+
+.cy_checksum_exclude
+                0x00001d28        0x0
+ *(.cy_checksum_exclude)
+
+.ramvectors     0x20000000       0xc0
+                0x20000000                __cy_region_start_ram = .
+ *(.ramvectors)
+ .ramvectors    0x20000000       0xc0 .\ARM_GCC_541\Debug\Cm0Start.o
+                0x20000000                CyRamVectors
+
+.noinit         0x200000c0        0x4
+ *(.noinit)
+ .noinit        0x200000c0        0x4 .\ARM_GCC_541\Debug\Cm0Start.o
+
+.data           0x200000c8       0x80 load address 0x00001d28
+                0x200000c8                __cy_region_start_data = .
+ *(.jcr)
+ .jcr           0x200000c8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .jcr           0x200000c8        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+ *(.got.plt)
+ *(.got)
+ *(.shdata)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x200000cc       0x14 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+                0x200000cc                cydelayFreqHz
+                0x200000d0                cydelayFreqKhz
+                0x200000d4                cydelayFreqMhz
+                0x200000d8                cydelay32kMs
+                0x200000dc                CySysClkPumpConfig
+ .data.impure_data
+                0x200000e0       0x60 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x20000140        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+                0x20000140                _impure_ptr
+                0x20000148                . = ALIGN (0x8)
+ *fill*         0x20000144        0x4 
+ *(.ram)
+                0x20000148                _edata = .
+
+.igot.plt       0x20000148        0x0 load address 0x00001da8
+ .igot.plt      0x20000148        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+
+.bss            0x20000148       0x28 load address 0x00001da8
+                0x20000148                PROVIDE (__bss_start__, .)
+ *(.shbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x20000148       0x1c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .bss           0x20000164        0x8 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .bss           0x2000016c        0x1 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                0x2000016c                GLCD_SPIM_UDB_initVar
+ *(COMMON)
+                0x20000170                . = ALIGN (0x8)
+ *fill*         0x2000016d        0x3 
+ *(.ram.b)
+                0x20000170                _end = .
+                0x20000170                __end = .
+                0x20000170                PROVIDE (end, .)
+                0x20000170                PROVIDE (__bss_end__, .)
+                0x00001d28                __cy_region_init_ram = LOADADDR (.data)
+                0x00000080                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000028                __cy_region_zero_size_ram = (_end - _edata)
+
+.heap           0x20000170      0x100 load address 0x00001da8
+                0x20000170                . = _end
+                0x20000270                . = (. + 0x100)
+ *fill*         0x20000170      0x100 
+                0x20000270                __cy_heap_limit = .
+
+.stack          0x20000c00      0x400
+                0x20000c00                __cy_stack_limit = .
+                0x20001000                . = (. + 0x400)
+ *fill*         0x20000c00      0x400 
+                0x00000001                ASSERT ((__cy_stack_limit >= __cy_heap_limit), region RAM overflowed with stack)
+                0x00000000                cy_checksum_exclude_size = (CY_APPL_LOADABLE == 0x1)?SIZEOF (.cy_checksum_exclude):0x0
+                0x00000001                ASSERT ((cy_checksum_exclude_size <= CY_CHECKSUM_EXCLUDE_SIZE), CY_BOOT: Section .cy_checksum_exclude size exceedes specified limit.)
+                0x00007fc0                cyloadermeta_start = (cy_project_type_bootloader || cy_project_type_app_for_stack_and_copier)?(LENGTH (rom) - CY_METADATA_SIZE):0xf0000000
+
+.cyloadermeta
+ *(.cyloadermeta)
+                0x00007fc0                cyloadablemeta_start = cy_project_type_app_for_stack_and_copier?((LENGTH (rom) - CY_FLASH_ROW_SIZE) - CY_METADATA_SIZE):((LENGTH (rom) - (CY_FLASH_ROW_SIZE * (CY_APPL_NUM - 0x1))) - CY_METADATA_SIZE)
+
+.cyloadablemeta
+ *(.cyloadablemeta)
+
+.cyflashprotect
+                0x90400000       0x20
+ *(.cyflashprotect)
+ .cyflashprotect
+                0x90400000       0x20 .\ARM_GCC_541\Debug\cymetadata.o
+                0x90400000                cy_meta_flashprotect
+
+.cymeta         0x90500000        0xc
+ *(.cymeta)
+ .cymeta        0x90500000        0xc .\ARM_GCC_541\Debug\cymetadata.o
+                0x90500000                cy_metadata
+
+.cychipprotect  0x90600000        0x1
+ *(.cychipprotect)
+ .cychipprotect
+                0x90600000        0x1 .\ARM_GCC_541\Debug\cymetadata.o
+                0x90600000                cy_meta_chipprotect
+
+.rel.dyn        0x00001da8        0x0 load address 0x90600004
+ .rel.iplt      0x00001da8        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x700
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 .\ARM_GCC_541\Debug\main.o
+ .debug_aranges
+                0x00000028       0x50 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_aranges
+                0x00000078       0x18 .\ARM_GCC_541\Debug\cymetadata.o
+ .debug_aranges
+                0x00000090       0x48 .\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_aranges
+                0x000000d8       0x90 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .debug_aranges
+                0x00000168       0x18 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .debug_aranges
+                0x00000180       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .debug_aranges
+                0x000001c8       0x40 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .debug_aranges
+                0x00000208       0xd8 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .debug_aranges
+                0x000002e0       0x40 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_aranges
+                0x00000320      0x180 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .debug_aranges
+                0x000004a0       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .debug_aranges
+                0x000004e8       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .debug_aranges
+                0x00000530       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .debug_aranges
+                0x00000578       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .debug_aranges
+                0x000005c0       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .debug_aranges
+                0x00000608       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .debug_aranges
+                0x00000650       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .debug_aranges
+                0x00000698       0x48 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .debug_aranges
+                0x000006e0       0x20 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x2eb7
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x146 .\ARM_GCC_541\Debug\main.o
+ .debug_info    0x00000146      0x442 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x00000588       0xf8 .\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00000680      0x30c .\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_info    0x0000098c      0x5d6 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .debug_info    0x00000f62       0xbd .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .debug_info    0x0000101f      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .debug_info    0x000011b9      0x14e .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .debug_info    0x00001307      0x411 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .debug_info    0x00001718      0x150 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_info    0x00001868      0x8ef .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .debug_info    0x00002157      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .debug_info    0x000022f1      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .debug_info    0x0000248b      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .debug_info    0x00002625      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .debug_info    0x000027bf      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .debug_info    0x00002959      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .debug_info    0x00002af3      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .debug_info    0x00002c8d      0x19a .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .debug_info    0x00002e27       0x90 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+
+.debug_abbrev   0x00000000     0x109d
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xb3 .\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x000000b3      0x1a4 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x00000257       0x5d .\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x000002b4      0x1c8 .\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_abbrev  0x0000047c      0x167 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .debug_abbrev  0x000005e3       0x5d .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .debug_abbrev  0x00000640       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .debug_abbrev  0x000006ea       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .debug_abbrev  0x00000794      0x156 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .debug_abbrev  0x000008ea       0xa8 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_abbrev  0x00000992      0x1a7 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .debug_abbrev  0x00000b39       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .debug_abbrev  0x00000be3       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .debug_abbrev  0x00000c8d       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .debug_abbrev  0x00000d37       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .debug_abbrev  0x00000de1       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .debug_abbrev  0x00000e8b       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .debug_abbrev  0x00000f35       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .debug_abbrev  0x00000fdf       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .debug_abbrev  0x00001089       0x14 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+
+.debug_line     0x00000000     0x17c1
+ *(.debug_line)
+ .debug_line    0x00000000       0xcb .\ARM_GCC_541\Debug\main.o
+ .debug_line    0x000000cb      0x1be .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x00000289      0x141 .\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x000003ca      0x1cf .\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_line    0x00000599      0x273 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .debug_line    0x0000080c       0x50 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .debug_line    0x0000085c       0xc1 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .debug_line    0x0000091d       0xae .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .debug_line    0x000009cb      0x26f .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .debug_line    0x00000c3a       0xbd .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_line    0x00000cf7      0x47b .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .debug_line    0x00001172       0xbf .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .debug_line    0x00001231       0xc0 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .debug_line    0x000012f1       0xc1 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .debug_line    0x000013b2       0xc2 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .debug_line    0x00001474       0xb9 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .debug_line    0x0000152d       0xb9 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .debug_line    0x000015e6       0xb9 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .debug_line    0x0000169f       0xb9 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .debug_line    0x00001758       0x69 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+
+.debug_frame    0x00000000     0x159c
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x54 .\ARM_GCC_541\Debug\main.o
+ .debug_frame   0x00000054       0xe8 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_frame   0x0000013c       0xc8 .\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_frame   0x00000204      0x1e8 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .debug_frame   0x000003ec       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .debug_frame   0x000004b4       0xa8 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .debug_frame   0x0000055c      0x2fc .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .debug_frame   0x00000858       0xa0 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_frame   0x000008f8      0x588 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .debug_frame   0x00000e80       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .debug_frame   0x00000f48       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .debug_frame   0x00001010       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .debug_frame   0x000010d8       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .debug_frame   0x000011a0       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .debug_frame   0x00001268       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .debug_frame   0x00001330       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .debug_frame   0x000013f8       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .debug_frame   0x000014c0       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x000014e0       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00001500       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00001528       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00001554       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000157c       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+
+.debug_str      0x00000000     0x14bb
+ *(.debug_str)
+ .debug_str     0x00000000      0x16e .\ARM_GCC_541\Debug\main.o
+                                0x1b4 (size before relaxing)
+ .debug_str     0x0000016e      0x162 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x30d (size before relaxing)
+ .debug_str     0x000002d0       0x63 .\ARM_GCC_541\Debug\cymetadata.o
+                                0x1c8 (size before relaxing)
+ .debug_str     0x00000333      0x120 .\ARM_GCC_541\Debug\Cm0Start.o
+                                0x2ce (size before relaxing)
+ .debug_str     0x00000453      0x1ae .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+                                0x357 (size before relaxing)
+ .debug_str     0x00000601       0x23 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+                                0x1a6 (size before relaxing)
+ .debug_str     0x00000624       0xcc .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+                                0x252 (size before relaxing)
+ .debug_str     0x000006f0       0x8e .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+                                0x225 (size before relaxing)
+ .debug_str     0x0000077e      0x32f .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+                                0x4c1 (size before relaxing)
+ .debug_str     0x00000aad      0x123 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+                                0x2a3 (size before relaxing)
+ .debug_str     0x00000bd0      0x4d4 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+                                0x689 (size before relaxing)
+ .debug_str     0x000010a4       0x95 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+                                0x244 (size before relaxing)
+ .debug_str     0x00001139       0x9c .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+                                0x24b (size before relaxing)
+ .debug_str     0x000011d5       0xa3 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+                                0x252 (size before relaxing)
+ .debug_str     0x00001278       0xaa .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+                                0x259 (size before relaxing)
+ .debug_str     0x00001322       0x6b .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+                                0x21a (size before relaxing)
+ .debug_str     0x0000138d       0x6b .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+                                0x21a (size before relaxing)
+ .debug_str     0x000013f8       0x6b .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+                                0x21a (size before relaxing)
+ .debug_str     0x00001463       0x58 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+                                0x21a (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_ranges   0x00000000      0x5a0
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x18 .\ARM_GCC_541\Debug\main.o
+ .debug_ranges  0x00000018       0x40 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_ranges  0x00000058       0x38 .\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_ranges  0x00000090       0x80 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .debug_ranges  0x00000110       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .debug_ranges  0x00000148       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .debug_ranges  0x00000178       0xc8 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .debug_ranges  0x00000240       0x30 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_ranges  0x00000270      0x170 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .debug_ranges  0x000003e0       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .debug_ranges  0x00000418       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .debug_ranges  0x00000450       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .debug_ranges  0x00000488       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .debug_ranges  0x000004c0       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .debug_ranges  0x000004f8       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .debug_ranges  0x00000530       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .debug_ranges  0x00000568       0x38 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+
+.comment        0x00000000       0x6e
+ .comment       0x00000000       0x6e .\ARM_GCC_541\Debug\main.o
+                                 0x6f (size before relaxing)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\cymetadata.o
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\Cm0Start.o
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .comment       0x0000006e       0x6f .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x00000000       0x28
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+ .ARM.attributes
+                0x0000001e       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x31 .\ARM_GCC_541\Debug\main.o
+ .ARM.attributes
+                0x00000096       0x31 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .ARM.attributes
+                0x000000c7       0x31 .\ARM_GCC_541\Debug\cymetadata.o
+ .ARM.attributes
+                0x000000f8       0x31 .\ARM_GCC_541\Debug\Cm0Start.o
+ .ARM.attributes
+                0x00000129       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD.o)
+ .ARM.attributes
+                0x0000015a       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Font.o)
+ .ARM.attributes
+                0x0000018b       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(Backlight.o)
+ .ARM.attributes
+                0x000001bc       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_Reset.o)
+ .ARM.attributes
+                0x000001ed       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB.o)
+ .ARM.attributes
+                0x0000021e       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(GLCD_SPIM_UDB_IntClock.o)
+ .ARM.attributes
+                0x0000024f       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyLib.o)
+ .ARM.attributes
+                0x00000280       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Red.o)
+ .ARM.attributes
+                0x000002b1       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Blue.o)
+ .ARM.attributes
+                0x000002e2       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(LED_Green.o)
+ .ARM.attributes
+                0x00000313       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(Joy_Center.o)
+ .ARM.attributes
+                0x00000344       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(A.o)
+ .ARM.attributes
+                0x00000375       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(C.o)
+ .ARM.attributes
+                0x000003a6       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(D.o)
+ .ARM.attributes
+                0x000003d7       0x31 .\ARM_GCC_541\Debug\GLCD_Test1.a(B.o)
+ .ARM.attributes
+                0x00000408       0x21 .\ARM_GCC_541\Debug\GLCD_Test1.a(CyBootAsmGnu.o)
+ .ARM.attributes
+                0x00000429       0x1e c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000447       0x1e c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000465       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+ .ARM.attributes
+                0x00000491       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-exit.o)
+ .ARM.attributes
+                0x000004bd       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x000004e9       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000515       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x00000541       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+ .ARM.attributes
+                0x0000056d       0x2c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+ .ARM.attributes
+                0x00000599       0x1e c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(D:\School\SPU\Spring 2018\Micro Controllers\HW\0\GLCD_Test1.cydsn\ARM_GCC_541\Debug\GLCD_Test1.elf elf32-littlearm)
