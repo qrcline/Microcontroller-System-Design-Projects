@@ -1,3 +1,3 @@
-# Component constraints for D:\School\SPU\Spring 2018\Micro Controllers\HW\0\GLCD_Test1.cydsn\TopDesign\TopDesign.cysch
-# Project: D:\School\SPU\Spring 2018\Micro Controllers\HW\0\GLCD_Test1.cydsn\GLCD_Test1.cyprj
-# Date: Mon, 25 Mar 2019 21:00:44 GMT
+# Component constraints for D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\TopDesign\TopDesign.cysch
+# Project: D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\GLCD_Test1.cyprj
+# Date: Wed, 27 Mar 2019 05:07:48 GMT

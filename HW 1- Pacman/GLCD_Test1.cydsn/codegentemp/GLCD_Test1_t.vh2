@@ -1,5 +1,5 @@
--- Project:   D:\School\SPU\Spring 2018\Micro Controllers\HW\0\GLCD_Test1.cydsn\GLCD_Test1.cyprj
--- Generated: 03/25/2019 14:00:50
+-- Project:   D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\GLCD_Test1.cyprj
+-- Generated: 03/26/2019 22:07:51
 -- PSoC Creator  4.2
 
 ENTITY GLCD_Test1 IS

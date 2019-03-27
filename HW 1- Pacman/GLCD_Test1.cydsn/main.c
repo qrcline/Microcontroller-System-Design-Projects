@@ -5,6 +5,8 @@
 
 #include <device.h>
 #include <header01.h>
+#include <math.h>
+
 
 void pretty_lines(int color){
     // make some decorations around the edges by drawing lines
@@ -14,11 +16,21 @@ void pretty_lines(int color){
         GLCD_DrawLine(126-i,126,2,126-i, color);
     }
 }
+
+ void GLCD_Draw_Line_Polar(int centerX, int centerY, int angle, int length, int color)
+{
+    GLCD_DrawLine(centerX,centerY,(length*cos(((angle*M_PI))/180))+centerX,(length*sin(((angle*M_PI))/180))+centerY, color);
+  
+}
+
 int main()
 {
     int16 i;       // counter variable -- int16 will take up less room than int32
     int16 x = CENTER;  // x and y coordinates for center of circle--- This is defined in the header file
     int16 y = 62;
+    int16 count1;
+    int16 count2;
+    int16 count3;
 	
 	// Initialize LCD
     GLCD_Start();  
@@ -31,62 +43,36 @@ int main()
     GLCD_Clear(GLCD_CRIMSON);
         
     // Draw a filled circle in maroon by drawing a series of circles of increasing radius 
-    for (i = 0; i<40; i++) {
+    for (i = 50; i<52; i++) {
         GLCD_DrawCircle (x,y,i, GLCD_MAROON);
     }
     
-    // Draw a thick white circle by drawing several white circles of increasing radius
-    for (i = 35; i< 38; i++) {
-        GLCD_DrawCircle (x,y,i, GLCD_WHITE);
+     for( count1=0; count1<360;count1++)
+    {
+         GLCD_Draw_Line_Polar(CENTER, CENTER,count1 , 50,  GLCD_YELLOW);   //Thins draws the original yellow circle
+    }
+    while(1)
+    {
+   
+    for(count2=0;count2<=30;count2++)
+    {
+         GLCD_Draw_Line_Polar(CENTER, CENTER,-count2 , 50,  GLCD_BLACK);  //Draws the black mouth
+         GLCD_Draw_Line_Polar(CENTER, CENTER,count2 , 50,  GLCD_BLACK);  //Draws the black mouth
+    }
+     for( count3=30;count3>=0;count3--)
+    {
+         GLCD_Draw_Line_Polar(CENTER, CENTER,-count3 , 50,  GLCD_YELLOW);
+         GLCD_Draw_Line_Polar(CENTER, CENTER,count3 , 50,  GLCD_YELLOW);
+    }
     }
     
-    // Display the words "SPU" and "ECS"
-    GLCD_PrintString("Quinton", x-20, y-27, GLCD_WHITE, GLCD_MAROON);
-    GLCD_PrintString("Cline", x, y-20, GLCD_WHITE, GLCD_MAROON);
+   
     
-    // Draw some decorative lines in white
-    pretty_lines(GLCD_WHITE);
     
-    // endless loop - there is nothing to return to, so better to just loop forever
-    while(1) {
-    LED_Blue_Write(1); LED_Green_Write(1); LED_Red_Write(1);   // make sure all LEDs are off
     
-    // If A pressed, turn on Green LED and draw lines in Green
-     if (A_Read()==0) {
-         LED_Green_Write(0);   
-        pretty_lines(GLCD_GREEN);
-        }
     
-    // If B pressed, turn on Green and Red LEDs (Yellow) and draw lines in Yellow
-    if (B_Read()==0) {
-         LED_Green_Write(0);  
-         LED_Red_Write(0);
-        pretty_lines(GLCD_YELLOW);
-        }
     
-    // If C pressed, turn on Blue LED and draw lines in Blue
-    if (C_Read()==0) {
-         LED_Blue_Write(0); 
-        pretty_lines(GLCD_BLUE);
-        }
     
-    // If D pressed, turn on Red LED and draw lines in Red
-    if (D_Read()==0) {
-         LED_Red_Write(0);  
-        pretty_lines(GLCD_RED);        
-        }
-        
-
-    
-    // If joystick center pushed, turn on Blue and Red LEDs and draw lines in White
-    if (Joy_Center_Read()==0) {
-         LED_Blue_Write(0); 
-         LED_Red_Write(0);
-        LED_Green_Write(0);
-        pretty_lines(GLCD_WHITE);
-        }
-       
-    }
      
         
 	
