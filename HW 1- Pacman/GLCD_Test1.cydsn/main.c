@@ -8,19 +8,42 @@
 #include <math.h>
 
 
-void pretty_lines(int color){
-    // make some decorations around the edges by drawing lines
-    int i;
-    for (i = 0; i < 126; i+=5){
-        GLCD_DrawLine(2+i,2,126,2+i, color);
-        GLCD_DrawLine(126-i,126,2,126-i, color);
-    }
-}
 
+//This converts the polar cordinates given to the point to point used for the DrawLine
  void GLCD_Draw_Line_Polar(int centerX, int centerY, int angle, int length, int color)
 {
     GLCD_DrawLine(centerX,centerY,(length*cos(((angle*M_PI))/180))+centerX,(length*sin(((angle*M_PI))/180))+centerY, color);
   
+}
+
+//Function that has loops to draw pacman
+void PACMAN(int centerAngle)
+{
+    int16 count1;
+    int16 count2;
+    int16 count3;
+    //Draws the original yellow circle
+     for( count1=0; count1<360;count1++)
+    {
+         GLCD_Draw_Line_Polar(CENTER, CENTER,count1 , 50,  GLCD_YELLOW);   //Thins draws the original yellow circle
+    }
+    
+    while(1)
+    {
+        //Draws black mouth open
+    for(count2=centerAngle;count2<=centerAngle+30;count2++)
+    {
+         GLCD_Draw_Line_Polar(CENTER, CENTER,-count2 , 50,  GLCD_BLACK);  //Draws the black mouth
+         GLCD_Draw_Line_Polar(CENTER, CENTER,count2 , 50,  GLCD_BLACK);  //Draws the black mouth
+    }
+    //Draws mouth closed by drawing yellow lines
+     for( count3=centerAngle+30;count3>=centerAngle;count3--)
+    {
+         GLCD_Draw_Line_Polar(CENTER, CENTER,-count3 , 50,  GLCD_YELLOW);
+         GLCD_Draw_Line_Polar(CENTER, CENTER,count3 , 50,  GLCD_YELLOW);
+    }
+    }
+    
 }
 
 int main()
@@ -28,9 +51,7 @@ int main()
     int16 i;       // counter variable -- int16 will take up less room than int32
     int16 x = CENTER;  // x and y coordinates for center of circle--- This is defined in the header file
     int16 y = 62;
-    int16 count1;
-    int16 count2;
-    int16 count3;
+
 	
 	// Initialize LCD
     GLCD_Start();  
@@ -40,31 +61,16 @@ int main()
  
     
     // clear LCD to crimson color
-    GLCD_Clear(GLCD_CRIMSON);
-        
-    // Draw a filled circle in maroon by drawing a series of circles of increasing radius 
-    for (i = 50; i<52; i++) {
-        GLCD_DrawCircle (x,y,i, GLCD_MAROON);
-    }
+    GLCD_Clear(GLCD_BLACK);
+    //Call pacman function
+     PACMAN(0);
+     //PACMAN(90);
+     //PACMAN(180);
+     //PACMAN(270);
     
-     for( count1=0; count1<360;count1++)
-    {
-         GLCD_Draw_Line_Polar(CENTER, CENTER,count1 , 50,  GLCD_YELLOW);   //Thins draws the original yellow circle
-    }
-    while(1)
-    {
-   
-    for(count2=0;count2<=30;count2++)
-    {
-         GLCD_Draw_Line_Polar(CENTER, CENTER,-count2 , 50,  GLCD_BLACK);  //Draws the black mouth
-         GLCD_Draw_Line_Polar(CENTER, CENTER,count2 , 50,  GLCD_BLACK);  //Draws the black mouth
-    }
-     for( count3=30;count3>=0;count3--)
-    {
-         GLCD_Draw_Line_Polar(CENTER, CENTER,-count3 , 50,  GLCD_YELLOW);
-         GLCD_Draw_Line_Polar(CENTER, CENTER,count3 , 50,  GLCD_YELLOW);
-    }
-    }
+    
+    
+    
     
    
     

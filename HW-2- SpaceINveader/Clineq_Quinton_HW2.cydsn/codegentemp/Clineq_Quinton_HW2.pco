@@ -1,0 +1,40 @@
+# Clineq_Quinton_HW2
+# 2019-04-04 02:53:54Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_location "ClockBlock" m0s8clockblockcell -1 -1 0
+set_io "A_Button(0)" iocell 0 7
+set_io "B_Button(0)" iocell 3 7
+set_io "\GLCD:Reset(0)\" iocell 3 1
+set_io "\GLCD:SCLK(0)\" iocell 3 6
+set_io "\GLCD:MOSI(0)\" iocell 3 4
+set_io "\GLCD:SS(0)\" iocell 0 6
+set_io "Backlight(0)" iocell 3 0
+set_io "C_Button(0)" iocell 0 0
+set_io "D_Button(0)" iocell 3 5
+set_io "Joystick_button(0)" iocell 2 6
+set_io "R_LED(0)" iocell 1 6
+set_io "G_LED(0)" iocell 0 2
+set_io "B_LED(0)" iocell 0 3
+set_location "\GLCD:SPIM_UDB:BSPIM:load_rx_data\" 1 1 1 1
+set_location "\GLCD:SPIM_UDB:BSPIM:tx_status_0\" 1 0 0 2
+set_location "\GLCD:SPIM_UDB:BSPIM:tx_status_4\" 1 0 1 2
+set_location "\GLCD:SPIM_UDB:BSPIM:rx_status_6\" 1 1 0 0
+set_location "\GLCD:SPIM_UDB:BSPIM:BitCounter\" 1 1 7
+set_location "\GLCD:SPIM_UDB:BSPIM:TxStsReg\" 1 0 4
+set_location "\GLCD:SPIM_UDB:BSPIM:RxStsReg\" 0 1 4
+set_location "\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\" 1 0 2
+set_location "\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\" 0 0 2
+set_location "\GLCD:Net_41\" 1 1 1 0
+set_location "\GLCD:SPIM_UDB:BSPIM:state_2\" 1 0 0 1
+set_location "\GLCD:SPIM_UDB:BSPIM:state_1\" 1 0 0 0
+set_location "\GLCD:SPIM_UDB:BSPIM:state_0\" 1 0 1 0
+set_location "\GLCD:Net_43\" 0 1 0 1
+set_location "\GLCD:SPIM_UDB:BSPIM:load_cond\" 1 1 0 2
+set_location "\GLCD:SPIM_UDB:BSPIM:ld_ident\" 1 1 0 1
+set_location "\GLCD:SPIM_UDB:BSPIM:cnt_enable\" 1 0 1 1
+set_location "\GLCD:Net_42\" 0 0 0 0

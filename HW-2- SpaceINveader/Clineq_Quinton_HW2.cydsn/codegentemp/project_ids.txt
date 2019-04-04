@@ -1,0 +1,10 @@
+D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\GLCD_Test1.cyprj|915a7608-02ee-4907-8eef-2b86205a002f
+D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\Shield_GLCD_Lib.cylib\Shield_GLCD_Lib.cyprj|897fdd84-7e69-4057-b35d-6e146dc434ca
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b7d249fc-f5d3-4e95-8585-c0fc2b51aa4c
+C:\Users\quint\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|09b2ad42-2ce4-4444-a421-c602468050f1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|060af3f8-e50f-4fa4-8d8b-989f24f3f37f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|0ea1167a-66fc-418d-9742-586e4ee97c30
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3f7417e8-2049-474c-b3f6-a45e5003694c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|af27586f-0435-4746-829d-e7f7e42f1054
+D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\Clineq_Quinton_HW2.cyprj|3e83938f-356d-4218-b52b-b53ff1785852
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc4\PSoC4AnalogDevice\psoc4arch.cydsn\psoc4arch.cyprj|ebfce6ea-c6c6-4019-8c7f-a11738c79008
