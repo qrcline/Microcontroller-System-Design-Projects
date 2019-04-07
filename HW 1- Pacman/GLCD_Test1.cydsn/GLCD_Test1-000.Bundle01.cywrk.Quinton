@@ -232,7 +232,55 @@
 <VisibleNodeIds>
 <v>GLCD_Test1-000.Bundle01</v>
 <v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Button.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Button_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Button.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Button_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Button.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Button_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Button.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Button_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Joystick_button.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Joystick_button_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.elf</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.hex</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.map</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\Clineq_Quinton_HW2.gpdsc</v>
 <v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\Clineq_Quinton_HW2.rpt</v>
+<v>GLCD_Test1-000.Bundle01\Clineq_Quinton_HW2\Clineq_Quinton_HW2_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -301,6 +349,7 @@
 <name v=".\TopDesign\TopDesign.cysch" />
 <name v="..\..\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\TopDesign\TopDesign.cysch" />
 <name v="..\..\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\Clineq_Quinton_HW2.cydwr" />
+<name v="..\..\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -308,7 +357,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1274, 751" SelectedTabbedMdiWindow="ff350251-bb04-4752-8692-d982660143a7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\main.c" Guid="8b2ad6c9-640d-48d9-bf27-e880e33d42f3" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\GLCD_Test1.cydwr" Guid="b8ea3890-312c-4b11-b6e4-29542fef0fdf" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\TopDesign\TopDesign.cysch" Guid="1aec9016-8202-4af6-a8f8-517f778cbe98" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\TopDesign\TopDesign.cysch" Guid="ff350251-bb04-4752-8692-d982660143a7" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\Clineq_Quinton_HW2.cydwr" Guid="d3f9f673-ca12-4488-ad36-09739326b0ea" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1251, 751" SelectedTabbedMdiWindow="b10d9dfd-ce6d-4b72-afc9-d7a5a3fb3628"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\main.c" Guid="8b2ad6c9-640d-48d9-bf27-e880e33d42f3" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\GLCD_Test1.cydwr" Guid="b8ea3890-312c-4b11-b6e4-29542fef0fdf" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\TopDesign\TopDesign.cysch" Guid="1aec9016-8202-4af6-a8f8-517f778cbe98" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\TopDesign\TopDesign.cysch" Guid="ff350251-bb04-4752-8692-d982660143a7" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\Clineq_Quinton_HW2.cydwr" Guid="d3f9f673-ca12-4488-ad36-09739326b0ea" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\main.c" Guid="b10d9dfd-ce6d-4b72-afc9-d7a5a3fb3628" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -1,4 +1,4 @@
---------------- Build Started: 04/03/2019 20:49:42 Project: GLCD_Test1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 04/03/2019 21:33:48 Project: GLCD_Test1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 The compile step is up to date, no work needs to be done.
 arm-none-eabi-ar.exe -rs .\ARM_GCC_541\Debug\GLCD_Test1.a .\ARM_GCC_541\Debug\GLCD.o .\ARM_GCC_541\Debug\GLCD_Font.o .\ARM_GCC_541\Debug\Backlight.o .\ARM_GCC_541\Debug\Backlight_PM.o .\ARM_GCC_541\Debug\GLCD_Reset.o .\ARM_GCC_541\Debug\GLCD_SPIM_UDB.o .\ARM_GCC_541\Debug\GLCD_SPIM_UDB_PM.o .\ARM_GCC_541\Debug\GLCD_SPIM_UDB_INT.o .\ARM_GCC_541\Debug\GLCD_SCLK.o .\ARM_GCC_541\Debug\GLCD_MOSI.o .\ARM_GCC_541\Debug\GLCD_SS.o .\ARM_GCC_541\Debug\GLCD_SPIM_UDB_IntClock.o .\ARM_GCC_541\Debug\CyFlash.o .\ARM_GCC_541\Debug\CyLib.o .\ARM_GCC_541\Debug\cyPm.o .\ARM_GCC_541\Debug\cyutils.o .\ARM_GCC_541\Debug\LED_Red.o .\ARM_GCC_541\Debug\LED_Red_PM.o .\ARM_GCC_541\Debug\LED_Blue.o .\ARM_GCC_541\Debug\LED_Blue_PM.o .\ARM_GCC_541\Debug\LED_Green.o .\ARM_GCC_541\Debug\LED_Green_PM.o .\ARM_GCC_541\Debug\Joy_Center.o .\ARM_GCC_541\Debug\Joy_Center_PM.o .\ARM_GCC_541\Debug\Button.o .\ARM_GCC_541\Debug\Button_PM.o .\ARM_GCC_541\Debug\A.o .\ARM_GCC_541\Debug\A_PM.o .\ARM_GCC_541\Debug\C.o .\ARM_GCC_541\Debug\C_PM.o .\ARM_GCC_541\Debug\D.o .\ARM_GCC_541\Debug\D_PM.o .\ARM_GCC_541\Debug\B.o .\ARM_GCC_541\Debug\B_PM.o .\ARM_GCC_541\Debug\CyLFClk.o .\ARM_GCC_541\Debug\cy_em_eeprom.o .\ARM_GCC_541\Debug\CyBootAsmGnu.o
@@ -11,4 +11,4 @@ Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\ARM_GCC_541\Debug\GLCD_Test1.elf"
 Flash used: 18626 of 32768 bytes (56.8%).
 SRAM used: 1644 of 4096 bytes (40.1%). Stack: 1024 bytes. Heap: 256 bytes.
---------------- Build Succeeded: 04/03/2019 20:49:43 ---------------
+--------------- Build Succeeded: 04/03/2019 21:33:49 ---------------
