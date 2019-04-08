@@ -567,7 +567,7 @@ END GROUP
                 0x00000001                cy_project_type_bootloader = (appl_start == 0x0)?0x1:0x0
                 0x00000000                cy_project_type_app_for_stack_and_copier = (CY_APP_FOR_STACK_AND_COPIER == 0x1)?0x1:0x0
 
-.text           0x00000000     0x1234
+.text           0x00000000     0x1294
  CREATE_OBJECT_SYMBOLS
                 0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
  *(.romvectors)
@@ -597,260 +597,260 @@ END GROUP
                 0x000002a0                drawBlast
  .text.ledSet   0x000002f8       0x1c .\CortexM0\ARM_GCC_541\Debug\main.o
                 0x000002f8                ledSet
- .text.main     0x00000314      0x1a4 .\CortexM0\ARM_GCC_541\Debug\main.o
+ .text.main     0x00000314      0x204 .\CortexM0\ARM_GCC_541\Debug\main.o
                 0x00000314                main
  .text.cfg_write_bytes32
-                0x000004b8       0x34 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000518       0x34 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYMEMZERO
-                0x000004ec        0xc .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000054c        0xc .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYCONFIGCPYCODE
-                0x000004f8        0x8 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000558        0x8 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.IntDefaultHandler
-                0x00000500       0x10 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
-                0x00000500                IntDefaultHandler
- .text._sbrk    0x00000510       0x30 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
-                0x00000510                _sbrk
- .text.Start_c  0x00000540       0x48 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
-                0x00000540                Start_c
+                0x00000560       0x10 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+                0x00000560                IntDefaultHandler
+ .text._sbrk    0x00000570       0x30 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+                0x00000570                _sbrk
+ .text.Start_c  0x000005a0       0x48 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+                0x000005a0                Start_c
  .text.initialize_psoc
-                0x00000588       0x40 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
-                0x00000588                initialize_psoc
+                0x000005e8       0x40 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+                0x000005e8                initialize_psoc
  .text.GLCD_Command
-                0x000005c8       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
-                0x000005c8                GLCD_Command
+                0x00000628       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+                0x00000628                GLCD_Command
  .text.GLCD_Data
-                0x000005e0       0x1c .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
-                0x000005e0                GLCD_Data
+                0x00000640       0x1c .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+                0x00000640                GLCD_Data
  .text.GLCD_Clear
-                0x000005fc       0x60 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
-                0x000005fc                GLCD_Clear
+                0x0000065c       0x60 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+                0x0000065c                GLCD_Clear
  .text.GLCD_Contrast
-                0x0000065c       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
-                0x0000065c                GLCD_Contrast
+                0x000006bc       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+                0x000006bc                GLCD_Contrast
  .text.GLCD_Start
-                0x00000670       0x68 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
-                0x00000670                GLCD_Start
+                0x000006d0       0x68 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+                0x000006d0                GLCD_Start
  .text.GLCD_Pixel
-                0x000006d8       0x50 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
-                0x000006d8                GLCD_Pixel
+                0x00000738       0x50 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+                0x00000738                GLCD_Pixel
  .text.GLCD_DrawCircle
-                0x00000728       0xfc .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
-                0x00000728                GLCD_DrawCircle
+                0x00000788       0xfc .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+                0x00000788                GLCD_DrawCircle
  .text.GLCD_DrawLine
-                0x00000824       0xac .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
-                0x00000824                GLCD_DrawLine
+                0x00000884       0xac .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+                0x00000884                GLCD_DrawLine
  .text.Backlight_Write
-                0x000008d0       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Backlight.o)
-                0x000008d0                Backlight_Write
+                0x00000930       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Backlight.o)
+                0x00000930                Backlight_Write
  .text.GLCD_Reset_Write
-                0x000008e8       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Reset.o)
-                0x000008e8                GLCD_Reset_Write
+                0x00000948       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Reset.o)
+                0x00000948                GLCD_Reset_Write
  .text.GLCD_SPIM_UDB_Enable
-                0x00000900       0x40 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
-                0x00000900                GLCD_SPIM_UDB_Enable
+                0x00000960       0x40 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+                0x00000960                GLCD_SPIM_UDB_Enable
  .text.GLCD_SPIM_UDB_ReadTxStatus
-                0x00000940        0xc .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
-                0x00000940                GLCD_SPIM_UDB_ReadTxStatus
+                0x000009a0        0xc .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+                0x000009a0                GLCD_SPIM_UDB_ReadTxStatus
  .text.GLCD_SPIM_UDB_ReadRxStatus
-                0x0000094c        0xc .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
-                0x0000094c                GLCD_SPIM_UDB_ReadRxStatus
+                0x000009ac        0xc .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+                0x000009ac                GLCD_SPIM_UDB_ReadRxStatus
  .text.GLCD_SPIM_UDB_WriteTxData
-                0x00000958       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
-                0x00000958                GLCD_SPIM_UDB_WriteTxData
+                0x000009b8       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+                0x000009b8                GLCD_SPIM_UDB_WriteTxData
  .text.GLCD_SPIM_UDB_ClearFIFO
-                0x00000970       0x50 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
-                0x00000970                GLCD_SPIM_UDB_ClearFIFO
+                0x000009d0       0x50 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+                0x000009d0                GLCD_SPIM_UDB_ClearFIFO
  .text.GLCD_SPIM_UDB_Init
-                0x000009c0       0x2c .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
-                0x000009c0                GLCD_SPIM_UDB_Init
+                0x00000a20       0x2c .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+                0x00000a20                GLCD_SPIM_UDB_Init
  .text.GLCD_SPIM_UDB_Start
-                0x000009ec       0x20 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
-                0x000009ec                GLCD_SPIM_UDB_Start
+                0x00000a4c       0x20 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+                0x00000a4c                GLCD_SPIM_UDB_Start
  .text.GLCD_SPIM_UDB_IntClock_Start
-                0x00000a0c       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB_IntClock.o)
-                0x00000a0c                GLCD_SPIM_UDB_IntClock_Start
+                0x00000a6c       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB_IntClock.o)
+                0x00000a6c                GLCD_SPIM_UDB_IntClock_Start
  .text.CyIntEnable
-                0x00000a20       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
-                0x00000a20                CyIntEnable
- .text.CyHalt   0x00000a34        0x4 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
-                0x00000a34                CyHalt
+                0x00000a80       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+                0x00000a80                CyIntEnable
+ .text.CyHalt   0x00000a94        0x4 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+                0x00000a94                CyHalt
  .text.CyIntSetVector
-                0x00000a38       0x24 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
-                0x00000a38                CyIntSetVector
- .text.CyDelay  0x00000a5c       0x30 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
-                0x00000a5c                CyDelay
+                0x00000a98       0x24 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+                0x00000a98                CyIntSetVector
+ .text.CyDelay  0x00000abc       0x30 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+                0x00000abc                CyDelay
  .text.CyDelayUs
-                0x00000a8c       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
-                0x00000a8c                CyDelayUs
+                0x00000aec       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+                0x00000aec                CyDelayUs
  .text.CySysClkWriteImoFreq
-                0x00000aa0      0x164 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
-                0x00000aa0                CySysClkWriteImoFreq
+                0x00000b00      0x164 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+                0x00000b00                CySysClkWriteImoFreq
  .text.CySysWdtLocked
-                0x00000c04       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
+                0x00000c64       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
  .text.CySysWdtLock
-                0x00000c18       0x1c .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
-                0x00000c18                CySysWdtLock
+                0x00000c78       0x1c .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
+                0x00000c78                CySysWdtLock
  .text.CySysWdtUnlock
-                0x00000c34       0x30 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
-                0x00000c34                CySysWdtUnlock
+                0x00000c94       0x30 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
+                0x00000c94                CySysWdtUnlock
  .text.CySysWdtClearInterrupt
-                0x00000c64       0x4c .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
-                0x00000c64                CySysWdtClearInterrupt
+                0x00000cc4       0x4c .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
+                0x00000cc4                CySysWdtClearInterrupt
  .text.CySysWdtIsr
-                0x00000cb0       0xa4 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
-                0x00000cb0                CySysWdtIsr
+                0x00000d10       0xa4 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
+                0x00000d10                CySysWdtIsr
  .text.A_Button_Read
-                0x00000d54       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(A_Button.o)
-                0x00000d54                A_Button_Read
+                0x00000db4       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(A_Button.o)
+                0x00000db4                A_Button_Read
  .text.B_Button_Read
-                0x00000d64       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_Button.o)
-                0x00000d64                B_Button_Read
+                0x00000dc4       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_Button.o)
+                0x00000dc4                B_Button_Read
  .text.C_Button_Read
-                0x00000d74       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(C_Button.o)
-                0x00000d74                C_Button_Read
+                0x00000dd4       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(C_Button.o)
+                0x00000dd4                C_Button_Read
  .text.D_Button_Read
-                0x00000d84       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(D_Button.o)
-                0x00000d84                D_Button_Read
+                0x00000de4       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(D_Button.o)
+                0x00000de4                D_Button_Read
  .text.Joystick_button_Read
-                0x00000d94       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Joystick_button.o)
-                0x00000d94                Joystick_button_Read
+                0x00000df4       0x10 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Joystick_button.o)
+                0x00000df4                Joystick_button_Read
  .text.R_LED_Write
-                0x00000da4       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(R_LED.o)
-                0x00000da4                R_LED_Write
+                0x00000e04       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(R_LED.o)
+                0x00000e04                R_LED_Write
  .text.G_LED_Write
-                0x00000dbc       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(G_LED.o)
-                0x00000dbc                G_LED_Write
+                0x00000e1c       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(G_LED.o)
+                0x00000e1c                G_LED_Write
  .text.B_LED_Write
-                0x00000dd4       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
-                0x00000dd4                B_LED_Write
- *fill*         0x00000dec        0x4 
- .text          0x00000df0       0x24 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyBootAsmGnu.o)
-                0x00000df0                CyDelayCycles
-                0x00000e04                CyEnterCriticalSection
-                0x00000e0c                CyExitCriticalSection
- .text          0x00000e14      0x1d4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_divsi3.o)
-                0x00000e14                __divsi3
-                0x00000e14                __aeabi_idiv
-                0x00000fe0                __aeabi_idivmod
- .text          0x00000fe8        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x00000fe8                __aeabi_idiv0
-                0x00000fe8                __aeabi_ldiv0
- .text.__errno  0x00000fec        0xc c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
-                0x00000fec                __errno
+                0x00000e34       0x18 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
+                0x00000e34                B_LED_Write
+ *fill*         0x00000e4c        0x4 
+ .text          0x00000e50       0x24 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyBootAsmGnu.o)
+                0x00000e50                CyDelayCycles
+                0x00000e64                CyEnterCriticalSection
+                0x00000e6c                CyExitCriticalSection
+ .text          0x00000e74      0x1d4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_divsi3.o)
+                0x00000e74                __divsi3
+                0x00000e74                __aeabi_idiv
+                0x00001040                __aeabi_idivmod
+ .text          0x00001048        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x00001048                __aeabi_idiv0
+                0x00001048                __aeabi_ldiv0
+ .text.__errno  0x0000104c        0xc c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+                0x0000104c                __errno
  .text.__libc_init_array
-                0x00000ff8       0x4c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
-                0x00000ff8                __libc_init_array
- .text.memcpy   0x00001044       0x12 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x00001044                memcpy
- .text.memset   0x00001056       0x10 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
-                0x00001056                memset
- *fill*         0x00001066        0x2 
- .text.rand     0x00001068       0x78 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-rand.o)
-                0x00001068                rand
- .text.malloc   0x000010e0       0x14 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-malloc.o)
-                0x000010e0                malloc
+                0x00001058       0x4c c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+                0x00001058                __libc_init_array
+ .text.memcpy   0x000010a4       0x12 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x000010a4                memcpy
+ .text.memset   0x000010b6       0x10 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memset.o)
+                0x000010b6                memset
+ *fill*         0x000010c6        0x2 
+ .text.rand     0x000010c8       0x78 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-rand.o)
+                0x000010c8                rand
+ .text.malloc   0x00001140       0x14 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-malloc.o)
+                0x00001140                malloc
  .text._malloc_r
-                0x000010f4       0xc0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x000010f4                _malloc_r
- .text._sbrk_r  0x000011b4       0x24 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-sbrkr.o)
-                0x000011b4                _sbrk_r
+                0x00001154       0xc0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x00001154                _malloc_r
+ .text._sbrk_r  0x00001214       0x24 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-sbrkr.o)
+                0x00001214                _sbrk_r
  .text.__malloc_lock
-                0x000011d8        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-mlock.o)
-                0x000011d8                __malloc_lock
+                0x00001238        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-mlock.o)
+                0x00001238                __malloc_lock
  .text.__malloc_unlock
-                0x000011da        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-mlock.o)
-                0x000011da                __malloc_unlock
- .text          0x000011dc       0x58 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_muldi3.o)
-                0x000011dc                __muldi3
-                0x000011dc                __aeabi_lmul
+                0x0000123a        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-mlock.o)
+                0x0000123a                __malloc_unlock
+ .text          0x0000123c       0x58 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_muldi3.o)
+                0x0000123c                __muldi3
+                0x0000123c                __aeabi_lmul
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
- .glue_7t       0x00001234        0x0 linker stubs
+ .glue_7t       0x00001294        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00001234        0x0 linker stubs
+ .glue_7        0x00001294        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x00001234        0x0 linker stubs
+ .vfp11_veneer  0x00001294        0x0 linker stubs
  *(.bootloader)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
 
-.v4_bx          0x00001234        0x0
- .v4_bx         0x00001234        0x0 linker stubs
+.v4_bx          0x00001294        0x0
+ .v4_bx         0x00001294        0x0 linker stubs
 
-.iplt           0x00001234        0x0
- .iplt          0x00001234        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+.iplt           0x00001294        0x0
+ .iplt          0x00001294        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x00001234        0x4
+.eh_frame       0x00001294        0x4
  *(.eh_frame)
- .eh_frame      0x00001234        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
- .eh_frame      0x00001234        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+ .eh_frame      0x00001294        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .eh_frame      0x00001294        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
                 [!provide]                PROVIDE (__exidx_start, .)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00001238                __exidx_end = .
+                0x00001298                __exidx_end = .
 
-.rodata         0x00001238      0x2c0
+.rodata         0x00001298      0x2c0
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00001238      0x258 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
- .rodata        0x00001490       0x2e .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
-                0x00001490                cyImoFreqMhz2Reg
+ .rodata        0x00001298      0x258 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .rodata        0x000014f0       0x2e .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+                0x000014f0                cyImoFreqMhz2Reg
  .rodata.str1.1
-                0x000014be        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
-                0x000014c0                . = ALIGN (0x4)
+                0x0000151e        0x2 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+                0x00001520                . = ALIGN (0x4)
  *(.init)
- .init          0x000014c0        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
-                0x000014c0                _init
- .init          0x000014c4        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
-                0x000014cc                . = ALIGN (0x4)
-                0x000014cc                __preinit_array_start = .
+ .init          0x00001520        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+                0x00001520                _init
+ .init          0x00001524        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+                0x0000152c                . = ALIGN (0x4)
+                0x0000152c                __preinit_array_start = .
  *(.preinit_array)
-                0x000014cc                __preinit_array_end = .
-                0x000014cc                . = ALIGN (0x4)
-                0x000014cc                __init_array_start = .
+                0x0000152c                __preinit_array_end = .
+                0x0000152c                . = ALIGN (0x4)
+                0x0000152c                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x000014cc        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
- .init_array    0x000014d0        0x4 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
-                0x000014d4                __init_array_end = .
-                0x000014d4                . = ALIGN (0x4)
+ .init_array    0x0000152c        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .init_array    0x00001530        0x4 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+                0x00001534                __init_array_end = .
+                0x00001534                . = ALIGN (0x4)
  *(.fini)
- .fini          0x000014d4        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
-                0x000014d4                _fini
- .fini          0x000014d8        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
-                0x000014e0                . = ALIGN (0x4)
-                0x000014e0                __fini_array_start = .
+ .fini          0x00001534        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+                0x00001534                _fini
+ .fini          0x00001538        0x8 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+                0x00001540                . = ALIGN (0x4)
+                0x00001540                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x000014e0        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .fini_array    0x00001540        0x4 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x000014e4                __fini_array_end = .
-                0x000014e4                . = ALIGN (0x4)
+                0x00001544                __fini_array_end = .
+                0x00001544                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x000014e4                . = ALIGN (0x4)
+                0x00001544                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x000014e4                . = ALIGN (0x4)
-                0x000014e4                __cy_regions = .
-                0x000014e4        0x4 LONG 0x14f8 __cy_region_init_ram
-                0x000014e8        0x4 LONG 0x200000c0 __cy_region_start_data
-                0x000014ec        0x4 LONG 0x88 __cy_region_init_size_ram
-                0x000014f0        0x4 LONG 0x50 __cy_region_zero_size_ram
-                0x000014f4                __cy_regions_end = .
-                0x000014f8                . = ALIGN (0x8)
- *fill*         0x000014f4        0x4 
-                0x000014f8                _etext = .
+                0x00001544                . = ALIGN (0x4)
+                0x00001544                __cy_regions = .
+                0x00001544        0x4 LONG 0x1558 __cy_region_init_ram
+                0x00001548        0x4 LONG 0x200000c0 __cy_region_start_data
+                0x0000154c        0x4 LONG 0x88 __cy_region_init_size_ram
+                0x00001550        0x4 LONG 0x50 __cy_region_zero_size_ram
+                0x00001554                __cy_regions_end = .
+                0x00001558                . = ALIGN (0x8)
+ *fill*         0x00001554        0x4 
+                0x00001558                _etext = .
 
 .cy_checksum_exclude
-                0x000014f8        0x0
+                0x00001558        0x0
  *(.cy_checksum_exclude)
 
 .ramvectors     0x20000000       0xc0
@@ -862,7 +862,7 @@ END GROUP
 .noinit
  *(.noinit)
 
-.data           0x200000c0       0x88 load address 0x000014f8
+.data           0x200000c0       0x88 load address 0x00001558
                 0x200000c0                __cy_region_start_data = .
  *(.jcr)
  .jcr           0x200000c0        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
@@ -889,10 +889,10 @@ END GROUP
  *(.ram)
                 0x20000148                _edata = .
 
-.igot.plt       0x20000148        0x0 load address 0x00001580
+.igot.plt       0x20000148        0x0 load address 0x000015e0
  .igot.plt      0x20000148        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
-.bss            0x20000148       0x50 load address 0x00001580
+.bss            0x20000148       0x50 load address 0x000015e0
                 0x20000148                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
@@ -917,11 +917,11 @@ END GROUP
                 0x20000198                __end = .
                 0x20000198                PROVIDE (end, .)
                 0x20000198                PROVIDE (__bss_end__, .)
-                0x000014f8                __cy_region_init_ram = LOADADDR (.data)
+                0x00001558                __cy_region_init_ram = LOADADDR (.data)
                 0x00000088                __cy_region_init_size_ram = (_edata - ADDR (.data))
                 0x00000050                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x20000198       0x80 load address 0x00001580
+.heap           0x20000198       0x80 load address 0x000015e0
                 0x20000198                . = _end
                 0x20000218                . = (. + 0x80)
  *fill*         0x20000198       0x80 
@@ -961,8 +961,8 @@ END GROUP
                 0x90600000        0x1 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
                 0x90600000                cy_meta_chipprotect
 
-.rel.dyn        0x00001580        0x0 load address 0x90600004
- .rel.iplt      0x00001580        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+.rel.dyn        0x000015e0        0x0 load address 0x90600004
+ .rel.iplt      0x000015e0        0x0 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
 .stab
  *(.stab)
@@ -1030,29 +1030,29 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x4df5
+.debug_info     0x00000000     0x4e3d
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x783 .\CortexM0\ARM_GCC_541\Debug\main.o
- .debug_info    0x00000783      0x508 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_info    0x00000c8b       0xf8 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
- .debug_info    0x00000d83      0x3a2 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
- .debug_info    0x00001125      0xd87 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
- .debug_info    0x00001eac       0xbd .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Font.o)
- .debug_info    0x00001f69      0x19b .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Backlight.o)
- .debug_info    0x00002104      0x152 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Reset.o)
- .debug_info    0x00002256      0x4d8 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
- .debug_info    0x0000272e      0x14e .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB_IntClock.o)
- .debug_info    0x0000287c      0xaec .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
- .debug_info    0x00003368      0xcfe .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
- .debug_info    0x00004066      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(A_Button.o)
- .debug_info    0x00004203      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_Button.o)
- .debug_info    0x000043a0      0x19b .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(C_Button.o)
- .debug_info    0x0000453b      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(D_Button.o)
- .debug_info    0x000046d8      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Joystick_button.o)
- .debug_info    0x00004875      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(R_LED.o)
- .debug_info    0x00004a12      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(G_LED.o)
- .debug_info    0x00004baf      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
- .debug_info    0x00004d4c       0xa9 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyBootAsmGnu.o)
+ .debug_info    0x00000000      0x7cb .\CortexM0\ARM_GCC_541\Debug\main.o
+ .debug_info    0x000007cb      0x508 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x00000cd3       0xf8 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00000dcb      0x3a2 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_info    0x0000116d      0xd87 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+ .debug_info    0x00001ef4       0xbd .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Font.o)
+ .debug_info    0x00001fb1      0x19b .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Backlight.o)
+ .debug_info    0x0000214c      0x152 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Reset.o)
+ .debug_info    0x0000229e      0x4d8 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+ .debug_info    0x00002776      0x14e .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_info    0x000028c4      0xaec .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+ .debug_info    0x000033b0      0xcfe .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
+ .debug_info    0x000040ae      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(A_Button.o)
+ .debug_info    0x0000424b      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_Button.o)
+ .debug_info    0x000043e8      0x19b .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(C_Button.o)
+ .debug_info    0x00004583      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(D_Button.o)
+ .debug_info    0x00004720      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Joystick_button.o)
+ .debug_info    0x000048bd      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(R_LED.o)
+ .debug_info    0x00004a5a      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(G_LED.o)
+ .debug_info    0x00004bf7      0x19d .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
+ .debug_info    0x00004d94       0xa9 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyBootAsmGnu.o)
 
 .debug_abbrev   0x00000000     0x14fb
  *(.debug_abbrev)
@@ -1078,29 +1078,29 @@ END GROUP
  .debug_abbrev  0x0000141f       0xc8 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
  .debug_abbrev  0x000014e7       0x14 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyBootAsmGnu.o)
 
-.debug_line     0x00000000     0x1de8
+.debug_line     0x00000000     0x1dfe
  *(.debug_line)
- .debug_line    0x00000000      0x229 .\CortexM0\ARM_GCC_541\Debug\main.o
- .debug_line    0x00000229      0x198 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_line    0x000003c1      0x141 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x00000502      0x235 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
- .debug_line    0x00000737      0x29b .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
- .debug_line    0x000009d2       0x50 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Font.o)
- .debug_line    0x00000a22       0xc0 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Backlight.o)
- .debug_line    0x00000ae2       0xae .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Reset.o)
- .debug_line    0x00000b90      0x270 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
- .debug_line    0x00000e00       0xbc .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB_IntClock.o)
- .debug_line    0x00000ebc      0x460 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
- .debug_line    0x0000131c      0x466 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
- .debug_line    0x00001782       0xc0 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(A_Button.o)
- .debug_line    0x00001842       0xc0 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_Button.o)
- .debug_line    0x00001902       0xbf .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(C_Button.o)
- .debug_line    0x000019c1       0xc0 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(D_Button.o)
- .debug_line    0x00001a81       0xc7 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Joystick_button.o)
- .debug_line    0x00001b48       0xbd .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(R_LED.o)
- .debug_line    0x00001c05       0xbd .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(G_LED.o)
- .debug_line    0x00001cc2       0xbd .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
- .debug_line    0x00001d7f       0x69 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyBootAsmGnu.o)
+ .debug_line    0x00000000      0x23f .\CortexM0\ARM_GCC_541\Debug\main.o
+ .debug_line    0x0000023f      0x198 .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x000003d7      0x141 .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00000518      0x235 .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_line    0x0000074d      0x29b .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+ .debug_line    0x000009e8       0x50 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Font.o)
+ .debug_line    0x00000a38       0xc0 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Backlight.o)
+ .debug_line    0x00000af8       0xae .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Reset.o)
+ .debug_line    0x00000ba6      0x270 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+ .debug_line    0x00000e16       0xbc .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_line    0x00000ed2      0x460 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+ .debug_line    0x00001332      0x466 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
+ .debug_line    0x00001798       0xc0 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(A_Button.o)
+ .debug_line    0x00001858       0xc0 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_Button.o)
+ .debug_line    0x00001918       0xbf .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(C_Button.o)
+ .debug_line    0x000019d7       0xc0 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(D_Button.o)
+ .debug_line    0x00001a97       0xc7 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Joystick_button.o)
+ .debug_line    0x00001b5e       0xbd .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(R_LED.o)
+ .debug_line    0x00001c1b       0xbd .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(G_LED.o)
+ .debug_line    0x00001cd8       0xbd .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
+ .debug_line    0x00001d95       0x69 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyBootAsmGnu.o)
 
 .debug_frame    0x00000000     0x1518
  *(.debug_frame)
@@ -1181,26 +1181,26 @@ END GROUP
  .debug_str     0x00001ab8       0x7b .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
                                 0x24f (size before relaxing)
 
-.debug_loc      0x00000000     0x25cb
+.debug_loc      0x00000000     0x2623
  *(.debug_loc)
- .debug_loc     0x00000000      0x388 .\CortexM0\ARM_GCC_541\Debug\main.o
- .debug_loc     0x00000388      0x1fe .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_loc     0x00000586      0x14f .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
- .debug_loc     0x000006d5      0x892 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
- .debug_loc     0x00000f67       0x81 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Backlight.o)
- .debug_loc     0x00000fe8       0x81 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Reset.o)
- .debug_loc     0x00001069      0x112 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
- .debug_loc     0x0000117b       0x13 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB_IntClock.o)
- .debug_loc     0x0000118e      0x599 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
- .debug_loc     0x00001727      0x9b5 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
- .debug_loc     0x000020dc       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(A_Button.o)
- .debug_loc     0x0000217e       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_Button.o)
- .debug_loc     0x00002220       0x81 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(C_Button.o)
- .debug_loc     0x000022a1       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(D_Button.o)
- .debug_loc     0x00002343       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Joystick_button.o)
- .debug_loc     0x000023e5       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(R_LED.o)
- .debug_loc     0x00002487       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(G_LED.o)
- .debug_loc     0x00002529       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
+ .debug_loc     0x00000000      0x3e0 .\CortexM0\ARM_GCC_541\Debug\main.o
+ .debug_loc     0x000003e0      0x1fe .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_loc     0x000005de      0x14f .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o
+ .debug_loc     0x0000072d      0x892 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD.o)
+ .debug_loc     0x00000fbf       0x81 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Backlight.o)
+ .debug_loc     0x00001040       0x81 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_Reset.o)
+ .debug_loc     0x000010c1      0x112 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB.o)
+ .debug_loc     0x000011d3       0x13 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(GLCD_SPIM_UDB_IntClock.o)
+ .debug_loc     0x000011e6      0x599 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLib.o)
+ .debug_loc     0x0000177f      0x9b5 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(CyLFClk.o)
+ .debug_loc     0x00002134       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(A_Button.o)
+ .debug_loc     0x000021d6       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_Button.o)
+ .debug_loc     0x00002278       0x81 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(C_Button.o)
+ .debug_loc     0x000022f9       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(D_Button.o)
+ .debug_loc     0x0000239b       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(Joystick_button.o)
+ .debug_loc     0x0000243d       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(R_LED.o)
+ .debug_loc     0x000024df       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(G_LED.o)
+ .debug_loc     0x00002581       0xa2 .\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.a(B_LED.o)
 
 .debug_macinfo
  *(.debug_macinfo)

@@ -105,10 +105,18 @@ int main(void)
         // If A pressed, move up
      while (A_Button_Read()==0)
     {
-
+        
         drawScope(x,y,GLCD_BLACK);
         drawStars(stars); 
         x--;
+        if(B_Button_Read()==0)
+        {
+            y++;
+        }
+        if(D_Button_Read()==0)
+        {
+           y--;
+        }
         drawScope(x,y,GLCD_YELLOW);
     }
     
@@ -118,6 +126,14 @@ int main(void)
         drawScope(x,y,GLCD_BLACK);
         drawStars(stars); 
         y++;
+        if(A_Button_Read()==0)
+        {
+            x--;
+        }
+        if(C_Button_Read()==0)
+        {
+           x++;
+        }
         drawScope(x,y,GLCD_YELLOW);
     }
     
@@ -127,6 +143,14 @@ int main(void)
         drawScope(x,y,GLCD_BLACK);
         drawStars(stars); 
         x++;
+        if(B_Button_Read()==0)
+        {
+            y++;
+        }
+        if(D_Button_Read()==0)
+        {
+           y--;
+        }
         drawScope(x,y,GLCD_YELLOW);
     }
     
@@ -136,6 +160,14 @@ int main(void)
         drawScope(x,y,GLCD_BLACK);
         drawStars(stars); 
         y--;
+        if(A_Button_Read()==0)
+        {
+            x--;
+        }
+        if(C_Button_Read()==0)
+        {
+           x++;
+        }
         drawScope(x,y,GLCD_YELLOW);
     }
         
