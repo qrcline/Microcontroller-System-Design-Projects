@@ -1,0 +1,7 @@
+D:\GIT\Microcontroller System Design Projects\HW2-Cline Count Zilla\countZilla.cydsn\countZilla.cyprj|c0218192-98ac-4408-8915-19441a484917
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|53fe0fa4-b981-4ed1-9923-98e24e48e41c
+C:\Users\quint\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|58998e30-6695-4c01-8d9a-72ccb56bc8f4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|02254116-fcfb-41d9-920a-3720c041f740
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|1470f59d-88f2-49c8-a1b8-b2f022b7b7c9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|cc16369b-a764-424d-a82b-11c36ab284a7
+C:\Users\quint\Documents\Design01.cydsn\Design01.cyprj|b55d628f-6239-4095-a3c3-6df128cb4ed3

@@ -1,0 +1,771 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB35:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #define PUSHED 0
+  15:main.c        **** #include "stdlib.h"
+  16:main.c        ****     char mystring[20];
+  17:main.c        ****     int count=0;
+  18:main.c        ****     int Acount = 0;
+  19:main.c        **** 
+  20:main.c        **** 
+  21:main.c        ****     
+  22:main.c        **** int main(void)
+  23:main.c        **** {
+  28              		.loc 1 23 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 2
+
+
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  24:main.c        **** 
+  25:main.c        ****     
+  26:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  37              		.loc 1 26 0
+  38              		.syntax divided
+  39              	@ 26 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  27:main.c        **** 
+  28:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  29:main.c        ****      GLCD_Start();
+  42              		.loc 1 29 0
+  43              		.thumb
+  44              		.syntax unified
+  45 0004 FFF7FEFF 		bl	GLCD_Start
+  46              	.LVL0:
+  30:main.c        ****      A_Interrupt_ClearPending();
+  47              		.loc 1 30 0
+  48 0008 FFF7FEFF 		bl	A_Interrupt_ClearPending
+  49              	.LVL1:
+  31:main.c        ****      A_Interrupt_Start();
+  50              		.loc 1 31 0
+  51 000c FFF7FEFF 		bl	A_Interrupt_Start
+  52              	.LVL2:
+  32:main.c        ****      B_Interrupt_ClearPending();
+  53              		.loc 1 32 0
+  54 0010 FFF7FEFF 		bl	B_Interrupt_ClearPending
+  55              	.LVL3:
+  33:main.c        ****      B_Interrupt_Start();
+  56              		.loc 1 33 0
+  57 0014 FFF7FEFF 		bl	B_Interrupt_Start
+  58              	.LVL4:
+  34:main.c        ****      C_Interrupt_ClearPending();
+  59              		.loc 1 34 0
+  60 0018 FFF7FEFF 		bl	C_Interrupt_ClearPending
+  61              	.LVL5:
+  35:main.c        ****      C_Interrupt_Start();
+  62              		.loc 1 35 0
+  63 001c FFF7FEFF 		bl	C_Interrupt_Start
+  64              	.LVL6:
+  36:main.c        ****      D_Interrupt_ClearPending();
+  65              		.loc 1 36 0
+  66 0020 FFF7FEFF 		bl	D_Interrupt_ClearPending
+  67              	.LVL7:
+  37:main.c        ****      D_Interrupt_Start();
+  68              		.loc 1 37 0
+  69 0024 FFF7FEFF 		bl	D_Interrupt_Start
+  70              	.LVL8:
+  38:main.c        ****      StickButton_Interrupt_ClearPending();
+  71              		.loc 1 38 0
+  72 0028 FFF7FEFF 		bl	StickButton_Interrupt_ClearPending
+  73              	.LVL9:
+  39:main.c        ****      StickButton_Interrupt_Start();
+  74              		.loc 1 39 0
+  75 002c FFF7FEFF 		bl	StickButton_Interrupt_Start
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 3
+
+
+  76              	.LVL10:
+  77              	.L2:
+  78 0030 FEE7     		b	.L2
+  79              		.cfi_endproc
+  80              	.LFE35:
+  81              		.size	main, .-main
+  82              		.global	Acount
+  83              		.global	count
+  84              		.comm	mystring,20,4
+  85              		.comm	GLCD_FONT8x16,1552,4
+  86 0032 C046     		.bss
+  87              		.align	2
+  88              		.type	Acount, %object
+  89              		.size	Acount, 4
+  90              	Acount:
+  91 0000 00000000 		.space	4
+  92              		.type	count, %object
+  93              		.size	count, 4
+  94              	count:
+  95 0004 00000000 		.space	4
+  96              		.text
+  97              	.Letext0:
+  98              		.file 2 "Generated_Source\\PSoC4/GLCD.h"
+  99              		.file 3 "Generated_Source\\PSoC4/A_Interrupt.h"
+ 100              		.file 4 "Generated_Source\\PSoC4/B_Interrupt.h"
+ 101              		.file 5 "Generated_Source\\PSoC4/C_Interrupt.h"
+ 102              		.file 6 "Generated_Source\\PSoC4/D_Interrupt.h"
+ 103              		.file 7 "Generated_Source\\PSoC4/StickButton_Interrupt.h"
+ 104              		.file 8 "Generated_Source\\PSoC4/cytypes.h"
+ 105              		.section	.debug_info,"",%progbits
+ 106              	.Ldebug_info0:
+ 107 0000 01020000 		.4byte	0x201
+ 108 0004 0400     		.2byte	0x4
+ 109 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 110 000a 04       		.byte	0x4
+ 111 000b 01       		.uleb128 0x1
+ 112 000c A3010000 		.4byte	.LASF29
+ 113 0010 0C       		.byte	0xc
+ 114 0011 48020000 		.4byte	.LASF30
+ 115 0015 56000000 		.4byte	.LASF31
+ 116 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 117 001d 00000000 		.4byte	0
+ 118 0021 00000000 		.4byte	.Ldebug_line0
+ 119 0025 02       		.uleb128 0x2
+ 120 0026 01       		.byte	0x1
+ 121 0027 06       		.byte	0x6
+ 122 0028 95020000 		.4byte	.LASF0
+ 123 002c 02       		.uleb128 0x2
+ 124 002d 01       		.byte	0x1
+ 125 002e 08       		.byte	0x8
+ 126 002f 15010000 		.4byte	.LASF1
+ 127 0033 02       		.uleb128 0x2
+ 128 0034 02       		.byte	0x2
+ 129 0035 05       		.byte	0x5
+ 130 0036 54020000 		.4byte	.LASF2
+ 131 003a 02       		.uleb128 0x2
+ 132 003b 02       		.byte	0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 4
+
+
+ 133 003c 07       		.byte	0x7
+ 134 003d 35010000 		.4byte	.LASF3
+ 135 0041 02       		.uleb128 0x2
+ 136 0042 04       		.byte	0x4
+ 137 0043 05       		.byte	0x5
+ 138 0044 64020000 		.4byte	.LASF4
+ 139 0048 02       		.uleb128 0x2
+ 140 0049 04       		.byte	0x4
+ 141 004a 07       		.byte	0x7
+ 142 004b 23010000 		.4byte	.LASF5
+ 143 004f 02       		.uleb128 0x2
+ 144 0050 08       		.byte	0x8
+ 145 0051 05       		.byte	0x5
+ 146 0052 3A020000 		.4byte	.LASF6
+ 147 0056 02       		.uleb128 0x2
+ 148 0057 08       		.byte	0x8
+ 149 0058 07       		.byte	0x7
+ 150 0059 8C010000 		.4byte	.LASF7
+ 151 005d 03       		.uleb128 0x3
+ 152 005e 04       		.byte	0x4
+ 153 005f 05       		.byte	0x5
+ 154 0060 696E7400 		.ascii	"int\000"
+ 155 0064 02       		.uleb128 0x2
+ 156 0065 04       		.byte	0x4
+ 157 0066 07       		.byte	0x7
+ 158 0067 6D010000 		.4byte	.LASF8
+ 159 006b 04       		.uleb128 0x4
+ 160 006c 5E020000 		.4byte	.LASF32
+ 161 0070 08       		.byte	0x8
+ 162 0071 B901     		.2byte	0x1b9
+ 163 0073 2C000000 		.4byte	0x2c
+ 164 0077 02       		.uleb128 0x2
+ 165 0078 04       		.byte	0x4
+ 166 0079 04       		.byte	0x4
+ 167 007a F6000000 		.4byte	.LASF9
+ 168 007e 02       		.uleb128 0x2
+ 169 007f 08       		.byte	0x8
+ 170 0080 04       		.byte	0x4
+ 171 0081 48010000 		.4byte	.LASF10
+ 172 0085 02       		.uleb128 0x2
+ 173 0086 01       		.byte	0x1
+ 174 0087 08       		.byte	0x8
+ 175 0088 4F020000 		.4byte	.LASF11
+ 176 008c 02       		.uleb128 0x2
+ 177 008d 08       		.byte	0x8
+ 178 008e 04       		.byte	0x4
+ 179 008f 89020000 		.4byte	.LASF12
+ 180 0093 02       		.uleb128 0x2
+ 181 0094 04       		.byte	0x4
+ 182 0095 07       		.byte	0x7
+ 183 0096 31020000 		.4byte	.LASF13
+ 184 009a 05       		.uleb128 0x5
+ 185 009b 68010000 		.4byte	.LASF33
+ 186 009f 01       		.byte	0x1
+ 187 00a0 16       		.byte	0x16
+ 188 00a1 5D000000 		.4byte	0x5d
+ 189 00a5 00000000 		.4byte	.LFB35
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 5
+
+
+ 190 00a9 32000000 		.4byte	.LFE35-.LFB35
+ 191 00ad 01       		.uleb128 0x1
+ 192 00ae 9C       		.byte	0x9c
+ 193 00af 17010000 		.4byte	0x117
+ 194 00b3 06       		.uleb128 0x6
+ 195 00b4 08000000 		.4byte	.LVL0
+ 196 00b8 8B010000 		.4byte	0x18b
+ 197 00bc 06       		.uleb128 0x6
+ 198 00bd 0C000000 		.4byte	.LVL1
+ 199 00c1 96010000 		.4byte	0x196
+ 200 00c5 06       		.uleb128 0x6
+ 201 00c6 10000000 		.4byte	.LVL2
+ 202 00ca A1010000 		.4byte	0x1a1
+ 203 00ce 06       		.uleb128 0x6
+ 204 00cf 14000000 		.4byte	.LVL3
+ 205 00d3 AC010000 		.4byte	0x1ac
+ 206 00d7 06       		.uleb128 0x6
+ 207 00d8 18000000 		.4byte	.LVL4
+ 208 00dc B7010000 		.4byte	0x1b7
+ 209 00e0 06       		.uleb128 0x6
+ 210 00e1 1C000000 		.4byte	.LVL5
+ 211 00e5 C2010000 		.4byte	0x1c2
+ 212 00e9 06       		.uleb128 0x6
+ 213 00ea 20000000 		.4byte	.LVL6
+ 214 00ee CD010000 		.4byte	0x1cd
+ 215 00f2 06       		.uleb128 0x6
+ 216 00f3 24000000 		.4byte	.LVL7
+ 217 00f7 D8010000 		.4byte	0x1d8
+ 218 00fb 06       		.uleb128 0x6
+ 219 00fc 28000000 		.4byte	.LVL8
+ 220 0100 E3010000 		.4byte	0x1e3
+ 221 0104 06       		.uleb128 0x6
+ 222 0105 2C000000 		.4byte	.LVL9
+ 223 0109 EE010000 		.4byte	0x1ee
+ 224 010d 06       		.uleb128 0x6
+ 225 010e 30000000 		.4byte	.LVL10
+ 226 0112 F9010000 		.4byte	0x1f9
+ 227 0116 00       		.byte	0
+ 228 0117 07       		.uleb128 0x7
+ 229 0118 2D010000 		.4byte	0x12d
+ 230 011c 2D010000 		.4byte	0x12d
+ 231 0120 08       		.uleb128 0x8
+ 232 0121 93000000 		.4byte	0x93
+ 233 0125 60       		.byte	0x60
+ 234 0126 08       		.uleb128 0x8
+ 235 0127 93000000 		.4byte	0x93
+ 236 012b 0F       		.byte	0xf
+ 237 012c 00       		.byte	0
+ 238 012d 09       		.uleb128 0x9
+ 239 012e 6B000000 		.4byte	0x6b
+ 240 0132 0A       		.uleb128 0xa
+ 241 0133 E8000000 		.4byte	.LASF14
+ 242 0137 02       		.byte	0x2
+ 243 0138 42       		.byte	0x42
+ 244 0139 43010000 		.4byte	0x143
+ 245 013d 05       		.uleb128 0x5
+ 246 013e 03       		.byte	0x3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 6
+
+
+ 247 013f 00000000 		.4byte	GLCD_FONT8x16
+ 248 0143 09       		.uleb128 0x9
+ 249 0144 17010000 		.4byte	0x117
+ 250 0148 07       		.uleb128 0x7
+ 251 0149 85000000 		.4byte	0x85
+ 252 014d 58010000 		.4byte	0x158
+ 253 0151 08       		.uleb128 0x8
+ 254 0152 93000000 		.4byte	0x93
+ 255 0156 13       		.byte	0x13
+ 256 0157 00       		.byte	0
+ 257 0158 0A       		.uleb128 0xa
+ 258 0159 0B000000 		.4byte	.LASF15
+ 259 015d 01       		.byte	0x1
+ 260 015e 10       		.byte	0x10
+ 261 015f 48010000 		.4byte	0x148
+ 262 0163 05       		.uleb128 0x5
+ 263 0164 03       		.byte	0x3
+ 264 0165 00000000 		.4byte	mystring
+ 265 0169 0A       		.uleb128 0xa
+ 266 016a 50000000 		.4byte	.LASF16
+ 267 016e 01       		.byte	0x1
+ 268 016f 11       		.byte	0x11
+ 269 0170 5D000000 		.4byte	0x5d
+ 270 0174 05       		.uleb128 0x5
+ 271 0175 03       		.byte	0x3
+ 272 0176 00000000 		.4byte	count
+ 273 017a 0A       		.uleb128 0xa
+ 274 017b B3020000 		.4byte	.LASF17
+ 275 017f 01       		.byte	0x1
+ 276 0180 12       		.byte	0x12
+ 277 0181 5D000000 		.4byte	0x5d
+ 278 0185 05       		.uleb128 0x5
+ 279 0186 03       		.byte	0x3
+ 280 0187 00000000 		.4byte	Acount
+ 281 018b 0B       		.uleb128 0xb
+ 282 018c 00000000 		.4byte	.LASF18
+ 283 0190 00000000 		.4byte	.LASF18
+ 284 0194 02       		.byte	0x2
+ 285 0195 2C       		.byte	0x2c
+ 286 0196 0B       		.uleb128 0xb
+ 287 0197 14000000 		.4byte	.LASF19
+ 288 019b 14000000 		.4byte	.LASF19
+ 289 019f 03       		.byte	0x3
+ 290 01a0 28       		.byte	0x28
+ 291 01a1 0B       		.uleb128 0xb
+ 292 01a2 D6000000 		.4byte	.LASF20
+ 293 01a6 D6000000 		.4byte	.LASF20
+ 294 01aa 03       		.byte	0x3
+ 295 01ab 17       		.byte	0x17
+ 296 01ac 0B       		.uleb128 0xb
+ 297 01ad 4F010000 		.4byte	.LASF21
+ 298 01b1 4F010000 		.4byte	.LASF21
+ 299 01b5 04       		.byte	0x4
+ 300 01b6 28       		.byte	0x28
+ 301 01b7 0B       		.uleb128 0xb
+ 302 01b8 A1020000 		.4byte	.LASF22
+ 303 01bc A1020000 		.4byte	.LASF22
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 7
+
+
+ 304 01c0 04       		.byte	0x4
+ 305 01c1 17       		.byte	0x17
+ 306 01c2 0B       		.uleb128 0xb
+ 307 01c3 FC000000 		.4byte	.LASF23
+ 308 01c7 FC000000 		.4byte	.LASF23
+ 309 01cb 05       		.byte	0x5
+ 310 01cc 28       		.byte	0x28
+ 311 01cd 0B       		.uleb128 0xb
+ 312 01ce 7A010000 		.4byte	.LASF24
+ 313 01d2 7A010000 		.4byte	.LASF24
+ 314 01d6 05       		.byte	0x5
+ 315 01d7 17       		.byte	0x17
+ 316 01d8 0B       		.uleb128 0xb
+ 317 01d9 AB000000 		.4byte	.LASF25
+ 318 01dd AB000000 		.4byte	.LASF25
+ 319 01e1 06       		.byte	0x6
+ 320 01e2 28       		.byte	0x28
+ 321 01e3 0B       		.uleb128 0xb
+ 322 01e4 C4000000 		.4byte	.LASF26
+ 323 01e8 C4000000 		.4byte	.LASF26
+ 324 01ec 06       		.byte	0x6
+ 325 01ed 17       		.byte	0x17
+ 326 01ee 0B       		.uleb128 0xb
+ 327 01ef 2D000000 		.4byte	.LASF27
+ 328 01f3 2D000000 		.4byte	.LASF27
+ 329 01f7 07       		.byte	0x7
+ 330 01f8 28       		.byte	0x28
+ 331 01f9 0B       		.uleb128 0xb
+ 332 01fa 6D020000 		.4byte	.LASF28
+ 333 01fe 6D020000 		.4byte	.LASF28
+ 334 0202 07       		.byte	0x7
+ 335 0203 17       		.byte	0x17
+ 336 0204 00       		.byte	0
+ 337              		.section	.debug_abbrev,"",%progbits
+ 338              	.Ldebug_abbrev0:
+ 339 0000 01       		.uleb128 0x1
+ 340 0001 11       		.uleb128 0x11
+ 341 0002 01       		.byte	0x1
+ 342 0003 25       		.uleb128 0x25
+ 343 0004 0E       		.uleb128 0xe
+ 344 0005 13       		.uleb128 0x13
+ 345 0006 0B       		.uleb128 0xb
+ 346 0007 03       		.uleb128 0x3
+ 347 0008 0E       		.uleb128 0xe
+ 348 0009 1B       		.uleb128 0x1b
+ 349 000a 0E       		.uleb128 0xe
+ 350 000b 55       		.uleb128 0x55
+ 351 000c 17       		.uleb128 0x17
+ 352 000d 11       		.uleb128 0x11
+ 353 000e 01       		.uleb128 0x1
+ 354 000f 10       		.uleb128 0x10
+ 355 0010 17       		.uleb128 0x17
+ 356 0011 00       		.byte	0
+ 357 0012 00       		.byte	0
+ 358 0013 02       		.uleb128 0x2
+ 359 0014 24       		.uleb128 0x24
+ 360 0015 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 8
+
+
+ 361 0016 0B       		.uleb128 0xb
+ 362 0017 0B       		.uleb128 0xb
+ 363 0018 3E       		.uleb128 0x3e
+ 364 0019 0B       		.uleb128 0xb
+ 365 001a 03       		.uleb128 0x3
+ 366 001b 0E       		.uleb128 0xe
+ 367 001c 00       		.byte	0
+ 368 001d 00       		.byte	0
+ 369 001e 03       		.uleb128 0x3
+ 370 001f 24       		.uleb128 0x24
+ 371 0020 00       		.byte	0
+ 372 0021 0B       		.uleb128 0xb
+ 373 0022 0B       		.uleb128 0xb
+ 374 0023 3E       		.uleb128 0x3e
+ 375 0024 0B       		.uleb128 0xb
+ 376 0025 03       		.uleb128 0x3
+ 377 0026 08       		.uleb128 0x8
+ 378 0027 00       		.byte	0
+ 379 0028 00       		.byte	0
+ 380 0029 04       		.uleb128 0x4
+ 381 002a 16       		.uleb128 0x16
+ 382 002b 00       		.byte	0
+ 383 002c 03       		.uleb128 0x3
+ 384 002d 0E       		.uleb128 0xe
+ 385 002e 3A       		.uleb128 0x3a
+ 386 002f 0B       		.uleb128 0xb
+ 387 0030 3B       		.uleb128 0x3b
+ 388 0031 05       		.uleb128 0x5
+ 389 0032 49       		.uleb128 0x49
+ 390 0033 13       		.uleb128 0x13
+ 391 0034 00       		.byte	0
+ 392 0035 00       		.byte	0
+ 393 0036 05       		.uleb128 0x5
+ 394 0037 2E       		.uleb128 0x2e
+ 395 0038 01       		.byte	0x1
+ 396 0039 3F       		.uleb128 0x3f
+ 397 003a 19       		.uleb128 0x19
+ 398 003b 03       		.uleb128 0x3
+ 399 003c 0E       		.uleb128 0xe
+ 400 003d 3A       		.uleb128 0x3a
+ 401 003e 0B       		.uleb128 0xb
+ 402 003f 3B       		.uleb128 0x3b
+ 403 0040 0B       		.uleb128 0xb
+ 404 0041 27       		.uleb128 0x27
+ 405 0042 19       		.uleb128 0x19
+ 406 0043 49       		.uleb128 0x49
+ 407 0044 13       		.uleb128 0x13
+ 408 0045 8701     		.uleb128 0x87
+ 409 0047 19       		.uleb128 0x19
+ 410 0048 11       		.uleb128 0x11
+ 411 0049 01       		.uleb128 0x1
+ 412 004a 12       		.uleb128 0x12
+ 413 004b 06       		.uleb128 0x6
+ 414 004c 40       		.uleb128 0x40
+ 415 004d 18       		.uleb128 0x18
+ 416 004e 9742     		.uleb128 0x2117
+ 417 0050 19       		.uleb128 0x19
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 9
+
+
+ 418 0051 01       		.uleb128 0x1
+ 419 0052 13       		.uleb128 0x13
+ 420 0053 00       		.byte	0
+ 421 0054 00       		.byte	0
+ 422 0055 06       		.uleb128 0x6
+ 423 0056 898201   		.uleb128 0x4109
+ 424 0059 00       		.byte	0
+ 425 005a 11       		.uleb128 0x11
+ 426 005b 01       		.uleb128 0x1
+ 427 005c 31       		.uleb128 0x31
+ 428 005d 13       		.uleb128 0x13
+ 429 005e 00       		.byte	0
+ 430 005f 00       		.byte	0
+ 431 0060 07       		.uleb128 0x7
+ 432 0061 01       		.uleb128 0x1
+ 433 0062 01       		.byte	0x1
+ 434 0063 49       		.uleb128 0x49
+ 435 0064 13       		.uleb128 0x13
+ 436 0065 01       		.uleb128 0x1
+ 437 0066 13       		.uleb128 0x13
+ 438 0067 00       		.byte	0
+ 439 0068 00       		.byte	0
+ 440 0069 08       		.uleb128 0x8
+ 441 006a 21       		.uleb128 0x21
+ 442 006b 00       		.byte	0
+ 443 006c 49       		.uleb128 0x49
+ 444 006d 13       		.uleb128 0x13
+ 445 006e 2F       		.uleb128 0x2f
+ 446 006f 0B       		.uleb128 0xb
+ 447 0070 00       		.byte	0
+ 448 0071 00       		.byte	0
+ 449 0072 09       		.uleb128 0x9
+ 450 0073 26       		.uleb128 0x26
+ 451 0074 00       		.byte	0
+ 452 0075 49       		.uleb128 0x49
+ 453 0076 13       		.uleb128 0x13
+ 454 0077 00       		.byte	0
+ 455 0078 00       		.byte	0
+ 456 0079 0A       		.uleb128 0xa
+ 457 007a 34       		.uleb128 0x34
+ 458 007b 00       		.byte	0
+ 459 007c 03       		.uleb128 0x3
+ 460 007d 0E       		.uleb128 0xe
+ 461 007e 3A       		.uleb128 0x3a
+ 462 007f 0B       		.uleb128 0xb
+ 463 0080 3B       		.uleb128 0x3b
+ 464 0081 0B       		.uleb128 0xb
+ 465 0082 49       		.uleb128 0x49
+ 466 0083 13       		.uleb128 0x13
+ 467 0084 3F       		.uleb128 0x3f
+ 468 0085 19       		.uleb128 0x19
+ 469 0086 02       		.uleb128 0x2
+ 470 0087 18       		.uleb128 0x18
+ 471 0088 00       		.byte	0
+ 472 0089 00       		.byte	0
+ 473 008a 0B       		.uleb128 0xb
+ 474 008b 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 10
+
+
+ 475 008c 00       		.byte	0
+ 476 008d 3F       		.uleb128 0x3f
+ 477 008e 19       		.uleb128 0x19
+ 478 008f 3C       		.uleb128 0x3c
+ 479 0090 19       		.uleb128 0x19
+ 480 0091 6E       		.uleb128 0x6e
+ 481 0092 0E       		.uleb128 0xe
+ 482 0093 03       		.uleb128 0x3
+ 483 0094 0E       		.uleb128 0xe
+ 484 0095 3A       		.uleb128 0x3a
+ 485 0096 0B       		.uleb128 0xb
+ 486 0097 3B       		.uleb128 0x3b
+ 487 0098 0B       		.uleb128 0xb
+ 488 0099 00       		.byte	0
+ 489 009a 00       		.byte	0
+ 490 009b 00       		.byte	0
+ 491              		.section	.debug_aranges,"",%progbits
+ 492 0000 1C000000 		.4byte	0x1c
+ 493 0004 0200     		.2byte	0x2
+ 494 0006 00000000 		.4byte	.Ldebug_info0
+ 495 000a 04       		.byte	0x4
+ 496 000b 00       		.byte	0
+ 497 000c 0000     		.2byte	0
+ 498 000e 0000     		.2byte	0
+ 499 0010 00000000 		.4byte	.LFB35
+ 500 0014 32000000 		.4byte	.LFE35-.LFB35
+ 501 0018 00000000 		.4byte	0
+ 502 001c 00000000 		.4byte	0
+ 503              		.section	.debug_ranges,"",%progbits
+ 504              	.Ldebug_ranges0:
+ 505 0000 00000000 		.4byte	.LFB35
+ 506 0004 32000000 		.4byte	.LFE35
+ 507 0008 00000000 		.4byte	0
+ 508 000c 00000000 		.4byte	0
+ 509              		.section	.debug_line,"",%progbits
+ 510              	.Ldebug_line0:
+ 511 0000 CB000000 		.section	.debug_str,"MS",%progbits,1
+ 511      0200AA00 
+ 511      00000201 
+ 511      FB0E0D00 
+ 511      01010101 
+ 512              	.LASF18:
+ 513 0000 474C4344 		.ascii	"GLCD_Start\000"
+ 513      5F537461 
+ 513      727400
+ 514              	.LASF15:
+ 515 000b 6D797374 		.ascii	"mystring\000"
+ 515      72696E67 
+ 515      00
+ 516              	.LASF19:
+ 517 0014 415F496E 		.ascii	"A_Interrupt_ClearPending\000"
+ 517      74657272 
+ 517      7570745F 
+ 517      436C6561 
+ 517      7250656E 
+ 518              	.LASF27:
+ 519 002d 53746963 		.ascii	"StickButton_Interrupt_ClearPending\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 11
+
+
+ 519      6B427574 
+ 519      746F6E5F 
+ 519      496E7465 
+ 519      72727570 
+ 520              	.LASF16:
+ 521 0050 636F756E 		.ascii	"count\000"
+ 521      7400
+ 522              	.LASF31:
+ 523 0056 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\HW"
+ 523      49545C4D 
+ 523      6963726F 
+ 523      636F6E74 
+ 523      726F6C6C 
+ 524 0086 322D436C 		.ascii	"2-Cline Count Zilla\\countZilla.cydsn\000"
+ 524      696E6520 
+ 524      436F756E 
+ 524      74205A69 
+ 524      6C6C615C 
+ 525              	.LASF25:
+ 526 00ab 445F496E 		.ascii	"D_Interrupt_ClearPending\000"
+ 526      74657272 
+ 526      7570745F 
+ 526      436C6561 
+ 526      7250656E 
+ 527              	.LASF26:
+ 528 00c4 445F496E 		.ascii	"D_Interrupt_Start\000"
+ 528      74657272 
+ 528      7570745F 
+ 528      53746172 
+ 528      7400
+ 529              	.LASF20:
+ 530 00d6 415F496E 		.ascii	"A_Interrupt_Start\000"
+ 530      74657272 
+ 530      7570745F 
+ 530      53746172 
+ 530      7400
+ 531              	.LASF14:
+ 532 00e8 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 532      5F464F4E 
+ 532      54387831 
+ 532      3600
+ 533              	.LASF9:
+ 534 00f6 666C6F61 		.ascii	"float\000"
+ 534      7400
+ 535              	.LASF23:
+ 536 00fc 435F496E 		.ascii	"C_Interrupt_ClearPending\000"
+ 536      74657272 
+ 536      7570745F 
+ 536      436C6561 
+ 536      7250656E 
+ 537              	.LASF1:
+ 538 0115 756E7369 		.ascii	"unsigned char\000"
+ 538      676E6564 
+ 538      20636861 
+ 538      7200
+ 539              	.LASF5:
+ 540 0123 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 12
+
+
+ 540      20756E73 
+ 540      69676E65 
+ 540      6420696E 
+ 540      7400
+ 541              	.LASF3:
+ 542 0135 73686F72 		.ascii	"short unsigned int\000"
+ 542      7420756E 
+ 542      7369676E 
+ 542      65642069 
+ 542      6E7400
+ 543              	.LASF10:
+ 544 0148 646F7562 		.ascii	"double\000"
+ 544      6C6500
+ 545              	.LASF21:
+ 546 014f 425F496E 		.ascii	"B_Interrupt_ClearPending\000"
+ 546      74657272 
+ 546      7570745F 
+ 546      436C6561 
+ 546      7250656E 
+ 547              	.LASF33:
+ 548 0168 6D61696E 		.ascii	"main\000"
+ 548      00
+ 549              	.LASF8:
+ 550 016d 756E7369 		.ascii	"unsigned int\000"
+ 550      676E6564 
+ 550      20696E74 
+ 550      00
+ 551              	.LASF24:
+ 552 017a 435F496E 		.ascii	"C_Interrupt_Start\000"
+ 552      74657272 
+ 552      7570745F 
+ 552      53746172 
+ 552      7400
+ 553              	.LASF7:
+ 554 018c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 554      206C6F6E 
+ 554      6720756E 
+ 554      7369676E 
+ 554      65642069 
+ 555              	.LASF29:
+ 556 01a3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 556      43313120 
+ 556      352E342E 
+ 556      31203230 
+ 556      31363036 
+ 557 01d6 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 557      20726576 
+ 557      6973696F 
+ 557      6E203233 
+ 557      37373135 
+ 558 0209 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 558      66756E63 
+ 558      74696F6E 
+ 558      2D736563 
+ 558      74696F6E 
+ 559              	.LASF13:
+ 560 0231 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgMwQPa.s 			page 13
+
+
+ 560      74797065 
+ 560      00
+ 561              	.LASF6:
+ 562 023a 6C6F6E67 		.ascii	"long long int\000"
+ 562      206C6F6E 
+ 562      6720696E 
+ 562      7400
+ 563              	.LASF30:
+ 564 0248 6D61696E 		.ascii	"main.c\000"
+ 564      2E6300
+ 565              	.LASF11:
+ 566 024f 63686172 		.ascii	"char\000"
+ 566      00
+ 567              	.LASF2:
+ 568 0254 73686F72 		.ascii	"short int\000"
+ 568      7420696E 
+ 568      7400
+ 569              	.LASF32:
+ 570 025e 75696E74 		.ascii	"uint8\000"
+ 570      3800
+ 571              	.LASF4:
+ 572 0264 6C6F6E67 		.ascii	"long int\000"
+ 572      20696E74 
+ 572      00
+ 573              	.LASF28:
+ 574 026d 53746963 		.ascii	"StickButton_Interrupt_Start\000"
+ 574      6B427574 
+ 574      746F6E5F 
+ 574      496E7465 
+ 574      72727570 
+ 575              	.LASF12:
+ 576 0289 6C6F6E67 		.ascii	"long double\000"
+ 576      20646F75 
+ 576      626C6500 
+ 577              	.LASF0:
+ 578 0295 7369676E 		.ascii	"signed char\000"
+ 578      65642063 
+ 578      68617200 
+ 579              	.LASF22:
+ 580 02a1 425F496E 		.ascii	"B_Interrupt_Start\000"
+ 580      74657272 
+ 580      7570745F 
+ 580      53746172 
+ 580      7400
+ 581              	.LASF17:
+ 582 02b3 41636F75 		.ascii	"Acount\000"
+ 582      6E7400
+ 583              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

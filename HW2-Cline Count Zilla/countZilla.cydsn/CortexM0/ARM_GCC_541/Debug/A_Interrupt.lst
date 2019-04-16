@@ -1,0 +1,2314 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"A_Interrupt.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.A_Interrupt_SetVector,"ax",%progbits
+  20              		.align	2
+  21              		.global	A_Interrupt_SetVector
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	A_Interrupt_SetVector, %function
+  25              	A_Interrupt_SetVector:
+  26              	.LFB39:
+  27              		.file 1 "Generated_Source\\PSoC4\\A_Interrupt.c"
+   1:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/A_Interrupt.c **** * File Name: A_Interrupt.c  
+   3:Generated_Source\PSoC4/A_Interrupt.c **** * Version 1.70
+   4:Generated_Source\PSoC4/A_Interrupt.c **** *
+   5:Generated_Source\PSoC4/A_Interrupt.c **** *  Description:
+   6:Generated_Source\PSoC4/A_Interrupt.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC4/A_Interrupt.c **** *
+   8:Generated_Source\PSoC4/A_Interrupt.c **** *
+   9:Generated_Source\PSoC4/A_Interrupt.c **** *  Note:
+  10:Generated_Source\PSoC4/A_Interrupt.c **** *
+  11:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/A_Interrupt.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/A_Interrupt.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC4/A_Interrupt.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC4/A_Interrupt.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/A_Interrupt.c **** 
+  18:Generated_Source\PSoC4/A_Interrupt.c **** 
+  19:Generated_Source\PSoC4/A_Interrupt.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC4/A_Interrupt.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC4/A_Interrupt.c **** #include <A_Interrupt.h>
+  22:Generated_Source\PSoC4/A_Interrupt.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC4/A_Interrupt.c **** 
+  24:Generated_Source\PSoC4/A_Interrupt.c **** #if !defined(A_Interrupt__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC4/A_Interrupt.c **** 
+  26:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+  27:Generated_Source\PSoC4/A_Interrupt.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************/
+  29:Generated_Source\PSoC4/A_Interrupt.c **** /* `#START A_Interrupt_intc` */
+  30:Generated_Source\PSoC4/A_Interrupt.c ****     
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 2
+
+
+  31:Generated_Source\PSoC4/A_Interrupt.c **** #include "project.h"
+  32:Generated_Source\PSoC4/A_Interrupt.c **** #include <stdio.h>
+  33:Generated_Source\PSoC4/A_Interrupt.c **** #define PUSHED 0
+  34:Generated_Source\PSoC4/A_Interrupt.c **** extern int count; 
+  35:Generated_Source\PSoC4/A_Interrupt.c **** extern char mystring[20];
+  36:Generated_Source\PSoC4/A_Interrupt.c **** 
+  37:Generated_Source\PSoC4/A_Interrupt.c **** /* `#END` */
+  38:Generated_Source\PSoC4/A_Interrupt.c **** 
+  39:Generated_Source\PSoC4/A_Interrupt.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  40:Generated_Source\PSoC4/A_Interrupt.c **** 
+  41:Generated_Source\PSoC4/A_Interrupt.c **** /* Declared in startup, used to set unused interrupts to. */
+  42:Generated_Source\PSoC4/A_Interrupt.c **** CY_ISR_PROTO(IntDefaultHandler);
+  43:Generated_Source\PSoC4/A_Interrupt.c **** 
+  44:Generated_Source\PSoC4/A_Interrupt.c **** 
+  45:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+  46:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_Start
+  47:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+  48:Generated_Source\PSoC4/A_Interrupt.c **** *
+  49:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+  50:Generated_Source\PSoC4/A_Interrupt.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  51:Generated_Source\PSoC4/A_Interrupt.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  52:Generated_Source\PSoC4/A_Interrupt.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  53:Generated_Source\PSoC4/A_Interrupt.c **** *  interrupt controller.
+  54:Generated_Source\PSoC4/A_Interrupt.c **** *
+  55:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:  
+  56:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+  57:Generated_Source\PSoC4/A_Interrupt.c **** *
+  58:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+  59:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+  60:Generated_Source\PSoC4/A_Interrupt.c **** *
+  61:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+  62:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_Start(void)
+  63:Generated_Source\PSoC4/A_Interrupt.c **** {
+  64:Generated_Source\PSoC4/A_Interrupt.c ****     /* For all we know the interrupt is active. */
+  65:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_Disable();
+  66:Generated_Source\PSoC4/A_Interrupt.c **** 
+  67:Generated_Source\PSoC4/A_Interrupt.c ****     /* Set the ISR to point to the A_Interrupt Interrupt. */
+  68:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_SetVector(&A_Interrupt_Interrupt);
+  69:Generated_Source\PSoC4/A_Interrupt.c **** 
+  70:Generated_Source\PSoC4/A_Interrupt.c ****     /* Set the priority. */
+  71:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_SetPriority((uint8)A_Interrupt_INTC_PRIOR_NUMBER);
+  72:Generated_Source\PSoC4/A_Interrupt.c **** 
+  73:Generated_Source\PSoC4/A_Interrupt.c ****     /* Enable it. */
+  74:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_Enable();
+  75:Generated_Source\PSoC4/A_Interrupt.c **** }
+  76:Generated_Source\PSoC4/A_Interrupt.c **** 
+  77:Generated_Source\PSoC4/A_Interrupt.c **** 
+  78:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+  79:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_StartEx
+  80:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+  81:Generated_Source\PSoC4/A_Interrupt.c **** *
+  82:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+  83:Generated_Source\PSoC4/A_Interrupt.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  84:Generated_Source\PSoC4/A_Interrupt.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  85:Generated_Source\PSoC4/A_Interrupt.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  86:Generated_Source\PSoC4/A_Interrupt.c **** *  the interrupt to the interrupt controller.
+  87:Generated_Source\PSoC4/A_Interrupt.c **** *  
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 3
+
+
+  88:Generated_Source\PSoC4/A_Interrupt.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  89:Generated_Source\PSoC4/A_Interrupt.c **** *  used to provide consistent definition across compilers:
+  90:Generated_Source\PSoC4/A_Interrupt.c **** *  
+  91:Generated_Source\PSoC4/A_Interrupt.c **** *  Function definition example:
+  92:Generated_Source\PSoC4/A_Interrupt.c **** *   CY_ISR(MyISR)
+  93:Generated_Source\PSoC4/A_Interrupt.c **** *   {
+  94:Generated_Source\PSoC4/A_Interrupt.c **** *   }
+  95:Generated_Source\PSoC4/A_Interrupt.c **** *   Function prototype example:
+  96:Generated_Source\PSoC4/A_Interrupt.c **** *   CY_ISR_PROTO(MyISR);
+  97:Generated_Source\PSoC4/A_Interrupt.c **** *
+  98:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:  
+  99:Generated_Source\PSoC4/A_Interrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 100:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 101:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 102:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 103:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 104:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 105:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_StartEx(cyisraddress address)
+ 106:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 107:Generated_Source\PSoC4/A_Interrupt.c ****     /* For all we know the interrupt is active. */
+ 108:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_Disable();
+ 109:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 110:Generated_Source\PSoC4/A_Interrupt.c ****     /* Set the ISR to point to the A_Interrupt Interrupt. */
+ 111:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_SetVector(address);
+ 112:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 113:Generated_Source\PSoC4/A_Interrupt.c ****     /* Set the priority. */
+ 114:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_SetPriority((uint8)A_Interrupt_INTC_PRIOR_NUMBER);
+ 115:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 116:Generated_Source\PSoC4/A_Interrupt.c ****     /* Enable it. */
+ 117:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_Enable();
+ 118:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 119:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 120:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 121:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 122:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_Stop
+ 123:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 124:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 125:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 126:Generated_Source\PSoC4/A_Interrupt.c **** *   Disables and removes the interrupt.
+ 127:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 128:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:  
+ 129:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 130:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 131:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 132:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 133:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 134:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 135:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_Stop(void)
+ 136:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 137:Generated_Source\PSoC4/A_Interrupt.c ****     /* Disable this interrupt. */
+ 138:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_Disable();
+ 139:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 140:Generated_Source\PSoC4/A_Interrupt.c ****     /* Set the ISR to point to the passive one. */
+ 141:Generated_Source\PSoC4/A_Interrupt.c ****     A_Interrupt_SetVector(&IntDefaultHandler);
+ 142:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 143:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 144:Generated_Source\PSoC4/A_Interrupt.c **** 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 4
+
+
+ 145:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 146:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_Interrupt
+ 147:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 148:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 149:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 150:Generated_Source\PSoC4/A_Interrupt.c **** *   The default Interrupt Service Routine for A_Interrupt.
+ 151:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 152:Generated_Source\PSoC4/A_Interrupt.c **** *   Add custom code between the START and END comments to keep the next version
+ 153:Generated_Source\PSoC4/A_Interrupt.c **** *   of this file from over-writing your code.
+ 154:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 155:Generated_Source\PSoC4/A_Interrupt.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 156:Generated_Source\PSoC4/A_Interrupt.c **** *   your own separate ISR through ISR_StartEx().
+ 157:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 158:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:  
+ 159:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 160:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 161:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 162:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 163:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 164:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 165:Generated_Source\PSoC4/A_Interrupt.c **** CY_ISR(A_Interrupt_Interrupt)
+ 166:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 167:Generated_Source\PSoC4/A_Interrupt.c ****     #ifdef A_Interrupt_INTERRUPT_INTERRUPT_CALLBACK
+ 168:Generated_Source\PSoC4/A_Interrupt.c ****         A_Interrupt_Interrupt_InterruptCallback();
+ 169:Generated_Source\PSoC4/A_Interrupt.c ****     #endif /* A_Interrupt_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 170:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 171:Generated_Source\PSoC4/A_Interrupt.c ****     /*  Place your Interrupt code here. */
+ 172:Generated_Source\PSoC4/A_Interrupt.c ****     /* `#START A_Interrupt_Interrupt` */
+ 173:Generated_Source\PSoC4/A_Interrupt.c ****     
+ 174:Generated_Source\PSoC4/A_Interrupt.c ****     while (A_Button_Read() == !PUSHED);
+ 175:Generated_Source\PSoC4/A_Interrupt.c ****             
+ 176:Generated_Source\PSoC4/A_Interrupt.c ****             count++;
+ 177:Generated_Source\PSoC4/A_Interrupt.c ****             sprintf(mystring, "%5d", count);
+ 178:Generated_Source\PSoC4/A_Interrupt.c ****             GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
+ 179:Generated_Source\PSoC4/A_Interrupt.c ****             //CyDelay(25);
+ 180:Generated_Source\PSoC4/A_Interrupt.c **** 	
+ 181:Generated_Source\PSoC4/A_Interrupt.c ****             while (A_Button_Read() == PUSHED);
+ 182:Generated_Source\PSoC4/A_Interrupt.c ****             CyDelay(25);
+ 183:Generated_Source\PSoC4/A_Interrupt.c ****             A_Interrupt_ClearPending(); 
+ 184:Generated_Source\PSoC4/A_Interrupt.c ****     
+ 185:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 186:Generated_Source\PSoC4/A_Interrupt.c ****     /* `#END` */
+ 187:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 188:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 189:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 190:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 191:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_SetVector
+ 192:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 193:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 194:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 195:Generated_Source\PSoC4/A_Interrupt.c **** *   Change the ISR vector for the Interrupt. Note calling A_Interrupt_Start
+ 196:Generated_Source\PSoC4/A_Interrupt.c **** *   will override any effect this method would have had. To set the vector 
+ 197:Generated_Source\PSoC4/A_Interrupt.c **** *   before the component has been started use A_Interrupt_StartEx instead.
+ 198:Generated_Source\PSoC4/A_Interrupt.c **** * 
+ 199:Generated_Source\PSoC4/A_Interrupt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 200:Generated_Source\PSoC4/A_Interrupt.c **** *   used to provide consistent definition across compilers:
+ 201:Generated_Source\PSoC4/A_Interrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 5
+
+
+ 202:Generated_Source\PSoC4/A_Interrupt.c **** *   Function definition example:
+ 203:Generated_Source\PSoC4/A_Interrupt.c **** *   CY_ISR(MyISR)
+ 204:Generated_Source\PSoC4/A_Interrupt.c **** *   {
+ 205:Generated_Source\PSoC4/A_Interrupt.c **** *   }
+ 206:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 207:Generated_Source\PSoC4/A_Interrupt.c **** *   Function prototype example:
+ 208:Generated_Source\PSoC4/A_Interrupt.c **** *     CY_ISR_PROTO(MyISR);
+ 209:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 210:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 211:Generated_Source\PSoC4/A_Interrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 212:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 213:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 214:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 215:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 216:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 217:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_SetVector(cyisraddress address)
+ 218:Generated_Source\PSoC4/A_Interrupt.c **** {
+  28              		.loc 1 218 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+ 219:Generated_Source\PSoC4/A_Interrupt.c ****     CyRamVectors[CYINT_IRQ_BASE + A_Interrupt__INTC_NUMBER] = address;
+  34              		.loc 1 219 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1864     		str	r0, [r3, #64]
+ 220:Generated_Source\PSoC4/A_Interrupt.c **** }
+  37              		.loc 1 220 0
+  38              		@ sp needed
+  39 0004 7047     		bx	lr
+  40              	.L3:
+  41 0006 C046     		.align	2
+  42              	.L2:
+  43 0008 00000000 		.word	CyRamVectors
+  44              		.cfi_endproc
+  45              	.LFE39:
+  46              		.size	A_Interrupt_SetVector, .-A_Interrupt_SetVector
+  47              		.section	.text.A_Interrupt_GetVector,"ax",%progbits
+  48              		.align	2
+  49              		.global	A_Interrupt_GetVector
+  50              		.code	16
+  51              		.thumb_func
+  52              		.type	A_Interrupt_GetVector, %function
+  53              	A_Interrupt_GetVector:
+  54              	.LFB40:
+ 221:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 222:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 223:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_GetVector
+ 225:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 226:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 227:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 228:Generated_Source\PSoC4/A_Interrupt.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 229:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 230:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 231:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 6
+
+
+ 232:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 233:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 234:Generated_Source\PSoC4/A_Interrupt.c **** *   Address of the ISR in the interrupt vector table.
+ 235:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 236:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC4/A_Interrupt.c **** cyisraddress A_Interrupt_GetVector(void)
+ 238:Generated_Source\PSoC4/A_Interrupt.c **** {
+  55              		.loc 1 238 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+ 239:Generated_Source\PSoC4/A_Interrupt.c ****     return CyRamVectors[CYINT_IRQ_BASE + A_Interrupt__INTC_NUMBER];
+  60              		.loc 1 239 0
+  61 0000 014B     		ldr	r3, .L5
+  62 0002 186C     		ldr	r0, [r3, #64]
+ 240:Generated_Source\PSoC4/A_Interrupt.c **** }
+  63              		.loc 1 240 0
+  64              		@ sp needed
+  65 0004 7047     		bx	lr
+  66              	.L6:
+  67 0006 C046     		.align	2
+  68              	.L5:
+  69 0008 00000000 		.word	CyRamVectors
+  70              		.cfi_endproc
+  71              	.LFE40:
+  72              		.size	A_Interrupt_GetVector, .-A_Interrupt_GetVector
+  73              		.section	.text.A_Interrupt_SetPriority,"ax",%progbits
+  74              		.align	2
+  75              		.global	A_Interrupt_SetPriority
+  76              		.code	16
+  77              		.thumb_func
+  78              		.type	A_Interrupt_SetPriority, %function
+  79              	A_Interrupt_SetPriority:
+  80              	.LFB41:
+ 241:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 242:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 243:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_SetPriority
+ 245:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 246:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 247:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 248:Generated_Source\PSoC4/A_Interrupt.c **** *   Sets the Priority of the Interrupt. 
+ 249:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 250:Generated_Source\PSoC4/A_Interrupt.c **** *   Note calling A_Interrupt_Start or A_Interrupt_StartEx will 
+ 251:Generated_Source\PSoC4/A_Interrupt.c **** *   override any effect this API would have had. This API should only be called
+ 252:Generated_Source\PSoC4/A_Interrupt.c **** *   after A_Interrupt_Start or A_Interrupt_StartEx has been called. 
+ 253:Generated_Source\PSoC4/A_Interrupt.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 254:Generated_Source\PSoC4/A_Interrupt.c **** *   Interrupt Editor.
+ 255:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 256:Generated_Source\PSoC4/A_Interrupt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 257:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 258:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 259:Generated_Source\PSoC4/A_Interrupt.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 260:Generated_Source\PSoC4/A_Interrupt.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 261:Generated_Source\PSoC4/A_Interrupt.c **** *             PSoC 4: Priority is from 0 to 3.
+ 262:Generated_Source\PSoC4/A_Interrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 7
+
+
+ 263:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 264:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 265:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 266:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 267:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_SetPriority(uint8 priority)
+ 268:Generated_Source\PSoC4/A_Interrupt.c **** {
+  81              		.loc 1 268 0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              	.LVL1:
+  86 0000 10B5     		push	{r4, lr}
+  87              		.cfi_def_cfa_offset 8
+  88              		.cfi_offset 4, -8
+  89              		.cfi_offset 14, -4
+  90 0002 0400     		movs	r4, r0
+  91              	.LVL2:
+ 269:Generated_Source\PSoC4/A_Interrupt.c **** 	uint8 interruptState;
+ 270:Generated_Source\PSoC4/A_Interrupt.c ****     uint32 priorityOffset = ((A_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 271:Generated_Source\PSoC4/A_Interrupt.c ****     
+ 272:Generated_Source\PSoC4/A_Interrupt.c **** 	interruptState = CyEnterCriticalSection();
+  92              		.loc 1 272 0
+  93 0004 FFF7FEFF 		bl	CyEnterCriticalSection
+  94              	.LVL3:
+ 273:Generated_Source\PSoC4/A_Interrupt.c ****     *A_Interrupt_INTC_PRIOR = (*A_Interrupt_INTC_PRIOR & (uint32)(~A_Interrupt__INTC_PRIOR_MASK)) |
+  95              		.loc 1 273 0
+  96 0008 044A     		ldr	r2, .L8
+  97 000a 1368     		ldr	r3, [r2]
+  98 000c C021     		movs	r1, #192
+  99 000e 8B43     		bics	r3, r1
+ 274:Generated_Source\PSoC4/A_Interrupt.c ****                                     ((uint32)priority << priorityOffset);
+ 100              		.loc 1 274 0
+ 101 0010 A401     		lsls	r4, r4, #6
+ 273:Generated_Source\PSoC4/A_Interrupt.c ****     *A_Interrupt_INTC_PRIOR = (*A_Interrupt_INTC_PRIOR & (uint32)(~A_Interrupt__INTC_PRIOR_MASK)) |
+ 102              		.loc 1 273 0
+ 103 0012 1C43     		orrs	r4, r3
+ 104 0014 1460     		str	r4, [r2]
+ 275:Generated_Source\PSoC4/A_Interrupt.c **** 	CyExitCriticalSection(interruptState);
+ 105              		.loc 1 275 0
+ 106 0016 FFF7FEFF 		bl	CyExitCriticalSection
+ 107              	.LVL4:
+ 276:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 108              		.loc 1 276 0
+ 109              		@ sp needed
+ 110 001a 10BD     		pop	{r4, pc}
+ 111              	.L9:
+ 112              		.align	2
+ 113              	.L8:
+ 114 001c 00E400E0 		.word	-536812544
+ 115              		.cfi_endproc
+ 116              	.LFE41:
+ 117              		.size	A_Interrupt_SetPriority, .-A_Interrupt_SetPriority
+ 118              		.section	.text.A_Interrupt_GetPriority,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	A_Interrupt_GetPriority
+ 121              		.code	16
+ 122              		.thumb_func
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 8
+
+
+ 123              		.type	A_Interrupt_GetPriority, %function
+ 124              	A_Interrupt_GetPriority:
+ 125              	.LFB42:
+ 277:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 278:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 279:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 280:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_GetPriority
+ 281:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 282:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 283:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 284:Generated_Source\PSoC4/A_Interrupt.c **** *   Gets the Priority of the Interrupt.
+ 285:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 286:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 287:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 288:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 289:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 290:Generated_Source\PSoC4/A_Interrupt.c **** *   Priority of the interrupt, 0 being the highest priority
+ 291:Generated_Source\PSoC4/A_Interrupt.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 292:Generated_Source\PSoC4/A_Interrupt.c **** *    PSoC 4: Priority is from 0 to 3.
+ 293:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 294:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 295:Generated_Source\PSoC4/A_Interrupt.c **** uint8 A_Interrupt_GetPriority(void)
+ 296:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 126              		.loc 1 296 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 131              	.LVL5:
+ 297:Generated_Source\PSoC4/A_Interrupt.c ****     uint32 priority;
+ 298:Generated_Source\PSoC4/A_Interrupt.c **** 	uint32 priorityOffset = ((A_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 299:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 300:Generated_Source\PSoC4/A_Interrupt.c ****     priority = (*A_Interrupt_INTC_PRIOR & A_Interrupt__INTC_PRIOR_MASK) >> priorityOffset;
+ 132              		.loc 1 300 0
+ 133 0000 024B     		ldr	r3, .L11
+ 134 0002 1868     		ldr	r0, [r3]
+ 135 0004 8009     		lsrs	r0, r0, #6
+ 136              	.LVL6:
+ 301:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 302:Generated_Source\PSoC4/A_Interrupt.c ****     return (uint8)priority;
+ 137              		.loc 1 302 0
+ 138 0006 0323     		movs	r3, #3
+ 139 0008 1840     		ands	r0, r3
+ 140              	.LVL7:
+ 303:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 141              		.loc 1 303 0
+ 142              		@ sp needed
+ 143 000a 7047     		bx	lr
+ 144              	.L12:
+ 145              		.align	2
+ 146              	.L11:
+ 147 000c 00E400E0 		.word	-536812544
+ 148              		.cfi_endproc
+ 149              	.LFE42:
+ 150              		.size	A_Interrupt_GetPriority, .-A_Interrupt_GetPriority
+ 151              		.section	.text.A_Interrupt_Enable,"ax",%progbits
+ 152              		.align	2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 9
+
+
+ 153              		.global	A_Interrupt_Enable
+ 154              		.code	16
+ 155              		.thumb_func
+ 156              		.type	A_Interrupt_Enable, %function
+ 157              	A_Interrupt_Enable:
+ 158              	.LFB43:
+ 304:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 305:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 306:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 307:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_Enable
+ 308:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 309:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 310:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 311:Generated_Source\PSoC4/A_Interrupt.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 312:Generated_Source\PSoC4/A_Interrupt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 313:Generated_Source\PSoC4/A_Interrupt.c **** *   function, which sets the vector and the priority, has been called.
+ 314:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 315:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 316:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 317:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 318:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 319:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 320:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 321:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 322:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_Enable(void)
+ 323:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 159              		.loc 1 323 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 324:Generated_Source\PSoC4/A_Interrupt.c ****     /* Enable the general interrupt. */
+ 325:Generated_Source\PSoC4/A_Interrupt.c ****     *A_Interrupt_INTC_SET_EN = A_Interrupt__INTC_MASK;
+ 164              		.loc 1 325 0
+ 165 0000 0122     		movs	r2, #1
+ 166 0002 014B     		ldr	r3, .L14
+ 167 0004 1A60     		str	r2, [r3]
+ 326:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 168              		.loc 1 326 0
+ 169              		@ sp needed
+ 170 0006 7047     		bx	lr
+ 171              	.L15:
+ 172              		.align	2
+ 173              	.L14:
+ 174 0008 00E100E0 		.word	-536813312
+ 175              		.cfi_endproc
+ 176              	.LFE43:
+ 177              		.size	A_Interrupt_Enable, .-A_Interrupt_Enable
+ 178              		.section	.text.A_Interrupt_GetState,"ax",%progbits
+ 179              		.align	2
+ 180              		.global	A_Interrupt_GetState
+ 181              		.code	16
+ 182              		.thumb_func
+ 183              		.type	A_Interrupt_GetState, %function
+ 184              	A_Interrupt_GetState:
+ 185              	.LFB44:
+ 327:Generated_Source\PSoC4/A_Interrupt.c **** 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 10
+
+
+ 328:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 329:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 330:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_GetState
+ 331:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 332:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 333:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 334:Generated_Source\PSoC4/A_Interrupt.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 335:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 336:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 337:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 338:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 339:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 340:Generated_Source\PSoC4/A_Interrupt.c **** *   1 if enabled, 0 if disabled.
+ 341:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 342:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 343:Generated_Source\PSoC4/A_Interrupt.c **** uint8 A_Interrupt_GetState(void)
+ 344:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 186              		.loc 1 344 0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
+ 345:Generated_Source\PSoC4/A_Interrupt.c ****     /* Get the state of the general interrupt. */
+ 346:Generated_Source\PSoC4/A_Interrupt.c ****     return ((*A_Interrupt_INTC_SET_EN & (uint32)A_Interrupt__INTC_MASK) != 0u) ? 1u:0u;
+ 191              		.loc 1 346 0
+ 192 0000 024B     		ldr	r3, .L17
+ 193 0002 1B68     		ldr	r3, [r3]
+ 194 0004 0120     		movs	r0, #1
+ 195 0006 1840     		ands	r0, r3
+ 347:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 196              		.loc 1 347 0
+ 197              		@ sp needed
+ 198 0008 7047     		bx	lr
+ 199              	.L18:
+ 200 000a C046     		.align	2
+ 201              	.L17:
+ 202 000c 00E100E0 		.word	-536813312
+ 203              		.cfi_endproc
+ 204              	.LFE44:
+ 205              		.size	A_Interrupt_GetState, .-A_Interrupt_GetState
+ 206              		.section	.text.A_Interrupt_Disable,"ax",%progbits
+ 207              		.align	2
+ 208              		.global	A_Interrupt_Disable
+ 209              		.code	16
+ 210              		.thumb_func
+ 211              		.type	A_Interrupt_Disable, %function
+ 212              	A_Interrupt_Disable:
+ 213              	.LFB45:
+ 348:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 349:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 350:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 351:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_Disable
+ 352:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 353:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 354:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 355:Generated_Source\PSoC4/A_Interrupt.c **** *   Disables the Interrupt in the interrupt controller.
+ 356:Generated_Source\PSoC4/A_Interrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 11
+
+
+ 357:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 358:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 359:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 360:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 361:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 362:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 363:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 364:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_Disable(void)
+ 365:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 214              		.loc 1 365 0
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 0
+ 217              		@ frame_needed = 0, uses_anonymous_args = 0
+ 218              		@ link register save eliminated.
+ 366:Generated_Source\PSoC4/A_Interrupt.c ****     /* Disable the general interrupt. */
+ 367:Generated_Source\PSoC4/A_Interrupt.c ****     *A_Interrupt_INTC_CLR_EN = A_Interrupt__INTC_MASK;
+ 219              		.loc 1 367 0
+ 220 0000 0122     		movs	r2, #1
+ 221 0002 014B     		ldr	r3, .L20
+ 222 0004 1A60     		str	r2, [r3]
+ 368:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 223              		.loc 1 368 0
+ 224              		@ sp needed
+ 225 0006 7047     		bx	lr
+ 226              	.L21:
+ 227              		.align	2
+ 228              	.L20:
+ 229 0008 80E100E0 		.word	-536813184
+ 230              		.cfi_endproc
+ 231              	.LFE45:
+ 232              		.size	A_Interrupt_Disable, .-A_Interrupt_Disable
+ 233              		.section	.text.A_Interrupt_Start,"ax",%progbits
+ 234              		.align	2
+ 235              		.global	A_Interrupt_Start
+ 236              		.code	16
+ 237              		.thumb_func
+ 238              		.type	A_Interrupt_Start, %function
+ 239              	A_Interrupt_Start:
+ 240              	.LFB35:
+  63:Generated_Source\PSoC4/A_Interrupt.c ****     /* For all we know the interrupt is active. */
+ 241              		.loc 1 63 0
+ 242              		.cfi_startproc
+ 243              		@ args = 0, pretend = 0, frame = 0
+ 244              		@ frame_needed = 0, uses_anonymous_args = 0
+ 245 0000 10B5     		push	{r4, lr}
+ 246              		.cfi_def_cfa_offset 8
+ 247              		.cfi_offset 4, -8
+ 248              		.cfi_offset 14, -4
+  65:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 249              		.loc 1 65 0
+ 250 0002 FFF7FEFF 		bl	A_Interrupt_Disable
+ 251              	.LVL8:
+  68:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 252              		.loc 1 68 0
+ 253 0006 0448     		ldr	r0, .L23
+ 254 0008 FFF7FEFF 		bl	A_Interrupt_SetVector
+ 255              	.LVL9:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 12
+
+
+  71:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 256              		.loc 1 71 0
+ 257 000c 0320     		movs	r0, #3
+ 258 000e FFF7FEFF 		bl	A_Interrupt_SetPriority
+ 259              	.LVL10:
+  74:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 260              		.loc 1 74 0
+ 261 0012 FFF7FEFF 		bl	A_Interrupt_Enable
+ 262              	.LVL11:
+  75:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 263              		.loc 1 75 0
+ 264              		@ sp needed
+ 265 0016 10BD     		pop	{r4, pc}
+ 266              	.L24:
+ 267              		.align	2
+ 268              	.L23:
+ 269 0018 00000000 		.word	A_Interrupt_Interrupt
+ 270              		.cfi_endproc
+ 271              	.LFE35:
+ 272              		.size	A_Interrupt_Start, .-A_Interrupt_Start
+ 273              		.section	.text.A_Interrupt_StartEx,"ax",%progbits
+ 274              		.align	2
+ 275              		.global	A_Interrupt_StartEx
+ 276              		.code	16
+ 277              		.thumb_func
+ 278              		.type	A_Interrupt_StartEx, %function
+ 279              	A_Interrupt_StartEx:
+ 280              	.LFB36:
+ 106:Generated_Source\PSoC4/A_Interrupt.c ****     /* For all we know the interrupt is active. */
+ 281              		.loc 1 106 0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              	.LVL12:
+ 286 0000 10B5     		push	{r4, lr}
+ 287              		.cfi_def_cfa_offset 8
+ 288              		.cfi_offset 4, -8
+ 289              		.cfi_offset 14, -4
+ 290 0002 0400     		movs	r4, r0
+ 108:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 291              		.loc 1 108 0
+ 292 0004 FFF7FEFF 		bl	A_Interrupt_Disable
+ 293              	.LVL13:
+ 111:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 294              		.loc 1 111 0
+ 295 0008 2000     		movs	r0, r4
+ 296 000a FFF7FEFF 		bl	A_Interrupt_SetVector
+ 297              	.LVL14:
+ 114:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 298              		.loc 1 114 0
+ 299 000e 0320     		movs	r0, #3
+ 300 0010 FFF7FEFF 		bl	A_Interrupt_SetPriority
+ 301              	.LVL15:
+ 117:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 302              		.loc 1 117 0
+ 303 0014 FFF7FEFF 		bl	A_Interrupt_Enable
+ 304              	.LVL16:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 13
+
+
+ 118:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 305              		.loc 1 118 0
+ 306              		@ sp needed
+ 307              	.LVL17:
+ 308 0018 10BD     		pop	{r4, pc}
+ 309              		.cfi_endproc
+ 310              	.LFE36:
+ 311              		.size	A_Interrupt_StartEx, .-A_Interrupt_StartEx
+ 312 001a C046     		.section	.text.A_Interrupt_Stop,"ax",%progbits
+ 313              		.align	2
+ 314              		.global	A_Interrupt_Stop
+ 315              		.code	16
+ 316              		.thumb_func
+ 317              		.type	A_Interrupt_Stop, %function
+ 318              	A_Interrupt_Stop:
+ 319              	.LFB37:
+ 136:Generated_Source\PSoC4/A_Interrupt.c ****     /* Disable this interrupt. */
+ 320              		.loc 1 136 0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 0
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324 0000 10B5     		push	{r4, lr}
+ 325              		.cfi_def_cfa_offset 8
+ 326              		.cfi_offset 4, -8
+ 327              		.cfi_offset 14, -4
+ 138:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 328              		.loc 1 138 0
+ 329 0002 FFF7FEFF 		bl	A_Interrupt_Disable
+ 330              	.LVL18:
+ 141:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 331              		.loc 1 141 0
+ 332 0006 0248     		ldr	r0, .L27
+ 333 0008 FFF7FEFF 		bl	A_Interrupt_SetVector
+ 334              	.LVL19:
+ 142:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 335              		.loc 1 142 0
+ 336              		@ sp needed
+ 337 000c 10BD     		pop	{r4, pc}
+ 338              	.L28:
+ 339 000e C046     		.align	2
+ 340              	.L27:
+ 341 0010 00000000 		.word	IntDefaultHandler
+ 342              		.cfi_endproc
+ 343              	.LFE37:
+ 344              		.size	A_Interrupt_Stop, .-A_Interrupt_Stop
+ 345              		.section	.text.A_Interrupt_SetPending,"ax",%progbits
+ 346              		.align	2
+ 347              		.global	A_Interrupt_SetPending
+ 348              		.code	16
+ 349              		.thumb_func
+ 350              		.type	A_Interrupt_SetPending, %function
+ 351              	A_Interrupt_SetPending:
+ 352              	.LFB46:
+ 369:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 370:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 371:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 372:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_SetPending
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 14
+
+
+ 373:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 374:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 375:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 376:Generated_Source\PSoC4/A_Interrupt.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 377:Generated_Source\PSoC4/A_Interrupt.c **** *   generating the interrupt.
+ 378:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 379:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 380:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 381:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 382:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 383:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 384:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 385:Generated_Source\PSoC4/A_Interrupt.c **** * Side Effects:
+ 386:Generated_Source\PSoC4/A_Interrupt.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 387:Generated_Source\PSoC4/A_Interrupt.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 388:Generated_Source\PSoC4/A_Interrupt.c **** *   interrupts).
+ 389:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 390:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 391:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_SetPending(void)
+ 392:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 353              		.loc 1 392 0
+ 354              		.cfi_startproc
+ 355              		@ args = 0, pretend = 0, frame = 0
+ 356              		@ frame_needed = 0, uses_anonymous_args = 0
+ 357              		@ link register save eliminated.
+ 393:Generated_Source\PSoC4/A_Interrupt.c ****     *A_Interrupt_INTC_SET_PD = A_Interrupt__INTC_MASK;
+ 358              		.loc 1 393 0
+ 359 0000 0122     		movs	r2, #1
+ 360 0002 014B     		ldr	r3, .L30
+ 361 0004 1A60     		str	r2, [r3]
+ 394:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 362              		.loc 1 394 0
+ 363              		@ sp needed
+ 364 0006 7047     		bx	lr
+ 365              	.L31:
+ 366              		.align	2
+ 367              	.L30:
+ 368 0008 00E200E0 		.word	-536813056
+ 369              		.cfi_endproc
+ 370              	.LFE46:
+ 371              		.size	A_Interrupt_SetPending, .-A_Interrupt_SetPending
+ 372              		.section	.text.A_Interrupt_ClearPending,"ax",%progbits
+ 373              		.align	2
+ 374              		.global	A_Interrupt_ClearPending
+ 375              		.code	16
+ 376              		.thumb_func
+ 377              		.type	A_Interrupt_ClearPending, %function
+ 378              	A_Interrupt_ClearPending:
+ 379              	.LFB47:
+ 395:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 396:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 397:Generated_Source\PSoC4/A_Interrupt.c **** /*******************************************************************************
+ 398:Generated_Source\PSoC4/A_Interrupt.c **** * Function Name: A_Interrupt_ClearPending
+ 399:Generated_Source\PSoC4/A_Interrupt.c **** ********************************************************************************
+ 400:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 401:Generated_Source\PSoC4/A_Interrupt.c **** * Summary:
+ 402:Generated_Source\PSoC4/A_Interrupt.c **** *   Clears a pending interrupt in the interrupt controller.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 15
+
+
+ 403:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 404:Generated_Source\PSoC4/A_Interrupt.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 405:Generated_Source\PSoC4/A_Interrupt.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 406:Generated_Source\PSoC4/A_Interrupt.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 407:Generated_Source\PSoC4/A_Interrupt.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 408:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 409:Generated_Source\PSoC4/A_Interrupt.c **** * Parameters:
+ 410:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 411:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 412:Generated_Source\PSoC4/A_Interrupt.c **** * Return:
+ 413:Generated_Source\PSoC4/A_Interrupt.c **** *   None
+ 414:Generated_Source\PSoC4/A_Interrupt.c **** *
+ 415:Generated_Source\PSoC4/A_Interrupt.c **** *******************************************************************************/
+ 416:Generated_Source\PSoC4/A_Interrupt.c **** void A_Interrupt_ClearPending(void)
+ 417:Generated_Source\PSoC4/A_Interrupt.c **** {
+ 380              		.loc 1 417 0
+ 381              		.cfi_startproc
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 418:Generated_Source\PSoC4/A_Interrupt.c ****     *A_Interrupt_INTC_CLR_PD = A_Interrupt__INTC_MASK;
+ 385              		.loc 1 418 0
+ 386 0000 0122     		movs	r2, #1
+ 387 0002 014B     		ldr	r3, .L33
+ 388 0004 1A60     		str	r2, [r3]
+ 419:Generated_Source\PSoC4/A_Interrupt.c **** }
+ 389              		.loc 1 419 0
+ 390              		@ sp needed
+ 391 0006 7047     		bx	lr
+ 392              	.L34:
+ 393              		.align	2
+ 394              	.L33:
+ 395 0008 80E200E0 		.word	-536812928
+ 396              		.cfi_endproc
+ 397              	.LFE47:
+ 398              		.size	A_Interrupt_ClearPending, .-A_Interrupt_ClearPending
+ 399              		.section	.text.A_Interrupt_Interrupt,"ax",%progbits
+ 400              		.align	2
+ 401              		.global	A_Interrupt_Interrupt
+ 402              		.code	16
+ 403              		.thumb_func
+ 404              		.type	A_Interrupt_Interrupt, %function
+ 405              	A_Interrupt_Interrupt:
+ 406              	.LFB38:
+ 166:Generated_Source\PSoC4/A_Interrupt.c ****     #ifdef A_Interrupt_INTERRUPT_INTERRUPT_CALLBACK
+ 407              		.loc 1 166 0
+ 408              		.cfi_startproc
+ 409              		@ args = 0, pretend = 0, frame = 0
+ 410              		@ frame_needed = 0, uses_anonymous_args = 0
+ 411 0000 10B5     		push	{r4, lr}
+ 412              		.cfi_def_cfa_offset 8
+ 413              		.cfi_offset 4, -8
+ 414              		.cfi_offset 14, -4
+ 415 0002 82B0     		sub	sp, sp, #8
+ 416              		.cfi_def_cfa_offset 16
+ 417              	.L36:
+ 174:Generated_Source\PSoC4/A_Interrupt.c ****             
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 16
+
+
+ 418              		.loc 1 174 0 discriminator 1
+ 419 0004 FFF7FEFF 		bl	A_Button_Read
+ 420              	.LVL20:
+ 421 0008 0128     		cmp	r0, #1
+ 422 000a FBD0     		beq	.L36
+ 176:Generated_Source\PSoC4/A_Interrupt.c ****             sprintf(mystring, "%5d", count);
+ 423              		.loc 1 176 0
+ 424 000c 0D4B     		ldr	r3, .L38
+ 425 000e 1A68     		ldr	r2, [r3]
+ 426 0010 0132     		adds	r2, r2, #1
+ 427 0012 1A60     		str	r2, [r3]
+ 177:Generated_Source\PSoC4/A_Interrupt.c ****             GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
+ 428              		.loc 1 177 0
+ 429 0014 0C4C     		ldr	r4, .L38+4
+ 430 0016 0D49     		ldr	r1, .L38+8
+ 431 0018 2000     		movs	r0, r4
+ 432 001a FFF7FEFF 		bl	sprintf
+ 433              	.LVL21:
+ 178:Generated_Source\PSoC4/A_Interrupt.c ****             //CyDelay(25);
+ 434              		.loc 1 178 0
+ 435 001e 0023     		movs	r3, #0
+ 436 0020 0093     		str	r3, [sp]
+ 437 0022 0B4B     		ldr	r3, .L38+12
+ 438 0024 0A22     		movs	r2, #10
+ 439 0026 0A21     		movs	r1, #10
+ 440 0028 2000     		movs	r0, r4
+ 441 002a FFF7FEFF 		bl	GLCD_PrintString
+ 442              	.LVL22:
+ 443              	.L37:
+ 181:Generated_Source\PSoC4/A_Interrupt.c ****             CyDelay(25);
+ 444              		.loc 1 181 0 discriminator 1
+ 445 002e FFF7FEFF 		bl	A_Button_Read
+ 446              	.LVL23:
+ 447 0032 0028     		cmp	r0, #0
+ 448 0034 FBD0     		beq	.L37
+ 182:Generated_Source\PSoC4/A_Interrupt.c ****             A_Interrupt_ClearPending(); 
+ 449              		.loc 1 182 0
+ 450 0036 1920     		movs	r0, #25
+ 451 0038 FFF7FEFF 		bl	CyDelay
+ 452              	.LVL24:
+ 183:Generated_Source\PSoC4/A_Interrupt.c ****     
+ 453              		.loc 1 183 0
+ 454 003c FFF7FEFF 		bl	A_Interrupt_ClearPending
+ 455              	.LVL25:
+ 187:Generated_Source\PSoC4/A_Interrupt.c **** 
+ 456              		.loc 1 187 0
+ 457 0040 02B0     		add	sp, sp, #8
+ 458              		@ sp needed
+ 459 0042 10BD     		pop	{r4, pc}
+ 460              	.L39:
+ 461              		.align	2
+ 462              	.L38:
+ 463 0044 00000000 		.word	count
+ 464 0048 00000000 		.word	mystring
+ 465 004c 00000000 		.word	.LC5
+ 466 0050 FF0F0000 		.word	4095
+ 467              		.cfi_endproc
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 17
+
+
+ 468              	.LFE38:
+ 469              		.size	A_Interrupt_Interrupt, .-A_Interrupt_Interrupt
+ 470              		.comm	GLCD_FONT8x16,1552,4
+ 471              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 472              		.align	2
+ 473              	.LC5:
+ 474 0000 25356400 		.ascii	"%5d\000"
+ 475              		.text
+ 476              	.Letext0:
+ 477              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 478              		.file 3 "Generated_Source\\PSoC4\\GLCD.h"
+ 479              		.file 4 "Generated_Source\\PSoC4/CyLib.h"
+ 480              		.file 5 "Generated_Source\\PSoC4\\A_Button.h"
+ 481              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 482              		.section	.debug_info,"",%progbits
+ 483              	.Ldebug_info0:
+ 484 0000 03040000 		.4byte	0x403
+ 485 0004 0400     		.2byte	0x4
+ 486 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 487 000a 04       		.byte	0x4
+ 488 000b 01       		.uleb128 0x1
+ 489 000c 2B020000 		.4byte	.LASF44
+ 490 0010 0C       		.byte	0xc
+ 491 0011 90010000 		.4byte	.LASF45
+ 492 0015 65000000 		.4byte	.LASF46
+ 493 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 494 001d 00000000 		.4byte	0
+ 495 0021 00000000 		.4byte	.Ldebug_line0
+ 496 0025 02       		.uleb128 0x2
+ 497 0026 01       		.byte	0x1
+ 498 0027 06       		.byte	0x6
+ 499 0028 F3000000 		.4byte	.LASF0
+ 500 002c 02       		.uleb128 0x2
+ 501 002d 01       		.byte	0x1
+ 502 002e 08       		.byte	0x8
+ 503 002f FF000000 		.4byte	.LASF1
+ 504 0033 02       		.uleb128 0x2
+ 505 0034 02       		.byte	0x2
+ 506 0035 05       		.byte	0x5
+ 507 0036 69010000 		.4byte	.LASF2
+ 508 003a 02       		.uleb128 0x2
+ 509 003b 02       		.byte	0x2
+ 510 003c 07       		.byte	0x7
+ 511 003d 46010000 		.4byte	.LASF3
+ 512 0041 02       		.uleb128 0x2
+ 513 0042 04       		.byte	0x4
+ 514 0043 05       		.byte	0x5
+ 515 0044 33030000 		.4byte	.LASF4
+ 516 0048 02       		.uleb128 0x2
+ 517 0049 04       		.byte	0x4
+ 518 004a 07       		.byte	0x7
+ 519 004b 34010000 		.4byte	.LASF5
+ 520 004f 02       		.uleb128 0x2
+ 521 0050 08       		.byte	0x8
+ 522 0051 05       		.byte	0x5
+ 523 0052 C2020000 		.4byte	.LASF6
+ 524 0056 02       		.uleb128 0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 18
+
+
+ 525 0057 08       		.byte	0x8
+ 526 0058 07       		.byte	0x7
+ 527 0059 E1010000 		.4byte	.LASF7
+ 528 005d 03       		.uleb128 0x3
+ 529 005e 04       		.byte	0x4
+ 530 005f 05       		.byte	0x5
+ 531 0060 696E7400 		.ascii	"int\000"
+ 532 0064 02       		.uleb128 0x2
+ 533 0065 04       		.byte	0x4
+ 534 0066 07       		.byte	0x7
+ 535 0067 CC010000 		.4byte	.LASF8
+ 536 006b 04       		.uleb128 0x4
+ 537 006c F7020000 		.4byte	.LASF9
+ 538 0070 02       		.byte	0x2
+ 539 0071 B901     		.2byte	0x1b9
+ 540 0073 2C000000 		.4byte	0x2c
+ 541 0077 04       		.uleb128 0x4
+ 542 0078 89010000 		.4byte	.LASF10
+ 543 007c 02       		.byte	0x2
+ 544 007d BB01     		.2byte	0x1bb
+ 545 007f 48000000 		.4byte	0x48
+ 546 0083 02       		.uleb128 0x2
+ 547 0084 04       		.byte	0x4
+ 548 0085 04       		.byte	0x4
+ 549 0086 ED000000 		.4byte	.LASF11
+ 550 008a 02       		.uleb128 0x2
+ 551 008b 08       		.byte	0x8
+ 552 008c 04       		.byte	0x4
+ 553 008d 62010000 		.4byte	.LASF12
+ 554 0091 02       		.uleb128 0x2
+ 555 0092 01       		.byte	0x1
+ 556 0093 08       		.byte	0x8
+ 557 0094 DE020000 		.4byte	.LASF13
+ 558 0098 04       		.uleb128 0x4
+ 559 0099 00000000 		.4byte	.LASF14
+ 560 009d 02       		.byte	0x2
+ 561 009e 6502     		.2byte	0x265
+ 562 00a0 A4000000 		.4byte	0xa4
+ 563 00a4 05       		.uleb128 0x5
+ 564 00a5 77000000 		.4byte	0x77
+ 565 00a9 04       		.uleb128 0x4
+ 566 00aa 0D020000 		.4byte	.LASF15
+ 567 00ae 02       		.byte	0x2
+ 568 00af 7502     		.2byte	0x275
+ 569 00b1 B5000000 		.4byte	0xb5
+ 570 00b5 06       		.uleb128 0x6
+ 571 00b6 04       		.byte	0x4
+ 572 00b7 BB000000 		.4byte	0xbb
+ 573 00bb 07       		.uleb128 0x7
+ 574 00bc 02       		.uleb128 0x2
+ 575 00bd 08       		.byte	0x8
+ 576 00be 04       		.byte	0x4
+ 577 00bf 52030000 		.4byte	.LASF16
+ 578 00c3 02       		.uleb128 0x2
+ 579 00c4 04       		.byte	0x4
+ 580 00c5 07       		.byte	0x7
+ 581 00c6 B9020000 		.4byte	.LASF17
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 19
+
+
+ 582 00ca 08       		.uleb128 0x8
+ 583 00cb 73010000 		.4byte	.LASF18
+ 584 00cf 01       		.byte	0x1
+ 585 00d0 D9       		.byte	0xd9
+ 586 00d1 00000000 		.4byte	.LFB39
+ 587 00d5 0C000000 		.4byte	.LFE39-.LFB39
+ 588 00d9 01       		.uleb128 0x1
+ 589 00da 9C       		.byte	0x9c
+ 590 00db ED000000 		.4byte	0xed
+ 591 00df 09       		.uleb128 0x9
+ 592 00e0 D9010000 		.4byte	.LASF20
+ 593 00e4 01       		.byte	0x1
+ 594 00e5 D9       		.byte	0xd9
+ 595 00e6 A9000000 		.4byte	0xa9
+ 596 00ea 01       		.uleb128 0x1
+ 597 00eb 50       		.byte	0x50
+ 598 00ec 00       		.byte	0
+ 599 00ed 0A       		.uleb128 0xa
+ 600 00ee 3C030000 		.4byte	.LASF24
+ 601 00f2 01       		.byte	0x1
+ 602 00f3 ED       		.byte	0xed
+ 603 00f4 A9000000 		.4byte	0xa9
+ 604 00f8 00000000 		.4byte	.LFB40
+ 605 00fc 0C000000 		.4byte	.LFE40-.LFB40
+ 606 0100 01       		.uleb128 0x1
+ 607 0101 9C       		.byte	0x9c
+ 608 0102 0B       		.uleb128 0xb
+ 609 0103 0D010000 		.4byte	.LASF19
+ 610 0107 01       		.byte	0x1
+ 611 0108 0B01     		.2byte	0x10b
+ 612 010a 00000000 		.4byte	.LFB41
+ 613 010e 20000000 		.4byte	.LFE41-.LFB41
+ 614 0112 01       		.uleb128 0x1
+ 615 0113 9C       		.byte	0x9c
+ 616 0114 58010000 		.4byte	0x158
+ 617 0118 0C       		.uleb128 0xc
+ 618 0119 59010000 		.4byte	.LASF21
+ 619 011d 01       		.byte	0x1
+ 620 011e 0B01     		.2byte	0x10b
+ 621 0120 6B000000 		.4byte	0x6b
+ 622 0124 00000000 		.4byte	.LLST0
+ 623 0128 0D       		.uleb128 0xd
+ 624 0129 25010000 		.4byte	.LASF22
+ 625 012d 01       		.byte	0x1
+ 626 012e 0D01     		.2byte	0x10d
+ 627 0130 6B000000 		.4byte	0x6b
+ 628 0134 21000000 		.4byte	.LLST1
+ 629 0138 0E       		.uleb128 0xe
+ 630 0139 24030000 		.4byte	.LASF23
+ 631 013d 01       		.byte	0x1
+ 632 013e 0E01     		.2byte	0x10e
+ 633 0140 77000000 		.4byte	0x77
+ 634 0144 06       		.byte	0x6
+ 635 0145 0F       		.uleb128 0xf
+ 636 0146 08000000 		.4byte	.LVL3
+ 637 014a C4030000 		.4byte	0x3c4
+ 638 014e 0F       		.uleb128 0xf
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 20
+
+
+ 639 014f 1A000000 		.4byte	.LVL4
+ 640 0153 CF030000 		.4byte	0x3cf
+ 641 0157 00       		.byte	0
+ 642 0158 10       		.uleb128 0x10
+ 643 0159 5E030000 		.4byte	.LASF47
+ 644 015d 01       		.byte	0x1
+ 645 015e 2701     		.2byte	0x127
+ 646 0160 6B000000 		.4byte	0x6b
+ 647 0164 00000000 		.4byte	.LFB42
+ 648 0168 10000000 		.4byte	.LFE42-.LFB42
+ 649 016c 01       		.uleb128 0x1
+ 650 016d 9C       		.byte	0x9c
+ 651 016e 90010000 		.4byte	0x190
+ 652 0172 0D       		.uleb128 0xd
+ 653 0173 59010000 		.4byte	.LASF21
+ 654 0177 01       		.byte	0x1
+ 655 0178 2901     		.2byte	0x129
+ 656 017a 77000000 		.4byte	0x77
+ 657 017e 34000000 		.4byte	.LLST2
+ 658 0182 0E       		.uleb128 0xe
+ 659 0183 24030000 		.4byte	.LASF23
+ 660 0187 01       		.byte	0x1
+ 661 0188 2A01     		.2byte	0x12a
+ 662 018a 77000000 		.4byte	0x77
+ 663 018e 06       		.byte	0x6
+ 664 018f 00       		.byte	0
+ 665 0190 11       		.uleb128 0x11
+ 666 0191 BA000000 		.4byte	.LASF26
+ 667 0195 01       		.byte	0x1
+ 668 0196 4201     		.2byte	0x142
+ 669 0198 00000000 		.4byte	.LFB43
+ 670 019c 0C000000 		.4byte	.LFE43-.LFB43
+ 671 01a0 01       		.uleb128 0x1
+ 672 01a1 9C       		.byte	0x9c
+ 673 01a2 12       		.uleb128 0x12
+ 674 01a3 F8010000 		.4byte	.LASF25
+ 675 01a7 01       		.byte	0x1
+ 676 01a8 5701     		.2byte	0x157
+ 677 01aa 6B000000 		.4byte	0x6b
+ 678 01ae 00000000 		.4byte	.LFB44
+ 679 01b2 10000000 		.4byte	.LFE44-.LFB44
+ 680 01b6 01       		.uleb128 0x1
+ 681 01b7 9C       		.byte	0x9c
+ 682 01b8 11       		.uleb128 0x11
+ 683 01b9 4B000000 		.4byte	.LASF27
+ 684 01bd 01       		.byte	0x1
+ 685 01be 6C01     		.2byte	0x16c
+ 686 01c0 00000000 		.4byte	.LFB45
+ 687 01c4 0C000000 		.4byte	.LFE45-.LFB45
+ 688 01c8 01       		.uleb128 0x1
+ 689 01c9 9C       		.byte	0x9c
+ 690 01ca 08       		.uleb128 0x8
+ 691 01cb DB000000 		.4byte	.LASF28
+ 692 01cf 01       		.byte	0x1
+ 693 01d0 3E       		.byte	0x3e
+ 694 01d1 00000000 		.4byte	.LFB35
+ 695 01d5 1C000000 		.4byte	.LFE35-.LFB35
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 21
+
+
+ 696 01d9 01       		.uleb128 0x1
+ 697 01da 9C       		.byte	0x9c
+ 698 01db 1C020000 		.4byte	0x21c
+ 699 01df 0F       		.uleb128 0xf
+ 700 01e0 06000000 		.4byte	.LVL8
+ 701 01e4 B8010000 		.4byte	0x1b8
+ 702 01e8 13       		.uleb128 0x13
+ 703 01e9 0C000000 		.4byte	.LVL9
+ 704 01ed CA000000 		.4byte	0xca
+ 705 01f1 FF010000 		.4byte	0x1ff
+ 706 01f5 14       		.uleb128 0x14
+ 707 01f6 01       		.uleb128 0x1
+ 708 01f7 50       		.byte	0x50
+ 709 01f8 05       		.uleb128 0x5
+ 710 01f9 03       		.byte	0x3
+ 711 01fa 00000000 		.4byte	A_Interrupt_Interrupt
+ 712 01fe 00       		.byte	0
+ 713 01ff 13       		.uleb128 0x13
+ 714 0200 12000000 		.4byte	.LVL10
+ 715 0204 02010000 		.4byte	0x102
+ 716 0208 12020000 		.4byte	0x212
+ 717 020c 14       		.uleb128 0x14
+ 718 020d 01       		.uleb128 0x1
+ 719 020e 50       		.byte	0x50
+ 720 020f 01       		.uleb128 0x1
+ 721 0210 33       		.byte	0x33
+ 722 0211 00       		.byte	0
+ 723 0212 0F       		.uleb128 0xf
+ 724 0213 16000000 		.4byte	.LVL11
+ 725 0217 90010000 		.4byte	0x190
+ 726 021b 00       		.byte	0
+ 727 021c 08       		.uleb128 0x8
+ 728 021d E3020000 		.4byte	.LASF29
+ 729 0221 01       		.byte	0x1
+ 730 0222 69       		.byte	0x69
+ 731 0223 00000000 		.4byte	.LFB36
+ 732 0227 1A000000 		.4byte	.LFE36-.LFB36
+ 733 022b 01       		.uleb128 0x1
+ 734 022c 9C       		.byte	0x9c
+ 735 022d 7A020000 		.4byte	0x27a
+ 736 0231 15       		.uleb128 0x15
+ 737 0232 D9010000 		.4byte	.LASF20
+ 738 0236 01       		.byte	0x1
+ 739 0237 69       		.byte	0x69
+ 740 0238 A9000000 		.4byte	0xa9
+ 741 023c 56000000 		.4byte	.LLST3
+ 742 0240 0F       		.uleb128 0xf
+ 743 0241 08000000 		.4byte	.LVL13
+ 744 0245 B8010000 		.4byte	0x1b8
+ 745 0249 13       		.uleb128 0x13
+ 746 024a 0E000000 		.4byte	.LVL14
+ 747 024e CA000000 		.4byte	0xca
+ 748 0252 5D020000 		.4byte	0x25d
+ 749 0256 14       		.uleb128 0x14
+ 750 0257 01       		.uleb128 0x1
+ 751 0258 50       		.byte	0x50
+ 752 0259 02       		.uleb128 0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 22
+
+
+ 753 025a 74       		.byte	0x74
+ 754 025b 00       		.sleb128 0
+ 755 025c 00       		.byte	0
+ 756 025d 13       		.uleb128 0x13
+ 757 025e 14000000 		.4byte	.LVL15
+ 758 0262 02010000 		.4byte	0x102
+ 759 0266 70020000 		.4byte	0x270
+ 760 026a 14       		.uleb128 0x14
+ 761 026b 01       		.uleb128 0x1
+ 762 026c 50       		.byte	0x50
+ 763 026d 01       		.uleb128 0x1
+ 764 026e 33       		.byte	0x33
+ 765 026f 00       		.byte	0
+ 766 0270 0F       		.uleb128 0xf
+ 767 0271 18000000 		.4byte	.LVL16
+ 768 0275 90010000 		.4byte	0x190
+ 769 0279 00       		.byte	0
+ 770 027a 08       		.uleb128 0x8
+ 771 027b FD020000 		.4byte	.LASF30
+ 772 027f 01       		.byte	0x1
+ 773 0280 87       		.byte	0x87
+ 774 0281 00000000 		.4byte	.LFB37
+ 775 0285 14000000 		.4byte	.LFE37-.LFB37
+ 776 0289 01       		.uleb128 0x1
+ 777 028a 9C       		.byte	0x9c
+ 778 028b A2020000 		.4byte	0x2a2
+ 779 028f 0F       		.uleb128 0xf
+ 780 0290 06000000 		.4byte	.LVL18
+ 781 0294 B8010000 		.4byte	0x1b8
+ 782 0298 0F       		.uleb128 0xf
+ 783 0299 0C000000 		.4byte	.LVL19
+ 784 029d CA000000 		.4byte	0xca
+ 785 02a1 00       		.byte	0
+ 786 02a2 11       		.uleb128 0x11
+ 787 02a3 76030000 		.4byte	.LASF31
+ 788 02a7 01       		.byte	0x1
+ 789 02a8 8701     		.2byte	0x187
+ 790 02aa 00000000 		.4byte	.LFB46
+ 791 02ae 0C000000 		.4byte	.LFE46-.LFB46
+ 792 02b2 01       		.uleb128 0x1
+ 793 02b3 9C       		.byte	0x9c
+ 794 02b4 11       		.uleb128 0x11
+ 795 02b5 25000000 		.4byte	.LASF32
+ 796 02b9 01       		.byte	0x1
+ 797 02ba A001     		.2byte	0x1a0
+ 798 02bc 00000000 		.4byte	.LFB47
+ 799 02c0 0C000000 		.4byte	.LFE47-.LFB47
+ 800 02c4 01       		.uleb128 0x1
+ 801 02c5 9C       		.byte	0x9c
+ 802 02c6 08       		.uleb128 0x8
+ 803 02c7 06000000 		.4byte	.LASF33
+ 804 02cb 01       		.byte	0x1
+ 805 02cc A5       		.byte	0xa5
+ 806 02cd 00000000 		.4byte	.LFB38
+ 807 02d1 54000000 		.4byte	.LFE38-.LFB38
+ 808 02d5 01       		.uleb128 0x1
+ 809 02d6 9C       		.byte	0x9c
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 23
+
+
+ 810 02d7 52030000 		.4byte	0x352
+ 811 02db 0F       		.uleb128 0xf
+ 812 02dc 08000000 		.4byte	.LVL20
+ 813 02e0 DA030000 		.4byte	0x3da
+ 814 02e4 13       		.uleb128 0x13
+ 815 02e5 1E000000 		.4byte	.LVL21
+ 816 02e9 E5030000 		.4byte	0x3e5
+ 817 02ed 01030000 		.4byte	0x301
+ 818 02f1 14       		.uleb128 0x14
+ 819 02f2 01       		.uleb128 0x1
+ 820 02f3 50       		.byte	0x50
+ 821 02f4 02       		.uleb128 0x2
+ 822 02f5 74       		.byte	0x74
+ 823 02f6 00       		.sleb128 0
+ 824 02f7 14       		.uleb128 0x14
+ 825 02f8 01       		.uleb128 0x1
+ 826 02f9 51       		.byte	0x51
+ 827 02fa 05       		.uleb128 0x5
+ 828 02fb 03       		.byte	0x3
+ 829 02fc 00000000 		.4byte	.LC5
+ 830 0300 00       		.byte	0
+ 831 0301 13       		.uleb128 0x13
+ 832 0302 2E000000 		.4byte	.LVL22
+ 833 0306 F0030000 		.4byte	0x3f0
+ 834 030a 2C030000 		.4byte	0x32c
+ 835 030e 14       		.uleb128 0x14
+ 836 030f 01       		.uleb128 0x1
+ 837 0310 50       		.byte	0x50
+ 838 0311 02       		.uleb128 0x2
+ 839 0312 74       		.byte	0x74
+ 840 0313 00       		.sleb128 0
+ 841 0314 14       		.uleb128 0x14
+ 842 0315 01       		.uleb128 0x1
+ 843 0316 51       		.byte	0x51
+ 844 0317 01       		.uleb128 0x1
+ 845 0318 3A       		.byte	0x3a
+ 846 0319 14       		.uleb128 0x14
+ 847 031a 01       		.uleb128 0x1
+ 848 031b 52       		.byte	0x52
+ 849 031c 01       		.uleb128 0x1
+ 850 031d 3A       		.byte	0x3a
+ 851 031e 14       		.uleb128 0x14
+ 852 031f 01       		.uleb128 0x1
+ 853 0320 53       		.byte	0x53
+ 854 0321 03       		.uleb128 0x3
+ 855 0322 0A       		.byte	0xa
+ 856 0323 FF0F     		.2byte	0xfff
+ 857 0325 14       		.uleb128 0x14
+ 858 0326 02       		.uleb128 0x2
+ 859 0327 7D       		.byte	0x7d
+ 860 0328 00       		.sleb128 0
+ 861 0329 01       		.uleb128 0x1
+ 862 032a 30       		.byte	0x30
+ 863 032b 00       		.byte	0
+ 864 032c 0F       		.uleb128 0xf
+ 865 032d 32000000 		.4byte	.LVL23
+ 866 0331 DA030000 		.4byte	0x3da
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 24
+
+
+ 867 0335 13       		.uleb128 0x13
+ 868 0336 3C000000 		.4byte	.LVL24
+ 869 033a FB030000 		.4byte	0x3fb
+ 870 033e 48030000 		.4byte	0x348
+ 871 0342 14       		.uleb128 0x14
+ 872 0343 01       		.uleb128 0x1
+ 873 0344 50       		.byte	0x50
+ 874 0345 01       		.uleb128 0x1
+ 875 0346 49       		.byte	0x49
+ 876 0347 00       		.byte	0
+ 877 0348 0F       		.uleb128 0xf
+ 878 0349 40000000 		.4byte	.LVL25
+ 879 034d B4020000 		.4byte	0x2b4
+ 880 0351 00       		.byte	0
+ 881 0352 16       		.uleb128 0x16
+ 882 0353 68030000 		.4byte	0x368
+ 883 0357 68030000 		.4byte	0x368
+ 884 035b 17       		.uleb128 0x17
+ 885 035c C3000000 		.4byte	0xc3
+ 886 0360 60       		.byte	0x60
+ 887 0361 17       		.uleb128 0x17
+ 888 0362 C3000000 		.4byte	0xc3
+ 889 0366 0F       		.byte	0xf
+ 890 0367 00       		.byte	0
+ 891 0368 18       		.uleb128 0x18
+ 892 0369 6B000000 		.4byte	0x6b
+ 893 036d 19       		.uleb128 0x19
+ 894 036e D0020000 		.4byte	.LASF34
+ 895 0372 03       		.byte	0x3
+ 896 0373 42       		.byte	0x42
+ 897 0374 7E030000 		.4byte	0x37e
+ 898 0378 05       		.uleb128 0x5
+ 899 0379 03       		.byte	0x3
+ 900 037a 00000000 		.4byte	GLCD_FONT8x16
+ 901 037e 18       		.uleb128 0x18
+ 902 037f 52030000 		.4byte	0x352
+ 903 0383 1A       		.uleb128 0x1a
+ 904 0384 5F000000 		.4byte	.LASF35
+ 905 0388 01       		.byte	0x1
+ 906 0389 22       		.byte	0x22
+ 907 038a 5D000000 		.4byte	0x5d
+ 908 038e 16       		.uleb128 0x16
+ 909 038f 91000000 		.4byte	0x91
+ 910 0393 9E030000 		.4byte	0x39e
+ 911 0397 17       		.uleb128 0x17
+ 912 0398 C3000000 		.4byte	0xc3
+ 913 039c 13       		.byte	0x13
+ 914 039d 00       		.byte	0
+ 915 039e 1A       		.uleb128 0x1a
+ 916 039f 1C000000 		.4byte	.LASF36
+ 917 03a3 01       		.byte	0x1
+ 918 03a4 23       		.byte	0x23
+ 919 03a5 8E030000 		.4byte	0x38e
+ 920 03a9 16       		.uleb128 0x16
+ 921 03aa A9000000 		.4byte	0xa9
+ 922 03ae B9030000 		.4byte	0x3b9
+ 923 03b2 17       		.uleb128 0x17
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 25
+
+
+ 924 03b3 C3000000 		.4byte	0xc3
+ 925 03b7 2F       		.byte	0x2f
+ 926 03b8 00       		.byte	0
+ 927 03b9 1A       		.uleb128 0x1a
+ 928 03ba 3E000000 		.4byte	.LASF37
+ 929 03be 01       		.byte	0x1
+ 930 03bf 27       		.byte	0x27
+ 931 03c0 A9030000 		.4byte	0x3a9
+ 932 03c4 1B       		.uleb128 0x1b
+ 933 03c5 B5010000 		.4byte	.LASF38
+ 934 03c9 B5010000 		.4byte	.LASF38
+ 935 03cd 04       		.byte	0x4
+ 936 03ce E5       		.byte	0xe5
+ 937 03cf 1B       		.uleb128 0x1b
+ 938 03d0 0E030000 		.4byte	.LASF39
+ 939 03d4 0E030000 		.4byte	.LASF39
+ 940 03d8 04       		.byte	0x4
+ 941 03d9 E6       		.byte	0xe6
+ 942 03da 1B       		.uleb128 0x1b
+ 943 03db CD000000 		.4byte	.LASF40
+ 944 03df CD000000 		.4byte	.LASF40
+ 945 03e3 05       		.byte	0x5
+ 946 03e4 32       		.byte	0x32
+ 947 03e5 1B       		.uleb128 0x1b
+ 948 03e6 8D030000 		.4byte	.LASF41
+ 949 03ea 8D030000 		.4byte	.LASF41
+ 950 03ee 06       		.byte	0x6
+ 951 03ef E7       		.byte	0xe7
+ 952 03f0 1B       		.uleb128 0x1b
+ 953 03f1 1A020000 		.4byte	.LASF42
+ 954 03f5 1A020000 		.4byte	.LASF42
+ 955 03f9 03       		.byte	0x3
+ 956 03fa 35       		.byte	0x35
+ 957 03fb 1B       		.uleb128 0x1b
+ 958 03fc 95030000 		.4byte	.LASF43
+ 959 0400 95030000 		.4byte	.LASF43
+ 960 0404 04       		.byte	0x4
+ 961 0405 D9       		.byte	0xd9
+ 962 0406 00       		.byte	0
+ 963              		.section	.debug_abbrev,"",%progbits
+ 964              	.Ldebug_abbrev0:
+ 965 0000 01       		.uleb128 0x1
+ 966 0001 11       		.uleb128 0x11
+ 967 0002 01       		.byte	0x1
+ 968 0003 25       		.uleb128 0x25
+ 969 0004 0E       		.uleb128 0xe
+ 970 0005 13       		.uleb128 0x13
+ 971 0006 0B       		.uleb128 0xb
+ 972 0007 03       		.uleb128 0x3
+ 973 0008 0E       		.uleb128 0xe
+ 974 0009 1B       		.uleb128 0x1b
+ 975 000a 0E       		.uleb128 0xe
+ 976 000b 55       		.uleb128 0x55
+ 977 000c 17       		.uleb128 0x17
+ 978 000d 11       		.uleb128 0x11
+ 979 000e 01       		.uleb128 0x1
+ 980 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 26
+
+
+ 981 0010 17       		.uleb128 0x17
+ 982 0011 00       		.byte	0
+ 983 0012 00       		.byte	0
+ 984 0013 02       		.uleb128 0x2
+ 985 0014 24       		.uleb128 0x24
+ 986 0015 00       		.byte	0
+ 987 0016 0B       		.uleb128 0xb
+ 988 0017 0B       		.uleb128 0xb
+ 989 0018 3E       		.uleb128 0x3e
+ 990 0019 0B       		.uleb128 0xb
+ 991 001a 03       		.uleb128 0x3
+ 992 001b 0E       		.uleb128 0xe
+ 993 001c 00       		.byte	0
+ 994 001d 00       		.byte	0
+ 995 001e 03       		.uleb128 0x3
+ 996 001f 24       		.uleb128 0x24
+ 997 0020 00       		.byte	0
+ 998 0021 0B       		.uleb128 0xb
+ 999 0022 0B       		.uleb128 0xb
+ 1000 0023 3E       		.uleb128 0x3e
+ 1001 0024 0B       		.uleb128 0xb
+ 1002 0025 03       		.uleb128 0x3
+ 1003 0026 08       		.uleb128 0x8
+ 1004 0027 00       		.byte	0
+ 1005 0028 00       		.byte	0
+ 1006 0029 04       		.uleb128 0x4
+ 1007 002a 16       		.uleb128 0x16
+ 1008 002b 00       		.byte	0
+ 1009 002c 03       		.uleb128 0x3
+ 1010 002d 0E       		.uleb128 0xe
+ 1011 002e 3A       		.uleb128 0x3a
+ 1012 002f 0B       		.uleb128 0xb
+ 1013 0030 3B       		.uleb128 0x3b
+ 1014 0031 05       		.uleb128 0x5
+ 1015 0032 49       		.uleb128 0x49
+ 1016 0033 13       		.uleb128 0x13
+ 1017 0034 00       		.byte	0
+ 1018 0035 00       		.byte	0
+ 1019 0036 05       		.uleb128 0x5
+ 1020 0037 35       		.uleb128 0x35
+ 1021 0038 00       		.byte	0
+ 1022 0039 49       		.uleb128 0x49
+ 1023 003a 13       		.uleb128 0x13
+ 1024 003b 00       		.byte	0
+ 1025 003c 00       		.byte	0
+ 1026 003d 06       		.uleb128 0x6
+ 1027 003e 0F       		.uleb128 0xf
+ 1028 003f 00       		.byte	0
+ 1029 0040 0B       		.uleb128 0xb
+ 1030 0041 0B       		.uleb128 0xb
+ 1031 0042 49       		.uleb128 0x49
+ 1032 0043 13       		.uleb128 0x13
+ 1033 0044 00       		.byte	0
+ 1034 0045 00       		.byte	0
+ 1035 0046 07       		.uleb128 0x7
+ 1036 0047 15       		.uleb128 0x15
+ 1037 0048 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 27
+
+
+ 1038 0049 27       		.uleb128 0x27
+ 1039 004a 19       		.uleb128 0x19
+ 1040 004b 00       		.byte	0
+ 1041 004c 00       		.byte	0
+ 1042 004d 08       		.uleb128 0x8
+ 1043 004e 2E       		.uleb128 0x2e
+ 1044 004f 01       		.byte	0x1
+ 1045 0050 3F       		.uleb128 0x3f
+ 1046 0051 19       		.uleb128 0x19
+ 1047 0052 03       		.uleb128 0x3
+ 1048 0053 0E       		.uleb128 0xe
+ 1049 0054 3A       		.uleb128 0x3a
+ 1050 0055 0B       		.uleb128 0xb
+ 1051 0056 3B       		.uleb128 0x3b
+ 1052 0057 0B       		.uleb128 0xb
+ 1053 0058 27       		.uleb128 0x27
+ 1054 0059 19       		.uleb128 0x19
+ 1055 005a 11       		.uleb128 0x11
+ 1056 005b 01       		.uleb128 0x1
+ 1057 005c 12       		.uleb128 0x12
+ 1058 005d 06       		.uleb128 0x6
+ 1059 005e 40       		.uleb128 0x40
+ 1060 005f 18       		.uleb128 0x18
+ 1061 0060 9742     		.uleb128 0x2117
+ 1062 0062 19       		.uleb128 0x19
+ 1063 0063 01       		.uleb128 0x1
+ 1064 0064 13       		.uleb128 0x13
+ 1065 0065 00       		.byte	0
+ 1066 0066 00       		.byte	0
+ 1067 0067 09       		.uleb128 0x9
+ 1068 0068 05       		.uleb128 0x5
+ 1069 0069 00       		.byte	0
+ 1070 006a 03       		.uleb128 0x3
+ 1071 006b 0E       		.uleb128 0xe
+ 1072 006c 3A       		.uleb128 0x3a
+ 1073 006d 0B       		.uleb128 0xb
+ 1074 006e 3B       		.uleb128 0x3b
+ 1075 006f 0B       		.uleb128 0xb
+ 1076 0070 49       		.uleb128 0x49
+ 1077 0071 13       		.uleb128 0x13
+ 1078 0072 02       		.uleb128 0x2
+ 1079 0073 18       		.uleb128 0x18
+ 1080 0074 00       		.byte	0
+ 1081 0075 00       		.byte	0
+ 1082 0076 0A       		.uleb128 0xa
+ 1083 0077 2E       		.uleb128 0x2e
+ 1084 0078 00       		.byte	0
+ 1085 0079 3F       		.uleb128 0x3f
+ 1086 007a 19       		.uleb128 0x19
+ 1087 007b 03       		.uleb128 0x3
+ 1088 007c 0E       		.uleb128 0xe
+ 1089 007d 3A       		.uleb128 0x3a
+ 1090 007e 0B       		.uleb128 0xb
+ 1091 007f 3B       		.uleb128 0x3b
+ 1092 0080 0B       		.uleb128 0xb
+ 1093 0081 27       		.uleb128 0x27
+ 1094 0082 19       		.uleb128 0x19
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 28
+
+
+ 1095 0083 49       		.uleb128 0x49
+ 1096 0084 13       		.uleb128 0x13
+ 1097 0085 11       		.uleb128 0x11
+ 1098 0086 01       		.uleb128 0x1
+ 1099 0087 12       		.uleb128 0x12
+ 1100 0088 06       		.uleb128 0x6
+ 1101 0089 40       		.uleb128 0x40
+ 1102 008a 18       		.uleb128 0x18
+ 1103 008b 9742     		.uleb128 0x2117
+ 1104 008d 19       		.uleb128 0x19
+ 1105 008e 00       		.byte	0
+ 1106 008f 00       		.byte	0
+ 1107 0090 0B       		.uleb128 0xb
+ 1108 0091 2E       		.uleb128 0x2e
+ 1109 0092 01       		.byte	0x1
+ 1110 0093 3F       		.uleb128 0x3f
+ 1111 0094 19       		.uleb128 0x19
+ 1112 0095 03       		.uleb128 0x3
+ 1113 0096 0E       		.uleb128 0xe
+ 1114 0097 3A       		.uleb128 0x3a
+ 1115 0098 0B       		.uleb128 0xb
+ 1116 0099 3B       		.uleb128 0x3b
+ 1117 009a 05       		.uleb128 0x5
+ 1118 009b 27       		.uleb128 0x27
+ 1119 009c 19       		.uleb128 0x19
+ 1120 009d 11       		.uleb128 0x11
+ 1121 009e 01       		.uleb128 0x1
+ 1122 009f 12       		.uleb128 0x12
+ 1123 00a0 06       		.uleb128 0x6
+ 1124 00a1 40       		.uleb128 0x40
+ 1125 00a2 18       		.uleb128 0x18
+ 1126 00a3 9742     		.uleb128 0x2117
+ 1127 00a5 19       		.uleb128 0x19
+ 1128 00a6 01       		.uleb128 0x1
+ 1129 00a7 13       		.uleb128 0x13
+ 1130 00a8 00       		.byte	0
+ 1131 00a9 00       		.byte	0
+ 1132 00aa 0C       		.uleb128 0xc
+ 1133 00ab 05       		.uleb128 0x5
+ 1134 00ac 00       		.byte	0
+ 1135 00ad 03       		.uleb128 0x3
+ 1136 00ae 0E       		.uleb128 0xe
+ 1137 00af 3A       		.uleb128 0x3a
+ 1138 00b0 0B       		.uleb128 0xb
+ 1139 00b1 3B       		.uleb128 0x3b
+ 1140 00b2 05       		.uleb128 0x5
+ 1141 00b3 49       		.uleb128 0x49
+ 1142 00b4 13       		.uleb128 0x13
+ 1143 00b5 02       		.uleb128 0x2
+ 1144 00b6 17       		.uleb128 0x17
+ 1145 00b7 00       		.byte	0
+ 1146 00b8 00       		.byte	0
+ 1147 00b9 0D       		.uleb128 0xd
+ 1148 00ba 34       		.uleb128 0x34
+ 1149 00bb 00       		.byte	0
+ 1150 00bc 03       		.uleb128 0x3
+ 1151 00bd 0E       		.uleb128 0xe
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 29
+
+
+ 1152 00be 3A       		.uleb128 0x3a
+ 1153 00bf 0B       		.uleb128 0xb
+ 1154 00c0 3B       		.uleb128 0x3b
+ 1155 00c1 05       		.uleb128 0x5
+ 1156 00c2 49       		.uleb128 0x49
+ 1157 00c3 13       		.uleb128 0x13
+ 1158 00c4 02       		.uleb128 0x2
+ 1159 00c5 17       		.uleb128 0x17
+ 1160 00c6 00       		.byte	0
+ 1161 00c7 00       		.byte	0
+ 1162 00c8 0E       		.uleb128 0xe
+ 1163 00c9 34       		.uleb128 0x34
+ 1164 00ca 00       		.byte	0
+ 1165 00cb 03       		.uleb128 0x3
+ 1166 00cc 0E       		.uleb128 0xe
+ 1167 00cd 3A       		.uleb128 0x3a
+ 1168 00ce 0B       		.uleb128 0xb
+ 1169 00cf 3B       		.uleb128 0x3b
+ 1170 00d0 05       		.uleb128 0x5
+ 1171 00d1 49       		.uleb128 0x49
+ 1172 00d2 13       		.uleb128 0x13
+ 1173 00d3 1C       		.uleb128 0x1c
+ 1174 00d4 0B       		.uleb128 0xb
+ 1175 00d5 00       		.byte	0
+ 1176 00d6 00       		.byte	0
+ 1177 00d7 0F       		.uleb128 0xf
+ 1178 00d8 898201   		.uleb128 0x4109
+ 1179 00db 00       		.byte	0
+ 1180 00dc 11       		.uleb128 0x11
+ 1181 00dd 01       		.uleb128 0x1
+ 1182 00de 31       		.uleb128 0x31
+ 1183 00df 13       		.uleb128 0x13
+ 1184 00e0 00       		.byte	0
+ 1185 00e1 00       		.byte	0
+ 1186 00e2 10       		.uleb128 0x10
+ 1187 00e3 2E       		.uleb128 0x2e
+ 1188 00e4 01       		.byte	0x1
+ 1189 00e5 3F       		.uleb128 0x3f
+ 1190 00e6 19       		.uleb128 0x19
+ 1191 00e7 03       		.uleb128 0x3
+ 1192 00e8 0E       		.uleb128 0xe
+ 1193 00e9 3A       		.uleb128 0x3a
+ 1194 00ea 0B       		.uleb128 0xb
+ 1195 00eb 3B       		.uleb128 0x3b
+ 1196 00ec 05       		.uleb128 0x5
+ 1197 00ed 27       		.uleb128 0x27
+ 1198 00ee 19       		.uleb128 0x19
+ 1199 00ef 49       		.uleb128 0x49
+ 1200 00f0 13       		.uleb128 0x13
+ 1201 00f1 11       		.uleb128 0x11
+ 1202 00f2 01       		.uleb128 0x1
+ 1203 00f3 12       		.uleb128 0x12
+ 1204 00f4 06       		.uleb128 0x6
+ 1205 00f5 40       		.uleb128 0x40
+ 1206 00f6 18       		.uleb128 0x18
+ 1207 00f7 9742     		.uleb128 0x2117
+ 1208 00f9 19       		.uleb128 0x19
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 30
+
+
+ 1209 00fa 01       		.uleb128 0x1
+ 1210 00fb 13       		.uleb128 0x13
+ 1211 00fc 00       		.byte	0
+ 1212 00fd 00       		.byte	0
+ 1213 00fe 11       		.uleb128 0x11
+ 1214 00ff 2E       		.uleb128 0x2e
+ 1215 0100 00       		.byte	0
+ 1216 0101 3F       		.uleb128 0x3f
+ 1217 0102 19       		.uleb128 0x19
+ 1218 0103 03       		.uleb128 0x3
+ 1219 0104 0E       		.uleb128 0xe
+ 1220 0105 3A       		.uleb128 0x3a
+ 1221 0106 0B       		.uleb128 0xb
+ 1222 0107 3B       		.uleb128 0x3b
+ 1223 0108 05       		.uleb128 0x5
+ 1224 0109 27       		.uleb128 0x27
+ 1225 010a 19       		.uleb128 0x19
+ 1226 010b 11       		.uleb128 0x11
+ 1227 010c 01       		.uleb128 0x1
+ 1228 010d 12       		.uleb128 0x12
+ 1229 010e 06       		.uleb128 0x6
+ 1230 010f 40       		.uleb128 0x40
+ 1231 0110 18       		.uleb128 0x18
+ 1232 0111 9742     		.uleb128 0x2117
+ 1233 0113 19       		.uleb128 0x19
+ 1234 0114 00       		.byte	0
+ 1235 0115 00       		.byte	0
+ 1236 0116 12       		.uleb128 0x12
+ 1237 0117 2E       		.uleb128 0x2e
+ 1238 0118 00       		.byte	0
+ 1239 0119 3F       		.uleb128 0x3f
+ 1240 011a 19       		.uleb128 0x19
+ 1241 011b 03       		.uleb128 0x3
+ 1242 011c 0E       		.uleb128 0xe
+ 1243 011d 3A       		.uleb128 0x3a
+ 1244 011e 0B       		.uleb128 0xb
+ 1245 011f 3B       		.uleb128 0x3b
+ 1246 0120 05       		.uleb128 0x5
+ 1247 0121 27       		.uleb128 0x27
+ 1248 0122 19       		.uleb128 0x19
+ 1249 0123 49       		.uleb128 0x49
+ 1250 0124 13       		.uleb128 0x13
+ 1251 0125 11       		.uleb128 0x11
+ 1252 0126 01       		.uleb128 0x1
+ 1253 0127 12       		.uleb128 0x12
+ 1254 0128 06       		.uleb128 0x6
+ 1255 0129 40       		.uleb128 0x40
+ 1256 012a 18       		.uleb128 0x18
+ 1257 012b 9742     		.uleb128 0x2117
+ 1258 012d 19       		.uleb128 0x19
+ 1259 012e 00       		.byte	0
+ 1260 012f 00       		.byte	0
+ 1261 0130 13       		.uleb128 0x13
+ 1262 0131 898201   		.uleb128 0x4109
+ 1263 0134 01       		.byte	0x1
+ 1264 0135 11       		.uleb128 0x11
+ 1265 0136 01       		.uleb128 0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 31
+
+
+ 1266 0137 31       		.uleb128 0x31
+ 1267 0138 13       		.uleb128 0x13
+ 1268 0139 01       		.uleb128 0x1
+ 1269 013a 13       		.uleb128 0x13
+ 1270 013b 00       		.byte	0
+ 1271 013c 00       		.byte	0
+ 1272 013d 14       		.uleb128 0x14
+ 1273 013e 8A8201   		.uleb128 0x410a
+ 1274 0141 00       		.byte	0
+ 1275 0142 02       		.uleb128 0x2
+ 1276 0143 18       		.uleb128 0x18
+ 1277 0144 9142     		.uleb128 0x2111
+ 1278 0146 18       		.uleb128 0x18
+ 1279 0147 00       		.byte	0
+ 1280 0148 00       		.byte	0
+ 1281 0149 15       		.uleb128 0x15
+ 1282 014a 05       		.uleb128 0x5
+ 1283 014b 00       		.byte	0
+ 1284 014c 03       		.uleb128 0x3
+ 1285 014d 0E       		.uleb128 0xe
+ 1286 014e 3A       		.uleb128 0x3a
+ 1287 014f 0B       		.uleb128 0xb
+ 1288 0150 3B       		.uleb128 0x3b
+ 1289 0151 0B       		.uleb128 0xb
+ 1290 0152 49       		.uleb128 0x49
+ 1291 0153 13       		.uleb128 0x13
+ 1292 0154 02       		.uleb128 0x2
+ 1293 0155 17       		.uleb128 0x17
+ 1294 0156 00       		.byte	0
+ 1295 0157 00       		.byte	0
+ 1296 0158 16       		.uleb128 0x16
+ 1297 0159 01       		.uleb128 0x1
+ 1298 015a 01       		.byte	0x1
+ 1299 015b 49       		.uleb128 0x49
+ 1300 015c 13       		.uleb128 0x13
+ 1301 015d 01       		.uleb128 0x1
+ 1302 015e 13       		.uleb128 0x13
+ 1303 015f 00       		.byte	0
+ 1304 0160 00       		.byte	0
+ 1305 0161 17       		.uleb128 0x17
+ 1306 0162 21       		.uleb128 0x21
+ 1307 0163 00       		.byte	0
+ 1308 0164 49       		.uleb128 0x49
+ 1309 0165 13       		.uleb128 0x13
+ 1310 0166 2F       		.uleb128 0x2f
+ 1311 0167 0B       		.uleb128 0xb
+ 1312 0168 00       		.byte	0
+ 1313 0169 00       		.byte	0
+ 1314 016a 18       		.uleb128 0x18
+ 1315 016b 26       		.uleb128 0x26
+ 1316 016c 00       		.byte	0
+ 1317 016d 49       		.uleb128 0x49
+ 1318 016e 13       		.uleb128 0x13
+ 1319 016f 00       		.byte	0
+ 1320 0170 00       		.byte	0
+ 1321 0171 19       		.uleb128 0x19
+ 1322 0172 34       		.uleb128 0x34
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 32
+
+
+ 1323 0173 00       		.byte	0
+ 1324 0174 03       		.uleb128 0x3
+ 1325 0175 0E       		.uleb128 0xe
+ 1326 0176 3A       		.uleb128 0x3a
+ 1327 0177 0B       		.uleb128 0xb
+ 1328 0178 3B       		.uleb128 0x3b
+ 1329 0179 0B       		.uleb128 0xb
+ 1330 017a 49       		.uleb128 0x49
+ 1331 017b 13       		.uleb128 0x13
+ 1332 017c 3F       		.uleb128 0x3f
+ 1333 017d 19       		.uleb128 0x19
+ 1334 017e 02       		.uleb128 0x2
+ 1335 017f 18       		.uleb128 0x18
+ 1336 0180 00       		.byte	0
+ 1337 0181 00       		.byte	0
+ 1338 0182 1A       		.uleb128 0x1a
+ 1339 0183 34       		.uleb128 0x34
+ 1340 0184 00       		.byte	0
+ 1341 0185 03       		.uleb128 0x3
+ 1342 0186 0E       		.uleb128 0xe
+ 1343 0187 3A       		.uleb128 0x3a
+ 1344 0188 0B       		.uleb128 0xb
+ 1345 0189 3B       		.uleb128 0x3b
+ 1346 018a 0B       		.uleb128 0xb
+ 1347 018b 49       		.uleb128 0x49
+ 1348 018c 13       		.uleb128 0x13
+ 1349 018d 3F       		.uleb128 0x3f
+ 1350 018e 19       		.uleb128 0x19
+ 1351 018f 3C       		.uleb128 0x3c
+ 1352 0190 19       		.uleb128 0x19
+ 1353 0191 00       		.byte	0
+ 1354 0192 00       		.byte	0
+ 1355 0193 1B       		.uleb128 0x1b
+ 1356 0194 2E       		.uleb128 0x2e
+ 1357 0195 00       		.byte	0
+ 1358 0196 3F       		.uleb128 0x3f
+ 1359 0197 19       		.uleb128 0x19
+ 1360 0198 3C       		.uleb128 0x3c
+ 1361 0199 19       		.uleb128 0x19
+ 1362 019a 6E       		.uleb128 0x6e
+ 1363 019b 0E       		.uleb128 0xe
+ 1364 019c 03       		.uleb128 0x3
+ 1365 019d 0E       		.uleb128 0xe
+ 1366 019e 3A       		.uleb128 0x3a
+ 1367 019f 0B       		.uleb128 0xb
+ 1368 01a0 3B       		.uleb128 0x3b
+ 1369 01a1 0B       		.uleb128 0xb
+ 1370 01a2 00       		.byte	0
+ 1371 01a3 00       		.byte	0
+ 1372 01a4 00       		.byte	0
+ 1373              		.section	.debug_loc,"",%progbits
+ 1374              	.Ldebug_loc0:
+ 1375              	.LLST0:
+ 1376 0000 00000000 		.4byte	.LVL1
+ 1377 0004 07000000 		.4byte	.LVL3-1
+ 1378 0008 0100     		.2byte	0x1
+ 1379 000a 50       		.byte	0x50
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 33
+
+
+ 1380 000b 07000000 		.4byte	.LVL3-1
+ 1381 000f 20000000 		.4byte	.LFE41
+ 1382 0013 0400     		.2byte	0x4
+ 1383 0015 F3       		.byte	0xf3
+ 1384 0016 01       		.uleb128 0x1
+ 1385 0017 50       		.byte	0x50
+ 1386 0018 9F       		.byte	0x9f
+ 1387 0019 00000000 		.4byte	0
+ 1388 001d 00000000 		.4byte	0
+ 1389              	.LLST1:
+ 1390 0021 08000000 		.4byte	.LVL3
+ 1391 0025 19000000 		.4byte	.LVL4-1
+ 1392 0029 0100     		.2byte	0x1
+ 1393 002b 50       		.byte	0x50
+ 1394 002c 00000000 		.4byte	0
+ 1395 0030 00000000 		.4byte	0
+ 1396              	.LLST2:
+ 1397 0034 06000000 		.4byte	.LVL6
+ 1398 0038 0A000000 		.4byte	.LVL7
+ 1399 003c 0500     		.2byte	0x5
+ 1400 003e 70       		.byte	0x70
+ 1401 003f 00       		.sleb128 0
+ 1402 0040 33       		.byte	0x33
+ 1403 0041 1A       		.byte	0x1a
+ 1404 0042 9F       		.byte	0x9f
+ 1405 0043 0A000000 		.4byte	.LVL7
+ 1406 0047 10000000 		.4byte	.LFE42
+ 1407 004b 0100     		.2byte	0x1
+ 1408 004d 50       		.byte	0x50
+ 1409 004e 00000000 		.4byte	0
+ 1410 0052 00000000 		.4byte	0
+ 1411              	.LLST3:
+ 1412 0056 00000000 		.4byte	.LVL12
+ 1413 005a 07000000 		.4byte	.LVL13-1
+ 1414 005e 0100     		.2byte	0x1
+ 1415 0060 50       		.byte	0x50
+ 1416 0061 07000000 		.4byte	.LVL13-1
+ 1417 0065 18000000 		.4byte	.LVL17
+ 1418 0069 0100     		.2byte	0x1
+ 1419 006b 54       		.byte	0x54
+ 1420 006c 18000000 		.4byte	.LVL17
+ 1421 0070 1A000000 		.4byte	.LFE36
+ 1422 0074 0400     		.2byte	0x4
+ 1423 0076 F3       		.byte	0xf3
+ 1424 0077 01       		.uleb128 0x1
+ 1425 0078 50       		.byte	0x50
+ 1426 0079 9F       		.byte	0x9f
+ 1427 007a 00000000 		.4byte	0
+ 1428 007e 00000000 		.4byte	0
+ 1429              		.section	.debug_aranges,"",%progbits
+ 1430 0000 7C000000 		.4byte	0x7c
+ 1431 0004 0200     		.2byte	0x2
+ 1432 0006 00000000 		.4byte	.Ldebug_info0
+ 1433 000a 04       		.byte	0x4
+ 1434 000b 00       		.byte	0
+ 1435 000c 0000     		.2byte	0
+ 1436 000e 0000     		.2byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 34
+
+
+ 1437 0010 00000000 		.4byte	.LFB39
+ 1438 0014 0C000000 		.4byte	.LFE39-.LFB39
+ 1439 0018 00000000 		.4byte	.LFB40
+ 1440 001c 0C000000 		.4byte	.LFE40-.LFB40
+ 1441 0020 00000000 		.4byte	.LFB41
+ 1442 0024 20000000 		.4byte	.LFE41-.LFB41
+ 1443 0028 00000000 		.4byte	.LFB42
+ 1444 002c 10000000 		.4byte	.LFE42-.LFB42
+ 1445 0030 00000000 		.4byte	.LFB43
+ 1446 0034 0C000000 		.4byte	.LFE43-.LFB43
+ 1447 0038 00000000 		.4byte	.LFB44
+ 1448 003c 10000000 		.4byte	.LFE44-.LFB44
+ 1449 0040 00000000 		.4byte	.LFB45
+ 1450 0044 0C000000 		.4byte	.LFE45-.LFB45
+ 1451 0048 00000000 		.4byte	.LFB35
+ 1452 004c 1C000000 		.4byte	.LFE35-.LFB35
+ 1453 0050 00000000 		.4byte	.LFB36
+ 1454 0054 1A000000 		.4byte	.LFE36-.LFB36
+ 1455 0058 00000000 		.4byte	.LFB37
+ 1456 005c 14000000 		.4byte	.LFE37-.LFB37
+ 1457 0060 00000000 		.4byte	.LFB46
+ 1458 0064 0C000000 		.4byte	.LFE46-.LFB46
+ 1459 0068 00000000 		.4byte	.LFB47
+ 1460 006c 0C000000 		.4byte	.LFE47-.LFB47
+ 1461 0070 00000000 		.4byte	.LFB38
+ 1462 0074 54000000 		.4byte	.LFE38-.LFB38
+ 1463 0078 00000000 		.4byte	0
+ 1464 007c 00000000 		.4byte	0
+ 1465              		.section	.debug_ranges,"",%progbits
+ 1466              	.Ldebug_ranges0:
+ 1467 0000 00000000 		.4byte	.LFB39
+ 1468 0004 0C000000 		.4byte	.LFE39
+ 1469 0008 00000000 		.4byte	.LFB40
+ 1470 000c 0C000000 		.4byte	.LFE40
+ 1471 0010 00000000 		.4byte	.LFB41
+ 1472 0014 20000000 		.4byte	.LFE41
+ 1473 0018 00000000 		.4byte	.LFB42
+ 1474 001c 10000000 		.4byte	.LFE42
+ 1475 0020 00000000 		.4byte	.LFB43
+ 1476 0024 0C000000 		.4byte	.LFE43
+ 1477 0028 00000000 		.4byte	.LFB44
+ 1478 002c 10000000 		.4byte	.LFE44
+ 1479 0030 00000000 		.4byte	.LFB45
+ 1480 0034 0C000000 		.4byte	.LFE45
+ 1481 0038 00000000 		.4byte	.LFB35
+ 1482 003c 1C000000 		.4byte	.LFE35
+ 1483 0040 00000000 		.4byte	.LFB36
+ 1484 0044 1A000000 		.4byte	.LFE36
+ 1485 0048 00000000 		.4byte	.LFB37
+ 1486 004c 14000000 		.4byte	.LFE37
+ 1487 0050 00000000 		.4byte	.LFB46
+ 1488 0054 0C000000 		.4byte	.LFE46
+ 1489 0058 00000000 		.4byte	.LFB47
+ 1490 005c 0C000000 		.4byte	.LFE47
+ 1491 0060 00000000 		.4byte	.LFB38
+ 1492 0064 54000000 		.4byte	.LFE38
+ 1493 0068 00000000 		.4byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 35
+
+
+ 1494 006c 00000000 		.4byte	0
+ 1495              		.section	.debug_line,"",%progbits
+ 1496              	.Ldebug_line0:
+ 1497 0000 E7010000 		.section	.debug_str,"MS",%progbits,1
+ 1497      0200DE00 
+ 1497      00000201 
+ 1497      FB0E0D00 
+ 1497      01010101 
+ 1498              	.LASF14:
+ 1499 0000 72656733 		.ascii	"reg32\000"
+ 1499      3200
+ 1500              	.LASF33:
+ 1501 0006 415F496E 		.ascii	"A_Interrupt_Interrupt\000"
+ 1501      74657272 
+ 1501      7570745F 
+ 1501      496E7465 
+ 1501      72727570 
+ 1502              	.LASF36:
+ 1503 001c 6D797374 		.ascii	"mystring\000"
+ 1503      72696E67 
+ 1503      00
+ 1504              	.LASF32:
+ 1505 0025 415F496E 		.ascii	"A_Interrupt_ClearPending\000"
+ 1505      74657272 
+ 1505      7570745F 
+ 1505      436C6561 
+ 1505      7250656E 
+ 1506              	.LASF37:
+ 1507 003e 43795261 		.ascii	"CyRamVectors\000"
+ 1507      6D566563 
+ 1507      746F7273 
+ 1507      00
+ 1508              	.LASF27:
+ 1509 004b 415F496E 		.ascii	"A_Interrupt_Disable\000"
+ 1509      74657272 
+ 1509      7570745F 
+ 1509      44697361 
+ 1509      626C6500 
+ 1510              	.LASF35:
+ 1511 005f 636F756E 		.ascii	"count\000"
+ 1511      7400
+ 1512              	.LASF46:
+ 1513 0065 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\HW"
+ 1513      49545C4D 
+ 1513      6963726F 
+ 1513      636F6E74 
+ 1513      726F6C6C 
+ 1514 0095 322D436C 		.ascii	"2-Cline Count Zilla\\countZilla.cydsn\000"
+ 1514      696E6520 
+ 1514      436F756E 
+ 1514      74205A69 
+ 1514      6C6C615C 
+ 1515              	.LASF26:
+ 1516 00ba 415F496E 		.ascii	"A_Interrupt_Enable\000"
+ 1516      74657272 
+ 1516      7570745F 
+ 1516      456E6162 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 36
+
+
+ 1516      6C6500
+ 1517              	.LASF40:
+ 1518 00cd 415F4275 		.ascii	"A_Button_Read\000"
+ 1518      74746F6E 
+ 1518      5F526561 
+ 1518      6400
+ 1519              	.LASF28:
+ 1520 00db 415F496E 		.ascii	"A_Interrupt_Start\000"
+ 1520      74657272 
+ 1520      7570745F 
+ 1520      53746172 
+ 1520      7400
+ 1521              	.LASF11:
+ 1522 00ed 666C6F61 		.ascii	"float\000"
+ 1522      7400
+ 1523              	.LASF0:
+ 1524 00f3 7369676E 		.ascii	"signed char\000"
+ 1524      65642063 
+ 1524      68617200 
+ 1525              	.LASF1:
+ 1526 00ff 756E7369 		.ascii	"unsigned char\000"
+ 1526      676E6564 
+ 1526      20636861 
+ 1526      7200
+ 1527              	.LASF19:
+ 1528 010d 415F496E 		.ascii	"A_Interrupt_SetPriority\000"
+ 1528      74657272 
+ 1528      7570745F 
+ 1528      53657450 
+ 1528      72696F72 
+ 1529              	.LASF22:
+ 1530 0125 696E7465 		.ascii	"interruptState\000"
+ 1530      72727570 
+ 1530      74537461 
+ 1530      746500
+ 1531              	.LASF5:
+ 1532 0134 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1532      20756E73 
+ 1532      69676E65 
+ 1532      6420696E 
+ 1532      7400
+ 1533              	.LASF3:
+ 1534 0146 73686F72 		.ascii	"short unsigned int\000"
+ 1534      7420756E 
+ 1534      7369676E 
+ 1534      65642069 
+ 1534      6E7400
+ 1535              	.LASF21:
+ 1536 0159 7072696F 		.ascii	"priority\000"
+ 1536      72697479 
+ 1536      00
+ 1537              	.LASF12:
+ 1538 0162 646F7562 		.ascii	"double\000"
+ 1538      6C6500
+ 1539              	.LASF2:
+ 1540 0169 73686F72 		.ascii	"short int\000"
+ 1540      7420696E 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 37
+
+
+ 1540      7400
+ 1541              	.LASF18:
+ 1542 0173 415F496E 		.ascii	"A_Interrupt_SetVector\000"
+ 1542      74657272 
+ 1542      7570745F 
+ 1542      53657456 
+ 1542      6563746F 
+ 1543              	.LASF10:
+ 1544 0189 75696E74 		.ascii	"uint32\000"
+ 1544      333200
+ 1545              	.LASF45:
+ 1546 0190 47656E65 		.ascii	"Generated_Source\\PSoC4\\A_Interrupt.c\000"
+ 1546      72617465 
+ 1546      645F536F 
+ 1546      75726365 
+ 1546      5C50536F 
+ 1547              	.LASF38:
+ 1548 01b5 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1548      74657243 
+ 1548      72697469 
+ 1548      63616C53 
+ 1548      65637469 
+ 1549              	.LASF8:
+ 1550 01cc 756E7369 		.ascii	"unsigned int\000"
+ 1550      676E6564 
+ 1550      20696E74 
+ 1550      00
+ 1551              	.LASF20:
+ 1552 01d9 61646472 		.ascii	"address\000"
+ 1552      65737300 
+ 1553              	.LASF7:
+ 1554 01e1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1554      206C6F6E 
+ 1554      6720756E 
+ 1554      7369676E 
+ 1554      65642069 
+ 1555              	.LASF25:
+ 1556 01f8 415F496E 		.ascii	"A_Interrupt_GetState\000"
+ 1556      74657272 
+ 1556      7570745F 
+ 1556      47657453 
+ 1556      74617465 
+ 1557              	.LASF15:
+ 1558 020d 63796973 		.ascii	"cyisraddress\000"
+ 1558      72616464 
+ 1558      72657373 
+ 1558      00
+ 1559              	.LASF42:
+ 1560 021a 474C4344 		.ascii	"GLCD_PrintString\000"
+ 1560      5F507269 
+ 1560      6E745374 
+ 1560      72696E67 
+ 1560      00
+ 1561              	.LASF44:
+ 1562 022b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1562      43313120 
+ 1562      352E342E 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 38
+
+
+ 1562      31203230 
+ 1562      31363036 
+ 1563 025e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1563      20726576 
+ 1563      6973696F 
+ 1563      6E203233 
+ 1563      37373135 
+ 1564 0291 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1564      66756E63 
+ 1564      74696F6E 
+ 1564      2D736563 
+ 1564      74696F6E 
+ 1565              	.LASF17:
+ 1566 02b9 73697A65 		.ascii	"sizetype\000"
+ 1566      74797065 
+ 1566      00
+ 1567              	.LASF6:
+ 1568 02c2 6C6F6E67 		.ascii	"long long int\000"
+ 1568      206C6F6E 
+ 1568      6720696E 
+ 1568      7400
+ 1569              	.LASF34:
+ 1570 02d0 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 1570      5F464F4E 
+ 1570      54387831 
+ 1570      3600
+ 1571              	.LASF13:
+ 1572 02de 63686172 		.ascii	"char\000"
+ 1572      00
+ 1573              	.LASF29:
+ 1574 02e3 415F496E 		.ascii	"A_Interrupt_StartEx\000"
+ 1574      74657272 
+ 1574      7570745F 
+ 1574      53746172 
+ 1574      74457800 
+ 1575              	.LASF9:
+ 1576 02f7 75696E74 		.ascii	"uint8\000"
+ 1576      3800
+ 1577              	.LASF30:
+ 1578 02fd 415F496E 		.ascii	"A_Interrupt_Stop\000"
+ 1578      74657272 
+ 1578      7570745F 
+ 1578      53746F70 
+ 1578      00
+ 1579              	.LASF39:
+ 1580 030e 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1580      69744372 
+ 1580      69746963 
+ 1580      616C5365 
+ 1580      6374696F 
+ 1581              	.LASF23:
+ 1582 0324 7072696F 		.ascii	"priorityOffset\000"
+ 1582      72697479 
+ 1582      4F666673 
+ 1582      657400
+ 1583              	.LASF4:
+ 1584 0333 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccaZW55F.s 			page 39
+
+
+ 1584      20696E74 
+ 1584      00
+ 1585              	.LASF24:
+ 1586 033c 415F496E 		.ascii	"A_Interrupt_GetVector\000"
+ 1586      74657272 
+ 1586      7570745F 
+ 1586      47657456 
+ 1586      6563746F 
+ 1587              	.LASF16:
+ 1588 0352 6C6F6E67 		.ascii	"long double\000"
+ 1588      20646F75 
+ 1588      626C6500 
+ 1589              	.LASF47:
+ 1590 035e 415F496E 		.ascii	"A_Interrupt_GetPriority\000"
+ 1590      74657272 
+ 1590      7570745F 
+ 1590      47657450 
+ 1590      72696F72 
+ 1591              	.LASF31:
+ 1592 0376 415F496E 		.ascii	"A_Interrupt_SetPending\000"
+ 1592      74657272 
+ 1592      7570745F 
+ 1592      53657450 
+ 1592      656E6469 
+ 1593              	.LASF41:
+ 1594 038d 73707269 		.ascii	"sprintf\000"
+ 1594      6E746600 
+ 1595              	.LASF43:
+ 1596 0395 43794465 		.ascii	"CyDelay\000"
+ 1596      6C617900 
+ 1597              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

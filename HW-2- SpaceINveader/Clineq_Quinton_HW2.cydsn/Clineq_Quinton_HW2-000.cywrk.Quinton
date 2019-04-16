@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Clineq_Quinton_HW2-000\Clineq_Quinton_HW2">
 <ExpandedNodeIds>
 <v>Clineq_Quinton_HW2-000</v>
 <v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
@@ -196,7 +196,6 @@
 <v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.map</v>
 <v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.gpdsc</v>
 <v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.rpt</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -247,7 +246,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1251, 751" SelectedTabbedMdiWindow="b1f8af9a-5665-43ed-8d33-15c01592349c"><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\Clineq_Quinton_HW2.cydwr" Guid="6b4c6851-a6fd-4915-a7a6-0232e75b8630" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\TopDesign\TopDesign.cysch" Guid="98bba25c-47b1-4c9c-96c1-b1a75054ac04" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\main.c" Guid="b1f8af9a-5665-43ed-8d33-15c01592349c" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1210, 751" SelectedTabbedMdiWindow="98bba25c-47b1-4c9c-96c1-b1a75054ac04"><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\Clineq_Quinton_HW2.cydwr" Guid="6b4c6851-a6fd-4915-a7a6-0232e75b8630" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\TopDesign\TopDesign.cysch" Guid="98bba25c-47b1-4c9c-96c1-b1a75054ac04" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\main.c" Guid="b1f8af9a-5665-43ed-8d33-15c01592349c" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

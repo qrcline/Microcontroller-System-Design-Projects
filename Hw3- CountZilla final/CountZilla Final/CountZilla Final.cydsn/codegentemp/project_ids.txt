@@ -1,0 +1,8 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b92ecb6b-353a-49dc-ba6d-d8c85745752b
+C:\Users\quint\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|c0a384e7-c4b4-450d-9625-0770d1c1ebf0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|b4162f73-7cd0-4347-950b-106fdc83b2f2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|c4ccb926-6ddd-41c9-a0a3-233676c7ea9f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|98015865-32ce-413f-8c65-a0834fab8d6a
+D:\GIT\Microcontroller System Design Projects\Hw3- CountZilla final\CountZilla Final\CountZilla Final.cydsn\CountZilla Final.cyprj|75b59928-9de2-4705-81b9-7c67bdf3d25a
+D:\GIT\Microcontroller System Design Projects\HW 1- Pacman\GLCD_Test1.cydsn\Shield_GLCD_Lib.cylib\Shield_GLCD_Lib.cyprj|05a0eb00-7012-4d4c-984e-32a17cdbf77b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|8b828711-7cb0-4c70-9561-9ee2f7ed54a3

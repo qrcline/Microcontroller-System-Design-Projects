@@ -1,0 +1,18 @@
+# countZilla
+# 2019-04-15 23:30:30Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "\GLCD:Reset(0)\" iocell 3 1
+set_io "\GLCD:SCLK(0)\" iocell 3 6
+set_io "\GLCD:MOSI(0)\" iocell 3 4
+set_io "\GLCD:SS(0)\" iocell 0 6
+set_io "Backlight(0)" iocell 3 0
+set_io "A_Button(0)" iocell 0 7
+set_io "B_Button(0)" iocell 3 7
+set_io "C_Button(0)" iocell 0 0
+set_io "D_Button(0)" iocell 3 5
+set_io "StickButton(0)" iocell 2 6
