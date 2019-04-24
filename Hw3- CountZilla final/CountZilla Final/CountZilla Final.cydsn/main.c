@@ -41,8 +41,9 @@ int main(void)
    
      
         while(1) {
-	       // sprintf(mystring, "%5d", count);
-            //GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
+            //This updates the display with the current count number
+	        sprintf(mystring, "%5d", count);
+            GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
           
 
          }

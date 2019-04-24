@@ -170,21 +170,23 @@ CY_ISR(B_Interrupt_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START B_Interrupt_Interrupt` */
-    
+  
+  //Don't do anything when the button is not pushed
   while (B_Button_Read() == !PUSHED);
 
             
             //CyDelay(25);
-	
+	        //While the button is pushed increment the counter and print to the screen
+            //The CyDelay sets how the fast the counter will go up 
             while (B_Button_Read() == PUSHED)
             {  
-                count++;
+                 count++;//Increment the counter
                  sprintf(mystring, "%5d", count);
-            GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
-                 CyDelay(10); 
+                 GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
+                 CyDelay(30); 
             }
   
-            B_Interrupt_ClearPending(); 
+            B_Interrupt_ClearPending(); //Needed to make other interupts work
     
 
     /* `#END` */

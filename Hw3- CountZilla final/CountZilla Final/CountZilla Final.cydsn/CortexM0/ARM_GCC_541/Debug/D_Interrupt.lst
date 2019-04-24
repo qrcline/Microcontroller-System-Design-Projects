@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
   28:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************/
   29:Generated_Source\PSoC4/D_Interrupt.c **** /* `#START D_Interrupt_intc` */
   30:Generated_Source\PSoC4/D_Interrupt.c ****    #include "project.h"
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 2
 
 
   31:Generated_Source\PSoC4/D_Interrupt.c **** #include <stdio.h>
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
   85:Generated_Source\PSoC4/D_Interrupt.c **** *  
   86:Generated_Source\PSoC4/D_Interrupt.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
   87:Generated_Source\PSoC4/D_Interrupt.c **** *  used to provide consistent definition across compilers:
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 3
 
 
   88:Generated_Source\PSoC4/D_Interrupt.c **** *  
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  142:Generated_Source\PSoC4/D_Interrupt.c **** 
  143:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
  144:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_Interrupt
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 4
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 4
 
 
  145:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
@@ -207,67 +207,69 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  168:Generated_Source\PSoC4/D_Interrupt.c **** 
  169:Generated_Source\PSoC4/D_Interrupt.c ****     /*  Place your Interrupt code here. */
  170:Generated_Source\PSoC4/D_Interrupt.c ****     /* `#START D_Interrupt_Interrupt` */
- 171:Generated_Source\PSoC4/D_Interrupt.c ****     while (D_Button_Read() == !PUSHED);
- 172:Generated_Source\PSoC4/D_Interrupt.c **** 
- 173:Generated_Source\PSoC4/D_Interrupt.c ****             //CyDelay(25);
- 174:Generated_Source\PSoC4/D_Interrupt.c **** 	
- 175:Generated_Source\PSoC4/D_Interrupt.c ****             while (D_Button_Read() == PUSHED)
- 176:Generated_Source\PSoC4/D_Interrupt.c ****             {  
- 177:Generated_Source\PSoC4/D_Interrupt.c ****                 count--;
- 178:Generated_Source\PSoC4/D_Interrupt.c ****                  //sprintf(mystring, "%5d", count);
- 179:Generated_Source\PSoC4/D_Interrupt.c ****             //GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
- 180:Generated_Source\PSoC4/D_Interrupt.c ****                  CyDelay(10); 
- 181:Generated_Source\PSoC4/D_Interrupt.c ****             }
- 182:Generated_Source\PSoC4/D_Interrupt.c ****   
- 183:Generated_Source\PSoC4/D_Interrupt.c ****             D_Interrupt_ClearPending(); 
- 184:Generated_Source\PSoC4/D_Interrupt.c ****     /* `#END` */
- 185:Generated_Source\PSoC4/D_Interrupt.c **** }
- 186:Generated_Source\PSoC4/D_Interrupt.c **** 
- 187:Generated_Source\PSoC4/D_Interrupt.c **** 
- 188:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
- 189:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_SetVector
- 190:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
- 191:Generated_Source\PSoC4/D_Interrupt.c **** *
- 192:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 193:Generated_Source\PSoC4/D_Interrupt.c **** *   Change the ISR vector for the Interrupt. Note calling D_Interrupt_Start
- 194:Generated_Source\PSoC4/D_Interrupt.c **** *   will override any effect this method would have had. To set the vector 
- 195:Generated_Source\PSoC4/D_Interrupt.c **** *   before the component has been started use D_Interrupt_StartEx instead.
- 196:Generated_Source\PSoC4/D_Interrupt.c **** * 
- 197:Generated_Source\PSoC4/D_Interrupt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
- 198:Generated_Source\PSoC4/D_Interrupt.c **** *   used to provide consistent definition across compilers:
- 199:Generated_Source\PSoC4/D_Interrupt.c **** *
- 200:Generated_Source\PSoC4/D_Interrupt.c **** *   Function definition example:
- 201:Generated_Source\PSoC4/D_Interrupt.c **** *   CY_ISR(MyISR)
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 5
+ 171:Generated_Source\PSoC4/D_Interrupt.c ****     
+ 172:Generated_Source\PSoC4/D_Interrupt.c ****     //Decrements the pointer 10 times a second when pressed
+ 173:Generated_Source\PSoC4/D_Interrupt.c ****     while (D_Button_Read() == !PUSHED);
+ 174:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 175:Generated_Source\PSoC4/D_Interrupt.c ****             //CyDelay(25);
+ 176:Generated_Source\PSoC4/D_Interrupt.c **** 	
+ 177:Generated_Source\PSoC4/D_Interrupt.c ****             while (D_Button_Read() == PUSHED)
+ 178:Generated_Source\PSoC4/D_Interrupt.c ****             {  
+ 179:Generated_Source\PSoC4/D_Interrupt.c ****                 count--;
+ 180:Generated_Source\PSoC4/D_Interrupt.c ****                  //sprintf(mystring, "%5d", count);
+ 181:Generated_Source\PSoC4/D_Interrupt.c ****             //GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
+ 182:Generated_Source\PSoC4/D_Interrupt.c ****                  CyDelay(50); 
+ 183:Generated_Source\PSoC4/D_Interrupt.c ****             }
+ 184:Generated_Source\PSoC4/D_Interrupt.c ****   
+ 185:Generated_Source\PSoC4/D_Interrupt.c ****             D_Interrupt_ClearPending(); 
+ 186:Generated_Source\PSoC4/D_Interrupt.c ****     /* `#END` */
+ 187:Generated_Source\PSoC4/D_Interrupt.c **** }
+ 188:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 189:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 190:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ 191:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_SetVector
+ 192:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 193:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 194:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 195:Generated_Source\PSoC4/D_Interrupt.c **** *   Change the ISR vector for the Interrupt. Note calling D_Interrupt_Start
+ 196:Generated_Source\PSoC4/D_Interrupt.c **** *   will override any effect this method would have had. To set the vector 
+ 197:Generated_Source\PSoC4/D_Interrupt.c **** *   before the component has been started use D_Interrupt_StartEx instead.
+ 198:Generated_Source\PSoC4/D_Interrupt.c **** * 
+ 199:Generated_Source\PSoC4/D_Interrupt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 200:Generated_Source\PSoC4/D_Interrupt.c **** *   used to provide consistent definition across compilers:
+ 201:Generated_Source\PSoC4/D_Interrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 5
 
 
- 202:Generated_Source\PSoC4/D_Interrupt.c **** *   {
- 203:Generated_Source\PSoC4/D_Interrupt.c **** *   }
- 204:Generated_Source\PSoC4/D_Interrupt.c **** *
- 205:Generated_Source\PSoC4/D_Interrupt.c **** *   Function prototype example:
- 206:Generated_Source\PSoC4/D_Interrupt.c **** *     CY_ISR_PROTO(MyISR);
- 207:Generated_Source\PSoC4/D_Interrupt.c **** *
- 208:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 209:Generated_Source\PSoC4/D_Interrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
- 210:Generated_Source\PSoC4/D_Interrupt.c **** *
- 211:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
- 212:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 213:Generated_Source\PSoC4/D_Interrupt.c **** *
- 214:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 215:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_SetVector(cyisraddress address)
- 216:Generated_Source\PSoC4/D_Interrupt.c **** {
-  28              		.loc 1 216 0
+ 202:Generated_Source\PSoC4/D_Interrupt.c **** *   Function definition example:
+ 203:Generated_Source\PSoC4/D_Interrupt.c **** *   CY_ISR(MyISR)
+ 204:Generated_Source\PSoC4/D_Interrupt.c **** *   {
+ 205:Generated_Source\PSoC4/D_Interrupt.c **** *   }
+ 206:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 207:Generated_Source\PSoC4/D_Interrupt.c **** *   Function prototype example:
+ 208:Generated_Source\PSoC4/D_Interrupt.c **** *     CY_ISR_PROTO(MyISR);
+ 209:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 210:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 211:Generated_Source\PSoC4/D_Interrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 212:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 213:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 214:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 215:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 216:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 217:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_SetVector(cyisraddress address)
+ 218:Generated_Source\PSoC4/D_Interrupt.c **** {
+  28              		.loc 1 218 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.LVL0:
- 217:Generated_Source\PSoC4/D_Interrupt.c ****     CyRamVectors[CYINT_IRQ_BASE + D_Interrupt__INTC_NUMBER] = address;
-  34              		.loc 1 217 0
+ 219:Generated_Source\PSoC4/D_Interrupt.c ****     CyRamVectors[CYINT_IRQ_BASE + D_Interrupt__INTC_NUMBER] = address;
+  34              		.loc 1 219 0
   35 0000 014B     		ldr	r3, .L2
   36 0002 1865     		str	r0, [r3, #80]
- 218:Generated_Source\PSoC4/D_Interrupt.c **** }
-  37              		.loc 1 218 0
+ 220:Generated_Source\PSoC4/D_Interrupt.c **** }
+  37              		.loc 1 220 0
   38              		@ sp needed
   39 0004 7047     		bx	lr
   40              	.L3:
@@ -285,38 +287,38 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
   52              		.type	D_Interrupt_GetVector, %function
   53              	D_Interrupt_GetVector:
   54              	.LFB38:
- 219:Generated_Source\PSoC4/D_Interrupt.c **** 
- 220:Generated_Source\PSoC4/D_Interrupt.c **** 
- 221:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
- 222:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_GetVector
- 223:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
- 224:Generated_Source\PSoC4/D_Interrupt.c **** *
- 225:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 226:Generated_Source\PSoC4/D_Interrupt.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
- 227:Generated_Source\PSoC4/D_Interrupt.c **** *
- 228:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 229:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 230:Generated_Source\PSoC4/D_Interrupt.c **** *
- 231:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 6
+ 221:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 222:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 223:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_GetVector
+ 225:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 226:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 227:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 228:Generated_Source\PSoC4/D_Interrupt.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 229:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 230:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 231:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 6
 
 
- 232:Generated_Source\PSoC4/D_Interrupt.c **** *   Address of the ISR in the interrupt vector table.
- 233:Generated_Source\PSoC4/D_Interrupt.c **** *
- 234:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 235:Generated_Source\PSoC4/D_Interrupt.c **** cyisraddress D_Interrupt_GetVector(void)
- 236:Generated_Source\PSoC4/D_Interrupt.c **** {
-  55              		.loc 1 236 0
+ 232:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 233:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 234:Generated_Source\PSoC4/D_Interrupt.c **** *   Address of the ISR in the interrupt vector table.
+ 235:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 236:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC4/D_Interrupt.c **** cyisraddress D_Interrupt_GetVector(void)
+ 238:Generated_Source\PSoC4/D_Interrupt.c **** {
+  55              		.loc 1 238 0
   56              		.cfi_startproc
   57              		@ args = 0, pretend = 0, frame = 0
   58              		@ frame_needed = 0, uses_anonymous_args = 0
   59              		@ link register save eliminated.
- 237:Generated_Source\PSoC4/D_Interrupt.c ****     return CyRamVectors[CYINT_IRQ_BASE + D_Interrupt__INTC_NUMBER];
-  60              		.loc 1 237 0
+ 239:Generated_Source\PSoC4/D_Interrupt.c ****     return CyRamVectors[CYINT_IRQ_BASE + D_Interrupt__INTC_NUMBER];
+  60              		.loc 1 239 0
   61 0000 014B     		ldr	r3, .L5
   62 0002 186D     		ldr	r0, [r3, #80]
- 238:Generated_Source\PSoC4/D_Interrupt.c **** }
-  63              		.loc 1 238 0
+ 240:Generated_Source\PSoC4/D_Interrupt.c **** }
+  63              		.loc 1 240 0
   64              		@ sp needed
   65 0004 7047     		bx	lr
   66              	.L6:
@@ -334,38 +336,38 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
   78              		.type	D_Interrupt_SetPriority, %function
   79              	D_Interrupt_SetPriority:
   80              	.LFB39:
- 239:Generated_Source\PSoC4/D_Interrupt.c **** 
- 240:Generated_Source\PSoC4/D_Interrupt.c **** 
- 241:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
- 242:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_SetPriority
- 243:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
- 244:Generated_Source\PSoC4/D_Interrupt.c **** *
- 245:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 246:Generated_Source\PSoC4/D_Interrupt.c **** *   Sets the Priority of the Interrupt. 
- 247:Generated_Source\PSoC4/D_Interrupt.c **** *
- 248:Generated_Source\PSoC4/D_Interrupt.c **** *   Note calling D_Interrupt_Start or D_Interrupt_StartEx will 
- 249:Generated_Source\PSoC4/D_Interrupt.c **** *   override any effect this API would have had. This API should only be called
- 250:Generated_Source\PSoC4/D_Interrupt.c **** *   after D_Interrupt_Start or D_Interrupt_StartEx has been called. 
- 251:Generated_Source\PSoC4/D_Interrupt.c **** *   To set the initial priority for the component, use the Design-Wide Resources
- 252:Generated_Source\PSoC4/D_Interrupt.c **** *   Interrupt Editor.
- 253:Generated_Source\PSoC4/D_Interrupt.c **** *
- 254:Generated_Source\PSoC4/D_Interrupt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 241:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 242:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 243:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_SetPriority
+ 245:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 246:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 247:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 248:Generated_Source\PSoC4/D_Interrupt.c **** *   Sets the Priority of the Interrupt. 
+ 249:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 250:Generated_Source\PSoC4/D_Interrupt.c **** *   Note calling D_Interrupt_Start or D_Interrupt_StartEx will 
+ 251:Generated_Source\PSoC4/D_Interrupt.c **** *   override any effect this API would have had. This API should only be called
+ 252:Generated_Source\PSoC4/D_Interrupt.c **** *   after D_Interrupt_Start or D_Interrupt_StartEx has been called. 
+ 253:Generated_Source\PSoC4/D_Interrupt.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 254:Generated_Source\PSoC4/D_Interrupt.c **** *   Interrupt Editor.
  255:Generated_Source\PSoC4/D_Interrupt.c **** *
- 256:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 257:Generated_Source\PSoC4/D_Interrupt.c **** *   priority: Priority of the interrupt, 0 being the highest priority
- 258:Generated_Source\PSoC4/D_Interrupt.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 259:Generated_Source\PSoC4/D_Interrupt.c **** *             PSoC 4: Priority is from 0 to 3.
- 260:Generated_Source\PSoC4/D_Interrupt.c **** *
- 261:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
- 262:Generated_Source\PSoC4/D_Interrupt.c **** *   None
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 7
+ 256:Generated_Source\PSoC4/D_Interrupt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 257:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 258:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 259:Generated_Source\PSoC4/D_Interrupt.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 260:Generated_Source\PSoC4/D_Interrupt.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 261:Generated_Source\PSoC4/D_Interrupt.c **** *             PSoC 4: Priority is from 0 to 3.
+ 262:Generated_Source\PSoC4/D_Interrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 7
 
 
- 263:Generated_Source\PSoC4/D_Interrupt.c **** *
- 264:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 265:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_SetPriority(uint8 priority)
- 266:Generated_Source\PSoC4/D_Interrupt.c **** {
-  81              		.loc 1 266 0
+ 263:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 264:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 265:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 266:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 267:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_SetPriority(uint8 priority)
+ 268:Generated_Source\PSoC4/D_Interrupt.c **** {
+  81              		.loc 1 268 0
   82              		.cfi_startproc
   83              		@ args = 0, pretend = 0, frame = 0
   84              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -376,32 +378,32 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
   89              		.cfi_offset 14, -4
   90 0002 0400     		movs	r4, r0
   91              	.LVL2:
- 267:Generated_Source\PSoC4/D_Interrupt.c **** 	uint8 interruptState;
- 268:Generated_Source\PSoC4/D_Interrupt.c ****     uint32 priorityOffset = ((D_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
- 269:Generated_Source\PSoC4/D_Interrupt.c ****     
- 270:Generated_Source\PSoC4/D_Interrupt.c **** 	interruptState = CyEnterCriticalSection();
-  92              		.loc 1 270 0
+ 269:Generated_Source\PSoC4/D_Interrupt.c **** 	uint8 interruptState;
+ 270:Generated_Source\PSoC4/D_Interrupt.c ****     uint32 priorityOffset = ((D_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 271:Generated_Source\PSoC4/D_Interrupt.c ****     
+ 272:Generated_Source\PSoC4/D_Interrupt.c **** 	interruptState = CyEnterCriticalSection();
+  92              		.loc 1 272 0
   93 0004 FFF7FEFF 		bl	CyEnterCriticalSection
   94              	.LVL3:
- 271:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_PRIOR = (*D_Interrupt_INTC_PRIOR & (uint32)(~D_Interrupt__INTC_PRIOR_MASK)) |
-  95              		.loc 1 271 0
+ 273:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_PRIOR = (*D_Interrupt_INTC_PRIOR & (uint32)(~D_Interrupt__INTC_PRIOR_MASK)) |
+  95              		.loc 1 273 0
   96 0008 044A     		ldr	r2, .L8
   97 000a 1368     		ldr	r3, [r2]
   98 000c C021     		movs	r1, #192
   99 000e 8B43     		bics	r3, r1
- 272:Generated_Source\PSoC4/D_Interrupt.c ****                                     ((uint32)priority << priorityOffset);
- 100              		.loc 1 272 0
+ 274:Generated_Source\PSoC4/D_Interrupt.c ****                                     ((uint32)priority << priorityOffset);
+ 100              		.loc 1 274 0
  101 0010 A401     		lsls	r4, r4, #6
- 271:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_PRIOR = (*D_Interrupt_INTC_PRIOR & (uint32)(~D_Interrupt__INTC_PRIOR_MASK)) |
- 102              		.loc 1 271 0
+ 273:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_PRIOR = (*D_Interrupt_INTC_PRIOR & (uint32)(~D_Interrupt__INTC_PRIOR_MASK)) |
+ 102              		.loc 1 273 0
  103 0012 1C43     		orrs	r4, r3
  104 0014 1460     		str	r4, [r2]
- 273:Generated_Source\PSoC4/D_Interrupt.c **** 	CyExitCriticalSection(interruptState);
- 105              		.loc 1 273 0
+ 275:Generated_Source\PSoC4/D_Interrupt.c **** 	CyExitCriticalSection(interruptState);
+ 105              		.loc 1 275 0
  106 0016 FFF7FEFF 		bl	CyExitCriticalSection
  107              	.LVL4:
- 274:Generated_Source\PSoC4/D_Interrupt.c **** }
- 108              		.loc 1 274 0
+ 276:Generated_Source\PSoC4/D_Interrupt.c **** }
+ 108              		.loc 1 276 0
  109              		@ sp needed
  110 001a 10BD     		pop	{r4, pc}
  111              	.L9:
@@ -416,55 +418,55 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  120              		.global	D_Interrupt_GetPriority
  121              		.code	16
  122              		.thumb_func
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 8
+
+
  123              		.type	D_Interrupt_GetPriority, %function
  124              	D_Interrupt_GetPriority:
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 8
-
-
  125              	.LFB40:
- 275:Generated_Source\PSoC4/D_Interrupt.c **** 
- 276:Generated_Source\PSoC4/D_Interrupt.c **** 
- 277:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
- 278:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_GetPriority
- 279:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
- 280:Generated_Source\PSoC4/D_Interrupt.c **** *
- 281:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 282:Generated_Source\PSoC4/D_Interrupt.c **** *   Gets the Priority of the Interrupt.
- 283:Generated_Source\PSoC4/D_Interrupt.c **** *
- 284:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 285:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 286:Generated_Source\PSoC4/D_Interrupt.c **** *
- 287:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
- 288:Generated_Source\PSoC4/D_Interrupt.c **** *   Priority of the interrupt, 0 being the highest priority
- 289:Generated_Source\PSoC4/D_Interrupt.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 290:Generated_Source\PSoC4/D_Interrupt.c **** *    PSoC 4: Priority is from 0 to 3.
- 291:Generated_Source\PSoC4/D_Interrupt.c **** *
- 292:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 293:Generated_Source\PSoC4/D_Interrupt.c **** uint8 D_Interrupt_GetPriority(void)
- 294:Generated_Source\PSoC4/D_Interrupt.c **** {
- 126              		.loc 1 294 0
+ 277:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 278:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 279:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ 280:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_GetPriority
+ 281:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 282:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 283:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 284:Generated_Source\PSoC4/D_Interrupt.c **** *   Gets the Priority of the Interrupt.
+ 285:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 286:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 287:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 288:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 289:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 290:Generated_Source\PSoC4/D_Interrupt.c **** *   Priority of the interrupt, 0 being the highest priority
+ 291:Generated_Source\PSoC4/D_Interrupt.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 292:Generated_Source\PSoC4/D_Interrupt.c **** *    PSoC 4: Priority is from 0 to 3.
+ 293:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 294:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 295:Generated_Source\PSoC4/D_Interrupt.c **** uint8 D_Interrupt_GetPriority(void)
+ 296:Generated_Source\PSoC4/D_Interrupt.c **** {
+ 126              		.loc 1 296 0
  127              		.cfi_startproc
  128              		@ args = 0, pretend = 0, frame = 0
  129              		@ frame_needed = 0, uses_anonymous_args = 0
  130              		@ link register save eliminated.
  131              	.LVL5:
- 295:Generated_Source\PSoC4/D_Interrupt.c ****     uint32 priority;
- 296:Generated_Source\PSoC4/D_Interrupt.c **** 	uint32 priorityOffset = ((D_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
- 297:Generated_Source\PSoC4/D_Interrupt.c **** 
- 298:Generated_Source\PSoC4/D_Interrupt.c ****     priority = (*D_Interrupt_INTC_PRIOR & D_Interrupt__INTC_PRIOR_MASK) >> priorityOffset;
- 132              		.loc 1 298 0
+ 297:Generated_Source\PSoC4/D_Interrupt.c ****     uint32 priority;
+ 298:Generated_Source\PSoC4/D_Interrupt.c **** 	uint32 priorityOffset = ((D_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 299:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 300:Generated_Source\PSoC4/D_Interrupt.c ****     priority = (*D_Interrupt_INTC_PRIOR & D_Interrupt__INTC_PRIOR_MASK) >> priorityOffset;
+ 132              		.loc 1 300 0
  133 0000 024B     		ldr	r3, .L11
  134 0002 1868     		ldr	r0, [r3]
  135 0004 8009     		lsrs	r0, r0, #6
  136              	.LVL6:
- 299:Generated_Source\PSoC4/D_Interrupt.c **** 
- 300:Generated_Source\PSoC4/D_Interrupt.c ****     return (uint8)priority;
- 137              		.loc 1 300 0
+ 301:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 302:Generated_Source\PSoC4/D_Interrupt.c ****     return (uint8)priority;
+ 137              		.loc 1 302 0
  138 0006 0323     		movs	r3, #3
  139 0008 1840     		ands	r0, r3
  140              	.LVL7:
- 301:Generated_Source\PSoC4/D_Interrupt.c **** }
- 141              		.loc 1 301 0
+ 303:Generated_Source\PSoC4/D_Interrupt.c **** }
+ 141              		.loc 1 303 0
  142              		@ sp needed
  143 000a 7047     		bx	lr
  144              	.L12:
@@ -476,48 +478,48 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  150              		.size	D_Interrupt_GetPriority, .-D_Interrupt_GetPriority
  151              		.section	.text.D_Interrupt_Enable,"ax",%progbits
  152              		.align	2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 9
+
+
  153              		.global	D_Interrupt_Enable
  154              		.code	16
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 9
-
-
  155              		.thumb_func
  156              		.type	D_Interrupt_Enable, %function
  157              	D_Interrupt_Enable:
  158              	.LFB41:
- 302:Generated_Source\PSoC4/D_Interrupt.c **** 
- 303:Generated_Source\PSoC4/D_Interrupt.c **** 
- 304:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
- 305:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_Enable
- 306:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
- 307:Generated_Source\PSoC4/D_Interrupt.c **** *
- 308:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 309:Generated_Source\PSoC4/D_Interrupt.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
- 310:Generated_Source\PSoC4/D_Interrupt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
- 311:Generated_Source\PSoC4/D_Interrupt.c **** *   function, which sets the vector and the priority, has been called.
- 312:Generated_Source\PSoC4/D_Interrupt.c **** *
- 313:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 314:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 315:Generated_Source\PSoC4/D_Interrupt.c **** *
- 316:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
- 317:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 318:Generated_Source\PSoC4/D_Interrupt.c **** *
- 319:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 320:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_Enable(void)
- 321:Generated_Source\PSoC4/D_Interrupt.c **** {
- 159              		.loc 1 321 0
+ 304:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 305:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 306:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ 307:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_Enable
+ 308:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 309:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 310:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 311:Generated_Source\PSoC4/D_Interrupt.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 312:Generated_Source\PSoC4/D_Interrupt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 313:Generated_Source\PSoC4/D_Interrupt.c **** *   function, which sets the vector and the priority, has been called.
+ 314:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 315:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 316:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 317:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 318:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 319:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 320:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 321:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 322:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_Enable(void)
+ 323:Generated_Source\PSoC4/D_Interrupt.c **** {
+ 159              		.loc 1 323 0
  160              		.cfi_startproc
  161              		@ args = 0, pretend = 0, frame = 0
  162              		@ frame_needed = 0, uses_anonymous_args = 0
  163              		@ link register save eliminated.
- 322:Generated_Source\PSoC4/D_Interrupt.c ****     /* Enable the general interrupt. */
- 323:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_SET_EN = D_Interrupt__INTC_MASK;
- 164              		.loc 1 323 0
+ 324:Generated_Source\PSoC4/D_Interrupt.c ****     /* Enable the general interrupt. */
+ 325:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_SET_EN = D_Interrupt__INTC_MASK;
+ 164              		.loc 1 325 0
  165 0000 1022     		movs	r2, #16
  166 0002 014B     		ldr	r3, .L14
  167 0004 1A60     		str	r2, [r3]
- 324:Generated_Source\PSoC4/D_Interrupt.c **** }
- 168              		.loc 1 324 0
+ 326:Generated_Source\PSoC4/D_Interrupt.c **** }
+ 168              		.loc 1 326 0
  169              		@ sp needed
  170 0006 7047     		bx	lr
  171              	.L15:
@@ -535,35 +537,35 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  183              		.type	D_Interrupt_GetState, %function
  184              	D_Interrupt_GetState:
  185              	.LFB42:
- 325:Generated_Source\PSoC4/D_Interrupt.c **** 
- 326:Generated_Source\PSoC4/D_Interrupt.c **** 
- 327:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 10
+ 327:Generated_Source\PSoC4/D_Interrupt.c **** 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 10
 
 
- 328:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_GetState
- 329:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
- 330:Generated_Source\PSoC4/D_Interrupt.c **** *
- 331:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 332:Generated_Source\PSoC4/D_Interrupt.c **** *   Gets the state (enabled, disabled) of the Interrupt.
- 333:Generated_Source\PSoC4/D_Interrupt.c **** *
- 334:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 335:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 336:Generated_Source\PSoC4/D_Interrupt.c **** *
- 337:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
- 338:Generated_Source\PSoC4/D_Interrupt.c **** *   1 if enabled, 0 if disabled.
- 339:Generated_Source\PSoC4/D_Interrupt.c **** *
- 340:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 341:Generated_Source\PSoC4/D_Interrupt.c **** uint8 D_Interrupt_GetState(void)
- 342:Generated_Source\PSoC4/D_Interrupt.c **** {
- 186              		.loc 1 342 0
+ 328:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 329:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ 330:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_GetState
+ 331:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 332:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 333:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 334:Generated_Source\PSoC4/D_Interrupt.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 335:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 336:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 337:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 338:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 339:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 340:Generated_Source\PSoC4/D_Interrupt.c **** *   1 if enabled, 0 if disabled.
+ 341:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 342:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 343:Generated_Source\PSoC4/D_Interrupt.c **** uint8 D_Interrupt_GetState(void)
+ 344:Generated_Source\PSoC4/D_Interrupt.c **** {
+ 186              		.loc 1 344 0
  187              		.cfi_startproc
  188              		@ args = 0, pretend = 0, frame = 0
  189              		@ frame_needed = 0, uses_anonymous_args = 0
  190              		@ link register save eliminated.
- 343:Generated_Source\PSoC4/D_Interrupt.c ****     /* Get the state of the general interrupt. */
- 344:Generated_Source\PSoC4/D_Interrupt.c ****     return ((*D_Interrupt_INTC_SET_EN & (uint32)D_Interrupt__INTC_MASK) != 0u) ? 1u:0u;
- 191              		.loc 1 344 0
+ 345:Generated_Source\PSoC4/D_Interrupt.c ****     /* Get the state of the general interrupt. */
+ 346:Generated_Source\PSoC4/D_Interrupt.c ****     return ((*D_Interrupt_INTC_SET_EN & (uint32)D_Interrupt__INTC_MASK) != 0u) ? 1u:0u;
+ 191              		.loc 1 346 0
  192 0000 034B     		ldr	r3, .L19
  193 0002 1B68     		ldr	r3, [r3]
  194 0004 DB06     		lsls	r3, r3, #27
@@ -573,8 +575,8 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  198              	.L18:
  199 000c 0020     		movs	r0, #0
  200              	.L17:
- 345:Generated_Source\PSoC4/D_Interrupt.c **** }
- 201              		.loc 1 345 0 discriminator 4
+ 347:Generated_Source\PSoC4/D_Interrupt.c **** }
+ 201              		.loc 1 347 0 discriminator 4
  202              		@ sp needed
  203 000e 7047     		bx	lr
  204              	.L20:
@@ -592,40 +594,40 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  216              		.type	D_Interrupt_Disable, %function
  217              	D_Interrupt_Disable:
  218              	.LFB43:
- 346:Generated_Source\PSoC4/D_Interrupt.c **** 
- 347:Generated_Source\PSoC4/D_Interrupt.c **** 
- 348:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
- 349:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_Disable
- 350:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
- 351:Generated_Source\PSoC4/D_Interrupt.c **** *
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 11
+ 348:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 349:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 350:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ 351:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_Disable
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 11
 
 
- 352:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 353:Generated_Source\PSoC4/D_Interrupt.c **** *   Disables the Interrupt in the interrupt controller.
- 354:Generated_Source\PSoC4/D_Interrupt.c **** *
- 355:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 356:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 357:Generated_Source\PSoC4/D_Interrupt.c **** *
- 358:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
- 359:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 360:Generated_Source\PSoC4/D_Interrupt.c **** *
- 361:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 362:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_Disable(void)
- 363:Generated_Source\PSoC4/D_Interrupt.c **** {
- 219              		.loc 1 363 0
+ 352:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 353:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 354:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 355:Generated_Source\PSoC4/D_Interrupt.c **** *   Disables the Interrupt in the interrupt controller.
+ 356:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 357:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 358:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 359:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 360:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 361:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 362:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 363:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 364:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_Disable(void)
+ 365:Generated_Source\PSoC4/D_Interrupt.c **** {
+ 219              		.loc 1 365 0
  220              		.cfi_startproc
  221              		@ args = 0, pretend = 0, frame = 0
  222              		@ frame_needed = 0, uses_anonymous_args = 0
  223              		@ link register save eliminated.
- 364:Generated_Source\PSoC4/D_Interrupt.c ****     /* Disable the general interrupt. */
- 365:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_CLR_EN = D_Interrupt__INTC_MASK;
- 224              		.loc 1 365 0
+ 366:Generated_Source\PSoC4/D_Interrupt.c ****     /* Disable the general interrupt. */
+ 367:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_CLR_EN = D_Interrupt__INTC_MASK;
+ 224              		.loc 1 367 0
  225 0000 1022     		movs	r2, #16
  226 0002 014B     		ldr	r3, .L22
  227 0004 1A60     		str	r2, [r3]
- 366:Generated_Source\PSoC4/D_Interrupt.c **** }
- 228              		.loc 1 366 0
+ 368:Generated_Source\PSoC4/D_Interrupt.c **** }
+ 228              		.loc 1 368 0
  229              		@ sp needed
  230 0006 7047     		bx	lr
  231              	.L23:
@@ -656,11 +658,11 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  254              		.loc 1 63 0
  255 0002 FFF7FEFF 		bl	D_Interrupt_Disable
  256              	.LVL8:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 12
+
+
   66:Generated_Source\PSoC4/D_Interrupt.c **** 
  257              		.loc 1 66 0
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 12
-
-
  258 0006 0448     		ldr	r0, .L25
  259 0008 FFF7FEFF 		bl	D_Interrupt_SetVector
  260              	.LVL9:
@@ -716,11 +718,11 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  303              		.loc 1 112 0
  304 000e 0320     		movs	r0, #3
  305 0010 FFF7FEFF 		bl	D_Interrupt_SetPriority
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 13
+
+
  306              	.LVL15:
  115:Generated_Source\PSoC4/D_Interrupt.c **** }
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 13
-
-
  307              		.loc 1 115 0
  308 0014 FFF7FEFF 		bl	D_Interrupt_Enable
  309              	.LVL16:
@@ -776,46 +778,46 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  354              		.thumb_func
  355              		.type	D_Interrupt_SetPending, %function
  356              	D_Interrupt_SetPending:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 14
+
+
  357              	.LFB44:
- 367:Generated_Source\PSoC4/D_Interrupt.c **** 
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 14
-
-
- 368:Generated_Source\PSoC4/D_Interrupt.c **** 
- 369:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
- 370:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_SetPending
- 371:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
- 372:Generated_Source\PSoC4/D_Interrupt.c **** *
- 373:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 374:Generated_Source\PSoC4/D_Interrupt.c **** *   Causes the Interrupt to enter the pending state, a software method of
- 375:Generated_Source\PSoC4/D_Interrupt.c **** *   generating the interrupt.
- 376:Generated_Source\PSoC4/D_Interrupt.c **** *
- 377:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 378:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 379:Generated_Source\PSoC4/D_Interrupt.c **** *
- 380:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
- 381:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 382:Generated_Source\PSoC4/D_Interrupt.c **** *
- 383:Generated_Source\PSoC4/D_Interrupt.c **** * Side Effects:
- 384:Generated_Source\PSoC4/D_Interrupt.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
- 385:Generated_Source\PSoC4/D_Interrupt.c **** *   entered (depending on the priority of this interrupt and other pending 
- 386:Generated_Source\PSoC4/D_Interrupt.c **** *   interrupts).
- 387:Generated_Source\PSoC4/D_Interrupt.c **** *
- 388:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 389:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_SetPending(void)
- 390:Generated_Source\PSoC4/D_Interrupt.c **** {
- 358              		.loc 1 390 0
+ 369:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 370:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 371:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ 372:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_SetPending
+ 373:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 374:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 375:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 376:Generated_Source\PSoC4/D_Interrupt.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 377:Generated_Source\PSoC4/D_Interrupt.c **** *   generating the interrupt.
+ 378:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 379:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 380:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 381:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 382:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 383:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 384:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 385:Generated_Source\PSoC4/D_Interrupt.c **** * Side Effects:
+ 386:Generated_Source\PSoC4/D_Interrupt.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 387:Generated_Source\PSoC4/D_Interrupt.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 388:Generated_Source\PSoC4/D_Interrupt.c **** *   interrupts).
+ 389:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 390:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 391:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_SetPending(void)
+ 392:Generated_Source\PSoC4/D_Interrupt.c **** {
+ 358              		.loc 1 392 0
  359              		.cfi_startproc
  360              		@ args = 0, pretend = 0, frame = 0
  361              		@ frame_needed = 0, uses_anonymous_args = 0
  362              		@ link register save eliminated.
- 391:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_SET_PD = D_Interrupt__INTC_MASK;
- 363              		.loc 1 391 0
+ 393:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_SET_PD = D_Interrupt__INTC_MASK;
+ 363              		.loc 1 393 0
  364 0000 1022     		movs	r2, #16
  365 0002 014B     		ldr	r3, .L32
  366 0004 1A60     		str	r2, [r3]
- 392:Generated_Source\PSoC4/D_Interrupt.c **** }
- 367              		.loc 1 392 0
+ 394:Generated_Source\PSoC4/D_Interrupt.c **** }
+ 367              		.loc 1 394 0
  368              		@ sp needed
  369 0006 7047     		bx	lr
  370              	.L33:
@@ -833,44 +835,44 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  382              		.type	D_Interrupt_ClearPending, %function
  383              	D_Interrupt_ClearPending:
  384              	.LFB45:
- 393:Generated_Source\PSoC4/D_Interrupt.c **** 
- 394:Generated_Source\PSoC4/D_Interrupt.c **** 
- 395:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
- 396:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_ClearPending
- 397:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 15
+ 395:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 396:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 397:Generated_Source\PSoC4/D_Interrupt.c **** /*******************************************************************************
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 15
 
 
- 398:Generated_Source\PSoC4/D_Interrupt.c **** *
- 399:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
- 400:Generated_Source\PSoC4/D_Interrupt.c **** *   Clears a pending interrupt in the interrupt controller.
- 401:Generated_Source\PSoC4/D_Interrupt.c **** *
- 402:Generated_Source\PSoC4/D_Interrupt.c **** *   Note Some interrupt sources are clear-on-read and require the block 
- 403:Generated_Source\PSoC4/D_Interrupt.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
- 404:Generated_Source\PSoC4/D_Interrupt.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
- 405:Generated_Source\PSoC4/D_Interrupt.c **** *   pending state even though the interrupt itself is cleared using this API.
- 406:Generated_Source\PSoC4/D_Interrupt.c **** *
- 407:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
- 408:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 409:Generated_Source\PSoC4/D_Interrupt.c **** *
- 410:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
- 411:Generated_Source\PSoC4/D_Interrupt.c **** *   None
- 412:Generated_Source\PSoC4/D_Interrupt.c **** *
- 413:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
- 414:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_ClearPending(void)
- 415:Generated_Source\PSoC4/D_Interrupt.c **** {
- 385              		.loc 1 415 0
+ 398:Generated_Source\PSoC4/D_Interrupt.c **** * Function Name: D_Interrupt_ClearPending
+ 399:Generated_Source\PSoC4/D_Interrupt.c **** ********************************************************************************
+ 400:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 401:Generated_Source\PSoC4/D_Interrupt.c **** * Summary:
+ 402:Generated_Source\PSoC4/D_Interrupt.c **** *   Clears a pending interrupt in the interrupt controller.
+ 403:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 404:Generated_Source\PSoC4/D_Interrupt.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 405:Generated_Source\PSoC4/D_Interrupt.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 406:Generated_Source\PSoC4/D_Interrupt.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 407:Generated_Source\PSoC4/D_Interrupt.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 408:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 409:Generated_Source\PSoC4/D_Interrupt.c **** * Parameters:
+ 410:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 411:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 412:Generated_Source\PSoC4/D_Interrupt.c **** * Return:
+ 413:Generated_Source\PSoC4/D_Interrupt.c **** *   None
+ 414:Generated_Source\PSoC4/D_Interrupt.c **** *
+ 415:Generated_Source\PSoC4/D_Interrupt.c **** *******************************************************************************/
+ 416:Generated_Source\PSoC4/D_Interrupt.c **** void D_Interrupt_ClearPending(void)
+ 417:Generated_Source\PSoC4/D_Interrupt.c **** {
+ 385              		.loc 1 417 0
  386              		.cfi_startproc
  387              		@ args = 0, pretend = 0, frame = 0
  388              		@ frame_needed = 0, uses_anonymous_args = 0
  389              		@ link register save eliminated.
- 416:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_CLR_PD = D_Interrupt__INTC_MASK;
- 390              		.loc 1 416 0
+ 418:Generated_Source\PSoC4/D_Interrupt.c ****     *D_Interrupt_INTC_CLR_PD = D_Interrupt__INTC_MASK;
+ 390              		.loc 1 418 0
  391 0000 1022     		movs	r2, #16
  392 0002 014B     		ldr	r3, .L35
  393 0004 1A60     		str	r2, [r3]
- 417:Generated_Source\PSoC4/D_Interrupt.c **** }
- 394              		.loc 1 417 0
+ 419:Generated_Source\PSoC4/D_Interrupt.c **** }
+ 394              		.loc 1 419 0
  395              		@ sp needed
  396 0006 7047     		bx	lr
  397              	.L36:
@@ -896,43 +898,43 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  416 0000 10B5     		push	{r4, lr}
  417              		.cfi_def_cfa_offset 8
  418              		.cfi_offset 4, -8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 16
+
+
  419              		.cfi_offset 14, -4
  420              	.L38:
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 16
-
-
- 171:Generated_Source\PSoC4/D_Interrupt.c **** 
- 421              		.loc 1 171 0 discriminator 1
+ 173:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 421              		.loc 1 173 0 discriminator 1
  422 0002 FFF7FEFF 		bl	D_Button_Read
  423              	.LVL20:
  424 0006 0128     		cmp	r0, #1
  425 0008 FBD0     		beq	.L38
  426 000a 06E0     		b	.L39
  427              	.L40:
- 177:Generated_Source\PSoC4/D_Interrupt.c ****                  //sprintf(mystring, "%5d", count);
- 428              		.loc 1 177 0
+ 179:Generated_Source\PSoC4/D_Interrupt.c ****                  //sprintf(mystring, "%5d", count);
+ 428              		.loc 1 179 0
  429 000c 064A     		ldr	r2, .L41
  430 000e 1368     		ldr	r3, [r2]
  431 0010 013B     		subs	r3, r3, #1
  432 0012 1360     		str	r3, [r2]
- 180:Generated_Source\PSoC4/D_Interrupt.c ****             }
- 433              		.loc 1 180 0
- 434 0014 0A20     		movs	r0, #10
+ 182:Generated_Source\PSoC4/D_Interrupt.c ****             }
+ 433              		.loc 1 182 0
+ 434 0014 3220     		movs	r0, #50
  435 0016 FFF7FEFF 		bl	CyDelay
  436              	.LVL21:
  437              	.L39:
- 175:Generated_Source\PSoC4/D_Interrupt.c ****             {  
- 438              		.loc 1 175 0
+ 177:Generated_Source\PSoC4/D_Interrupt.c ****             {  
+ 438              		.loc 1 177 0
  439 001a FFF7FEFF 		bl	D_Button_Read
  440              	.LVL22:
  441 001e 0028     		cmp	r0, #0
  442 0020 F4D0     		beq	.L40
- 183:Generated_Source\PSoC4/D_Interrupt.c ****     /* `#END` */
- 443              		.loc 1 183 0
+ 185:Generated_Source\PSoC4/D_Interrupt.c ****     /* `#END` */
+ 443              		.loc 1 185 0
  444 0022 FFF7FEFF 		bl	D_Interrupt_ClearPending
  445              	.LVL23:
- 185:Generated_Source\PSoC4/D_Interrupt.c **** 
- 446              		.loc 1 185 0
+ 187:Generated_Source\PSoC4/D_Interrupt.c **** 
+ 446              		.loc 1 187 0
  447              		@ sp needed
  448 0026 10BD     		pop	{r4, pc}
  449              	.L42:
@@ -951,16 +953,16 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  462              		.file 5 "Generated_Source\\PSoC4\\D_Button.h"
  463              		.section	.debug_info,"",%progbits
  464              	.Ldebug_info0:
- 465 0000 8A030000 		.4byte	0x38a
+ 465 0000 8B030000 		.4byte	0x38b
  466 0004 0400     		.2byte	0x4
  467 0006 00000000 		.4byte	.Ldebug_abbrev0
  468 000a 04       		.byte	0x4
  469 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 17
+
+
  470 000c 50020000 		.4byte	.LASF41
  471 0010 0C       		.byte	0xc
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 17
-
-
  472 0011 07020000 		.4byte	.LASF42
  473 0015 49010000 		.4byte	.LASF43
  474 0019 00000000 		.4byte	.Ldebug_ranges0+0
@@ -1016,11 +1018,11 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  524 007c 02       		.byte	0x2
  525 007d E601     		.2byte	0x1e6
  526 007f 48000000 		.4byte	0x48
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 18
+
+
  527 0083 02       		.uleb128 0x2
  528 0084 04       		.byte	0x4
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 18
-
-
  529 0085 04       		.byte	0x4
  530 0086 B0000000 		.4byte	.LASF11
  531 008a 02       		.uleb128 0x2
@@ -1058,7 +1060,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  563 00ca 08       		.uleb128 0x8
  564 00cb B5010000 		.4byte	.LASF18
  565 00cf 01       		.byte	0x1
- 566 00d0 D7       		.byte	0xd7
+ 566 00d0 D9       		.byte	0xd9
  567 00d1 00000000 		.4byte	.LFB37
  568 00d5 0C000000 		.4byte	.LFE37-.LFB37
  569 00d9 01       		.uleb128 0x1
@@ -1067,7 +1069,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  572 00df 09       		.uleb128 0x9
  573 00e0 42000000 		.4byte	.LASF20
  574 00e4 01       		.byte	0x1
- 575 00e5 D7       		.byte	0xd7
+ 575 00e5 D9       		.byte	0xd9
  576 00e6 A9000000 		.4byte	0xa9
  577 00ea 01       		.uleb128 0x1
  578 00eb 50       		.byte	0x50
@@ -1075,19 +1077,19 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  580 00ed 0A       		.uleb128 0xa
  581 00ee 46030000 		.4byte	.LASF24
  582 00f2 01       		.byte	0x1
- 583 00f3 EB       		.byte	0xeb
+ 583 00f3 ED       		.byte	0xed
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 19
+
+
  584 00f4 A9000000 		.4byte	0xa9
  585 00f8 00000000 		.4byte	.LFB38
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 19
-
-
  586 00fc 0C000000 		.4byte	.LFE38-.LFB38
  587 0100 01       		.uleb128 0x1
  588 0101 9C       		.byte	0x9c
  589 0102 0B       		.uleb128 0xb
  590 0103 1C010000 		.4byte	.LASF19
  591 0107 01       		.byte	0x1
- 592 0108 0901     		.2byte	0x109
+ 592 0108 0B01     		.2byte	0x10b
  593 010a 00000000 		.4byte	.LFB39
  594 010e 20000000 		.4byte	.LFE39-.LFB39
  595 0112 01       		.uleb128 0x1
@@ -1096,32 +1098,32 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  598 0118 0C       		.uleb128 0xc
  599 0119 0C010000 		.4byte	.LASF21
  600 011d 01       		.byte	0x1
- 601 011e 0901     		.2byte	0x109
+ 601 011e 0B01     		.2byte	0x10b
  602 0120 6B000000 		.4byte	0x6b
  603 0124 00000000 		.4byte	.LLST0
  604 0128 0D       		.uleb128 0xd
  605 0129 D8000000 		.4byte	.LASF22
  606 012d 01       		.byte	0x1
- 607 012e 0B01     		.2byte	0x10b
+ 607 012e 0D01     		.2byte	0x10d
  608 0130 6B000000 		.4byte	0x6b
  609 0134 21000000 		.4byte	.LLST1
  610 0138 0E       		.uleb128 0xe
  611 0139 2E030000 		.4byte	.LASF23
  612 013d 01       		.byte	0x1
- 613 013e 0C01     		.2byte	0x10c
+ 613 013e 0E01     		.2byte	0x10e
  614 0140 77000000 		.4byte	0x77
  615 0144 06       		.byte	0x6
  616 0145 0F       		.uleb128 0xf
  617 0146 08000000 		.4byte	.LVL3
- 618 014a 61030000 		.4byte	0x361
+ 618 014a 62030000 		.4byte	0x362
  619 014e 0F       		.uleb128 0xf
  620 014f 1A000000 		.4byte	.LVL4
- 621 0153 6C030000 		.4byte	0x36c
+ 621 0153 6D030000 		.4byte	0x36d
  622 0157 00       		.byte	0
  623 0158 10       		.uleb128 0x10
  624 0159 06000000 		.4byte	.LASF44
  625 015d 01       		.byte	0x1
- 626 015e 2501     		.2byte	0x125
+ 626 015e 2701     		.2byte	0x127
  627 0160 6B000000 		.4byte	0x6b
  628 0164 00000000 		.4byte	.LFB40
  629 0168 10000000 		.4byte	.LFE40-.LFB40
@@ -1131,23 +1133,23 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  633 0172 0D       		.uleb128 0xd
  634 0173 0C010000 		.4byte	.LASF21
  635 0177 01       		.byte	0x1
- 636 0178 2701     		.2byte	0x127
+ 636 0178 2901     		.2byte	0x129
  637 017a 77000000 		.4byte	0x77
  638 017e 34000000 		.4byte	.LLST2
  639 0182 0E       		.uleb128 0xe
  640 0183 2E030000 		.4byte	.LASF23
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 20
+
+
  641 0187 01       		.byte	0x1
- 642 0188 2801     		.2byte	0x128
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 20
-
-
+ 642 0188 2A01     		.2byte	0x12a
  643 018a 77000000 		.4byte	0x77
  644 018e 06       		.byte	0x6
  645 018f 00       		.byte	0
  646 0190 11       		.uleb128 0x11
  647 0191 64000000 		.4byte	.LASF26
  648 0195 01       		.byte	0x1
- 649 0196 4001     		.2byte	0x140
+ 649 0196 4201     		.2byte	0x142
  650 0198 00000000 		.4byte	.LFB41
  651 019c 0C000000 		.4byte	.LFE41-.LFB41
  652 01a0 01       		.uleb128 0x1
@@ -1155,7 +1157,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  654 01a2 12       		.uleb128 0x12
  655 01a3 34010000 		.4byte	.LASF25
  656 01a7 01       		.byte	0x1
- 657 01a8 5501     		.2byte	0x155
+ 657 01a8 5701     		.2byte	0x157
  658 01aa 6B000000 		.4byte	0x6b
  659 01ae 00000000 		.4byte	.LFB42
  660 01b2 14000000 		.4byte	.LFE42-.LFB42
@@ -1164,7 +1166,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  663 01b8 11       		.uleb128 0x11
  664 01b9 C4000000 		.4byte	.LASF27
  665 01bd 01       		.byte	0x1
- 666 01be 6A01     		.2byte	0x16a
+ 666 01be 6C01     		.2byte	0x16c
  667 01c0 00000000 		.4byte	.LFB43
  668 01c4 0C000000 		.4byte	.LFE43-.LFB43
  669 01c8 01       		.uleb128 0x1
@@ -1196,11 +1198,11 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  695 0200 12000000 		.4byte	.LVL10
  696 0204 02010000 		.4byte	0x102
  697 0208 12020000 		.4byte	0x212
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 21
+
+
  698 020c 14       		.uleb128 0x14
  699 020d 01       		.uleb128 0x1
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 21
-
-
  700 020e 50       		.byte	0x50
  701 020f 01       		.uleb128 0x1
  702 0210 33       		.byte	0x33
@@ -1256,11 +1258,11 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  752 027b F6010000 		.4byte	.LASF30
  753 027f 01       		.byte	0x1
  754 0280 85       		.byte	0x85
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 22
+
+
  755 0281 00000000 		.4byte	.LFB35
  756 0285 14000000 		.4byte	.LFE35-.LFB35
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 22
-
-
  757 0289 01       		.uleb128 0x1
  758 028a 9C       		.byte	0x9c
  759 028b A2020000 		.4byte	0x2a2
@@ -1274,7 +1276,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  767 02a2 11       		.uleb128 0x11
  768 02a3 1E000000 		.4byte	.LASF31
  769 02a7 01       		.byte	0x1
- 770 02a8 8501     		.2byte	0x185
+ 770 02a8 8701     		.2byte	0x187
  771 02aa 00000000 		.4byte	.LFB44
  772 02ae 0C000000 		.4byte	.LFE44-.LFB44
  773 02b2 01       		.uleb128 0x1
@@ -1282,7 +1284,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  775 02b4 11       		.uleb128 0x11
  776 02b5 77000000 		.4byte	.LASF32
  777 02b9 01       		.byte	0x1
- 778 02ba 9E01     		.2byte	0x19e
+ 778 02ba A001     		.2byte	0x1a0
  779 02bc 00000000 		.4byte	.LFB45
  780 02c0 0C000000 		.4byte	.LFE45-.LFB45
  781 02c4 01       		.uleb128 0x1
@@ -1295,909 +1297,910 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 1
  788 02d1 2C000000 		.4byte	.LFE36-.LFB36
  789 02d5 01       		.uleb128 0x1
  790 02d6 9C       		.byte	0x9c
- 791 02d7 0A030000 		.4byte	0x30a
+ 791 02d7 0B030000 		.4byte	0x30b
  792 02db 0F       		.uleb128 0xf
  793 02dc 06000000 		.4byte	.LVL20
- 794 02e0 77030000 		.4byte	0x377
+ 794 02e0 78030000 		.4byte	0x378
  795 02e4 13       		.uleb128 0x13
  796 02e5 1A000000 		.4byte	.LVL21
- 797 02e9 82030000 		.4byte	0x382
- 798 02ed F7020000 		.4byte	0x2f7
+ 797 02e9 83030000 		.4byte	0x383
+ 798 02ed F8020000 		.4byte	0x2f8
  799 02f1 14       		.uleb128 0x14
  800 02f2 01       		.uleb128 0x1
  801 02f3 50       		.byte	0x50
- 802 02f4 01       		.uleb128 0x1
- 803 02f5 3A       		.byte	0x3a
- 804 02f6 00       		.byte	0
- 805 02f7 0F       		.uleb128 0xf
- 806 02f8 1E000000 		.4byte	.LVL22
- 807 02fc 77030000 		.4byte	0x377
- 808 0300 0F       		.uleb128 0xf
- 809 0301 26000000 		.4byte	.LVL23
- 810 0305 B4020000 		.4byte	0x2b4
- 811 0309 00       		.byte	0
- 812 030a 16       		.uleb128 0x16
- 813 030b 20030000 		.4byte	0x320
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 23
+ 802 02f4 02       		.uleb128 0x2
+ 803 02f5 08       		.byte	0x8
+ 804 02f6 32       		.byte	0x32
+ 805 02f7 00       		.byte	0
+ 806 02f8 0F       		.uleb128 0xf
+ 807 02f9 1E000000 		.4byte	.LVL22
+ 808 02fd 78030000 		.4byte	0x378
+ 809 0301 0F       		.uleb128 0xf
+ 810 0302 26000000 		.4byte	.LVL23
+ 811 0306 B4020000 		.4byte	0x2b4
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 23
 
 
- 814 030f 20030000 		.4byte	0x320
- 815 0313 17       		.uleb128 0x17
- 816 0314 C3000000 		.4byte	0xc3
- 817 0318 60       		.byte	0x60
- 818 0319 17       		.uleb128 0x17
- 819 031a C3000000 		.4byte	0xc3
- 820 031e 0F       		.byte	0xf
- 821 031f 00       		.byte	0
- 822 0320 18       		.uleb128 0x18
- 823 0321 6B000000 		.4byte	0x6b
- 824 0325 19       		.uleb128 0x19
- 825 0326 F5020000 		.4byte	.LASF34
- 826 032a 03       		.byte	0x3
- 827 032b 42       		.byte	0x42
- 828 032c 36030000 		.4byte	0x336
- 829 0330 05       		.uleb128 0x5
- 830 0331 03       		.byte	0x3
- 831 0332 00000000 		.4byte	GLCD_FONT8x16
- 832 0336 18       		.uleb128 0x18
- 833 0337 0A030000 		.4byte	0x30a
- 834 033b 1A       		.uleb128 0x1a
- 835 033c 4A000000 		.4byte	.LASF35
- 836 0340 01       		.byte	0x1
- 837 0341 21       		.byte	0x21
- 838 0342 5D000000 		.4byte	0x5d
- 839 0346 16       		.uleb128 0x16
- 840 0347 A9000000 		.4byte	0xa9
- 841 034b 56030000 		.4byte	0x356
- 842 034f 17       		.uleb128 0x17
- 843 0350 C3000000 		.4byte	0xc3
- 844 0354 2F       		.byte	0x2f
- 845 0355 00       		.byte	0
- 846 0356 1A       		.uleb128 0x1a
- 847 0357 35000000 		.4byte	.LASF36
- 848 035b 01       		.byte	0x1
- 849 035c 25       		.byte	0x25
- 850 035d 46030000 		.4byte	0x346
- 851 0361 1B       		.uleb128 0x1b
- 852 0362 D2010000 		.4byte	.LASF37
- 853 0366 D2010000 		.4byte	.LASF37
- 854 036a 04       		.byte	0x4
- 855 036b E5       		.byte	0xe5
- 856 036c 1B       		.uleb128 0x1b
- 857 036d 18030000 		.4byte	.LASF38
- 858 0371 18030000 		.4byte	.LASF38
- 859 0375 04       		.byte	0x4
- 860 0376 E6       		.byte	0xe6
- 861 0377 1B       		.uleb128 0x1b
- 862 0378 A2000000 		.4byte	.LASF39
- 863 037c A2000000 		.4byte	.LASF39
- 864 0380 05       		.byte	0x5
- 865 0381 32       		.byte	0x32
- 866 0382 1B       		.uleb128 0x1b
- 867 0383 8A030000 		.4byte	.LASF40
- 868 0387 8A030000 		.4byte	.LASF40
- 869 038b 04       		.byte	0x4
- 870 038c D9       		.byte	0xd9
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 24
+ 812 030a 00       		.byte	0
+ 813 030b 16       		.uleb128 0x16
+ 814 030c 21030000 		.4byte	0x321
+ 815 0310 21030000 		.4byte	0x321
+ 816 0314 17       		.uleb128 0x17
+ 817 0315 C3000000 		.4byte	0xc3
+ 818 0319 60       		.byte	0x60
+ 819 031a 17       		.uleb128 0x17
+ 820 031b C3000000 		.4byte	0xc3
+ 821 031f 0F       		.byte	0xf
+ 822 0320 00       		.byte	0
+ 823 0321 18       		.uleb128 0x18
+ 824 0322 6B000000 		.4byte	0x6b
+ 825 0326 19       		.uleb128 0x19
+ 826 0327 F5020000 		.4byte	.LASF34
+ 827 032b 03       		.byte	0x3
+ 828 032c 42       		.byte	0x42
+ 829 032d 37030000 		.4byte	0x337
+ 830 0331 05       		.uleb128 0x5
+ 831 0332 03       		.byte	0x3
+ 832 0333 00000000 		.4byte	GLCD_FONT8x16
+ 833 0337 18       		.uleb128 0x18
+ 834 0338 0B030000 		.4byte	0x30b
+ 835 033c 1A       		.uleb128 0x1a
+ 836 033d 4A000000 		.4byte	.LASF35
+ 837 0341 01       		.byte	0x1
+ 838 0342 21       		.byte	0x21
+ 839 0343 5D000000 		.4byte	0x5d
+ 840 0347 16       		.uleb128 0x16
+ 841 0348 A9000000 		.4byte	0xa9
+ 842 034c 57030000 		.4byte	0x357
+ 843 0350 17       		.uleb128 0x17
+ 844 0351 C3000000 		.4byte	0xc3
+ 845 0355 2F       		.byte	0x2f
+ 846 0356 00       		.byte	0
+ 847 0357 1A       		.uleb128 0x1a
+ 848 0358 35000000 		.4byte	.LASF36
+ 849 035c 01       		.byte	0x1
+ 850 035d 25       		.byte	0x25
+ 851 035e 47030000 		.4byte	0x347
+ 852 0362 1B       		.uleb128 0x1b
+ 853 0363 D2010000 		.4byte	.LASF37
+ 854 0367 D2010000 		.4byte	.LASF37
+ 855 036b 04       		.byte	0x4
+ 856 036c E5       		.byte	0xe5
+ 857 036d 1B       		.uleb128 0x1b
+ 858 036e 18030000 		.4byte	.LASF38
+ 859 0372 18030000 		.4byte	.LASF38
+ 860 0376 04       		.byte	0x4
+ 861 0377 E6       		.byte	0xe6
+ 862 0378 1B       		.uleb128 0x1b
+ 863 0379 A2000000 		.4byte	.LASF39
+ 864 037d A2000000 		.4byte	.LASF39
+ 865 0381 05       		.byte	0x5
+ 866 0382 32       		.byte	0x32
+ 867 0383 1B       		.uleb128 0x1b
+ 868 0384 8A030000 		.4byte	.LASF40
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 24
 
 
- 871 038d 00       		.byte	0
- 872              		.section	.debug_abbrev,"",%progbits
- 873              	.Ldebug_abbrev0:
- 874 0000 01       		.uleb128 0x1
- 875 0001 11       		.uleb128 0x11
- 876 0002 01       		.byte	0x1
- 877 0003 25       		.uleb128 0x25
- 878 0004 0E       		.uleb128 0xe
- 879 0005 13       		.uleb128 0x13
- 880 0006 0B       		.uleb128 0xb
- 881 0007 03       		.uleb128 0x3
- 882 0008 0E       		.uleb128 0xe
- 883 0009 1B       		.uleb128 0x1b
- 884 000a 0E       		.uleb128 0xe
- 885 000b 55       		.uleb128 0x55
- 886 000c 17       		.uleb128 0x17
- 887 000d 11       		.uleb128 0x11
- 888 000e 01       		.uleb128 0x1
- 889 000f 10       		.uleb128 0x10
- 890 0010 17       		.uleb128 0x17
- 891 0011 00       		.byte	0
- 892 0012 00       		.byte	0
- 893 0013 02       		.uleb128 0x2
- 894 0014 24       		.uleb128 0x24
- 895 0015 00       		.byte	0
- 896 0016 0B       		.uleb128 0xb
- 897 0017 0B       		.uleb128 0xb
- 898 0018 3E       		.uleb128 0x3e
- 899 0019 0B       		.uleb128 0xb
- 900 001a 03       		.uleb128 0x3
- 901 001b 0E       		.uleb128 0xe
- 902 001c 00       		.byte	0
- 903 001d 00       		.byte	0
- 904 001e 03       		.uleb128 0x3
- 905 001f 24       		.uleb128 0x24
- 906 0020 00       		.byte	0
- 907 0021 0B       		.uleb128 0xb
- 908 0022 0B       		.uleb128 0xb
- 909 0023 3E       		.uleb128 0x3e
- 910 0024 0B       		.uleb128 0xb
- 911 0025 03       		.uleb128 0x3
- 912 0026 08       		.uleb128 0x8
- 913 0027 00       		.byte	0
- 914 0028 00       		.byte	0
- 915 0029 04       		.uleb128 0x4
- 916 002a 16       		.uleb128 0x16
- 917 002b 00       		.byte	0
- 918 002c 03       		.uleb128 0x3
- 919 002d 0E       		.uleb128 0xe
- 920 002e 3A       		.uleb128 0x3a
- 921 002f 0B       		.uleb128 0xb
- 922 0030 3B       		.uleb128 0x3b
- 923 0031 05       		.uleb128 0x5
- 924 0032 49       		.uleb128 0x49
- 925 0033 13       		.uleb128 0x13
- 926 0034 00       		.byte	0
- 927 0035 00       		.byte	0
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 25
+ 869 0388 8A030000 		.4byte	.LASF40
+ 870 038c 04       		.byte	0x4
+ 871 038d D9       		.byte	0xd9
+ 872 038e 00       		.byte	0
+ 873              		.section	.debug_abbrev,"",%progbits
+ 874              	.Ldebug_abbrev0:
+ 875 0000 01       		.uleb128 0x1
+ 876 0001 11       		.uleb128 0x11
+ 877 0002 01       		.byte	0x1
+ 878 0003 25       		.uleb128 0x25
+ 879 0004 0E       		.uleb128 0xe
+ 880 0005 13       		.uleb128 0x13
+ 881 0006 0B       		.uleb128 0xb
+ 882 0007 03       		.uleb128 0x3
+ 883 0008 0E       		.uleb128 0xe
+ 884 0009 1B       		.uleb128 0x1b
+ 885 000a 0E       		.uleb128 0xe
+ 886 000b 55       		.uleb128 0x55
+ 887 000c 17       		.uleb128 0x17
+ 888 000d 11       		.uleb128 0x11
+ 889 000e 01       		.uleb128 0x1
+ 890 000f 10       		.uleb128 0x10
+ 891 0010 17       		.uleb128 0x17
+ 892 0011 00       		.byte	0
+ 893 0012 00       		.byte	0
+ 894 0013 02       		.uleb128 0x2
+ 895 0014 24       		.uleb128 0x24
+ 896 0015 00       		.byte	0
+ 897 0016 0B       		.uleb128 0xb
+ 898 0017 0B       		.uleb128 0xb
+ 899 0018 3E       		.uleb128 0x3e
+ 900 0019 0B       		.uleb128 0xb
+ 901 001a 03       		.uleb128 0x3
+ 902 001b 0E       		.uleb128 0xe
+ 903 001c 00       		.byte	0
+ 904 001d 00       		.byte	0
+ 905 001e 03       		.uleb128 0x3
+ 906 001f 24       		.uleb128 0x24
+ 907 0020 00       		.byte	0
+ 908 0021 0B       		.uleb128 0xb
+ 909 0022 0B       		.uleb128 0xb
+ 910 0023 3E       		.uleb128 0x3e
+ 911 0024 0B       		.uleb128 0xb
+ 912 0025 03       		.uleb128 0x3
+ 913 0026 08       		.uleb128 0x8
+ 914 0027 00       		.byte	0
+ 915 0028 00       		.byte	0
+ 916 0029 04       		.uleb128 0x4
+ 917 002a 16       		.uleb128 0x16
+ 918 002b 00       		.byte	0
+ 919 002c 03       		.uleb128 0x3
+ 920 002d 0E       		.uleb128 0xe
+ 921 002e 3A       		.uleb128 0x3a
+ 922 002f 0B       		.uleb128 0xb
+ 923 0030 3B       		.uleb128 0x3b
+ 924 0031 05       		.uleb128 0x5
+ 925 0032 49       		.uleb128 0x49
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 25
 
 
- 928 0036 05       		.uleb128 0x5
- 929 0037 35       		.uleb128 0x35
- 930 0038 00       		.byte	0
- 931 0039 49       		.uleb128 0x49
- 932 003a 13       		.uleb128 0x13
- 933 003b 00       		.byte	0
- 934 003c 00       		.byte	0
- 935 003d 06       		.uleb128 0x6
- 936 003e 0F       		.uleb128 0xf
- 937 003f 00       		.byte	0
- 938 0040 0B       		.uleb128 0xb
- 939 0041 0B       		.uleb128 0xb
- 940 0042 49       		.uleb128 0x49
- 941 0043 13       		.uleb128 0x13
- 942 0044 00       		.byte	0
- 943 0045 00       		.byte	0
- 944 0046 07       		.uleb128 0x7
- 945 0047 15       		.uleb128 0x15
- 946 0048 00       		.byte	0
- 947 0049 27       		.uleb128 0x27
- 948 004a 19       		.uleb128 0x19
- 949 004b 00       		.byte	0
- 950 004c 00       		.byte	0
- 951 004d 08       		.uleb128 0x8
- 952 004e 2E       		.uleb128 0x2e
- 953 004f 01       		.byte	0x1
- 954 0050 3F       		.uleb128 0x3f
- 955 0051 19       		.uleb128 0x19
- 956 0052 03       		.uleb128 0x3
- 957 0053 0E       		.uleb128 0xe
- 958 0054 3A       		.uleb128 0x3a
- 959 0055 0B       		.uleb128 0xb
- 960 0056 3B       		.uleb128 0x3b
- 961 0057 0B       		.uleb128 0xb
- 962 0058 27       		.uleb128 0x27
- 963 0059 19       		.uleb128 0x19
- 964 005a 11       		.uleb128 0x11
- 965 005b 01       		.uleb128 0x1
- 966 005c 12       		.uleb128 0x12
- 967 005d 06       		.uleb128 0x6
- 968 005e 40       		.uleb128 0x40
- 969 005f 18       		.uleb128 0x18
- 970 0060 9742     		.uleb128 0x2117
- 971 0062 19       		.uleb128 0x19
- 972 0063 01       		.uleb128 0x1
- 973 0064 13       		.uleb128 0x13
- 974 0065 00       		.byte	0
- 975 0066 00       		.byte	0
- 976 0067 09       		.uleb128 0x9
- 977 0068 05       		.uleb128 0x5
- 978 0069 00       		.byte	0
- 979 006a 03       		.uleb128 0x3
- 980 006b 0E       		.uleb128 0xe
- 981 006c 3A       		.uleb128 0x3a
- 982 006d 0B       		.uleb128 0xb
- 983 006e 3B       		.uleb128 0x3b
- 984 006f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 26
+ 926 0033 13       		.uleb128 0x13
+ 927 0034 00       		.byte	0
+ 928 0035 00       		.byte	0
+ 929 0036 05       		.uleb128 0x5
+ 930 0037 35       		.uleb128 0x35
+ 931 0038 00       		.byte	0
+ 932 0039 49       		.uleb128 0x49
+ 933 003a 13       		.uleb128 0x13
+ 934 003b 00       		.byte	0
+ 935 003c 00       		.byte	0
+ 936 003d 06       		.uleb128 0x6
+ 937 003e 0F       		.uleb128 0xf
+ 938 003f 00       		.byte	0
+ 939 0040 0B       		.uleb128 0xb
+ 940 0041 0B       		.uleb128 0xb
+ 941 0042 49       		.uleb128 0x49
+ 942 0043 13       		.uleb128 0x13
+ 943 0044 00       		.byte	0
+ 944 0045 00       		.byte	0
+ 945 0046 07       		.uleb128 0x7
+ 946 0047 15       		.uleb128 0x15
+ 947 0048 00       		.byte	0
+ 948 0049 27       		.uleb128 0x27
+ 949 004a 19       		.uleb128 0x19
+ 950 004b 00       		.byte	0
+ 951 004c 00       		.byte	0
+ 952 004d 08       		.uleb128 0x8
+ 953 004e 2E       		.uleb128 0x2e
+ 954 004f 01       		.byte	0x1
+ 955 0050 3F       		.uleb128 0x3f
+ 956 0051 19       		.uleb128 0x19
+ 957 0052 03       		.uleb128 0x3
+ 958 0053 0E       		.uleb128 0xe
+ 959 0054 3A       		.uleb128 0x3a
+ 960 0055 0B       		.uleb128 0xb
+ 961 0056 3B       		.uleb128 0x3b
+ 962 0057 0B       		.uleb128 0xb
+ 963 0058 27       		.uleb128 0x27
+ 964 0059 19       		.uleb128 0x19
+ 965 005a 11       		.uleb128 0x11
+ 966 005b 01       		.uleb128 0x1
+ 967 005c 12       		.uleb128 0x12
+ 968 005d 06       		.uleb128 0x6
+ 969 005e 40       		.uleb128 0x40
+ 970 005f 18       		.uleb128 0x18
+ 971 0060 9742     		.uleb128 0x2117
+ 972 0062 19       		.uleb128 0x19
+ 973 0063 01       		.uleb128 0x1
+ 974 0064 13       		.uleb128 0x13
+ 975 0065 00       		.byte	0
+ 976 0066 00       		.byte	0
+ 977 0067 09       		.uleb128 0x9
+ 978 0068 05       		.uleb128 0x5
+ 979 0069 00       		.byte	0
+ 980 006a 03       		.uleb128 0x3
+ 981 006b 0E       		.uleb128 0xe
+ 982 006c 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 26
 
 
- 985 0070 49       		.uleb128 0x49
- 986 0071 13       		.uleb128 0x13
- 987 0072 02       		.uleb128 0x2
- 988 0073 18       		.uleb128 0x18
- 989 0074 00       		.byte	0
- 990 0075 00       		.byte	0
- 991 0076 0A       		.uleb128 0xa
- 992 0077 2E       		.uleb128 0x2e
- 993 0078 00       		.byte	0
- 994 0079 3F       		.uleb128 0x3f
- 995 007a 19       		.uleb128 0x19
- 996 007b 03       		.uleb128 0x3
- 997 007c 0E       		.uleb128 0xe
- 998 007d 3A       		.uleb128 0x3a
- 999 007e 0B       		.uleb128 0xb
- 1000 007f 3B       		.uleb128 0x3b
- 1001 0080 0B       		.uleb128 0xb
- 1002 0081 27       		.uleb128 0x27
- 1003 0082 19       		.uleb128 0x19
- 1004 0083 49       		.uleb128 0x49
- 1005 0084 13       		.uleb128 0x13
- 1006 0085 11       		.uleb128 0x11
- 1007 0086 01       		.uleb128 0x1
- 1008 0087 12       		.uleb128 0x12
- 1009 0088 06       		.uleb128 0x6
- 1010 0089 40       		.uleb128 0x40
- 1011 008a 18       		.uleb128 0x18
- 1012 008b 9742     		.uleb128 0x2117
- 1013 008d 19       		.uleb128 0x19
- 1014 008e 00       		.byte	0
- 1015 008f 00       		.byte	0
- 1016 0090 0B       		.uleb128 0xb
- 1017 0091 2E       		.uleb128 0x2e
- 1018 0092 01       		.byte	0x1
- 1019 0093 3F       		.uleb128 0x3f
- 1020 0094 19       		.uleb128 0x19
- 1021 0095 03       		.uleb128 0x3
- 1022 0096 0E       		.uleb128 0xe
- 1023 0097 3A       		.uleb128 0x3a
- 1024 0098 0B       		.uleb128 0xb
- 1025 0099 3B       		.uleb128 0x3b
- 1026 009a 05       		.uleb128 0x5
- 1027 009b 27       		.uleb128 0x27
- 1028 009c 19       		.uleb128 0x19
- 1029 009d 11       		.uleb128 0x11
- 1030 009e 01       		.uleb128 0x1
- 1031 009f 12       		.uleb128 0x12
- 1032 00a0 06       		.uleb128 0x6
- 1033 00a1 40       		.uleb128 0x40
- 1034 00a2 18       		.uleb128 0x18
- 1035 00a3 9742     		.uleb128 0x2117
- 1036 00a5 19       		.uleb128 0x19
- 1037 00a6 01       		.uleb128 0x1
- 1038 00a7 13       		.uleb128 0x13
- 1039 00a8 00       		.byte	0
- 1040 00a9 00       		.byte	0
- 1041 00aa 0C       		.uleb128 0xc
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 27
+ 983 006d 0B       		.uleb128 0xb
+ 984 006e 3B       		.uleb128 0x3b
+ 985 006f 0B       		.uleb128 0xb
+ 986 0070 49       		.uleb128 0x49
+ 987 0071 13       		.uleb128 0x13
+ 988 0072 02       		.uleb128 0x2
+ 989 0073 18       		.uleb128 0x18
+ 990 0074 00       		.byte	0
+ 991 0075 00       		.byte	0
+ 992 0076 0A       		.uleb128 0xa
+ 993 0077 2E       		.uleb128 0x2e
+ 994 0078 00       		.byte	0
+ 995 0079 3F       		.uleb128 0x3f
+ 996 007a 19       		.uleb128 0x19
+ 997 007b 03       		.uleb128 0x3
+ 998 007c 0E       		.uleb128 0xe
+ 999 007d 3A       		.uleb128 0x3a
+ 1000 007e 0B       		.uleb128 0xb
+ 1001 007f 3B       		.uleb128 0x3b
+ 1002 0080 0B       		.uleb128 0xb
+ 1003 0081 27       		.uleb128 0x27
+ 1004 0082 19       		.uleb128 0x19
+ 1005 0083 49       		.uleb128 0x49
+ 1006 0084 13       		.uleb128 0x13
+ 1007 0085 11       		.uleb128 0x11
+ 1008 0086 01       		.uleb128 0x1
+ 1009 0087 12       		.uleb128 0x12
+ 1010 0088 06       		.uleb128 0x6
+ 1011 0089 40       		.uleb128 0x40
+ 1012 008a 18       		.uleb128 0x18
+ 1013 008b 9742     		.uleb128 0x2117
+ 1014 008d 19       		.uleb128 0x19
+ 1015 008e 00       		.byte	0
+ 1016 008f 00       		.byte	0
+ 1017 0090 0B       		.uleb128 0xb
+ 1018 0091 2E       		.uleb128 0x2e
+ 1019 0092 01       		.byte	0x1
+ 1020 0093 3F       		.uleb128 0x3f
+ 1021 0094 19       		.uleb128 0x19
+ 1022 0095 03       		.uleb128 0x3
+ 1023 0096 0E       		.uleb128 0xe
+ 1024 0097 3A       		.uleb128 0x3a
+ 1025 0098 0B       		.uleb128 0xb
+ 1026 0099 3B       		.uleb128 0x3b
+ 1027 009a 05       		.uleb128 0x5
+ 1028 009b 27       		.uleb128 0x27
+ 1029 009c 19       		.uleb128 0x19
+ 1030 009d 11       		.uleb128 0x11
+ 1031 009e 01       		.uleb128 0x1
+ 1032 009f 12       		.uleb128 0x12
+ 1033 00a0 06       		.uleb128 0x6
+ 1034 00a1 40       		.uleb128 0x40
+ 1035 00a2 18       		.uleb128 0x18
+ 1036 00a3 9742     		.uleb128 0x2117
+ 1037 00a5 19       		.uleb128 0x19
+ 1038 00a6 01       		.uleb128 0x1
+ 1039 00a7 13       		.uleb128 0x13
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 27
 
 
- 1042 00ab 05       		.uleb128 0x5
- 1043 00ac 00       		.byte	0
- 1044 00ad 03       		.uleb128 0x3
- 1045 00ae 0E       		.uleb128 0xe
- 1046 00af 3A       		.uleb128 0x3a
- 1047 00b0 0B       		.uleb128 0xb
- 1048 00b1 3B       		.uleb128 0x3b
- 1049 00b2 05       		.uleb128 0x5
- 1050 00b3 49       		.uleb128 0x49
- 1051 00b4 13       		.uleb128 0x13
- 1052 00b5 02       		.uleb128 0x2
- 1053 00b6 17       		.uleb128 0x17
- 1054 00b7 00       		.byte	0
- 1055 00b8 00       		.byte	0
- 1056 00b9 0D       		.uleb128 0xd
- 1057 00ba 34       		.uleb128 0x34
- 1058 00bb 00       		.byte	0
- 1059 00bc 03       		.uleb128 0x3
- 1060 00bd 0E       		.uleb128 0xe
- 1061 00be 3A       		.uleb128 0x3a
- 1062 00bf 0B       		.uleb128 0xb
- 1063 00c0 3B       		.uleb128 0x3b
- 1064 00c1 05       		.uleb128 0x5
- 1065 00c2 49       		.uleb128 0x49
- 1066 00c3 13       		.uleb128 0x13
- 1067 00c4 02       		.uleb128 0x2
- 1068 00c5 17       		.uleb128 0x17
- 1069 00c6 00       		.byte	0
- 1070 00c7 00       		.byte	0
- 1071 00c8 0E       		.uleb128 0xe
- 1072 00c9 34       		.uleb128 0x34
- 1073 00ca 00       		.byte	0
- 1074 00cb 03       		.uleb128 0x3
- 1075 00cc 0E       		.uleb128 0xe
- 1076 00cd 3A       		.uleb128 0x3a
- 1077 00ce 0B       		.uleb128 0xb
- 1078 00cf 3B       		.uleb128 0x3b
- 1079 00d0 05       		.uleb128 0x5
- 1080 00d1 49       		.uleb128 0x49
- 1081 00d2 13       		.uleb128 0x13
- 1082 00d3 1C       		.uleb128 0x1c
- 1083 00d4 0B       		.uleb128 0xb
- 1084 00d5 00       		.byte	0
- 1085 00d6 00       		.byte	0
- 1086 00d7 0F       		.uleb128 0xf
- 1087 00d8 898201   		.uleb128 0x4109
- 1088 00db 00       		.byte	0
- 1089 00dc 11       		.uleb128 0x11
- 1090 00dd 01       		.uleb128 0x1
- 1091 00de 31       		.uleb128 0x31
- 1092 00df 13       		.uleb128 0x13
- 1093 00e0 00       		.byte	0
- 1094 00e1 00       		.byte	0
- 1095 00e2 10       		.uleb128 0x10
- 1096 00e3 2E       		.uleb128 0x2e
- 1097 00e4 01       		.byte	0x1
- 1098 00e5 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 28
+ 1040 00a8 00       		.byte	0
+ 1041 00a9 00       		.byte	0
+ 1042 00aa 0C       		.uleb128 0xc
+ 1043 00ab 05       		.uleb128 0x5
+ 1044 00ac 00       		.byte	0
+ 1045 00ad 03       		.uleb128 0x3
+ 1046 00ae 0E       		.uleb128 0xe
+ 1047 00af 3A       		.uleb128 0x3a
+ 1048 00b0 0B       		.uleb128 0xb
+ 1049 00b1 3B       		.uleb128 0x3b
+ 1050 00b2 05       		.uleb128 0x5
+ 1051 00b3 49       		.uleb128 0x49
+ 1052 00b4 13       		.uleb128 0x13
+ 1053 00b5 02       		.uleb128 0x2
+ 1054 00b6 17       		.uleb128 0x17
+ 1055 00b7 00       		.byte	0
+ 1056 00b8 00       		.byte	0
+ 1057 00b9 0D       		.uleb128 0xd
+ 1058 00ba 34       		.uleb128 0x34
+ 1059 00bb 00       		.byte	0
+ 1060 00bc 03       		.uleb128 0x3
+ 1061 00bd 0E       		.uleb128 0xe
+ 1062 00be 3A       		.uleb128 0x3a
+ 1063 00bf 0B       		.uleb128 0xb
+ 1064 00c0 3B       		.uleb128 0x3b
+ 1065 00c1 05       		.uleb128 0x5
+ 1066 00c2 49       		.uleb128 0x49
+ 1067 00c3 13       		.uleb128 0x13
+ 1068 00c4 02       		.uleb128 0x2
+ 1069 00c5 17       		.uleb128 0x17
+ 1070 00c6 00       		.byte	0
+ 1071 00c7 00       		.byte	0
+ 1072 00c8 0E       		.uleb128 0xe
+ 1073 00c9 34       		.uleb128 0x34
+ 1074 00ca 00       		.byte	0
+ 1075 00cb 03       		.uleb128 0x3
+ 1076 00cc 0E       		.uleb128 0xe
+ 1077 00cd 3A       		.uleb128 0x3a
+ 1078 00ce 0B       		.uleb128 0xb
+ 1079 00cf 3B       		.uleb128 0x3b
+ 1080 00d0 05       		.uleb128 0x5
+ 1081 00d1 49       		.uleb128 0x49
+ 1082 00d2 13       		.uleb128 0x13
+ 1083 00d3 1C       		.uleb128 0x1c
+ 1084 00d4 0B       		.uleb128 0xb
+ 1085 00d5 00       		.byte	0
+ 1086 00d6 00       		.byte	0
+ 1087 00d7 0F       		.uleb128 0xf
+ 1088 00d8 898201   		.uleb128 0x4109
+ 1089 00db 00       		.byte	0
+ 1090 00dc 11       		.uleb128 0x11
+ 1091 00dd 01       		.uleb128 0x1
+ 1092 00de 31       		.uleb128 0x31
+ 1093 00df 13       		.uleb128 0x13
+ 1094 00e0 00       		.byte	0
+ 1095 00e1 00       		.byte	0
+ 1096 00e2 10       		.uleb128 0x10
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 28
 
 
- 1099 00e6 19       		.uleb128 0x19
- 1100 00e7 03       		.uleb128 0x3
- 1101 00e8 0E       		.uleb128 0xe
- 1102 00e9 3A       		.uleb128 0x3a
- 1103 00ea 0B       		.uleb128 0xb
- 1104 00eb 3B       		.uleb128 0x3b
- 1105 00ec 05       		.uleb128 0x5
- 1106 00ed 27       		.uleb128 0x27
- 1107 00ee 19       		.uleb128 0x19
- 1108 00ef 49       		.uleb128 0x49
- 1109 00f0 13       		.uleb128 0x13
- 1110 00f1 11       		.uleb128 0x11
- 1111 00f2 01       		.uleb128 0x1
- 1112 00f3 12       		.uleb128 0x12
- 1113 00f4 06       		.uleb128 0x6
- 1114 00f5 40       		.uleb128 0x40
- 1115 00f6 18       		.uleb128 0x18
- 1116 00f7 9742     		.uleb128 0x2117
- 1117 00f9 19       		.uleb128 0x19
- 1118 00fa 01       		.uleb128 0x1
- 1119 00fb 13       		.uleb128 0x13
- 1120 00fc 00       		.byte	0
- 1121 00fd 00       		.byte	0
- 1122 00fe 11       		.uleb128 0x11
- 1123 00ff 2E       		.uleb128 0x2e
- 1124 0100 00       		.byte	0
- 1125 0101 3F       		.uleb128 0x3f
- 1126 0102 19       		.uleb128 0x19
- 1127 0103 03       		.uleb128 0x3
- 1128 0104 0E       		.uleb128 0xe
- 1129 0105 3A       		.uleb128 0x3a
- 1130 0106 0B       		.uleb128 0xb
- 1131 0107 3B       		.uleb128 0x3b
- 1132 0108 05       		.uleb128 0x5
- 1133 0109 27       		.uleb128 0x27
- 1134 010a 19       		.uleb128 0x19
- 1135 010b 11       		.uleb128 0x11
- 1136 010c 01       		.uleb128 0x1
- 1137 010d 12       		.uleb128 0x12
- 1138 010e 06       		.uleb128 0x6
- 1139 010f 40       		.uleb128 0x40
- 1140 0110 18       		.uleb128 0x18
- 1141 0111 9742     		.uleb128 0x2117
- 1142 0113 19       		.uleb128 0x19
- 1143 0114 00       		.byte	0
- 1144 0115 00       		.byte	0
- 1145 0116 12       		.uleb128 0x12
- 1146 0117 2E       		.uleb128 0x2e
- 1147 0118 00       		.byte	0
- 1148 0119 3F       		.uleb128 0x3f
- 1149 011a 19       		.uleb128 0x19
- 1150 011b 03       		.uleb128 0x3
- 1151 011c 0E       		.uleb128 0xe
- 1152 011d 3A       		.uleb128 0x3a
- 1153 011e 0B       		.uleb128 0xb
- 1154 011f 3B       		.uleb128 0x3b
- 1155 0120 05       		.uleb128 0x5
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 29
+ 1097 00e3 2E       		.uleb128 0x2e
+ 1098 00e4 01       		.byte	0x1
+ 1099 00e5 3F       		.uleb128 0x3f
+ 1100 00e6 19       		.uleb128 0x19
+ 1101 00e7 03       		.uleb128 0x3
+ 1102 00e8 0E       		.uleb128 0xe
+ 1103 00e9 3A       		.uleb128 0x3a
+ 1104 00ea 0B       		.uleb128 0xb
+ 1105 00eb 3B       		.uleb128 0x3b
+ 1106 00ec 05       		.uleb128 0x5
+ 1107 00ed 27       		.uleb128 0x27
+ 1108 00ee 19       		.uleb128 0x19
+ 1109 00ef 49       		.uleb128 0x49
+ 1110 00f0 13       		.uleb128 0x13
+ 1111 00f1 11       		.uleb128 0x11
+ 1112 00f2 01       		.uleb128 0x1
+ 1113 00f3 12       		.uleb128 0x12
+ 1114 00f4 06       		.uleb128 0x6
+ 1115 00f5 40       		.uleb128 0x40
+ 1116 00f6 18       		.uleb128 0x18
+ 1117 00f7 9742     		.uleb128 0x2117
+ 1118 00f9 19       		.uleb128 0x19
+ 1119 00fa 01       		.uleb128 0x1
+ 1120 00fb 13       		.uleb128 0x13
+ 1121 00fc 00       		.byte	0
+ 1122 00fd 00       		.byte	0
+ 1123 00fe 11       		.uleb128 0x11
+ 1124 00ff 2E       		.uleb128 0x2e
+ 1125 0100 00       		.byte	0
+ 1126 0101 3F       		.uleb128 0x3f
+ 1127 0102 19       		.uleb128 0x19
+ 1128 0103 03       		.uleb128 0x3
+ 1129 0104 0E       		.uleb128 0xe
+ 1130 0105 3A       		.uleb128 0x3a
+ 1131 0106 0B       		.uleb128 0xb
+ 1132 0107 3B       		.uleb128 0x3b
+ 1133 0108 05       		.uleb128 0x5
+ 1134 0109 27       		.uleb128 0x27
+ 1135 010a 19       		.uleb128 0x19
+ 1136 010b 11       		.uleb128 0x11
+ 1137 010c 01       		.uleb128 0x1
+ 1138 010d 12       		.uleb128 0x12
+ 1139 010e 06       		.uleb128 0x6
+ 1140 010f 40       		.uleb128 0x40
+ 1141 0110 18       		.uleb128 0x18
+ 1142 0111 9742     		.uleb128 0x2117
+ 1143 0113 19       		.uleb128 0x19
+ 1144 0114 00       		.byte	0
+ 1145 0115 00       		.byte	0
+ 1146 0116 12       		.uleb128 0x12
+ 1147 0117 2E       		.uleb128 0x2e
+ 1148 0118 00       		.byte	0
+ 1149 0119 3F       		.uleb128 0x3f
+ 1150 011a 19       		.uleb128 0x19
+ 1151 011b 03       		.uleb128 0x3
+ 1152 011c 0E       		.uleb128 0xe
+ 1153 011d 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 29
 
 
- 1156 0121 27       		.uleb128 0x27
- 1157 0122 19       		.uleb128 0x19
- 1158 0123 49       		.uleb128 0x49
- 1159 0124 13       		.uleb128 0x13
- 1160 0125 11       		.uleb128 0x11
- 1161 0126 01       		.uleb128 0x1
- 1162 0127 12       		.uleb128 0x12
- 1163 0128 06       		.uleb128 0x6
- 1164 0129 40       		.uleb128 0x40
- 1165 012a 18       		.uleb128 0x18
- 1166 012b 9742     		.uleb128 0x2117
- 1167 012d 19       		.uleb128 0x19
- 1168 012e 00       		.byte	0
- 1169 012f 00       		.byte	0
- 1170 0130 13       		.uleb128 0x13
- 1171 0131 898201   		.uleb128 0x4109
- 1172 0134 01       		.byte	0x1
- 1173 0135 11       		.uleb128 0x11
- 1174 0136 01       		.uleb128 0x1
- 1175 0137 31       		.uleb128 0x31
- 1176 0138 13       		.uleb128 0x13
- 1177 0139 01       		.uleb128 0x1
- 1178 013a 13       		.uleb128 0x13
- 1179 013b 00       		.byte	0
- 1180 013c 00       		.byte	0
- 1181 013d 14       		.uleb128 0x14
- 1182 013e 8A8201   		.uleb128 0x410a
- 1183 0141 00       		.byte	0
- 1184 0142 02       		.uleb128 0x2
- 1185 0143 18       		.uleb128 0x18
- 1186 0144 9142     		.uleb128 0x2111
- 1187 0146 18       		.uleb128 0x18
- 1188 0147 00       		.byte	0
- 1189 0148 00       		.byte	0
- 1190 0149 15       		.uleb128 0x15
- 1191 014a 05       		.uleb128 0x5
- 1192 014b 00       		.byte	0
- 1193 014c 03       		.uleb128 0x3
- 1194 014d 0E       		.uleb128 0xe
- 1195 014e 3A       		.uleb128 0x3a
- 1196 014f 0B       		.uleb128 0xb
- 1197 0150 3B       		.uleb128 0x3b
- 1198 0151 0B       		.uleb128 0xb
- 1199 0152 49       		.uleb128 0x49
- 1200 0153 13       		.uleb128 0x13
- 1201 0154 02       		.uleb128 0x2
- 1202 0155 17       		.uleb128 0x17
- 1203 0156 00       		.byte	0
- 1204 0157 00       		.byte	0
- 1205 0158 16       		.uleb128 0x16
- 1206 0159 01       		.uleb128 0x1
- 1207 015a 01       		.byte	0x1
- 1208 015b 49       		.uleb128 0x49
- 1209 015c 13       		.uleb128 0x13
- 1210 015d 01       		.uleb128 0x1
- 1211 015e 13       		.uleb128 0x13
- 1212 015f 00       		.byte	0
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 30
+ 1154 011e 0B       		.uleb128 0xb
+ 1155 011f 3B       		.uleb128 0x3b
+ 1156 0120 05       		.uleb128 0x5
+ 1157 0121 27       		.uleb128 0x27
+ 1158 0122 19       		.uleb128 0x19
+ 1159 0123 49       		.uleb128 0x49
+ 1160 0124 13       		.uleb128 0x13
+ 1161 0125 11       		.uleb128 0x11
+ 1162 0126 01       		.uleb128 0x1
+ 1163 0127 12       		.uleb128 0x12
+ 1164 0128 06       		.uleb128 0x6
+ 1165 0129 40       		.uleb128 0x40
+ 1166 012a 18       		.uleb128 0x18
+ 1167 012b 9742     		.uleb128 0x2117
+ 1168 012d 19       		.uleb128 0x19
+ 1169 012e 00       		.byte	0
+ 1170 012f 00       		.byte	0
+ 1171 0130 13       		.uleb128 0x13
+ 1172 0131 898201   		.uleb128 0x4109
+ 1173 0134 01       		.byte	0x1
+ 1174 0135 11       		.uleb128 0x11
+ 1175 0136 01       		.uleb128 0x1
+ 1176 0137 31       		.uleb128 0x31
+ 1177 0138 13       		.uleb128 0x13
+ 1178 0139 01       		.uleb128 0x1
+ 1179 013a 13       		.uleb128 0x13
+ 1180 013b 00       		.byte	0
+ 1181 013c 00       		.byte	0
+ 1182 013d 14       		.uleb128 0x14
+ 1183 013e 8A8201   		.uleb128 0x410a
+ 1184 0141 00       		.byte	0
+ 1185 0142 02       		.uleb128 0x2
+ 1186 0143 18       		.uleb128 0x18
+ 1187 0144 9142     		.uleb128 0x2111
+ 1188 0146 18       		.uleb128 0x18
+ 1189 0147 00       		.byte	0
+ 1190 0148 00       		.byte	0
+ 1191 0149 15       		.uleb128 0x15
+ 1192 014a 05       		.uleb128 0x5
+ 1193 014b 00       		.byte	0
+ 1194 014c 03       		.uleb128 0x3
+ 1195 014d 0E       		.uleb128 0xe
+ 1196 014e 3A       		.uleb128 0x3a
+ 1197 014f 0B       		.uleb128 0xb
+ 1198 0150 3B       		.uleb128 0x3b
+ 1199 0151 0B       		.uleb128 0xb
+ 1200 0152 49       		.uleb128 0x49
+ 1201 0153 13       		.uleb128 0x13
+ 1202 0154 02       		.uleb128 0x2
+ 1203 0155 17       		.uleb128 0x17
+ 1204 0156 00       		.byte	0
+ 1205 0157 00       		.byte	0
+ 1206 0158 16       		.uleb128 0x16
+ 1207 0159 01       		.uleb128 0x1
+ 1208 015a 01       		.byte	0x1
+ 1209 015b 49       		.uleb128 0x49
+ 1210 015c 13       		.uleb128 0x13
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 30
 
 
- 1213 0160 00       		.byte	0
- 1214 0161 17       		.uleb128 0x17
- 1215 0162 21       		.uleb128 0x21
- 1216 0163 00       		.byte	0
- 1217 0164 49       		.uleb128 0x49
- 1218 0165 13       		.uleb128 0x13
- 1219 0166 2F       		.uleb128 0x2f
- 1220 0167 0B       		.uleb128 0xb
- 1221 0168 00       		.byte	0
- 1222 0169 00       		.byte	0
- 1223 016a 18       		.uleb128 0x18
- 1224 016b 26       		.uleb128 0x26
- 1225 016c 00       		.byte	0
- 1226 016d 49       		.uleb128 0x49
- 1227 016e 13       		.uleb128 0x13
- 1228 016f 00       		.byte	0
- 1229 0170 00       		.byte	0
- 1230 0171 19       		.uleb128 0x19
- 1231 0172 34       		.uleb128 0x34
- 1232 0173 00       		.byte	0
- 1233 0174 03       		.uleb128 0x3
- 1234 0175 0E       		.uleb128 0xe
- 1235 0176 3A       		.uleb128 0x3a
- 1236 0177 0B       		.uleb128 0xb
- 1237 0178 3B       		.uleb128 0x3b
- 1238 0179 0B       		.uleb128 0xb
- 1239 017a 49       		.uleb128 0x49
- 1240 017b 13       		.uleb128 0x13
- 1241 017c 3F       		.uleb128 0x3f
- 1242 017d 19       		.uleb128 0x19
- 1243 017e 02       		.uleb128 0x2
- 1244 017f 18       		.uleb128 0x18
- 1245 0180 00       		.byte	0
- 1246 0181 00       		.byte	0
- 1247 0182 1A       		.uleb128 0x1a
- 1248 0183 34       		.uleb128 0x34
- 1249 0184 00       		.byte	0
- 1250 0185 03       		.uleb128 0x3
- 1251 0186 0E       		.uleb128 0xe
- 1252 0187 3A       		.uleb128 0x3a
- 1253 0188 0B       		.uleb128 0xb
- 1254 0189 3B       		.uleb128 0x3b
- 1255 018a 0B       		.uleb128 0xb
- 1256 018b 49       		.uleb128 0x49
- 1257 018c 13       		.uleb128 0x13
- 1258 018d 3F       		.uleb128 0x3f
- 1259 018e 19       		.uleb128 0x19
- 1260 018f 3C       		.uleb128 0x3c
- 1261 0190 19       		.uleb128 0x19
- 1262 0191 00       		.byte	0
- 1263 0192 00       		.byte	0
- 1264 0193 1B       		.uleb128 0x1b
- 1265 0194 2E       		.uleb128 0x2e
- 1266 0195 00       		.byte	0
- 1267 0196 3F       		.uleb128 0x3f
- 1268 0197 19       		.uleb128 0x19
- 1269 0198 3C       		.uleb128 0x3c
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 31
+ 1211 015d 01       		.uleb128 0x1
+ 1212 015e 13       		.uleb128 0x13
+ 1213 015f 00       		.byte	0
+ 1214 0160 00       		.byte	0
+ 1215 0161 17       		.uleb128 0x17
+ 1216 0162 21       		.uleb128 0x21
+ 1217 0163 00       		.byte	0
+ 1218 0164 49       		.uleb128 0x49
+ 1219 0165 13       		.uleb128 0x13
+ 1220 0166 2F       		.uleb128 0x2f
+ 1221 0167 0B       		.uleb128 0xb
+ 1222 0168 00       		.byte	0
+ 1223 0169 00       		.byte	0
+ 1224 016a 18       		.uleb128 0x18
+ 1225 016b 26       		.uleb128 0x26
+ 1226 016c 00       		.byte	0
+ 1227 016d 49       		.uleb128 0x49
+ 1228 016e 13       		.uleb128 0x13
+ 1229 016f 00       		.byte	0
+ 1230 0170 00       		.byte	0
+ 1231 0171 19       		.uleb128 0x19
+ 1232 0172 34       		.uleb128 0x34
+ 1233 0173 00       		.byte	0
+ 1234 0174 03       		.uleb128 0x3
+ 1235 0175 0E       		.uleb128 0xe
+ 1236 0176 3A       		.uleb128 0x3a
+ 1237 0177 0B       		.uleb128 0xb
+ 1238 0178 3B       		.uleb128 0x3b
+ 1239 0179 0B       		.uleb128 0xb
+ 1240 017a 49       		.uleb128 0x49
+ 1241 017b 13       		.uleb128 0x13
+ 1242 017c 3F       		.uleb128 0x3f
+ 1243 017d 19       		.uleb128 0x19
+ 1244 017e 02       		.uleb128 0x2
+ 1245 017f 18       		.uleb128 0x18
+ 1246 0180 00       		.byte	0
+ 1247 0181 00       		.byte	0
+ 1248 0182 1A       		.uleb128 0x1a
+ 1249 0183 34       		.uleb128 0x34
+ 1250 0184 00       		.byte	0
+ 1251 0185 03       		.uleb128 0x3
+ 1252 0186 0E       		.uleb128 0xe
+ 1253 0187 3A       		.uleb128 0x3a
+ 1254 0188 0B       		.uleb128 0xb
+ 1255 0189 3B       		.uleb128 0x3b
+ 1256 018a 0B       		.uleb128 0xb
+ 1257 018b 49       		.uleb128 0x49
+ 1258 018c 13       		.uleb128 0x13
+ 1259 018d 3F       		.uleb128 0x3f
+ 1260 018e 19       		.uleb128 0x19
+ 1261 018f 3C       		.uleb128 0x3c
+ 1262 0190 19       		.uleb128 0x19
+ 1263 0191 00       		.byte	0
+ 1264 0192 00       		.byte	0
+ 1265 0193 1B       		.uleb128 0x1b
+ 1266 0194 2E       		.uleb128 0x2e
+ 1267 0195 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 31
 
 
- 1270 0199 19       		.uleb128 0x19
- 1271 019a 6E       		.uleb128 0x6e
- 1272 019b 0E       		.uleb128 0xe
- 1273 019c 03       		.uleb128 0x3
- 1274 019d 0E       		.uleb128 0xe
- 1275 019e 3A       		.uleb128 0x3a
- 1276 019f 0B       		.uleb128 0xb
- 1277 01a0 3B       		.uleb128 0x3b
- 1278 01a1 0B       		.uleb128 0xb
- 1279 01a2 00       		.byte	0
- 1280 01a3 00       		.byte	0
- 1281 01a4 00       		.byte	0
- 1282              		.section	.debug_loc,"",%progbits
- 1283              	.Ldebug_loc0:
- 1284              	.LLST0:
- 1285 0000 00000000 		.4byte	.LVL1
- 1286 0004 07000000 		.4byte	.LVL3-1
- 1287 0008 0100     		.2byte	0x1
- 1288 000a 50       		.byte	0x50
- 1289 000b 07000000 		.4byte	.LVL3-1
- 1290 000f 20000000 		.4byte	.LFE39
- 1291 0013 0400     		.2byte	0x4
- 1292 0015 F3       		.byte	0xf3
- 1293 0016 01       		.uleb128 0x1
- 1294 0017 50       		.byte	0x50
- 1295 0018 9F       		.byte	0x9f
- 1296 0019 00000000 		.4byte	0
- 1297 001d 00000000 		.4byte	0
- 1298              	.LLST1:
- 1299 0021 08000000 		.4byte	.LVL3
- 1300 0025 19000000 		.4byte	.LVL4-1
- 1301 0029 0100     		.2byte	0x1
- 1302 002b 50       		.byte	0x50
- 1303 002c 00000000 		.4byte	0
- 1304 0030 00000000 		.4byte	0
- 1305              	.LLST2:
- 1306 0034 06000000 		.4byte	.LVL6
- 1307 0038 0A000000 		.4byte	.LVL7
- 1308 003c 0500     		.2byte	0x5
- 1309 003e 70       		.byte	0x70
- 1310 003f 00       		.sleb128 0
- 1311 0040 33       		.byte	0x33
- 1312 0041 1A       		.byte	0x1a
- 1313 0042 9F       		.byte	0x9f
- 1314 0043 0A000000 		.4byte	.LVL7
- 1315 0047 10000000 		.4byte	.LFE40
- 1316 004b 0100     		.2byte	0x1
- 1317 004d 50       		.byte	0x50
- 1318 004e 00000000 		.4byte	0
- 1319 0052 00000000 		.4byte	0
- 1320              	.LLST3:
- 1321 0056 00000000 		.4byte	.LVL12
- 1322 005a 07000000 		.4byte	.LVL13-1
- 1323 005e 0100     		.2byte	0x1
- 1324 0060 50       		.byte	0x50
- 1325 0061 07000000 		.4byte	.LVL13-1
- 1326 0065 18000000 		.4byte	.LVL17
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 32
+ 1268 0196 3F       		.uleb128 0x3f
+ 1269 0197 19       		.uleb128 0x19
+ 1270 0198 3C       		.uleb128 0x3c
+ 1271 0199 19       		.uleb128 0x19
+ 1272 019a 6E       		.uleb128 0x6e
+ 1273 019b 0E       		.uleb128 0xe
+ 1274 019c 03       		.uleb128 0x3
+ 1275 019d 0E       		.uleb128 0xe
+ 1276 019e 3A       		.uleb128 0x3a
+ 1277 019f 0B       		.uleb128 0xb
+ 1278 01a0 3B       		.uleb128 0x3b
+ 1279 01a1 0B       		.uleb128 0xb
+ 1280 01a2 00       		.byte	0
+ 1281 01a3 00       		.byte	0
+ 1282 01a4 00       		.byte	0
+ 1283              		.section	.debug_loc,"",%progbits
+ 1284              	.Ldebug_loc0:
+ 1285              	.LLST0:
+ 1286 0000 00000000 		.4byte	.LVL1
+ 1287 0004 07000000 		.4byte	.LVL3-1
+ 1288 0008 0100     		.2byte	0x1
+ 1289 000a 50       		.byte	0x50
+ 1290 000b 07000000 		.4byte	.LVL3-1
+ 1291 000f 20000000 		.4byte	.LFE39
+ 1292 0013 0400     		.2byte	0x4
+ 1293 0015 F3       		.byte	0xf3
+ 1294 0016 01       		.uleb128 0x1
+ 1295 0017 50       		.byte	0x50
+ 1296 0018 9F       		.byte	0x9f
+ 1297 0019 00000000 		.4byte	0
+ 1298 001d 00000000 		.4byte	0
+ 1299              	.LLST1:
+ 1300 0021 08000000 		.4byte	.LVL3
+ 1301 0025 19000000 		.4byte	.LVL4-1
+ 1302 0029 0100     		.2byte	0x1
+ 1303 002b 50       		.byte	0x50
+ 1304 002c 00000000 		.4byte	0
+ 1305 0030 00000000 		.4byte	0
+ 1306              	.LLST2:
+ 1307 0034 06000000 		.4byte	.LVL6
+ 1308 0038 0A000000 		.4byte	.LVL7
+ 1309 003c 0500     		.2byte	0x5
+ 1310 003e 70       		.byte	0x70
+ 1311 003f 00       		.sleb128 0
+ 1312 0040 33       		.byte	0x33
+ 1313 0041 1A       		.byte	0x1a
+ 1314 0042 9F       		.byte	0x9f
+ 1315 0043 0A000000 		.4byte	.LVL7
+ 1316 0047 10000000 		.4byte	.LFE40
+ 1317 004b 0100     		.2byte	0x1
+ 1318 004d 50       		.byte	0x50
+ 1319 004e 00000000 		.4byte	0
+ 1320 0052 00000000 		.4byte	0
+ 1321              	.LLST3:
+ 1322 0056 00000000 		.4byte	.LVL12
+ 1323 005a 07000000 		.4byte	.LVL13-1
+ 1324 005e 0100     		.2byte	0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 32
 
 
- 1327 0069 0100     		.2byte	0x1
- 1328 006b 54       		.byte	0x54
- 1329 006c 18000000 		.4byte	.LVL17
- 1330 0070 1A000000 		.4byte	.LFE34
- 1331 0074 0400     		.2byte	0x4
- 1332 0076 F3       		.byte	0xf3
- 1333 0077 01       		.uleb128 0x1
- 1334 0078 50       		.byte	0x50
- 1335 0079 9F       		.byte	0x9f
- 1336 007a 00000000 		.4byte	0
- 1337 007e 00000000 		.4byte	0
- 1338              		.section	.debug_aranges,"",%progbits
- 1339 0000 7C000000 		.4byte	0x7c
- 1340 0004 0200     		.2byte	0x2
- 1341 0006 00000000 		.4byte	.Ldebug_info0
- 1342 000a 04       		.byte	0x4
- 1343 000b 00       		.byte	0
- 1344 000c 0000     		.2byte	0
- 1345 000e 0000     		.2byte	0
- 1346 0010 00000000 		.4byte	.LFB37
- 1347 0014 0C000000 		.4byte	.LFE37-.LFB37
- 1348 0018 00000000 		.4byte	.LFB38
- 1349 001c 0C000000 		.4byte	.LFE38-.LFB38
- 1350 0020 00000000 		.4byte	.LFB39
- 1351 0024 20000000 		.4byte	.LFE39-.LFB39
- 1352 0028 00000000 		.4byte	.LFB40
- 1353 002c 10000000 		.4byte	.LFE40-.LFB40
- 1354 0030 00000000 		.4byte	.LFB41
- 1355 0034 0C000000 		.4byte	.LFE41-.LFB41
- 1356 0038 00000000 		.4byte	.LFB42
- 1357 003c 14000000 		.4byte	.LFE42-.LFB42
- 1358 0040 00000000 		.4byte	.LFB43
- 1359 0044 0C000000 		.4byte	.LFE43-.LFB43
- 1360 0048 00000000 		.4byte	.LFB33
- 1361 004c 1C000000 		.4byte	.LFE33-.LFB33
- 1362 0050 00000000 		.4byte	.LFB34
- 1363 0054 1A000000 		.4byte	.LFE34-.LFB34
- 1364 0058 00000000 		.4byte	.LFB35
- 1365 005c 14000000 		.4byte	.LFE35-.LFB35
- 1366 0060 00000000 		.4byte	.LFB44
- 1367 0064 0C000000 		.4byte	.LFE44-.LFB44
- 1368 0068 00000000 		.4byte	.LFB45
- 1369 006c 0C000000 		.4byte	.LFE45-.LFB45
- 1370 0070 00000000 		.4byte	.LFB36
- 1371 0074 2C000000 		.4byte	.LFE36-.LFB36
- 1372 0078 00000000 		.4byte	0
- 1373 007c 00000000 		.4byte	0
- 1374              		.section	.debug_ranges,"",%progbits
- 1375              	.Ldebug_ranges0:
- 1376 0000 00000000 		.4byte	.LFB37
- 1377 0004 0C000000 		.4byte	.LFE37
- 1378 0008 00000000 		.4byte	.LFB38
- 1379 000c 0C000000 		.4byte	.LFE38
- 1380 0010 00000000 		.4byte	.LFB39
- 1381 0014 20000000 		.4byte	.LFE39
- 1382 0018 00000000 		.4byte	.LFB40
- 1383 001c 10000000 		.4byte	.LFE40
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 33
+ 1325 0060 50       		.byte	0x50
+ 1326 0061 07000000 		.4byte	.LVL13-1
+ 1327 0065 18000000 		.4byte	.LVL17
+ 1328 0069 0100     		.2byte	0x1
+ 1329 006b 54       		.byte	0x54
+ 1330 006c 18000000 		.4byte	.LVL17
+ 1331 0070 1A000000 		.4byte	.LFE34
+ 1332 0074 0400     		.2byte	0x4
+ 1333 0076 F3       		.byte	0xf3
+ 1334 0077 01       		.uleb128 0x1
+ 1335 0078 50       		.byte	0x50
+ 1336 0079 9F       		.byte	0x9f
+ 1337 007a 00000000 		.4byte	0
+ 1338 007e 00000000 		.4byte	0
+ 1339              		.section	.debug_aranges,"",%progbits
+ 1340 0000 7C000000 		.4byte	0x7c
+ 1341 0004 0200     		.2byte	0x2
+ 1342 0006 00000000 		.4byte	.Ldebug_info0
+ 1343 000a 04       		.byte	0x4
+ 1344 000b 00       		.byte	0
+ 1345 000c 0000     		.2byte	0
+ 1346 000e 0000     		.2byte	0
+ 1347 0010 00000000 		.4byte	.LFB37
+ 1348 0014 0C000000 		.4byte	.LFE37-.LFB37
+ 1349 0018 00000000 		.4byte	.LFB38
+ 1350 001c 0C000000 		.4byte	.LFE38-.LFB38
+ 1351 0020 00000000 		.4byte	.LFB39
+ 1352 0024 20000000 		.4byte	.LFE39-.LFB39
+ 1353 0028 00000000 		.4byte	.LFB40
+ 1354 002c 10000000 		.4byte	.LFE40-.LFB40
+ 1355 0030 00000000 		.4byte	.LFB41
+ 1356 0034 0C000000 		.4byte	.LFE41-.LFB41
+ 1357 0038 00000000 		.4byte	.LFB42
+ 1358 003c 14000000 		.4byte	.LFE42-.LFB42
+ 1359 0040 00000000 		.4byte	.LFB43
+ 1360 0044 0C000000 		.4byte	.LFE43-.LFB43
+ 1361 0048 00000000 		.4byte	.LFB33
+ 1362 004c 1C000000 		.4byte	.LFE33-.LFB33
+ 1363 0050 00000000 		.4byte	.LFB34
+ 1364 0054 1A000000 		.4byte	.LFE34-.LFB34
+ 1365 0058 00000000 		.4byte	.LFB35
+ 1366 005c 14000000 		.4byte	.LFE35-.LFB35
+ 1367 0060 00000000 		.4byte	.LFB44
+ 1368 0064 0C000000 		.4byte	.LFE44-.LFB44
+ 1369 0068 00000000 		.4byte	.LFB45
+ 1370 006c 0C000000 		.4byte	.LFE45-.LFB45
+ 1371 0070 00000000 		.4byte	.LFB36
+ 1372 0074 2C000000 		.4byte	.LFE36-.LFB36
+ 1373 0078 00000000 		.4byte	0
+ 1374 007c 00000000 		.4byte	0
+ 1375              		.section	.debug_ranges,"",%progbits
+ 1376              	.Ldebug_ranges0:
+ 1377 0000 00000000 		.4byte	.LFB37
+ 1378 0004 0C000000 		.4byte	.LFE37
+ 1379 0008 00000000 		.4byte	.LFB38
+ 1380 000c 0C000000 		.4byte	.LFE38
+ 1381 0010 00000000 		.4byte	.LFB39
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 33
 
 
- 1384 0020 00000000 		.4byte	.LFB41
- 1385 0024 0C000000 		.4byte	.LFE41
- 1386 0028 00000000 		.4byte	.LFB42
- 1387 002c 14000000 		.4byte	.LFE42
- 1388 0030 00000000 		.4byte	.LFB43
- 1389 0034 0C000000 		.4byte	.LFE43
- 1390 0038 00000000 		.4byte	.LFB33
- 1391 003c 1C000000 		.4byte	.LFE33
- 1392 0040 00000000 		.4byte	.LFB34
- 1393 0044 1A000000 		.4byte	.LFE34
- 1394 0048 00000000 		.4byte	.LFB35
- 1395 004c 14000000 		.4byte	.LFE35
- 1396 0050 00000000 		.4byte	.LFB44
- 1397 0054 0C000000 		.4byte	.LFE44
- 1398 0058 00000000 		.4byte	.LFB45
- 1399 005c 0C000000 		.4byte	.LFE45
- 1400 0060 00000000 		.4byte	.LFB36
- 1401 0064 2C000000 		.4byte	.LFE36
- 1402 0068 00000000 		.4byte	0
- 1403 006c 00000000 		.4byte	0
- 1404              		.section	.debug_line,"",%progbits
- 1405              	.Ldebug_line0:
- 1406 0000 72010000 		.section	.debug_str,"MS",%progbits,1
- 1406      02006B00 
- 1406      00000201 
- 1406      FB0E0D00 
- 1406      01010101 
- 1407              	.LASF14:
- 1408 0000 72656733 		.ascii	"reg32\000"
- 1408      3200
- 1409              	.LASF44:
- 1410 0006 445F496E 		.ascii	"D_Interrupt_GetPriority\000"
- 1410      74657272 
- 1410      7570745F 
- 1410      47657450 
- 1410      72696F72 
- 1411              	.LASF31:
- 1412 001e 445F496E 		.ascii	"D_Interrupt_SetPending\000"
- 1412      74657272 
- 1412      7570745F 
- 1412      53657450 
- 1412      656E6469 
- 1413              	.LASF36:
- 1414 0035 43795261 		.ascii	"CyRamVectors\000"
- 1414      6D566563 
- 1414      746F7273 
- 1414      00
- 1415              	.LASF20:
- 1416 0042 61646472 		.ascii	"address\000"
- 1416      65737300 
- 1417              	.LASF35:
- 1418 004a 636F756E 		.ascii	"count\000"
- 1418      7400
- 1419              	.LASF29:
- 1420 0050 445F496E 		.ascii	"D_Interrupt_StartEx\000"
- 1420      74657272 
- 1420      7570745F 
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 34
+ 1382 0014 20000000 		.4byte	.LFE39
+ 1383 0018 00000000 		.4byte	.LFB40
+ 1384 001c 10000000 		.4byte	.LFE40
+ 1385 0020 00000000 		.4byte	.LFB41
+ 1386 0024 0C000000 		.4byte	.LFE41
+ 1387 0028 00000000 		.4byte	.LFB42
+ 1388 002c 14000000 		.4byte	.LFE42
+ 1389 0030 00000000 		.4byte	.LFB43
+ 1390 0034 0C000000 		.4byte	.LFE43
+ 1391 0038 00000000 		.4byte	.LFB33
+ 1392 003c 1C000000 		.4byte	.LFE33
+ 1393 0040 00000000 		.4byte	.LFB34
+ 1394 0044 1A000000 		.4byte	.LFE34
+ 1395 0048 00000000 		.4byte	.LFB35
+ 1396 004c 14000000 		.4byte	.LFE35
+ 1397 0050 00000000 		.4byte	.LFB44
+ 1398 0054 0C000000 		.4byte	.LFE44
+ 1399 0058 00000000 		.4byte	.LFB45
+ 1400 005c 0C000000 		.4byte	.LFE45
+ 1401 0060 00000000 		.4byte	.LFB36
+ 1402 0064 2C000000 		.4byte	.LFE36
+ 1403 0068 00000000 		.4byte	0
+ 1404 006c 00000000 		.4byte	0
+ 1405              		.section	.debug_line,"",%progbits
+ 1406              	.Ldebug_line0:
+ 1407 0000 74010000 		.section	.debug_str,"MS",%progbits,1
+ 1407      02006B00 
+ 1407      00000201 
+ 1407      FB0E0D00 
+ 1407      01010101 
+ 1408              	.LASF14:
+ 1409 0000 72656733 		.ascii	"reg32\000"
+ 1409      3200
+ 1410              	.LASF44:
+ 1411 0006 445F496E 		.ascii	"D_Interrupt_GetPriority\000"
+ 1411      74657272 
+ 1411      7570745F 
+ 1411      47657450 
+ 1411      72696F72 
+ 1412              	.LASF31:
+ 1413 001e 445F496E 		.ascii	"D_Interrupt_SetPending\000"
+ 1413      74657272 
+ 1413      7570745F 
+ 1413      53657450 
+ 1413      656E6469 
+ 1414              	.LASF36:
+ 1415 0035 43795261 		.ascii	"CyRamVectors\000"
+ 1415      6D566563 
+ 1415      746F7273 
+ 1415      00
+ 1416              	.LASF20:
+ 1417 0042 61646472 		.ascii	"address\000"
+ 1417      65737300 
+ 1418              	.LASF35:
+ 1419 004a 636F756E 		.ascii	"count\000"
+ 1419      7400
+ 1420              	.LASF29:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 34
 
 
- 1420      53746172 
- 1420      74457800 
- 1421              	.LASF26:
- 1422 0064 445F496E 		.ascii	"D_Interrupt_Enable\000"
- 1422      74657272 
- 1422      7570745F 
- 1422      456E6162 
- 1422      6C6500
- 1423              	.LASF32:
- 1424 0077 445F496E 		.ascii	"D_Interrupt_ClearPending\000"
- 1424      74657272 
- 1424      7570745F 
- 1424      436C6561 
- 1424      7250656E 
- 1425              	.LASF28:
- 1426 0090 445F496E 		.ascii	"D_Interrupt_Start\000"
- 1426      74657272 
- 1426      7570745F 
- 1426      53746172 
- 1426      7400
- 1427              	.LASF39:
- 1428 00a2 445F4275 		.ascii	"D_Button_Read\000"
- 1428      74746F6E 
- 1428      5F526561 
- 1428      6400
- 1429              	.LASF11:
- 1430 00b0 666C6F61 		.ascii	"float\000"
- 1430      7400
- 1431              	.LASF1:
- 1432 00b6 756E7369 		.ascii	"unsigned char\000"
- 1432      676E6564 
- 1432      20636861 
- 1432      7200
- 1433              	.LASF27:
- 1434 00c4 445F496E 		.ascii	"D_Interrupt_Disable\000"
- 1434      74657272 
- 1434      7570745F 
- 1434      44697361 
- 1434      626C6500 
- 1435              	.LASF22:
- 1436 00d8 696E7465 		.ascii	"interruptState\000"
- 1436      72727570 
- 1436      74537461 
- 1436      746500
- 1437              	.LASF5:
- 1438 00e7 6C6F6E67 		.ascii	"long unsigned int\000"
- 1438      20756E73 
- 1438      69676E65 
- 1438      6420696E 
- 1438      7400
- 1439              	.LASF3:
- 1440 00f9 73686F72 		.ascii	"short unsigned int\000"
- 1440      7420756E 
- 1440      7369676E 
- 1440      65642069 
- 1440      6E7400
- 1441              	.LASF21:
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 35
+ 1421 0050 445F496E 		.ascii	"D_Interrupt_StartEx\000"
+ 1421      74657272 
+ 1421      7570745F 
+ 1421      53746172 
+ 1421      74457800 
+ 1422              	.LASF26:
+ 1423 0064 445F496E 		.ascii	"D_Interrupt_Enable\000"
+ 1423      74657272 
+ 1423      7570745F 
+ 1423      456E6162 
+ 1423      6C6500
+ 1424              	.LASF32:
+ 1425 0077 445F496E 		.ascii	"D_Interrupt_ClearPending\000"
+ 1425      74657272 
+ 1425      7570745F 
+ 1425      436C6561 
+ 1425      7250656E 
+ 1426              	.LASF28:
+ 1427 0090 445F496E 		.ascii	"D_Interrupt_Start\000"
+ 1427      74657272 
+ 1427      7570745F 
+ 1427      53746172 
+ 1427      7400
+ 1428              	.LASF39:
+ 1429 00a2 445F4275 		.ascii	"D_Button_Read\000"
+ 1429      74746F6E 
+ 1429      5F526561 
+ 1429      6400
+ 1430              	.LASF11:
+ 1431 00b0 666C6F61 		.ascii	"float\000"
+ 1431      7400
+ 1432              	.LASF1:
+ 1433 00b6 756E7369 		.ascii	"unsigned char\000"
+ 1433      676E6564 
+ 1433      20636861 
+ 1433      7200
+ 1434              	.LASF27:
+ 1435 00c4 445F496E 		.ascii	"D_Interrupt_Disable\000"
+ 1435      74657272 
+ 1435      7570745F 
+ 1435      44697361 
+ 1435      626C6500 
+ 1436              	.LASF22:
+ 1437 00d8 696E7465 		.ascii	"interruptState\000"
+ 1437      72727570 
+ 1437      74537461 
+ 1437      746500
+ 1438              	.LASF5:
+ 1439 00e7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1439      20756E73 
+ 1439      69676E65 
+ 1439      6420696E 
+ 1439      7400
+ 1440              	.LASF3:
+ 1441 00f9 73686F72 		.ascii	"short unsigned int\000"
+ 1441      7420756E 
+ 1441      7369676E 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 35
 
 
- 1442 010c 7072696F 		.ascii	"priority\000"
- 1442      72697479 
- 1442      00
- 1443              	.LASF12:
- 1444 0115 646F7562 		.ascii	"double\000"
- 1444      6C6500
- 1445              	.LASF19:
- 1446 011c 445F496E 		.ascii	"D_Interrupt_SetPriority\000"
- 1446      74657272 
- 1446      7570745F 
- 1446      53657450 
- 1446      72696F72 
- 1447              	.LASF25:
- 1448 0134 445F496E 		.ascii	"D_Interrupt_GetState\000"
- 1448      74657272 
- 1448      7570745F 
- 1448      47657453 
- 1448      74617465 
- 1449              	.LASF43:
- 1450 0149 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\Hw"
- 1450      49545C4D 
- 1450      6963726F 
- 1450      636F6E74 
- 1450      726F6C6C 
- 1451 0179 332D2043 		.ascii	"3- CountZilla final\\CountZilla Final\\CountZilla F"
- 1451      6F756E74 
- 1451      5A696C6C 
- 1451      61206669 
- 1451      6E616C5C 
- 1452 01aa 696E616C 		.ascii	"inal.cydsn\000"
- 1452      2E637964 
- 1452      736E00
- 1453              	.LASF18:
- 1454 01b5 445F496E 		.ascii	"D_Interrupt_SetVector\000"
- 1454      74657272 
- 1454      7570745F 
- 1454      53657456 
- 1454      6563746F 
- 1455              	.LASF10:
- 1456 01cb 75696E74 		.ascii	"uint32\000"
- 1456      333200
- 1457              	.LASF37:
- 1458 01d2 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1458      74657243 
- 1458      72697469 
- 1458      63616C53 
- 1458      65637469 
- 1459              	.LASF8:
- 1460 01e9 756E7369 		.ascii	"unsigned int\000"
- 1460      676E6564 
- 1460      20696E74 
- 1460      00
- 1461              	.LASF30:
- 1462 01f6 445F496E 		.ascii	"D_Interrupt_Stop\000"
- 1462      74657272 
- 1462      7570745F 
- 1462      53746F70 
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 36
+ 1441      65642069 
+ 1441      6E7400
+ 1442              	.LASF21:
+ 1443 010c 7072696F 		.ascii	"priority\000"
+ 1443      72697479 
+ 1443      00
+ 1444              	.LASF12:
+ 1445 0115 646F7562 		.ascii	"double\000"
+ 1445      6C6500
+ 1446              	.LASF19:
+ 1447 011c 445F496E 		.ascii	"D_Interrupt_SetPriority\000"
+ 1447      74657272 
+ 1447      7570745F 
+ 1447      53657450 
+ 1447      72696F72 
+ 1448              	.LASF25:
+ 1449 0134 445F496E 		.ascii	"D_Interrupt_GetState\000"
+ 1449      74657272 
+ 1449      7570745F 
+ 1449      47657453 
+ 1449      74617465 
+ 1450              	.LASF43:
+ 1451 0149 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\Hw"
+ 1451      49545C4D 
+ 1451      6963726F 
+ 1451      636F6E74 
+ 1451      726F6C6C 
+ 1452 0179 332D2043 		.ascii	"3- CountZilla final\\CountZilla Final\\CountZilla F"
+ 1452      6F756E74 
+ 1452      5A696C6C 
+ 1452      61206669 
+ 1452      6E616C5C 
+ 1453 01aa 696E616C 		.ascii	"inal.cydsn\000"
+ 1453      2E637964 
+ 1453      736E00
+ 1454              	.LASF18:
+ 1455 01b5 445F496E 		.ascii	"D_Interrupt_SetVector\000"
+ 1455      74657272 
+ 1455      7570745F 
+ 1455      53657456 
+ 1455      6563746F 
+ 1456              	.LASF10:
+ 1457 01cb 75696E74 		.ascii	"uint32\000"
+ 1457      333200
+ 1458              	.LASF37:
+ 1459 01d2 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1459      74657243 
+ 1459      72697469 
+ 1459      63616C53 
+ 1459      65637469 
+ 1460              	.LASF8:
+ 1461 01e9 756E7369 		.ascii	"unsigned int\000"
+ 1461      676E6564 
+ 1461      20696E74 
+ 1461      00
+ 1462              	.LASF30:
+ 1463 01f6 445F496E 		.ascii	"D_Interrupt_Stop\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 36
 
 
- 1462      00
- 1463              	.LASF42:
- 1464 0207 47656E65 		.ascii	"Generated_Source\\PSoC4\\D_Interrupt.c\000"
- 1464      72617465 
- 1464      645F536F 
- 1464      75726365 
- 1464      5C50536F 
- 1465              	.LASF7:
- 1466 022c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1466      206C6F6E 
- 1466      6720756E 
- 1466      7369676E 
- 1466      65642069 
- 1467              	.LASF15:
- 1468 0243 63796973 		.ascii	"cyisraddress\000"
- 1468      72616464 
- 1468      72657373 
- 1468      00
- 1469              	.LASF41:
- 1470 0250 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1470      43313120 
- 1470      352E342E 
- 1470      31203230 
- 1470      31363036 
- 1471 0283 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 1471      20726576 
- 1471      6973696F 
- 1471      6E203233 
- 1471      37373135 
- 1472 02b6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1472      66756E63 
- 1472      74696F6E 
- 1472      2D736563 
- 1472      74696F6E 
- 1473              	.LASF17:
- 1474 02de 73697A65 		.ascii	"sizetype\000"
- 1474      74797065 
- 1474      00
- 1475              	.LASF6:
- 1476 02e7 6C6F6E67 		.ascii	"long long int\000"
- 1476      206C6F6E 
- 1476      6720696E 
- 1476      7400
- 1477              	.LASF34:
- 1478 02f5 474C4344 		.ascii	"GLCD_FONT8x16\000"
- 1478      5F464F4E 
- 1478      54387831 
- 1478      3600
- 1479              	.LASF13:
- 1480 0303 63686172 		.ascii	"char\000"
- 1480      00
- 1481              	.LASF2:
- 1482 0308 73686F72 		.ascii	"short int\000"
- 1482      7420696E 
- 1482      7400
- 1483              	.LASF9:
- 1484 0312 75696E74 		.ascii	"uint8\000"
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cch8xDsB.s 			page 37
+ 1463      74657272 
+ 1463      7570745F 
+ 1463      53746F70 
+ 1463      00
+ 1464              	.LASF42:
+ 1465 0207 47656E65 		.ascii	"Generated_Source\\PSoC4\\D_Interrupt.c\000"
+ 1465      72617465 
+ 1465      645F536F 
+ 1465      75726365 
+ 1465      5C50536F 
+ 1466              	.LASF7:
+ 1467 022c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1467      206C6F6E 
+ 1467      6720756E 
+ 1467      7369676E 
+ 1467      65642069 
+ 1468              	.LASF15:
+ 1469 0243 63796973 		.ascii	"cyisraddress\000"
+ 1469      72616464 
+ 1469      72657373 
+ 1469      00
+ 1470              	.LASF41:
+ 1471 0250 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1471      43313120 
+ 1471      352E342E 
+ 1471      31203230 
+ 1471      31363036 
+ 1472 0283 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1472      20726576 
+ 1472      6973696F 
+ 1472      6E203233 
+ 1472      37373135 
+ 1473 02b6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1473      66756E63 
+ 1473      74696F6E 
+ 1473      2D736563 
+ 1473      74696F6E 
+ 1474              	.LASF17:
+ 1475 02de 73697A65 		.ascii	"sizetype\000"
+ 1475      74797065 
+ 1475      00
+ 1476              	.LASF6:
+ 1477 02e7 6C6F6E67 		.ascii	"long long int\000"
+ 1477      206C6F6E 
+ 1477      6720696E 
+ 1477      7400
+ 1478              	.LASF34:
+ 1479 02f5 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 1479      5F464F4E 
+ 1479      54387831 
+ 1479      3600
+ 1480              	.LASF13:
+ 1481 0303 63686172 		.ascii	"char\000"
+ 1481      00
+ 1482              	.LASF2:
+ 1483 0308 73686F72 		.ascii	"short int\000"
+ 1483      7420696E 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\cccDvJMg.s 			page 37
 
 
- 1484      3800
- 1485              	.LASF38:
- 1486 0318 43794578 		.ascii	"CyExitCriticalSection\000"
- 1486      69744372 
- 1486      69746963 
- 1486      616C5365 
- 1486      6374696F 
- 1487              	.LASF23:
- 1488 032e 7072696F 		.ascii	"priorityOffset\000"
- 1488      72697479 
- 1488      4F666673 
- 1488      657400
- 1489              	.LASF4:
- 1490 033d 6C6F6E67 		.ascii	"long int\000"
- 1490      20696E74 
- 1490      00
- 1491              	.LASF24:
- 1492 0346 445F496E 		.ascii	"D_Interrupt_GetVector\000"
- 1492      74657272 
- 1492      7570745F 
- 1492      47657456 
- 1492      6563746F 
- 1493              	.LASF16:
- 1494 035c 6C6F6E67 		.ascii	"long double\000"
- 1494      20646F75 
- 1494      626C6500 
- 1495              	.LASF33:
- 1496 0368 445F496E 		.ascii	"D_Interrupt_Interrupt\000"
- 1496      74657272 
- 1496      7570745F 
- 1496      496E7465 
- 1496      72727570 
- 1497              	.LASF0:
- 1498 037e 7369676E 		.ascii	"signed char\000"
- 1498      65642063 
- 1498      68617200 
- 1499              	.LASF40:
- 1500 038a 43794465 		.ascii	"CyDelay\000"
- 1500      6C617900 
- 1501              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1483      7400
+ 1484              	.LASF9:
+ 1485 0312 75696E74 		.ascii	"uint8\000"
+ 1485      3800
+ 1486              	.LASF38:
+ 1487 0318 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1487      69744372 
+ 1487      69746963 
+ 1487      616C5365 
+ 1487      6374696F 
+ 1488              	.LASF23:
+ 1489 032e 7072696F 		.ascii	"priorityOffset\000"
+ 1489      72697479 
+ 1489      4F666673 
+ 1489      657400
+ 1490              	.LASF4:
+ 1491 033d 6C6F6E67 		.ascii	"long int\000"
+ 1491      20696E74 
+ 1491      00
+ 1492              	.LASF24:
+ 1493 0346 445F496E 		.ascii	"D_Interrupt_GetVector\000"
+ 1493      74657272 
+ 1493      7570745F 
+ 1493      47657456 
+ 1493      6563746F 
+ 1494              	.LASF16:
+ 1495 035c 6C6F6E67 		.ascii	"long double\000"
+ 1495      20646F75 
+ 1495      626C6500 
+ 1496              	.LASF33:
+ 1497 0368 445F496E 		.ascii	"D_Interrupt_Interrupt\000"
+ 1497      74657272 
+ 1497      7570745F 
+ 1497      496E7465 
+ 1497      72727570 
+ 1498              	.LASF0:
+ 1499 037e 7369676E 		.ascii	"signed char\000"
+ 1499      65642063 
+ 1499      68617200 
+ 1500              	.LASF40:
+ 1501 038a 43794465 		.ascii	"CyDelay\000"
+ 1501      6C617900 
+ 1502              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

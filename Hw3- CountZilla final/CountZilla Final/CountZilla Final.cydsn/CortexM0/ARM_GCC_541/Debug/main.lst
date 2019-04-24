@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 1
 
 
    1              		.syntax unified
@@ -58,763 +58,887 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 1
   32              		@ frame_needed = 0, uses_anonymous_args = 0
   33 0000 10B5     		push	{r4, lr}
   34              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 2
 
 
   35              		.cfi_offset 4, -8
   36              		.cfi_offset 14, -4
+  37 0002 82B0     		sub	sp, sp, #8
+  38              		.cfi_def_cfa_offset 16
   24:main.c        **** 
   25:main.c        ****     
   26:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
-  37              		.loc 1 26 0
-  38              		.syntax divided
-  39              	@ 26 "main.c" 1
-  40 0002 62B6     		CPSIE   i
-  41              	@ 0 "" 2
+  39              		.loc 1 26 0
+  40              		.syntax divided
+  41              	@ 26 "main.c" 1
+  42 0004 62B6     		CPSIE   i
+  43              	@ 0 "" 2
   27:main.c        **** 
   28:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
   29:main.c        ****      GLCD_Start();
-  42              		.loc 1 29 0
-  43              		.thumb
-  44              		.syntax unified
-  45 0004 FFF7FEFF 		bl	GLCD_Start
-  46              	.LVL0:
+  44              		.loc 1 29 0
+  45              		.thumb
+  46              		.syntax unified
+  47 0006 FFF7FEFF 		bl	GLCD_Start
+  48              	.LVL0:
   30:main.c        ****      A_Interrupt_ClearPending();
-  47              		.loc 1 30 0
-  48 0008 FFF7FEFF 		bl	A_Interrupt_ClearPending
-  49              	.LVL1:
+  49              		.loc 1 30 0
+  50 000a FFF7FEFF 		bl	A_Interrupt_ClearPending
+  51              	.LVL1:
   31:main.c        ****      A_Interrupt_Start();
-  50              		.loc 1 31 0
-  51 000c FFF7FEFF 		bl	A_Interrupt_Start
-  52              	.LVL2:
+  52              		.loc 1 31 0
+  53 000e FFF7FEFF 		bl	A_Interrupt_Start
+  54              	.LVL2:
   32:main.c        ****      B_Interrupt_ClearPending();
-  53              		.loc 1 32 0
-  54 0010 FFF7FEFF 		bl	B_Interrupt_ClearPending
-  55              	.LVL3:
+  55              		.loc 1 32 0
+  56 0012 FFF7FEFF 		bl	B_Interrupt_ClearPending
+  57              	.LVL3:
   33:main.c        ****      B_Interrupt_Start();
-  56              		.loc 1 33 0
-  57 0014 FFF7FEFF 		bl	B_Interrupt_Start
-  58              	.LVL4:
+  58              		.loc 1 33 0
+  59 0016 FFF7FEFF 		bl	B_Interrupt_Start
+  60              	.LVL4:
   34:main.c        ****      C_Interrupt_ClearPending();
-  59              		.loc 1 34 0
-  60 0018 FFF7FEFF 		bl	C_Interrupt_ClearPending
-  61              	.LVL5:
+  61              		.loc 1 34 0
+  62 001a FFF7FEFF 		bl	C_Interrupt_ClearPending
+  63              	.LVL5:
   35:main.c        ****      C_Interrupt_Start();
-  62              		.loc 1 35 0
-  63 001c FFF7FEFF 		bl	C_Interrupt_Start
-  64              	.LVL6:
+  64              		.loc 1 35 0
+  65 001e FFF7FEFF 		bl	C_Interrupt_Start
+  66              	.LVL6:
   36:main.c        ****      D_Interrupt_ClearPending();
-  65              		.loc 1 36 0
-  66 0020 FFF7FEFF 		bl	D_Interrupt_ClearPending
-  67              	.LVL7:
+  67              		.loc 1 36 0
+  68 0022 FFF7FEFF 		bl	D_Interrupt_ClearPending
+  69              	.LVL7:
   37:main.c        ****      D_Interrupt_Start();
-  68              		.loc 1 37 0
-  69 0024 FFF7FEFF 		bl	D_Interrupt_Start
-  70              	.LVL8:
+  70              		.loc 1 37 0
+  71 0026 FFF7FEFF 		bl	D_Interrupt_Start
+  72              	.LVL8:
   38:main.c        ****      StickButton_Interrupt_ClearPending();
-  71              		.loc 1 38 0
-  72 0028 FFF7FEFF 		bl	StickButton_Interrupt_ClearPending
-  73              	.LVL9:
+  73              		.loc 1 38 0
+  74 002a FFF7FEFF 		bl	StickButton_Interrupt_ClearPending
+  75              	.LVL9:
   39:main.c        ****      StickButton_Interrupt_Start();
-  74              		.loc 1 39 0
-  75 002c FFF7FEFF 		bl	StickButton_Interrupt_Start
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 3
 
 
-  76              	.LVL10:
+  76              		.loc 1 39 0
+  77 002e FFF7FEFF 		bl	StickButton_Interrupt_Start
+  78              	.LVL10:
   40:main.c        ****     Backlight_Write(1); 
-  77              		.loc 1 40 0
-  78 0030 0120     		movs	r0, #1
-  79 0032 FFF7FEFF 		bl	Backlight_Write
-  80              	.LVL11:
-  81              	.L2:
-  82 0036 FEE7     		b	.L2
-  83              		.cfi_endproc
-  84              	.LFE33:
-  85              		.size	main, .-main
-  86              		.global	Acount
-  87              		.global	count
-  88              		.comm	mystring,20,4
-  89              		.comm	GLCD_FONT8x16,1552,4
-  90              		.bss
-  91              		.align	2
-  92              		.type	Acount, %object
-  93              		.size	Acount, 4
-  94              	Acount:
-  95 0000 00000000 		.space	4
-  96              		.type	count, %object
-  97              		.size	count, 4
-  98              	count:
-  99 0004 00000000 		.space	4
- 100              		.text
- 101              	.Letext0:
- 102              		.file 2 "Generated_Source\\PSoC4/GLCD.h"
- 103              		.file 3 "Generated_Source\\PSoC4/A_Interrupt.h"
- 104              		.file 4 "Generated_Source\\PSoC4/B_Interrupt.h"
- 105              		.file 5 "Generated_Source\\PSoC4/C_Interrupt.h"
- 106              		.file 6 "Generated_Source\\PSoC4/D_Interrupt.h"
- 107              		.file 7 "Generated_Source\\PSoC4/StickButton_Interrupt.h"
- 108              		.file 8 "Generated_Source\\PSoC4/Backlight.h"
- 109              		.file 9 "Generated_Source\\PSoC4/cytypes.h"
- 110              		.section	.debug_info,"",%progbits
- 111              	.Ldebug_info0:
- 112 0000 1B020000 		.4byte	0x21b
- 113 0004 0400     		.2byte	0x4
- 114 0006 00000000 		.4byte	.Ldebug_abbrev0
- 115 000a 04       		.byte	0x4
- 116 000b 01       		.uleb128 0x1
- 117 000c C0010000 		.4byte	.LASF30
- 118 0010 0C       		.byte	0xc
- 119 0011 65020000 		.4byte	.LASF31
- 120 0015 19010000 		.4byte	.LASF32
- 121 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 122 001d 00000000 		.4byte	0
- 123 0021 00000000 		.4byte	.Ldebug_line0
- 124 0025 02       		.uleb128 0x2
- 125 0026 01       		.byte	0x1
- 126 0027 06       		.byte	0x6
- 127 0028 BC020000 		.4byte	.LASF0
- 128 002c 02       		.uleb128 0x2
- 129 002d 01       		.byte	0x1
- 130 002e 08       		.byte	0x8
- 131 002f C6000000 		.4byte	.LASF1
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 4
+  79              		.loc 1 40 0
+  80 0032 0120     		movs	r0, #1
+  81 0034 FFF7FEFF 		bl	Backlight_Write
+  82              	.LVL11:
+  83              	.L2:
+  41:main.c        ****    
+  42:main.c        ****      
+  43:main.c        ****         while(1) {
+  44:main.c        ****             //This updates the display with the current count number
+  45:main.c        **** 	        sprintf(mystring, "%5d", count);
+  84              		.loc 1 45 0 discriminator 1
+  85 0038 074B     		ldr	r3, .L3
+  86 003a 1A68     		ldr	r2, [r3]
+  87 003c 074C     		ldr	r4, .L3+4
+  88 003e 0849     		ldr	r1, .L3+8
+  89 0040 2000     		movs	r0, r4
+  90 0042 FFF7FEFF 		bl	sprintf
+  91              	.LVL12:
+  46:main.c        ****             GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
+  92              		.loc 1 46 0 discriminator 1
+  93 0046 0023     		movs	r3, #0
+  94 0048 0093     		str	r3, [sp]
+  95 004a 064B     		ldr	r3, .L3+12
+  96 004c 0A22     		movs	r2, #10
+  97 004e 0A21     		movs	r1, #10
+  98 0050 2000     		movs	r0, r4
+  99 0052 FFF7FEFF 		bl	GLCD_PrintString
+ 100              	.LVL13:
+ 101 0056 EFE7     		b	.L2
+ 102              	.L4:
+ 103              		.align	2
+ 104              	.L3:
+ 105 0058 00000000 		.word	.LANCHOR0
+ 106 005c 00000000 		.word	mystring
+ 107 0060 00000000 		.word	.LC1
+ 108 0064 FF0F0000 		.word	4095
+ 109              		.cfi_endproc
+ 110              	.LFE33:
+ 111              		.size	main, .-main
+ 112              		.global	Acount
+ 113              		.global	count
+ 114              		.comm	mystring,20,4
+ 115              		.comm	GLCD_FONT8x16,1552,4
+ 116              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 117              		.align	2
+ 118              	.LC1:
+ 119 0000 25356400 		.ascii	"%5d\000"
+ 120              		.bss
+ 121              		.align	2
+ 122              		.set	.LANCHOR0,. + 0
+ 123              		.type	count, %object
+ 124              		.size	count, 4
+ 125              	count:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 4
 
 
- 132 0033 02       		.uleb128 0x2
- 133 0034 02       		.byte	0x2
- 134 0035 05       		.byte	0x5
- 135 0036 71020000 		.4byte	.LASF2
- 136 003a 02       		.uleb128 0x2
- 137 003b 02       		.byte	0x2
- 138 003c 07       		.byte	0x7
- 139 003d E6000000 		.4byte	.LASF3
- 140 0041 02       		.uleb128 0x2
- 141 0042 04       		.byte	0x4
- 142 0043 05       		.byte	0x5
- 143 0044 8B020000 		.4byte	.LASF4
- 144 0048 02       		.uleb128 0x2
- 145 0049 04       		.byte	0x4
- 146 004a 07       		.byte	0x7
- 147 004b D4000000 		.4byte	.LASF5
- 148 004f 02       		.uleb128 0x2
- 149 0050 08       		.byte	0x8
- 150 0051 05       		.byte	0x5
- 151 0052 57020000 		.4byte	.LASF6
- 152 0056 02       		.uleb128 0x2
- 153 0057 08       		.byte	0x8
- 154 0058 07       		.byte	0x7
- 155 0059 A9010000 		.4byte	.LASF7
- 156 005d 03       		.uleb128 0x3
- 157 005e 04       		.byte	0x4
- 158 005f 05       		.byte	0x5
- 159 0060 696E7400 		.ascii	"int\000"
- 160 0064 02       		.uleb128 0x2
- 161 0065 04       		.byte	0x4
- 162 0066 07       		.byte	0x7
- 163 0067 8A010000 		.4byte	.LASF8
- 164 006b 04       		.uleb128 0x4
- 165 006c A7000000 		.4byte	.LASF33
- 166 0070 09       		.byte	0x9
- 167 0071 E401     		.2byte	0x1e4
- 168 0073 2C000000 		.4byte	0x2c
- 169 0077 02       		.uleb128 0x2
- 170 0078 04       		.byte	0x4
- 171 0079 04       		.byte	0x4
- 172 007a A1000000 		.4byte	.LASF9
- 173 007e 02       		.uleb128 0x2
- 174 007f 08       		.byte	0x8
- 175 0080 04       		.byte	0x4
- 176 0081 F9000000 		.4byte	.LASF10
- 177 0085 02       		.uleb128 0x2
- 178 0086 01       		.byte	0x1
- 179 0087 08       		.byte	0x8
- 180 0088 6C020000 		.4byte	.LASF11
- 181 008c 02       		.uleb128 0x2
- 182 008d 08       		.byte	0x8
- 183 008e 04       		.byte	0x4
- 184 008f B0020000 		.4byte	.LASF12
- 185 0093 02       		.uleb128 0x2
- 186 0094 04       		.byte	0x4
- 187 0095 07       		.byte	0x7
- 188 0096 4E020000 		.4byte	.LASF13
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 5
+ 126 0000 00000000 		.space	4
+ 127              		.type	Acount, %object
+ 128              		.size	Acount, 4
+ 129              	Acount:
+ 130 0004 00000000 		.space	4
+ 131              		.text
+ 132              	.Letext0:
+ 133              		.file 2 "Generated_Source\\PSoC4/GLCD.h"
+ 134              		.file 3 "Generated_Source\\PSoC4/A_Interrupt.h"
+ 135              		.file 4 "Generated_Source\\PSoC4/B_Interrupt.h"
+ 136              		.file 5 "Generated_Source\\PSoC4/C_Interrupt.h"
+ 137              		.file 6 "Generated_Source\\PSoC4/D_Interrupt.h"
+ 138              		.file 7 "Generated_Source\\PSoC4/StickButton_Interrupt.h"
+ 139              		.file 8 "Generated_Source\\PSoC4/Backlight.h"
+ 140              		.file 9 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 141              		.file 10 "Generated_Source\\PSoC4/cytypes.h"
+ 142              		.section	.debug_info,"",%progbits
+ 143              	.Ldebug_info0:
+ 144 0000 79020000 		.4byte	0x279
+ 145 0004 0400     		.2byte	0x4
+ 146 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 147 000a 04       		.byte	0x4
+ 148 000b 01       		.uleb128 0x1
+ 149 000c D1010000 		.4byte	.LASF32
+ 150 0010 0C       		.byte	0xc
+ 151 0011 76020000 		.4byte	.LASF33
+ 152 0015 19010000 		.4byte	.LASF34
+ 153 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 154 001d 00000000 		.4byte	0
+ 155 0021 00000000 		.4byte	.Ldebug_line0
+ 156 0025 02       		.uleb128 0x2
+ 157 0026 01       		.byte	0x1
+ 158 0027 06       		.byte	0x6
+ 159 0028 CD020000 		.4byte	.LASF0
+ 160 002c 02       		.uleb128 0x2
+ 161 002d 01       		.byte	0x1
+ 162 002e 08       		.byte	0x8
+ 163 002f C6000000 		.4byte	.LASF1
+ 164 0033 02       		.uleb128 0x2
+ 165 0034 02       		.byte	0x2
+ 166 0035 05       		.byte	0x5
+ 167 0036 82020000 		.4byte	.LASF2
+ 168 003a 02       		.uleb128 0x2
+ 169 003b 02       		.byte	0x2
+ 170 003c 07       		.byte	0x7
+ 171 003d E6000000 		.4byte	.LASF3
+ 172 0041 02       		.uleb128 0x2
+ 173 0042 04       		.byte	0x4
+ 174 0043 05       		.byte	0x5
+ 175 0044 9C020000 		.4byte	.LASF4
+ 176 0048 02       		.uleb128 0x2
+ 177 0049 04       		.byte	0x4
+ 178 004a 07       		.byte	0x7
+ 179 004b D4000000 		.4byte	.LASF5
+ 180 004f 02       		.uleb128 0x2
+ 181 0050 08       		.byte	0x8
+ 182 0051 05       		.byte	0x5
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 5
 
 
- 189 009a 05       		.uleb128 0x5
- 190 009b 85010000 		.4byte	.LASF34
- 191 009f 01       		.byte	0x1
- 192 00a0 16       		.byte	0x16
- 193 00a1 5D000000 		.4byte	0x5d
- 194 00a5 00000000 		.4byte	.LFB33
- 195 00a9 38000000 		.4byte	.LFE33-.LFB33
- 196 00ad 01       		.uleb128 0x1
- 197 00ae 9C       		.byte	0x9c
- 198 00af 26010000 		.4byte	0x126
- 199 00b3 06       		.uleb128 0x6
- 200 00b4 08000000 		.4byte	.LVL0
- 201 00b8 9A010000 		.4byte	0x19a
- 202 00bc 06       		.uleb128 0x6
- 203 00bd 0C000000 		.4byte	.LVL1
- 204 00c1 A5010000 		.4byte	0x1a5
- 205 00c5 06       		.uleb128 0x6
- 206 00c6 10000000 		.4byte	.LVL2
- 207 00ca B0010000 		.4byte	0x1b0
- 208 00ce 06       		.uleb128 0x6
- 209 00cf 14000000 		.4byte	.LVL3
- 210 00d3 BB010000 		.4byte	0x1bb
- 211 00d7 06       		.uleb128 0x6
- 212 00d8 18000000 		.4byte	.LVL4
- 213 00dc C6010000 		.4byte	0x1c6
- 214 00e0 06       		.uleb128 0x6
- 215 00e1 1C000000 		.4byte	.LVL5
- 216 00e5 D1010000 		.4byte	0x1d1
- 217 00e9 06       		.uleb128 0x6
- 218 00ea 20000000 		.4byte	.LVL6
- 219 00ee DC010000 		.4byte	0x1dc
- 220 00f2 06       		.uleb128 0x6
- 221 00f3 24000000 		.4byte	.LVL7
- 222 00f7 E7010000 		.4byte	0x1e7
- 223 00fb 06       		.uleb128 0x6
- 224 00fc 28000000 		.4byte	.LVL8
- 225 0100 F2010000 		.4byte	0x1f2
- 226 0104 06       		.uleb128 0x6
- 227 0105 2C000000 		.4byte	.LVL9
- 228 0109 FD010000 		.4byte	0x1fd
- 229 010d 06       		.uleb128 0x6
- 230 010e 30000000 		.4byte	.LVL10
- 231 0112 08020000 		.4byte	0x208
- 232 0116 07       		.uleb128 0x7
- 233 0117 36000000 		.4byte	.LVL11
- 234 011b 13020000 		.4byte	0x213
- 235 011f 08       		.uleb128 0x8
- 236 0120 01       		.uleb128 0x1
- 237 0121 50       		.byte	0x50
- 238 0122 01       		.uleb128 0x1
- 239 0123 31       		.byte	0x31
- 240 0124 00       		.byte	0
- 241 0125 00       		.byte	0
- 242 0126 09       		.uleb128 0x9
- 243 0127 3C010000 		.4byte	0x13c
- 244 012b 3C010000 		.4byte	0x13c
- 245 012f 0A       		.uleb128 0xa
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 6
+ 183 0052 68020000 		.4byte	.LASF6
+ 184 0056 02       		.uleb128 0x2
+ 185 0057 08       		.byte	0x8
+ 186 0058 07       		.byte	0x7
+ 187 0059 A9010000 		.4byte	.LASF7
+ 188 005d 03       		.uleb128 0x3
+ 189 005e 04       		.byte	0x4
+ 190 005f 05       		.byte	0x5
+ 191 0060 696E7400 		.ascii	"int\000"
+ 192 0064 02       		.uleb128 0x2
+ 193 0065 04       		.byte	0x4
+ 194 0066 07       		.byte	0x7
+ 195 0067 8A010000 		.4byte	.LASF8
+ 196 006b 04       		.uleb128 0x4
+ 197 006c A7000000 		.4byte	.LASF35
+ 198 0070 0A       		.byte	0xa
+ 199 0071 E401     		.2byte	0x1e4
+ 200 0073 2C000000 		.4byte	0x2c
+ 201 0077 02       		.uleb128 0x2
+ 202 0078 04       		.byte	0x4
+ 203 0079 04       		.byte	0x4
+ 204 007a A1000000 		.4byte	.LASF9
+ 205 007e 02       		.uleb128 0x2
+ 206 007f 08       		.byte	0x8
+ 207 0080 04       		.byte	0x4
+ 208 0081 F9000000 		.4byte	.LASF10
+ 209 0085 02       		.uleb128 0x2
+ 210 0086 01       		.byte	0x1
+ 211 0087 08       		.byte	0x8
+ 212 0088 7D020000 		.4byte	.LASF11
+ 213 008c 02       		.uleb128 0x2
+ 214 008d 08       		.byte	0x8
+ 215 008e 04       		.byte	0x4
+ 216 008f C1020000 		.4byte	.LASF12
+ 217 0093 02       		.uleb128 0x2
+ 218 0094 04       		.byte	0x4
+ 219 0095 07       		.byte	0x7
+ 220 0096 5F020000 		.4byte	.LASF13
+ 221 009a 05       		.uleb128 0x5
+ 222 009b 85010000 		.4byte	.LASF36
+ 223 009f 01       		.byte	0x1
+ 224 00a0 16       		.byte	0x16
+ 225 00a1 5D000000 		.4byte	0x5d
+ 226 00a5 00000000 		.4byte	.LFB33
+ 227 00a9 68000000 		.4byte	.LFE33-.LFB33
+ 228 00ad 01       		.uleb128 0x1
+ 229 00ae 9C       		.byte	0x9c
+ 230 00af 6E010000 		.4byte	0x16e
+ 231 00b3 06       		.uleb128 0x6
+ 232 00b4 0A000000 		.4byte	.LVL0
+ 233 00b8 E2010000 		.4byte	0x1e2
+ 234 00bc 06       		.uleb128 0x6
+ 235 00bd 0E000000 		.4byte	.LVL1
+ 236 00c1 ED010000 		.4byte	0x1ed
+ 237 00c5 06       		.uleb128 0x6
+ 238 00c6 12000000 		.4byte	.LVL2
+ 239 00ca F8010000 		.4byte	0x1f8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 6
 
 
- 246 0130 93000000 		.4byte	0x93
- 247 0134 60       		.byte	0x60
- 248 0135 0A       		.uleb128 0xa
- 249 0136 93000000 		.4byte	0x93
- 250 013a 0F       		.byte	0xf
- 251 013b 00       		.byte	0
- 252 013c 0B       		.uleb128 0xb
- 253 013d 6B000000 		.4byte	0x6b
- 254 0141 0C       		.uleb128 0xc
- 255 0142 93000000 		.4byte	.LASF14
- 256 0146 02       		.byte	0x2
- 257 0147 42       		.byte	0x42
- 258 0148 52010000 		.4byte	0x152
- 259 014c 05       		.uleb128 0x5
- 260 014d 03       		.byte	0x3
- 261 014e 00000000 		.4byte	GLCD_FONT8x16
- 262 0152 0B       		.uleb128 0xb
- 263 0153 26010000 		.4byte	0x126
- 264 0157 09       		.uleb128 0x9
- 265 0158 85000000 		.4byte	0x85
- 266 015c 67010000 		.4byte	0x167
- 267 0160 0A       		.uleb128 0xa
- 268 0161 93000000 		.4byte	0x93
- 269 0165 13       		.byte	0x13
- 270 0166 00       		.byte	0
- 271 0167 0C       		.uleb128 0xc
- 272 0168 0B000000 		.4byte	.LASF15
- 273 016c 01       		.byte	0x1
- 274 016d 10       		.byte	0x10
- 275 016e 57010000 		.4byte	0x157
- 276 0172 05       		.uleb128 0x5
- 277 0173 03       		.byte	0x3
- 278 0174 00000000 		.4byte	mystring
- 279 0178 0C       		.uleb128 0xc
- 280 0179 50000000 		.4byte	.LASF16
- 281 017d 01       		.byte	0x1
- 282 017e 11       		.byte	0x11
- 283 017f 5D000000 		.4byte	0x5d
- 284 0183 05       		.uleb128 0x5
- 285 0184 03       		.byte	0x3
- 286 0185 00000000 		.4byte	count
- 287 0189 0C       		.uleb128 0xc
- 288 018a DA020000 		.4byte	.LASF17
- 289 018e 01       		.byte	0x1
- 290 018f 12       		.byte	0x12
- 291 0190 5D000000 		.4byte	0x5d
- 292 0194 05       		.uleb128 0x5
- 293 0195 03       		.byte	0x3
- 294 0196 00000000 		.4byte	Acount
- 295 019a 0D       		.uleb128 0xd
- 296 019b 00000000 		.4byte	.LASF18
- 297 019f 00000000 		.4byte	.LASF18
- 298 01a3 02       		.byte	0x2
- 299 01a4 2C       		.byte	0x2c
- 300 01a5 0D       		.uleb128 0xd
- 301 01a6 14000000 		.4byte	.LASF19
- 302 01aa 14000000 		.4byte	.LASF19
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 7
+ 240 00ce 06       		.uleb128 0x6
+ 241 00cf 16000000 		.4byte	.LVL3
+ 242 00d3 03020000 		.4byte	0x203
+ 243 00d7 06       		.uleb128 0x6
+ 244 00d8 1A000000 		.4byte	.LVL4
+ 245 00dc 0E020000 		.4byte	0x20e
+ 246 00e0 06       		.uleb128 0x6
+ 247 00e1 1E000000 		.4byte	.LVL5
+ 248 00e5 19020000 		.4byte	0x219
+ 249 00e9 06       		.uleb128 0x6
+ 250 00ea 22000000 		.4byte	.LVL6
+ 251 00ee 24020000 		.4byte	0x224
+ 252 00f2 06       		.uleb128 0x6
+ 253 00f3 26000000 		.4byte	.LVL7
+ 254 00f7 2F020000 		.4byte	0x22f
+ 255 00fb 06       		.uleb128 0x6
+ 256 00fc 2A000000 		.4byte	.LVL8
+ 257 0100 3A020000 		.4byte	0x23a
+ 258 0104 06       		.uleb128 0x6
+ 259 0105 2E000000 		.4byte	.LVL9
+ 260 0109 45020000 		.4byte	0x245
+ 261 010d 06       		.uleb128 0x6
+ 262 010e 32000000 		.4byte	.LVL10
+ 263 0112 50020000 		.4byte	0x250
+ 264 0116 07       		.uleb128 0x7
+ 265 0117 38000000 		.4byte	.LVL11
+ 266 011b 5B020000 		.4byte	0x25b
+ 267 011f 29010000 		.4byte	0x129
+ 268 0123 08       		.uleb128 0x8
+ 269 0124 01       		.uleb128 0x1
+ 270 0125 50       		.byte	0x50
+ 271 0126 01       		.uleb128 0x1
+ 272 0127 31       		.byte	0x31
+ 273 0128 00       		.byte	0
+ 274 0129 07       		.uleb128 0x7
+ 275 012a 46000000 		.4byte	.LVL12
+ 276 012e 66020000 		.4byte	0x266
+ 277 0132 46010000 		.4byte	0x146
+ 278 0136 08       		.uleb128 0x8
+ 279 0137 01       		.uleb128 0x1
+ 280 0138 50       		.byte	0x50
+ 281 0139 02       		.uleb128 0x2
+ 282 013a 74       		.byte	0x74
+ 283 013b 00       		.sleb128 0
+ 284 013c 08       		.uleb128 0x8
+ 285 013d 01       		.uleb128 0x1
+ 286 013e 51       		.byte	0x51
+ 287 013f 05       		.uleb128 0x5
+ 288 0140 03       		.byte	0x3
+ 289 0141 00000000 		.4byte	.LC1
+ 290 0145 00       		.byte	0
+ 291 0146 09       		.uleb128 0x9
+ 292 0147 56000000 		.4byte	.LVL13
+ 293 014b 71020000 		.4byte	0x271
+ 294 014f 08       		.uleb128 0x8
+ 295 0150 01       		.uleb128 0x1
+ 296 0151 50       		.byte	0x50
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 7
 
 
- 303 01ae 03       		.byte	0x3
- 304 01af 28       		.byte	0x28
- 305 01b0 0D       		.uleb128 0xd
- 306 01b1 81000000 		.4byte	.LASF20
- 307 01b5 81000000 		.4byte	.LASF20
- 308 01b9 03       		.byte	0x3
- 309 01ba 17       		.byte	0x17
- 310 01bb 0D       		.uleb128 0xd
- 311 01bc 00010000 		.4byte	.LASF21
- 312 01c0 00010000 		.4byte	.LASF21
- 313 01c4 04       		.byte	0x4
- 314 01c5 28       		.byte	0x28
- 315 01c6 0D       		.uleb128 0xd
- 316 01c7 C8020000 		.4byte	.LASF22
- 317 01cb C8020000 		.4byte	.LASF22
- 318 01cf 04       		.byte	0x4
- 319 01d0 17       		.byte	0x17
- 320 01d1 0D       		.uleb128 0xd
- 321 01d2 AD000000 		.4byte	.LASF23
- 322 01d6 AD000000 		.4byte	.LASF23
- 323 01da 05       		.byte	0x5
- 324 01db 28       		.byte	0x28
- 325 01dc 0D       		.uleb128 0xd
- 326 01dd 97010000 		.4byte	.LASF24
- 327 01e1 97010000 		.4byte	.LASF24
- 328 01e5 05       		.byte	0x5
- 329 01e6 17       		.byte	0x17
- 330 01e7 0D       		.uleb128 0xd
- 331 01e8 56000000 		.4byte	.LASF25
- 332 01ec 56000000 		.4byte	.LASF25
- 333 01f0 06       		.byte	0x6
- 334 01f1 28       		.byte	0x28
- 335 01f2 0D       		.uleb128 0xd
- 336 01f3 6F000000 		.4byte	.LASF26
- 337 01f7 6F000000 		.4byte	.LASF26
- 338 01fb 06       		.byte	0x6
- 339 01fc 17       		.byte	0x17
- 340 01fd 0D       		.uleb128 0xd
- 341 01fe 2D000000 		.4byte	.LASF27
- 342 0202 2D000000 		.4byte	.LASF27
- 343 0206 07       		.byte	0x7
- 344 0207 28       		.byte	0x28
- 345 0208 0D       		.uleb128 0xd
- 346 0209 94020000 		.4byte	.LASF28
- 347 020d 94020000 		.4byte	.LASF28
- 348 0211 07       		.byte	0x7
- 349 0212 17       		.byte	0x17
- 350 0213 0D       		.uleb128 0xd
- 351 0214 7B020000 		.4byte	.LASF29
- 352 0218 7B020000 		.4byte	.LASF29
- 353 021c 08       		.byte	0x8
- 354 021d 33       		.byte	0x33
- 355 021e 00       		.byte	0
- 356              		.section	.debug_abbrev,"",%progbits
- 357              	.Ldebug_abbrev0:
- 358 0000 01       		.uleb128 0x1
- 359 0001 11       		.uleb128 0x11
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 8
+ 297 0152 02       		.uleb128 0x2
+ 298 0153 74       		.byte	0x74
+ 299 0154 00       		.sleb128 0
+ 300 0155 08       		.uleb128 0x8
+ 301 0156 01       		.uleb128 0x1
+ 302 0157 51       		.byte	0x51
+ 303 0158 01       		.uleb128 0x1
+ 304 0159 3A       		.byte	0x3a
+ 305 015a 08       		.uleb128 0x8
+ 306 015b 01       		.uleb128 0x1
+ 307 015c 52       		.byte	0x52
+ 308 015d 01       		.uleb128 0x1
+ 309 015e 3A       		.byte	0x3a
+ 310 015f 08       		.uleb128 0x8
+ 311 0160 01       		.uleb128 0x1
+ 312 0161 53       		.byte	0x53
+ 313 0162 03       		.uleb128 0x3
+ 314 0163 0A       		.byte	0xa
+ 315 0164 FF0F     		.2byte	0xfff
+ 316 0166 08       		.uleb128 0x8
+ 317 0167 02       		.uleb128 0x2
+ 318 0168 7D       		.byte	0x7d
+ 319 0169 00       		.sleb128 0
+ 320 016a 01       		.uleb128 0x1
+ 321 016b 30       		.byte	0x30
+ 322 016c 00       		.byte	0
+ 323 016d 00       		.byte	0
+ 324 016e 0A       		.uleb128 0xa
+ 325 016f 84010000 		.4byte	0x184
+ 326 0173 84010000 		.4byte	0x184
+ 327 0177 0B       		.uleb128 0xb
+ 328 0178 93000000 		.4byte	0x93
+ 329 017c 60       		.byte	0x60
+ 330 017d 0B       		.uleb128 0xb
+ 331 017e 93000000 		.4byte	0x93
+ 332 0182 0F       		.byte	0xf
+ 333 0183 00       		.byte	0
+ 334 0184 0C       		.uleb128 0xc
+ 335 0185 6B000000 		.4byte	0x6b
+ 336 0189 0D       		.uleb128 0xd
+ 337 018a 93000000 		.4byte	.LASF14
+ 338 018e 02       		.byte	0x2
+ 339 018f 42       		.byte	0x42
+ 340 0190 9A010000 		.4byte	0x19a
+ 341 0194 05       		.uleb128 0x5
+ 342 0195 03       		.byte	0x3
+ 343 0196 00000000 		.4byte	GLCD_FONT8x16
+ 344 019a 0C       		.uleb128 0xc
+ 345 019b 6E010000 		.4byte	0x16e
+ 346 019f 0A       		.uleb128 0xa
+ 347 01a0 85000000 		.4byte	0x85
+ 348 01a4 AF010000 		.4byte	0x1af
+ 349 01a8 0B       		.uleb128 0xb
+ 350 01a9 93000000 		.4byte	0x93
+ 351 01ad 13       		.byte	0x13
+ 352 01ae 00       		.byte	0
+ 353 01af 0D       		.uleb128 0xd
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 8
 
 
- 360 0002 01       		.byte	0x1
- 361 0003 25       		.uleb128 0x25
- 362 0004 0E       		.uleb128 0xe
- 363 0005 13       		.uleb128 0x13
- 364 0006 0B       		.uleb128 0xb
- 365 0007 03       		.uleb128 0x3
- 366 0008 0E       		.uleb128 0xe
- 367 0009 1B       		.uleb128 0x1b
- 368 000a 0E       		.uleb128 0xe
- 369 000b 55       		.uleb128 0x55
- 370 000c 17       		.uleb128 0x17
- 371 000d 11       		.uleb128 0x11
- 372 000e 01       		.uleb128 0x1
- 373 000f 10       		.uleb128 0x10
- 374 0010 17       		.uleb128 0x17
- 375 0011 00       		.byte	0
- 376 0012 00       		.byte	0
- 377 0013 02       		.uleb128 0x2
- 378 0014 24       		.uleb128 0x24
- 379 0015 00       		.byte	0
- 380 0016 0B       		.uleb128 0xb
- 381 0017 0B       		.uleb128 0xb
- 382 0018 3E       		.uleb128 0x3e
- 383 0019 0B       		.uleb128 0xb
- 384 001a 03       		.uleb128 0x3
- 385 001b 0E       		.uleb128 0xe
- 386 001c 00       		.byte	0
- 387 001d 00       		.byte	0
- 388 001e 03       		.uleb128 0x3
- 389 001f 24       		.uleb128 0x24
- 390 0020 00       		.byte	0
- 391 0021 0B       		.uleb128 0xb
- 392 0022 0B       		.uleb128 0xb
- 393 0023 3E       		.uleb128 0x3e
- 394 0024 0B       		.uleb128 0xb
- 395 0025 03       		.uleb128 0x3
- 396 0026 08       		.uleb128 0x8
- 397 0027 00       		.byte	0
- 398 0028 00       		.byte	0
- 399 0029 04       		.uleb128 0x4
- 400 002a 16       		.uleb128 0x16
- 401 002b 00       		.byte	0
- 402 002c 03       		.uleb128 0x3
- 403 002d 0E       		.uleb128 0xe
- 404 002e 3A       		.uleb128 0x3a
- 405 002f 0B       		.uleb128 0xb
- 406 0030 3B       		.uleb128 0x3b
- 407 0031 05       		.uleb128 0x5
- 408 0032 49       		.uleb128 0x49
- 409 0033 13       		.uleb128 0x13
- 410 0034 00       		.byte	0
- 411 0035 00       		.byte	0
- 412 0036 05       		.uleb128 0x5
- 413 0037 2E       		.uleb128 0x2e
- 414 0038 01       		.byte	0x1
- 415 0039 3F       		.uleb128 0x3f
- 416 003a 19       		.uleb128 0x19
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 9
+ 354 01b0 0B000000 		.4byte	.LASF15
+ 355 01b4 01       		.byte	0x1
+ 356 01b5 10       		.byte	0x10
+ 357 01b6 9F010000 		.4byte	0x19f
+ 358 01ba 05       		.uleb128 0x5
+ 359 01bb 03       		.byte	0x3
+ 360 01bc 00000000 		.4byte	mystring
+ 361 01c0 0D       		.uleb128 0xd
+ 362 01c1 50000000 		.4byte	.LASF16
+ 363 01c5 01       		.byte	0x1
+ 364 01c6 11       		.byte	0x11
+ 365 01c7 5D000000 		.4byte	0x5d
+ 366 01cb 05       		.uleb128 0x5
+ 367 01cc 03       		.byte	0x3
+ 368 01cd 00000000 		.4byte	count
+ 369 01d1 0D       		.uleb128 0xd
+ 370 01d2 F3020000 		.4byte	.LASF17
+ 371 01d6 01       		.byte	0x1
+ 372 01d7 12       		.byte	0x12
+ 373 01d8 5D000000 		.4byte	0x5d
+ 374 01dc 05       		.uleb128 0x5
+ 375 01dd 03       		.byte	0x3
+ 376 01de 00000000 		.4byte	Acount
+ 377 01e2 0E       		.uleb128 0xe
+ 378 01e3 00000000 		.4byte	.LASF18
+ 379 01e7 00000000 		.4byte	.LASF18
+ 380 01eb 02       		.byte	0x2
+ 381 01ec 2C       		.byte	0x2c
+ 382 01ed 0E       		.uleb128 0xe
+ 383 01ee 14000000 		.4byte	.LASF19
+ 384 01f2 14000000 		.4byte	.LASF19
+ 385 01f6 03       		.byte	0x3
+ 386 01f7 28       		.byte	0x28
+ 387 01f8 0E       		.uleb128 0xe
+ 388 01f9 81000000 		.4byte	.LASF20
+ 389 01fd 81000000 		.4byte	.LASF20
+ 390 0201 03       		.byte	0x3
+ 391 0202 17       		.byte	0x17
+ 392 0203 0E       		.uleb128 0xe
+ 393 0204 00010000 		.4byte	.LASF21
+ 394 0208 00010000 		.4byte	.LASF21
+ 395 020c 04       		.byte	0x4
+ 396 020d 28       		.byte	0x28
+ 397 020e 0E       		.uleb128 0xe
+ 398 020f E1020000 		.4byte	.LASF22
+ 399 0213 E1020000 		.4byte	.LASF22
+ 400 0217 04       		.byte	0x4
+ 401 0218 17       		.byte	0x17
+ 402 0219 0E       		.uleb128 0xe
+ 403 021a AD000000 		.4byte	.LASF23
+ 404 021e AD000000 		.4byte	.LASF23
+ 405 0222 05       		.byte	0x5
+ 406 0223 28       		.byte	0x28
+ 407 0224 0E       		.uleb128 0xe
+ 408 0225 97010000 		.4byte	.LASF24
+ 409 0229 97010000 		.4byte	.LASF24
+ 410 022d 05       		.byte	0x5
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 9
 
 
- 417 003b 03       		.uleb128 0x3
- 418 003c 0E       		.uleb128 0xe
- 419 003d 3A       		.uleb128 0x3a
- 420 003e 0B       		.uleb128 0xb
- 421 003f 3B       		.uleb128 0x3b
- 422 0040 0B       		.uleb128 0xb
- 423 0041 27       		.uleb128 0x27
- 424 0042 19       		.uleb128 0x19
- 425 0043 49       		.uleb128 0x49
- 426 0044 13       		.uleb128 0x13
- 427 0045 8701     		.uleb128 0x87
- 428 0047 19       		.uleb128 0x19
- 429 0048 11       		.uleb128 0x11
- 430 0049 01       		.uleb128 0x1
- 431 004a 12       		.uleb128 0x12
- 432 004b 06       		.uleb128 0x6
- 433 004c 40       		.uleb128 0x40
- 434 004d 18       		.uleb128 0x18
- 435 004e 9742     		.uleb128 0x2117
- 436 0050 19       		.uleb128 0x19
- 437 0051 01       		.uleb128 0x1
- 438 0052 13       		.uleb128 0x13
- 439 0053 00       		.byte	0
- 440 0054 00       		.byte	0
- 441 0055 06       		.uleb128 0x6
- 442 0056 898201   		.uleb128 0x4109
- 443 0059 00       		.byte	0
- 444 005a 11       		.uleb128 0x11
- 445 005b 01       		.uleb128 0x1
- 446 005c 31       		.uleb128 0x31
- 447 005d 13       		.uleb128 0x13
- 448 005e 00       		.byte	0
- 449 005f 00       		.byte	0
- 450 0060 07       		.uleb128 0x7
- 451 0061 898201   		.uleb128 0x4109
- 452 0064 01       		.byte	0x1
- 453 0065 11       		.uleb128 0x11
- 454 0066 01       		.uleb128 0x1
- 455 0067 31       		.uleb128 0x31
- 456 0068 13       		.uleb128 0x13
- 457 0069 00       		.byte	0
- 458 006a 00       		.byte	0
- 459 006b 08       		.uleb128 0x8
- 460 006c 8A8201   		.uleb128 0x410a
- 461 006f 00       		.byte	0
- 462 0070 02       		.uleb128 0x2
- 463 0071 18       		.uleb128 0x18
- 464 0072 9142     		.uleb128 0x2111
- 465 0074 18       		.uleb128 0x18
- 466 0075 00       		.byte	0
- 467 0076 00       		.byte	0
- 468 0077 09       		.uleb128 0x9
- 469 0078 01       		.uleb128 0x1
- 470 0079 01       		.byte	0x1
- 471 007a 49       		.uleb128 0x49
- 472 007b 13       		.uleb128 0x13
- 473 007c 01       		.uleb128 0x1
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 10
+ 411 022e 17       		.byte	0x17
+ 412 022f 0E       		.uleb128 0xe
+ 413 0230 56000000 		.4byte	.LASF25
+ 414 0234 56000000 		.4byte	.LASF25
+ 415 0238 06       		.byte	0x6
+ 416 0239 28       		.byte	0x28
+ 417 023a 0E       		.uleb128 0xe
+ 418 023b 6F000000 		.4byte	.LASF26
+ 419 023f 6F000000 		.4byte	.LASF26
+ 420 0243 06       		.byte	0x6
+ 421 0244 17       		.byte	0x17
+ 422 0245 0E       		.uleb128 0xe
+ 423 0246 2D000000 		.4byte	.LASF27
+ 424 024a 2D000000 		.4byte	.LASF27
+ 425 024e 07       		.byte	0x7
+ 426 024f 28       		.byte	0x28
+ 427 0250 0E       		.uleb128 0xe
+ 428 0251 A5020000 		.4byte	.LASF28
+ 429 0255 A5020000 		.4byte	.LASF28
+ 430 0259 07       		.byte	0x7
+ 431 025a 17       		.byte	0x17
+ 432 025b 0E       		.uleb128 0xe
+ 433 025c 8C020000 		.4byte	.LASF29
+ 434 0260 8C020000 		.4byte	.LASF29
+ 435 0264 08       		.byte	0x8
+ 436 0265 33       		.byte	0x33
+ 437 0266 0E       		.uleb128 0xe
+ 438 0267 D9020000 		.4byte	.LASF30
+ 439 026b D9020000 		.4byte	.LASF30
+ 440 026f 09       		.byte	0x9
+ 441 0270 E7       		.byte	0xe7
+ 442 0271 0E       		.uleb128 0xe
+ 443 0272 C0010000 		.4byte	.LASF31
+ 444 0276 C0010000 		.4byte	.LASF31
+ 445 027a 02       		.byte	0x2
+ 446 027b 35       		.byte	0x35
+ 447 027c 00       		.byte	0
+ 448              		.section	.debug_abbrev,"",%progbits
+ 449              	.Ldebug_abbrev0:
+ 450 0000 01       		.uleb128 0x1
+ 451 0001 11       		.uleb128 0x11
+ 452 0002 01       		.byte	0x1
+ 453 0003 25       		.uleb128 0x25
+ 454 0004 0E       		.uleb128 0xe
+ 455 0005 13       		.uleb128 0x13
+ 456 0006 0B       		.uleb128 0xb
+ 457 0007 03       		.uleb128 0x3
+ 458 0008 0E       		.uleb128 0xe
+ 459 0009 1B       		.uleb128 0x1b
+ 460 000a 0E       		.uleb128 0xe
+ 461 000b 55       		.uleb128 0x55
+ 462 000c 17       		.uleb128 0x17
+ 463 000d 11       		.uleb128 0x11
+ 464 000e 01       		.uleb128 0x1
+ 465 000f 10       		.uleb128 0x10
+ 466 0010 17       		.uleb128 0x17
+ 467 0011 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 10
 
 
- 474 007d 13       		.uleb128 0x13
- 475 007e 00       		.byte	0
- 476 007f 00       		.byte	0
- 477 0080 0A       		.uleb128 0xa
- 478 0081 21       		.uleb128 0x21
- 479 0082 00       		.byte	0
- 480 0083 49       		.uleb128 0x49
- 481 0084 13       		.uleb128 0x13
- 482 0085 2F       		.uleb128 0x2f
- 483 0086 0B       		.uleb128 0xb
- 484 0087 00       		.byte	0
- 485 0088 00       		.byte	0
- 486 0089 0B       		.uleb128 0xb
- 487 008a 26       		.uleb128 0x26
- 488 008b 00       		.byte	0
- 489 008c 49       		.uleb128 0x49
- 490 008d 13       		.uleb128 0x13
- 491 008e 00       		.byte	0
- 492 008f 00       		.byte	0
- 493 0090 0C       		.uleb128 0xc
- 494 0091 34       		.uleb128 0x34
- 495 0092 00       		.byte	0
- 496 0093 03       		.uleb128 0x3
- 497 0094 0E       		.uleb128 0xe
- 498 0095 3A       		.uleb128 0x3a
- 499 0096 0B       		.uleb128 0xb
- 500 0097 3B       		.uleb128 0x3b
- 501 0098 0B       		.uleb128 0xb
- 502 0099 49       		.uleb128 0x49
- 503 009a 13       		.uleb128 0x13
- 504 009b 3F       		.uleb128 0x3f
- 505 009c 19       		.uleb128 0x19
- 506 009d 02       		.uleb128 0x2
- 507 009e 18       		.uleb128 0x18
- 508 009f 00       		.byte	0
- 509 00a0 00       		.byte	0
- 510 00a1 0D       		.uleb128 0xd
- 511 00a2 2E       		.uleb128 0x2e
- 512 00a3 00       		.byte	0
- 513 00a4 3F       		.uleb128 0x3f
- 514 00a5 19       		.uleb128 0x19
- 515 00a6 3C       		.uleb128 0x3c
- 516 00a7 19       		.uleb128 0x19
- 517 00a8 6E       		.uleb128 0x6e
- 518 00a9 0E       		.uleb128 0xe
- 519 00aa 03       		.uleb128 0x3
- 520 00ab 0E       		.uleb128 0xe
- 521 00ac 3A       		.uleb128 0x3a
- 522 00ad 0B       		.uleb128 0xb
- 523 00ae 3B       		.uleb128 0x3b
- 524 00af 0B       		.uleb128 0xb
- 525 00b0 00       		.byte	0
- 526 00b1 00       		.byte	0
- 527 00b2 00       		.byte	0
- 528              		.section	.debug_aranges,"",%progbits
- 529 0000 1C000000 		.4byte	0x1c
- 530 0004 0200     		.2byte	0x2
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 11
+ 468 0012 00       		.byte	0
+ 469 0013 02       		.uleb128 0x2
+ 470 0014 24       		.uleb128 0x24
+ 471 0015 00       		.byte	0
+ 472 0016 0B       		.uleb128 0xb
+ 473 0017 0B       		.uleb128 0xb
+ 474 0018 3E       		.uleb128 0x3e
+ 475 0019 0B       		.uleb128 0xb
+ 476 001a 03       		.uleb128 0x3
+ 477 001b 0E       		.uleb128 0xe
+ 478 001c 00       		.byte	0
+ 479 001d 00       		.byte	0
+ 480 001e 03       		.uleb128 0x3
+ 481 001f 24       		.uleb128 0x24
+ 482 0020 00       		.byte	0
+ 483 0021 0B       		.uleb128 0xb
+ 484 0022 0B       		.uleb128 0xb
+ 485 0023 3E       		.uleb128 0x3e
+ 486 0024 0B       		.uleb128 0xb
+ 487 0025 03       		.uleb128 0x3
+ 488 0026 08       		.uleb128 0x8
+ 489 0027 00       		.byte	0
+ 490 0028 00       		.byte	0
+ 491 0029 04       		.uleb128 0x4
+ 492 002a 16       		.uleb128 0x16
+ 493 002b 00       		.byte	0
+ 494 002c 03       		.uleb128 0x3
+ 495 002d 0E       		.uleb128 0xe
+ 496 002e 3A       		.uleb128 0x3a
+ 497 002f 0B       		.uleb128 0xb
+ 498 0030 3B       		.uleb128 0x3b
+ 499 0031 05       		.uleb128 0x5
+ 500 0032 49       		.uleb128 0x49
+ 501 0033 13       		.uleb128 0x13
+ 502 0034 00       		.byte	0
+ 503 0035 00       		.byte	0
+ 504 0036 05       		.uleb128 0x5
+ 505 0037 2E       		.uleb128 0x2e
+ 506 0038 01       		.byte	0x1
+ 507 0039 3F       		.uleb128 0x3f
+ 508 003a 19       		.uleb128 0x19
+ 509 003b 03       		.uleb128 0x3
+ 510 003c 0E       		.uleb128 0xe
+ 511 003d 3A       		.uleb128 0x3a
+ 512 003e 0B       		.uleb128 0xb
+ 513 003f 3B       		.uleb128 0x3b
+ 514 0040 0B       		.uleb128 0xb
+ 515 0041 27       		.uleb128 0x27
+ 516 0042 19       		.uleb128 0x19
+ 517 0043 49       		.uleb128 0x49
+ 518 0044 13       		.uleb128 0x13
+ 519 0045 8701     		.uleb128 0x87
+ 520 0047 19       		.uleb128 0x19
+ 521 0048 11       		.uleb128 0x11
+ 522 0049 01       		.uleb128 0x1
+ 523 004a 12       		.uleb128 0x12
+ 524 004b 06       		.uleb128 0x6
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 11
 
 
- 531 0006 00000000 		.4byte	.Ldebug_info0
- 532 000a 04       		.byte	0x4
- 533 000b 00       		.byte	0
- 534 000c 0000     		.2byte	0
- 535 000e 0000     		.2byte	0
- 536 0010 00000000 		.4byte	.LFB33
- 537 0014 38000000 		.4byte	.LFE33-.LFB33
- 538 0018 00000000 		.4byte	0
- 539 001c 00000000 		.4byte	0
- 540              		.section	.debug_ranges,"",%progbits
- 541              	.Ldebug_ranges0:
- 542 0000 00000000 		.4byte	.LFB33
- 543 0004 38000000 		.4byte	.LFE33
- 544 0008 00000000 		.4byte	0
- 545 000c 00000000 		.4byte	0
- 546              		.section	.debug_line,"",%progbits
- 547              	.Ldebug_line0:
- 548 0000 DB000000 		.section	.debug_str,"MS",%progbits,1
- 548      0200B900 
- 548      00000201 
- 548      FB0E0D00 
- 548      01010101 
- 549              	.LASF18:
- 550 0000 474C4344 		.ascii	"GLCD_Start\000"
- 550      5F537461 
- 550      727400
- 551              	.LASF15:
- 552 000b 6D797374 		.ascii	"mystring\000"
- 552      72696E67 
- 552      00
- 553              	.LASF19:
- 554 0014 415F496E 		.ascii	"A_Interrupt_ClearPending\000"
- 554      74657272 
- 554      7570745F 
- 554      436C6561 
- 554      7250656E 
- 555              	.LASF27:
- 556 002d 53746963 		.ascii	"StickButton_Interrupt_ClearPending\000"
- 556      6B427574 
- 556      746F6E5F 
- 556      496E7465 
- 556      72727570 
- 557              	.LASF16:
- 558 0050 636F756E 		.ascii	"count\000"
- 558      7400
- 559              	.LASF25:
- 560 0056 445F496E 		.ascii	"D_Interrupt_ClearPending\000"
- 560      74657272 
- 560      7570745F 
- 560      436C6561 
- 560      7250656E 
- 561              	.LASF26:
- 562 006f 445F496E 		.ascii	"D_Interrupt_Start\000"
- 562      74657272 
- 562      7570745F 
- 562      53746172 
- 562      7400
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 12
+ 525 004c 40       		.uleb128 0x40
+ 526 004d 18       		.uleb128 0x18
+ 527 004e 9742     		.uleb128 0x2117
+ 528 0050 19       		.uleb128 0x19
+ 529 0051 01       		.uleb128 0x1
+ 530 0052 13       		.uleb128 0x13
+ 531 0053 00       		.byte	0
+ 532 0054 00       		.byte	0
+ 533 0055 06       		.uleb128 0x6
+ 534 0056 898201   		.uleb128 0x4109
+ 535 0059 00       		.byte	0
+ 536 005a 11       		.uleb128 0x11
+ 537 005b 01       		.uleb128 0x1
+ 538 005c 31       		.uleb128 0x31
+ 539 005d 13       		.uleb128 0x13
+ 540 005e 00       		.byte	0
+ 541 005f 00       		.byte	0
+ 542 0060 07       		.uleb128 0x7
+ 543 0061 898201   		.uleb128 0x4109
+ 544 0064 01       		.byte	0x1
+ 545 0065 11       		.uleb128 0x11
+ 546 0066 01       		.uleb128 0x1
+ 547 0067 31       		.uleb128 0x31
+ 548 0068 13       		.uleb128 0x13
+ 549 0069 01       		.uleb128 0x1
+ 550 006a 13       		.uleb128 0x13
+ 551 006b 00       		.byte	0
+ 552 006c 00       		.byte	0
+ 553 006d 08       		.uleb128 0x8
+ 554 006e 8A8201   		.uleb128 0x410a
+ 555 0071 00       		.byte	0
+ 556 0072 02       		.uleb128 0x2
+ 557 0073 18       		.uleb128 0x18
+ 558 0074 9142     		.uleb128 0x2111
+ 559 0076 18       		.uleb128 0x18
+ 560 0077 00       		.byte	0
+ 561 0078 00       		.byte	0
+ 562 0079 09       		.uleb128 0x9
+ 563 007a 898201   		.uleb128 0x4109
+ 564 007d 01       		.byte	0x1
+ 565 007e 11       		.uleb128 0x11
+ 566 007f 01       		.uleb128 0x1
+ 567 0080 31       		.uleb128 0x31
+ 568 0081 13       		.uleb128 0x13
+ 569 0082 00       		.byte	0
+ 570 0083 00       		.byte	0
+ 571 0084 0A       		.uleb128 0xa
+ 572 0085 01       		.uleb128 0x1
+ 573 0086 01       		.byte	0x1
+ 574 0087 49       		.uleb128 0x49
+ 575 0088 13       		.uleb128 0x13
+ 576 0089 01       		.uleb128 0x1
+ 577 008a 13       		.uleb128 0x13
+ 578 008b 00       		.byte	0
+ 579 008c 00       		.byte	0
+ 580 008d 0B       		.uleb128 0xb
+ 581 008e 21       		.uleb128 0x21
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 12
 
 
- 563              	.LASF20:
- 564 0081 415F496E 		.ascii	"A_Interrupt_Start\000"
- 564      74657272 
- 564      7570745F 
- 564      53746172 
- 564      7400
- 565              	.LASF14:
- 566 0093 474C4344 		.ascii	"GLCD_FONT8x16\000"
- 566      5F464F4E 
- 566      54387831 
- 566      3600
- 567              	.LASF9:
- 568 00a1 666C6F61 		.ascii	"float\000"
- 568      7400
- 569              	.LASF33:
- 570 00a7 75696E74 		.ascii	"uint8\000"
- 570      3800
- 571              	.LASF23:
- 572 00ad 435F496E 		.ascii	"C_Interrupt_ClearPending\000"
- 572      74657272 
- 572      7570745F 
- 572      436C6561 
- 572      7250656E 
- 573              	.LASF1:
- 574 00c6 756E7369 		.ascii	"unsigned char\000"
- 574      676E6564 
- 574      20636861 
- 574      7200
- 575              	.LASF5:
- 576 00d4 6C6F6E67 		.ascii	"long unsigned int\000"
- 576      20756E73 
- 576      69676E65 
- 576      6420696E 
- 576      7400
- 577              	.LASF3:
- 578 00e6 73686F72 		.ascii	"short unsigned int\000"
- 578      7420756E 
- 578      7369676E 
- 578      65642069 
- 578      6E7400
- 579              	.LASF10:
- 580 00f9 646F7562 		.ascii	"double\000"
- 580      6C6500
- 581              	.LASF21:
- 582 0100 425F496E 		.ascii	"B_Interrupt_ClearPending\000"
- 582      74657272 
- 582      7570745F 
- 582      436C6561 
- 582      7250656E 
- 583              	.LASF32:
- 584 0119 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\Hw"
- 584      49545C4D 
- 584      6963726F 
- 584      636F6E74 
- 584      726F6C6C 
- 585 0149 332D2043 		.ascii	"3- CountZilla final\\CountZilla Final\\CountZilla F"
- 585      6F756E74 
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 13
+ 582 008f 00       		.byte	0
+ 583 0090 49       		.uleb128 0x49
+ 584 0091 13       		.uleb128 0x13
+ 585 0092 2F       		.uleb128 0x2f
+ 586 0093 0B       		.uleb128 0xb
+ 587 0094 00       		.byte	0
+ 588 0095 00       		.byte	0
+ 589 0096 0C       		.uleb128 0xc
+ 590 0097 26       		.uleb128 0x26
+ 591 0098 00       		.byte	0
+ 592 0099 49       		.uleb128 0x49
+ 593 009a 13       		.uleb128 0x13
+ 594 009b 00       		.byte	0
+ 595 009c 00       		.byte	0
+ 596 009d 0D       		.uleb128 0xd
+ 597 009e 34       		.uleb128 0x34
+ 598 009f 00       		.byte	0
+ 599 00a0 03       		.uleb128 0x3
+ 600 00a1 0E       		.uleb128 0xe
+ 601 00a2 3A       		.uleb128 0x3a
+ 602 00a3 0B       		.uleb128 0xb
+ 603 00a4 3B       		.uleb128 0x3b
+ 604 00a5 0B       		.uleb128 0xb
+ 605 00a6 49       		.uleb128 0x49
+ 606 00a7 13       		.uleb128 0x13
+ 607 00a8 3F       		.uleb128 0x3f
+ 608 00a9 19       		.uleb128 0x19
+ 609 00aa 02       		.uleb128 0x2
+ 610 00ab 18       		.uleb128 0x18
+ 611 00ac 00       		.byte	0
+ 612 00ad 00       		.byte	0
+ 613 00ae 0E       		.uleb128 0xe
+ 614 00af 2E       		.uleb128 0x2e
+ 615 00b0 00       		.byte	0
+ 616 00b1 3F       		.uleb128 0x3f
+ 617 00b2 19       		.uleb128 0x19
+ 618 00b3 3C       		.uleb128 0x3c
+ 619 00b4 19       		.uleb128 0x19
+ 620 00b5 6E       		.uleb128 0x6e
+ 621 00b6 0E       		.uleb128 0xe
+ 622 00b7 03       		.uleb128 0x3
+ 623 00b8 0E       		.uleb128 0xe
+ 624 00b9 3A       		.uleb128 0x3a
+ 625 00ba 0B       		.uleb128 0xb
+ 626 00bb 3B       		.uleb128 0x3b
+ 627 00bc 0B       		.uleb128 0xb
+ 628 00bd 00       		.byte	0
+ 629 00be 00       		.byte	0
+ 630 00bf 00       		.byte	0
+ 631              		.section	.debug_aranges,"",%progbits
+ 632 0000 1C000000 		.4byte	0x1c
+ 633 0004 0200     		.2byte	0x2
+ 634 0006 00000000 		.4byte	.Ldebug_info0
+ 635 000a 04       		.byte	0x4
+ 636 000b 00       		.byte	0
+ 637 000c 0000     		.2byte	0
+ 638 000e 0000     		.2byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 13
 
 
- 585      5A696C6C 
- 585      61206669 
- 585      6E616C5C 
- 586 017a 696E616C 		.ascii	"inal.cydsn\000"
- 586      2E637964 
- 586      736E00
- 587              	.LASF34:
- 588 0185 6D61696E 		.ascii	"main\000"
- 588      00
- 589              	.LASF8:
- 590 018a 756E7369 		.ascii	"unsigned int\000"
- 590      676E6564 
- 590      20696E74 
- 590      00
- 591              	.LASF24:
- 592 0197 435F496E 		.ascii	"C_Interrupt_Start\000"
- 592      74657272 
- 592      7570745F 
- 592      53746172 
- 592      7400
- 593              	.LASF7:
- 594 01a9 6C6F6E67 		.ascii	"long long unsigned int\000"
- 594      206C6F6E 
- 594      6720756E 
- 594      7369676E 
- 594      65642069 
- 595              	.LASF30:
- 596 01c0 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 596      43313120 
- 596      352E342E 
- 596      31203230 
- 596      31363036 
- 597 01f3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 597      20726576 
- 597      6973696F 
- 597      6E203233 
- 597      37373135 
- 598 0226 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 598      66756E63 
- 598      74696F6E 
- 598      2D736563 
- 598      74696F6E 
- 599              	.LASF13:
- 600 024e 73697A65 		.ascii	"sizetype\000"
- 600      74797065 
- 600      00
- 601              	.LASF6:
- 602 0257 6C6F6E67 		.ascii	"long long int\000"
- 602      206C6F6E 
- 602      6720696E 
- 602      7400
- 603              	.LASF31:
- 604 0265 6D61696E 		.ascii	"main.c\000"
- 604      2E6300
- 605              	.LASF11:
- 606 026c 63686172 		.ascii	"char\000"
- 606      00
-ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgTK9j3.s 			page 14
+ 639 0010 00000000 		.4byte	.LFB33
+ 640 0014 68000000 		.4byte	.LFE33-.LFB33
+ 641 0018 00000000 		.4byte	0
+ 642 001c 00000000 		.4byte	0
+ 643              		.section	.debug_ranges,"",%progbits
+ 644              	.Ldebug_ranges0:
+ 645 0000 00000000 		.4byte	.LFB33
+ 646 0004 68000000 		.4byte	.LFE33
+ 647 0008 00000000 		.4byte	0
+ 648 000c 00000000 		.4byte	0
+ 649              		.section	.debug_line,"",%progbits
+ 650              	.Ldebug_line0:
+ 651 0000 57010000 		.section	.debug_str,"MS",%progbits,1
+ 651      02002C01 
+ 651      00000201 
+ 651      FB0E0D00 
+ 651      01010101 
+ 652              	.LASF18:
+ 653 0000 474C4344 		.ascii	"GLCD_Start\000"
+ 653      5F537461 
+ 653      727400
+ 654              	.LASF15:
+ 655 000b 6D797374 		.ascii	"mystring\000"
+ 655      72696E67 
+ 655      00
+ 656              	.LASF19:
+ 657 0014 415F496E 		.ascii	"A_Interrupt_ClearPending\000"
+ 657      74657272 
+ 657      7570745F 
+ 657      436C6561 
+ 657      7250656E 
+ 658              	.LASF27:
+ 659 002d 53746963 		.ascii	"StickButton_Interrupt_ClearPending\000"
+ 659      6B427574 
+ 659      746F6E5F 
+ 659      496E7465 
+ 659      72727570 
+ 660              	.LASF16:
+ 661 0050 636F756E 		.ascii	"count\000"
+ 661      7400
+ 662              	.LASF25:
+ 663 0056 445F496E 		.ascii	"D_Interrupt_ClearPending\000"
+ 663      74657272 
+ 663      7570745F 
+ 663      436C6561 
+ 663      7250656E 
+ 664              	.LASF26:
+ 665 006f 445F496E 		.ascii	"D_Interrupt_Start\000"
+ 665      74657272 
+ 665      7570745F 
+ 665      53746172 
+ 665      7400
+ 666              	.LASF20:
+ 667 0081 415F496E 		.ascii	"A_Interrupt_Start\000"
+ 667      74657272 
+ 667      7570745F 
+ 667      53746172 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 14
 
 
- 607              	.LASF2:
- 608 0271 73686F72 		.ascii	"short int\000"
- 608      7420696E 
- 608      7400
- 609              	.LASF29:
- 610 027b 4261636B 		.ascii	"Backlight_Write\000"
- 610      6C696768 
- 610      745F5772 
- 610      69746500 
- 611              	.LASF4:
- 612 028b 6C6F6E67 		.ascii	"long int\000"
- 612      20696E74 
- 612      00
- 613              	.LASF28:
- 614 0294 53746963 		.ascii	"StickButton_Interrupt_Start\000"
- 614      6B427574 
- 614      746F6E5F 
- 614      496E7465 
- 614      72727570 
- 615              	.LASF12:
- 616 02b0 6C6F6E67 		.ascii	"long double\000"
- 616      20646F75 
- 616      626C6500 
- 617              	.LASF0:
- 618 02bc 7369676E 		.ascii	"signed char\000"
- 618      65642063 
- 618      68617200 
- 619              	.LASF22:
- 620 02c8 425F496E 		.ascii	"B_Interrupt_Start\000"
- 620      74657272 
- 620      7570745F 
- 620      53746172 
- 620      7400
- 621              	.LASF17:
- 622 02da 41636F75 		.ascii	"Acount\000"
- 622      6E7400
- 623              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 667      7400
+ 668              	.LASF14:
+ 669 0093 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 669      5F464F4E 
+ 669      54387831 
+ 669      3600
+ 670              	.LASF9:
+ 671 00a1 666C6F61 		.ascii	"float\000"
+ 671      7400
+ 672              	.LASF35:
+ 673 00a7 75696E74 		.ascii	"uint8\000"
+ 673      3800
+ 674              	.LASF23:
+ 675 00ad 435F496E 		.ascii	"C_Interrupt_ClearPending\000"
+ 675      74657272 
+ 675      7570745F 
+ 675      436C6561 
+ 675      7250656E 
+ 676              	.LASF1:
+ 677 00c6 756E7369 		.ascii	"unsigned char\000"
+ 677      676E6564 
+ 677      20636861 
+ 677      7200
+ 678              	.LASF5:
+ 679 00d4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 679      20756E73 
+ 679      69676E65 
+ 679      6420696E 
+ 679      7400
+ 680              	.LASF3:
+ 681 00e6 73686F72 		.ascii	"short unsigned int\000"
+ 681      7420756E 
+ 681      7369676E 
+ 681      65642069 
+ 681      6E7400
+ 682              	.LASF10:
+ 683 00f9 646F7562 		.ascii	"double\000"
+ 683      6C6500
+ 684              	.LASF21:
+ 685 0100 425F496E 		.ascii	"B_Interrupt_ClearPending\000"
+ 685      74657272 
+ 685      7570745F 
+ 685      436C6561 
+ 685      7250656E 
+ 686              	.LASF34:
+ 687 0119 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\Hw"
+ 687      49545C4D 
+ 687      6963726F 
+ 687      636F6E74 
+ 687      726F6C6C 
+ 688 0149 332D2043 		.ascii	"3- CountZilla final\\CountZilla Final\\CountZilla F"
+ 688      6F756E74 
+ 688      5A696C6C 
+ 688      61206669 
+ 688      6E616C5C 
+ 689 017a 696E616C 		.ascii	"inal.cydsn\000"
+ 689      2E637964 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 15
+
+
+ 689      736E00
+ 690              	.LASF36:
+ 691 0185 6D61696E 		.ascii	"main\000"
+ 691      00
+ 692              	.LASF8:
+ 693 018a 756E7369 		.ascii	"unsigned int\000"
+ 693      676E6564 
+ 693      20696E74 
+ 693      00
+ 694              	.LASF24:
+ 695 0197 435F496E 		.ascii	"C_Interrupt_Start\000"
+ 695      74657272 
+ 695      7570745F 
+ 695      53746172 
+ 695      7400
+ 696              	.LASF7:
+ 697 01a9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 697      206C6F6E 
+ 697      6720756E 
+ 697      7369676E 
+ 697      65642069 
+ 698              	.LASF31:
+ 699 01c0 474C4344 		.ascii	"GLCD_PrintString\000"
+ 699      5F507269 
+ 699      6E745374 
+ 699      72696E67 
+ 699      00
+ 700              	.LASF32:
+ 701 01d1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 701      43313120 
+ 701      352E342E 
+ 701      31203230 
+ 701      31363036 
+ 702 0204 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 702      20726576 
+ 702      6973696F 
+ 702      6E203233 
+ 702      37373135 
+ 703 0237 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 703      66756E63 
+ 703      74696F6E 
+ 703      2D736563 
+ 703      74696F6E 
+ 704              	.LASF13:
+ 705 025f 73697A65 		.ascii	"sizetype\000"
+ 705      74797065 
+ 705      00
+ 706              	.LASF6:
+ 707 0268 6C6F6E67 		.ascii	"long long int\000"
+ 707      206C6F6E 
+ 707      6720696E 
+ 707      7400
+ 708              	.LASF33:
+ 709 0276 6D61696E 		.ascii	"main.c\000"
+ 709      2E6300
+ 710              	.LASF11:
+ 711 027d 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccTAtpRe.s 			page 16
+
+
+ 711      00
+ 712              	.LASF2:
+ 713 0282 73686F72 		.ascii	"short int\000"
+ 713      7420696E 
+ 713      7400
+ 714              	.LASF29:
+ 715 028c 4261636B 		.ascii	"Backlight_Write\000"
+ 715      6C696768 
+ 715      745F5772 
+ 715      69746500 
+ 716              	.LASF4:
+ 717 029c 6C6F6E67 		.ascii	"long int\000"
+ 717      20696E74 
+ 717      00
+ 718              	.LASF28:
+ 719 02a5 53746963 		.ascii	"StickButton_Interrupt_Start\000"
+ 719      6B427574 
+ 719      746F6E5F 
+ 719      496E7465 
+ 719      72727570 
+ 720              	.LASF12:
+ 721 02c1 6C6F6E67 		.ascii	"long double\000"
+ 721      20646F75 
+ 721      626C6500 
+ 722              	.LASF0:
+ 723 02cd 7369676E 		.ascii	"signed char\000"
+ 723      65642063 
+ 723      68617200 
+ 724              	.LASF30:
+ 725 02d9 73707269 		.ascii	"sprintf\000"
+ 725      6E746600 
+ 726              	.LASF22:
+ 727 02e1 425F496E 		.ascii	"B_Interrupt_Start\000"
+ 727      74657272 
+ 727      7570745F 
+ 727      53746172 
+ 727      7400
+ 728              	.LASF17:
+ 729 02f3 41636F75 		.ascii	"Acount\000"
+ 729      6E7400
+ 730              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

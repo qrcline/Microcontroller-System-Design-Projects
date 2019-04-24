@@ -1,0 +1,6 @@
+D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\BeatMeter.cyprj|ae6a0dc5-59e7-472f-8e2d-49163812601b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|d5653474-c113-42d2-9949-d3d4fd62133f
+C:\Users\quint\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|70b0110b-7c98-4762-b7c5-6534b3c8997d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|8fd57299-6161-473b-ac07-b9722b05bf37
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a01b7eff-ec83-48c0-9b07-bc880a216469
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|1b495c2e-6779-4fc3-ab87-8d1b2a4482e5

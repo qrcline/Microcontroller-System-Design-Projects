@@ -173,14 +173,16 @@ CY_ISR(A_Interrupt_Interrupt)
     
     while (A_Button_Read() == !PUSHED);
             
-            count++;
+            count++;  //Increment the counter
+            //Format the string and print to the screen 
             sprintf(mystring, "%5d", count);
             GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
             //CyDelay(25);
-	
+	        
+            //While that holds and no increment of the counter 
             while (A_Button_Read() == PUSHED);
             CyDelay(25);
-            A_Interrupt_ClearPending(); 
+            A_Interrupt_ClearPending(); //Needed to make other interrupts work
     
 
     /* `#END` */

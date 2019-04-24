@@ -1,0 +1,933 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"GLCD_Reset.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.GLCD_Reset_Write,"ax",%progbits
+  20              		.align	2
+  21              		.global	GLCD_Reset_Write
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	GLCD_Reset_Write, %function
+  25              	GLCD_Reset_Write:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC4\\GLCD_Reset.c"
+   1:Generated_Source\PSoC4/GLCD_Reset.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/GLCD_Reset.c **** * File Name: GLCD_Reset.c  
+   3:Generated_Source\PSoC4/GLCD_Reset.c **** * Version 1.90
+   4:Generated_Source\PSoC4/GLCD_Reset.c **** *
+   5:Generated_Source\PSoC4/GLCD_Reset.c **** * Description:
+   6:Generated_Source\PSoC4/GLCD_Reset.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC4/GLCD_Reset.c **** *
+   8:Generated_Source\PSoC4/GLCD_Reset.c **** * Note:
+   9:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  10:Generated_Source\PSoC4/GLCD_Reset.c **** ********************************************************************************
+  11:Generated_Source\PSoC4/GLCD_Reset.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC4/GLCD_Reset.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC4/GLCD_Reset.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC4/GLCD_Reset.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC4/GLCD_Reset.c **** *******************************************************************************/
+  16:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  17:Generated_Source\PSoC4/GLCD_Reset.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC4/GLCD_Reset.c **** #include "GLCD_Reset.h"
+  19:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  20:Generated_Source\PSoC4/GLCD_Reset.c **** #define SetP4PinDriveMode(shift, mode)  \
+  21:Generated_Source\PSoC4/GLCD_Reset.c ****     do { \
+  22:Generated_Source\PSoC4/GLCD_Reset.c ****         GLCD_Reset_PC =   (GLCD_Reset_PC & \
+  23:Generated_Source\PSoC4/GLCD_Reset.c ****                                 (uint32)(~(uint32)(GLCD_Reset_DRIVE_MODE_IND_MASK << (GLCD_Reset_DR
+  24:Generated_Source\PSoC4/GLCD_Reset.c ****                                 (uint32)((uint32)(mode) << (GLCD_Reset_DRIVE_MODE_BITS * (shift)));
+  25:Generated_Source\PSoC4/GLCD_Reset.c ****     } while (0)
+  26:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  27:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  28:Generated_Source\PSoC4/GLCD_Reset.c **** /*******************************************************************************
+  29:Generated_Source\PSoC4/GLCD_Reset.c **** * Function Name: GLCD_Reset_Write
+  30:Generated_Source\PSoC4/GLCD_Reset.c **** ********************************************************************************
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 2
+
+
+  31:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  32:Generated_Source\PSoC4/GLCD_Reset.c **** * Summary:
+  33:Generated_Source\PSoC4/GLCD_Reset.c **** *  Assign a new value to the digital port's data output register.  
+  34:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  35:Generated_Source\PSoC4/GLCD_Reset.c **** * Parameters:  
+  36:Generated_Source\PSoC4/GLCD_Reset.c **** *  prtValue:  The value to be assigned to the Digital Port. 
+  37:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  38:Generated_Source\PSoC4/GLCD_Reset.c **** * Return: 
+  39:Generated_Source\PSoC4/GLCD_Reset.c **** *  None 
+  40:Generated_Source\PSoC4/GLCD_Reset.c **** *  
+  41:Generated_Source\PSoC4/GLCD_Reset.c **** *******************************************************************************/
+  42:Generated_Source\PSoC4/GLCD_Reset.c **** void GLCD_Reset_Write(uint8 value) 
+  43:Generated_Source\PSoC4/GLCD_Reset.c **** {
+  28              		.loc 1 43 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  44:Generated_Source\PSoC4/GLCD_Reset.c ****     uint8 drVal = (uint8)(GLCD_Reset_DR & (uint8)(~GLCD_Reset_MASK));
+  34              		.loc 1 44 0
+  35 0000 0449     		ldr	r1, .L2
+  36 0002 0A68     		ldr	r2, [r1]
+  37 0004 D2B2     		uxtb	r2, r2
+  38 0006 0223     		movs	r3, #2
+  39 0008 9A43     		bics	r2, r3
+  40              	.LVL1:
+  45:Generated_Source\PSoC4/GLCD_Reset.c ****     drVal = (drVal | ((uint8)(value << GLCD_Reset_SHIFT) & GLCD_Reset_MASK));
+  41              		.loc 1 45 0
+  42 000a 4000     		lsls	r0, r0, #1
+  43              	.LVL2:
+  44 000c 1840     		ands	r0, r3
+  45 000e 1043     		orrs	r0, r2
+  46              	.LVL3:
+  46:Generated_Source\PSoC4/GLCD_Reset.c ****     GLCD_Reset_DR = (uint32)drVal;
+  47              		.loc 1 46 0
+  48 0010 0860     		str	r0, [r1]
+  47:Generated_Source\PSoC4/GLCD_Reset.c **** }
+  49              		.loc 1 47 0
+  50              		@ sp needed
+  51 0012 7047     		bx	lr
+  52              	.L3:
+  53              		.align	2
+  54              	.L2:
+  55 0014 00030440 		.word	1074004736
+  56              		.cfi_endproc
+  57              	.LFE0:
+  58              		.size	GLCD_Reset_Write, .-GLCD_Reset_Write
+  59              		.section	.text.GLCD_Reset_SetDriveMode,"ax",%progbits
+  60              		.align	2
+  61              		.global	GLCD_Reset_SetDriveMode
+  62              		.code	16
+  63              		.thumb_func
+  64              		.type	GLCD_Reset_SetDriveMode, %function
+  65              	GLCD_Reset_SetDriveMode:
+  66              	.LFB1:
+  48:Generated_Source\PSoC4/GLCD_Reset.c **** 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 3
+
+
+  49:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  50:Generated_Source\PSoC4/GLCD_Reset.c **** /*******************************************************************************
+  51:Generated_Source\PSoC4/GLCD_Reset.c **** * Function Name: GLCD_Reset_SetDriveMode
+  52:Generated_Source\PSoC4/GLCD_Reset.c **** ********************************************************************************
+  53:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  54:Generated_Source\PSoC4/GLCD_Reset.c **** * Summary:
+  55:Generated_Source\PSoC4/GLCD_Reset.c **** *  Change the drive mode on the pins of the port.
+  56:Generated_Source\PSoC4/GLCD_Reset.c **** * 
+  57:Generated_Source\PSoC4/GLCD_Reset.c **** * Parameters:  
+  58:Generated_Source\PSoC4/GLCD_Reset.c **** *  mode:  Change the pins to this drive mode.
+  59:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  60:Generated_Source\PSoC4/GLCD_Reset.c **** * Return: 
+  61:Generated_Source\PSoC4/GLCD_Reset.c **** *  None
+  62:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  63:Generated_Source\PSoC4/GLCD_Reset.c **** *******************************************************************************/
+  64:Generated_Source\PSoC4/GLCD_Reset.c **** void GLCD_Reset_SetDriveMode(uint8 mode) 
+  65:Generated_Source\PSoC4/GLCD_Reset.c **** {
+  67              		.loc 1 65 0
+  68              		.cfi_startproc
+  69              		@ args = 0, pretend = 0, frame = 0
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+  71              		@ link register save eliminated.
+  72              	.LVL4:
+  66:Generated_Source\PSoC4/GLCD_Reset.c **** 	SetP4PinDriveMode(GLCD_Reset__0__SHIFT, mode);
+  73              		.loc 1 66 0
+  74 0000 034A     		ldr	r2, .L5
+  75 0002 1368     		ldr	r3, [r2]
+  76 0004 3821     		movs	r1, #56
+  77 0006 8B43     		bics	r3, r1
+  78 0008 C000     		lsls	r0, r0, #3
+  79              	.LVL5:
+  80 000a 1843     		orrs	r0, r3
+  81 000c 1060     		str	r0, [r2]
+  67:Generated_Source\PSoC4/GLCD_Reset.c **** }
+  82              		.loc 1 67 0
+  83              		@ sp needed
+  84 000e 7047     		bx	lr
+  85              	.L6:
+  86              		.align	2
+  87              	.L5:
+  88 0010 08030440 		.word	1074004744
+  89              		.cfi_endproc
+  90              	.LFE1:
+  91              		.size	GLCD_Reset_SetDriveMode, .-GLCD_Reset_SetDriveMode
+  92              		.section	.text.GLCD_Reset_Read,"ax",%progbits
+  93              		.align	2
+  94              		.global	GLCD_Reset_Read
+  95              		.code	16
+  96              		.thumb_func
+  97              		.type	GLCD_Reset_Read, %function
+  98              	GLCD_Reset_Read:
+  99              	.LFB2:
+  68:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  69:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  70:Generated_Source\PSoC4/GLCD_Reset.c **** /*******************************************************************************
+  71:Generated_Source\PSoC4/GLCD_Reset.c **** * Function Name: GLCD_Reset_Read
+  72:Generated_Source\PSoC4/GLCD_Reset.c **** ********************************************************************************
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 4
+
+
+  73:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  74:Generated_Source\PSoC4/GLCD_Reset.c **** * Summary:
+  75:Generated_Source\PSoC4/GLCD_Reset.c **** *  Read the current value on the pins of the Digital Port in right justified 
+  76:Generated_Source\PSoC4/GLCD_Reset.c **** *  form.
+  77:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  78:Generated_Source\PSoC4/GLCD_Reset.c **** * Parameters:  
+  79:Generated_Source\PSoC4/GLCD_Reset.c **** *  None 
+  80:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  81:Generated_Source\PSoC4/GLCD_Reset.c **** * Return: 
+  82:Generated_Source\PSoC4/GLCD_Reset.c **** *  Returns the current value of the Digital Port as a right justified number
+  83:Generated_Source\PSoC4/GLCD_Reset.c **** *  
+  84:Generated_Source\PSoC4/GLCD_Reset.c **** * Note:
+  85:Generated_Source\PSoC4/GLCD_Reset.c **** *  Macro GLCD_Reset_ReadPS calls this function. 
+  86:Generated_Source\PSoC4/GLCD_Reset.c **** *  
+  87:Generated_Source\PSoC4/GLCD_Reset.c **** *******************************************************************************/
+  88:Generated_Source\PSoC4/GLCD_Reset.c **** uint8 GLCD_Reset_Read(void) 
+  89:Generated_Source\PSoC4/GLCD_Reset.c **** {
+ 100              		.loc 1 89 0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104              		@ link register save eliminated.
+  90:Generated_Source\PSoC4/GLCD_Reset.c ****     return (uint8)((GLCD_Reset_PS & GLCD_Reset_MASK) >> GLCD_Reset_SHIFT);
+ 105              		.loc 1 90 0
+ 106 0000 024B     		ldr	r3, .L8
+ 107 0002 1868     		ldr	r0, [r3]
+ 108 0004 4008     		lsrs	r0, r0, #1
+ 109 0006 0123     		movs	r3, #1
+ 110 0008 1840     		ands	r0, r3
+  91:Generated_Source\PSoC4/GLCD_Reset.c **** }
+ 111              		.loc 1 91 0
+ 112              		@ sp needed
+ 113 000a 7047     		bx	lr
+ 114              	.L9:
+ 115              		.align	2
+ 116              	.L8:
+ 117 000c 04030440 		.word	1074004740
+ 118              		.cfi_endproc
+ 119              	.LFE2:
+ 120              		.size	GLCD_Reset_Read, .-GLCD_Reset_Read
+ 121              		.section	.text.GLCD_Reset_ReadDataReg,"ax",%progbits
+ 122              		.align	2
+ 123              		.global	GLCD_Reset_ReadDataReg
+ 124              		.code	16
+ 125              		.thumb_func
+ 126              		.type	GLCD_Reset_ReadDataReg, %function
+ 127              	GLCD_Reset_ReadDataReg:
+ 128              	.LFB3:
+  92:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  93:Generated_Source\PSoC4/GLCD_Reset.c **** 
+  94:Generated_Source\PSoC4/GLCD_Reset.c **** /*******************************************************************************
+  95:Generated_Source\PSoC4/GLCD_Reset.c **** * Function Name: GLCD_Reset_ReadDataReg
+  96:Generated_Source\PSoC4/GLCD_Reset.c **** ********************************************************************************
+  97:Generated_Source\PSoC4/GLCD_Reset.c **** *
+  98:Generated_Source\PSoC4/GLCD_Reset.c **** * Summary:
+  99:Generated_Source\PSoC4/GLCD_Reset.c **** *  Read the current value assigned to a Digital Port's data output register
+ 100:Generated_Source\PSoC4/GLCD_Reset.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 5
+
+
+ 101:Generated_Source\PSoC4/GLCD_Reset.c **** * Parameters:  
+ 102:Generated_Source\PSoC4/GLCD_Reset.c **** *  None 
+ 103:Generated_Source\PSoC4/GLCD_Reset.c **** *
+ 104:Generated_Source\PSoC4/GLCD_Reset.c **** * Return: 
+ 105:Generated_Source\PSoC4/GLCD_Reset.c **** *  Returns the current value assigned to the Digital Port's data output register
+ 106:Generated_Source\PSoC4/GLCD_Reset.c **** *  
+ 107:Generated_Source\PSoC4/GLCD_Reset.c **** *******************************************************************************/
+ 108:Generated_Source\PSoC4/GLCD_Reset.c **** uint8 GLCD_Reset_ReadDataReg(void) 
+ 109:Generated_Source\PSoC4/GLCD_Reset.c **** {
+ 129              		.loc 1 109 0
+ 130              		.cfi_startproc
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133              		@ link register save eliminated.
+ 110:Generated_Source\PSoC4/GLCD_Reset.c ****     return (uint8)((GLCD_Reset_DR & GLCD_Reset_MASK) >> GLCD_Reset_SHIFT);
+ 134              		.loc 1 110 0
+ 135 0000 024B     		ldr	r3, .L11
+ 136 0002 1868     		ldr	r0, [r3]
+ 137 0004 4008     		lsrs	r0, r0, #1
+ 138 0006 0123     		movs	r3, #1
+ 139 0008 1840     		ands	r0, r3
+ 111:Generated_Source\PSoC4/GLCD_Reset.c **** }
+ 140              		.loc 1 111 0
+ 141              		@ sp needed
+ 142 000a 7047     		bx	lr
+ 143              	.L12:
+ 144              		.align	2
+ 145              	.L11:
+ 146 000c 00030440 		.word	1074004736
+ 147              		.cfi_endproc
+ 148              	.LFE3:
+ 149              		.size	GLCD_Reset_ReadDataReg, .-GLCD_Reset_ReadDataReg
+ 150              		.section	.text.GLCD_Reset_ClearInterrupt,"ax",%progbits
+ 151              		.align	2
+ 152              		.global	GLCD_Reset_ClearInterrupt
+ 153              		.code	16
+ 154              		.thumb_func
+ 155              		.type	GLCD_Reset_ClearInterrupt, %function
+ 156              	GLCD_Reset_ClearInterrupt:
+ 157              	.LFB4:
+ 112:Generated_Source\PSoC4/GLCD_Reset.c **** 
+ 113:Generated_Source\PSoC4/GLCD_Reset.c **** 
+ 114:Generated_Source\PSoC4/GLCD_Reset.c **** /* If Interrupts Are Enabled for this Pins component */ 
+ 115:Generated_Source\PSoC4/GLCD_Reset.c **** #if defined(GLCD_Reset_INTSTAT) 
+ 116:Generated_Source\PSoC4/GLCD_Reset.c **** 
+ 117:Generated_Source\PSoC4/GLCD_Reset.c ****     /*******************************************************************************
+ 118:Generated_Source\PSoC4/GLCD_Reset.c ****     * Function Name: GLCD_Reset_ClearInterrupt
+ 119:Generated_Source\PSoC4/GLCD_Reset.c ****     ********************************************************************************
+ 120:Generated_Source\PSoC4/GLCD_Reset.c ****     *
+ 121:Generated_Source\PSoC4/GLCD_Reset.c ****     * Summary:
+ 122:Generated_Source\PSoC4/GLCD_Reset.c ****     *  Clears any active interrupts attached to port and returns the value of the 
+ 123:Generated_Source\PSoC4/GLCD_Reset.c ****     *  interrupt status register.
+ 124:Generated_Source\PSoC4/GLCD_Reset.c ****     *
+ 125:Generated_Source\PSoC4/GLCD_Reset.c ****     * Parameters:  
+ 126:Generated_Source\PSoC4/GLCD_Reset.c ****     *  None 
+ 127:Generated_Source\PSoC4/GLCD_Reset.c ****     *
+ 128:Generated_Source\PSoC4/GLCD_Reset.c ****     * Return: 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 6
+
+
+ 129:Generated_Source\PSoC4/GLCD_Reset.c ****     *  Returns the value of the interrupt status register
+ 130:Generated_Source\PSoC4/GLCD_Reset.c ****     *  
+ 131:Generated_Source\PSoC4/GLCD_Reset.c ****     *******************************************************************************/
+ 132:Generated_Source\PSoC4/GLCD_Reset.c ****     uint8 GLCD_Reset_ClearInterrupt(void) 
+ 133:Generated_Source\PSoC4/GLCD_Reset.c ****     {
+ 158              		.loc 1 133 0
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              		@ link register save eliminated.
+ 134:Generated_Source\PSoC4/GLCD_Reset.c **** 		uint8 maskedStatus = (uint8)(GLCD_Reset_INTSTAT & GLCD_Reset_MASK);
+ 163              		.loc 1 134 0
+ 164 0000 034A     		ldr	r2, .L14
+ 165 0002 1068     		ldr	r0, [r2]
+ 166 0004 0223     		movs	r3, #2
+ 167 0006 1840     		ands	r0, r3
+ 168              	.LVL6:
+ 135:Generated_Source\PSoC4/GLCD_Reset.c **** 		GLCD_Reset_INTSTAT = maskedStatus;
+ 169              		.loc 1 135 0
+ 170 0008 1060     		str	r0, [r2]
+ 136:Generated_Source\PSoC4/GLCD_Reset.c ****         return maskedStatus >> GLCD_Reset_SHIFT;
+ 171              		.loc 1 136 0
+ 172 000a 4008     		lsrs	r0, r0, #1
+ 173              	.LVL7:
+ 174 000c C0B2     		uxtb	r0, r0
+ 137:Generated_Source\PSoC4/GLCD_Reset.c ****     }
+ 175              		.loc 1 137 0
+ 176              		@ sp needed
+ 177 000e 7047     		bx	lr
+ 178              	.L15:
+ 179              		.align	2
+ 180              	.L14:
+ 181 0010 10030440 		.word	1074004752
+ 182              		.cfi_endproc
+ 183              	.LFE4:
+ 184              		.size	GLCD_Reset_ClearInterrupt, .-GLCD_Reset_ClearInterrupt
+ 185              		.text
+ 186              	.Letext0:
+ 187              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 188              		.section	.debug_info,"",%progbits
+ 189              	.Ldebug_info0:
+ 190 0000 4E010000 		.4byte	0x14e
+ 191 0004 0400     		.2byte	0x4
+ 192 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 193 000a 04       		.byte	0x4
+ 194 000b 01       		.uleb128 0x1
+ 195 000c 48010000 		.4byte	.LASF24
+ 196 0010 0C       		.byte	0xc
+ 197 0011 24010000 		.4byte	.LASF25
+ 198 0015 37000000 		.4byte	.LASF26
+ 199 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 200 001d 00000000 		.4byte	0
+ 201 0021 00000000 		.4byte	.Ldebug_line0
+ 202 0025 02       		.uleb128 0x2
+ 203 0026 01       		.byte	0x1
+ 204 0027 06       		.byte	0x6
+ 205 0028 24020000 		.4byte	.LASF0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 7
+
+
+ 206 002c 02       		.uleb128 0x2
+ 207 002d 01       		.byte	0x1
+ 208 002e 08       		.byte	0x8
+ 209 002f 23000000 		.4byte	.LASF1
+ 210 0033 02       		.uleb128 0x2
+ 211 0034 02       		.byte	0x2
+ 212 0035 05       		.byte	0x5
+ 213 0036 FB010000 		.4byte	.LASF2
+ 214 003a 02       		.uleb128 0x2
+ 215 003b 02       		.byte	0x2
+ 216 003c 07       		.byte	0x7
+ 217 003d 96000000 		.4byte	.LASF3
+ 218 0041 02       		.uleb128 0x2
+ 219 0042 04       		.byte	0x4
+ 220 0043 05       		.byte	0x5
+ 221 0044 0B020000 		.4byte	.LASF4
+ 222 0048 02       		.uleb128 0x2
+ 223 0049 04       		.byte	0x4
+ 224 004a 07       		.byte	0x7
+ 225 004b 84000000 		.4byte	.LASF5
+ 226 004f 02       		.uleb128 0x2
+ 227 0050 08       		.byte	0x8
+ 228 0051 05       		.byte	0x5
+ 229 0052 DB010000 		.4byte	.LASF6
+ 230 0056 02       		.uleb128 0x2
+ 231 0057 08       		.byte	0x8
+ 232 0058 07       		.byte	0x7
+ 233 0059 0D010000 		.4byte	.LASF7
+ 234 005d 03       		.uleb128 0x3
+ 235 005e 04       		.byte	0x4
+ 236 005f 05       		.byte	0x5
+ 237 0060 696E7400 		.ascii	"int\000"
+ 238 0064 02       		.uleb128 0x2
+ 239 0065 04       		.byte	0x4
+ 240 0066 07       		.byte	0x7
+ 241 0067 E9000000 		.4byte	.LASF8
+ 242 006b 04       		.uleb128 0x4
+ 243 006c 05020000 		.4byte	.LASF9
+ 244 0070 02       		.byte	0x2
+ 245 0071 E401     		.2byte	0x1e4
+ 246 0073 2C000000 		.4byte	0x2c
+ 247 0077 04       		.uleb128 0x4
+ 248 0078 E2000000 		.4byte	.LASF10
+ 249 007c 02       		.byte	0x2
+ 250 007d E601     		.2byte	0x1e6
+ 251 007f 48000000 		.4byte	0x48
+ 252 0083 02       		.uleb128 0x2
+ 253 0084 04       		.byte	0x4
+ 254 0085 04       		.byte	0x4
+ 255 0086 1D000000 		.4byte	.LASF11
+ 256 008a 02       		.uleb128 0x2
+ 257 008b 08       		.byte	0x8
+ 258 008c 04       		.byte	0x4
+ 259 008d C3000000 		.4byte	.LASF12
+ 260 0091 02       		.uleb128 0x2
+ 261 0092 01       		.byte	0x1
+ 262 0093 08       		.byte	0x8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 8
+
+
+ 263 0094 F6010000 		.4byte	.LASF13
+ 264 0098 04       		.uleb128 0x4
+ 265 0099 00000000 		.4byte	.LASF14
+ 266 009d 02       		.byte	0x2
+ 267 009e 9002     		.2byte	0x290
+ 268 00a0 A4000000 		.4byte	0xa4
+ 269 00a4 05       		.uleb128 0x5
+ 270 00a5 77000000 		.4byte	0x77
+ 271 00a9 06       		.uleb128 0x6
+ 272 00aa 0C000000 		.4byte	.LASF15
+ 273 00ae 01       		.byte	0x1
+ 274 00af 2A       		.byte	0x2a
+ 275 00b0 00000000 		.4byte	.LFB0
+ 276 00b4 18000000 		.4byte	.LFE0-.LFB0
+ 277 00b8 01       		.uleb128 0x1
+ 278 00b9 9C       		.byte	0x9c
+ 279 00ba DD000000 		.4byte	0xdd
+ 280 00be 07       		.uleb128 0x7
+ 281 00bf 06000000 		.4byte	.LASF17
+ 282 00c3 01       		.byte	0x1
+ 283 00c4 2A       		.byte	0x2a
+ 284 00c5 6B000000 		.4byte	0x6b
+ 285 00c9 00000000 		.4byte	.LLST0
+ 286 00cd 08       		.uleb128 0x8
+ 287 00ce 31000000 		.4byte	.LASF22
+ 288 00d2 01       		.byte	0x1
+ 289 00d3 2C       		.byte	0x2c
+ 290 00d4 6B000000 		.4byte	0x6b
+ 291 00d8 21000000 		.4byte	.LLST1
+ 292 00dc 00       		.byte	0
+ 293 00dd 06       		.uleb128 0x6
+ 294 00de CA000000 		.4byte	.LASF16
+ 295 00e2 01       		.byte	0x1
+ 296 00e3 40       		.byte	0x40
+ 297 00e4 00000000 		.4byte	.LFB1
+ 298 00e8 14000000 		.4byte	.LFE1-.LFB1
+ 299 00ec 01       		.uleb128 0x1
+ 300 00ed 9C       		.byte	0x9c
+ 301 00ee 02010000 		.4byte	0x102
+ 302 00f2 07       		.uleb128 0x7
+ 303 00f3 D6010000 		.4byte	.LASF18
+ 304 00f7 01       		.byte	0x1
+ 305 00f8 40       		.byte	0x40
+ 306 00f9 6B000000 		.4byte	0x6b
+ 307 00fd 3F000000 		.4byte	.LLST2
+ 308 0101 00       		.byte	0
+ 309 0102 09       		.uleb128 0x9
+ 310 0103 14020000 		.4byte	.LASF19
+ 311 0107 01       		.byte	0x1
+ 312 0108 58       		.byte	0x58
+ 313 0109 6B000000 		.4byte	0x6b
+ 314 010d 00000000 		.4byte	.LFB2
+ 315 0111 10000000 		.4byte	.LFE2-.LFB2
+ 316 0115 01       		.uleb128 0x1
+ 317 0116 9C       		.byte	0x9c
+ 318 0117 09       		.uleb128 0x9
+ 319 0118 F6000000 		.4byte	.LASF20
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 9
+
+
+ 320 011c 01       		.byte	0x1
+ 321 011d 6C       		.byte	0x6c
+ 322 011e 6B000000 		.4byte	0x6b
+ 323 0122 00000000 		.4byte	.LFB3
+ 324 0126 10000000 		.4byte	.LFE3-.LFB3
+ 325 012a 01       		.uleb128 0x1
+ 326 012b 9C       		.byte	0x9c
+ 327 012c 0A       		.uleb128 0xa
+ 328 012d A9000000 		.4byte	.LASF21
+ 329 0131 01       		.byte	0x1
+ 330 0132 84       		.byte	0x84
+ 331 0133 6B000000 		.4byte	0x6b
+ 332 0137 00000000 		.4byte	.LFB4
+ 333 013b 14000000 		.4byte	.LFE4-.LFB4
+ 334 013f 01       		.uleb128 0x1
+ 335 0140 9C       		.byte	0x9c
+ 336 0141 08       		.uleb128 0x8
+ 337 0142 E9010000 		.4byte	.LASF23
+ 338 0146 01       		.byte	0x1
+ 339 0147 86       		.byte	0x86
+ 340 0148 6B000000 		.4byte	0x6b
+ 341 014c 60000000 		.4byte	.LLST3
+ 342 0150 00       		.byte	0
+ 343 0151 00       		.byte	0
+ 344              		.section	.debug_abbrev,"",%progbits
+ 345              	.Ldebug_abbrev0:
+ 346 0000 01       		.uleb128 0x1
+ 347 0001 11       		.uleb128 0x11
+ 348 0002 01       		.byte	0x1
+ 349 0003 25       		.uleb128 0x25
+ 350 0004 0E       		.uleb128 0xe
+ 351 0005 13       		.uleb128 0x13
+ 352 0006 0B       		.uleb128 0xb
+ 353 0007 03       		.uleb128 0x3
+ 354 0008 0E       		.uleb128 0xe
+ 355 0009 1B       		.uleb128 0x1b
+ 356 000a 0E       		.uleb128 0xe
+ 357 000b 55       		.uleb128 0x55
+ 358 000c 17       		.uleb128 0x17
+ 359 000d 11       		.uleb128 0x11
+ 360 000e 01       		.uleb128 0x1
+ 361 000f 10       		.uleb128 0x10
+ 362 0010 17       		.uleb128 0x17
+ 363 0011 00       		.byte	0
+ 364 0012 00       		.byte	0
+ 365 0013 02       		.uleb128 0x2
+ 366 0014 24       		.uleb128 0x24
+ 367 0015 00       		.byte	0
+ 368 0016 0B       		.uleb128 0xb
+ 369 0017 0B       		.uleb128 0xb
+ 370 0018 3E       		.uleb128 0x3e
+ 371 0019 0B       		.uleb128 0xb
+ 372 001a 03       		.uleb128 0x3
+ 373 001b 0E       		.uleb128 0xe
+ 374 001c 00       		.byte	0
+ 375 001d 00       		.byte	0
+ 376 001e 03       		.uleb128 0x3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 10
+
+
+ 377 001f 24       		.uleb128 0x24
+ 378 0020 00       		.byte	0
+ 379 0021 0B       		.uleb128 0xb
+ 380 0022 0B       		.uleb128 0xb
+ 381 0023 3E       		.uleb128 0x3e
+ 382 0024 0B       		.uleb128 0xb
+ 383 0025 03       		.uleb128 0x3
+ 384 0026 08       		.uleb128 0x8
+ 385 0027 00       		.byte	0
+ 386 0028 00       		.byte	0
+ 387 0029 04       		.uleb128 0x4
+ 388 002a 16       		.uleb128 0x16
+ 389 002b 00       		.byte	0
+ 390 002c 03       		.uleb128 0x3
+ 391 002d 0E       		.uleb128 0xe
+ 392 002e 3A       		.uleb128 0x3a
+ 393 002f 0B       		.uleb128 0xb
+ 394 0030 3B       		.uleb128 0x3b
+ 395 0031 05       		.uleb128 0x5
+ 396 0032 49       		.uleb128 0x49
+ 397 0033 13       		.uleb128 0x13
+ 398 0034 00       		.byte	0
+ 399 0035 00       		.byte	0
+ 400 0036 05       		.uleb128 0x5
+ 401 0037 35       		.uleb128 0x35
+ 402 0038 00       		.byte	0
+ 403 0039 49       		.uleb128 0x49
+ 404 003a 13       		.uleb128 0x13
+ 405 003b 00       		.byte	0
+ 406 003c 00       		.byte	0
+ 407 003d 06       		.uleb128 0x6
+ 408 003e 2E       		.uleb128 0x2e
+ 409 003f 01       		.byte	0x1
+ 410 0040 3F       		.uleb128 0x3f
+ 411 0041 19       		.uleb128 0x19
+ 412 0042 03       		.uleb128 0x3
+ 413 0043 0E       		.uleb128 0xe
+ 414 0044 3A       		.uleb128 0x3a
+ 415 0045 0B       		.uleb128 0xb
+ 416 0046 3B       		.uleb128 0x3b
+ 417 0047 0B       		.uleb128 0xb
+ 418 0048 27       		.uleb128 0x27
+ 419 0049 19       		.uleb128 0x19
+ 420 004a 11       		.uleb128 0x11
+ 421 004b 01       		.uleb128 0x1
+ 422 004c 12       		.uleb128 0x12
+ 423 004d 06       		.uleb128 0x6
+ 424 004e 40       		.uleb128 0x40
+ 425 004f 18       		.uleb128 0x18
+ 426 0050 9742     		.uleb128 0x2117
+ 427 0052 19       		.uleb128 0x19
+ 428 0053 01       		.uleb128 0x1
+ 429 0054 13       		.uleb128 0x13
+ 430 0055 00       		.byte	0
+ 431 0056 00       		.byte	0
+ 432 0057 07       		.uleb128 0x7
+ 433 0058 05       		.uleb128 0x5
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 11
+
+
+ 434 0059 00       		.byte	0
+ 435 005a 03       		.uleb128 0x3
+ 436 005b 0E       		.uleb128 0xe
+ 437 005c 3A       		.uleb128 0x3a
+ 438 005d 0B       		.uleb128 0xb
+ 439 005e 3B       		.uleb128 0x3b
+ 440 005f 0B       		.uleb128 0xb
+ 441 0060 49       		.uleb128 0x49
+ 442 0061 13       		.uleb128 0x13
+ 443 0062 02       		.uleb128 0x2
+ 444 0063 17       		.uleb128 0x17
+ 445 0064 00       		.byte	0
+ 446 0065 00       		.byte	0
+ 447 0066 08       		.uleb128 0x8
+ 448 0067 34       		.uleb128 0x34
+ 449 0068 00       		.byte	0
+ 450 0069 03       		.uleb128 0x3
+ 451 006a 0E       		.uleb128 0xe
+ 452 006b 3A       		.uleb128 0x3a
+ 453 006c 0B       		.uleb128 0xb
+ 454 006d 3B       		.uleb128 0x3b
+ 455 006e 0B       		.uleb128 0xb
+ 456 006f 49       		.uleb128 0x49
+ 457 0070 13       		.uleb128 0x13
+ 458 0071 02       		.uleb128 0x2
+ 459 0072 17       		.uleb128 0x17
+ 460 0073 00       		.byte	0
+ 461 0074 00       		.byte	0
+ 462 0075 09       		.uleb128 0x9
+ 463 0076 2E       		.uleb128 0x2e
+ 464 0077 00       		.byte	0
+ 465 0078 3F       		.uleb128 0x3f
+ 466 0079 19       		.uleb128 0x19
+ 467 007a 03       		.uleb128 0x3
+ 468 007b 0E       		.uleb128 0xe
+ 469 007c 3A       		.uleb128 0x3a
+ 470 007d 0B       		.uleb128 0xb
+ 471 007e 3B       		.uleb128 0x3b
+ 472 007f 0B       		.uleb128 0xb
+ 473 0080 27       		.uleb128 0x27
+ 474 0081 19       		.uleb128 0x19
+ 475 0082 49       		.uleb128 0x49
+ 476 0083 13       		.uleb128 0x13
+ 477 0084 11       		.uleb128 0x11
+ 478 0085 01       		.uleb128 0x1
+ 479 0086 12       		.uleb128 0x12
+ 480 0087 06       		.uleb128 0x6
+ 481 0088 40       		.uleb128 0x40
+ 482 0089 18       		.uleb128 0x18
+ 483 008a 9742     		.uleb128 0x2117
+ 484 008c 19       		.uleb128 0x19
+ 485 008d 00       		.byte	0
+ 486 008e 00       		.byte	0
+ 487 008f 0A       		.uleb128 0xa
+ 488 0090 2E       		.uleb128 0x2e
+ 489 0091 01       		.byte	0x1
+ 490 0092 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 12
+
+
+ 491 0093 19       		.uleb128 0x19
+ 492 0094 03       		.uleb128 0x3
+ 493 0095 0E       		.uleb128 0xe
+ 494 0096 3A       		.uleb128 0x3a
+ 495 0097 0B       		.uleb128 0xb
+ 496 0098 3B       		.uleb128 0x3b
+ 497 0099 0B       		.uleb128 0xb
+ 498 009a 27       		.uleb128 0x27
+ 499 009b 19       		.uleb128 0x19
+ 500 009c 49       		.uleb128 0x49
+ 501 009d 13       		.uleb128 0x13
+ 502 009e 11       		.uleb128 0x11
+ 503 009f 01       		.uleb128 0x1
+ 504 00a0 12       		.uleb128 0x12
+ 505 00a1 06       		.uleb128 0x6
+ 506 00a2 40       		.uleb128 0x40
+ 507 00a3 18       		.uleb128 0x18
+ 508 00a4 9742     		.uleb128 0x2117
+ 509 00a6 19       		.uleb128 0x19
+ 510 00a7 00       		.byte	0
+ 511 00a8 00       		.byte	0
+ 512 00a9 00       		.byte	0
+ 513              		.section	.debug_loc,"",%progbits
+ 514              	.Ldebug_loc0:
+ 515              	.LLST0:
+ 516 0000 00000000 		.4byte	.LVL0
+ 517 0004 0C000000 		.4byte	.LVL2
+ 518 0008 0100     		.2byte	0x1
+ 519 000a 50       		.byte	0x50
+ 520 000b 0C000000 		.4byte	.LVL2
+ 521 000f 18000000 		.4byte	.LFE0
+ 522 0013 0400     		.2byte	0x4
+ 523 0015 F3       		.byte	0xf3
+ 524 0016 01       		.uleb128 0x1
+ 525 0017 50       		.byte	0x50
+ 526 0018 9F       		.byte	0x9f
+ 527 0019 00000000 		.4byte	0
+ 528 001d 00000000 		.4byte	0
+ 529              	.LLST1:
+ 530 0021 0A000000 		.4byte	.LVL1
+ 531 0025 10000000 		.4byte	.LVL3
+ 532 0029 0100     		.2byte	0x1
+ 533 002b 52       		.byte	0x52
+ 534 002c 10000000 		.4byte	.LVL3
+ 535 0030 18000000 		.4byte	.LFE0
+ 536 0034 0100     		.2byte	0x1
+ 537 0036 50       		.byte	0x50
+ 538 0037 00000000 		.4byte	0
+ 539 003b 00000000 		.4byte	0
+ 540              	.LLST2:
+ 541 003f 00000000 		.4byte	.LVL4
+ 542 0043 0A000000 		.4byte	.LVL5
+ 543 0047 0100     		.2byte	0x1
+ 544 0049 50       		.byte	0x50
+ 545 004a 0A000000 		.4byte	.LVL5
+ 546 004e 14000000 		.4byte	.LFE1
+ 547 0052 0400     		.2byte	0x4
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 13
+
+
+ 548 0054 F3       		.byte	0xf3
+ 549 0055 01       		.uleb128 0x1
+ 550 0056 50       		.byte	0x50
+ 551 0057 9F       		.byte	0x9f
+ 552 0058 00000000 		.4byte	0
+ 553 005c 00000000 		.4byte	0
+ 554              	.LLST3:
+ 555 0060 08000000 		.4byte	.LVL6
+ 556 0064 0C000000 		.4byte	.LVL7
+ 557 0068 0100     		.2byte	0x1
+ 558 006a 50       		.byte	0x50
+ 559 006b 0C000000 		.4byte	.LVL7
+ 560 006f 14000000 		.4byte	.LFE4
+ 561 0073 0400     		.2byte	0x4
+ 562 0075 72       		.byte	0x72
+ 563 0076 00       		.sleb128 0
+ 564 0077 06       		.byte	0x6
+ 565 0078 9F       		.byte	0x9f
+ 566 0079 00000000 		.4byte	0
+ 567 007d 00000000 		.4byte	0
+ 568              		.section	.debug_aranges,"",%progbits
+ 569 0000 3C000000 		.4byte	0x3c
+ 570 0004 0200     		.2byte	0x2
+ 571 0006 00000000 		.4byte	.Ldebug_info0
+ 572 000a 04       		.byte	0x4
+ 573 000b 00       		.byte	0
+ 574 000c 0000     		.2byte	0
+ 575 000e 0000     		.2byte	0
+ 576 0010 00000000 		.4byte	.LFB0
+ 577 0014 18000000 		.4byte	.LFE0-.LFB0
+ 578 0018 00000000 		.4byte	.LFB1
+ 579 001c 14000000 		.4byte	.LFE1-.LFB1
+ 580 0020 00000000 		.4byte	.LFB2
+ 581 0024 10000000 		.4byte	.LFE2-.LFB2
+ 582 0028 00000000 		.4byte	.LFB3
+ 583 002c 10000000 		.4byte	.LFE3-.LFB3
+ 584 0030 00000000 		.4byte	.LFB4
+ 585 0034 14000000 		.4byte	.LFE4-.LFB4
+ 586 0038 00000000 		.4byte	0
+ 587 003c 00000000 		.4byte	0
+ 588              		.section	.debug_ranges,"",%progbits
+ 589              	.Ldebug_ranges0:
+ 590 0000 00000000 		.4byte	.LFB0
+ 591 0004 18000000 		.4byte	.LFE0
+ 592 0008 00000000 		.4byte	.LFB1
+ 593 000c 14000000 		.4byte	.LFE1
+ 594 0010 00000000 		.4byte	.LFB2
+ 595 0014 10000000 		.4byte	.LFE2
+ 596 0018 00000000 		.4byte	.LFB3
+ 597 001c 10000000 		.4byte	.LFE3
+ 598 0020 00000000 		.4byte	.LFB4
+ 599 0024 14000000 		.4byte	.LFE4
+ 600 0028 00000000 		.4byte	0
+ 601 002c 00000000 		.4byte	0
+ 602              		.section	.debug_line,"",%progbits
+ 603              	.Ldebug_line0:
+ 604 0000 AA000000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 14
+
+
+ 604      02004700 
+ 604      00000201 
+ 604      FB0E0D00 
+ 604      01010101 
+ 605              	.LASF14:
+ 606 0000 72656733 		.ascii	"reg32\000"
+ 606      3200
+ 607              	.LASF17:
+ 608 0006 76616C75 		.ascii	"value\000"
+ 608      6500
+ 609              	.LASF15:
+ 610 000c 474C4344 		.ascii	"GLCD_Reset_Write\000"
+ 610      5F526573 
+ 610      65745F57 
+ 610      72697465 
+ 610      00
+ 611              	.LASF11:
+ 612 001d 666C6F61 		.ascii	"float\000"
+ 612      7400
+ 613              	.LASF1:
+ 614 0023 756E7369 		.ascii	"unsigned char\000"
+ 614      676E6564 
+ 614      20636861 
+ 614      7200
+ 615              	.LASF22:
+ 616 0031 64725661 		.ascii	"drVal\000"
+ 616      6C00
+ 617              	.LASF26:
+ 618 0037 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\Hw"
+ 618      49545C4D 
+ 618      6963726F 
+ 618      636F6E74 
+ 618      726F6C6C 
+ 619 0067 34204265 		.ascii	"4 Beat Meter\\BeatMeter.cydsn\000"
+ 619      6174204D 
+ 619      65746572 
+ 619      5C426561 
+ 619      744D6574 
+ 620              	.LASF5:
+ 621 0084 6C6F6E67 		.ascii	"long unsigned int\000"
+ 621      20756E73 
+ 621      69676E65 
+ 621      6420696E 
+ 621      7400
+ 622              	.LASF3:
+ 623 0096 73686F72 		.ascii	"short unsigned int\000"
+ 623      7420756E 
+ 623      7369676E 
+ 623      65642069 
+ 623      6E7400
+ 624              	.LASF21:
+ 625 00a9 474C4344 		.ascii	"GLCD_Reset_ClearInterrupt\000"
+ 625      5F526573 
+ 625      65745F43 
+ 625      6C656172 
+ 625      496E7465 
+ 626              	.LASF12:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 15
+
+
+ 627 00c3 646F7562 		.ascii	"double\000"
+ 627      6C6500
+ 628              	.LASF16:
+ 629 00ca 474C4344 		.ascii	"GLCD_Reset_SetDriveMode\000"
+ 629      5F526573 
+ 629      65745F53 
+ 629      65744472 
+ 629      6976654D 
+ 630              	.LASF10:
+ 631 00e2 75696E74 		.ascii	"uint32\000"
+ 631      333200
+ 632              	.LASF8:
+ 633 00e9 756E7369 		.ascii	"unsigned int\000"
+ 633      676E6564 
+ 633      20696E74 
+ 633      00
+ 634              	.LASF20:
+ 635 00f6 474C4344 		.ascii	"GLCD_Reset_ReadDataReg\000"
+ 635      5F526573 
+ 635      65745F52 
+ 635      65616444 
+ 635      61746152 
+ 636              	.LASF7:
+ 637 010d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 637      206C6F6E 
+ 637      6720756E 
+ 637      7369676E 
+ 637      65642069 
+ 638              	.LASF25:
+ 639 0124 47656E65 		.ascii	"Generated_Source\\PSoC4\\GLCD_Reset.c\000"
+ 639      72617465 
+ 639      645F536F 
+ 639      75726365 
+ 639      5C50536F 
+ 640              	.LASF24:
+ 641 0148 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 641      43313120 
+ 641      352E342E 
+ 641      31203230 
+ 641      31363036 
+ 642 017b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 642      20726576 
+ 642      6973696F 
+ 642      6E203233 
+ 642      37373135 
+ 643 01ae 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 643      66756E63 
+ 643      74696F6E 
+ 643      2D736563 
+ 643      74696F6E 
+ 644              	.LASF18:
+ 645 01d6 6D6F6465 		.ascii	"mode\000"
+ 645      00
+ 646              	.LASF6:
+ 647 01db 6C6F6E67 		.ascii	"long long int\000"
+ 647      206C6F6E 
+ 647      6720696E 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccnr6TPU.s 			page 16
+
+
+ 647      7400
+ 648              	.LASF23:
+ 649 01e9 6D61736B 		.ascii	"maskedStatus\000"
+ 649      65645374 
+ 649      61747573 
+ 649      00
+ 650              	.LASF13:
+ 651 01f6 63686172 		.ascii	"char\000"
+ 651      00
+ 652              	.LASF2:
+ 653 01fb 73686F72 		.ascii	"short int\000"
+ 653      7420696E 
+ 653      7400
+ 654              	.LASF9:
+ 655 0205 75696E74 		.ascii	"uint8\000"
+ 655      3800
+ 656              	.LASF4:
+ 657 020b 6C6F6E67 		.ascii	"long int\000"
+ 657      20696E74 
+ 657      00
+ 658              	.LASF19:
+ 659 0214 474C4344 		.ascii	"GLCD_Reset_Read\000"
+ 659      5F526573 
+ 659      65745F52 
+ 659      65616400 
+ 660              	.LASF0:
+ 661 0224 7369676E 		.ascii	"signed char\000"
+ 661      65642063 
+ 661      68617200 
+ 662              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
