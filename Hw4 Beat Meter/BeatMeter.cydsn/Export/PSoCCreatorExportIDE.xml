@@ -67,30 +67,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\A_Button_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\A_Interrupt.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\A_Interrupt.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\B_Button.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\B_Button.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\B_Button_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\B_Button_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\B_Interrupt.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\B_Interrupt.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\C_Button.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\C_Button.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\C_Button_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\C_Button_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\C_Interrupt.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\C_Interrupt.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\D_Button.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\D_Button.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\D_Button_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\D_Button_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\D_Interrupt.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\D_Interrupt.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StickButton.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StickButton.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StickButton_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StickButton_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StickButton_Interrupt.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StickButton_Interrupt.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\GLCD_Reset.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\GLCD_Reset.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\GLCD_Reset_aliases.h</File>

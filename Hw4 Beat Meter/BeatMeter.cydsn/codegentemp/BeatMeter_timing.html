@@ -539,7 +539,7 @@ function getElementsByClass(rootNode, elemName, className)
 <tr> <td class="prop"> Project :</td>
 <td class="proptext"> BeatMeter</td></tr>
 <tr> <td class="prop"> Build Time :</td>
-<td class="proptext"> 04/23/19 18:47:33</td></tr>
+<td class="proptext"> 04/23/19 21:04:35</td></tr>
 <tr> <td class="prop"> Device :</td>
 <td class="proptext"> CY8C4245AXI-483</td></tr>
 <tr> <td class="prop"> Temperature :</td>
@@ -605,7 +605,7 @@ Clock Summary Section</span>
  <td class = "text_info">CyHFClk</td>
  <td class = "number">12.000&nbsp;MHz</td>
  <td class = "number">12.000&nbsp;MHz</td>
- <td class = "number">67.531&nbsp;MHz</td>
+ <td class = "number">61.580&nbsp;MHz</td>
  <td class = "text_info"></td>
 </tr>
 <tr> 
@@ -700,9 +700,9 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 <tr> 
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_blk_stat_comb</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:RxStsReg\/status_6</td>
- <td class = "number">67.531&nbsp;MHz</td>
- <td class = "number">14.808</td>
- <td class = "number">68.525</td>
+ <td class = "number">61.580&nbsp;MHz</td>
+ <td class = "number">16.239</td>
+ <td class = "number">67.094</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -722,7 +722,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 <tbody>
 <tr> 
  <td class = "text_info">datapathcell1</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">U(1,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/clock</td>
@@ -736,7 +736,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:rx_status_4\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_blk_stat_comb</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:rx_status_6\/main_5</td>
- <td class = "number">2.300</td>
+ <td class = "number">3.722</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell4</td>
@@ -754,11 +754,11 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:rx_status_6\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:rx_status_6\/q</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:RxStsReg\/status_6</td>
- <td class = "number">2.308</td>
+ <td class = "number">2.317</td>
 </tr>
 <tr> 
  <td class = "text_info">statusicell2</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">U(1,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:RxStsReg\</td>
  <td class = "text_info"></td>
@@ -779,11 +779,74 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 </td>
 </tr>
 <tr> 
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f0_blk_stat_comb</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/main_3</td>
+ <td class = "number">67.755&nbsp;MHz</td>
+ <td class = "number">14.759</td>
+ <td class = "number">68.574</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">datapathcell1</td>
+ <td class = "text_info">U(1,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/clock</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f0_blk_stat_comb</td>
+ <td class = "number">5.280</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:tx_status_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f0_blk_stat_comb</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/main_3</td>
+ <td class = "number">5.969</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell9</td>
+ <td class = "text_info">U(1,1)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">3.510</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/so_comb</td>
  <td class = "text_info">\GLCD:Net_41\/main_4</td>
- <td class = "number">70.761&nbsp;MHz</td>
- <td class = "number">14.132</td>
- <td class = "number">69.201</td>
+ <td class = "number">68.287&nbsp;MHz</td>
+ <td class = "number">14.644</td>
+ <td class = "number">68.689</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -803,7 +866,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 <tbody>
 <tr> 
  <td class = "text_info">datapathcell2</td>
- <td class = "text_info">U(1,1)</td>
+ <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/clock</td>
@@ -817,10 +880,10 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:mosi_from_dp\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/so_comb</td>
  <td class = "text_info">\GLCD:Net_41\/main_4</td>
- <td class = "number">2.322</td>
+ <td class = "number">2.834</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell9</td>
+ <td class = "text_info">macrocell6</td>
  <td class = "text_info">U(0,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:Net_41\</td>
@@ -842,11 +905,11 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f0_blk_stat_comb</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/main_3</td>
- <td class = "number">71.008&nbsp;MHz</td>
- <td class = "number">14.083</td>
- <td class = "number">69.250</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_4</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
+ <td class = "number">69.046&nbsp;MHz</td>
+ <td class = "number">14.483</td>
+ <td class = "number">68.850</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -865,189 +928,45 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">datapathcell1</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">count7cell</td>
+ <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/clock</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f0_blk_stat_comb</td>
- <td class = "number">5.280</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/clock</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_4</td>
+ <td class = "number">2.110</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:tx_status_1\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f0_blk_stat_comb</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/main_3</td>
- <td class = "number">5.293</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_4\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_4</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_0</td>
+ <td class = "number">2.727</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell12</td>
+ <td class = "text_info">macrocell1</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
+ <td class = "number">4.446</td>
+</tr>
+<tr> 
+ <td class = "text_info">datapathcell1</td>
  <td class = "text_info">U(1,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">3.510</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/f1_load</td>
- <td class = "number">72.659&nbsp;MHz</td>
- <td class = "number">13.763</td>
- <td class = "number">69.570</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">count7cell</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/clock</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_0</td>
- <td class = "number">2.110</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_4</td>
- <td class = "number">3.002</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_4</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/f1_load</td>
- <td class = "number">3.451</td>
-</tr>
-<tr> 
- <td class = "text_info">datapathcell2</td>
- <td class = "text_info">U(1,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">1.850</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
- <td class = "number">72.669&nbsp;MHz</td>
- <td class = "number">13.761</td>
- <td class = "number">69.572</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">count7cell</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/clock</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_0</td>
- <td class = "number">2.110</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_4</td>
- <td class = "number">3.002</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_4</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
- <td class = "number">3.449</td>
-</tr>
-<tr> 
- <td class = "text_info">datapathcell1</td>
- <td class = "text_info">U(0,1)</td>
- <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
@@ -1068,10 +987,10 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 </tr>
 <tr> 
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_3</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/f1_load</td>
- <td class = "number">72.722&nbsp;MHz</td>
- <td class = "number">13.751</td>
- <td class = "number">69.582</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
+ <td class = "number">69.171&nbsp;MHz</td>
+ <td class = "number">14.457</td>
+ <td class = "number">68.876</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1105,7 +1024,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_3\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_3</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_1</td>
- <td class = "number">2.990</td>
+ <td class = "number">2.701</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
@@ -1122,14 +1041,14 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/f1_load</td>
- <td class = "number">3.451</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
+ <td class = "number">4.446</td>
 </tr>
 <tr> 
- <td class = "text_info">datapathcell2</td>
- <td class = "text_info">U(1,1)</td>
+ <td class = "text_info">datapathcell1</td>
+ <td class = "text_info">U(1,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">1.850</td>
@@ -1148,11 +1067,11 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_3</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_2</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
- <td class = "number">72.733&nbsp;MHz</td>
- <td class = "number">13.749</td>
- <td class = "number">69.584</td>
+ <td class = "number">69.195&nbsp;MHz</td>
+ <td class = "number">14.452</td>
+ <td class = "number">68.881</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1176,24 +1095,24 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/clock</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_3</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_2</td>
  <td class = "number">2.110</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_3\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_3</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_1</td>
- <td class = "number">2.990</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_2\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_2</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_2</td>
+ <td class = "number">2.696</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_2</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
  <td class = "number">3.350</td>
 </tr>
@@ -1204,11 +1123,11 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
- <td class = "number">3.449</td>
+ <td class = "number">4.446</td>
 </tr>
 <tr> 
  <td class = "text_info">datapathcell1</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">U(1,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
  <td class = "text_info"></td>
@@ -1230,10 +1149,10 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 </tr>
 <tr> 
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/f1_load</td>
- <td class = "number">72.780&nbsp;MHz</td>
- <td class = "number">13.740</td>
- <td class = "number">69.593</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
+ <td class = "number">69.219&nbsp;MHz</td>
+ <td class = "number">14.447</td>
+ <td class = "number">68.886</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1267,88 +1186,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_1\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_3</td>
- <td class = "number">2.979</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_3</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/f1_load</td>
- <td class = "number">3.451</td>
-</tr>
-<tr> 
- <td class = "text_info">datapathcell2</td>
- <td class = "text_info">U(1,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">1.850</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
- <td class = "number">72.791&nbsp;MHz</td>
- <td class = "number">13.738</td>
- <td class = "number">69.595</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">count7cell</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/clock</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_1</td>
- <td class = "number">2.110</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_1\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_3</td>
- <td class = "number">2.979</td>
+ <td class = "number">2.691</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
@@ -1366,11 +1204,11 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
- <td class = "number">3.449</td>
+ <td class = "number">4.446</td>
 </tr>
 <tr> 
  <td class = "text_info">datapathcell1</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">U(1,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
  <td class = "text_info"></td>
@@ -1392,10 +1230,10 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
 </tr>
 <tr> 
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:TxStsReg\/status_3</td>
- <td class = "number">74.134&nbsp;MHz</td>
- <td class = "number">13.489</td>
- <td class = "number">69.844</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
+ <td class = "number">69.228&nbsp;MHz</td>
+ <td class = "number">14.445</td>
+ <td class = "number">68.888</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1429,7 +1267,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_0\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_0</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_4</td>
- <td class = "number">3.002</td>
+ <td class = "number">2.689</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
@@ -1446,12 +1284,174 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge(Required Frequency 12
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/f1_load</td>
+ <td class = "number">4.446</td>
+</tr>
+<tr> 
+ <td class = "text_info">datapathcell1</td>
+ <td class = "text_info">U(1,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">1.850</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_4</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:TxStsReg\/status_3</td>
- <td class = "number">3.457</td>
+ <td class = "number">70.343&nbsp;MHz</td>
+ <td class = "number">14.216</td>
+ <td class = "number">69.117</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">count7cell</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/clock</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_4</td>
+ <td class = "number">2.110</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_4\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_4</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_0</td>
+ <td class = "number">2.727</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell1</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:TxStsReg\/status_3</td>
+ <td class = "number">4.459</td>
 </tr>
 <tr> 
  <td class = "text_info">statusicell1</td>
- <td class = "text_info">U(1,1)</td>
+ <td class = "text_info">U(0,1)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:TxStsReg\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">1.570</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_3</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:TxStsReg\/status_3</td>
+ <td class = "number">70.472&nbsp;MHz</td>
+ <td class = "number">14.190</td>
+ <td class = "number">69.143</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">count7cell</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/clock</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_3</td>
+ <td class = "number">2.110</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:count_3\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/count_3</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_1</td>
+ <td class = "number">2.701</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell1</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/main_1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_rx_data\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:TxStsReg\/status_3</td>
+ <td class = "number">4.459</td>
+</tr>
+<tr> 
+ <td class = "text_info">statusicell1</td>
+ <td class = "text_info">U(0,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:TxStsReg\</td>
  <td class = "text_info"></td>
@@ -1530,7 +1530,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 <tbody>
 <tr> 
  <td class = "text_info">datapathcell1</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">U(1,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\/clock</td>
@@ -1548,7 +1548,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </tr>
 <tr> 
  <td class = "text_info">datapathcell2</td>
- <td class = "text_info">U(1,1)</td>
+ <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\</td>
  <td class = "text_info"> </td>
@@ -1571,7 +1571,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 <tr> 
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\/q</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\/main_8</td>
- <td class = "number">3.484</td>
+ <td class = "number">3.491</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1590,7 +1590,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell14</td>
+ <td class = "text_info">macrocell11</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\</td>
@@ -1599,16 +1599,16 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
  <td class = "number">1.250</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell14</td>
+ <td class = "text_info">macrocell11</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\/q</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\/main_8</td>
- <td class = "number">2.234</td>
+ <td class = "number">2.241</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell14</td>
+ <td class = "text_info">macrocell11</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\</td>
@@ -1632,7 +1632,7 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 <tr> 
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/q</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/main_3</td>
- <td class = "number">3.936</td>
+ <td class = "number">3.558</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1651,8 +1651,8 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell16</td>
- <td class = "text_info">U(1,0)</td>
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(1,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/clock_0</td>
@@ -1660,17 +1660,17 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
  <td class = "number">1.250</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell16</td>
- <td class = "text_info">U(1,0)</td>
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(1,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/q</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/main_3</td>
- <td class = "number">2.686</td>
+ <td class = "number">2.308</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell16</td>
- <td class = "text_info">U(1,0)</td>
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(1,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\</td>
  <td class = "text_info"> </td>
@@ -1691,9 +1691,9 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/enable</td>
- <td class = "number">3.962</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/main_1</td>
+ <td class = "number">3.788</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1712,86 +1712,25 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell16</td>
- <td class = "text_info">U(1,0)</td>
+ <td class = "text_info">macrocell8</td>
+ <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/clock_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/clock_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
  <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:cnt_enable\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\/enable</td>
- <td class = "number">2.712</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/main_1</td>
+ <td class = "number">2.538</td>
 </tr>
 <tr> 
- <td class = "text_info">count7cell</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:BitCounter\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/main_0</td>
- <td class = "number">4.076</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell10</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/clock_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell10</td>
- <td class = "text_info">U(0,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/main_0</td>
- <td class = "number">2.826</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell10</td>
+ <td class = "text_info">macrocell7</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
@@ -1813,9 +1752,9 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/main_0</td>
- <td class = "number">4.076</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/main_1</td>
+ <td class = "number">3.788</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1834,25 +1773,25 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell10</td>
+ <td class = "text_info">macrocell8</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/clock_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/clock_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
  <td class = "number">1.250</td>
 </tr>
 <tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
+ <td class = "text_info">macrocell8</td>
+ <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/main_0</td>
- <td class = "number">2.826</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/main_1</td>
+ <td class = "number">2.538</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell11</td>
+ <td class = "text_info">macrocell8</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
@@ -1874,9 +1813,9 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
- <td class = "text_info">\GLCD:Net_42\/main_0</td>
- <td class = "number">4.076</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/cs_addr_1</td>
+ <td class = "number">3.801</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1895,28 +1834,28 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell10</td>
+ <td class = "text_info">macrocell8</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/clock_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/clock_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
  <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/q</td>
- <td class = "text_info">\GLCD:Net_42\/main_0</td>
- <td class = "number">2.826</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\/cs_addr_1</td>
+ <td class = "number">2.551</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell17</td>
+ <td class = "text_info">datapathcell2</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:Net_42\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -1935,9 +1874,9 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/main_2</td>
- <td class = "number">4.111</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\/main_1</td>
+ <td class = "number">3.939</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1956,89 +1895,28 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell12</td>
- <td class = "text_info">U(1,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/clock_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/main_2</td>
- <td class = "number">2.861</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell10</td>
+ <td class = "text_info">macrocell8</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/main_2</td>
- <td class = "number">4.111</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell12</td>
- <td class = "text_info">U(1,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/clock_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/clock_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
  <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/main_2</td>
- <td class = "number">2.861</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\/main_1</td>
+ <td class = "number">2.689</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell11</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:load_cond\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2057,9 +1935,70 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
- <td class = "text_info">\GLCD:Net_42\/main_2</td>
- <td class = "number">4.111</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/main_1</td>
+ <td class = "number">3.939</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell8</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/clock_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_1\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/main_1</td>
+ <td class = "number">2.689</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell12</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/main_8</td>
+ <td class = "number">3.946</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2079,27 +2018,88 @@ Destination Clock : GLCD_SPIM_UDB_IntClock : Positive edge</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell12</td>
- <td class = "text_info">U(1,0)</td>
+ <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/clock_0</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/clock_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell12</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/main_8</td>
+ <td class = "number">2.696</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell12</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/main_9</td>
+ <td class = "number">3.960</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell12</td>
+ <td class = "text_info">U(0,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/clock_0</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/q</td>
  <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\</td>
- <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_0\/q</td>
- <td class = "text_info">\GLCD:Net_42\/main_2</td>
- <td class = "number">2.861</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:ld_ident\/q</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\/main_9</td>
+ <td class = "number">2.710</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell17</td>
+ <td class = "text_info">macrocell7</td>
  <td class = "text_info">U(0,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\GLCD:Net_42\</td>
+ <td class = "text_info">\GLCD:SPIM_UDB:BSPIM:state_2\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2151,7 +2151,7 @@ Clock_1(FFB)</span>
 <tr> 
  <td class = "text_info">\PWM_1:cy_m0s8_tcpwm_1\/line_compl</td>
  <td class = "text_info">R_LED(0)_PAD</td>
- <td class = "number">21.589</td>
+ <td class = "number">21.130</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -2184,10 +2184,10 @@ Clock_1(FFB)</span>
  <td class = "text_info">Net_120</td>
  <td class = "text_info">\PWM_1:cy_m0s8_tcpwm_1\/line_compl</td>
  <td class = "text_info">R_LED(0)/pin_input</td>
- <td class = "number">6.169</td>
+ <td class = "number">5.710</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell11</td>
+ <td class = "text_info">iocell7</td>
  <td class = "text_info">P1[6]</td>
  <td class = "number">1</td>
  <td class = "text_info">R_LED(0)</td>
@@ -2239,7 +2239,7 @@ GLCD_SPIM_UDB_IntClock</span>
 <tr> 
  <td class = "text_info">\GLCD:Net_41\/q</td>
  <td class = "text_info">\GLCD:MOSI(0)_PAD\</td>
- <td class = "number">24.301</td>
+ <td class = "number">24.529</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -2257,7 +2257,7 @@ GLCD_SPIM_UDB_IntClock</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell9</td>
+ <td class = "text_info">macrocell6</td>
  <td class = "text_info">U(0,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:Net_41\</td>
@@ -2272,7 +2272,7 @@ GLCD_SPIM_UDB_IntClock</span>
  <td class = "text_info">\GLCD:Net_41\</td>
  <td class = "text_info">\GLCD:Net_41\/q</td>
  <td class = "text_info">\GLCD:MOSI(0)\/pin_input</td>
- <td class = "number">6.151</td>
+ <td class = "number">6.379</td>
 </tr>
 <tr> 
  <td class = "text_info">iocell3</td>
@@ -2308,7 +2308,7 @@ GLCD_SPIM_UDB_IntClock</span>
 <tr> 
  <td class = "text_info">\GLCD:Net_43\/q</td>
  <td class = "text_info">\GLCD:SS(0)_PAD\</td>
- <td class = "number">22.622</td>
+ <td class = "number">22.880</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -2326,7 +2326,7 @@ GLCD_SPIM_UDB_IntClock</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell13</td>
+ <td class = "text_info">macrocell10</td>
  <td class = "text_info">U(1,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:Net_43\</td>
@@ -2341,7 +2341,7 @@ GLCD_SPIM_UDB_IntClock</span>
  <td class = "text_info">\GLCD:Net_43\</td>
  <td class = "text_info">\GLCD:Net_43\/q</td>
  <td class = "text_info">\GLCD:SS(0)\/pin_input</td>
- <td class = "number">5.922</td>
+ <td class = "number">6.180</td>
 </tr>
 <tr> 
  <td class = "text_info">iocell4</td>
@@ -2377,7 +2377,7 @@ GLCD_SPIM_UDB_IntClock</span>
 <tr> 
  <td class = "text_info">\GLCD:Net_42\/q</td>
  <td class = "text_info">\GLCD:SCLK(0)_PAD\</td>
- <td class = "number">21.163</td>
+ <td class = "number">21.830</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -2395,8 +2395,8 @@ GLCD_SPIM_UDB_IntClock</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell17</td>
- <td class = "text_info">U(0,0)</td>
+ <td class = "text_info">macrocell14</td>
+ <td class = "text_info">U(1,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\GLCD:Net_42\</td>
  <td class = "text_info">\GLCD:Net_42\/clock_0</td>
@@ -2410,7 +2410,7 @@ GLCD_SPIM_UDB_IntClock</span>
  <td class = "text_info">\GLCD:Net_42\</td>
  <td class = "text_info">\GLCD:Net_42\/q</td>
  <td class = "text_info">\GLCD:SCLK(0)\/pin_input</td>
- <td class = "number">5.693</td>
+ <td class = "number">6.360</td>
 </tr>
 <tr> 
  <td class = "text_info">iocell2</td>

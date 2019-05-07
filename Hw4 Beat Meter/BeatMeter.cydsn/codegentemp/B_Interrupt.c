@@ -174,9 +174,10 @@ CY_ISR(B_Interrupt_Interrupt)
   //Don't do anything when the button is not pushed
     
             Timer_1_WriteCounter(0);
+                   PWM_1_ClearInterrupt(PWM_1_INTR_MASK_TC);
             B_Interrupt_ClearPending(); //Needed to make other interupts work
     
-
+ 
     /* `#END` */
 }
 

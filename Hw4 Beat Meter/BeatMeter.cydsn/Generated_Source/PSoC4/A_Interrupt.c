@@ -32,6 +32,7 @@
 #include <stdio.h>
 #define PUSHED 0
 extern int count; 
+
 extern char mystring[20];
 
 /* `#END` */
@@ -172,10 +173,15 @@ CY_ISR(A_Interrupt_Interrupt)
     /* `#START A_Interrupt_Interrupt` */
     
            // count++; 
-           count= Timer_1_ReadCapture(); 
-           
+           count= Timer_1_ReadCompare(); 
+         if(count>500)
+                {
+                  //Changes counter number to -500 to 500
+                  count-=1000;
+                 }
+             Timer_1_ClearInterrupt(Timer_1_INTR_MASK_CC_MATCH);
             A_Interrupt_ClearPending(); //Needed to make other interrupts work
-     Timer_1_ClearInterrupt(Timer_1_INTR_MASK_CC_MATCH);
+   
 
     /* `#END` */
 }

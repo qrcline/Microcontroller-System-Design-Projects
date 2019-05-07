@@ -26,30 +26,8 @@
   <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\A_Button_PM.c" value="SOURCE_C;CortexM0;;;;A_Button" />
   <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\A_Interrupt.c" value="SOURCE_C;CortexM0;;;;A_Interrupt" />
   <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\A_Interrupt.h" value="HEADER;;;;;A_Interrupt" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\B_Button.c" value="SOURCE_C;CortexM0;;;;B_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\B_Button.h" value="HEADER;;;;;B_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\B_Button_aliases.h" value="HEADER;;;;;B_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\B_Button_PM.c" value="SOURCE_C;CortexM0;;;;B_Button" />
   <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\B_Interrupt.c" value="SOURCE_C;CortexM0;;;;B_Interrupt" />
   <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\B_Interrupt.h" value="HEADER;;;;;B_Interrupt" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\C_Button.c" value="SOURCE_C;CortexM0;;;;C_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\C_Button.h" value="HEADER;;;;;C_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\C_Button_aliases.h" value="HEADER;;;;;C_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\C_Button_PM.c" value="SOURCE_C;CortexM0;;;;C_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\C_Interrupt.c" value="SOURCE_C;CortexM0;;;;C_Interrupt" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\C_Interrupt.h" value="HEADER;;;;;C_Interrupt" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\D_Button.c" value="SOURCE_C;CortexM0;;;;D_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\D_Button.h" value="HEADER;;;;;D_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\D_Button_aliases.h" value="HEADER;;;;;D_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\D_Button_PM.c" value="SOURCE_C;CortexM0;;;;D_Button" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\D_Interrupt.c" value="SOURCE_C;CortexM0;;;;D_Interrupt" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\D_Interrupt.h" value="HEADER;;;;;D_Interrupt" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\StickButton.c" value="SOURCE_C;CortexM0;;;;StickButton" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\StickButton.h" value="HEADER;;;;;StickButton" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\StickButton_aliases.h" value="HEADER;;;;;StickButton" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\StickButton_PM.c" value="SOURCE_C;CortexM0;;;;StickButton" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\StickButton_Interrupt.c" value="SOURCE_C;CortexM0;;;;StickButton_Interrupt" />
-  <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\StickButton_Interrupt.h" value="HEADER;;;;;StickButton_Interrupt" />
   <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\R_LED.c" value="SOURCE_C;CortexM0;;;;R_LED" />
   <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\R_LED.h" value="HEADER;;;;;R_LED" />
   <file name="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\codegentemp\R_LED_aliases.h" value="HEADER;;;;;R_LED" />

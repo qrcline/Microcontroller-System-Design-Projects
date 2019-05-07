@@ -44,52 +44,56 @@ int main(void)
      A_Interrupt_Start();
      B_Interrupt_ClearPending();
      B_Interrupt_Start();
-     C_Interrupt_ClearPending();
-     C_Interrupt_Start();
-     D_Interrupt_ClearPending();
-     D_Interrupt_Start();
-     StickButton_Interrupt_ClearPending();
-     StickButton_Interrupt_Start();
-    Backlight_Write(1); 
-    B_LED_Write(1);
-    G_LED_Write(1);
-    PWM_1_Start(); 
-    Timer_1_Start(); 
-    Timer_1_WriteCounter(0);
+     Backlight_Write(1); 
+     B_LED_Write(1);
+     G_LED_Write(1);
+     PWM_1_Start(); 
+     Timer_1_Start(); 
+     Timer_1_WriteCounter(0);
    
-     
+       //Prints the ms ending for the time
+       GLCD_PrintString("ms", 10, 50, GLCD_WHITE, GLCD_BLACK);
+        
+        //Draw the outer circle and min and max lines
+        //This is just for looks
+       GLCD_DrawCircle(80,65,45,GLCD_RED); 
+       GLCD_Draw_Line_Polar(80,65,270,45,GLCD_RED);
+       GLCD_Draw_Line_Polar(80,65,90,45,GLCD_RED);
+       GLCD_Draw_Line_Polar(80,65,180,45,GLCD_YELLOW);
+       GLCD_DrawCircle(80,65,5,GLCD_YELLOW); 
         while(1)
         {
             //This updates the display with the current count number
 	        sprintf(mystring, "%5d", countDisplay);
             GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
-                GLCD_PrintString("ms", 10, 50, GLCD_WHITE, GLCD_BLACK);
+
 
             if(count != countFollow)
             {
                 
-                if(count>500)
-                {
-                 
-                  //countDisplay=(count);
-                  countDisplay=(count-500);
-                    countDisplay=countDisplay*(-1); 
-                
-                 GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_BLACK);
-               //NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
-                angle=(((count - 0) * (270 - 90)) / (1000 - 0)) + 90;
-                GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_YELLOW);
-                   
-                }
-                else
-                {
-                 countDisplay=count;
+                //Takes the count variable and sets to countdisplay
+                countDisplay=count;
+                //Draws black over the previous line
                 GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_BLACK);
-                 angle=(((count - 500) * (180 - 90)) / (1000 - 500)) + 90;
+                //calculate the angle that the line should be set at
+                //This is also known as mapping on arduino platform map() is used
+                angle=(((countDisplay +500) * (-180)) / (1000)) + 270;
+                //Draw the line to indicat the time before or after
                 GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_YELLOW);
-                }
+                
+                //Sets the counter follower to check if the count has changed
                 countFollow=count; 
+                
+                //Draws the small center circle
                 GLCD_DrawCircle(80,65,5,GLCD_YELLOW); 
+            
+                //Draws the red lines back if the yellow line is not on them
+                if(angle !=270)
+                GLCD_Draw_Line_Polar(80,65,270,45,GLCD_RED);
+                if(angle !=90)
+                GLCD_Draw_Line_Polar(80,65,90,45,GLCD_RED);
+                if(angle !=180)
+                GLCD_Draw_Line_Polar(80,65,180,45,GLCD_RED);
             }
 
          }

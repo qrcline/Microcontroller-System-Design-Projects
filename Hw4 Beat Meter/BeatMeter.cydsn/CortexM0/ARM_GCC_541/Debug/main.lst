@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 1
   23:main.c        ****     int countFollow=0; 
   24:main.c        ****     int countDisplay=0;
   25:main.c        ****     int angle=0;
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 2
 
 
   26:main.c        ****    
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 1
   81 0042 0298     		ldr	r0, [sp, #8]
   82 0044 FFF7FEFF 		bl	__aeabi_i2d
   83              	.LVL9:
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 3
 
 
   84 0048 049A     		ldr	r2, [sp, #16]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 1
  136              	.LFE33:
  137              		.size	GLCD_Draw_Line_Polar, .-GLCD_Draw_Line_Polar
  138              		.global	__aeabi_idiv
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 4
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 4
 
 
  139              		.section	.text.main,"ax",%progbits
@@ -197,1673 +197,1829 @@ ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 1
  149              		@ Volatile: function does not return.
  150              		@ args = 0, pretend = 0, frame = 0
  151              		@ frame_needed = 0, uses_anonymous_args = 0
- 152 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 153              		.cfi_def_cfa_offset 20
- 154              		.cfi_offset 4, -20
- 155              		.cfi_offset 5, -16
- 156              		.cfi_offset 6, -12
- 157              		.cfi_offset 7, -8
- 158              		.cfi_offset 14, -4
- 159 0002 83B0     		sub	sp, sp, #12
- 160              		.cfi_def_cfa_offset 32
+ 152 0000 30B5     		push	{r4, r5, lr}
+ 153              		.cfi_def_cfa_offset 12
+ 154              		.cfi_offset 4, -12
+ 155              		.cfi_offset 5, -8
+ 156              		.cfi_offset 14, -4
+ 157 0002 83B0     		sub	sp, sp, #12
+ 158              		.cfi_def_cfa_offset 24
   37:main.c        **** 
   38:main.c        ****     
   39:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
- 161              		.loc 1 39 0
- 162              		.syntax divided
- 163              	@ 39 "main.c" 1
- 164 0004 62B6     		CPSIE   i
- 165              	@ 0 "" 2
+ 159              		.loc 1 39 0
+ 160              		.syntax divided
+ 161              	@ 39 "main.c" 1
+ 162 0004 62B6     		CPSIE   i
+ 163              	@ 0 "" 2
   40:main.c        **** 
   41:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
   42:main.c        ****      GLCD_Start();
- 166              		.loc 1 42 0
- 167              		.thumb
- 168              		.syntax unified
- 169 0006 FFF7FEFF 		bl	GLCD_Start
- 170              	.LVL18:
+ 164              		.loc 1 42 0
+ 165              		.thumb
+ 166              		.syntax unified
+ 167 0006 FFF7FEFF 		bl	GLCD_Start
+ 168              	.LVL18:
   43:main.c        ****      A_Interrupt_ClearPending();
- 171              		.loc 1 43 0
- 172 000a FFF7FEFF 		bl	A_Interrupt_ClearPending
- 173              	.LVL19:
+ 169              		.loc 1 43 0
+ 170 000a FFF7FEFF 		bl	A_Interrupt_ClearPending
+ 171              	.LVL19:
   44:main.c        ****      A_Interrupt_Start();
- 174              		.loc 1 44 0
- 175 000e FFF7FEFF 		bl	A_Interrupt_Start
- 176              	.LVL20:
+ 172              		.loc 1 44 0
+ 173 000e FFF7FEFF 		bl	A_Interrupt_Start
+ 174              	.LVL20:
   45:main.c        ****      B_Interrupt_ClearPending();
- 177              		.loc 1 45 0
- 178 0012 FFF7FEFF 		bl	B_Interrupt_ClearPending
- 179              	.LVL21:
+ 175              		.loc 1 45 0
+ 176 0012 FFF7FEFF 		bl	B_Interrupt_ClearPending
+ 177              	.LVL21:
   46:main.c        ****      B_Interrupt_Start();
- 180              		.loc 1 46 0
- 181 0016 FFF7FEFF 		bl	B_Interrupt_Start
- 182              	.LVL22:
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 5
+ 178              		.loc 1 46 0
+ 179 0016 FFF7FEFF 		bl	B_Interrupt_Start
+ 180              	.LVL22:
+  47:main.c        ****     Backlight_Write(1); 
+ 181              		.loc 1 47 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 5
 
 
-  47:main.c        ****      C_Interrupt_ClearPending();
- 183              		.loc 1 47 0
- 184 001a FFF7FEFF 		bl	C_Interrupt_ClearPending
- 185              	.LVL23:
-  48:main.c        ****      C_Interrupt_Start();
- 186              		.loc 1 48 0
- 187 001e FFF7FEFF 		bl	C_Interrupt_Start
+ 182 001a 0120     		movs	r0, #1
+ 183 001c FFF7FEFF 		bl	Backlight_Write
+ 184              	.LVL23:
+  48:main.c        ****     B_LED_Write(1);
+ 185              		.loc 1 48 0
+ 186 0020 0120     		movs	r0, #1
+ 187 0022 FFF7FEFF 		bl	B_LED_Write
  188              	.LVL24:
-  49:main.c        ****      D_Interrupt_ClearPending();
+  49:main.c        ****     G_LED_Write(1);
  189              		.loc 1 49 0
- 190 0022 FFF7FEFF 		bl	D_Interrupt_ClearPending
- 191              	.LVL25:
-  50:main.c        ****      D_Interrupt_Start();
- 192              		.loc 1 50 0
- 193 0026 FFF7FEFF 		bl	D_Interrupt_Start
- 194              	.LVL26:
-  51:main.c        ****      StickButton_Interrupt_ClearPending();
- 195              		.loc 1 51 0
- 196 002a FFF7FEFF 		bl	StickButton_Interrupt_ClearPending
- 197              	.LVL27:
-  52:main.c        ****      StickButton_Interrupt_Start();
- 198              		.loc 1 52 0
- 199 002e FFF7FEFF 		bl	StickButton_Interrupt_Start
- 200              	.LVL28:
-  53:main.c        ****     Backlight_Write(1); 
- 201              		.loc 1 53 0
- 202 0032 0120     		movs	r0, #1
- 203 0034 FFF7FEFF 		bl	Backlight_Write
- 204              	.LVL29:
-  54:main.c        ****     B_LED_Write(1);
- 205              		.loc 1 54 0
- 206 0038 0120     		movs	r0, #1
- 207 003a FFF7FEFF 		bl	B_LED_Write
- 208              	.LVL30:
-  55:main.c        ****     G_LED_Write(1);
- 209              		.loc 1 55 0
- 210 003e 0120     		movs	r0, #1
- 211 0040 FFF7FEFF 		bl	G_LED_Write
- 212              	.LVL31:
-  56:main.c        ****     PWM_1_Start(); 
- 213              		.loc 1 56 0
- 214 0044 FFF7FEFF 		bl	PWM_1_Start
- 215              	.LVL32:
-  57:main.c        ****     Timer_1_Start(); 
- 216              		.loc 1 57 0
- 217 0048 FFF7FEFF 		bl	Timer_1_Start
- 218              	.LVL33:
-  58:main.c        ****     Timer_1_WriteCounter(0);
- 219              		.loc 1 58 0
- 220 004c 0020     		movs	r0, #0
- 221 004e FFF7FEFF 		bl	Timer_1_WriteCounter
- 222              	.LVL34:
- 223              	.L5:
-  59:main.c        ****    
-  60:main.c        ****      
-  61:main.c        ****         while(1)
-  62:main.c        ****         {
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 6
+ 190 0026 0120     		movs	r0, #1
+ 191 0028 FFF7FEFF 		bl	G_LED_Write
+ 192              	.LVL25:
+  50:main.c        ****     PWM_1_Start(); 
+ 193              		.loc 1 50 0
+ 194 002c FFF7FEFF 		bl	PWM_1_Start
+ 195              	.LVL26:
+  51:main.c        ****     Timer_1_Start(); 
+ 196              		.loc 1 51 0
+ 197 0030 FFF7FEFF 		bl	Timer_1_Start
+ 198              	.LVL27:
+  52:main.c        ****     Timer_1_WriteCounter(0);
+ 199              		.loc 1 52 0
+ 200 0034 0020     		movs	r0, #0
+ 201 0036 FFF7FEFF 		bl	Timer_1_WriteCounter
+ 202              	.LVL28:
+  53:main.c        ****    
+  54:main.c        ****        //Prints the ms ending for the time
+  55:main.c        ****        GLCD_PrintString("ms", 10, 50, GLCD_WHITE, GLCD_BLACK);
+ 203              		.loc 1 55 0
+ 204 003a 0023     		movs	r3, #0
+ 205 003c 0093     		str	r3, [sp]
+ 206 003e 484B     		ldr	r3, .L10
+ 207 0040 3222     		movs	r2, #50
+ 208 0042 0A21     		movs	r1, #10
+ 209 0044 4748     		ldr	r0, .L10+4
+ 210 0046 FFF7FEFF 		bl	GLCD_PrintString
+ 211              	.LVL29:
+  56:main.c        ****         
+  57:main.c        ****         //Draw the outer circle and min and max lines
+  58:main.c        ****         //This is just for looks
+  59:main.c        ****        GLCD_DrawCircle(80,65,45,GLCD_RED); 
+ 212              		.loc 1 59 0
+ 213 004a F024     		movs	r4, #240
+ 214 004c 2401     		lsls	r4, r4, #4
+ 215 004e 2300     		movs	r3, r4
+ 216 0050 2D22     		movs	r2, #45
+ 217 0052 4121     		movs	r1, #65
+ 218 0054 5020     		movs	r0, #80
+ 219 0056 FFF7FEFF 		bl	GLCD_DrawCircle
+ 220              	.LVL30:
+  60:main.c        ****        GLCD_Draw_Line_Polar(80,65,270,45,GLCD_RED);
+ 221              		.loc 1 60 0
+ 222 005a 0094     		str	r4, [sp]
+ 223 005c 2D23     		movs	r3, #45
+ 224 005e 8722     		movs	r2, #135
+ 225 0060 5200     		lsls	r2, r2, #1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 6
 
 
-  63:main.c        ****             //This updates the display with the current count number
-  64:main.c        **** 	        sprintf(mystring, "%5d", countDisplay);
- 224              		.loc 1 64 0
- 225 0052 344C     		ldr	r4, .L9
- 226 0054 344F     		ldr	r7, .L9+4
- 227 0056 2268     		ldr	r2, [r4]
- 228 0058 3449     		ldr	r1, .L9+8
- 229 005a 3800     		movs	r0, r7
- 230 005c FFF7FEFF 		bl	sprintf
- 231              	.LVL35:
-  65:main.c        ****             GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
- 232              		.loc 1 65 0
- 233 0060 334D     		ldr	r5, .L9+12
- 234 0062 0026     		movs	r6, #0
- 235 0064 0096     		str	r6, [sp]
- 236 0066 2B00     		movs	r3, r5
- 237 0068 0A22     		movs	r2, #10
- 238 006a 0A21     		movs	r1, #10
- 239 006c 3800     		movs	r0, r7
- 240 006e FFF7FEFF 		bl	GLCD_PrintString
- 241              	.LVL36:
-  66:main.c        ****                 GLCD_PrintString("ms", 10, 50, GLCD_WHITE, GLCD_BLACK);
- 242              		.loc 1 66 0
- 243 0072 0096     		str	r6, [sp]
- 244 0074 2B00     		movs	r3, r5
- 245 0076 3222     		movs	r2, #50
- 246 0078 0A21     		movs	r1, #10
- 247 007a 2E48     		ldr	r0, .L9+16
- 248 007c FFF7FEFF 		bl	GLCD_PrintString
- 249              	.LVL37:
-  67:main.c        **** 
-  68:main.c        ****             if(count != countFollow)
- 250              		.loc 1 68 0
- 251 0080 6368     		ldr	r3, [r4, #4]
- 252 0082 A268     		ldr	r2, [r4, #8]
- 253 0084 9342     		cmp	r3, r2
- 254 0086 E4D0     		beq	.L5
-  69:main.c        ****             {
-  70:main.c        ****                 
-  71:main.c        ****                 if(count>500)
- 255              		.loc 1 71 0
- 256 0088 FA22     		movs	r2, #250
- 257 008a 5200     		lsls	r2, r2, #1
- 258 008c 9342     		cmp	r3, r2
- 259 008e 1FDD     		ble	.L6
-  72:main.c        ****                 {
-  73:main.c        ****                  
-  74:main.c        ****                   //countDisplay=(count);
-  75:main.c        ****                   countDisplay=(count-500);
- 260              		.loc 1 75 0
- 261 0090 F53B     		subs	r3, r3, #245
- 262 0092 FF3B     		subs	r3, r3, #255
- 263 0094 234C     		ldr	r4, .L9
-  76:main.c        ****                     countDisplay=countDisplay*(-1); 
- 264              		.loc 1 76 0
- 265 0096 5B42     		rsbs	r3, r3, #0
- 266 0098 2360     		str	r3, [r4]
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 7
+ 226 0062 4121     		movs	r1, #65
+ 227 0064 5020     		movs	r0, #80
+ 228 0066 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+ 229              	.LVL31:
+  61:main.c        ****        GLCD_Draw_Line_Polar(80,65,90,45,GLCD_RED);
+ 230              		.loc 1 61 0
+ 231 006a 0094     		str	r4, [sp]
+ 232 006c 2D23     		movs	r3, #45
+ 233 006e 5A22     		movs	r2, #90
+ 234 0070 4121     		movs	r1, #65
+ 235 0072 5020     		movs	r0, #80
+ 236 0074 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+ 237              	.LVL32:
+  62:main.c        ****         GLCD_Draw_Line_Polar(80,65,180,45,GLCD_YELLOW);
+ 238              		.loc 1 62 0
+ 239 0078 F034     		adds	r4, r4, #240
+ 240 007a 0094     		str	r4, [sp]
+ 241 007c 2D23     		movs	r3, #45
+ 242 007e B422     		movs	r2, #180
+ 243 0080 4121     		movs	r1, #65
+ 244 0082 5020     		movs	r0, #80
+ 245 0084 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+ 246              	.LVL33:
+  63:main.c        ****           GLCD_DrawCircle(80,65,5,GLCD_YELLOW); 
+ 247              		.loc 1 63 0
+ 248 0088 2300     		movs	r3, r4
+ 249 008a 0522     		movs	r2, #5
+ 250 008c 4121     		movs	r1, #65
+ 251 008e 5020     		movs	r0, #80
+ 252 0090 FFF7FEFF 		bl	GLCD_DrawCircle
+ 253              	.LVL34:
+ 254              	.L5:
+  64:main.c        ****         while(1)
+  65:main.c        ****         {
+  66:main.c        ****             //This updates the display with the current count number
+  67:main.c        **** 	        sprintf(mystring, "%5d", countDisplay);
+ 255              		.loc 1 67 0
+ 256 0094 344C     		ldr	r4, .L10+8
+ 257 0096 354D     		ldr	r5, .L10+12
+ 258 0098 2268     		ldr	r2, [r4]
+ 259 009a 3549     		ldr	r1, .L10+16
+ 260 009c 2800     		movs	r0, r5
+ 261 009e FFF7FEFF 		bl	sprintf
+ 262              	.LVL35:
+  68:main.c        ****             GLCD_PrintString(mystring, 10, 10, GLCD_WHITE, GLCD_BLACK);
+ 263              		.loc 1 68 0
+ 264 00a2 0023     		movs	r3, #0
+ 265 00a4 0093     		str	r3, [sp]
+ 266 00a6 2E4B     		ldr	r3, .L10
+ 267 00a8 0A22     		movs	r2, #10
+ 268 00aa 0A21     		movs	r1, #10
+ 269 00ac 2800     		movs	r0, r5
+ 270 00ae FFF7FEFF 		bl	GLCD_PrintString
+ 271              	.LVL36:
+  69:main.c        **** 
+  70:main.c        **** 
+  71:main.c        ****             if(count != countFollow)
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 7
 
 
-  77:main.c        ****                 
-  78:main.c        ****                  GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_BLACK);
- 267              		.loc 1 78 0
- 268 009a E268     		ldr	r2, [r4, #12]
- 269 009c 0023     		movs	r3, #0
- 270 009e 0093     		str	r3, [sp]
- 271 00a0 2833     		adds	r3, r3, #40
- 272 00a2 4121     		movs	r1, #65
- 273 00a4 5020     		movs	r0, #80
- 274 00a6 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
- 275              	.LVL38:
-  79:main.c        ****                //NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMi
-  80:main.c        ****                 angle=(((count - 0) * (270 - 90)) / (1000 - 0)) + 90;
- 276              		.loc 1 80 0
- 277 00aa B420     		movs	r0, #180
- 278 00ac 6368     		ldr	r3, [r4, #4]
- 279 00ae 5843     		muls	r0, r3
- 280 00b0 FA21     		movs	r1, #250
- 281 00b2 8900     		lsls	r1, r1, #2
- 282 00b4 FFF7FEFF 		bl	__aeabi_idiv
- 283              	.LVL39:
- 284 00b8 0200     		movs	r2, r0
- 285 00ba 5A32     		adds	r2, r2, #90
- 286 00bc E260     		str	r2, [r4, #12]
-  81:main.c        ****                 GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_YELLOW);
- 287              		.loc 1 81 0
- 288 00be FF23     		movs	r3, #255
- 289 00c0 1B01     		lsls	r3, r3, #4
- 290 00c2 0093     		str	r3, [sp]
- 291 00c4 2823     		movs	r3, #40
- 292 00c6 4121     		movs	r1, #65
- 293 00c8 5020     		movs	r0, #80
- 294 00ca FFF7FEFF 		bl	GLCD_Draw_Line_Polar
- 295              	.LVL40:
- 296 00ce 1DE0     		b	.L7
- 297              	.L6:
-  82:main.c        ****                    
-  83:main.c        ****                 }
-  84:main.c        ****                 else
-  85:main.c        ****                 {
-  86:main.c        ****                  countDisplay=count;
- 298              		.loc 1 86 0
- 299 00d0 144C     		ldr	r4, .L9
- 300 00d2 2360     		str	r3, [r4]
-  87:main.c        ****                 GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_BLACK);
- 301              		.loc 1 87 0
- 302 00d4 E268     		ldr	r2, [r4, #12]
- 303 00d6 0023     		movs	r3, #0
- 304 00d8 0093     		str	r3, [sp]
- 305 00da 2833     		adds	r3, r3, #40
- 306 00dc 4121     		movs	r1, #65
- 307 00de 5020     		movs	r0, #80
- 308 00e0 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
- 309              	.LVL41:
-  88:main.c        ****                  angle=(((count - 500) * (180 - 90)) / (1000 - 500)) + 90;
- 310              		.loc 1 88 0
- 311 00e4 6068     		ldr	r0, [r4, #4]
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 8
+ 272              		.loc 1 71 0
+ 273 00b2 6368     		ldr	r3, [r4, #4]
+ 274 00b4 A268     		ldr	r2, [r4, #8]
+ 275 00b6 9342     		cmp	r3, r2
+ 276 00b8 ECD0     		beq	.L5
+  72:main.c        ****             {
+  73:main.c        ****                 
+  74:main.c        ****                 
+  75:main.c        ****                  countDisplay=count;
+ 277              		.loc 1 75 0
+ 278 00ba 2B4C     		ldr	r4, .L10+8
+ 279 00bc 2360     		str	r3, [r4]
+  76:main.c        ****                 //Draws black over the previous line
+  77:main.c        ****                 GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_BLACK);
+ 280              		.loc 1 77 0
+ 281 00be E268     		ldr	r2, [r4, #12]
+ 282 00c0 0023     		movs	r3, #0
+ 283 00c2 0093     		str	r3, [sp]
+ 284 00c4 2833     		adds	r3, r3, #40
+ 285 00c6 4121     		movs	r1, #65
+ 286 00c8 5020     		movs	r0, #80
+ 287 00ca FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+ 288              	.LVL37:
+  78:main.c        ****                 //calculate the angle that the line should be set at
+  79:main.c        ****                  angle=(((countDisplay +500) * (-180)) / (1000)) + 270;
+ 289              		.loc 1 79 0
+ 290 00ce 2068     		ldr	r0, [r4]
+ 291 00d0 F530     		adds	r0, r0, #245
+ 292 00d2 FF30     		adds	r0, r0, #255
+ 293 00d4 B423     		movs	r3, #180
+ 294 00d6 5B42     		rsbs	r3, r3, #0
+ 295 00d8 5843     		muls	r0, r3
+ 296 00da FA21     		movs	r1, #250
+ 297 00dc 8900     		lsls	r1, r1, #2
+ 298 00de FFF7FEFF 		bl	__aeabi_idiv
+ 299              	.LVL38:
+ 300 00e2 0200     		movs	r2, r0
+ 301 00e4 0F32     		adds	r2, r2, #15
+ 302 00e6 FF32     		adds	r2, r2, #255
+ 303 00e8 E260     		str	r2, [r4, #12]
+  80:main.c        ****                  //angle=(((count - 500) * (90 - 180)) / (1000 - 500)) + 90;
+  81:main.c        ****                 //Draw the line to indicat the time before or after
+  82:main.c        ****                 GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_YELLOW);
+ 304              		.loc 1 82 0
+ 305 00ea FF25     		movs	r5, #255
+ 306 00ec 2D01     		lsls	r5, r5, #4
+ 307 00ee 0095     		str	r5, [sp]
+ 308 00f0 2823     		movs	r3, #40
+ 309 00f2 4121     		movs	r1, #65
+ 310 00f4 5020     		movs	r0, #80
+ 311 00f6 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+ 312              	.LVL39:
+  83:main.c        ****                 
+  84:main.c        ****                 countFollow=count; 
+ 313              		.loc 1 84 0
+ 314 00fa 6368     		ldr	r3, [r4, #4]
+ 315 00fc A360     		str	r3, [r4, #8]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 8
 
 
- 312 00e6 F538     		subs	r0, r0, #245
- 313 00e8 FF38     		subs	r0, r0, #255
- 314 00ea 5A23     		movs	r3, #90
- 315 00ec 5843     		muls	r0, r3
- 316 00ee FA21     		movs	r1, #250
- 317 00f0 4900     		lsls	r1, r1, #1
- 318 00f2 FFF7FEFF 		bl	__aeabi_idiv
- 319              	.LVL42:
- 320 00f6 0200     		movs	r2, r0
- 321 00f8 5A32     		adds	r2, r2, #90
- 322 00fa E260     		str	r2, [r4, #12]
-  89:main.c        ****                 GLCD_Draw_Line_Polar(80,65,angle,40,GLCD_YELLOW);
- 323              		.loc 1 89 0
- 324 00fc FF23     		movs	r3, #255
- 325 00fe 1B01     		lsls	r3, r3, #4
- 326 0100 0093     		str	r3, [sp]
- 327 0102 2823     		movs	r3, #40
- 328 0104 4121     		movs	r1, #65
- 329 0106 5020     		movs	r0, #80
- 330 0108 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
- 331              	.LVL43:
- 332              	.L7:
-  90:main.c        ****                 }
-  91:main.c        ****                 countFollow=count; 
- 333              		.loc 1 91 0
- 334 010c 054B     		ldr	r3, .L9
- 335 010e 5A68     		ldr	r2, [r3, #4]
- 336 0110 9A60     		str	r2, [r3, #8]
-  92:main.c        ****                 GLCD_DrawCircle(80,65,5,GLCD_YELLOW); 
- 337              		.loc 1 92 0
- 338 0112 FF23     		movs	r3, #255
- 339 0114 1B01     		lsls	r3, r3, #4
- 340 0116 0522     		movs	r2, #5
- 341 0118 4121     		movs	r1, #65
- 342 011a 5020     		movs	r0, #80
- 343 011c FFF7FEFF 		bl	GLCD_DrawCircle
- 344              	.LVL44:
- 345 0120 97E7     		b	.L5
- 346              	.L10:
- 347 0122 C046     		.align	2
- 348              	.L9:
- 349 0124 00000000 		.word	.LANCHOR0
- 350 0128 00000000 		.word	mystring
- 351 012c 00000000 		.word	.LC1
- 352 0130 FF0F0000 		.word	4095
- 353 0134 04000000 		.word	.LC4
- 354              		.cfi_endproc
- 355              	.LFE34:
- 356              		.size	main, .-main
- 357              		.global	angle
- 358              		.global	countDisplay
- 359              		.global	countFollow
- 360              		.global	count
- 361              		.comm	mystring,20,4
- 362              		.comm	GLCD_FONT8x16,1552,4
- 363              		.section	.rodata.str1.4,"aMS",%progbits,1
- 364              		.align	2
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 9
+  85:main.c        ****                 GLCD_DrawCircle(80,65,5,GLCD_YELLOW); 
+ 316              		.loc 1 85 0
+ 317 00fe 2B00     		movs	r3, r5
+ 318 0100 0522     		movs	r2, #5
+ 319 0102 4121     		movs	r1, #65
+ 320 0104 5020     		movs	r0, #80
+ 321 0106 FFF7FEFF 		bl	GLCD_DrawCircle
+ 322              	.LVL40:
+  86:main.c        ****                 if(angle !=270)
+ 323              		.loc 1 86 0
+ 324 010a E268     		ldr	r2, [r4, #12]
+ 325 010c 8723     		movs	r3, #135
+ 326 010e 5B00     		lsls	r3, r3, #1
+ 327 0110 9A42     		cmp	r2, r3
+ 328 0112 09D0     		beq	.L6
+  87:main.c        ****                 GLCD_Draw_Line_Polar(80,65,270,45,GLCD_RED);
+ 329              		.loc 1 87 0
+ 330 0114 F023     		movs	r3, #240
+ 331 0116 1B01     		lsls	r3, r3, #4
+ 332 0118 0093     		str	r3, [sp]
+ 333 011a 2D23     		movs	r3, #45
+ 334 011c 8722     		movs	r2, #135
+ 335 011e 5200     		lsls	r2, r2, #1
+ 336 0120 4121     		movs	r1, #65
+ 337 0122 5020     		movs	r0, #80
+ 338 0124 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+ 339              	.LVL41:
+ 340              	.L6:
+  88:main.c        ****                 if(angle !=90)
+ 341              		.loc 1 88 0
+ 342 0128 0F4B     		ldr	r3, .L10+8
+ 343 012a DB68     		ldr	r3, [r3, #12]
+ 344 012c 5A2B     		cmp	r3, #90
+ 345 012e 08D0     		beq	.L7
+  89:main.c        ****                 GLCD_Draw_Line_Polar(80,65,90,45,GLCD_RED);
+ 346              		.loc 1 89 0
+ 347 0130 F023     		movs	r3, #240
+ 348 0132 1B01     		lsls	r3, r3, #4
+ 349 0134 0093     		str	r3, [sp]
+ 350 0136 2D23     		movs	r3, #45
+ 351 0138 5A22     		movs	r2, #90
+ 352 013a 4121     		movs	r1, #65
+ 353 013c 5020     		movs	r0, #80
+ 354 013e FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+ 355              	.LVL42:
+ 356              	.L7:
+  90:main.c        ****                 if(angle !=180)
+ 357              		.loc 1 90 0
+ 358 0142 094B     		ldr	r3, .L10+8
+ 359 0144 DB68     		ldr	r3, [r3, #12]
+ 360 0146 B42B     		cmp	r3, #180
+ 361 0148 A4D0     		beq	.L5
+  91:main.c        ****                 GLCD_Draw_Line_Polar(80,65,180,45,GLCD_RED);
+ 362              		.loc 1 91 0
+ 363 014a F023     		movs	r3, #240
+ 364 014c 1B01     		lsls	r3, r3, #4
+ 365 014e 0093     		str	r3, [sp]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 9
 
 
- 365              	.LC1:
- 366 0000 25356400 		.ascii	"%5d\000"
- 367              	.LC4:
- 368 0004 6D7300   		.ascii	"ms\000"
- 369              		.bss
- 370              		.align	2
- 371              		.set	.LANCHOR0,. + 0
- 372              		.type	countDisplay, %object
- 373              		.size	countDisplay, 4
- 374              	countDisplay:
- 375 0000 00000000 		.space	4
- 376              		.type	count, %object
- 377              		.size	count, 4
- 378              	count:
- 379 0004 00000000 		.space	4
- 380              		.type	countFollow, %object
- 381              		.size	countFollow, 4
- 382              	countFollow:
- 383 0008 00000000 		.space	4
- 384              		.type	angle, %object
- 385              		.size	angle, 4
- 386              	angle:
- 387 000c 00000000 		.space	4
- 388              		.text
- 389              	.Letext0:
- 390              		.file 2 "Generated_Source\\PSoC4/GLCD.h"
- 391              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
- 392              		.file 4 "Generated_Source\\PSoC4/A_Interrupt.h"
- 393              		.file 5 "Generated_Source\\PSoC4/B_Interrupt.h"
- 394              		.file 6 "Generated_Source\\PSoC4/C_Interrupt.h"
- 395              		.file 7 "Generated_Source\\PSoC4/D_Interrupt.h"
- 396              		.file 8 "Generated_Source\\PSoC4/StickButton_Interrupt.h"
- 397              		.file 9 "Generated_Source\\PSoC4/Backlight.h"
- 398              		.file 10 "Generated_Source\\PSoC4/B_LED.h"
- 399              		.file 11 "Generated_Source\\PSoC4/G_LED.h"
- 400              		.file 12 "Generated_Source\\PSoC4/PWM_1.h"
- 401              		.file 13 "Generated_Source\\PSoC4/Timer_1.h"
- 402              		.file 14 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
- 403              		.file 15 "Generated_Source\\PSoC4/cytypes.h"
- 404              		.section	.debug_info,"",%progbits
- 405              	.Ldebug_info0:
- 406 0000 D7040000 		.4byte	0x4d7
- 407 0004 0400     		.2byte	0x4
- 408 0006 00000000 		.4byte	.Ldebug_abbrev0
- 409 000a 04       		.byte	0x4
- 410 000b 01       		.uleb128 0x1
- 411 000c 57020000 		.4byte	.LASF45
- 412 0010 0C       		.byte	0xc
- 413 0011 0C030000 		.4byte	.LASF46
- 414 0015 32010000 		.4byte	.LASF47
- 415 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 416 001d 00000000 		.4byte	0
- 417 0021 00000000 		.4byte	.Ldebug_line0
- 418 0025 02       		.uleb128 0x2
- 419 0026 01       		.byte	0x1
- 420 0027 06       		.byte	0x6
- 421 0028 6A030000 		.4byte	.LASF0
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 10
+ 366 0150 2D23     		movs	r3, #45
+ 367 0152 B422     		movs	r2, #180
+ 368 0154 4121     		movs	r1, #65
+ 369 0156 5020     		movs	r0, #80
+ 370 0158 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+ 371              	.LVL43:
+ 372 015c 9AE7     		b	.L5
+ 373              	.L11:
+ 374 015e C046     		.align	2
+ 375              	.L10:
+ 376 0160 FF0F0000 		.word	4095
+ 377 0164 00000000 		.word	.LC0
+ 378 0168 00000000 		.word	.LANCHOR0
+ 379 016c 00000000 		.word	mystring
+ 380 0170 04000000 		.word	.LC3
+ 381              		.cfi_endproc
+ 382              	.LFE34:
+ 383              		.size	main, .-main
+ 384              		.global	angle
+ 385              		.global	countDisplay
+ 386              		.global	countFollow
+ 387              		.global	count
+ 388              		.comm	mystring,20,4
+ 389              		.comm	GLCD_FONT8x16,1552,4
+ 390              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 391              		.align	2
+ 392              	.LC0:
+ 393 0000 6D7300   		.ascii	"ms\000"
+ 394 0003 00       		.space	1
+ 395              	.LC3:
+ 396 0004 25356400 		.ascii	"%5d\000"
+ 397              		.bss
+ 398              		.align	2
+ 399              		.set	.LANCHOR0,. + 0
+ 400              		.type	countDisplay, %object
+ 401              		.size	countDisplay, 4
+ 402              	countDisplay:
+ 403 0000 00000000 		.space	4
+ 404              		.type	count, %object
+ 405              		.size	count, 4
+ 406              	count:
+ 407 0004 00000000 		.space	4
+ 408              		.type	countFollow, %object
+ 409              		.size	countFollow, 4
+ 410              	countFollow:
+ 411 0008 00000000 		.space	4
+ 412              		.type	angle, %object
+ 413              		.size	angle, 4
+ 414              	angle:
+ 415 000c 00000000 		.space	4
+ 416              		.text
+ 417              	.Letext0:
+ 418              		.file 2 "Generated_Source\\PSoC4/GLCD.h"
+ 419              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 420              		.file 4 "Generated_Source\\PSoC4/A_Interrupt.h"
+ 421              		.file 5 "Generated_Source\\PSoC4/B_Interrupt.h"
+ 422              		.file 6 "Generated_Source\\PSoC4/Backlight.h"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 10
 
 
- 422 002c 02       		.uleb128 0x2
- 423 002d 01       		.byte	0x1
- 424 002e 08       		.byte	0x8
- 425 002f 12010000 		.4byte	.LASF1
- 426 0033 02       		.uleb128 0x2
- 427 0034 02       		.byte	0x2
- 428 0035 05       		.byte	0x5
- 429 0036 18030000 		.4byte	.LASF2
- 430 003a 02       		.uleb128 0x2
- 431 003b 02       		.byte	0x2
- 432 003c 07       		.byte	0x7
- 433 003d 93000000 		.4byte	.LASF3
- 434 0041 02       		.uleb128 0x2
- 435 0042 04       		.byte	0x4
- 436 0043 05       		.byte	0x5
- 437 0044 39030000 		.4byte	.LASF4
- 438 0048 02       		.uleb128 0x2
- 439 0049 04       		.byte	0x4
- 440 004a 07       		.byte	0x7
- 441 004b 7F010000 		.4byte	.LASF5
- 442 004f 02       		.uleb128 0x2
- 443 0050 08       		.byte	0x8
- 444 0051 05       		.byte	0x5
- 445 0052 FE020000 		.4byte	.LASF6
- 446 0056 02       		.uleb128 0x2
- 447 0057 08       		.byte	0x8
- 448 0058 07       		.byte	0x7
- 449 0059 1A020000 		.4byte	.LASF7
- 450 005d 03       		.uleb128 0x3
- 451 005e 04       		.byte	0x4
- 452 005f 05       		.byte	0x5
- 453 0060 696E7400 		.ascii	"int\000"
- 454 0064 02       		.uleb128 0x2
- 455 0065 04       		.byte	0x4
- 456 0066 07       		.byte	0x7
- 457 0067 FB010000 		.4byte	.LASF8
- 458 006b 04       		.uleb128 0x4
- 459 006c F3000000 		.4byte	.LASF48
- 460 0070 0F       		.byte	0xf
- 461 0071 E401     		.2byte	0x1e4
- 462 0073 2C000000 		.4byte	0x2c
- 463 0077 02       		.uleb128 0x2
- 464 0078 04       		.byte	0x4
- 465 0079 04       		.byte	0x4
- 466 007a ED000000 		.4byte	.LASF9
- 467 007e 02       		.uleb128 0x2
- 468 007f 08       		.byte	0x8
- 469 0080 04       		.byte	0x4
- 470 0081 A3010000 		.4byte	.LASF10
- 471 0085 02       		.uleb128 0x2
- 472 0086 01       		.byte	0x1
- 473 0087 08       		.byte	0x8
- 474 0088 13030000 		.4byte	.LASF11
- 475 008c 02       		.uleb128 0x2
- 476 008d 08       		.byte	0x8
- 477 008e 04       		.byte	0x4
- 478 008f 5E030000 		.4byte	.LASF12
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 11
+ 423              		.file 7 "Generated_Source\\PSoC4/B_LED.h"
+ 424              		.file 8 "Generated_Source\\PSoC4/G_LED.h"
+ 425              		.file 9 "Generated_Source\\PSoC4/PWM_1.h"
+ 426              		.file 10 "Generated_Source\\PSoC4/Timer_1.h"
+ 427              		.file 11 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 428              		.file 12 "Generated_Source\\PSoC4/cytypes.h"
+ 429              		.section	.debug_info,"",%progbits
+ 430              	.Ldebug_info0:
+ 431 0000 6B050000 		.4byte	0x56b
+ 432 0004 0400     		.2byte	0x4
+ 433 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 434 000a 04       		.byte	0x4
+ 435 000b 01       		.uleb128 0x1
+ 436 000c DE010000 		.4byte	.LASF39
+ 437 0010 0C       		.byte	0xc
+ 438 0011 93020000 		.4byte	.LASF40
+ 439 0015 CB000000 		.4byte	.LASF41
+ 440 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 441 001d 00000000 		.4byte	0
+ 442 0021 00000000 		.4byte	.Ldebug_line0
+ 443 0025 02       		.uleb128 0x2
+ 444 0026 01       		.byte	0x1
+ 445 0027 06       		.byte	0x6
+ 446 0028 D5020000 		.4byte	.LASF0
+ 447 002c 02       		.uleb128 0x2
+ 448 002d 01       		.byte	0x1
+ 449 002e 08       		.byte	0x8
+ 450 002f AB000000 		.4byte	.LASF1
+ 451 0033 02       		.uleb128 0x2
+ 452 0034 02       		.byte	0x2
+ 453 0035 05       		.byte	0x5
+ 454 0036 9F020000 		.4byte	.LASF2
+ 455 003a 02       		.uleb128 0x2
+ 456 003b 02       		.byte	0x2
+ 457 003c 07       		.byte	0x7
+ 458 003d 70000000 		.4byte	.LASF3
+ 459 0041 02       		.uleb128 0x2
+ 460 0042 04       		.byte	0x4
+ 461 0043 05       		.byte	0x5
+ 462 0044 C0020000 		.4byte	.LASF4
+ 463 0048 02       		.uleb128 0x2
+ 464 0049 04       		.byte	0x4
+ 465 004a 07       		.byte	0x7
+ 466 004b 18010000 		.4byte	.LASF5
+ 467 004f 02       		.uleb128 0x2
+ 468 0050 08       		.byte	0x8
+ 469 0051 05       		.byte	0x5
+ 470 0052 85020000 		.4byte	.LASF6
+ 471 0056 02       		.uleb128 0x2
+ 472 0057 08       		.byte	0x8
+ 473 0058 07       		.byte	0x7
+ 474 0059 A1010000 		.4byte	.LASF7
+ 475 005d 03       		.uleb128 0x3
+ 476 005e 04       		.byte	0x4
+ 477 005f 05       		.byte	0x5
+ 478 0060 696E7400 		.ascii	"int\000"
+ 479 0064 02       		.uleb128 0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 11
 
 
- 479 0093 02       		.uleb128 0x2
- 480 0094 04       		.byte	0x4
- 481 0095 07       		.byte	0x7
- 482 0096 E5020000 		.4byte	.LASF13
- 483 009a 05       		.uleb128 0x5
- 484 009b C3010000 		.4byte	.LASF49
- 485 009f 01       		.byte	0x1
- 486 00a0 1D       		.byte	0x1d
- 487 00a1 00000000 		.4byte	.LFB33
- 488 00a5 AC000000 		.4byte	.LFE33-.LFB33
- 489 00a9 01       		.uleb128 0x1
- 490 00aa 9C       		.byte	0x9c
- 491 00ab 32010000 		.4byte	0x132
- 492 00af 06       		.uleb128 0x6
- 493 00b0 83000000 		.4byte	.LASF14
- 494 00b4 01       		.byte	0x1
- 495 00b5 1D       		.byte	0x1d
- 496 00b6 5D000000 		.4byte	0x5d
- 497 00ba 00000000 		.4byte	.LLST0
- 498 00be 06       		.uleb128 0x6
- 499 00bf 8B000000 		.4byte	.LASF15
- 500 00c3 01       		.byte	0x1
- 501 00c4 1D       		.byte	0x1d
- 502 00c5 5D000000 		.4byte	0x5d
- 503 00c9 1F000000 		.4byte	.LLST1
- 504 00cd 06       		.uleb128 0x6
- 505 00ce 9D010000 		.4byte	.LASF16
- 506 00d2 01       		.byte	0x1
- 507 00d3 1D       		.byte	0x1d
- 508 00d4 5D000000 		.4byte	0x5d
- 509 00d8 3E000000 		.4byte	.LLST2
- 510 00dc 06       		.uleb128 0x6
- 511 00dd 32030000 		.4byte	.LASF17
- 512 00e1 01       		.byte	0x1
- 513 00e2 1D       		.byte	0x1d
- 514 00e3 5D000000 		.4byte	0x5d
- 515 00e7 6A000000 		.4byte	.LLST3
- 516 00eb 07       		.uleb128 0x7
- 517 00ec E4010000 		.4byte	.LASF18
- 518 00f0 01       		.byte	0x1
- 519 00f1 1D       		.byte	0x1d
- 520 00f2 5D000000 		.4byte	0x5d
- 521 00f6 02       		.uleb128 0x2
- 522 00f7 91       		.byte	0x91
- 523 00f8 00       		.sleb128 0
- 524 00f9 08       		.uleb128 0x8
- 525 00fa 32000000 		.4byte	.LVL7
- 526 00fe DA030000 		.4byte	0x3da
- 527 0102 08       		.uleb128 0x8
- 528 0103 5C000000 		.4byte	.LVL11
- 529 0107 E5030000 		.4byte	0x3e5
- 530 010b 09       		.uleb128 0x9
- 531 010c 9A000000 		.4byte	.LVL17
- 532 0110 F0030000 		.4byte	0x3f0
- 533 0114 0A       		.uleb128 0xa
- 534 0115 01       		.uleb128 0x1
- 535 0116 50       		.byte	0x50
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 12
+ 480 0065 04       		.byte	0x4
+ 481 0066 07       		.byte	0x7
+ 482 0067 94010000 		.4byte	.LASF8
+ 483 006b 04       		.uleb128 0x4
+ 484 006c A5000000 		.4byte	.LASF42
+ 485 0070 0C       		.byte	0xc
+ 486 0071 E401     		.2byte	0x1e4
+ 487 0073 2C000000 		.4byte	0x2c
+ 488 0077 02       		.uleb128 0x2
+ 489 0078 04       		.byte	0x4
+ 490 0079 04       		.byte	0x4
+ 491 007a 9F000000 		.4byte	.LASF9
+ 492 007e 02       		.uleb128 0x2
+ 493 007f 08       		.byte	0x8
+ 494 0080 04       		.byte	0x4
+ 495 0081 3C010000 		.4byte	.LASF10
+ 496 0085 02       		.uleb128 0x2
+ 497 0086 01       		.byte	0x1
+ 498 0087 08       		.byte	0x8
+ 499 0088 9A020000 		.4byte	.LASF11
+ 500 008c 02       		.uleb128 0x2
+ 501 008d 08       		.byte	0x8
+ 502 008e 04       		.byte	0x4
+ 503 008f C9020000 		.4byte	.LASF12
+ 504 0093 02       		.uleb128 0x2
+ 505 0094 04       		.byte	0x4
+ 506 0095 07       		.byte	0x7
+ 507 0096 6C020000 		.4byte	.LASF13
+ 508 009a 05       		.uleb128 0x5
+ 509 009b 5C010000 		.4byte	.LASF43
+ 510 009f 01       		.byte	0x1
+ 511 00a0 1D       		.byte	0x1d
+ 512 00a1 00000000 		.4byte	.LFB33
+ 513 00a5 AC000000 		.4byte	.LFE33-.LFB33
+ 514 00a9 01       		.uleb128 0x1
+ 515 00aa 9C       		.byte	0x9c
+ 516 00ab 32010000 		.4byte	0x132
+ 517 00af 06       		.uleb128 0x6
+ 518 00b0 60000000 		.4byte	.LASF14
+ 519 00b4 01       		.byte	0x1
+ 520 00b5 1D       		.byte	0x1d
+ 521 00b6 5D000000 		.4byte	0x5d
+ 522 00ba 00000000 		.4byte	.LLST0
+ 523 00be 06       		.uleb128 0x6
+ 524 00bf 68000000 		.4byte	.LASF15
+ 525 00c3 01       		.byte	0x1
+ 526 00c4 1D       		.byte	0x1d
+ 527 00c5 5D000000 		.4byte	0x5d
+ 528 00c9 1F000000 		.4byte	.LLST1
+ 529 00cd 06       		.uleb128 0x6
+ 530 00ce 36010000 		.4byte	.LASF16
+ 531 00d2 01       		.byte	0x1
+ 532 00d3 1D       		.byte	0x1d
+ 533 00d4 5D000000 		.4byte	0x5d
+ 534 00d8 3E000000 		.4byte	.LLST2
+ 535 00dc 06       		.uleb128 0x6
+ 536 00dd B9020000 		.4byte	.LASF17
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 12
 
 
- 536 0117 03       		.uleb128 0x3
- 537 0118 91       		.byte	0x91
- 538 0119 58       		.sleb128 -40
- 539 011a 06       		.byte	0x6
- 540 011b 0A       		.uleb128 0xa
- 541 011c 01       		.uleb128 0x1
- 542 011d 51       		.byte	0x51
- 543 011e 03       		.uleb128 0x3
- 544 011f 91       		.byte	0x91
- 545 0120 5C       		.sleb128 -36
- 546 0121 06       		.byte	0x6
- 547 0122 0A       		.uleb128 0xa
- 548 0123 01       		.uleb128 0x1
- 549 0124 53       		.byte	0x53
- 550 0125 02       		.uleb128 0x2
- 551 0126 74       		.byte	0x74
- 552 0127 00       		.sleb128 0
- 553 0128 0A       		.uleb128 0xa
- 554 0129 02       		.uleb128 0x2
- 555 012a 7D       		.byte	0x7d
- 556 012b 00       		.sleb128 0
- 557 012c 03       		.uleb128 0x3
- 558 012d 91       		.byte	0x91
- 559 012e 00       		.sleb128 0
- 560 012f 06       		.byte	0x6
- 561 0130 00       		.byte	0
- 562 0131 00       		.byte	0
- 563 0132 0B       		.uleb128 0xb
- 564 0133 F6010000 		.4byte	.LASF50
- 565 0137 01       		.byte	0x1
- 566 0138 23       		.byte	0x23
- 567 0139 5D000000 		.4byte	0x5d
- 568 013d 00000000 		.4byte	.LFB34
- 569 0141 38010000 		.4byte	.LFE34-.LFB34
- 570 0145 01       		.uleb128 0x1
- 571 0146 9C       		.byte	0x9c
- 572 0147 44030000 		.4byte	0x344
- 573 014b 08       		.uleb128 0x8
- 574 014c 0A000000 		.4byte	.LVL18
- 575 0150 FB030000 		.4byte	0x3fb
- 576 0154 08       		.uleb128 0x8
- 577 0155 0E000000 		.4byte	.LVL19
- 578 0159 06040000 		.4byte	0x406
- 579 015d 08       		.uleb128 0x8
- 580 015e 12000000 		.4byte	.LVL20
- 581 0162 11040000 		.4byte	0x411
- 582 0166 08       		.uleb128 0x8
- 583 0167 16000000 		.4byte	.LVL21
- 584 016b 1C040000 		.4byte	0x41c
- 585 016f 08       		.uleb128 0x8
- 586 0170 1A000000 		.4byte	.LVL22
- 587 0174 27040000 		.4byte	0x427
- 588 0178 08       		.uleb128 0x8
- 589 0179 1E000000 		.4byte	.LVL23
- 590 017d 32040000 		.4byte	0x432
- 591 0181 08       		.uleb128 0x8
- 592 0182 22000000 		.4byte	.LVL24
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 13
+ 537 00e1 01       		.byte	0x1
+ 538 00e2 1D       		.byte	0x1d
+ 539 00e3 5D000000 		.4byte	0x5d
+ 540 00e7 6A000000 		.4byte	.LLST3
+ 541 00eb 07       		.uleb128 0x7
+ 542 00ec 7D010000 		.4byte	.LASF18
+ 543 00f0 01       		.byte	0x1
+ 544 00f1 1D       		.byte	0x1d
+ 545 00f2 5D000000 		.4byte	0x5d
+ 546 00f6 02       		.uleb128 0x2
+ 547 00f7 91       		.byte	0x91
+ 548 00f8 00       		.sleb128 0
+ 549 00f9 08       		.uleb128 0x8
+ 550 00fa 32000000 		.4byte	.LVL7
+ 551 00fe B0040000 		.4byte	0x4b0
+ 552 0102 08       		.uleb128 0x8
+ 553 0103 5C000000 		.4byte	.LVL11
+ 554 0107 BB040000 		.4byte	0x4bb
+ 555 010b 09       		.uleb128 0x9
+ 556 010c 9A000000 		.4byte	.LVL17
+ 557 0110 C6040000 		.4byte	0x4c6
+ 558 0114 0A       		.uleb128 0xa
+ 559 0115 01       		.uleb128 0x1
+ 560 0116 50       		.byte	0x50
+ 561 0117 03       		.uleb128 0x3
+ 562 0118 91       		.byte	0x91
+ 563 0119 58       		.sleb128 -40
+ 564 011a 06       		.byte	0x6
+ 565 011b 0A       		.uleb128 0xa
+ 566 011c 01       		.uleb128 0x1
+ 567 011d 51       		.byte	0x51
+ 568 011e 03       		.uleb128 0x3
+ 569 011f 91       		.byte	0x91
+ 570 0120 5C       		.sleb128 -36
+ 571 0121 06       		.byte	0x6
+ 572 0122 0A       		.uleb128 0xa
+ 573 0123 01       		.uleb128 0x1
+ 574 0124 53       		.byte	0x53
+ 575 0125 02       		.uleb128 0x2
+ 576 0126 74       		.byte	0x74
+ 577 0127 00       		.sleb128 0
+ 578 0128 0A       		.uleb128 0xa
+ 579 0129 02       		.uleb128 0x2
+ 580 012a 7D       		.byte	0x7d
+ 581 012b 00       		.sleb128 0
+ 582 012c 03       		.uleb128 0x3
+ 583 012d 91       		.byte	0x91
+ 584 012e 00       		.sleb128 0
+ 585 012f 06       		.byte	0x6
+ 586 0130 00       		.byte	0
+ 587 0131 00       		.byte	0
+ 588 0132 0B       		.uleb128 0xb
+ 589 0133 8F010000 		.4byte	.LASF44
+ 590 0137 01       		.byte	0x1
+ 591 0138 23       		.byte	0x23
+ 592 0139 5D000000 		.4byte	0x5d
+ 593 013d 00000000 		.4byte	.LFB34
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 13
 
 
- 593 0186 3D040000 		.4byte	0x43d
- 594 018a 08       		.uleb128 0x8
- 595 018b 26000000 		.4byte	.LVL25
- 596 018f 48040000 		.4byte	0x448
- 597 0193 08       		.uleb128 0x8
- 598 0194 2A000000 		.4byte	.LVL26
- 599 0198 53040000 		.4byte	0x453
- 600 019c 08       		.uleb128 0x8
- 601 019d 2E000000 		.4byte	.LVL27
- 602 01a1 5E040000 		.4byte	0x45e
- 603 01a5 08       		.uleb128 0x8
- 604 01a6 32000000 		.4byte	.LVL28
- 605 01aa 69040000 		.4byte	0x469
- 606 01ae 0C       		.uleb128 0xc
- 607 01af 38000000 		.4byte	.LVL29
- 608 01b3 74040000 		.4byte	0x474
- 609 01b7 C1010000 		.4byte	0x1c1
- 610 01bb 0A       		.uleb128 0xa
- 611 01bc 01       		.uleb128 0x1
- 612 01bd 50       		.byte	0x50
- 613 01be 01       		.uleb128 0x1
- 614 01bf 31       		.byte	0x31
- 615 01c0 00       		.byte	0
- 616 01c1 0C       		.uleb128 0xc
- 617 01c2 3E000000 		.4byte	.LVL30
- 618 01c6 7F040000 		.4byte	0x47f
- 619 01ca D4010000 		.4byte	0x1d4
- 620 01ce 0A       		.uleb128 0xa
- 621 01cf 01       		.uleb128 0x1
- 622 01d0 50       		.byte	0x50
- 623 01d1 01       		.uleb128 0x1
- 624 01d2 31       		.byte	0x31
- 625 01d3 00       		.byte	0
- 626 01d4 0C       		.uleb128 0xc
- 627 01d5 44000000 		.4byte	.LVL31
- 628 01d9 8A040000 		.4byte	0x48a
- 629 01dd E7010000 		.4byte	0x1e7
- 630 01e1 0A       		.uleb128 0xa
- 631 01e2 01       		.uleb128 0x1
- 632 01e3 50       		.byte	0x50
- 633 01e4 01       		.uleb128 0x1
- 634 01e5 31       		.byte	0x31
- 635 01e6 00       		.byte	0
- 636 01e7 08       		.uleb128 0x8
- 637 01e8 48000000 		.4byte	.LVL32
- 638 01ec 95040000 		.4byte	0x495
- 639 01f0 08       		.uleb128 0x8
- 640 01f1 4C000000 		.4byte	.LVL33
- 641 01f5 A1040000 		.4byte	0x4a1
- 642 01f9 0C       		.uleb128 0xc
- 643 01fa 52000000 		.4byte	.LVL34
- 644 01fe AD040000 		.4byte	0x4ad
- 645 0202 0C020000 		.4byte	0x20c
- 646 0206 0A       		.uleb128 0xa
- 647 0207 01       		.uleb128 0x1
- 648 0208 50       		.byte	0x50
- 649 0209 01       		.uleb128 0x1
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 14
+ 594 0141 74010000 		.4byte	.LFE34-.LFB34
+ 595 0145 01       		.uleb128 0x1
+ 596 0146 9C       		.byte	0x9c
+ 597 0147 1A040000 		.4byte	0x41a
+ 598 014b 08       		.uleb128 0x8
+ 599 014c 0A000000 		.4byte	.LVL18
+ 600 0150 D1040000 		.4byte	0x4d1
+ 601 0154 08       		.uleb128 0x8
+ 602 0155 0E000000 		.4byte	.LVL19
+ 603 0159 DC040000 		.4byte	0x4dc
+ 604 015d 08       		.uleb128 0x8
+ 605 015e 12000000 		.4byte	.LVL20
+ 606 0162 E7040000 		.4byte	0x4e7
+ 607 0166 08       		.uleb128 0x8
+ 608 0167 16000000 		.4byte	.LVL21
+ 609 016b F2040000 		.4byte	0x4f2
+ 610 016f 08       		.uleb128 0x8
+ 611 0170 1A000000 		.4byte	.LVL22
+ 612 0174 FD040000 		.4byte	0x4fd
+ 613 0178 0C       		.uleb128 0xc
+ 614 0179 20000000 		.4byte	.LVL23
+ 615 017d 08050000 		.4byte	0x508
+ 616 0181 8B010000 		.4byte	0x18b
+ 617 0185 0A       		.uleb128 0xa
+ 618 0186 01       		.uleb128 0x1
+ 619 0187 50       		.byte	0x50
+ 620 0188 01       		.uleb128 0x1
+ 621 0189 31       		.byte	0x31
+ 622 018a 00       		.byte	0
+ 623 018b 0C       		.uleb128 0xc
+ 624 018c 26000000 		.4byte	.LVL24
+ 625 0190 13050000 		.4byte	0x513
+ 626 0194 9E010000 		.4byte	0x19e
+ 627 0198 0A       		.uleb128 0xa
+ 628 0199 01       		.uleb128 0x1
+ 629 019a 50       		.byte	0x50
+ 630 019b 01       		.uleb128 0x1
+ 631 019c 31       		.byte	0x31
+ 632 019d 00       		.byte	0
+ 633 019e 0C       		.uleb128 0xc
+ 634 019f 2C000000 		.4byte	.LVL25
+ 635 01a3 1E050000 		.4byte	0x51e
+ 636 01a7 B1010000 		.4byte	0x1b1
+ 637 01ab 0A       		.uleb128 0xa
+ 638 01ac 01       		.uleb128 0x1
+ 639 01ad 50       		.byte	0x50
+ 640 01ae 01       		.uleb128 0x1
+ 641 01af 31       		.byte	0x31
+ 642 01b0 00       		.byte	0
+ 643 01b1 08       		.uleb128 0x8
+ 644 01b2 30000000 		.4byte	.LVL26
+ 645 01b6 29050000 		.4byte	0x529
+ 646 01ba 08       		.uleb128 0x8
+ 647 01bb 34000000 		.4byte	.LVL27
+ 648 01bf 35050000 		.4byte	0x535
+ 649 01c3 0C       		.uleb128 0xc
+ 650 01c4 3A000000 		.4byte	.LVL28
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 14
 
 
- 650 020a 30       		.byte	0x30
- 651 020b 00       		.byte	0
- 652 020c 0C       		.uleb128 0xc
- 653 020d 60000000 		.4byte	.LVL35
- 654 0211 B9040000 		.4byte	0x4b9
- 655 0215 29020000 		.4byte	0x229
- 656 0219 0A       		.uleb128 0xa
- 657 021a 01       		.uleb128 0x1
- 658 021b 50       		.byte	0x50
- 659 021c 02       		.uleb128 0x2
- 660 021d 77       		.byte	0x77
- 661 021e 00       		.sleb128 0
- 662 021f 0A       		.uleb128 0xa
- 663 0220 01       		.uleb128 0x1
- 664 0221 51       		.byte	0x51
- 665 0222 05       		.uleb128 0x5
- 666 0223 03       		.byte	0x3
- 667 0224 00000000 		.4byte	.LC1
- 668 0228 00       		.byte	0
- 669 0229 0C       		.uleb128 0xc
- 670 022a 72000000 		.4byte	.LVL36
- 671 022e C4040000 		.4byte	0x4c4
- 672 0232 54020000 		.4byte	0x254
- 673 0236 0A       		.uleb128 0xa
- 674 0237 01       		.uleb128 0x1
- 675 0238 50       		.byte	0x50
- 676 0239 02       		.uleb128 0x2
- 677 023a 77       		.byte	0x77
- 678 023b 00       		.sleb128 0
- 679 023c 0A       		.uleb128 0xa
- 680 023d 01       		.uleb128 0x1
- 681 023e 51       		.byte	0x51
- 682 023f 01       		.uleb128 0x1
- 683 0240 3A       		.byte	0x3a
- 684 0241 0A       		.uleb128 0xa
- 685 0242 01       		.uleb128 0x1
- 686 0243 52       		.byte	0x52
- 687 0244 01       		.uleb128 0x1
- 688 0245 3A       		.byte	0x3a
- 689 0246 0A       		.uleb128 0xa
- 690 0247 01       		.uleb128 0x1
- 691 0248 53       		.byte	0x53
- 692 0249 02       		.uleb128 0x2
- 693 024a 75       		.byte	0x75
- 694 024b 00       		.sleb128 0
- 695 024c 0A       		.uleb128 0xa
- 696 024d 02       		.uleb128 0x2
- 697 024e 7D       		.byte	0x7d
- 698 024f 00       		.sleb128 0
- 699 0250 02       		.uleb128 0x2
- 700 0251 76       		.byte	0x76
- 701 0252 00       		.sleb128 0
- 702 0253 00       		.byte	0
- 703 0254 0C       		.uleb128 0xc
- 704 0255 80000000 		.4byte	.LVL37
- 705 0259 C4040000 		.4byte	0x4c4
- 706 025d 83020000 		.4byte	0x283
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 15
+ 651 01c8 41050000 		.4byte	0x541
+ 652 01cc D6010000 		.4byte	0x1d6
+ 653 01d0 0A       		.uleb128 0xa
+ 654 01d1 01       		.uleb128 0x1
+ 655 01d2 50       		.byte	0x50
+ 656 01d3 01       		.uleb128 0x1
+ 657 01d4 30       		.byte	0x30
+ 658 01d5 00       		.byte	0
+ 659 01d6 0C       		.uleb128 0xc
+ 660 01d7 4A000000 		.4byte	.LVL29
+ 661 01db 4D050000 		.4byte	0x54d
+ 662 01df 05020000 		.4byte	0x205
+ 663 01e3 0A       		.uleb128 0xa
+ 664 01e4 01       		.uleb128 0x1
+ 665 01e5 50       		.byte	0x50
+ 666 01e6 05       		.uleb128 0x5
+ 667 01e7 03       		.byte	0x3
+ 668 01e8 00000000 		.4byte	.LC0
+ 669 01ec 0A       		.uleb128 0xa
+ 670 01ed 01       		.uleb128 0x1
+ 671 01ee 51       		.byte	0x51
+ 672 01ef 01       		.uleb128 0x1
+ 673 01f0 3A       		.byte	0x3a
+ 674 01f1 0A       		.uleb128 0xa
+ 675 01f2 01       		.uleb128 0x1
+ 676 01f3 52       		.byte	0x52
+ 677 01f4 02       		.uleb128 0x2
+ 678 01f5 08       		.byte	0x8
+ 679 01f6 32       		.byte	0x32
+ 680 01f7 0A       		.uleb128 0xa
+ 681 01f8 01       		.uleb128 0x1
+ 682 01f9 53       		.byte	0x53
+ 683 01fa 03       		.uleb128 0x3
+ 684 01fb 0A       		.byte	0xa
+ 685 01fc FF0F     		.2byte	0xfff
+ 686 01fe 0A       		.uleb128 0xa
+ 687 01ff 02       		.uleb128 0x2
+ 688 0200 7D       		.byte	0x7d
+ 689 0201 00       		.sleb128 0
+ 690 0202 01       		.uleb128 0x1
+ 691 0203 30       		.byte	0x30
+ 692 0204 00       		.byte	0
+ 693 0205 0C       		.uleb128 0xc
+ 694 0206 5A000000 		.4byte	.LVL30
+ 695 020a 58050000 		.4byte	0x558
+ 696 020e 2B020000 		.4byte	0x22b
+ 697 0212 0A       		.uleb128 0xa
+ 698 0213 01       		.uleb128 0x1
+ 699 0214 50       		.byte	0x50
+ 700 0215 02       		.uleb128 0x2
+ 701 0216 08       		.byte	0x8
+ 702 0217 50       		.byte	0x50
+ 703 0218 0A       		.uleb128 0xa
+ 704 0219 01       		.uleb128 0x1
+ 705 021a 51       		.byte	0x51
+ 706 021b 02       		.uleb128 0x2
+ 707 021c 08       		.byte	0x8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 15
 
 
- 707 0261 0A       		.uleb128 0xa
- 708 0262 01       		.uleb128 0x1
- 709 0263 50       		.byte	0x50
- 710 0264 05       		.uleb128 0x5
- 711 0265 03       		.byte	0x3
- 712 0266 04000000 		.4byte	.LC4
- 713 026a 0A       		.uleb128 0xa
- 714 026b 01       		.uleb128 0x1
- 715 026c 51       		.byte	0x51
- 716 026d 01       		.uleb128 0x1
- 717 026e 3A       		.byte	0x3a
- 718 026f 0A       		.uleb128 0xa
- 719 0270 01       		.uleb128 0x1
- 720 0271 52       		.byte	0x52
- 721 0272 02       		.uleb128 0x2
- 722 0273 08       		.byte	0x8
- 723 0274 32       		.byte	0x32
- 724 0275 0A       		.uleb128 0xa
- 725 0276 01       		.uleb128 0x1
- 726 0277 53       		.byte	0x53
- 727 0278 02       		.uleb128 0x2
- 728 0279 75       		.byte	0x75
- 729 027a 00       		.sleb128 0
- 730 027b 0A       		.uleb128 0xa
- 731 027c 02       		.uleb128 0x2
- 732 027d 7D       		.byte	0x7d
- 733 027e 00       		.sleb128 0
- 734 027f 02       		.uleb128 0x2
- 735 0280 76       		.byte	0x76
- 736 0281 00       		.sleb128 0
- 737 0282 00       		.byte	0
- 738 0283 0C       		.uleb128 0xc
- 739 0284 AA000000 		.4byte	.LVL38
- 740 0288 9A000000 		.4byte	0x9a
- 741 028c AA020000 		.4byte	0x2aa
- 742 0290 0A       		.uleb128 0xa
- 743 0291 01       		.uleb128 0x1
- 744 0292 50       		.byte	0x50
- 745 0293 02       		.uleb128 0x2
- 746 0294 08       		.byte	0x8
- 747 0295 50       		.byte	0x50
- 748 0296 0A       		.uleb128 0xa
- 749 0297 01       		.uleb128 0x1
- 750 0298 51       		.byte	0x51
- 751 0299 02       		.uleb128 0x2
- 752 029a 08       		.byte	0x8
- 753 029b 41       		.byte	0x41
- 754 029c 0A       		.uleb128 0xa
- 755 029d 01       		.uleb128 0x1
- 756 029e 53       		.byte	0x53
- 757 029f 02       		.uleb128 0x2
- 758 02a0 76       		.byte	0x76
- 759 02a1 28       		.sleb128 40
- 760 02a2 0A       		.uleb128 0xa
- 761 02a3 02       		.uleb128 0x2
- 762 02a4 7D       		.byte	0x7d
- 763 02a5 00       		.sleb128 0
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 16
+ 708 021d 41       		.byte	0x41
+ 709 021e 0A       		.uleb128 0xa
+ 710 021f 01       		.uleb128 0x1
+ 711 0220 52       		.byte	0x52
+ 712 0221 02       		.uleb128 0x2
+ 713 0222 08       		.byte	0x8
+ 714 0223 2D       		.byte	0x2d
+ 715 0224 0A       		.uleb128 0xa
+ 716 0225 01       		.uleb128 0x1
+ 717 0226 53       		.byte	0x53
+ 718 0227 02       		.uleb128 0x2
+ 719 0228 74       		.byte	0x74
+ 720 0229 00       		.sleb128 0
+ 721 022a 00       		.byte	0
+ 722 022b 0C       		.uleb128 0xc
+ 723 022c 6A000000 		.4byte	.LVL31
+ 724 0230 9A000000 		.4byte	0x9a
+ 725 0234 59020000 		.4byte	0x259
+ 726 0238 0A       		.uleb128 0xa
+ 727 0239 01       		.uleb128 0x1
+ 728 023a 50       		.byte	0x50
+ 729 023b 02       		.uleb128 0x2
+ 730 023c 08       		.byte	0x8
+ 731 023d 50       		.byte	0x50
+ 732 023e 0A       		.uleb128 0xa
+ 733 023f 01       		.uleb128 0x1
+ 734 0240 51       		.byte	0x51
+ 735 0241 02       		.uleb128 0x2
+ 736 0242 08       		.byte	0x8
+ 737 0243 41       		.byte	0x41
+ 738 0244 0A       		.uleb128 0xa
+ 739 0245 01       		.uleb128 0x1
+ 740 0246 52       		.byte	0x52
+ 741 0247 03       		.uleb128 0x3
+ 742 0248 0A       		.byte	0xa
+ 743 0249 0E01     		.2byte	0x10e
+ 744 024b 0A       		.uleb128 0xa
+ 745 024c 01       		.uleb128 0x1
+ 746 024d 53       		.byte	0x53
+ 747 024e 02       		.uleb128 0x2
+ 748 024f 08       		.byte	0x8
+ 749 0250 2D       		.byte	0x2d
+ 750 0251 0A       		.uleb128 0xa
+ 751 0252 02       		.uleb128 0x2
+ 752 0253 7D       		.byte	0x7d
+ 753 0254 00       		.sleb128 0
+ 754 0255 02       		.uleb128 0x2
+ 755 0256 74       		.byte	0x74
+ 756 0257 00       		.sleb128 0
+ 757 0258 00       		.byte	0
+ 758 0259 0C       		.uleb128 0xc
+ 759 025a 78000000 		.4byte	.LVL32
+ 760 025e 9A000000 		.4byte	0x9a
+ 761 0262 86020000 		.4byte	0x286
+ 762 0266 0A       		.uleb128 0xa
+ 763 0267 01       		.uleb128 0x1
+ 764 0268 50       		.byte	0x50
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 16
 
 
- 764 02a6 02       		.uleb128 0x2
- 765 02a7 76       		.byte	0x76
- 766 02a8 00       		.sleb128 0
- 767 02a9 00       		.byte	0
- 768 02aa 0C       		.uleb128 0xc
- 769 02ab CE000000 		.4byte	.LVL40
- 770 02af 9A000000 		.4byte	0x9a
- 771 02b3 D2020000 		.4byte	0x2d2
- 772 02b7 0A       		.uleb128 0xa
- 773 02b8 01       		.uleb128 0x1
- 774 02b9 50       		.byte	0x50
- 775 02ba 02       		.uleb128 0x2
- 776 02bb 08       		.byte	0x8
- 777 02bc 50       		.byte	0x50
- 778 02bd 0A       		.uleb128 0xa
- 779 02be 01       		.uleb128 0x1
- 780 02bf 51       		.byte	0x51
- 781 02c0 02       		.uleb128 0x2
- 782 02c1 08       		.byte	0x8
- 783 02c2 41       		.byte	0x41
- 784 02c3 0A       		.uleb128 0xa
- 785 02c4 01       		.uleb128 0x1
- 786 02c5 53       		.byte	0x53
- 787 02c6 02       		.uleb128 0x2
- 788 02c7 08       		.byte	0x8
- 789 02c8 28       		.byte	0x28
- 790 02c9 0A       		.uleb128 0xa
- 791 02ca 02       		.uleb128 0x2
- 792 02cb 7D       		.byte	0x7d
- 793 02cc 00       		.sleb128 0
- 794 02cd 03       		.uleb128 0x3
- 795 02ce 0A       		.byte	0xa
- 796 02cf F00F     		.2byte	0xff0
- 797 02d1 00       		.byte	0
- 798 02d2 0C       		.uleb128 0xc
- 799 02d3 E4000000 		.4byte	.LVL41
- 800 02d7 9A000000 		.4byte	0x9a
- 801 02db F9020000 		.4byte	0x2f9
- 802 02df 0A       		.uleb128 0xa
- 803 02e0 01       		.uleb128 0x1
- 804 02e1 50       		.byte	0x50
- 805 02e2 02       		.uleb128 0x2
- 806 02e3 08       		.byte	0x8
- 807 02e4 50       		.byte	0x50
- 808 02e5 0A       		.uleb128 0xa
- 809 02e6 01       		.uleb128 0x1
- 810 02e7 51       		.byte	0x51
- 811 02e8 02       		.uleb128 0x2
- 812 02e9 08       		.byte	0x8
- 813 02ea 41       		.byte	0x41
- 814 02eb 0A       		.uleb128 0xa
- 815 02ec 01       		.uleb128 0x1
- 816 02ed 53       		.byte	0x53
- 817 02ee 02       		.uleb128 0x2
- 818 02ef 76       		.byte	0x76
- 819 02f0 28       		.sleb128 40
- 820 02f1 0A       		.uleb128 0xa
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 17
+ 765 0269 02       		.uleb128 0x2
+ 766 026a 08       		.byte	0x8
+ 767 026b 50       		.byte	0x50
+ 768 026c 0A       		.uleb128 0xa
+ 769 026d 01       		.uleb128 0x1
+ 770 026e 51       		.byte	0x51
+ 771 026f 02       		.uleb128 0x2
+ 772 0270 08       		.byte	0x8
+ 773 0271 41       		.byte	0x41
+ 774 0272 0A       		.uleb128 0xa
+ 775 0273 01       		.uleb128 0x1
+ 776 0274 52       		.byte	0x52
+ 777 0275 02       		.uleb128 0x2
+ 778 0276 08       		.byte	0x8
+ 779 0277 5A       		.byte	0x5a
+ 780 0278 0A       		.uleb128 0xa
+ 781 0279 01       		.uleb128 0x1
+ 782 027a 53       		.byte	0x53
+ 783 027b 02       		.uleb128 0x2
+ 784 027c 08       		.byte	0x8
+ 785 027d 2D       		.byte	0x2d
+ 786 027e 0A       		.uleb128 0xa
+ 787 027f 02       		.uleb128 0x2
+ 788 0280 7D       		.byte	0x7d
+ 789 0281 00       		.sleb128 0
+ 790 0282 02       		.uleb128 0x2
+ 791 0283 74       		.byte	0x74
+ 792 0284 00       		.sleb128 0
+ 793 0285 00       		.byte	0
+ 794 0286 0C       		.uleb128 0xc
+ 795 0287 88000000 		.4byte	.LVL33
+ 796 028b 9A000000 		.4byte	0x9a
+ 797 028f B3020000 		.4byte	0x2b3
+ 798 0293 0A       		.uleb128 0xa
+ 799 0294 01       		.uleb128 0x1
+ 800 0295 50       		.byte	0x50
+ 801 0296 02       		.uleb128 0x2
+ 802 0297 08       		.byte	0x8
+ 803 0298 50       		.byte	0x50
+ 804 0299 0A       		.uleb128 0xa
+ 805 029a 01       		.uleb128 0x1
+ 806 029b 51       		.byte	0x51
+ 807 029c 02       		.uleb128 0x2
+ 808 029d 08       		.byte	0x8
+ 809 029e 41       		.byte	0x41
+ 810 029f 0A       		.uleb128 0xa
+ 811 02a0 01       		.uleb128 0x1
+ 812 02a1 52       		.byte	0x52
+ 813 02a2 02       		.uleb128 0x2
+ 814 02a3 08       		.byte	0x8
+ 815 02a4 B4       		.byte	0xb4
+ 816 02a5 0A       		.uleb128 0xa
+ 817 02a6 01       		.uleb128 0x1
+ 818 02a7 53       		.byte	0x53
+ 819 02a8 02       		.uleb128 0x2
+ 820 02a9 08       		.byte	0x8
+ 821 02aa 2D       		.byte	0x2d
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 17
 
 
- 821 02f2 02       		.uleb128 0x2
- 822 02f3 7D       		.byte	0x7d
- 823 02f4 00       		.sleb128 0
- 824 02f5 02       		.uleb128 0x2
- 825 02f6 76       		.byte	0x76
- 826 02f7 00       		.sleb128 0
- 827 02f8 00       		.byte	0
- 828 02f9 0C       		.uleb128 0xc
- 829 02fa 0C010000 		.4byte	.LVL43
- 830 02fe 9A000000 		.4byte	0x9a
- 831 0302 21030000 		.4byte	0x321
- 832 0306 0A       		.uleb128 0xa
- 833 0307 01       		.uleb128 0x1
- 834 0308 50       		.byte	0x50
- 835 0309 02       		.uleb128 0x2
- 836 030a 08       		.byte	0x8
- 837 030b 50       		.byte	0x50
- 838 030c 0A       		.uleb128 0xa
- 839 030d 01       		.uleb128 0x1
- 840 030e 51       		.byte	0x51
- 841 030f 02       		.uleb128 0x2
- 842 0310 08       		.byte	0x8
- 843 0311 41       		.byte	0x41
- 844 0312 0A       		.uleb128 0xa
- 845 0313 01       		.uleb128 0x1
- 846 0314 53       		.byte	0x53
- 847 0315 02       		.uleb128 0x2
- 848 0316 08       		.byte	0x8
- 849 0317 28       		.byte	0x28
- 850 0318 0A       		.uleb128 0xa
- 851 0319 02       		.uleb128 0x2
- 852 031a 7D       		.byte	0x7d
- 853 031b 00       		.sleb128 0
- 854 031c 03       		.uleb128 0x3
- 855 031d 0A       		.byte	0xa
- 856 031e F00F     		.2byte	0xff0
- 857 0320 00       		.byte	0
- 858 0321 09       		.uleb128 0x9
- 859 0322 20010000 		.4byte	.LVL44
- 860 0326 CF040000 		.4byte	0x4cf
- 861 032a 0A       		.uleb128 0xa
- 862 032b 01       		.uleb128 0x1
- 863 032c 50       		.byte	0x50
- 864 032d 02       		.uleb128 0x2
- 865 032e 08       		.byte	0x8
- 866 032f 50       		.byte	0x50
- 867 0330 0A       		.uleb128 0xa
- 868 0331 01       		.uleb128 0x1
- 869 0332 51       		.byte	0x51
- 870 0333 02       		.uleb128 0x2
- 871 0334 08       		.byte	0x8
- 872 0335 41       		.byte	0x41
- 873 0336 0A       		.uleb128 0xa
- 874 0337 01       		.uleb128 0x1
- 875 0338 52       		.byte	0x52
- 876 0339 01       		.uleb128 0x1
- 877 033a 35       		.byte	0x35
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 18
+ 822 02ab 0A       		.uleb128 0xa
+ 823 02ac 02       		.uleb128 0x2
+ 824 02ad 7D       		.byte	0x7d
+ 825 02ae 00       		.sleb128 0
+ 826 02af 02       		.uleb128 0x2
+ 827 02b0 74       		.byte	0x74
+ 828 02b1 00       		.sleb128 0
+ 829 02b2 00       		.byte	0
+ 830 02b3 0C       		.uleb128 0xc
+ 831 02b4 94000000 		.4byte	.LVL34
+ 832 02b8 58050000 		.4byte	0x558
+ 833 02bc D8020000 		.4byte	0x2d8
+ 834 02c0 0A       		.uleb128 0xa
+ 835 02c1 01       		.uleb128 0x1
+ 836 02c2 50       		.byte	0x50
+ 837 02c3 02       		.uleb128 0x2
+ 838 02c4 08       		.byte	0x8
+ 839 02c5 50       		.byte	0x50
+ 840 02c6 0A       		.uleb128 0xa
+ 841 02c7 01       		.uleb128 0x1
+ 842 02c8 51       		.byte	0x51
+ 843 02c9 02       		.uleb128 0x2
+ 844 02ca 08       		.byte	0x8
+ 845 02cb 41       		.byte	0x41
+ 846 02cc 0A       		.uleb128 0xa
+ 847 02cd 01       		.uleb128 0x1
+ 848 02ce 52       		.byte	0x52
+ 849 02cf 01       		.uleb128 0x1
+ 850 02d0 35       		.byte	0x35
+ 851 02d1 0A       		.uleb128 0xa
+ 852 02d2 01       		.uleb128 0x1
+ 853 02d3 53       		.byte	0x53
+ 854 02d4 02       		.uleb128 0x2
+ 855 02d5 74       		.byte	0x74
+ 856 02d6 00       		.sleb128 0
+ 857 02d7 00       		.byte	0
+ 858 02d8 0C       		.uleb128 0xc
+ 859 02d9 A2000000 		.4byte	.LVL35
+ 860 02dd 63050000 		.4byte	0x563
+ 861 02e1 F5020000 		.4byte	0x2f5
+ 862 02e5 0A       		.uleb128 0xa
+ 863 02e6 01       		.uleb128 0x1
+ 864 02e7 50       		.byte	0x50
+ 865 02e8 02       		.uleb128 0x2
+ 866 02e9 75       		.byte	0x75
+ 867 02ea 00       		.sleb128 0
+ 868 02eb 0A       		.uleb128 0xa
+ 869 02ec 01       		.uleb128 0x1
+ 870 02ed 51       		.byte	0x51
+ 871 02ee 05       		.uleb128 0x5
+ 872 02ef 03       		.byte	0x3
+ 873 02f0 04000000 		.4byte	.LC3
+ 874 02f4 00       		.byte	0
+ 875 02f5 0C       		.uleb128 0xc
+ 876 02f6 B2000000 		.4byte	.LVL36
+ 877 02fa 4D050000 		.4byte	0x54d
+ 878 02fe 20030000 		.4byte	0x320
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 18
 
 
- 878 033b 0A       		.uleb128 0xa
- 879 033c 01       		.uleb128 0x1
- 880 033d 53       		.byte	0x53
- 881 033e 03       		.uleb128 0x3
- 882 033f 0A       		.byte	0xa
- 883 0340 F00F     		.2byte	0xff0
- 884 0342 00       		.byte	0
- 885 0343 00       		.byte	0
- 886 0344 0D       		.uleb128 0xd
- 887 0345 5A030000 		.4byte	0x35a
- 888 0349 5A030000 		.4byte	0x35a
- 889 034d 0E       		.uleb128 0xe
- 890 034e 93000000 		.4byte	0x93
- 891 0352 60       		.byte	0x60
- 892 0353 0E       		.uleb128 0xe
- 893 0354 93000000 		.4byte	0x93
- 894 0358 0F       		.byte	0xf
- 895 0359 00       		.byte	0
- 896 035a 0F       		.uleb128 0xf
- 897 035b 6B000000 		.4byte	0x6b
- 898 035f 10       		.uleb128 0x10
- 899 0360 D1000000 		.4byte	.LASF19
- 900 0364 02       		.byte	0x2
- 901 0365 42       		.byte	0x42
- 902 0366 70030000 		.4byte	0x370
- 903 036a 05       		.uleb128 0x5
- 904 036b 03       		.byte	0x3
- 905 036c 00000000 		.4byte	GLCD_FONT8x16
- 906 0370 0F       		.uleb128 0xf
- 907 0371 44030000 		.4byte	0x344
- 908 0375 0D       		.uleb128 0xd
- 909 0376 85000000 		.4byte	0x85
- 910 037a 85030000 		.4byte	0x385
- 911 037e 0E       		.uleb128 0xe
- 912 037f 93000000 		.4byte	0x93
- 913 0383 13       		.byte	0x13
- 914 0384 00       		.byte	0
- 915 0385 10       		.uleb128 0x10
- 916 0386 26000000 		.4byte	.LASF20
- 917 038a 01       		.byte	0x1
- 918 038b 15       		.byte	0x15
- 919 038c 75030000 		.4byte	0x375
- 920 0390 05       		.uleb128 0x5
- 921 0391 03       		.byte	0x3
- 922 0392 00000000 		.4byte	mystring
- 923 0396 10       		.uleb128 0x10
- 924 0397 7D000000 		.4byte	.LASF21
- 925 039b 01       		.byte	0x1
- 926 039c 16       		.byte	0x16
- 927 039d 5D000000 		.4byte	0x5d
- 928 03a1 05       		.uleb128 0x5
- 929 03a2 03       		.byte	0x3
- 930 03a3 00000000 		.4byte	count
- 931 03a7 10       		.uleb128 0x10
- 932 03a8 D8010000 		.4byte	.LASF22
- 933 03ac 01       		.byte	0x1
- 934 03ad 17       		.byte	0x17
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 19
+ 879 0302 0A       		.uleb128 0xa
+ 880 0303 01       		.uleb128 0x1
+ 881 0304 50       		.byte	0x50
+ 882 0305 02       		.uleb128 0x2
+ 883 0306 75       		.byte	0x75
+ 884 0307 00       		.sleb128 0
+ 885 0308 0A       		.uleb128 0xa
+ 886 0309 01       		.uleb128 0x1
+ 887 030a 51       		.byte	0x51
+ 888 030b 01       		.uleb128 0x1
+ 889 030c 3A       		.byte	0x3a
+ 890 030d 0A       		.uleb128 0xa
+ 891 030e 01       		.uleb128 0x1
+ 892 030f 52       		.byte	0x52
+ 893 0310 01       		.uleb128 0x1
+ 894 0311 3A       		.byte	0x3a
+ 895 0312 0A       		.uleb128 0xa
+ 896 0313 01       		.uleb128 0x1
+ 897 0314 53       		.byte	0x53
+ 898 0315 03       		.uleb128 0x3
+ 899 0316 0A       		.byte	0xa
+ 900 0317 FF0F     		.2byte	0xfff
+ 901 0319 0A       		.uleb128 0xa
+ 902 031a 02       		.uleb128 0x2
+ 903 031b 7D       		.byte	0x7d
+ 904 031c 00       		.sleb128 0
+ 905 031d 01       		.uleb128 0x1
+ 906 031e 30       		.byte	0x30
+ 907 031f 00       		.byte	0
+ 908 0320 0C       		.uleb128 0xc
+ 909 0321 CE000000 		.4byte	.LVL37
+ 910 0325 9A000000 		.4byte	0x9a
+ 911 0329 46030000 		.4byte	0x346
+ 912 032d 0A       		.uleb128 0xa
+ 913 032e 01       		.uleb128 0x1
+ 914 032f 50       		.byte	0x50
+ 915 0330 02       		.uleb128 0x2
+ 916 0331 08       		.byte	0x8
+ 917 0332 50       		.byte	0x50
+ 918 0333 0A       		.uleb128 0xa
+ 919 0334 01       		.uleb128 0x1
+ 920 0335 51       		.byte	0x51
+ 921 0336 02       		.uleb128 0x2
+ 922 0337 08       		.byte	0x8
+ 923 0338 41       		.byte	0x41
+ 924 0339 0A       		.uleb128 0xa
+ 925 033a 01       		.uleb128 0x1
+ 926 033b 53       		.byte	0x53
+ 927 033c 02       		.uleb128 0x2
+ 928 033d 08       		.byte	0x8
+ 929 033e 28       		.byte	0x28
+ 930 033f 0A       		.uleb128 0xa
+ 931 0340 02       		.uleb128 0x2
+ 932 0341 7D       		.byte	0x7d
+ 933 0342 00       		.sleb128 0
+ 934 0343 01       		.uleb128 0x1
+ 935 0344 30       		.byte	0x30
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 19
 
 
- 935 03ae 5D000000 		.4byte	0x5d
- 936 03b2 05       		.uleb128 0x5
- 937 03b3 03       		.byte	0x3
- 938 03b4 00000000 		.4byte	countFollow
- 939 03b8 10       		.uleb128 0x10
- 940 03b9 00000000 		.4byte	.LASF23
- 941 03bd 01       		.byte	0x1
- 942 03be 18       		.byte	0x18
- 943 03bf 5D000000 		.4byte	0x5d
- 944 03c3 05       		.uleb128 0x5
- 945 03c4 03       		.byte	0x3
- 946 03c5 00000000 		.4byte	countDisplay
- 947 03c9 10       		.uleb128 0x10
- 948 03ca 9D010000 		.4byte	.LASF16
- 949 03ce 01       		.byte	0x1
- 950 03cf 19       		.byte	0x19
- 951 03d0 5D000000 		.4byte	0x5d
- 952 03d4 05       		.uleb128 0x5
- 953 03d5 03       		.byte	0x3
- 954 03d6 00000000 		.4byte	angle
- 955 03da 11       		.uleb128 0x11
- 956 03db 636F7300 		.ascii	"cos\000"
- 957 03df 636F7300 		.ascii	"cos\000"
- 958 03e3 03       		.byte	0x3
- 959 03e4 6E       		.byte	0x6e
- 960 03e5 11       		.uleb128 0x11
- 961 03e6 73696E00 		.ascii	"sin\000"
- 962 03ea 73696E00 		.ascii	"sin\000"
- 963 03ee 03       		.byte	0x3
- 964 03ef 6F       		.byte	0x6f
- 965 03f0 12       		.uleb128 0x12
- 966 03f1 DF000000 		.4byte	.LASF24
- 967 03f5 DF000000 		.4byte	.LASF24
- 968 03f9 02       		.byte	0x2
- 969 03fa 37       		.byte	0x37
- 970 03fb 12       		.uleb128 0x12
- 971 03fc 0D000000 		.4byte	.LASF25
- 972 0400 0D000000 		.4byte	.LASF25
- 973 0404 02       		.byte	0x2
- 974 0405 2C       		.byte	0x2c
- 975 0406 12       		.uleb128 0x12
- 976 0407 2F000000 		.4byte	.LASF26
- 977 040b 2F000000 		.4byte	.LASF26
- 978 040f 04       		.byte	0x4
- 979 0410 28       		.byte	0x28
- 980 0411 12       		.uleb128 0x12
- 981 0412 48000000 		.4byte	.LASF27
- 982 0416 48000000 		.4byte	.LASF27
- 983 041a 04       		.byte	0x4
- 984 041b 17       		.byte	0x17
- 985 041c 12       		.uleb128 0x12
- 986 041d AA010000 		.4byte	.LASF28
- 987 0421 AA010000 		.4byte	.LASF28
- 988 0425 05       		.byte	0x5
- 989 0426 28       		.byte	0x28
- 990 0427 12       		.uleb128 0x12
- 991 0428 20010000 		.4byte	.LASF29
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 20
+ 936 0345 00       		.byte	0
+ 937 0346 0C       		.uleb128 0xc
+ 938 0347 FA000000 		.4byte	.LVL39
+ 939 034b 9A000000 		.4byte	0x9a
+ 940 034f 6D030000 		.4byte	0x36d
+ 941 0353 0A       		.uleb128 0xa
+ 942 0354 01       		.uleb128 0x1
+ 943 0355 50       		.byte	0x50
+ 944 0356 02       		.uleb128 0x2
+ 945 0357 08       		.byte	0x8
+ 946 0358 50       		.byte	0x50
+ 947 0359 0A       		.uleb128 0xa
+ 948 035a 01       		.uleb128 0x1
+ 949 035b 51       		.byte	0x51
+ 950 035c 02       		.uleb128 0x2
+ 951 035d 08       		.byte	0x8
+ 952 035e 41       		.byte	0x41
+ 953 035f 0A       		.uleb128 0xa
+ 954 0360 01       		.uleb128 0x1
+ 955 0361 53       		.byte	0x53
+ 956 0362 02       		.uleb128 0x2
+ 957 0363 08       		.byte	0x8
+ 958 0364 28       		.byte	0x28
+ 959 0365 0A       		.uleb128 0xa
+ 960 0366 02       		.uleb128 0x2
+ 961 0367 7D       		.byte	0x7d
+ 962 0368 00       		.sleb128 0
+ 963 0369 02       		.uleb128 0x2
+ 964 036a 75       		.byte	0x75
+ 965 036b 00       		.sleb128 0
+ 966 036c 00       		.byte	0
+ 967 036d 0C       		.uleb128 0xc
+ 968 036e 0A010000 		.4byte	.LVL40
+ 969 0372 58050000 		.4byte	0x558
+ 970 0376 92030000 		.4byte	0x392
+ 971 037a 0A       		.uleb128 0xa
+ 972 037b 01       		.uleb128 0x1
+ 973 037c 50       		.byte	0x50
+ 974 037d 02       		.uleb128 0x2
+ 975 037e 08       		.byte	0x8
+ 976 037f 50       		.byte	0x50
+ 977 0380 0A       		.uleb128 0xa
+ 978 0381 01       		.uleb128 0x1
+ 979 0382 51       		.byte	0x51
+ 980 0383 02       		.uleb128 0x2
+ 981 0384 08       		.byte	0x8
+ 982 0385 41       		.byte	0x41
+ 983 0386 0A       		.uleb128 0xa
+ 984 0387 01       		.uleb128 0x1
+ 985 0388 52       		.byte	0x52
+ 986 0389 01       		.uleb128 0x1
+ 987 038a 35       		.byte	0x35
+ 988 038b 0A       		.uleb128 0xa
+ 989 038c 01       		.uleb128 0x1
+ 990 038d 53       		.byte	0x53
+ 991 038e 02       		.uleb128 0x2
+ 992 038f 75       		.byte	0x75
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 20
 
 
- 992 042c 20010000 		.4byte	.LASF29
- 993 0430 05       		.byte	0x5
- 994 0431 17       		.byte	0x17
- 995 0432 12       		.uleb128 0x12
- 996 0433 F9000000 		.4byte	.LASF30
- 997 0437 F9000000 		.4byte	.LASF30
- 998 043b 06       		.byte	0x6
- 999 043c 28       		.byte	0x28
- 1000 043d 12       		.uleb128 0x12
- 1001 043e 08020000 		.4byte	.LASF31
- 1002 0442 08020000 		.4byte	.LASF31
- 1003 0446 06       		.byte	0x6
- 1004 0447 17       		.byte	0x17
- 1005 0448 12       		.uleb128 0x12
- 1006 0449 A6000000 		.4byte	.LASF32
- 1007 044d A6000000 		.4byte	.LASF32
- 1008 0451 07       		.byte	0x7
- 1009 0452 28       		.byte	0x28
- 1010 0453 12       		.uleb128 0x12
- 1011 0454 BF000000 		.4byte	.LASF33
- 1012 0458 BF000000 		.4byte	.LASF33
- 1013 045c 07       		.byte	0x7
- 1014 045d 17       		.byte	0x17
- 1015 045e 12       		.uleb128 0x12
- 1016 045f 5A000000 		.4byte	.LASF34
- 1017 0463 5A000000 		.4byte	.LASF34
- 1018 0467 08       		.byte	0x8
- 1019 0468 28       		.byte	0x28
- 1020 0469 12       		.uleb128 0x12
- 1021 046a 42030000 		.4byte	.LASF35
- 1022 046e 42030000 		.4byte	.LASF35
- 1023 0472 08       		.byte	0x8
- 1024 0473 17       		.byte	0x17
- 1025 0474 12       		.uleb128 0x12
- 1026 0475 22030000 		.4byte	.LASF36
- 1027 0479 22030000 		.4byte	.LASF36
- 1028 047d 09       		.byte	0x9
- 1029 047e 33       		.byte	0x33
- 1030 047f 12       		.uleb128 0x12
- 1031 0480 7E030000 		.4byte	.LASF37
- 1032 0484 7E030000 		.4byte	.LASF37
- 1033 0488 0A       		.byte	0xa
- 1034 0489 33       		.byte	0x33
- 1035 048a 12       		.uleb128 0x12
- 1036 048b EA010000 		.4byte	.LASF38
- 1037 048f EA010000 		.4byte	.LASF38
- 1038 0493 0B       		.byte	0xb
- 1039 0494 33       		.byte	0x33
- 1040 0495 13       		.uleb128 0x13
- 1041 0496 91010000 		.4byte	.LASF39
- 1042 049a 91010000 		.4byte	.LASF39
- 1043 049e 0C       		.byte	0xc
- 1044 049f 3201     		.2byte	0x132
- 1045 04a1 13       		.uleb128 0x13
- 1046 04a2 18000000 		.4byte	.LASF40
- 1047 04a6 18000000 		.4byte	.LASF40
- 1048 04aa 0D       		.byte	0xd
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 21
+ 993 0390 00       		.sleb128 0
+ 994 0391 00       		.byte	0
+ 995 0392 0C       		.uleb128 0xc
+ 996 0393 28010000 		.4byte	.LVL41
+ 997 0397 9A000000 		.4byte	0x9a
+ 998 039b C1030000 		.4byte	0x3c1
+ 999 039f 0A       		.uleb128 0xa
+ 1000 03a0 01       		.uleb128 0x1
+ 1001 03a1 50       		.byte	0x50
+ 1002 03a2 02       		.uleb128 0x2
+ 1003 03a3 08       		.byte	0x8
+ 1004 03a4 50       		.byte	0x50
+ 1005 03a5 0A       		.uleb128 0xa
+ 1006 03a6 01       		.uleb128 0x1
+ 1007 03a7 51       		.byte	0x51
+ 1008 03a8 02       		.uleb128 0x2
+ 1009 03a9 08       		.byte	0x8
+ 1010 03aa 41       		.byte	0x41
+ 1011 03ab 0A       		.uleb128 0xa
+ 1012 03ac 01       		.uleb128 0x1
+ 1013 03ad 52       		.byte	0x52
+ 1014 03ae 03       		.uleb128 0x3
+ 1015 03af 0A       		.byte	0xa
+ 1016 03b0 0E01     		.2byte	0x10e
+ 1017 03b2 0A       		.uleb128 0xa
+ 1018 03b3 01       		.uleb128 0x1
+ 1019 03b4 53       		.byte	0x53
+ 1020 03b5 02       		.uleb128 0x2
+ 1021 03b6 08       		.byte	0x8
+ 1022 03b7 2D       		.byte	0x2d
+ 1023 03b8 0A       		.uleb128 0xa
+ 1024 03b9 02       		.uleb128 0x2
+ 1025 03ba 7D       		.byte	0x7d
+ 1026 03bb 00       		.sleb128 0
+ 1027 03bc 03       		.uleb128 0x3
+ 1028 03bd 0A       		.byte	0xa
+ 1029 03be 000F     		.2byte	0xf00
+ 1030 03c0 00       		.byte	0
+ 1031 03c1 0C       		.uleb128 0xc
+ 1032 03c2 42010000 		.4byte	.LVL42
+ 1033 03c6 9A000000 		.4byte	0x9a
+ 1034 03ca EF030000 		.4byte	0x3ef
+ 1035 03ce 0A       		.uleb128 0xa
+ 1036 03cf 01       		.uleb128 0x1
+ 1037 03d0 50       		.byte	0x50
+ 1038 03d1 02       		.uleb128 0x2
+ 1039 03d2 08       		.byte	0x8
+ 1040 03d3 50       		.byte	0x50
+ 1041 03d4 0A       		.uleb128 0xa
+ 1042 03d5 01       		.uleb128 0x1
+ 1043 03d6 51       		.byte	0x51
+ 1044 03d7 02       		.uleb128 0x2
+ 1045 03d8 08       		.byte	0x8
+ 1046 03d9 41       		.byte	0x41
+ 1047 03da 0A       		.uleb128 0xa
+ 1048 03db 01       		.uleb128 0x1
+ 1049 03dc 52       		.byte	0x52
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 21
 
 
- 1049 04ab 3201     		.2byte	0x132
- 1050 04ad 13       		.uleb128 0x13
- 1051 04ae 31020000 		.4byte	.LASF41
- 1052 04b2 31020000 		.4byte	.LASF41
- 1053 04b6 0D       		.byte	0xd
- 1054 04b7 4A01     		.2byte	0x14a
- 1055 04b9 12       		.uleb128 0x12
- 1056 04ba 76030000 		.4byte	.LASF42
- 1057 04be 76030000 		.4byte	.LASF42
- 1058 04c2 0E       		.byte	0xe
- 1059 04c3 E7       		.byte	0xe7
- 1060 04c4 12       		.uleb128 0x12
- 1061 04c5 46020000 		.4byte	.LASF43
- 1062 04c9 46020000 		.4byte	.LASF43
- 1063 04cd 02       		.byte	0x2
- 1064 04ce 35       		.byte	0x35
- 1065 04cf 12       		.uleb128 0x12
- 1066 04d0 EE020000 		.4byte	.LASF44
- 1067 04d4 EE020000 		.4byte	.LASF44
- 1068 04d8 02       		.byte	0x2
- 1069 04d9 32       		.byte	0x32
- 1070 04da 00       		.byte	0
- 1071              		.section	.debug_abbrev,"",%progbits
- 1072              	.Ldebug_abbrev0:
- 1073 0000 01       		.uleb128 0x1
- 1074 0001 11       		.uleb128 0x11
- 1075 0002 01       		.byte	0x1
- 1076 0003 25       		.uleb128 0x25
- 1077 0004 0E       		.uleb128 0xe
- 1078 0005 13       		.uleb128 0x13
- 1079 0006 0B       		.uleb128 0xb
- 1080 0007 03       		.uleb128 0x3
- 1081 0008 0E       		.uleb128 0xe
- 1082 0009 1B       		.uleb128 0x1b
- 1083 000a 0E       		.uleb128 0xe
- 1084 000b 55       		.uleb128 0x55
- 1085 000c 17       		.uleb128 0x17
- 1086 000d 11       		.uleb128 0x11
- 1087 000e 01       		.uleb128 0x1
- 1088 000f 10       		.uleb128 0x10
- 1089 0010 17       		.uleb128 0x17
- 1090 0011 00       		.byte	0
- 1091 0012 00       		.byte	0
- 1092 0013 02       		.uleb128 0x2
- 1093 0014 24       		.uleb128 0x24
- 1094 0015 00       		.byte	0
- 1095 0016 0B       		.uleb128 0xb
- 1096 0017 0B       		.uleb128 0xb
- 1097 0018 3E       		.uleb128 0x3e
- 1098 0019 0B       		.uleb128 0xb
- 1099 001a 03       		.uleb128 0x3
- 1100 001b 0E       		.uleb128 0xe
- 1101 001c 00       		.byte	0
- 1102 001d 00       		.byte	0
- 1103 001e 03       		.uleb128 0x3
- 1104 001f 24       		.uleb128 0x24
- 1105 0020 00       		.byte	0
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 22
+ 1050 03dd 02       		.uleb128 0x2
+ 1051 03de 08       		.byte	0x8
+ 1052 03df 5A       		.byte	0x5a
+ 1053 03e0 0A       		.uleb128 0xa
+ 1054 03e1 01       		.uleb128 0x1
+ 1055 03e2 53       		.byte	0x53
+ 1056 03e3 02       		.uleb128 0x2
+ 1057 03e4 08       		.byte	0x8
+ 1058 03e5 2D       		.byte	0x2d
+ 1059 03e6 0A       		.uleb128 0xa
+ 1060 03e7 02       		.uleb128 0x2
+ 1061 03e8 7D       		.byte	0x7d
+ 1062 03e9 00       		.sleb128 0
+ 1063 03ea 03       		.uleb128 0x3
+ 1064 03eb 0A       		.byte	0xa
+ 1065 03ec 000F     		.2byte	0xf00
+ 1066 03ee 00       		.byte	0
+ 1067 03ef 09       		.uleb128 0x9
+ 1068 03f0 5C010000 		.4byte	.LVL43
+ 1069 03f4 9A000000 		.4byte	0x9a
+ 1070 03f8 0A       		.uleb128 0xa
+ 1071 03f9 01       		.uleb128 0x1
+ 1072 03fa 50       		.byte	0x50
+ 1073 03fb 02       		.uleb128 0x2
+ 1074 03fc 08       		.byte	0x8
+ 1075 03fd 50       		.byte	0x50
+ 1076 03fe 0A       		.uleb128 0xa
+ 1077 03ff 01       		.uleb128 0x1
+ 1078 0400 51       		.byte	0x51
+ 1079 0401 02       		.uleb128 0x2
+ 1080 0402 08       		.byte	0x8
+ 1081 0403 41       		.byte	0x41
+ 1082 0404 0A       		.uleb128 0xa
+ 1083 0405 01       		.uleb128 0x1
+ 1084 0406 52       		.byte	0x52
+ 1085 0407 02       		.uleb128 0x2
+ 1086 0408 08       		.byte	0x8
+ 1087 0409 B4       		.byte	0xb4
+ 1088 040a 0A       		.uleb128 0xa
+ 1089 040b 01       		.uleb128 0x1
+ 1090 040c 53       		.byte	0x53
+ 1091 040d 02       		.uleb128 0x2
+ 1092 040e 08       		.byte	0x8
+ 1093 040f 2D       		.byte	0x2d
+ 1094 0410 0A       		.uleb128 0xa
+ 1095 0411 02       		.uleb128 0x2
+ 1096 0412 7D       		.byte	0x7d
+ 1097 0413 00       		.sleb128 0
+ 1098 0414 03       		.uleb128 0x3
+ 1099 0415 0A       		.byte	0xa
+ 1100 0416 000F     		.2byte	0xf00
+ 1101 0418 00       		.byte	0
+ 1102 0419 00       		.byte	0
+ 1103 041a 0D       		.uleb128 0xd
+ 1104 041b 30040000 		.4byte	0x430
+ 1105 041f 30040000 		.4byte	0x430
+ 1106 0423 0E       		.uleb128 0xe
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 22
 
 
- 1106 0021 0B       		.uleb128 0xb
- 1107 0022 0B       		.uleb128 0xb
- 1108 0023 3E       		.uleb128 0x3e
- 1109 0024 0B       		.uleb128 0xb
- 1110 0025 03       		.uleb128 0x3
- 1111 0026 08       		.uleb128 0x8
- 1112 0027 00       		.byte	0
- 1113 0028 00       		.byte	0
- 1114 0029 04       		.uleb128 0x4
- 1115 002a 16       		.uleb128 0x16
- 1116 002b 00       		.byte	0
- 1117 002c 03       		.uleb128 0x3
- 1118 002d 0E       		.uleb128 0xe
- 1119 002e 3A       		.uleb128 0x3a
- 1120 002f 0B       		.uleb128 0xb
- 1121 0030 3B       		.uleb128 0x3b
- 1122 0031 05       		.uleb128 0x5
- 1123 0032 49       		.uleb128 0x49
- 1124 0033 13       		.uleb128 0x13
- 1125 0034 00       		.byte	0
- 1126 0035 00       		.byte	0
- 1127 0036 05       		.uleb128 0x5
- 1128 0037 2E       		.uleb128 0x2e
- 1129 0038 01       		.byte	0x1
- 1130 0039 3F       		.uleb128 0x3f
- 1131 003a 19       		.uleb128 0x19
- 1132 003b 03       		.uleb128 0x3
- 1133 003c 0E       		.uleb128 0xe
- 1134 003d 3A       		.uleb128 0x3a
- 1135 003e 0B       		.uleb128 0xb
- 1136 003f 3B       		.uleb128 0x3b
- 1137 0040 0B       		.uleb128 0xb
- 1138 0041 27       		.uleb128 0x27
- 1139 0042 19       		.uleb128 0x19
- 1140 0043 11       		.uleb128 0x11
- 1141 0044 01       		.uleb128 0x1
- 1142 0045 12       		.uleb128 0x12
- 1143 0046 06       		.uleb128 0x6
- 1144 0047 40       		.uleb128 0x40
- 1145 0048 18       		.uleb128 0x18
- 1146 0049 9642     		.uleb128 0x2116
- 1147 004b 19       		.uleb128 0x19
- 1148 004c 01       		.uleb128 0x1
- 1149 004d 13       		.uleb128 0x13
- 1150 004e 00       		.byte	0
- 1151 004f 00       		.byte	0
- 1152 0050 06       		.uleb128 0x6
- 1153 0051 05       		.uleb128 0x5
- 1154 0052 00       		.byte	0
- 1155 0053 03       		.uleb128 0x3
- 1156 0054 0E       		.uleb128 0xe
- 1157 0055 3A       		.uleb128 0x3a
- 1158 0056 0B       		.uleb128 0xb
- 1159 0057 3B       		.uleb128 0x3b
- 1160 0058 0B       		.uleb128 0xb
- 1161 0059 49       		.uleb128 0x49
- 1162 005a 13       		.uleb128 0x13
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 23
+ 1107 0424 93000000 		.4byte	0x93
+ 1108 0428 60       		.byte	0x60
+ 1109 0429 0E       		.uleb128 0xe
+ 1110 042a 93000000 		.4byte	0x93
+ 1111 042e 0F       		.byte	0xf
+ 1112 042f 00       		.byte	0
+ 1113 0430 0F       		.uleb128 0xf
+ 1114 0431 6B000000 		.4byte	0x6b
+ 1115 0435 10       		.uleb128 0x10
+ 1116 0436 83000000 		.4byte	.LASF19
+ 1117 043a 02       		.byte	0x2
+ 1118 043b 42       		.byte	0x42
+ 1119 043c 46040000 		.4byte	0x446
+ 1120 0440 05       		.uleb128 0x5
+ 1121 0441 03       		.byte	0x3
+ 1122 0442 00000000 		.4byte	GLCD_FONT8x16
+ 1123 0446 0F       		.uleb128 0xf
+ 1124 0447 1A040000 		.4byte	0x41a
+ 1125 044b 0D       		.uleb128 0xd
+ 1126 044c 85000000 		.4byte	0x85
+ 1127 0450 5B040000 		.4byte	0x45b
+ 1128 0454 0E       		.uleb128 0xe
+ 1129 0455 93000000 		.4byte	0x93
+ 1130 0459 13       		.byte	0x13
+ 1131 045a 00       		.byte	0
+ 1132 045b 10       		.uleb128 0x10
+ 1133 045c 26000000 		.4byte	.LASF20
+ 1134 0460 01       		.byte	0x1
+ 1135 0461 15       		.byte	0x15
+ 1136 0462 4B040000 		.4byte	0x44b
+ 1137 0466 05       		.uleb128 0x5
+ 1138 0467 03       		.byte	0x3
+ 1139 0468 00000000 		.4byte	mystring
+ 1140 046c 10       		.uleb128 0x10
+ 1141 046d 5A000000 		.4byte	.LASF21
+ 1142 0471 01       		.byte	0x1
+ 1143 0472 16       		.byte	0x16
+ 1144 0473 5D000000 		.4byte	0x5d
+ 1145 0477 05       		.uleb128 0x5
+ 1146 0478 03       		.byte	0x3
+ 1147 0479 00000000 		.4byte	count
+ 1148 047d 10       		.uleb128 0x10
+ 1149 047e 71010000 		.4byte	.LASF22
+ 1150 0482 01       		.byte	0x1
+ 1151 0483 17       		.byte	0x17
+ 1152 0484 5D000000 		.4byte	0x5d
+ 1153 0488 05       		.uleb128 0x5
+ 1154 0489 03       		.byte	0x3
+ 1155 048a 00000000 		.4byte	countFollow
+ 1156 048e 10       		.uleb128 0x10
+ 1157 048f 00000000 		.4byte	.LASF23
+ 1158 0493 01       		.byte	0x1
+ 1159 0494 18       		.byte	0x18
+ 1160 0495 5D000000 		.4byte	0x5d
+ 1161 0499 05       		.uleb128 0x5
+ 1162 049a 03       		.byte	0x3
+ 1163 049b 00000000 		.4byte	countDisplay
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 23
 
 
- 1163 005b 02       		.uleb128 0x2
- 1164 005c 17       		.uleb128 0x17
- 1165 005d 00       		.byte	0
- 1166 005e 00       		.byte	0
- 1167 005f 07       		.uleb128 0x7
- 1168 0060 05       		.uleb128 0x5
- 1169 0061 00       		.byte	0
- 1170 0062 03       		.uleb128 0x3
- 1171 0063 0E       		.uleb128 0xe
- 1172 0064 3A       		.uleb128 0x3a
- 1173 0065 0B       		.uleb128 0xb
- 1174 0066 3B       		.uleb128 0x3b
- 1175 0067 0B       		.uleb128 0xb
- 1176 0068 49       		.uleb128 0x49
- 1177 0069 13       		.uleb128 0x13
- 1178 006a 02       		.uleb128 0x2
- 1179 006b 18       		.uleb128 0x18
- 1180 006c 00       		.byte	0
- 1181 006d 00       		.byte	0
- 1182 006e 08       		.uleb128 0x8
- 1183 006f 898201   		.uleb128 0x4109
- 1184 0072 00       		.byte	0
- 1185 0073 11       		.uleb128 0x11
- 1186 0074 01       		.uleb128 0x1
- 1187 0075 31       		.uleb128 0x31
- 1188 0076 13       		.uleb128 0x13
- 1189 0077 00       		.byte	0
- 1190 0078 00       		.byte	0
- 1191 0079 09       		.uleb128 0x9
- 1192 007a 898201   		.uleb128 0x4109
- 1193 007d 01       		.byte	0x1
- 1194 007e 11       		.uleb128 0x11
- 1195 007f 01       		.uleb128 0x1
- 1196 0080 31       		.uleb128 0x31
- 1197 0081 13       		.uleb128 0x13
- 1198 0082 00       		.byte	0
- 1199 0083 00       		.byte	0
- 1200 0084 0A       		.uleb128 0xa
- 1201 0085 8A8201   		.uleb128 0x410a
- 1202 0088 00       		.byte	0
- 1203 0089 02       		.uleb128 0x2
- 1204 008a 18       		.uleb128 0x18
- 1205 008b 9142     		.uleb128 0x2111
- 1206 008d 18       		.uleb128 0x18
- 1207 008e 00       		.byte	0
- 1208 008f 00       		.byte	0
- 1209 0090 0B       		.uleb128 0xb
- 1210 0091 2E       		.uleb128 0x2e
- 1211 0092 01       		.byte	0x1
- 1212 0093 3F       		.uleb128 0x3f
- 1213 0094 19       		.uleb128 0x19
- 1214 0095 03       		.uleb128 0x3
- 1215 0096 0E       		.uleb128 0xe
- 1216 0097 3A       		.uleb128 0x3a
- 1217 0098 0B       		.uleb128 0xb
- 1218 0099 3B       		.uleb128 0x3b
- 1219 009a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 24
+ 1164 049f 10       		.uleb128 0x10
+ 1165 04a0 36010000 		.4byte	.LASF16
+ 1166 04a4 01       		.byte	0x1
+ 1167 04a5 19       		.byte	0x19
+ 1168 04a6 5D000000 		.4byte	0x5d
+ 1169 04aa 05       		.uleb128 0x5
+ 1170 04ab 03       		.byte	0x3
+ 1171 04ac 00000000 		.4byte	angle
+ 1172 04b0 11       		.uleb128 0x11
+ 1173 04b1 636F7300 		.ascii	"cos\000"
+ 1174 04b5 636F7300 		.ascii	"cos\000"
+ 1175 04b9 03       		.byte	0x3
+ 1176 04ba 6E       		.byte	0x6e
+ 1177 04bb 11       		.uleb128 0x11
+ 1178 04bc 73696E00 		.ascii	"sin\000"
+ 1179 04c0 73696E00 		.ascii	"sin\000"
+ 1180 04c4 03       		.byte	0x3
+ 1181 04c5 6F       		.byte	0x6f
+ 1182 04c6 12       		.uleb128 0x12
+ 1183 04c7 91000000 		.4byte	.LASF24
+ 1184 04cb 91000000 		.4byte	.LASF24
+ 1185 04cf 02       		.byte	0x2
+ 1186 04d0 37       		.byte	0x37
+ 1187 04d1 12       		.uleb128 0x12
+ 1188 04d2 0D000000 		.4byte	.LASF25
+ 1189 04d6 0D000000 		.4byte	.LASF25
+ 1190 04da 02       		.byte	0x2
+ 1191 04db 2C       		.byte	0x2c
+ 1192 04dc 12       		.uleb128 0x12
+ 1193 04dd 2F000000 		.4byte	.LASF26
+ 1194 04e1 2F000000 		.4byte	.LASF26
+ 1195 04e5 04       		.byte	0x4
+ 1196 04e6 28       		.byte	0x28
+ 1197 04e7 12       		.uleb128 0x12
+ 1198 04e8 48000000 		.4byte	.LASF27
+ 1199 04ec 48000000 		.4byte	.LASF27
+ 1200 04f0 04       		.byte	0x4
+ 1201 04f1 17       		.byte	0x17
+ 1202 04f2 12       		.uleb128 0x12
+ 1203 04f3 43010000 		.4byte	.LASF28
+ 1204 04f7 43010000 		.4byte	.LASF28
+ 1205 04fb 05       		.byte	0x5
+ 1206 04fc 28       		.byte	0x28
+ 1207 04fd 12       		.uleb128 0x12
+ 1208 04fe B9000000 		.4byte	.LASF29
+ 1209 0502 B9000000 		.4byte	.LASF29
+ 1210 0506 05       		.byte	0x5
+ 1211 0507 17       		.byte	0x17
+ 1212 0508 12       		.uleb128 0x12
+ 1213 0509 A9020000 		.4byte	.LASF30
+ 1214 050d A9020000 		.4byte	.LASF30
+ 1215 0511 06       		.byte	0x6
+ 1216 0512 33       		.byte	0x33
+ 1217 0513 12       		.uleb128 0x12
+ 1218 0514 E9020000 		.4byte	.LASF31
+ 1219 0518 E9020000 		.4byte	.LASF31
+ 1220 051c 07       		.byte	0x7
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 24
 
 
- 1220 009b 27       		.uleb128 0x27
- 1221 009c 19       		.uleb128 0x19
- 1222 009d 49       		.uleb128 0x49
- 1223 009e 13       		.uleb128 0x13
- 1224 009f 8701     		.uleb128 0x87
- 1225 00a1 19       		.uleb128 0x19
- 1226 00a2 11       		.uleb128 0x11
- 1227 00a3 01       		.uleb128 0x1
- 1228 00a4 12       		.uleb128 0x12
- 1229 00a5 06       		.uleb128 0x6
- 1230 00a6 40       		.uleb128 0x40
- 1231 00a7 18       		.uleb128 0x18
- 1232 00a8 9642     		.uleb128 0x2116
- 1233 00aa 19       		.uleb128 0x19
- 1234 00ab 01       		.uleb128 0x1
- 1235 00ac 13       		.uleb128 0x13
- 1236 00ad 00       		.byte	0
- 1237 00ae 00       		.byte	0
- 1238 00af 0C       		.uleb128 0xc
- 1239 00b0 898201   		.uleb128 0x4109
- 1240 00b3 01       		.byte	0x1
- 1241 00b4 11       		.uleb128 0x11
- 1242 00b5 01       		.uleb128 0x1
- 1243 00b6 31       		.uleb128 0x31
- 1244 00b7 13       		.uleb128 0x13
- 1245 00b8 01       		.uleb128 0x1
- 1246 00b9 13       		.uleb128 0x13
- 1247 00ba 00       		.byte	0
- 1248 00bb 00       		.byte	0
- 1249 00bc 0D       		.uleb128 0xd
- 1250 00bd 01       		.uleb128 0x1
- 1251 00be 01       		.byte	0x1
- 1252 00bf 49       		.uleb128 0x49
- 1253 00c0 13       		.uleb128 0x13
- 1254 00c1 01       		.uleb128 0x1
- 1255 00c2 13       		.uleb128 0x13
- 1256 00c3 00       		.byte	0
- 1257 00c4 00       		.byte	0
- 1258 00c5 0E       		.uleb128 0xe
- 1259 00c6 21       		.uleb128 0x21
- 1260 00c7 00       		.byte	0
- 1261 00c8 49       		.uleb128 0x49
- 1262 00c9 13       		.uleb128 0x13
- 1263 00ca 2F       		.uleb128 0x2f
- 1264 00cb 0B       		.uleb128 0xb
- 1265 00cc 00       		.byte	0
- 1266 00cd 00       		.byte	0
- 1267 00ce 0F       		.uleb128 0xf
- 1268 00cf 26       		.uleb128 0x26
- 1269 00d0 00       		.byte	0
- 1270 00d1 49       		.uleb128 0x49
- 1271 00d2 13       		.uleb128 0x13
- 1272 00d3 00       		.byte	0
- 1273 00d4 00       		.byte	0
- 1274 00d5 10       		.uleb128 0x10
- 1275 00d6 34       		.uleb128 0x34
- 1276 00d7 00       		.byte	0
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 25
+ 1221 051d 33       		.byte	0x33
+ 1222 051e 12       		.uleb128 0x12
+ 1223 051f 83010000 		.4byte	.LASF32
+ 1224 0523 83010000 		.4byte	.LASF32
+ 1225 0527 08       		.byte	0x8
+ 1226 0528 33       		.byte	0x33
+ 1227 0529 13       		.uleb128 0x13
+ 1228 052a 2A010000 		.4byte	.LASF33
+ 1229 052e 2A010000 		.4byte	.LASF33
+ 1230 0532 09       		.byte	0x9
+ 1231 0533 3201     		.2byte	0x132
+ 1232 0535 13       		.uleb128 0x13
+ 1233 0536 18000000 		.4byte	.LASF34
+ 1234 053a 18000000 		.4byte	.LASF34
+ 1235 053e 0A       		.byte	0xa
+ 1236 053f 3201     		.2byte	0x132
+ 1237 0541 13       		.uleb128 0x13
+ 1238 0542 B8010000 		.4byte	.LASF35
+ 1239 0546 B8010000 		.4byte	.LASF35
+ 1240 054a 0A       		.byte	0xa
+ 1241 054b 4A01     		.2byte	0x14a
+ 1242 054d 12       		.uleb128 0x12
+ 1243 054e CD010000 		.4byte	.LASF36
+ 1244 0552 CD010000 		.4byte	.LASF36
+ 1245 0556 02       		.byte	0x2
+ 1246 0557 35       		.byte	0x35
+ 1247 0558 12       		.uleb128 0x12
+ 1248 0559 75020000 		.4byte	.LASF37
+ 1249 055d 75020000 		.4byte	.LASF37
+ 1250 0561 02       		.byte	0x2
+ 1251 0562 32       		.byte	0x32
+ 1252 0563 12       		.uleb128 0x12
+ 1253 0564 E1020000 		.4byte	.LASF38
+ 1254 0568 E1020000 		.4byte	.LASF38
+ 1255 056c 0B       		.byte	0xb
+ 1256 056d E7       		.byte	0xe7
+ 1257 056e 00       		.byte	0
+ 1258              		.section	.debug_abbrev,"",%progbits
+ 1259              	.Ldebug_abbrev0:
+ 1260 0000 01       		.uleb128 0x1
+ 1261 0001 11       		.uleb128 0x11
+ 1262 0002 01       		.byte	0x1
+ 1263 0003 25       		.uleb128 0x25
+ 1264 0004 0E       		.uleb128 0xe
+ 1265 0005 13       		.uleb128 0x13
+ 1266 0006 0B       		.uleb128 0xb
+ 1267 0007 03       		.uleb128 0x3
+ 1268 0008 0E       		.uleb128 0xe
+ 1269 0009 1B       		.uleb128 0x1b
+ 1270 000a 0E       		.uleb128 0xe
+ 1271 000b 55       		.uleb128 0x55
+ 1272 000c 17       		.uleb128 0x17
+ 1273 000d 11       		.uleb128 0x11
+ 1274 000e 01       		.uleb128 0x1
+ 1275 000f 10       		.uleb128 0x10
+ 1276 0010 17       		.uleb128 0x17
+ 1277 0011 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 25
 
 
- 1277 00d8 03       		.uleb128 0x3
- 1278 00d9 0E       		.uleb128 0xe
- 1279 00da 3A       		.uleb128 0x3a
- 1280 00db 0B       		.uleb128 0xb
- 1281 00dc 3B       		.uleb128 0x3b
- 1282 00dd 0B       		.uleb128 0xb
- 1283 00de 49       		.uleb128 0x49
- 1284 00df 13       		.uleb128 0x13
- 1285 00e0 3F       		.uleb128 0x3f
- 1286 00e1 19       		.uleb128 0x19
- 1287 00e2 02       		.uleb128 0x2
- 1288 00e3 18       		.uleb128 0x18
- 1289 00e4 00       		.byte	0
- 1290 00e5 00       		.byte	0
- 1291 00e6 11       		.uleb128 0x11
- 1292 00e7 2E       		.uleb128 0x2e
- 1293 00e8 00       		.byte	0
- 1294 00e9 3F       		.uleb128 0x3f
- 1295 00ea 19       		.uleb128 0x19
- 1296 00eb 3C       		.uleb128 0x3c
- 1297 00ec 19       		.uleb128 0x19
- 1298 00ed 6E       		.uleb128 0x6e
- 1299 00ee 08       		.uleb128 0x8
- 1300 00ef 03       		.uleb128 0x3
- 1301 00f0 08       		.uleb128 0x8
- 1302 00f1 3A       		.uleb128 0x3a
- 1303 00f2 0B       		.uleb128 0xb
- 1304 00f3 3B       		.uleb128 0x3b
- 1305 00f4 0B       		.uleb128 0xb
- 1306 00f5 00       		.byte	0
- 1307 00f6 00       		.byte	0
- 1308 00f7 12       		.uleb128 0x12
- 1309 00f8 2E       		.uleb128 0x2e
- 1310 00f9 00       		.byte	0
- 1311 00fa 3F       		.uleb128 0x3f
- 1312 00fb 19       		.uleb128 0x19
- 1313 00fc 3C       		.uleb128 0x3c
- 1314 00fd 19       		.uleb128 0x19
- 1315 00fe 6E       		.uleb128 0x6e
- 1316 00ff 0E       		.uleb128 0xe
- 1317 0100 03       		.uleb128 0x3
- 1318 0101 0E       		.uleb128 0xe
- 1319 0102 3A       		.uleb128 0x3a
- 1320 0103 0B       		.uleb128 0xb
- 1321 0104 3B       		.uleb128 0x3b
- 1322 0105 0B       		.uleb128 0xb
- 1323 0106 00       		.byte	0
- 1324 0107 00       		.byte	0
- 1325 0108 13       		.uleb128 0x13
- 1326 0109 2E       		.uleb128 0x2e
- 1327 010a 00       		.byte	0
- 1328 010b 3F       		.uleb128 0x3f
- 1329 010c 19       		.uleb128 0x19
- 1330 010d 3C       		.uleb128 0x3c
- 1331 010e 19       		.uleb128 0x19
- 1332 010f 6E       		.uleb128 0x6e
- 1333 0110 0E       		.uleb128 0xe
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 26
+ 1278 0012 00       		.byte	0
+ 1279 0013 02       		.uleb128 0x2
+ 1280 0014 24       		.uleb128 0x24
+ 1281 0015 00       		.byte	0
+ 1282 0016 0B       		.uleb128 0xb
+ 1283 0017 0B       		.uleb128 0xb
+ 1284 0018 3E       		.uleb128 0x3e
+ 1285 0019 0B       		.uleb128 0xb
+ 1286 001a 03       		.uleb128 0x3
+ 1287 001b 0E       		.uleb128 0xe
+ 1288 001c 00       		.byte	0
+ 1289 001d 00       		.byte	0
+ 1290 001e 03       		.uleb128 0x3
+ 1291 001f 24       		.uleb128 0x24
+ 1292 0020 00       		.byte	0
+ 1293 0021 0B       		.uleb128 0xb
+ 1294 0022 0B       		.uleb128 0xb
+ 1295 0023 3E       		.uleb128 0x3e
+ 1296 0024 0B       		.uleb128 0xb
+ 1297 0025 03       		.uleb128 0x3
+ 1298 0026 08       		.uleb128 0x8
+ 1299 0027 00       		.byte	0
+ 1300 0028 00       		.byte	0
+ 1301 0029 04       		.uleb128 0x4
+ 1302 002a 16       		.uleb128 0x16
+ 1303 002b 00       		.byte	0
+ 1304 002c 03       		.uleb128 0x3
+ 1305 002d 0E       		.uleb128 0xe
+ 1306 002e 3A       		.uleb128 0x3a
+ 1307 002f 0B       		.uleb128 0xb
+ 1308 0030 3B       		.uleb128 0x3b
+ 1309 0031 05       		.uleb128 0x5
+ 1310 0032 49       		.uleb128 0x49
+ 1311 0033 13       		.uleb128 0x13
+ 1312 0034 00       		.byte	0
+ 1313 0035 00       		.byte	0
+ 1314 0036 05       		.uleb128 0x5
+ 1315 0037 2E       		.uleb128 0x2e
+ 1316 0038 01       		.byte	0x1
+ 1317 0039 3F       		.uleb128 0x3f
+ 1318 003a 19       		.uleb128 0x19
+ 1319 003b 03       		.uleb128 0x3
+ 1320 003c 0E       		.uleb128 0xe
+ 1321 003d 3A       		.uleb128 0x3a
+ 1322 003e 0B       		.uleb128 0xb
+ 1323 003f 3B       		.uleb128 0x3b
+ 1324 0040 0B       		.uleb128 0xb
+ 1325 0041 27       		.uleb128 0x27
+ 1326 0042 19       		.uleb128 0x19
+ 1327 0043 11       		.uleb128 0x11
+ 1328 0044 01       		.uleb128 0x1
+ 1329 0045 12       		.uleb128 0x12
+ 1330 0046 06       		.uleb128 0x6
+ 1331 0047 40       		.uleb128 0x40
+ 1332 0048 18       		.uleb128 0x18
+ 1333 0049 9642     		.uleb128 0x2116
+ 1334 004b 19       		.uleb128 0x19
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 26
 
 
- 1334 0111 03       		.uleb128 0x3
- 1335 0112 0E       		.uleb128 0xe
- 1336 0113 3A       		.uleb128 0x3a
- 1337 0114 0B       		.uleb128 0xb
- 1338 0115 3B       		.uleb128 0x3b
- 1339 0116 05       		.uleb128 0x5
- 1340 0117 00       		.byte	0
- 1341 0118 00       		.byte	0
- 1342 0119 00       		.byte	0
- 1343              		.section	.debug_loc,"",%progbits
- 1344              	.Ldebug_loc0:
- 1345              	.LLST0:
- 1346 0000 00000000 		.4byte	.LVL0
- 1347 0004 0C000000 		.4byte	.LVL1
- 1348 0008 0100     		.2byte	0x1
- 1349 000a 50       		.byte	0x50
- 1350 000b 0C000000 		.4byte	.LVL1
- 1351 000f AC000000 		.4byte	.LFE33
- 1352 0013 0200     		.2byte	0x2
- 1353 0015 91       		.byte	0x91
- 1354 0016 58       		.sleb128 -40
- 1355 0017 00000000 		.4byte	0
- 1356 001b 00000000 		.4byte	0
- 1357              	.LLST1:
- 1358 001f 00000000 		.4byte	.LVL0
- 1359 0023 0F000000 		.4byte	.LVL2-1
- 1360 0027 0100     		.2byte	0x1
- 1361 0029 51       		.byte	0x51
- 1362 002a 0F000000 		.4byte	.LVL2-1
- 1363 002e AC000000 		.4byte	.LFE33
- 1364 0032 0200     		.2byte	0x2
- 1365 0034 91       		.byte	0x91
- 1366 0035 5C       		.sleb128 -36
- 1367 0036 00000000 		.4byte	0
- 1368 003a 00000000 		.4byte	0
- 1369              	.LLST2:
- 1370 003e 00000000 		.4byte	.LVL0
- 1371 0042 0F000000 		.4byte	.LVL2-1
- 1372 0046 0100     		.2byte	0x1
- 1373 0048 52       		.byte	0x52
- 1374 0049 0F000000 		.4byte	.LVL2-1
- 1375 004d 2C000000 		.4byte	.LVL6
- 1376 0051 0100     		.2byte	0x1
- 1377 0053 54       		.byte	0x54
- 1378 0054 2C000000 		.4byte	.LVL6
- 1379 0058 AC000000 		.4byte	.LFE33
- 1380 005c 0400     		.2byte	0x4
- 1381 005e F3       		.byte	0xf3
- 1382 005f 01       		.uleb128 0x1
- 1383 0060 52       		.byte	0x52
- 1384 0061 9F       		.byte	0x9f
- 1385 0062 00000000 		.4byte	0
- 1386 0066 00000000 		.4byte	0
- 1387              	.LLST3:
- 1388 006a 00000000 		.4byte	.LVL0
- 1389 006e 0F000000 		.4byte	.LVL2-1
- 1390 0072 0100     		.2byte	0x1
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 27
+ 1335 004c 01       		.uleb128 0x1
+ 1336 004d 13       		.uleb128 0x13
+ 1337 004e 00       		.byte	0
+ 1338 004f 00       		.byte	0
+ 1339 0050 06       		.uleb128 0x6
+ 1340 0051 05       		.uleb128 0x5
+ 1341 0052 00       		.byte	0
+ 1342 0053 03       		.uleb128 0x3
+ 1343 0054 0E       		.uleb128 0xe
+ 1344 0055 3A       		.uleb128 0x3a
+ 1345 0056 0B       		.uleb128 0xb
+ 1346 0057 3B       		.uleb128 0x3b
+ 1347 0058 0B       		.uleb128 0xb
+ 1348 0059 49       		.uleb128 0x49
+ 1349 005a 13       		.uleb128 0x13
+ 1350 005b 02       		.uleb128 0x2
+ 1351 005c 17       		.uleb128 0x17
+ 1352 005d 00       		.byte	0
+ 1353 005e 00       		.byte	0
+ 1354 005f 07       		.uleb128 0x7
+ 1355 0060 05       		.uleb128 0x5
+ 1356 0061 00       		.byte	0
+ 1357 0062 03       		.uleb128 0x3
+ 1358 0063 0E       		.uleb128 0xe
+ 1359 0064 3A       		.uleb128 0x3a
+ 1360 0065 0B       		.uleb128 0xb
+ 1361 0066 3B       		.uleb128 0x3b
+ 1362 0067 0B       		.uleb128 0xb
+ 1363 0068 49       		.uleb128 0x49
+ 1364 0069 13       		.uleb128 0x13
+ 1365 006a 02       		.uleb128 0x2
+ 1366 006b 18       		.uleb128 0x18
+ 1367 006c 00       		.byte	0
+ 1368 006d 00       		.byte	0
+ 1369 006e 08       		.uleb128 0x8
+ 1370 006f 898201   		.uleb128 0x4109
+ 1371 0072 00       		.byte	0
+ 1372 0073 11       		.uleb128 0x11
+ 1373 0074 01       		.uleb128 0x1
+ 1374 0075 31       		.uleb128 0x31
+ 1375 0076 13       		.uleb128 0x13
+ 1376 0077 00       		.byte	0
+ 1377 0078 00       		.byte	0
+ 1378 0079 09       		.uleb128 0x9
+ 1379 007a 898201   		.uleb128 0x4109
+ 1380 007d 01       		.byte	0x1
+ 1381 007e 11       		.uleb128 0x11
+ 1382 007f 01       		.uleb128 0x1
+ 1383 0080 31       		.uleb128 0x31
+ 1384 0081 13       		.uleb128 0x13
+ 1385 0082 00       		.byte	0
+ 1386 0083 00       		.byte	0
+ 1387 0084 0A       		.uleb128 0xa
+ 1388 0085 8A8201   		.uleb128 0x410a
+ 1389 0088 00       		.byte	0
+ 1390 0089 02       		.uleb128 0x2
+ 1391 008a 18       		.uleb128 0x18
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 27
 
 
- 1391 0074 53       		.byte	0x53
- 1392 0075 0F000000 		.4byte	.LVL2-1
- 1393 0079 AC000000 		.4byte	.LFE33
- 1394 007d 0400     		.2byte	0x4
- 1395 007f F3       		.byte	0xf3
- 1396 0080 01       		.uleb128 0x1
- 1397 0081 53       		.byte	0x53
- 1398 0082 9F       		.byte	0x9f
- 1399 0083 00000000 		.4byte	0
- 1400 0087 00000000 		.4byte	0
- 1401              		.section	.debug_aranges,"",%progbits
- 1402 0000 24000000 		.4byte	0x24
- 1403 0004 0200     		.2byte	0x2
- 1404 0006 00000000 		.4byte	.Ldebug_info0
- 1405 000a 04       		.byte	0x4
- 1406 000b 00       		.byte	0
- 1407 000c 0000     		.2byte	0
- 1408 000e 0000     		.2byte	0
- 1409 0010 00000000 		.4byte	.LFB33
- 1410 0014 AC000000 		.4byte	.LFE33-.LFB33
- 1411 0018 00000000 		.4byte	.LFB34
- 1412 001c 38010000 		.4byte	.LFE34-.LFB34
- 1413 0020 00000000 		.4byte	0
- 1414 0024 00000000 		.4byte	0
- 1415              		.section	.debug_ranges,"",%progbits
- 1416              	.Ldebug_ranges0:
- 1417 0000 00000000 		.4byte	.LFB33
- 1418 0004 AC000000 		.4byte	.LFE33
- 1419 0008 00000000 		.4byte	.LFB34
- 1420 000c 38010000 		.4byte	.LFE34
- 1421 0010 00000000 		.4byte	0
- 1422 0014 00000000 		.4byte	0
- 1423              		.section	.debug_line,"",%progbits
- 1424              	.Ldebug_line0:
- 1425 0000 AE010000 		.section	.debug_str,"MS",%progbits,1
- 1425      02006401 
- 1425      00000201 
- 1425      FB0E0D00 
- 1425      01010101 
- 1426              	.LASF23:
- 1427 0000 636F756E 		.ascii	"countDisplay\000"
- 1427      74446973 
- 1427      706C6179 
- 1427      00
- 1428              	.LASF25:
- 1429 000d 474C4344 		.ascii	"GLCD_Start\000"
- 1429      5F537461 
- 1429      727400
- 1430              	.LASF40:
- 1431 0018 54696D65 		.ascii	"Timer_1_Start\000"
- 1431      725F315F 
- 1431      53746172 
- 1431      7400
- 1432              	.LASF20:
- 1433 0026 6D797374 		.ascii	"mystring\000"
- 1433      72696E67 
- 1433      00
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 28
+ 1392 008b 9142     		.uleb128 0x2111
+ 1393 008d 18       		.uleb128 0x18
+ 1394 008e 00       		.byte	0
+ 1395 008f 00       		.byte	0
+ 1396 0090 0B       		.uleb128 0xb
+ 1397 0091 2E       		.uleb128 0x2e
+ 1398 0092 01       		.byte	0x1
+ 1399 0093 3F       		.uleb128 0x3f
+ 1400 0094 19       		.uleb128 0x19
+ 1401 0095 03       		.uleb128 0x3
+ 1402 0096 0E       		.uleb128 0xe
+ 1403 0097 3A       		.uleb128 0x3a
+ 1404 0098 0B       		.uleb128 0xb
+ 1405 0099 3B       		.uleb128 0x3b
+ 1406 009a 0B       		.uleb128 0xb
+ 1407 009b 27       		.uleb128 0x27
+ 1408 009c 19       		.uleb128 0x19
+ 1409 009d 49       		.uleb128 0x49
+ 1410 009e 13       		.uleb128 0x13
+ 1411 009f 8701     		.uleb128 0x87
+ 1412 00a1 19       		.uleb128 0x19
+ 1413 00a2 11       		.uleb128 0x11
+ 1414 00a3 01       		.uleb128 0x1
+ 1415 00a4 12       		.uleb128 0x12
+ 1416 00a5 06       		.uleb128 0x6
+ 1417 00a6 40       		.uleb128 0x40
+ 1418 00a7 18       		.uleb128 0x18
+ 1419 00a8 9642     		.uleb128 0x2116
+ 1420 00aa 19       		.uleb128 0x19
+ 1421 00ab 01       		.uleb128 0x1
+ 1422 00ac 13       		.uleb128 0x13
+ 1423 00ad 00       		.byte	0
+ 1424 00ae 00       		.byte	0
+ 1425 00af 0C       		.uleb128 0xc
+ 1426 00b0 898201   		.uleb128 0x4109
+ 1427 00b3 01       		.byte	0x1
+ 1428 00b4 11       		.uleb128 0x11
+ 1429 00b5 01       		.uleb128 0x1
+ 1430 00b6 31       		.uleb128 0x31
+ 1431 00b7 13       		.uleb128 0x13
+ 1432 00b8 01       		.uleb128 0x1
+ 1433 00b9 13       		.uleb128 0x13
+ 1434 00ba 00       		.byte	0
+ 1435 00bb 00       		.byte	0
+ 1436 00bc 0D       		.uleb128 0xd
+ 1437 00bd 01       		.uleb128 0x1
+ 1438 00be 01       		.byte	0x1
+ 1439 00bf 49       		.uleb128 0x49
+ 1440 00c0 13       		.uleb128 0x13
+ 1441 00c1 01       		.uleb128 0x1
+ 1442 00c2 13       		.uleb128 0x13
+ 1443 00c3 00       		.byte	0
+ 1444 00c4 00       		.byte	0
+ 1445 00c5 0E       		.uleb128 0xe
+ 1446 00c6 21       		.uleb128 0x21
+ 1447 00c7 00       		.byte	0
+ 1448 00c8 49       		.uleb128 0x49
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 28
 
 
- 1434              	.LASF26:
- 1435 002f 415F496E 		.ascii	"A_Interrupt_ClearPending\000"
- 1435      74657272 
- 1435      7570745F 
- 1435      436C6561 
- 1435      7250656E 
- 1436              	.LASF27:
- 1437 0048 415F496E 		.ascii	"A_Interrupt_Start\000"
- 1437      74657272 
- 1437      7570745F 
- 1437      53746172 
- 1437      7400
- 1438              	.LASF34:
- 1439 005a 53746963 		.ascii	"StickButton_Interrupt_ClearPending\000"
- 1439      6B427574 
- 1439      746F6E5F 
- 1439      496E7465 
- 1439      72727570 
- 1440              	.LASF21:
- 1441 007d 636F756E 		.ascii	"count\000"
- 1441      7400
- 1442              	.LASF14:
- 1443 0083 63656E74 		.ascii	"centerX\000"
- 1443      65725800 
- 1444              	.LASF15:
- 1445 008b 63656E74 		.ascii	"centerY\000"
- 1445      65725900 
- 1446              	.LASF3:
- 1447 0093 73686F72 		.ascii	"short unsigned int\000"
- 1447      7420756E 
- 1447      7369676E 
- 1447      65642069 
- 1447      6E7400
- 1448              	.LASF32:
- 1449 00a6 445F496E 		.ascii	"D_Interrupt_ClearPending\000"
- 1449      74657272 
- 1449      7570745F 
- 1449      436C6561 
- 1449      7250656E 
- 1450              	.LASF33:
- 1451 00bf 445F496E 		.ascii	"D_Interrupt_Start\000"
- 1451      74657272 
- 1451      7570745F 
- 1451      53746172 
- 1451      7400
- 1452              	.LASF19:
- 1453 00d1 474C4344 		.ascii	"GLCD_FONT8x16\000"
- 1453      5F464F4E 
- 1453      54387831 
- 1453      3600
- 1454              	.LASF24:
- 1455 00df 474C4344 		.ascii	"GLCD_DrawLine\000"
- 1455      5F447261 
- 1455      774C696E 
- 1455      6500
- 1456              	.LASF9:
- 1457 00ed 666C6F61 		.ascii	"float\000"
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 29
+ 1449 00c9 13       		.uleb128 0x13
+ 1450 00ca 2F       		.uleb128 0x2f
+ 1451 00cb 0B       		.uleb128 0xb
+ 1452 00cc 00       		.byte	0
+ 1453 00cd 00       		.byte	0
+ 1454 00ce 0F       		.uleb128 0xf
+ 1455 00cf 26       		.uleb128 0x26
+ 1456 00d0 00       		.byte	0
+ 1457 00d1 49       		.uleb128 0x49
+ 1458 00d2 13       		.uleb128 0x13
+ 1459 00d3 00       		.byte	0
+ 1460 00d4 00       		.byte	0
+ 1461 00d5 10       		.uleb128 0x10
+ 1462 00d6 34       		.uleb128 0x34
+ 1463 00d7 00       		.byte	0
+ 1464 00d8 03       		.uleb128 0x3
+ 1465 00d9 0E       		.uleb128 0xe
+ 1466 00da 3A       		.uleb128 0x3a
+ 1467 00db 0B       		.uleb128 0xb
+ 1468 00dc 3B       		.uleb128 0x3b
+ 1469 00dd 0B       		.uleb128 0xb
+ 1470 00de 49       		.uleb128 0x49
+ 1471 00df 13       		.uleb128 0x13
+ 1472 00e0 3F       		.uleb128 0x3f
+ 1473 00e1 19       		.uleb128 0x19
+ 1474 00e2 02       		.uleb128 0x2
+ 1475 00e3 18       		.uleb128 0x18
+ 1476 00e4 00       		.byte	0
+ 1477 00e5 00       		.byte	0
+ 1478 00e6 11       		.uleb128 0x11
+ 1479 00e7 2E       		.uleb128 0x2e
+ 1480 00e8 00       		.byte	0
+ 1481 00e9 3F       		.uleb128 0x3f
+ 1482 00ea 19       		.uleb128 0x19
+ 1483 00eb 3C       		.uleb128 0x3c
+ 1484 00ec 19       		.uleb128 0x19
+ 1485 00ed 6E       		.uleb128 0x6e
+ 1486 00ee 08       		.uleb128 0x8
+ 1487 00ef 03       		.uleb128 0x3
+ 1488 00f0 08       		.uleb128 0x8
+ 1489 00f1 3A       		.uleb128 0x3a
+ 1490 00f2 0B       		.uleb128 0xb
+ 1491 00f3 3B       		.uleb128 0x3b
+ 1492 00f4 0B       		.uleb128 0xb
+ 1493 00f5 00       		.byte	0
+ 1494 00f6 00       		.byte	0
+ 1495 00f7 12       		.uleb128 0x12
+ 1496 00f8 2E       		.uleb128 0x2e
+ 1497 00f9 00       		.byte	0
+ 1498 00fa 3F       		.uleb128 0x3f
+ 1499 00fb 19       		.uleb128 0x19
+ 1500 00fc 3C       		.uleb128 0x3c
+ 1501 00fd 19       		.uleb128 0x19
+ 1502 00fe 6E       		.uleb128 0x6e
+ 1503 00ff 0E       		.uleb128 0xe
+ 1504 0100 03       		.uleb128 0x3
+ 1505 0101 0E       		.uleb128 0xe
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 29
 
 
- 1457      7400
- 1458              	.LASF48:
- 1459 00f3 75696E74 		.ascii	"uint8\000"
- 1459      3800
- 1460              	.LASF30:
- 1461 00f9 435F496E 		.ascii	"C_Interrupt_ClearPending\000"
- 1461      74657272 
- 1461      7570745F 
- 1461      436C6561 
- 1461      7250656E 
- 1462              	.LASF1:
- 1463 0112 756E7369 		.ascii	"unsigned char\000"
- 1463      676E6564 
- 1463      20636861 
- 1463      7200
- 1464              	.LASF29:
- 1465 0120 425F496E 		.ascii	"B_Interrupt_Start\000"
- 1465      74657272 
- 1465      7570745F 
- 1465      53746172 
- 1465      7400
- 1466              	.LASF47:
- 1467 0132 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\Hw"
- 1467      49545C4D 
- 1467      6963726F 
- 1467      636F6E74 
- 1467      726F6C6C 
- 1468 0162 34204265 		.ascii	"4 Beat Meter\\BeatMeter.cydsn\000"
- 1468      6174204D 
- 1468      65746572 
- 1468      5C426561 
- 1468      744D6574 
- 1469              	.LASF5:
- 1470 017f 6C6F6E67 		.ascii	"long unsigned int\000"
- 1470      20756E73 
- 1470      69676E65 
- 1470      6420696E 
- 1470      7400
- 1471              	.LASF39:
- 1472 0191 50574D5F 		.ascii	"PWM_1_Start\000"
- 1472      315F5374 
- 1472      61727400 
- 1473              	.LASF16:
- 1474 019d 616E676C 		.ascii	"angle\000"
- 1474      6500
- 1475              	.LASF10:
- 1476 01a3 646F7562 		.ascii	"double\000"
- 1476      6C6500
- 1477              	.LASF28:
- 1478 01aa 425F496E 		.ascii	"B_Interrupt_ClearPending\000"
- 1478      74657272 
- 1478      7570745F 
- 1478      436C6561 
- 1478      7250656E 
- 1479              	.LASF49:
- 1480 01c3 474C4344 		.ascii	"GLCD_Draw_Line_Polar\000"
- 1480      5F447261 
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 30
+ 1506 0102 3A       		.uleb128 0x3a
+ 1507 0103 0B       		.uleb128 0xb
+ 1508 0104 3B       		.uleb128 0x3b
+ 1509 0105 0B       		.uleb128 0xb
+ 1510 0106 00       		.byte	0
+ 1511 0107 00       		.byte	0
+ 1512 0108 13       		.uleb128 0x13
+ 1513 0109 2E       		.uleb128 0x2e
+ 1514 010a 00       		.byte	0
+ 1515 010b 3F       		.uleb128 0x3f
+ 1516 010c 19       		.uleb128 0x19
+ 1517 010d 3C       		.uleb128 0x3c
+ 1518 010e 19       		.uleb128 0x19
+ 1519 010f 6E       		.uleb128 0x6e
+ 1520 0110 0E       		.uleb128 0xe
+ 1521 0111 03       		.uleb128 0x3
+ 1522 0112 0E       		.uleb128 0xe
+ 1523 0113 3A       		.uleb128 0x3a
+ 1524 0114 0B       		.uleb128 0xb
+ 1525 0115 3B       		.uleb128 0x3b
+ 1526 0116 05       		.uleb128 0x5
+ 1527 0117 00       		.byte	0
+ 1528 0118 00       		.byte	0
+ 1529 0119 00       		.byte	0
+ 1530              		.section	.debug_loc,"",%progbits
+ 1531              	.Ldebug_loc0:
+ 1532              	.LLST0:
+ 1533 0000 00000000 		.4byte	.LVL0
+ 1534 0004 0C000000 		.4byte	.LVL1
+ 1535 0008 0100     		.2byte	0x1
+ 1536 000a 50       		.byte	0x50
+ 1537 000b 0C000000 		.4byte	.LVL1
+ 1538 000f AC000000 		.4byte	.LFE33
+ 1539 0013 0200     		.2byte	0x2
+ 1540 0015 91       		.byte	0x91
+ 1541 0016 58       		.sleb128 -40
+ 1542 0017 00000000 		.4byte	0
+ 1543 001b 00000000 		.4byte	0
+ 1544              	.LLST1:
+ 1545 001f 00000000 		.4byte	.LVL0
+ 1546 0023 0F000000 		.4byte	.LVL2-1
+ 1547 0027 0100     		.2byte	0x1
+ 1548 0029 51       		.byte	0x51
+ 1549 002a 0F000000 		.4byte	.LVL2-1
+ 1550 002e AC000000 		.4byte	.LFE33
+ 1551 0032 0200     		.2byte	0x2
+ 1552 0034 91       		.byte	0x91
+ 1553 0035 5C       		.sleb128 -36
+ 1554 0036 00000000 		.4byte	0
+ 1555 003a 00000000 		.4byte	0
+ 1556              	.LLST2:
+ 1557 003e 00000000 		.4byte	.LVL0
+ 1558 0042 0F000000 		.4byte	.LVL2-1
+ 1559 0046 0100     		.2byte	0x1
+ 1560 0048 52       		.byte	0x52
+ 1561 0049 0F000000 		.4byte	.LVL2-1
+ 1562 004d 2C000000 		.4byte	.LVL6
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 30
 
 
- 1480      775F4C69 
- 1480      6E655F50 
- 1480      6F6C6172 
- 1481              	.LASF22:
- 1482 01d8 636F756E 		.ascii	"countFollow\000"
- 1482      74466F6C 
- 1482      6C6F7700 
- 1483              	.LASF18:
- 1484 01e4 636F6C6F 		.ascii	"color\000"
- 1484      7200
- 1485              	.LASF38:
- 1486 01ea 475F4C45 		.ascii	"G_LED_Write\000"
- 1486      445F5772 
- 1486      69746500 
- 1487              	.LASF50:
- 1488 01f6 6D61696E 		.ascii	"main\000"
- 1488      00
- 1489              	.LASF8:
- 1490 01fb 756E7369 		.ascii	"unsigned int\000"
- 1490      676E6564 
- 1490      20696E74 
- 1490      00
- 1491              	.LASF31:
- 1492 0208 435F496E 		.ascii	"C_Interrupt_Start\000"
- 1492      74657272 
- 1492      7570745F 
- 1492      53746172 
- 1492      7400
- 1493              	.LASF7:
- 1494 021a 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1494      206C6F6E 
- 1494      6720756E 
- 1494      7369676E 
- 1494      65642069 
- 1495              	.LASF41:
- 1496 0231 54696D65 		.ascii	"Timer_1_WriteCounter\000"
- 1496      725F315F 
- 1496      57726974 
- 1496      65436F75 
- 1496      6E746572 
- 1497              	.LASF43:
- 1498 0246 474C4344 		.ascii	"GLCD_PrintString\000"
- 1498      5F507269 
- 1498      6E745374 
- 1498      72696E67 
- 1498      00
- 1499              	.LASF45:
- 1500 0257 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1500      43313120 
- 1500      352E342E 
- 1500      31203230 
- 1500      31363036 
- 1501 028a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
- 1501      20726576 
- 1501      6973696F 
- 1501      6E203233 
- 1501      37373135 
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 31
+ 1563 0051 0100     		.2byte	0x1
+ 1564 0053 54       		.byte	0x54
+ 1565 0054 2C000000 		.4byte	.LVL6
+ 1566 0058 AC000000 		.4byte	.LFE33
+ 1567 005c 0400     		.2byte	0x4
+ 1568 005e F3       		.byte	0xf3
+ 1569 005f 01       		.uleb128 0x1
+ 1570 0060 52       		.byte	0x52
+ 1571 0061 9F       		.byte	0x9f
+ 1572 0062 00000000 		.4byte	0
+ 1573 0066 00000000 		.4byte	0
+ 1574              	.LLST3:
+ 1575 006a 00000000 		.4byte	.LVL0
+ 1576 006e 0F000000 		.4byte	.LVL2-1
+ 1577 0072 0100     		.2byte	0x1
+ 1578 0074 53       		.byte	0x53
+ 1579 0075 0F000000 		.4byte	.LVL2-1
+ 1580 0079 AC000000 		.4byte	.LFE33
+ 1581 007d 0400     		.2byte	0x4
+ 1582 007f F3       		.byte	0xf3
+ 1583 0080 01       		.uleb128 0x1
+ 1584 0081 53       		.byte	0x53
+ 1585 0082 9F       		.byte	0x9f
+ 1586 0083 00000000 		.4byte	0
+ 1587 0087 00000000 		.4byte	0
+ 1588              		.section	.debug_aranges,"",%progbits
+ 1589 0000 24000000 		.4byte	0x24
+ 1590 0004 0200     		.2byte	0x2
+ 1591 0006 00000000 		.4byte	.Ldebug_info0
+ 1592 000a 04       		.byte	0x4
+ 1593 000b 00       		.byte	0
+ 1594 000c 0000     		.2byte	0
+ 1595 000e 0000     		.2byte	0
+ 1596 0010 00000000 		.4byte	.LFB33
+ 1597 0014 AC000000 		.4byte	.LFE33-.LFB33
+ 1598 0018 00000000 		.4byte	.LFB34
+ 1599 001c 74010000 		.4byte	.LFE34-.LFB34
+ 1600 0020 00000000 		.4byte	0
+ 1601 0024 00000000 		.4byte	0
+ 1602              		.section	.debug_ranges,"",%progbits
+ 1603              	.Ldebug_ranges0:
+ 1604 0000 00000000 		.4byte	.LFB33
+ 1605 0004 AC000000 		.4byte	.LFE33
+ 1606 0008 00000000 		.4byte	.LFB34
+ 1607 000c 74010000 		.4byte	.LFE34
+ 1608 0010 00000000 		.4byte	0
+ 1609 0014 00000000 		.4byte	0
+ 1610              		.section	.debug_line,"",%progbits
+ 1611              	.Ldebug_line0:
+ 1612 0000 70010000 		.section	.debug_str,"MS",%progbits,1
+ 1612      02002701 
+ 1612      00000201 
+ 1612      FB0E0D00 
+ 1612      01010101 
+ 1613              	.LASF23:
+ 1614 0000 636F756E 		.ascii	"countDisplay\000"
+ 1614      74446973 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 31
 
 
- 1502 02bd 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1502      66756E63 
- 1502      74696F6E 
- 1502      2D736563 
- 1502      74696F6E 
- 1503              	.LASF13:
- 1504 02e5 73697A65 		.ascii	"sizetype\000"
- 1504      74797065 
- 1504      00
- 1505              	.LASF44:
- 1506 02ee 474C4344 		.ascii	"GLCD_DrawCircle\000"
- 1506      5F447261 
- 1506      77436972 
- 1506      636C6500 
- 1507              	.LASF6:
- 1508 02fe 6C6F6E67 		.ascii	"long long int\000"
- 1508      206C6F6E 
- 1508      6720696E 
- 1508      7400
- 1509              	.LASF46:
- 1510 030c 6D61696E 		.ascii	"main.c\000"
- 1510      2E6300
- 1511              	.LASF11:
- 1512 0313 63686172 		.ascii	"char\000"
- 1512      00
- 1513              	.LASF2:
- 1514 0318 73686F72 		.ascii	"short int\000"
- 1514      7420696E 
- 1514      7400
- 1515              	.LASF36:
- 1516 0322 4261636B 		.ascii	"Backlight_Write\000"
- 1516      6C696768 
- 1516      745F5772 
- 1516      69746500 
- 1517              	.LASF17:
- 1518 0332 6C656E67 		.ascii	"length\000"
- 1518      746800
- 1519              	.LASF4:
- 1520 0339 6C6F6E67 		.ascii	"long int\000"
- 1520      20696E74 
- 1520      00
- 1521              	.LASF35:
- 1522 0342 53746963 		.ascii	"StickButton_Interrupt_Start\000"
- 1522      6B427574 
- 1522      746F6E5F 
- 1522      496E7465 
- 1522      72727570 
- 1523              	.LASF12:
- 1524 035e 6C6F6E67 		.ascii	"long double\000"
- 1524      20646F75 
- 1524      626C6500 
- 1525              	.LASF0:
- 1526 036a 7369676E 		.ascii	"signed char\000"
- 1526      65642063 
- 1526      68617200 
- 1527              	.LASF42:
- 1528 0376 73707269 		.ascii	"sprintf\000"
-ARM GAS  C:\Users\quint\AppData\Local\Temp\cc7CQu2Q.s 			page 32
+ 1614      706C6179 
+ 1614      00
+ 1615              	.LASF25:
+ 1616 000d 474C4344 		.ascii	"GLCD_Start\000"
+ 1616      5F537461 
+ 1616      727400
+ 1617              	.LASF34:
+ 1618 0018 54696D65 		.ascii	"Timer_1_Start\000"
+ 1618      725F315F 
+ 1618      53746172 
+ 1618      7400
+ 1619              	.LASF20:
+ 1620 0026 6D797374 		.ascii	"mystring\000"
+ 1620      72696E67 
+ 1620      00
+ 1621              	.LASF26:
+ 1622 002f 415F496E 		.ascii	"A_Interrupt_ClearPending\000"
+ 1622      74657272 
+ 1622      7570745F 
+ 1622      436C6561 
+ 1622      7250656E 
+ 1623              	.LASF27:
+ 1624 0048 415F496E 		.ascii	"A_Interrupt_Start\000"
+ 1624      74657272 
+ 1624      7570745F 
+ 1624      53746172 
+ 1624      7400
+ 1625              	.LASF21:
+ 1626 005a 636F756E 		.ascii	"count\000"
+ 1626      7400
+ 1627              	.LASF14:
+ 1628 0060 63656E74 		.ascii	"centerX\000"
+ 1628      65725800 
+ 1629              	.LASF15:
+ 1630 0068 63656E74 		.ascii	"centerY\000"
+ 1630      65725900 
+ 1631              	.LASF3:
+ 1632 0070 73686F72 		.ascii	"short unsigned int\000"
+ 1632      7420756E 
+ 1632      7369676E 
+ 1632      65642069 
+ 1632      6E7400
+ 1633              	.LASF19:
+ 1634 0083 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 1634      5F464F4E 
+ 1634      54387831 
+ 1634      3600
+ 1635              	.LASF24:
+ 1636 0091 474C4344 		.ascii	"GLCD_DrawLine\000"
+ 1636      5F447261 
+ 1636      774C696E 
+ 1636      6500
+ 1637              	.LASF9:
+ 1638 009f 666C6F61 		.ascii	"float\000"
+ 1638      7400
+ 1639              	.LASF42:
+ 1640 00a5 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 32
 
 
- 1528      6E746600 
- 1529              	.LASF37:
- 1530 037e 425F4C45 		.ascii	"B_LED_Write\000"
- 1530      445F5772 
- 1530      69746500 
- 1531              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1640      3800
+ 1641              	.LASF1:
+ 1642 00ab 756E7369 		.ascii	"unsigned char\000"
+ 1642      676E6564 
+ 1642      20636861 
+ 1642      7200
+ 1643              	.LASF29:
+ 1644 00b9 425F496E 		.ascii	"B_Interrupt_Start\000"
+ 1644      74657272 
+ 1644      7570745F 
+ 1644      53746172 
+ 1644      7400
+ 1645              	.LASF41:
+ 1646 00cb 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\Hw"
+ 1646      49545C4D 
+ 1646      6963726F 
+ 1646      636F6E74 
+ 1646      726F6C6C 
+ 1647 00fb 34204265 		.ascii	"4 Beat Meter\\BeatMeter.cydsn\000"
+ 1647      6174204D 
+ 1647      65746572 
+ 1647      5C426561 
+ 1647      744D6574 
+ 1648              	.LASF5:
+ 1649 0118 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1649      20756E73 
+ 1649      69676E65 
+ 1649      6420696E 
+ 1649      7400
+ 1650              	.LASF33:
+ 1651 012a 50574D5F 		.ascii	"PWM_1_Start\000"
+ 1651      315F5374 
+ 1651      61727400 
+ 1652              	.LASF16:
+ 1653 0136 616E676C 		.ascii	"angle\000"
+ 1653      6500
+ 1654              	.LASF10:
+ 1655 013c 646F7562 		.ascii	"double\000"
+ 1655      6C6500
+ 1656              	.LASF28:
+ 1657 0143 425F496E 		.ascii	"B_Interrupt_ClearPending\000"
+ 1657      74657272 
+ 1657      7570745F 
+ 1657      436C6561 
+ 1657      7250656E 
+ 1658              	.LASF43:
+ 1659 015c 474C4344 		.ascii	"GLCD_Draw_Line_Polar\000"
+ 1659      5F447261 
+ 1659      775F4C69 
+ 1659      6E655F50 
+ 1659      6F6C6172 
+ 1660              	.LASF22:
+ 1661 0171 636F756E 		.ascii	"countFollow\000"
+ 1661      74466F6C 
+ 1661      6C6F7700 
+ 1662              	.LASF18:
+ 1663 017d 636F6C6F 		.ascii	"color\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 33
+
+
+ 1663      7200
+ 1664              	.LASF32:
+ 1665 0183 475F4C45 		.ascii	"G_LED_Write\000"
+ 1665      445F5772 
+ 1665      69746500 
+ 1666              	.LASF44:
+ 1667 018f 6D61696E 		.ascii	"main\000"
+ 1667      00
+ 1668              	.LASF8:
+ 1669 0194 756E7369 		.ascii	"unsigned int\000"
+ 1669      676E6564 
+ 1669      20696E74 
+ 1669      00
+ 1670              	.LASF7:
+ 1671 01a1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1671      206C6F6E 
+ 1671      6720756E 
+ 1671      7369676E 
+ 1671      65642069 
+ 1672              	.LASF35:
+ 1673 01b8 54696D65 		.ascii	"Timer_1_WriteCounter\000"
+ 1673      725F315F 
+ 1673      57726974 
+ 1673      65436F75 
+ 1673      6E746572 
+ 1674              	.LASF36:
+ 1675 01cd 474C4344 		.ascii	"GLCD_PrintString\000"
+ 1675      5F507269 
+ 1675      6E745374 
+ 1675      72696E67 
+ 1675      00
+ 1676              	.LASF39:
+ 1677 01de 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1677      43313120 
+ 1677      352E342E 
+ 1677      31203230 
+ 1677      31363036 
+ 1678 0211 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1678      20726576 
+ 1678      6973696F 
+ 1678      6E203233 
+ 1678      37373135 
+ 1679 0244 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1679      66756E63 
+ 1679      74696F6E 
+ 1679      2D736563 
+ 1679      74696F6E 
+ 1680              	.LASF13:
+ 1681 026c 73697A65 		.ascii	"sizetype\000"
+ 1681      74797065 
+ 1681      00
+ 1682              	.LASF37:
+ 1683 0275 474C4344 		.ascii	"GLCD_DrawCircle\000"
+ 1683      5F447261 
+ 1683      77436972 
+ 1683      636C6500 
+ 1684              	.LASF6:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccz811vf.s 			page 34
+
+
+ 1685 0285 6C6F6E67 		.ascii	"long long int\000"
+ 1685      206C6F6E 
+ 1685      6720696E 
+ 1685      7400
+ 1686              	.LASF40:
+ 1687 0293 6D61696E 		.ascii	"main.c\000"
+ 1687      2E6300
+ 1688              	.LASF11:
+ 1689 029a 63686172 		.ascii	"char\000"
+ 1689      00
+ 1690              	.LASF2:
+ 1691 029f 73686F72 		.ascii	"short int\000"
+ 1691      7420696E 
+ 1691      7400
+ 1692              	.LASF30:
+ 1693 02a9 4261636B 		.ascii	"Backlight_Write\000"
+ 1693      6C696768 
+ 1693      745F5772 
+ 1693      69746500 
+ 1694              	.LASF17:
+ 1695 02b9 6C656E67 		.ascii	"length\000"
+ 1695      746800
+ 1696              	.LASF4:
+ 1697 02c0 6C6F6E67 		.ascii	"long int\000"
+ 1697      20696E74 
+ 1697      00
+ 1698              	.LASF12:
+ 1699 02c9 6C6F6E67 		.ascii	"long double\000"
+ 1699      20646F75 
+ 1699      626C6500 
+ 1700              	.LASF0:
+ 1701 02d5 7369676E 		.ascii	"signed char\000"
+ 1701      65642063 
+ 1701      68617200 
+ 1702              	.LASF38:
+ 1703 02e1 73707269 		.ascii	"sprintf\000"
+ 1703      6E746600 
+ 1704              	.LASF31:
+ 1705 02e9 425F4C45 		.ascii	"B_LED_Write\000"
+ 1705      445F5772 
+ 1705      69746500 
+ 1706              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

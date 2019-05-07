@@ -1,5 +1,5 @@
 # BeatMeter
-# 2019-04-24 01:47:32Z
+# 2019-04-24 04:04:34Z
 
 # IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
 dont_use_io iocell 3 2
@@ -13,39 +13,29 @@ set_io "\GLCD:MOSI(0)\" iocell 3 4
 set_io "\GLCD:SS(0)\" iocell 0 6
 set_io "Backlight(0)" iocell 3 0
 set_io "A_Button(0)" iocell 0 7
-set_io "B_Button(0)" iocell 3 7
-set_io "C_Button(0)" iocell 0 0
-set_io "D_Button(0)" iocell 3 5
-set_io "StickButton(0)" iocell 2 6
 set_io "R_LED(0)" iocell 1 6
 set_io "G_LED(0)" iocell 0 2
 set_io "B_LED(0)" iocell 0 3
-set_location "\GLCD:SPIM_UDB:BSPIM:load_rx_data\" 0 0 0 0
-set_location "\GLCD:SPIM_UDB:BSPIM:tx_status_0\" 1 0 0 2
-set_location "\GLCD:SPIM_UDB:BSPIM:tx_status_4\" 1 1 1 2
-set_location "\GLCD:SPIM_UDB:BSPIM:rx_status_6\" 0 1 0 3
-set_location "Net_119" 1 0 1 1
-set_location "Net_6" 1 0 1 0
-set_location "Net_8" 0 1 1 3
-set_location "Net_10" 0 1 1 0
+set_location "\GLCD:SPIM_UDB:BSPIM:load_rx_data\" 0 0 0 1
+set_location "\GLCD:SPIM_UDB:BSPIM:tx_status_0\" 0 1 0 3
+set_location "\GLCD:SPIM_UDB:BSPIM:tx_status_4\" 0 1 0 1
+set_location "\GLCD:SPIM_UDB:BSPIM:rx_status_6\" 0 1 0 2
+set_location "Net_119" 1 1 0 2
 set_location "\GLCD:SPIM_UDB:BSPIM:BitCounter\" 0 0 7
-set_location "\GLCD:SPIM_UDB:BSPIM:TxStsReg\" 1 1 4
-set_location "\GLCD:SPIM_UDB:BSPIM:RxStsReg\" 0 1 4
-set_location "\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\" 0 1 2
-set_location "\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\" 1 1 2
+set_location "\GLCD:SPIM_UDB:BSPIM:TxStsReg\" 0 1 4
+set_location "\GLCD:SPIM_UDB:BSPIM:RxStsReg\" 1 1 4
+set_location "\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u0\" 1 0 2
+set_location "\GLCD:SPIM_UDB:BSPIM:sR16:Dp:u1\" 0 0 2
 set_location "A_Interrupt" interrupt -1 -1 17
 set_location "B_Interrupt" interrupt -1 -1 16
-set_location "C_Interrupt" interrupt -1 -1 0
-set_location "D_Interrupt" interrupt -1 -1 2
-set_location "StickButton_Interrupt" interrupt -1 -1 3
 set_location "\Timer_1:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 1
 set_location "\PWM_1:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 0
 set_location "\GLCD:Net_41\" 0 1 0 0
 set_location "\GLCD:SPIM_UDB:BSPIM:state_2\" 0 0 0 3
 set_location "\GLCD:SPIM_UDB:BSPIM:state_1\" 0 0 0 2
-set_location "\GLCD:SPIM_UDB:BSPIM:state_0\" 1 0 0 1
+set_location "\GLCD:SPIM_UDB:BSPIM:state_0\" 1 1 0 1
 set_location "\GLCD:Net_43\" 1 1 1 0
 set_location "\GLCD:SPIM_UDB:BSPIM:load_cond\" 0 0 1 1
 set_location "\GLCD:SPIM_UDB:BSPIM:ld_ident\" 0 0 1 0
-set_location "\GLCD:SPIM_UDB:BSPIM:cnt_enable\" 1 0 0 0
-set_location "\GLCD:Net_42\" 0 0 0 1
+set_location "\GLCD:SPIM_UDB:BSPIM:cnt_enable\" 1 1 0 0
+set_location "\GLCD:Net_42\" 1 1 1 1

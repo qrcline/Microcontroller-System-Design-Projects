@@ -18,185 +18,176 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BeatMeter-000\BeatMeter\Generated_Source\PSoC4\B_Interrupt\B_Interrupt.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="BeatMeter-000\MiniScope\Source Files\main.c">
 <ExpandedNodeIds>
 <v>BeatMeter-000</v>
-<v>BeatMeter-000\BeatMeter</v>
-<v>BeatMeter-000\BeatMeter\TopDesign</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Pins</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Analog</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Clocks</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Interrupts</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\System</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Directives</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Flash Security</v>
-<v>BeatMeter-000\BeatMeter\Header Files</v>
-<v>BeatMeter-000\BeatMeter\Header Files\cyapicallbacks.h</v>
-<v>BeatMeter-000\BeatMeter\Source Files</v>
-<v>BeatMeter-000\BeatMeter\Source Files\main.c</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\A_Interrupt</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\B_Interrupt</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\R_LED</v>
+<v>BeatMeter-000\MiniScope</v>
+<v>BeatMeter-000\MiniScope\TopDesign</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Pins</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Analog</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Clocks</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Interrupts</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\System</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Directives</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Flash Security</v>
+<v>BeatMeter-000\MiniScope\Header Files</v>
+<v>BeatMeter-000\MiniScope\Header Files\cyapicallbacks.h</v>
+<v>BeatMeter-000\MiniScope\Source Files</v>
+<v>BeatMeter-000\MiniScope\Source Files\main.c</v>
+<v>BeatMeter-000\MiniScope\Generated_Source</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\A_Interrupt</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>BeatMeter-000</v>
-<v>BeatMeter-000\BeatMeter</v>
-<v>BeatMeter-000\BeatMeter\TopDesign</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Pins</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Analog</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Clocks</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Interrupts</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\System</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Directives</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.cydwr\Flash Security</v>
-<v>BeatMeter-000\BeatMeter\Header Files</v>
-<v>BeatMeter-000\BeatMeter\Header Files\cyapicallbacks.h</v>
-<v>BeatMeter-000\BeatMeter\Source Files</v>
-<v>BeatMeter-000\BeatMeter\Source Files\main.c</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\A_Button</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\A_Interrupt</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\A_Interrupt\A_Interrupt.c</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\A_Interrupt\A_Interrupt.h</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\B_Button</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\B_Interrupt</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\B_Interrupt\B_Interrupt.c</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\B_Interrupt\B_Interrupt.h</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\B_LED</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\Backlight</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\C_Button</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\C_Interrupt</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\Clock_1</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\cy_boot</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\cy_lfclk</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\D_Button</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\D_Interrupt</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\G_LED</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\GLCD</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\GLCD_MOSI</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\GLCD_Reset</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\GLCD_SCLK</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\GLCD_SPIM_UDB</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\GLCD_SPIM_UDB_IntClock</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\GLCD_SS</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\PWM_1</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\R_LED</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\R_LED\R_LED.c</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\R_LED\R_LED.h</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\R_LED\R_LED_aliases.h</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\R_LED\R_LED_PM.c</v>
-<v>BeatMeter-000\BeatMeter\Generated_Source\PSoC4\StickButton</v>
+<v>BeatMeter-000\MiniScope</v>
+<v>BeatMeter-000\MiniScope\TopDesign</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Pins</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Analog</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Clocks</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Interrupts</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\System</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Directives</v>
+<v>BeatMeter-000\MiniScope\MiniScope.cydwr\Flash Security</v>
+<v>BeatMeter-000\MiniScope\Header Files</v>
+<v>BeatMeter-000\MiniScope\Header Files\cyapicallbacks.h</v>
+<v>BeatMeter-000\MiniScope\Source Files</v>
+<v>BeatMeter-000\MiniScope\Source Files\main.c</v>
+<v>BeatMeter-000\MiniScope\Generated_Source</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\A_Interrupt</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\A_Interrupt\A_Interrupt.c</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\A_Interrupt\A_Interrupt.h</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\ADCInput</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\ADCInput_intClock</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\ADCInput_IRQ</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\B_LED</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\Backlight</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\Clock_1</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cy_boot</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cy_lfclk</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\G_LED</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\GLCD</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\GLCD_MOSI</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\GLCD_Reset</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\GLCD_SCLK</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\GLCD_SPIM_UDB</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\GLCD_SPIM_UDB_IntClock</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\GLCD_SS</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\JoyX</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\JoyY</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\R_LED</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\Timer_1</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>BeatMeter-000\MiniScope\Generated_Source\PSoC4\cyfitter.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>BeatMeter-000</v>
-<v>BeatMeter-000\BeatMeter</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\API</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\API\GLCD.c</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\API\GLCD.h</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\PSoC4</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\PSoC5</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
-<v>BeatMeter-000\BeatMeter\TopDesign</v>
-<v>BeatMeter-000\BeatMeter\TopDesign\TopDesign.cysch</v>
+<v>BeatMeter-000\MiniScope</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\API</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\PSoC4</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\PSoC5</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>BeatMeter-000\MiniScope\TopDesign</v>
+<v>BeatMeter-000\MiniScope\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>BeatMeter-000</v>
-<v>BeatMeter-000\BeatMeter</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\API</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\API\GLCD.c</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\API\GLCD.h</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\PSoC4</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\PSoC5</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
-<v>BeatMeter-000\BeatMeter\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
-<v>BeatMeter-000\BeatMeter\TopDesign</v>
-<v>BeatMeter-000\BeatMeter\TopDesign\TopDesign.cysch</v>
+<v>BeatMeter-000\MiniScope</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\API</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\PSoC4</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\PSoC5</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>BeatMeter-000\MiniScope\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>BeatMeter-000\MiniScope\TopDesign</v>
+<v>BeatMeter-000\MiniScope\TopDesign\TopDesign.cysch</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>BeatMeter-000</v>
-<v>BeatMeter-000\BeatMeter</v>
-<v>BeatMeter-000\BeatMeter\CortexM0</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Button.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Button_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Interrupt.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Button.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Button_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Interrupt.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Button.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Button_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Interrupt.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Button.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Button_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Interrupt.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_1_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\StickButton.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\StickButton_Interrupt.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\StickButton_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\BeatMeter.elf</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\BeatMeter.hex</v>
-<v>BeatMeter-000\BeatMeter\CortexM0\ARM_GCC_541\Debug\BeatMeter.map</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.gpdsc</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter.rpt</v>
-<v>BeatMeter-000\BeatMeter\BeatMeter_timing.html</v>
+<v>BeatMeter-000\MiniScope</v>
+<v>BeatMeter-000\MiniScope\CortexM0</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Interrupt.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_INT.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_intClock.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_IRQ.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\MiniScope.elf</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\MiniScope.hex</v>
+<v>BeatMeter-000\MiniScope\CortexM0\ARM_GCC_541\Debug\MiniScope.map</v>
+<v>BeatMeter-000\MiniScope\MiniScope.gpdsc</v>
+<v>BeatMeter-000\MiniScope\MiniScope.rpt</v>
+<v>BeatMeter-000\MiniScope\MiniScope_timing.html</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>BeatMeter-000</v>
-<v>BeatMeter-000\BeatMeter</v>
+<v>BeatMeter-000\MiniScope</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -207,41 +198,35 @@
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>BeatMeter-000</v>
-<v>BeatMeter-000\BeatMeter</v>
-<v>BeatMeter-000\BeatMeter\PSoC 4 Architecture TRM</v>
-<v>BeatMeter-000\BeatMeter\PSoC 4200 Family Datasheet</v>
-<v>BeatMeter-000\BeatMeter\System Reference Guides</v>
-<v>BeatMeter-000\BeatMeter\System Reference Guides\cy_boot_v5_80</v>
-<v>BeatMeter-000\BeatMeter\System Reference Guides\cy_lfclk_v1_20</v>
-<v>BeatMeter-000\BeatMeter\cy_clock_v2_20.pdf</v>
-<v>BeatMeter-000\BeatMeter\cy_isr_v1_70</v>
-<v>BeatMeter-000\BeatMeter\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>BeatMeter-000\BeatMeter\cy_pins_v2_20</v>
-<v>BeatMeter-000\BeatMeter\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>BeatMeter-000\BeatMeter\not_v1_0</v>
-<v>BeatMeter-000\BeatMeter\not_v1_0\not_v1_0.pdf</v>
-<v>BeatMeter-000\BeatMeter\ColorLcdShield.pdf</v>
-<v>BeatMeter-000\BeatMeter\TCPWM_P4_v2_10</v>
-<v>BeatMeter-000\BeatMeter\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
+<v>BeatMeter-000\MiniScope</v>
+<v>BeatMeter-000\MiniScope\PSoC 4 Architecture TRM</v>
+<v>BeatMeter-000\MiniScope\PSoC 4200 Family Datasheet</v>
+<v>BeatMeter-000\MiniScope\System Reference Guides</v>
+<v>BeatMeter-000\MiniScope\System Reference Guides\cy_boot_v5_80</v>
+<v>BeatMeter-000\MiniScope\System Reference Guides\cy_lfclk_v1_20</v>
+<v>BeatMeter-000\MiniScope\ADC_SAR_SEQ_P4_v2_50.pdf</v>
+<v>BeatMeter-000\MiniScope\cy_clock_v2_20.pdf</v>
+<v>BeatMeter-000\MiniScope\cy_isr_v1_70.pdf</v>
+<v>BeatMeter-000\MiniScope\cy_pins_v2_20</v>
+<v>BeatMeter-000\MiniScope\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>BeatMeter-000\MiniScope\ColorLcdShield.pdf</v>
+<v>BeatMeter-000\MiniScope\TCPWM_P4_v2_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>BeatMeter-000</v>
-<v>BeatMeter-000\BeatMeter</v>
-<v>BeatMeter-000\BeatMeter\PSoC 4 Architecture TRM</v>
-<v>BeatMeter-000\BeatMeter\PSoC 4200 Family Datasheet</v>
-<v>BeatMeter-000\BeatMeter\System Reference Guides</v>
-<v>BeatMeter-000\BeatMeter\System Reference Guides\cy_boot_v5_80</v>
-<v>BeatMeter-000\BeatMeter\System Reference Guides\cy_lfclk_v1_20</v>
-<v>BeatMeter-000\BeatMeter\cy_clock_v2_20.pdf</v>
-<v>BeatMeter-000\BeatMeter\cy_isr_v1_70</v>
-<v>BeatMeter-000\BeatMeter\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>BeatMeter-000\BeatMeter\cy_pins_v2_20</v>
-<v>BeatMeter-000\BeatMeter\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>BeatMeter-000\BeatMeter\not_v1_0</v>
-<v>BeatMeter-000\BeatMeter\not_v1_0\not_v1_0.pdf</v>
-<v>BeatMeter-000\BeatMeter\ColorLcdShield.pdf</v>
-<v>BeatMeter-000\BeatMeter\TCPWM_P4_v2_10</v>
-<v>BeatMeter-000\BeatMeter\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
+<v>BeatMeter-000\MiniScope</v>
+<v>BeatMeter-000\MiniScope\PSoC 4 Architecture TRM</v>
+<v>BeatMeter-000\MiniScope\PSoC 4200 Family Datasheet</v>
+<v>BeatMeter-000\MiniScope\System Reference Guides</v>
+<v>BeatMeter-000\MiniScope\System Reference Guides\cy_boot_v5_80</v>
+<v>BeatMeter-000\MiniScope\System Reference Guides\cy_lfclk_v1_20</v>
+<v>BeatMeter-000\MiniScope\ADC_SAR_SEQ_P4_v2_50.pdf</v>
+<v>BeatMeter-000\MiniScope\cy_clock_v2_20.pdf</v>
+<v>BeatMeter-000\MiniScope\cy_isr_v1_70.pdf</v>
+<v>BeatMeter-000\MiniScope\cy_pins_v2_20</v>
+<v>BeatMeter-000\MiniScope\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>BeatMeter-000\MiniScope\ColorLcdShield.pdf</v>
+<v>BeatMeter-000\MiniScope\TCPWM_P4_v2_10.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -251,11 +236,12 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\BeatMeter.cydwr" />
-<name v=".\main.c" />
-<name v=".\Generated_Source\PSoC4\R_LED.c" />
-<name v=".\Generated_Source\PSoC4\A_Interrupt.c" />
+<name v="..\..\HW5-MiniScope\MiniScope.cydsn\main.c" />
+<name v="..\..\HW5-MiniScope\MiniScope.cydsn\cyapicallbacks.h" />
+<name v="..\..\HW5-MiniScope\MiniScope.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\..\HW5-MiniScope\MiniScope.cydsn\MiniScope.cydwr" />
+<name v="..\..\HW5-MiniScope\MiniScope.cydsn\Generated_Source\PSoC4\A_Interrupt.c" />
+<name v="..\..\HW5-MiniScope\MiniScope.cydsn\Generated_Source\PSoC4\R_LED.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -263,7 +249,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1315, 751" SelectedTabbedMdiWindow="ab662d97-5615-4e55-85a9-0ac49e40c4f3"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\TopDesign\TopDesign.cysch" Guid="ab662d97-5615-4e55-85a9-0ac49e40c4f3" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\BeatMeter.cydwr" Guid="af3c1cde-fd20-4f67-a781-db9d760de466" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\main.c" Guid="616bf29f-d372-4e60-8060-cfb2b8dc1a74" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\Generated_Source\PSoC4\R_LED.c" Guid="19dd6f63-0139-4dae-8af2-5a1b31bd119b" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\Generated_Source\PSoC4\A_Interrupt.c" Guid="c39f8246-174e-4856-8010-a84b92737cef" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1315, 751" SelectedTabbedMdiWindow="8eff4239-029f-4e3a-a955-025e689e1735"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\main.c" Guid="8eff4239-029f-4e3a-a955-025e689e1735" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\cyapicallbacks.h" Guid="e4544e6f-5923-405e-b8d2-67bb15203254" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\TopDesign\TopDesign.cysch" Guid="11c85833-da84-44d4-80a8-b03f1135772a" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\MiniScope.cydwr" Guid="c5ad6b54-f586-4785-a025-35b0ff22c338" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\Generated_Source\PSoC4\A_Interrupt.c" Guid="cbe28e32-4f0c-4fad-9c10-47fc40b9985c" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\Generated_Source\PSoC4\R_LED.c" Guid="6d96256f-4bdd-4266-b761-6692a48b61e9" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

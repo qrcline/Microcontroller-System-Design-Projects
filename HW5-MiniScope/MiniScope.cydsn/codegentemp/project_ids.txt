@@ -1,0 +1,6 @@
+D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\MiniScope.cyprj|c26ad38e-2cf8-47fe-b28a-748402298c0a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|dab3b238-de0a-47db-948a-a67a538de246
+C:\Users\quint\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|0c5c4fc0-f887-4fd7-b984-578e9f6a9169
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|01276352-3c7c-42c7-9655-10a72ce7c8ab
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f4131ba6-c4fc-43b4-b0ee-e9cf7a4e43f3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|775aaf73-02d7-437c-b796-e255b8fa8b7a

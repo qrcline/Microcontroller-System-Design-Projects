@@ -1,0 +1,8 @@
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW5-MiniScope/MiniScope.cydsn/CortexM0/ARM_GCC_541/Debug/CyBootAsmGnu.o : D:/GIT/Microcontroller\ System\ Design\ Projects/HW5-MiniScope/MiniScope.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s D:/GIT/Microcontroller\ System\ Design\ Projects/HW5-MiniScope/MiniScope.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc D:/GIT/Microcontroller\ System\ Design\ Projects/HW5-MiniScope/MiniScope.cydsn/Generated_Source/PSoC4/cyfittergnu.inc 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW5-MiniScope/MiniScope.cydsn/Generated_Source/PSoC4/CyBootAsmGnu.s : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW5-MiniScope/MiniScope.cydsn/Generated_Source/PSoC4/cydevicegnu_trm.inc : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW5-MiniScope/MiniScope.cydsn/Generated_Source/PSoC4/cyfittergnu.inc : 
+
