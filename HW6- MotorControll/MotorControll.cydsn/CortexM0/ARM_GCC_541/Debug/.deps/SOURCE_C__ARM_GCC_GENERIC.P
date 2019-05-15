@@ -1,0 +1,120 @@
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/CortexM0/ARM_GCC_541/Debug/main.o : D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Centroid_LL.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Configuration.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Control.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Filter.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_ISR.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Processing.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_RegisterMap.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Sensing.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_SensingCSD_LL.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_SmartSense_LL.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Structure.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Tuner.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Clock_2.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CyFlash.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CyLFClk.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CyLib.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/DC_PWM.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/DirectionInt.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Enable.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Enable_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/G_LED.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/G_LED_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/LEDB.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/LEDB_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/LED_PWM.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Latch.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Latch_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/ReversePin.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/ReversePin_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/SERVO_PWM.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/SPIM.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/SPIM_IntClock.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/SPIM_PVT.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/StepperInterrupt.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Stepper_Timer.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cmsis_armcc.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cmsis_compiler.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cmsis_gcc.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/core_cm0.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cyPm.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cy_em_eeprom.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cydevice_trm.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cydisabledsheets.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cyfitter.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cypins.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cytypes.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/dcMotorOut.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/dcMotorOut_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/mosiOut.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/mosiOut_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/project.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/sclkOut.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/sclkOut_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/servoOut.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/servoOut_aliases.h D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/main.c 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Centroid_LL.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Configuration.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Control.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Filter.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_ISR.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Processing.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_RegisterMap.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Sensing.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_SensingCSD_LL.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_SmartSense_LL.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Structure.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CapSense_Tuner.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Clock_2.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CyFlash.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CyLFClk.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/CyLib.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/DC_PWM.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/DirectionInt.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Enable.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Enable_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/G_LED.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/G_LED_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/LEDB.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/LEDB_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/LED_PWM.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Latch.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Latch_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/ReversePin.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/ReversePin_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/SERVO_PWM.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/SPIM.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/SPIM_IntClock.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/SPIM_PVT.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/StepperInterrupt.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/Stepper_Timer.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cmsis_armcc.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cmsis_compiler.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cmsis_gcc.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/core_cm0.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cyPm.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cy_em_eeprom.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cydisabledsheets.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cyfitter.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cypins.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/cytypes.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/dcMotorOut.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/dcMotorOut_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/mosiOut.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/mosiOut_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/project.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/sclkOut.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/sclkOut_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/servoOut.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/Generated_Source/PSoC4/servoOut_aliases.h : 
+
+D:/GIT/Microcontroller\ System\ Design\ Projects/HW6-\ MotorControll/MotorControll.cydsn/main.c : 
+

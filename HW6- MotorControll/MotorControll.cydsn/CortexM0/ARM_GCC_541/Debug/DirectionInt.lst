@@ -1,0 +1,2065 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"DirectionInt.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.DirectionInt_SetVector,"ax",%progbits
+  20              		.align	2
+  21              		.global	DirectionInt_SetVector
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	DirectionInt_SetVector, %function
+  25              	DirectionInt_SetVector:
+  26              	.LFB36:
+  27              		.file 1 "Generated_Source\\PSoC4\\DirectionInt.c"
+   1:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/DirectionInt.c **** * File Name: DirectionInt.c  
+   3:Generated_Source\PSoC4/DirectionInt.c **** * Version 1.70
+   4:Generated_Source\PSoC4/DirectionInt.c **** *
+   5:Generated_Source\PSoC4/DirectionInt.c **** *  Description:
+   6:Generated_Source\PSoC4/DirectionInt.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC4/DirectionInt.c **** *
+   8:Generated_Source\PSoC4/DirectionInt.c **** *
+   9:Generated_Source\PSoC4/DirectionInt.c **** *  Note:
+  10:Generated_Source\PSoC4/DirectionInt.c **** *
+  11:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/DirectionInt.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/DirectionInt.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC4/DirectionInt.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC4/DirectionInt.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/DirectionInt.c **** 
+  18:Generated_Source\PSoC4/DirectionInt.c **** 
+  19:Generated_Source\PSoC4/DirectionInt.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC4/DirectionInt.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC4/DirectionInt.c **** #include <DirectionInt.h>
+  22:Generated_Source\PSoC4/DirectionInt.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC4/DirectionInt.c **** 
+  24:Generated_Source\PSoC4/DirectionInt.c **** #if !defined(DirectionInt__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC4/DirectionInt.c **** 
+  26:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+  27:Generated_Source\PSoC4/DirectionInt.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************/
+  29:Generated_Source\PSoC4/DirectionInt.c **** /* `#START DirectionInt_intc` */
+  30:Generated_Source\PSoC4/DirectionInt.c ****     #include "project.h"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 2
+
+
+  31:Generated_Source\PSoC4/DirectionInt.c ****     extern void dcMotorControll();
+  32:Generated_Source\PSoC4/DirectionInt.c **** /* `#END` */
+  33:Generated_Source\PSoC4/DirectionInt.c **** 
+  34:Generated_Source\PSoC4/DirectionInt.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  35:Generated_Source\PSoC4/DirectionInt.c **** 
+  36:Generated_Source\PSoC4/DirectionInt.c **** /* Declared in startup, used to set unused interrupts to. */
+  37:Generated_Source\PSoC4/DirectionInt.c **** CY_ISR_PROTO(IntDefaultHandler);
+  38:Generated_Source\PSoC4/DirectionInt.c **** 
+  39:Generated_Source\PSoC4/DirectionInt.c **** 
+  40:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+  41:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_Start
+  42:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+  43:Generated_Source\PSoC4/DirectionInt.c **** *
+  44:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+  45:Generated_Source\PSoC4/DirectionInt.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  46:Generated_Source\PSoC4/DirectionInt.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  47:Generated_Source\PSoC4/DirectionInt.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  48:Generated_Source\PSoC4/DirectionInt.c **** *  interrupt controller.
+  49:Generated_Source\PSoC4/DirectionInt.c **** *
+  50:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:  
+  51:Generated_Source\PSoC4/DirectionInt.c **** *   None
+  52:Generated_Source\PSoC4/DirectionInt.c **** *
+  53:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+  54:Generated_Source\PSoC4/DirectionInt.c **** *   None
+  55:Generated_Source\PSoC4/DirectionInt.c **** *
+  56:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+  57:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_Start(void)
+  58:Generated_Source\PSoC4/DirectionInt.c **** {
+  59:Generated_Source\PSoC4/DirectionInt.c ****     /* For all we know the interrupt is active. */
+  60:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_Disable();
+  61:Generated_Source\PSoC4/DirectionInt.c **** 
+  62:Generated_Source\PSoC4/DirectionInt.c ****     /* Set the ISR to point to the DirectionInt Interrupt. */
+  63:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_SetVector(&DirectionInt_Interrupt);
+  64:Generated_Source\PSoC4/DirectionInt.c **** 
+  65:Generated_Source\PSoC4/DirectionInt.c ****     /* Set the priority. */
+  66:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_SetPriority((uint8)DirectionInt_INTC_PRIOR_NUMBER);
+  67:Generated_Source\PSoC4/DirectionInt.c **** 
+  68:Generated_Source\PSoC4/DirectionInt.c ****     /* Enable it. */
+  69:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_Enable();
+  70:Generated_Source\PSoC4/DirectionInt.c **** }
+  71:Generated_Source\PSoC4/DirectionInt.c **** 
+  72:Generated_Source\PSoC4/DirectionInt.c **** 
+  73:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+  74:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_StartEx
+  75:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+  76:Generated_Source\PSoC4/DirectionInt.c **** *
+  77:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+  78:Generated_Source\PSoC4/DirectionInt.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  79:Generated_Source\PSoC4/DirectionInt.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  80:Generated_Source\PSoC4/DirectionInt.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  81:Generated_Source\PSoC4/DirectionInt.c **** *  the interrupt to the interrupt controller.
+  82:Generated_Source\PSoC4/DirectionInt.c **** *  
+  83:Generated_Source\PSoC4/DirectionInt.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  84:Generated_Source\PSoC4/DirectionInt.c **** *  used to provide consistent definition across compilers:
+  85:Generated_Source\PSoC4/DirectionInt.c **** *  
+  86:Generated_Source\PSoC4/DirectionInt.c **** *  Function definition example:
+  87:Generated_Source\PSoC4/DirectionInt.c **** *   CY_ISR(MyISR)
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 3
+
+
+  88:Generated_Source\PSoC4/DirectionInt.c **** *   {
+  89:Generated_Source\PSoC4/DirectionInt.c **** *   }
+  90:Generated_Source\PSoC4/DirectionInt.c **** *   Function prototype example:
+  91:Generated_Source\PSoC4/DirectionInt.c **** *   CY_ISR_PROTO(MyISR);
+  92:Generated_Source\PSoC4/DirectionInt.c **** *
+  93:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:  
+  94:Generated_Source\PSoC4/DirectionInt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  95:Generated_Source\PSoC4/DirectionInt.c **** *
+  96:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+  97:Generated_Source\PSoC4/DirectionInt.c **** *   None
+  98:Generated_Source\PSoC4/DirectionInt.c **** *
+  99:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 100:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_StartEx(cyisraddress address)
+ 101:Generated_Source\PSoC4/DirectionInt.c **** {
+ 102:Generated_Source\PSoC4/DirectionInt.c ****     /* For all we know the interrupt is active. */
+ 103:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_Disable();
+ 104:Generated_Source\PSoC4/DirectionInt.c **** 
+ 105:Generated_Source\PSoC4/DirectionInt.c ****     /* Set the ISR to point to the DirectionInt Interrupt. */
+ 106:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_SetVector(address);
+ 107:Generated_Source\PSoC4/DirectionInt.c **** 
+ 108:Generated_Source\PSoC4/DirectionInt.c ****     /* Set the priority. */
+ 109:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_SetPriority((uint8)DirectionInt_INTC_PRIOR_NUMBER);
+ 110:Generated_Source\PSoC4/DirectionInt.c **** 
+ 111:Generated_Source\PSoC4/DirectionInt.c ****     /* Enable it. */
+ 112:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_Enable();
+ 113:Generated_Source\PSoC4/DirectionInt.c **** }
+ 114:Generated_Source\PSoC4/DirectionInt.c **** 
+ 115:Generated_Source\PSoC4/DirectionInt.c **** 
+ 116:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 117:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_Stop
+ 118:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 119:Generated_Source\PSoC4/DirectionInt.c **** *
+ 120:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 121:Generated_Source\PSoC4/DirectionInt.c **** *   Disables and removes the interrupt.
+ 122:Generated_Source\PSoC4/DirectionInt.c **** *
+ 123:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:  
+ 124:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 125:Generated_Source\PSoC4/DirectionInt.c **** *
+ 126:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 127:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 128:Generated_Source\PSoC4/DirectionInt.c **** *
+ 129:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 130:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_Stop(void)
+ 131:Generated_Source\PSoC4/DirectionInt.c **** {
+ 132:Generated_Source\PSoC4/DirectionInt.c ****     /* Disable this interrupt. */
+ 133:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_Disable();
+ 134:Generated_Source\PSoC4/DirectionInt.c **** 
+ 135:Generated_Source\PSoC4/DirectionInt.c ****     /* Set the ISR to point to the passive one. */
+ 136:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_SetVector(&IntDefaultHandler);
+ 137:Generated_Source\PSoC4/DirectionInt.c **** }
+ 138:Generated_Source\PSoC4/DirectionInt.c **** 
+ 139:Generated_Source\PSoC4/DirectionInt.c **** 
+ 140:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 141:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_Interrupt
+ 142:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 143:Generated_Source\PSoC4/DirectionInt.c **** *
+ 144:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 4
+
+
+ 145:Generated_Source\PSoC4/DirectionInt.c **** *   The default Interrupt Service Routine for DirectionInt.
+ 146:Generated_Source\PSoC4/DirectionInt.c **** *
+ 147:Generated_Source\PSoC4/DirectionInt.c **** *   Add custom code between the START and END comments to keep the next version
+ 148:Generated_Source\PSoC4/DirectionInt.c **** *   of this file from over-writing your code.
+ 149:Generated_Source\PSoC4/DirectionInt.c **** *
+ 150:Generated_Source\PSoC4/DirectionInt.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 151:Generated_Source\PSoC4/DirectionInt.c **** *   your own separate ISR through ISR_StartEx().
+ 152:Generated_Source\PSoC4/DirectionInt.c **** *
+ 153:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:  
+ 154:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 155:Generated_Source\PSoC4/DirectionInt.c **** *
+ 156:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 157:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 158:Generated_Source\PSoC4/DirectionInt.c **** *
+ 159:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 160:Generated_Source\PSoC4/DirectionInt.c **** CY_ISR(DirectionInt_Interrupt)
+ 161:Generated_Source\PSoC4/DirectionInt.c **** {
+ 162:Generated_Source\PSoC4/DirectionInt.c ****     #ifdef DirectionInt_INTERRUPT_INTERRUPT_CALLBACK
+ 163:Generated_Source\PSoC4/DirectionInt.c ****         DirectionInt_Interrupt_InterruptCallback();
+ 164:Generated_Source\PSoC4/DirectionInt.c ****     #endif /* DirectionInt_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 165:Generated_Source\PSoC4/DirectionInt.c **** 
+ 166:Generated_Source\PSoC4/DirectionInt.c ****     /*  Place your Interrupt code here. */
+ 167:Generated_Source\PSoC4/DirectionInt.c ****     /* `#START DirectionInt_Interrupt` */
+ 168:Generated_Source\PSoC4/DirectionInt.c ****     
+ 169:Generated_Source\PSoC4/DirectionInt.c ****      dcMotorControll();
+ 170:Generated_Source\PSoC4/DirectionInt.c ****     CyDelay(10); 
+ 171:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_ClearPending(); 
+ 172:Generated_Source\PSoC4/DirectionInt.c ****     /* `#END` */
+ 173:Generated_Source\PSoC4/DirectionInt.c **** }
+ 174:Generated_Source\PSoC4/DirectionInt.c **** 
+ 175:Generated_Source\PSoC4/DirectionInt.c **** 
+ 176:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 177:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_SetVector
+ 178:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 179:Generated_Source\PSoC4/DirectionInt.c **** *
+ 180:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 181:Generated_Source\PSoC4/DirectionInt.c **** *   Change the ISR vector for the Interrupt. Note calling DirectionInt_Start
+ 182:Generated_Source\PSoC4/DirectionInt.c **** *   will override any effect this method would have had. To set the vector 
+ 183:Generated_Source\PSoC4/DirectionInt.c **** *   before the component has been started use DirectionInt_StartEx instead.
+ 184:Generated_Source\PSoC4/DirectionInt.c **** * 
+ 185:Generated_Source\PSoC4/DirectionInt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 186:Generated_Source\PSoC4/DirectionInt.c **** *   used to provide consistent definition across compilers:
+ 187:Generated_Source\PSoC4/DirectionInt.c **** *
+ 188:Generated_Source\PSoC4/DirectionInt.c **** *   Function definition example:
+ 189:Generated_Source\PSoC4/DirectionInt.c **** *   CY_ISR(MyISR)
+ 190:Generated_Source\PSoC4/DirectionInt.c **** *   {
+ 191:Generated_Source\PSoC4/DirectionInt.c **** *   }
+ 192:Generated_Source\PSoC4/DirectionInt.c **** *
+ 193:Generated_Source\PSoC4/DirectionInt.c **** *   Function prototype example:
+ 194:Generated_Source\PSoC4/DirectionInt.c **** *     CY_ISR_PROTO(MyISR);
+ 195:Generated_Source\PSoC4/DirectionInt.c **** *
+ 196:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 197:Generated_Source\PSoC4/DirectionInt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 198:Generated_Source\PSoC4/DirectionInt.c **** *
+ 199:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 200:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 201:Generated_Source\PSoC4/DirectionInt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 5
+
+
+ 202:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 203:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_SetVector(cyisraddress address)
+ 204:Generated_Source\PSoC4/DirectionInt.c **** {
+  28              		.loc 1 204 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+ 205:Generated_Source\PSoC4/DirectionInt.c ****     CyRamVectors[CYINT_IRQ_BASE + DirectionInt__INTC_NUMBER] = address;
+  34              		.loc 1 205 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1864     		str	r0, [r3, #64]
+ 206:Generated_Source\PSoC4/DirectionInt.c **** }
+  37              		.loc 1 206 0
+  38              		@ sp needed
+  39 0004 7047     		bx	lr
+  40              	.L3:
+  41 0006 C046     		.align	2
+  42              	.L2:
+  43 0008 00000000 		.word	CyRamVectors
+  44              		.cfi_endproc
+  45              	.LFE36:
+  46              		.size	DirectionInt_SetVector, .-DirectionInt_SetVector
+  47              		.section	.text.DirectionInt_GetVector,"ax",%progbits
+  48              		.align	2
+  49              		.global	DirectionInt_GetVector
+  50              		.code	16
+  51              		.thumb_func
+  52              		.type	DirectionInt_GetVector, %function
+  53              	DirectionInt_GetVector:
+  54              	.LFB37:
+ 207:Generated_Source\PSoC4/DirectionInt.c **** 
+ 208:Generated_Source\PSoC4/DirectionInt.c **** 
+ 209:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 210:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_GetVector
+ 211:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 212:Generated_Source\PSoC4/DirectionInt.c **** *
+ 213:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 214:Generated_Source\PSoC4/DirectionInt.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 215:Generated_Source\PSoC4/DirectionInt.c **** *
+ 216:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 217:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 218:Generated_Source\PSoC4/DirectionInt.c **** *
+ 219:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 220:Generated_Source\PSoC4/DirectionInt.c **** *   Address of the ISR in the interrupt vector table.
+ 221:Generated_Source\PSoC4/DirectionInt.c **** *
+ 222:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 223:Generated_Source\PSoC4/DirectionInt.c **** cyisraddress DirectionInt_GetVector(void)
+ 224:Generated_Source\PSoC4/DirectionInt.c **** {
+  55              		.loc 1 224 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+ 225:Generated_Source\PSoC4/DirectionInt.c ****     return CyRamVectors[CYINT_IRQ_BASE + DirectionInt__INTC_NUMBER];
+  60              		.loc 1 225 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 6
+
+
+  61 0000 014B     		ldr	r3, .L5
+  62 0002 186C     		ldr	r0, [r3, #64]
+ 226:Generated_Source\PSoC4/DirectionInt.c **** }
+  63              		.loc 1 226 0
+  64              		@ sp needed
+  65 0004 7047     		bx	lr
+  66              	.L6:
+  67 0006 C046     		.align	2
+  68              	.L5:
+  69 0008 00000000 		.word	CyRamVectors
+  70              		.cfi_endproc
+  71              	.LFE37:
+  72              		.size	DirectionInt_GetVector, .-DirectionInt_GetVector
+  73              		.section	.text.DirectionInt_SetPriority,"ax",%progbits
+  74              		.align	2
+  75              		.global	DirectionInt_SetPriority
+  76              		.code	16
+  77              		.thumb_func
+  78              		.type	DirectionInt_SetPriority, %function
+  79              	DirectionInt_SetPriority:
+  80              	.LFB38:
+ 227:Generated_Source\PSoC4/DirectionInt.c **** 
+ 228:Generated_Source\PSoC4/DirectionInt.c **** 
+ 229:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 230:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_SetPriority
+ 231:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 232:Generated_Source\PSoC4/DirectionInt.c **** *
+ 233:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 234:Generated_Source\PSoC4/DirectionInt.c **** *   Sets the Priority of the Interrupt. 
+ 235:Generated_Source\PSoC4/DirectionInt.c **** *
+ 236:Generated_Source\PSoC4/DirectionInt.c **** *   Note calling DirectionInt_Start or DirectionInt_StartEx will 
+ 237:Generated_Source\PSoC4/DirectionInt.c **** *   override any effect this API would have had. This API should only be called
+ 238:Generated_Source\PSoC4/DirectionInt.c **** *   after DirectionInt_Start or DirectionInt_StartEx has been called. 
+ 239:Generated_Source\PSoC4/DirectionInt.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 240:Generated_Source\PSoC4/DirectionInt.c **** *   Interrupt Editor.
+ 241:Generated_Source\PSoC4/DirectionInt.c **** *
+ 242:Generated_Source\PSoC4/DirectionInt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 243:Generated_Source\PSoC4/DirectionInt.c **** *
+ 244:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 245:Generated_Source\PSoC4/DirectionInt.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 246:Generated_Source\PSoC4/DirectionInt.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 247:Generated_Source\PSoC4/DirectionInt.c **** *             PSoC 4: Priority is from 0 to 3.
+ 248:Generated_Source\PSoC4/DirectionInt.c **** *
+ 249:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 250:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 251:Generated_Source\PSoC4/DirectionInt.c **** *
+ 252:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 253:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_SetPriority(uint8 priority)
+ 254:Generated_Source\PSoC4/DirectionInt.c **** {
+  81              		.loc 1 254 0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              	.LVL1:
+  86 0000 10B5     		push	{r4, lr}
+  87              		.cfi_def_cfa_offset 8
+  88              		.cfi_offset 4, -8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 7
+
+
+  89              		.cfi_offset 14, -4
+  90 0002 0400     		movs	r4, r0
+  91              	.LVL2:
+ 255:Generated_Source\PSoC4/DirectionInt.c **** 	uint8 interruptState;
+ 256:Generated_Source\PSoC4/DirectionInt.c ****     uint32 priorityOffset = ((DirectionInt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 257:Generated_Source\PSoC4/DirectionInt.c ****     
+ 258:Generated_Source\PSoC4/DirectionInt.c **** 	interruptState = CyEnterCriticalSection();
+  92              		.loc 1 258 0
+  93 0004 FFF7FEFF 		bl	CyEnterCriticalSection
+  94              	.LVL3:
+ 259:Generated_Source\PSoC4/DirectionInt.c ****     *DirectionInt_INTC_PRIOR = (*DirectionInt_INTC_PRIOR & (uint32)(~DirectionInt__INTC_PRIOR_MASK)
+  95              		.loc 1 259 0
+  96 0008 044A     		ldr	r2, .L8
+  97 000a 1368     		ldr	r3, [r2]
+  98 000c C021     		movs	r1, #192
+  99 000e 8B43     		bics	r3, r1
+ 260:Generated_Source\PSoC4/DirectionInt.c ****                                     ((uint32)priority << priorityOffset);
+ 100              		.loc 1 260 0
+ 101 0010 A401     		lsls	r4, r4, #6
+ 259:Generated_Source\PSoC4/DirectionInt.c ****     *DirectionInt_INTC_PRIOR = (*DirectionInt_INTC_PRIOR & (uint32)(~DirectionInt__INTC_PRIOR_MASK)
+ 102              		.loc 1 259 0
+ 103 0012 1C43     		orrs	r4, r3
+ 104 0014 1460     		str	r4, [r2]
+ 261:Generated_Source\PSoC4/DirectionInt.c **** 	CyExitCriticalSection(interruptState);
+ 105              		.loc 1 261 0
+ 106 0016 FFF7FEFF 		bl	CyExitCriticalSection
+ 107              	.LVL4:
+ 262:Generated_Source\PSoC4/DirectionInt.c **** }
+ 108              		.loc 1 262 0
+ 109              		@ sp needed
+ 110 001a 10BD     		pop	{r4, pc}
+ 111              	.L9:
+ 112              		.align	2
+ 113              	.L8:
+ 114 001c 00E400E0 		.word	-536812544
+ 115              		.cfi_endproc
+ 116              	.LFE38:
+ 117              		.size	DirectionInt_SetPriority, .-DirectionInt_SetPriority
+ 118              		.section	.text.DirectionInt_GetPriority,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	DirectionInt_GetPriority
+ 121              		.code	16
+ 122              		.thumb_func
+ 123              		.type	DirectionInt_GetPriority, %function
+ 124              	DirectionInt_GetPriority:
+ 125              	.LFB39:
+ 263:Generated_Source\PSoC4/DirectionInt.c **** 
+ 264:Generated_Source\PSoC4/DirectionInt.c **** 
+ 265:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 266:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_GetPriority
+ 267:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 268:Generated_Source\PSoC4/DirectionInt.c **** *
+ 269:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 270:Generated_Source\PSoC4/DirectionInt.c **** *   Gets the Priority of the Interrupt.
+ 271:Generated_Source\PSoC4/DirectionInt.c **** *
+ 272:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 273:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 8
+
+
+ 274:Generated_Source\PSoC4/DirectionInt.c **** *
+ 275:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 276:Generated_Source\PSoC4/DirectionInt.c **** *   Priority of the interrupt, 0 being the highest priority
+ 277:Generated_Source\PSoC4/DirectionInt.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 278:Generated_Source\PSoC4/DirectionInt.c **** *    PSoC 4: Priority is from 0 to 3.
+ 279:Generated_Source\PSoC4/DirectionInt.c **** *
+ 280:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 281:Generated_Source\PSoC4/DirectionInt.c **** uint8 DirectionInt_GetPriority(void)
+ 282:Generated_Source\PSoC4/DirectionInt.c **** {
+ 126              		.loc 1 282 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 131              	.LVL5:
+ 283:Generated_Source\PSoC4/DirectionInt.c ****     uint32 priority;
+ 284:Generated_Source\PSoC4/DirectionInt.c **** 	uint32 priorityOffset = ((DirectionInt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 285:Generated_Source\PSoC4/DirectionInt.c **** 
+ 286:Generated_Source\PSoC4/DirectionInt.c ****     priority = (*DirectionInt_INTC_PRIOR & DirectionInt__INTC_PRIOR_MASK) >> priorityOffset;
+ 132              		.loc 1 286 0
+ 133 0000 024B     		ldr	r3, .L11
+ 134 0002 1868     		ldr	r0, [r3]
+ 135 0004 8009     		lsrs	r0, r0, #6
+ 136              	.LVL6:
+ 287:Generated_Source\PSoC4/DirectionInt.c **** 
+ 288:Generated_Source\PSoC4/DirectionInt.c ****     return (uint8)priority;
+ 137              		.loc 1 288 0
+ 138 0006 0323     		movs	r3, #3
+ 139 0008 1840     		ands	r0, r3
+ 140              	.LVL7:
+ 289:Generated_Source\PSoC4/DirectionInt.c **** }
+ 141              		.loc 1 289 0
+ 142              		@ sp needed
+ 143 000a 7047     		bx	lr
+ 144              	.L12:
+ 145              		.align	2
+ 146              	.L11:
+ 147 000c 00E400E0 		.word	-536812544
+ 148              		.cfi_endproc
+ 149              	.LFE39:
+ 150              		.size	DirectionInt_GetPriority, .-DirectionInt_GetPriority
+ 151              		.section	.text.DirectionInt_Enable,"ax",%progbits
+ 152              		.align	2
+ 153              		.global	DirectionInt_Enable
+ 154              		.code	16
+ 155              		.thumb_func
+ 156              		.type	DirectionInt_Enable, %function
+ 157              	DirectionInt_Enable:
+ 158              	.LFB40:
+ 290:Generated_Source\PSoC4/DirectionInt.c **** 
+ 291:Generated_Source\PSoC4/DirectionInt.c **** 
+ 292:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 293:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_Enable
+ 294:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 295:Generated_Source\PSoC4/DirectionInt.c **** *
+ 296:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 297:Generated_Source\PSoC4/DirectionInt.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 9
+
+
+ 298:Generated_Source\PSoC4/DirectionInt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 299:Generated_Source\PSoC4/DirectionInt.c **** *   function, which sets the vector and the priority, has been called.
+ 300:Generated_Source\PSoC4/DirectionInt.c **** *
+ 301:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 302:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 303:Generated_Source\PSoC4/DirectionInt.c **** *
+ 304:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 305:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 306:Generated_Source\PSoC4/DirectionInt.c **** *
+ 307:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 308:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_Enable(void)
+ 309:Generated_Source\PSoC4/DirectionInt.c **** {
+ 159              		.loc 1 309 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 310:Generated_Source\PSoC4/DirectionInt.c ****     /* Enable the general interrupt. */
+ 311:Generated_Source\PSoC4/DirectionInt.c ****     *DirectionInt_INTC_SET_EN = DirectionInt__INTC_MASK;
+ 164              		.loc 1 311 0
+ 165 0000 0122     		movs	r2, #1
+ 166 0002 014B     		ldr	r3, .L14
+ 167 0004 1A60     		str	r2, [r3]
+ 312:Generated_Source\PSoC4/DirectionInt.c **** }
+ 168              		.loc 1 312 0
+ 169              		@ sp needed
+ 170 0006 7047     		bx	lr
+ 171              	.L15:
+ 172              		.align	2
+ 173              	.L14:
+ 174 0008 00E100E0 		.word	-536813312
+ 175              		.cfi_endproc
+ 176              	.LFE40:
+ 177              		.size	DirectionInt_Enable, .-DirectionInt_Enable
+ 178              		.section	.text.DirectionInt_GetState,"ax",%progbits
+ 179              		.align	2
+ 180              		.global	DirectionInt_GetState
+ 181              		.code	16
+ 182              		.thumb_func
+ 183              		.type	DirectionInt_GetState, %function
+ 184              	DirectionInt_GetState:
+ 185              	.LFB41:
+ 313:Generated_Source\PSoC4/DirectionInt.c **** 
+ 314:Generated_Source\PSoC4/DirectionInt.c **** 
+ 315:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 316:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_GetState
+ 317:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 318:Generated_Source\PSoC4/DirectionInt.c **** *
+ 319:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 320:Generated_Source\PSoC4/DirectionInt.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 321:Generated_Source\PSoC4/DirectionInt.c **** *
+ 322:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 323:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 324:Generated_Source\PSoC4/DirectionInt.c **** *
+ 325:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 326:Generated_Source\PSoC4/DirectionInt.c **** *   1 if enabled, 0 if disabled.
+ 327:Generated_Source\PSoC4/DirectionInt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 10
+
+
+ 328:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 329:Generated_Source\PSoC4/DirectionInt.c **** uint8 DirectionInt_GetState(void)
+ 330:Generated_Source\PSoC4/DirectionInt.c **** {
+ 186              		.loc 1 330 0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
+ 331:Generated_Source\PSoC4/DirectionInt.c ****     /* Get the state of the general interrupt. */
+ 332:Generated_Source\PSoC4/DirectionInt.c ****     return ((*DirectionInt_INTC_SET_EN & (uint32)DirectionInt__INTC_MASK) != 0u) ? 1u:0u;
+ 191              		.loc 1 332 0
+ 192 0000 024B     		ldr	r3, .L17
+ 193 0002 1B68     		ldr	r3, [r3]
+ 194 0004 0120     		movs	r0, #1
+ 195 0006 1840     		ands	r0, r3
+ 333:Generated_Source\PSoC4/DirectionInt.c **** }
+ 196              		.loc 1 333 0
+ 197              		@ sp needed
+ 198 0008 7047     		bx	lr
+ 199              	.L18:
+ 200 000a C046     		.align	2
+ 201              	.L17:
+ 202 000c 00E100E0 		.word	-536813312
+ 203              		.cfi_endproc
+ 204              	.LFE41:
+ 205              		.size	DirectionInt_GetState, .-DirectionInt_GetState
+ 206              		.section	.text.DirectionInt_Disable,"ax",%progbits
+ 207              		.align	2
+ 208              		.global	DirectionInt_Disable
+ 209              		.code	16
+ 210              		.thumb_func
+ 211              		.type	DirectionInt_Disable, %function
+ 212              	DirectionInt_Disable:
+ 213              	.LFB42:
+ 334:Generated_Source\PSoC4/DirectionInt.c **** 
+ 335:Generated_Source\PSoC4/DirectionInt.c **** 
+ 336:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 337:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_Disable
+ 338:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 339:Generated_Source\PSoC4/DirectionInt.c **** *
+ 340:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 341:Generated_Source\PSoC4/DirectionInt.c **** *   Disables the Interrupt in the interrupt controller.
+ 342:Generated_Source\PSoC4/DirectionInt.c **** *
+ 343:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 344:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 345:Generated_Source\PSoC4/DirectionInt.c **** *
+ 346:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 347:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 348:Generated_Source\PSoC4/DirectionInt.c **** *
+ 349:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 350:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_Disable(void)
+ 351:Generated_Source\PSoC4/DirectionInt.c **** {
+ 214              		.loc 1 351 0
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 0
+ 217              		@ frame_needed = 0, uses_anonymous_args = 0
+ 218              		@ link register save eliminated.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 11
+
+
+ 352:Generated_Source\PSoC4/DirectionInt.c ****     /* Disable the general interrupt. */
+ 353:Generated_Source\PSoC4/DirectionInt.c ****     *DirectionInt_INTC_CLR_EN = DirectionInt__INTC_MASK;
+ 219              		.loc 1 353 0
+ 220 0000 0122     		movs	r2, #1
+ 221 0002 014B     		ldr	r3, .L20
+ 222 0004 1A60     		str	r2, [r3]
+ 354:Generated_Source\PSoC4/DirectionInt.c **** }
+ 223              		.loc 1 354 0
+ 224              		@ sp needed
+ 225 0006 7047     		bx	lr
+ 226              	.L21:
+ 227              		.align	2
+ 228              	.L20:
+ 229 0008 80E100E0 		.word	-536813184
+ 230              		.cfi_endproc
+ 231              	.LFE42:
+ 232              		.size	DirectionInt_Disable, .-DirectionInt_Disable
+ 233              		.section	.text.DirectionInt_Start,"ax",%progbits
+ 234              		.align	2
+ 235              		.global	DirectionInt_Start
+ 236              		.code	16
+ 237              		.thumb_func
+ 238              		.type	DirectionInt_Start, %function
+ 239              	DirectionInt_Start:
+ 240              	.LFB32:
+  58:Generated_Source\PSoC4/DirectionInt.c ****     /* For all we know the interrupt is active. */
+ 241              		.loc 1 58 0
+ 242              		.cfi_startproc
+ 243              		@ args = 0, pretend = 0, frame = 0
+ 244              		@ frame_needed = 0, uses_anonymous_args = 0
+ 245 0000 10B5     		push	{r4, lr}
+ 246              		.cfi_def_cfa_offset 8
+ 247              		.cfi_offset 4, -8
+ 248              		.cfi_offset 14, -4
+  60:Generated_Source\PSoC4/DirectionInt.c **** 
+ 249              		.loc 1 60 0
+ 250 0002 FFF7FEFF 		bl	DirectionInt_Disable
+ 251              	.LVL8:
+  63:Generated_Source\PSoC4/DirectionInt.c **** 
+ 252              		.loc 1 63 0
+ 253 0006 0448     		ldr	r0, .L23
+ 254 0008 FFF7FEFF 		bl	DirectionInt_SetVector
+ 255              	.LVL9:
+  66:Generated_Source\PSoC4/DirectionInt.c **** 
+ 256              		.loc 1 66 0
+ 257 000c 0320     		movs	r0, #3
+ 258 000e FFF7FEFF 		bl	DirectionInt_SetPriority
+ 259              	.LVL10:
+  69:Generated_Source\PSoC4/DirectionInt.c **** }
+ 260              		.loc 1 69 0
+ 261 0012 FFF7FEFF 		bl	DirectionInt_Enable
+ 262              	.LVL11:
+  70:Generated_Source\PSoC4/DirectionInt.c **** 
+ 263              		.loc 1 70 0
+ 264              		@ sp needed
+ 265 0016 10BD     		pop	{r4, pc}
+ 266              	.L24:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 12
+
+
+ 267              		.align	2
+ 268              	.L23:
+ 269 0018 00000000 		.word	DirectionInt_Interrupt
+ 270              		.cfi_endproc
+ 271              	.LFE32:
+ 272              		.size	DirectionInt_Start, .-DirectionInt_Start
+ 273              		.section	.text.DirectionInt_StartEx,"ax",%progbits
+ 274              		.align	2
+ 275              		.global	DirectionInt_StartEx
+ 276              		.code	16
+ 277              		.thumb_func
+ 278              		.type	DirectionInt_StartEx, %function
+ 279              	DirectionInt_StartEx:
+ 280              	.LFB33:
+ 101:Generated_Source\PSoC4/DirectionInt.c ****     /* For all we know the interrupt is active. */
+ 281              		.loc 1 101 0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              	.LVL12:
+ 286 0000 10B5     		push	{r4, lr}
+ 287              		.cfi_def_cfa_offset 8
+ 288              		.cfi_offset 4, -8
+ 289              		.cfi_offset 14, -4
+ 290 0002 0400     		movs	r4, r0
+ 103:Generated_Source\PSoC4/DirectionInt.c **** 
+ 291              		.loc 1 103 0
+ 292 0004 FFF7FEFF 		bl	DirectionInt_Disable
+ 293              	.LVL13:
+ 106:Generated_Source\PSoC4/DirectionInt.c **** 
+ 294              		.loc 1 106 0
+ 295 0008 2000     		movs	r0, r4
+ 296 000a FFF7FEFF 		bl	DirectionInt_SetVector
+ 297              	.LVL14:
+ 109:Generated_Source\PSoC4/DirectionInt.c **** 
+ 298              		.loc 1 109 0
+ 299 000e 0320     		movs	r0, #3
+ 300 0010 FFF7FEFF 		bl	DirectionInt_SetPriority
+ 301              	.LVL15:
+ 112:Generated_Source\PSoC4/DirectionInt.c **** }
+ 302              		.loc 1 112 0
+ 303 0014 FFF7FEFF 		bl	DirectionInt_Enable
+ 304              	.LVL16:
+ 113:Generated_Source\PSoC4/DirectionInt.c **** 
+ 305              		.loc 1 113 0
+ 306              		@ sp needed
+ 307              	.LVL17:
+ 308 0018 10BD     		pop	{r4, pc}
+ 309              		.cfi_endproc
+ 310              	.LFE33:
+ 311              		.size	DirectionInt_StartEx, .-DirectionInt_StartEx
+ 312 001a C046     		.section	.text.DirectionInt_Stop,"ax",%progbits
+ 313              		.align	2
+ 314              		.global	DirectionInt_Stop
+ 315              		.code	16
+ 316              		.thumb_func
+ 317              		.type	DirectionInt_Stop, %function
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 13
+
+
+ 318              	DirectionInt_Stop:
+ 319              	.LFB34:
+ 131:Generated_Source\PSoC4/DirectionInt.c ****     /* Disable this interrupt. */
+ 320              		.loc 1 131 0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 0
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324 0000 10B5     		push	{r4, lr}
+ 325              		.cfi_def_cfa_offset 8
+ 326              		.cfi_offset 4, -8
+ 327              		.cfi_offset 14, -4
+ 133:Generated_Source\PSoC4/DirectionInt.c **** 
+ 328              		.loc 1 133 0
+ 329 0002 FFF7FEFF 		bl	DirectionInt_Disable
+ 330              	.LVL18:
+ 136:Generated_Source\PSoC4/DirectionInt.c **** }
+ 331              		.loc 1 136 0
+ 332 0006 0248     		ldr	r0, .L27
+ 333 0008 FFF7FEFF 		bl	DirectionInt_SetVector
+ 334              	.LVL19:
+ 137:Generated_Source\PSoC4/DirectionInt.c **** 
+ 335              		.loc 1 137 0
+ 336              		@ sp needed
+ 337 000c 10BD     		pop	{r4, pc}
+ 338              	.L28:
+ 339 000e C046     		.align	2
+ 340              	.L27:
+ 341 0010 00000000 		.word	IntDefaultHandler
+ 342              		.cfi_endproc
+ 343              	.LFE34:
+ 344              		.size	DirectionInt_Stop, .-DirectionInt_Stop
+ 345              		.section	.text.DirectionInt_SetPending,"ax",%progbits
+ 346              		.align	2
+ 347              		.global	DirectionInt_SetPending
+ 348              		.code	16
+ 349              		.thumb_func
+ 350              		.type	DirectionInt_SetPending, %function
+ 351              	DirectionInt_SetPending:
+ 352              	.LFB43:
+ 355:Generated_Source\PSoC4/DirectionInt.c **** 
+ 356:Generated_Source\PSoC4/DirectionInt.c **** 
+ 357:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 358:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_SetPending
+ 359:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 360:Generated_Source\PSoC4/DirectionInt.c **** *
+ 361:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 362:Generated_Source\PSoC4/DirectionInt.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 363:Generated_Source\PSoC4/DirectionInt.c **** *   generating the interrupt.
+ 364:Generated_Source\PSoC4/DirectionInt.c **** *
+ 365:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 366:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 367:Generated_Source\PSoC4/DirectionInt.c **** *
+ 368:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 369:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 370:Generated_Source\PSoC4/DirectionInt.c **** *
+ 371:Generated_Source\PSoC4/DirectionInt.c **** * Side Effects:
+ 372:Generated_Source\PSoC4/DirectionInt.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 14
+
+
+ 373:Generated_Source\PSoC4/DirectionInt.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 374:Generated_Source\PSoC4/DirectionInt.c **** *   interrupts).
+ 375:Generated_Source\PSoC4/DirectionInt.c **** *
+ 376:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 377:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_SetPending(void)
+ 378:Generated_Source\PSoC4/DirectionInt.c **** {
+ 353              		.loc 1 378 0
+ 354              		.cfi_startproc
+ 355              		@ args = 0, pretend = 0, frame = 0
+ 356              		@ frame_needed = 0, uses_anonymous_args = 0
+ 357              		@ link register save eliminated.
+ 379:Generated_Source\PSoC4/DirectionInt.c ****     *DirectionInt_INTC_SET_PD = DirectionInt__INTC_MASK;
+ 358              		.loc 1 379 0
+ 359 0000 0122     		movs	r2, #1
+ 360 0002 014B     		ldr	r3, .L30
+ 361 0004 1A60     		str	r2, [r3]
+ 380:Generated_Source\PSoC4/DirectionInt.c **** }
+ 362              		.loc 1 380 0
+ 363              		@ sp needed
+ 364 0006 7047     		bx	lr
+ 365              	.L31:
+ 366              		.align	2
+ 367              	.L30:
+ 368 0008 00E200E0 		.word	-536813056
+ 369              		.cfi_endproc
+ 370              	.LFE43:
+ 371              		.size	DirectionInt_SetPending, .-DirectionInt_SetPending
+ 372              		.section	.text.DirectionInt_ClearPending,"ax",%progbits
+ 373              		.align	2
+ 374              		.global	DirectionInt_ClearPending
+ 375              		.code	16
+ 376              		.thumb_func
+ 377              		.type	DirectionInt_ClearPending, %function
+ 378              	DirectionInt_ClearPending:
+ 379              	.LFB44:
+ 381:Generated_Source\PSoC4/DirectionInt.c **** 
+ 382:Generated_Source\PSoC4/DirectionInt.c **** 
+ 383:Generated_Source\PSoC4/DirectionInt.c **** /*******************************************************************************
+ 384:Generated_Source\PSoC4/DirectionInt.c **** * Function Name: DirectionInt_ClearPending
+ 385:Generated_Source\PSoC4/DirectionInt.c **** ********************************************************************************
+ 386:Generated_Source\PSoC4/DirectionInt.c **** *
+ 387:Generated_Source\PSoC4/DirectionInt.c **** * Summary:
+ 388:Generated_Source\PSoC4/DirectionInt.c **** *   Clears a pending interrupt in the interrupt controller.
+ 389:Generated_Source\PSoC4/DirectionInt.c **** *
+ 390:Generated_Source\PSoC4/DirectionInt.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 391:Generated_Source\PSoC4/DirectionInt.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 392:Generated_Source\PSoC4/DirectionInt.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 393:Generated_Source\PSoC4/DirectionInt.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 394:Generated_Source\PSoC4/DirectionInt.c **** *
+ 395:Generated_Source\PSoC4/DirectionInt.c **** * Parameters:
+ 396:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 397:Generated_Source\PSoC4/DirectionInt.c **** *
+ 398:Generated_Source\PSoC4/DirectionInt.c **** * Return:
+ 399:Generated_Source\PSoC4/DirectionInt.c **** *   None
+ 400:Generated_Source\PSoC4/DirectionInt.c **** *
+ 401:Generated_Source\PSoC4/DirectionInt.c **** *******************************************************************************/
+ 402:Generated_Source\PSoC4/DirectionInt.c **** void DirectionInt_ClearPending(void)
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 15
+
+
+ 403:Generated_Source\PSoC4/DirectionInt.c **** {
+ 380              		.loc 1 403 0
+ 381              		.cfi_startproc
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 404:Generated_Source\PSoC4/DirectionInt.c ****     *DirectionInt_INTC_CLR_PD = DirectionInt__INTC_MASK;
+ 385              		.loc 1 404 0
+ 386 0000 0122     		movs	r2, #1
+ 387 0002 014B     		ldr	r3, .L33
+ 388 0004 1A60     		str	r2, [r3]
+ 405:Generated_Source\PSoC4/DirectionInt.c **** }
+ 389              		.loc 1 405 0
+ 390              		@ sp needed
+ 391 0006 7047     		bx	lr
+ 392              	.L34:
+ 393              		.align	2
+ 394              	.L33:
+ 395 0008 80E200E0 		.word	-536812928
+ 396              		.cfi_endproc
+ 397              	.LFE44:
+ 398              		.size	DirectionInt_ClearPending, .-DirectionInt_ClearPending
+ 399              		.section	.text.DirectionInt_Interrupt,"ax",%progbits
+ 400              		.align	2
+ 401              		.global	DirectionInt_Interrupt
+ 402              		.code	16
+ 403              		.thumb_func
+ 404              		.type	DirectionInt_Interrupt, %function
+ 405              	DirectionInt_Interrupt:
+ 406              	.LFB35:
+ 161:Generated_Source\PSoC4/DirectionInt.c ****     #ifdef DirectionInt_INTERRUPT_INTERRUPT_CALLBACK
+ 407              		.loc 1 161 0
+ 408              		.cfi_startproc
+ 409              		@ args = 0, pretend = 0, frame = 0
+ 410              		@ frame_needed = 0, uses_anonymous_args = 0
+ 411 0000 10B5     		push	{r4, lr}
+ 412              		.cfi_def_cfa_offset 8
+ 413              		.cfi_offset 4, -8
+ 414              		.cfi_offset 14, -4
+ 169:Generated_Source\PSoC4/DirectionInt.c ****     CyDelay(10); 
+ 415              		.loc 1 169 0
+ 416 0002 FFF7FEFF 		bl	dcMotorControll
+ 417              	.LVL20:
+ 170:Generated_Source\PSoC4/DirectionInt.c ****     DirectionInt_ClearPending(); 
+ 418              		.loc 1 170 0
+ 419 0006 0A20     		movs	r0, #10
+ 420 0008 FFF7FEFF 		bl	CyDelay
+ 421              	.LVL21:
+ 171:Generated_Source\PSoC4/DirectionInt.c ****     /* `#END` */
+ 422              		.loc 1 171 0
+ 423 000c FFF7FEFF 		bl	DirectionInt_ClearPending
+ 424              	.LVL22:
+ 173:Generated_Source\PSoC4/DirectionInt.c **** 
+ 425              		.loc 1 173 0
+ 426              		@ sp needed
+ 427 0010 10BD     		pop	{r4, pc}
+ 428              		.cfi_endproc
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 16
+
+
+ 429              	.LFE35:
+ 430              		.size	DirectionInt_Interrupt, .-DirectionInt_Interrupt
+ 431 0012 C046     		.text
+ 432              	.Letext0:
+ 433              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 434              		.file 3 "Generated_Source\\PSoC4/CyLib.h"
+ 435              		.section	.debug_info,"",%progbits
+ 436              	.Ldebug_info0:
+ 437 0000 42030000 		.4byte	0x342
+ 438 0004 0400     		.2byte	0x4
+ 439 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 440 000a 04       		.byte	0x4
+ 441 000b 01       		.uleb128 0x1
+ 442 000c 9F000000 		.4byte	.LASF38
+ 443 0010 0C       		.byte	0xc
+ 444 0011 66010000 		.4byte	.LASF39
+ 445 0015 13000000 		.4byte	.LASF40
+ 446 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 447 001d 00000000 		.4byte	0
+ 448 0021 00000000 		.4byte	.Ldebug_line0
+ 449 0025 02       		.uleb128 0x2
+ 450 0026 01       		.byte	0x1
+ 451 0027 06       		.byte	0x6
+ 452 0028 38030000 		.4byte	.LASF0
+ 453 002c 02       		.uleb128 0x2
+ 454 002d 01       		.byte	0x1
+ 455 002e 08       		.byte	0x8
+ 456 002f 39010000 		.4byte	.LASF1
+ 457 0033 02       		.uleb128 0x2
+ 458 0034 02       		.byte	0x2
+ 459 0035 05       		.byte	0x5
+ 460 0036 CC020000 		.4byte	.LASF2
+ 461 003a 02       		.uleb128 0x2
+ 462 003b 02       		.byte	0x2
+ 463 003c 07       		.byte	0x7
+ 464 003d 8C010000 		.4byte	.LASF3
+ 465 0041 02       		.uleb128 0x2
+ 466 0042 04       		.byte	0x4
+ 467 0043 05       		.byte	0x5
+ 468 0044 23030000 		.4byte	.LASF4
+ 469 0048 02       		.uleb128 0x2
+ 470 0049 04       		.byte	0x4
+ 471 004a 07       		.byte	0x7
+ 472 004b BF010000 		.4byte	.LASF5
+ 473 004f 02       		.uleb128 0x2
+ 474 0050 08       		.byte	0x8
+ 475 0051 05       		.byte	0x5
+ 476 0052 8E020000 		.4byte	.LASF6
+ 477 0056 02       		.uleb128 0x2
+ 478 0057 08       		.byte	0x8
+ 479 0058 07       		.byte	0x7
+ 480 0059 2A020000 		.4byte	.LASF7
+ 481 005d 03       		.uleb128 0x3
+ 482 005e 04       		.byte	0x4
+ 483 005f 05       		.byte	0x5
+ 484 0060 696E7400 		.ascii	"int\000"
+ 485 0064 02       		.uleb128 0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 17
+
+
+ 486 0065 04       		.byte	0x4
+ 487 0066 07       		.byte	0x7
+ 488 0067 09020000 		.4byte	.LASF8
+ 489 006b 04       		.uleb128 0x4
+ 490 006c 33010000 		.4byte	.LASF9
+ 491 0070 02       		.byte	0x2
+ 492 0071 E401     		.2byte	0x1e4
+ 493 0073 2C000000 		.4byte	0x2c
+ 494 0077 04       		.uleb128 0x4
+ 495 0078 EB010000 		.4byte	.LASF10
+ 496 007c 02       		.byte	0x2
+ 497 007d E601     		.2byte	0x1e6
+ 498 007f 48000000 		.4byte	0x48
+ 499 0083 02       		.uleb128 0x2
+ 500 0084 04       		.byte	0x4
+ 501 0085 04       		.byte	0x4
+ 502 0086 2D010000 		.4byte	.LASF11
+ 503 008a 02       		.uleb128 0x2
+ 504 008b 08       		.byte	0x8
+ 505 008c 04       		.byte	0x4
+ 506 008d 68000000 		.4byte	.LASF12
+ 507 0091 02       		.uleb128 0x2
+ 508 0092 01       		.byte	0x1
+ 509 0093 08       		.byte	0x8
+ 510 0094 9C020000 		.4byte	.LASF13
+ 511 0098 04       		.uleb128 0x4
+ 512 0099 00000000 		.4byte	.LASF14
+ 513 009d 02       		.byte	0x2
+ 514 009e 9002     		.2byte	0x290
+ 515 00a0 A4000000 		.4byte	0xa4
+ 516 00a4 05       		.uleb128 0x5
+ 517 00a5 77000000 		.4byte	0x77
+ 518 00a9 04       		.uleb128 0x4
+ 519 00aa 60020000 		.4byte	.LASF15
+ 520 00ae 02       		.byte	0x2
+ 521 00af A002     		.2byte	0x2a0
+ 522 00b1 B5000000 		.4byte	0xb5
+ 523 00b5 06       		.uleb128 0x6
+ 524 00b6 04       		.byte	0x4
+ 525 00b7 BB000000 		.4byte	0xbb
+ 526 00bb 07       		.uleb128 0x7
+ 527 00bc 02       		.uleb128 0x2
+ 528 00bd 08       		.byte	0x8
+ 529 00be 04       		.byte	0x4
+ 530 00bf 2C030000 		.4byte	.LASF16
+ 531 00c3 02       		.uleb128 0x2
+ 532 00c4 04       		.byte	0x4
+ 533 00c5 07       		.byte	0x7
+ 534 00c6 85020000 		.4byte	.LASF17
+ 535 00ca 08       		.uleb128 0x8
+ 536 00cb 88000000 		.4byte	.LASF18
+ 537 00cf 01       		.byte	0x1
+ 538 00d0 CB       		.byte	0xcb
+ 539 00d1 00000000 		.4byte	.LFB36
+ 540 00d5 0C000000 		.4byte	.LFE36-.LFB36
+ 541 00d9 01       		.uleb128 0x1
+ 542 00da 9C       		.byte	0x9c
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 18
+
+
+ 543 00db ED000000 		.4byte	0xed
+ 544 00df 09       		.uleb128 0x9
+ 545 00e0 41020000 		.4byte	.LASF20
+ 546 00e4 01       		.byte	0x1
+ 547 00e5 CB       		.byte	0xcb
+ 548 00e6 A9000000 		.4byte	0xa9
+ 549 00ea 01       		.uleb128 0x1
+ 550 00eb 50       		.byte	0x50
+ 551 00ec 00       		.byte	0
+ 552 00ed 0A       		.uleb128 0xa
+ 553 00ee 49020000 		.4byte	.LASF24
+ 554 00f2 01       		.byte	0x1
+ 555 00f3 DF       		.byte	0xdf
+ 556 00f4 A9000000 		.4byte	0xa9
+ 557 00f8 00000000 		.4byte	.LFB37
+ 558 00fc 0C000000 		.4byte	.LFE37-.LFB37
+ 559 0100 01       		.uleb128 0x1
+ 560 0101 9C       		.byte	0x9c
+ 561 0102 08       		.uleb128 0x8
+ 562 0103 6F000000 		.4byte	.LASF19
+ 563 0107 01       		.byte	0x1
+ 564 0108 FD       		.byte	0xfd
+ 565 0109 00000000 		.4byte	.LFB38
+ 566 010d 20000000 		.4byte	.LFE38-.LFB38
+ 567 0111 01       		.uleb128 0x1
+ 568 0112 9C       		.byte	0x9c
+ 569 0113 55010000 		.4byte	0x155
+ 570 0117 0B       		.uleb128 0xb
+ 571 0118 B6010000 		.4byte	.LASF21
+ 572 011c 01       		.byte	0x1
+ 573 011d FD       		.byte	0xfd
+ 574 011e 6B000000 		.4byte	0x6b
+ 575 0122 00000000 		.4byte	.LLST0
+ 576 0126 0C       		.uleb128 0xc
+ 577 0127 57010000 		.4byte	.LASF22
+ 578 012b 01       		.byte	0x1
+ 579 012c FF       		.byte	0xff
+ 580 012d 6B000000 		.4byte	0x6b
+ 581 0131 21000000 		.4byte	.LLST1
+ 582 0135 0D       		.uleb128 0xd
+ 583 0136 14030000 		.4byte	.LASF23
+ 584 013a 01       		.byte	0x1
+ 585 013b 0001     		.2byte	0x100
+ 586 013d 77000000 		.4byte	0x77
+ 587 0141 06       		.byte	0x6
+ 588 0142 0E       		.uleb128 0xe
+ 589 0143 08000000 		.4byte	.LVL3
+ 590 0147 19030000 		.4byte	0x319
+ 591 014b 0E       		.uleb128 0xe
+ 592 014c 1A000000 		.4byte	.LVL4
+ 593 0150 24030000 		.4byte	0x324
+ 594 0154 00       		.byte	0
+ 595 0155 0F       		.uleb128 0xf
+ 596 0156 B3020000 		.4byte	.LASF41
+ 597 015a 01       		.byte	0x1
+ 598 015b 1901     		.2byte	0x119
+ 599 015d 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 19
+
+
+ 600 0161 00000000 		.4byte	.LFB39
+ 601 0165 10000000 		.4byte	.LFE39-.LFB39
+ 602 0169 01       		.uleb128 0x1
+ 603 016a 9C       		.byte	0x9c
+ 604 016b 8D010000 		.4byte	0x18d
+ 605 016f 10       		.uleb128 0x10
+ 606 0170 B6010000 		.4byte	.LASF21
+ 607 0174 01       		.byte	0x1
+ 608 0175 1B01     		.2byte	0x11b
+ 609 0177 77000000 		.4byte	0x77
+ 610 017b 34000000 		.4byte	.LLST2
+ 611 017f 0D       		.uleb128 0xd
+ 612 0180 14030000 		.4byte	.LASF23
+ 613 0184 01       		.byte	0x1
+ 614 0185 1C01     		.2byte	0x11c
+ 615 0187 77000000 		.4byte	0x77
+ 616 018b 06       		.byte	0x6
+ 617 018c 00       		.byte	0
+ 618 018d 11       		.uleb128 0x11
+ 619 018e 16020000 		.4byte	.LASF26
+ 620 0192 01       		.byte	0x1
+ 621 0193 3401     		.2byte	0x134
+ 622 0195 00000000 		.4byte	.LFB40
+ 623 0199 0C000000 		.4byte	.LFE40-.LFB40
+ 624 019d 01       		.uleb128 0x1
+ 625 019e 9C       		.byte	0x9c
+ 626 019f 12       		.uleb128 0x12
+ 627 01a0 44030000 		.4byte	.LASF25
+ 628 01a4 01       		.byte	0x1
+ 629 01a5 4901     		.2byte	0x149
+ 630 01a7 6B000000 		.4byte	0x6b
+ 631 01ab 00000000 		.4byte	.LFB41
+ 632 01af 10000000 		.4byte	.LFE41-.LFB41
+ 633 01b3 01       		.uleb128 0x1
+ 634 01b4 9C       		.byte	0x9c
+ 635 01b5 11       		.uleb128 0x11
+ 636 01b6 62030000 		.4byte	.LASF27
+ 637 01ba 01       		.byte	0x1
+ 638 01bb 5E01     		.2byte	0x15e
+ 639 01bd 00000000 		.4byte	.LFB42
+ 640 01c1 0C000000 		.4byte	.LFE42-.LFB42
+ 641 01c5 01       		.uleb128 0x1
+ 642 01c6 9C       		.byte	0x9c
+ 643 01c7 08       		.uleb128 0x8
+ 644 01c8 D6020000 		.4byte	.LASF28
+ 645 01cc 01       		.byte	0x1
+ 646 01cd 39       		.byte	0x39
+ 647 01ce 00000000 		.4byte	.LFB32
+ 648 01d2 1C000000 		.4byte	.LFE32-.LFB32
+ 649 01d6 01       		.uleb128 0x1
+ 650 01d7 9C       		.byte	0x9c
+ 651 01d8 19020000 		.4byte	0x219
+ 652 01dc 0E       		.uleb128 0xe
+ 653 01dd 06000000 		.4byte	.LVL8
+ 654 01e1 B5010000 		.4byte	0x1b5
+ 655 01e5 13       		.uleb128 0x13
+ 656 01e6 0C000000 		.4byte	.LVL9
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 20
+
+
+ 657 01ea CA000000 		.4byte	0xca
+ 658 01ee FC010000 		.4byte	0x1fc
+ 659 01f2 14       		.uleb128 0x14
+ 660 01f3 01       		.uleb128 0x1
+ 661 01f4 50       		.byte	0x50
+ 662 01f5 05       		.uleb128 0x5
+ 663 01f6 03       		.byte	0x3
+ 664 01f7 00000000 		.4byte	DirectionInt_Interrupt
+ 665 01fb 00       		.byte	0
+ 666 01fc 13       		.uleb128 0x13
+ 667 01fd 12000000 		.4byte	.LVL10
+ 668 0201 02010000 		.4byte	0x102
+ 669 0205 0F020000 		.4byte	0x20f
+ 670 0209 14       		.uleb128 0x14
+ 671 020a 01       		.uleb128 0x1
+ 672 020b 50       		.byte	0x50
+ 673 020c 01       		.uleb128 0x1
+ 674 020d 33       		.byte	0x33
+ 675 020e 00       		.byte	0
+ 676 020f 0E       		.uleb128 0xe
+ 677 0210 16000000 		.4byte	.LVL11
+ 678 0214 8D010000 		.4byte	0x18d
+ 679 0218 00       		.byte	0
+ 680 0219 08       		.uleb128 0x8
+ 681 021a E9020000 		.4byte	.LASF29
+ 682 021e 01       		.byte	0x1
+ 683 021f 64       		.byte	0x64
+ 684 0220 00000000 		.4byte	.LFB33
+ 685 0224 1A000000 		.4byte	.LFE33-.LFB33
+ 686 0228 01       		.uleb128 0x1
+ 687 0229 9C       		.byte	0x9c
+ 688 022a 77020000 		.4byte	0x277
+ 689 022e 0B       		.uleb128 0xb
+ 690 022f 41020000 		.4byte	.LASF20
+ 691 0233 01       		.byte	0x1
+ 692 0234 64       		.byte	0x64
+ 693 0235 A9000000 		.4byte	0xa9
+ 694 0239 56000000 		.4byte	.LLST3
+ 695 023d 0E       		.uleb128 0xe
+ 696 023e 08000000 		.4byte	.LVL13
+ 697 0242 B5010000 		.4byte	0x1b5
+ 698 0246 13       		.uleb128 0x13
+ 699 0247 0E000000 		.4byte	.LVL14
+ 700 024b CA000000 		.4byte	0xca
+ 701 024f 5A020000 		.4byte	0x25a
+ 702 0253 14       		.uleb128 0x14
+ 703 0254 01       		.uleb128 0x1
+ 704 0255 50       		.byte	0x50
+ 705 0256 02       		.uleb128 0x2
+ 706 0257 74       		.byte	0x74
+ 707 0258 00       		.sleb128 0
+ 708 0259 00       		.byte	0
+ 709 025a 13       		.uleb128 0x13
+ 710 025b 14000000 		.4byte	.LVL15
+ 711 025f 02010000 		.4byte	0x102
+ 712 0263 6D020000 		.4byte	0x26d
+ 713 0267 14       		.uleb128 0x14
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 21
+
+
+ 714 0268 01       		.uleb128 0x1
+ 715 0269 50       		.byte	0x50
+ 716 026a 01       		.uleb128 0x1
+ 717 026b 33       		.byte	0x33
+ 718 026c 00       		.byte	0
+ 719 026d 0E       		.uleb128 0xe
+ 720 026e 18000000 		.4byte	.LVL16
+ 721 0272 8D010000 		.4byte	0x18d
+ 722 0276 00       		.byte	0
+ 723 0277 08       		.uleb128 0x8
+ 724 0278 A1020000 		.4byte	.LASF30
+ 725 027c 01       		.byte	0x1
+ 726 027d 82       		.byte	0x82
+ 727 027e 00000000 		.4byte	.LFB34
+ 728 0282 14000000 		.4byte	.LFE34-.LFB34
+ 729 0286 01       		.uleb128 0x1
+ 730 0287 9C       		.byte	0x9c
+ 731 0288 9F020000 		.4byte	0x29f
+ 732 028c 0E       		.uleb128 0xe
+ 733 028d 06000000 		.4byte	.LVL18
+ 734 0291 B5010000 		.4byte	0x1b5
+ 735 0295 0E       		.uleb128 0xe
+ 736 0296 0C000000 		.4byte	.LVL19
+ 737 029a CA000000 		.4byte	0xca
+ 738 029e 00       		.byte	0
+ 739 029f 11       		.uleb128 0x11
+ 740 02a0 6D020000 		.4byte	.LASF31
+ 741 02a4 01       		.byte	0x1
+ 742 02a5 7901     		.2byte	0x179
+ 743 02a7 00000000 		.4byte	.LFB43
+ 744 02ab 0C000000 		.4byte	.LFE43-.LFB43
+ 745 02af 01       		.uleb128 0x1
+ 746 02b0 9C       		.byte	0x9c
+ 747 02b1 11       		.uleb128 0x11
+ 748 02b2 D1010000 		.4byte	.LASF32
+ 749 02b6 01       		.byte	0x1
+ 750 02b7 9201     		.2byte	0x192
+ 751 02b9 00000000 		.4byte	.LFB44
+ 752 02bd 0C000000 		.4byte	.LFE44-.LFB44
+ 753 02c1 01       		.uleb128 0x1
+ 754 02c2 9C       		.byte	0x9c
+ 755 02c3 08       		.uleb128 0x8
+ 756 02c4 9F010000 		.4byte	.LASF33
+ 757 02c8 01       		.byte	0x1
+ 758 02c9 A0       		.byte	0xa0
+ 759 02ca 00000000 		.4byte	.LFB35
+ 760 02ce 12000000 		.4byte	.LFE35-.LFB35
+ 761 02d2 01       		.uleb128 0x1
+ 762 02d3 9C       		.byte	0x9c
+ 763 02d4 FE020000 		.4byte	0x2fe
+ 764 02d8 0E       		.uleb128 0xe
+ 765 02d9 06000000 		.4byte	.LVL20
+ 766 02dd 2F030000 		.4byte	0x32f
+ 767 02e1 13       		.uleb128 0x13
+ 768 02e2 0C000000 		.4byte	.LVL21
+ 769 02e6 3A030000 		.4byte	0x33a
+ 770 02ea F4020000 		.4byte	0x2f4
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 22
+
+
+ 771 02ee 14       		.uleb128 0x14
+ 772 02ef 01       		.uleb128 0x1
+ 773 02f0 50       		.byte	0x50
+ 774 02f1 01       		.uleb128 0x1
+ 775 02f2 3A       		.byte	0x3a
+ 776 02f3 00       		.byte	0
+ 777 02f4 0E       		.uleb128 0xe
+ 778 02f5 10000000 		.4byte	.LVL22
+ 779 02f9 B1020000 		.4byte	0x2b1
+ 780 02fd 00       		.byte	0
+ 781 02fe 15       		.uleb128 0x15
+ 782 02ff A9000000 		.4byte	0xa9
+ 783 0303 0E030000 		.4byte	0x30e
+ 784 0307 16       		.uleb128 0x16
+ 785 0308 C3000000 		.4byte	0xc3
+ 786 030c 2F       		.byte	0x2f
+ 787 030d 00       		.byte	0
+ 788 030e 17       		.uleb128 0x17
+ 789 030f 06000000 		.4byte	.LASF42
+ 790 0313 01       		.byte	0x1
+ 791 0314 22       		.byte	0x22
+ 792 0315 FE020000 		.4byte	0x2fe
+ 793 0319 18       		.uleb128 0x18
+ 794 031a F2010000 		.4byte	.LASF34
+ 795 031e F2010000 		.4byte	.LASF34
+ 796 0322 03       		.byte	0x3
+ 797 0323 E5       		.byte	0xe5
+ 798 0324 18       		.uleb128 0x18
+ 799 0325 FE020000 		.4byte	.LASF35
+ 800 0329 FE020000 		.4byte	.LASF35
+ 801 032d 03       		.byte	0x3
+ 802 032e E6       		.byte	0xe6
+ 803 032f 18       		.uleb128 0x18
+ 804 0330 47010000 		.4byte	.LASF36
+ 805 0334 47010000 		.4byte	.LASF36
+ 806 0338 01       		.byte	0x1
+ 807 0339 1F       		.byte	0x1f
+ 808 033a 18       		.uleb128 0x18
+ 809 033b 5A030000 		.4byte	.LASF37
+ 810 033f 5A030000 		.4byte	.LASF37
+ 811 0343 03       		.byte	0x3
+ 812 0344 D9       		.byte	0xd9
+ 813 0345 00       		.byte	0
+ 814              		.section	.debug_abbrev,"",%progbits
+ 815              	.Ldebug_abbrev0:
+ 816 0000 01       		.uleb128 0x1
+ 817 0001 11       		.uleb128 0x11
+ 818 0002 01       		.byte	0x1
+ 819 0003 25       		.uleb128 0x25
+ 820 0004 0E       		.uleb128 0xe
+ 821 0005 13       		.uleb128 0x13
+ 822 0006 0B       		.uleb128 0xb
+ 823 0007 03       		.uleb128 0x3
+ 824 0008 0E       		.uleb128 0xe
+ 825 0009 1B       		.uleb128 0x1b
+ 826 000a 0E       		.uleb128 0xe
+ 827 000b 55       		.uleb128 0x55
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 23
+
+
+ 828 000c 17       		.uleb128 0x17
+ 829 000d 11       		.uleb128 0x11
+ 830 000e 01       		.uleb128 0x1
+ 831 000f 10       		.uleb128 0x10
+ 832 0010 17       		.uleb128 0x17
+ 833 0011 00       		.byte	0
+ 834 0012 00       		.byte	0
+ 835 0013 02       		.uleb128 0x2
+ 836 0014 24       		.uleb128 0x24
+ 837 0015 00       		.byte	0
+ 838 0016 0B       		.uleb128 0xb
+ 839 0017 0B       		.uleb128 0xb
+ 840 0018 3E       		.uleb128 0x3e
+ 841 0019 0B       		.uleb128 0xb
+ 842 001a 03       		.uleb128 0x3
+ 843 001b 0E       		.uleb128 0xe
+ 844 001c 00       		.byte	0
+ 845 001d 00       		.byte	0
+ 846 001e 03       		.uleb128 0x3
+ 847 001f 24       		.uleb128 0x24
+ 848 0020 00       		.byte	0
+ 849 0021 0B       		.uleb128 0xb
+ 850 0022 0B       		.uleb128 0xb
+ 851 0023 3E       		.uleb128 0x3e
+ 852 0024 0B       		.uleb128 0xb
+ 853 0025 03       		.uleb128 0x3
+ 854 0026 08       		.uleb128 0x8
+ 855 0027 00       		.byte	0
+ 856 0028 00       		.byte	0
+ 857 0029 04       		.uleb128 0x4
+ 858 002a 16       		.uleb128 0x16
+ 859 002b 00       		.byte	0
+ 860 002c 03       		.uleb128 0x3
+ 861 002d 0E       		.uleb128 0xe
+ 862 002e 3A       		.uleb128 0x3a
+ 863 002f 0B       		.uleb128 0xb
+ 864 0030 3B       		.uleb128 0x3b
+ 865 0031 05       		.uleb128 0x5
+ 866 0032 49       		.uleb128 0x49
+ 867 0033 13       		.uleb128 0x13
+ 868 0034 00       		.byte	0
+ 869 0035 00       		.byte	0
+ 870 0036 05       		.uleb128 0x5
+ 871 0037 35       		.uleb128 0x35
+ 872 0038 00       		.byte	0
+ 873 0039 49       		.uleb128 0x49
+ 874 003a 13       		.uleb128 0x13
+ 875 003b 00       		.byte	0
+ 876 003c 00       		.byte	0
+ 877 003d 06       		.uleb128 0x6
+ 878 003e 0F       		.uleb128 0xf
+ 879 003f 00       		.byte	0
+ 880 0040 0B       		.uleb128 0xb
+ 881 0041 0B       		.uleb128 0xb
+ 882 0042 49       		.uleb128 0x49
+ 883 0043 13       		.uleb128 0x13
+ 884 0044 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 24
+
+
+ 885 0045 00       		.byte	0
+ 886 0046 07       		.uleb128 0x7
+ 887 0047 15       		.uleb128 0x15
+ 888 0048 00       		.byte	0
+ 889 0049 27       		.uleb128 0x27
+ 890 004a 19       		.uleb128 0x19
+ 891 004b 00       		.byte	0
+ 892 004c 00       		.byte	0
+ 893 004d 08       		.uleb128 0x8
+ 894 004e 2E       		.uleb128 0x2e
+ 895 004f 01       		.byte	0x1
+ 896 0050 3F       		.uleb128 0x3f
+ 897 0051 19       		.uleb128 0x19
+ 898 0052 03       		.uleb128 0x3
+ 899 0053 0E       		.uleb128 0xe
+ 900 0054 3A       		.uleb128 0x3a
+ 901 0055 0B       		.uleb128 0xb
+ 902 0056 3B       		.uleb128 0x3b
+ 903 0057 0B       		.uleb128 0xb
+ 904 0058 27       		.uleb128 0x27
+ 905 0059 19       		.uleb128 0x19
+ 906 005a 11       		.uleb128 0x11
+ 907 005b 01       		.uleb128 0x1
+ 908 005c 12       		.uleb128 0x12
+ 909 005d 06       		.uleb128 0x6
+ 910 005e 40       		.uleb128 0x40
+ 911 005f 18       		.uleb128 0x18
+ 912 0060 9742     		.uleb128 0x2117
+ 913 0062 19       		.uleb128 0x19
+ 914 0063 01       		.uleb128 0x1
+ 915 0064 13       		.uleb128 0x13
+ 916 0065 00       		.byte	0
+ 917 0066 00       		.byte	0
+ 918 0067 09       		.uleb128 0x9
+ 919 0068 05       		.uleb128 0x5
+ 920 0069 00       		.byte	0
+ 921 006a 03       		.uleb128 0x3
+ 922 006b 0E       		.uleb128 0xe
+ 923 006c 3A       		.uleb128 0x3a
+ 924 006d 0B       		.uleb128 0xb
+ 925 006e 3B       		.uleb128 0x3b
+ 926 006f 0B       		.uleb128 0xb
+ 927 0070 49       		.uleb128 0x49
+ 928 0071 13       		.uleb128 0x13
+ 929 0072 02       		.uleb128 0x2
+ 930 0073 18       		.uleb128 0x18
+ 931 0074 00       		.byte	0
+ 932 0075 00       		.byte	0
+ 933 0076 0A       		.uleb128 0xa
+ 934 0077 2E       		.uleb128 0x2e
+ 935 0078 00       		.byte	0
+ 936 0079 3F       		.uleb128 0x3f
+ 937 007a 19       		.uleb128 0x19
+ 938 007b 03       		.uleb128 0x3
+ 939 007c 0E       		.uleb128 0xe
+ 940 007d 3A       		.uleb128 0x3a
+ 941 007e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 25
+
+
+ 942 007f 3B       		.uleb128 0x3b
+ 943 0080 0B       		.uleb128 0xb
+ 944 0081 27       		.uleb128 0x27
+ 945 0082 19       		.uleb128 0x19
+ 946 0083 49       		.uleb128 0x49
+ 947 0084 13       		.uleb128 0x13
+ 948 0085 11       		.uleb128 0x11
+ 949 0086 01       		.uleb128 0x1
+ 950 0087 12       		.uleb128 0x12
+ 951 0088 06       		.uleb128 0x6
+ 952 0089 40       		.uleb128 0x40
+ 953 008a 18       		.uleb128 0x18
+ 954 008b 9742     		.uleb128 0x2117
+ 955 008d 19       		.uleb128 0x19
+ 956 008e 00       		.byte	0
+ 957 008f 00       		.byte	0
+ 958 0090 0B       		.uleb128 0xb
+ 959 0091 05       		.uleb128 0x5
+ 960 0092 00       		.byte	0
+ 961 0093 03       		.uleb128 0x3
+ 962 0094 0E       		.uleb128 0xe
+ 963 0095 3A       		.uleb128 0x3a
+ 964 0096 0B       		.uleb128 0xb
+ 965 0097 3B       		.uleb128 0x3b
+ 966 0098 0B       		.uleb128 0xb
+ 967 0099 49       		.uleb128 0x49
+ 968 009a 13       		.uleb128 0x13
+ 969 009b 02       		.uleb128 0x2
+ 970 009c 17       		.uleb128 0x17
+ 971 009d 00       		.byte	0
+ 972 009e 00       		.byte	0
+ 973 009f 0C       		.uleb128 0xc
+ 974 00a0 34       		.uleb128 0x34
+ 975 00a1 00       		.byte	0
+ 976 00a2 03       		.uleb128 0x3
+ 977 00a3 0E       		.uleb128 0xe
+ 978 00a4 3A       		.uleb128 0x3a
+ 979 00a5 0B       		.uleb128 0xb
+ 980 00a6 3B       		.uleb128 0x3b
+ 981 00a7 0B       		.uleb128 0xb
+ 982 00a8 49       		.uleb128 0x49
+ 983 00a9 13       		.uleb128 0x13
+ 984 00aa 02       		.uleb128 0x2
+ 985 00ab 17       		.uleb128 0x17
+ 986 00ac 00       		.byte	0
+ 987 00ad 00       		.byte	0
+ 988 00ae 0D       		.uleb128 0xd
+ 989 00af 34       		.uleb128 0x34
+ 990 00b0 00       		.byte	0
+ 991 00b1 03       		.uleb128 0x3
+ 992 00b2 0E       		.uleb128 0xe
+ 993 00b3 3A       		.uleb128 0x3a
+ 994 00b4 0B       		.uleb128 0xb
+ 995 00b5 3B       		.uleb128 0x3b
+ 996 00b6 05       		.uleb128 0x5
+ 997 00b7 49       		.uleb128 0x49
+ 998 00b8 13       		.uleb128 0x13
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 26
+
+
+ 999 00b9 1C       		.uleb128 0x1c
+ 1000 00ba 0B       		.uleb128 0xb
+ 1001 00bb 00       		.byte	0
+ 1002 00bc 00       		.byte	0
+ 1003 00bd 0E       		.uleb128 0xe
+ 1004 00be 898201   		.uleb128 0x4109
+ 1005 00c1 00       		.byte	0
+ 1006 00c2 11       		.uleb128 0x11
+ 1007 00c3 01       		.uleb128 0x1
+ 1008 00c4 31       		.uleb128 0x31
+ 1009 00c5 13       		.uleb128 0x13
+ 1010 00c6 00       		.byte	0
+ 1011 00c7 00       		.byte	0
+ 1012 00c8 0F       		.uleb128 0xf
+ 1013 00c9 2E       		.uleb128 0x2e
+ 1014 00ca 01       		.byte	0x1
+ 1015 00cb 3F       		.uleb128 0x3f
+ 1016 00cc 19       		.uleb128 0x19
+ 1017 00cd 03       		.uleb128 0x3
+ 1018 00ce 0E       		.uleb128 0xe
+ 1019 00cf 3A       		.uleb128 0x3a
+ 1020 00d0 0B       		.uleb128 0xb
+ 1021 00d1 3B       		.uleb128 0x3b
+ 1022 00d2 05       		.uleb128 0x5
+ 1023 00d3 27       		.uleb128 0x27
+ 1024 00d4 19       		.uleb128 0x19
+ 1025 00d5 49       		.uleb128 0x49
+ 1026 00d6 13       		.uleb128 0x13
+ 1027 00d7 11       		.uleb128 0x11
+ 1028 00d8 01       		.uleb128 0x1
+ 1029 00d9 12       		.uleb128 0x12
+ 1030 00da 06       		.uleb128 0x6
+ 1031 00db 40       		.uleb128 0x40
+ 1032 00dc 18       		.uleb128 0x18
+ 1033 00dd 9742     		.uleb128 0x2117
+ 1034 00df 19       		.uleb128 0x19
+ 1035 00e0 01       		.uleb128 0x1
+ 1036 00e1 13       		.uleb128 0x13
+ 1037 00e2 00       		.byte	0
+ 1038 00e3 00       		.byte	0
+ 1039 00e4 10       		.uleb128 0x10
+ 1040 00e5 34       		.uleb128 0x34
+ 1041 00e6 00       		.byte	0
+ 1042 00e7 03       		.uleb128 0x3
+ 1043 00e8 0E       		.uleb128 0xe
+ 1044 00e9 3A       		.uleb128 0x3a
+ 1045 00ea 0B       		.uleb128 0xb
+ 1046 00eb 3B       		.uleb128 0x3b
+ 1047 00ec 05       		.uleb128 0x5
+ 1048 00ed 49       		.uleb128 0x49
+ 1049 00ee 13       		.uleb128 0x13
+ 1050 00ef 02       		.uleb128 0x2
+ 1051 00f0 17       		.uleb128 0x17
+ 1052 00f1 00       		.byte	0
+ 1053 00f2 00       		.byte	0
+ 1054 00f3 11       		.uleb128 0x11
+ 1055 00f4 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 27
+
+
+ 1056 00f5 00       		.byte	0
+ 1057 00f6 3F       		.uleb128 0x3f
+ 1058 00f7 19       		.uleb128 0x19
+ 1059 00f8 03       		.uleb128 0x3
+ 1060 00f9 0E       		.uleb128 0xe
+ 1061 00fa 3A       		.uleb128 0x3a
+ 1062 00fb 0B       		.uleb128 0xb
+ 1063 00fc 3B       		.uleb128 0x3b
+ 1064 00fd 05       		.uleb128 0x5
+ 1065 00fe 27       		.uleb128 0x27
+ 1066 00ff 19       		.uleb128 0x19
+ 1067 0100 11       		.uleb128 0x11
+ 1068 0101 01       		.uleb128 0x1
+ 1069 0102 12       		.uleb128 0x12
+ 1070 0103 06       		.uleb128 0x6
+ 1071 0104 40       		.uleb128 0x40
+ 1072 0105 18       		.uleb128 0x18
+ 1073 0106 9742     		.uleb128 0x2117
+ 1074 0108 19       		.uleb128 0x19
+ 1075 0109 00       		.byte	0
+ 1076 010a 00       		.byte	0
+ 1077 010b 12       		.uleb128 0x12
+ 1078 010c 2E       		.uleb128 0x2e
+ 1079 010d 00       		.byte	0
+ 1080 010e 3F       		.uleb128 0x3f
+ 1081 010f 19       		.uleb128 0x19
+ 1082 0110 03       		.uleb128 0x3
+ 1083 0111 0E       		.uleb128 0xe
+ 1084 0112 3A       		.uleb128 0x3a
+ 1085 0113 0B       		.uleb128 0xb
+ 1086 0114 3B       		.uleb128 0x3b
+ 1087 0115 05       		.uleb128 0x5
+ 1088 0116 27       		.uleb128 0x27
+ 1089 0117 19       		.uleb128 0x19
+ 1090 0118 49       		.uleb128 0x49
+ 1091 0119 13       		.uleb128 0x13
+ 1092 011a 11       		.uleb128 0x11
+ 1093 011b 01       		.uleb128 0x1
+ 1094 011c 12       		.uleb128 0x12
+ 1095 011d 06       		.uleb128 0x6
+ 1096 011e 40       		.uleb128 0x40
+ 1097 011f 18       		.uleb128 0x18
+ 1098 0120 9742     		.uleb128 0x2117
+ 1099 0122 19       		.uleb128 0x19
+ 1100 0123 00       		.byte	0
+ 1101 0124 00       		.byte	0
+ 1102 0125 13       		.uleb128 0x13
+ 1103 0126 898201   		.uleb128 0x4109
+ 1104 0129 01       		.byte	0x1
+ 1105 012a 11       		.uleb128 0x11
+ 1106 012b 01       		.uleb128 0x1
+ 1107 012c 31       		.uleb128 0x31
+ 1108 012d 13       		.uleb128 0x13
+ 1109 012e 01       		.uleb128 0x1
+ 1110 012f 13       		.uleb128 0x13
+ 1111 0130 00       		.byte	0
+ 1112 0131 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 28
+
+
+ 1113 0132 14       		.uleb128 0x14
+ 1114 0133 8A8201   		.uleb128 0x410a
+ 1115 0136 00       		.byte	0
+ 1116 0137 02       		.uleb128 0x2
+ 1117 0138 18       		.uleb128 0x18
+ 1118 0139 9142     		.uleb128 0x2111
+ 1119 013b 18       		.uleb128 0x18
+ 1120 013c 00       		.byte	0
+ 1121 013d 00       		.byte	0
+ 1122 013e 15       		.uleb128 0x15
+ 1123 013f 01       		.uleb128 0x1
+ 1124 0140 01       		.byte	0x1
+ 1125 0141 49       		.uleb128 0x49
+ 1126 0142 13       		.uleb128 0x13
+ 1127 0143 01       		.uleb128 0x1
+ 1128 0144 13       		.uleb128 0x13
+ 1129 0145 00       		.byte	0
+ 1130 0146 00       		.byte	0
+ 1131 0147 16       		.uleb128 0x16
+ 1132 0148 21       		.uleb128 0x21
+ 1133 0149 00       		.byte	0
+ 1134 014a 49       		.uleb128 0x49
+ 1135 014b 13       		.uleb128 0x13
+ 1136 014c 2F       		.uleb128 0x2f
+ 1137 014d 0B       		.uleb128 0xb
+ 1138 014e 00       		.byte	0
+ 1139 014f 00       		.byte	0
+ 1140 0150 17       		.uleb128 0x17
+ 1141 0151 34       		.uleb128 0x34
+ 1142 0152 00       		.byte	0
+ 1143 0153 03       		.uleb128 0x3
+ 1144 0154 0E       		.uleb128 0xe
+ 1145 0155 3A       		.uleb128 0x3a
+ 1146 0156 0B       		.uleb128 0xb
+ 1147 0157 3B       		.uleb128 0x3b
+ 1148 0158 0B       		.uleb128 0xb
+ 1149 0159 49       		.uleb128 0x49
+ 1150 015a 13       		.uleb128 0x13
+ 1151 015b 3F       		.uleb128 0x3f
+ 1152 015c 19       		.uleb128 0x19
+ 1153 015d 3C       		.uleb128 0x3c
+ 1154 015e 19       		.uleb128 0x19
+ 1155 015f 00       		.byte	0
+ 1156 0160 00       		.byte	0
+ 1157 0161 18       		.uleb128 0x18
+ 1158 0162 2E       		.uleb128 0x2e
+ 1159 0163 00       		.byte	0
+ 1160 0164 3F       		.uleb128 0x3f
+ 1161 0165 19       		.uleb128 0x19
+ 1162 0166 3C       		.uleb128 0x3c
+ 1163 0167 19       		.uleb128 0x19
+ 1164 0168 6E       		.uleb128 0x6e
+ 1165 0169 0E       		.uleb128 0xe
+ 1166 016a 03       		.uleb128 0x3
+ 1167 016b 0E       		.uleb128 0xe
+ 1168 016c 3A       		.uleb128 0x3a
+ 1169 016d 0B       		.uleb128 0xb
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 29
+
+
+ 1170 016e 3B       		.uleb128 0x3b
+ 1171 016f 0B       		.uleb128 0xb
+ 1172 0170 00       		.byte	0
+ 1173 0171 00       		.byte	0
+ 1174 0172 00       		.byte	0
+ 1175              		.section	.debug_loc,"",%progbits
+ 1176              	.Ldebug_loc0:
+ 1177              	.LLST0:
+ 1178 0000 00000000 		.4byte	.LVL1
+ 1179 0004 07000000 		.4byte	.LVL3-1
+ 1180 0008 0100     		.2byte	0x1
+ 1181 000a 50       		.byte	0x50
+ 1182 000b 07000000 		.4byte	.LVL3-1
+ 1183 000f 20000000 		.4byte	.LFE38
+ 1184 0013 0400     		.2byte	0x4
+ 1185 0015 F3       		.byte	0xf3
+ 1186 0016 01       		.uleb128 0x1
+ 1187 0017 50       		.byte	0x50
+ 1188 0018 9F       		.byte	0x9f
+ 1189 0019 00000000 		.4byte	0
+ 1190 001d 00000000 		.4byte	0
+ 1191              	.LLST1:
+ 1192 0021 08000000 		.4byte	.LVL3
+ 1193 0025 19000000 		.4byte	.LVL4-1
+ 1194 0029 0100     		.2byte	0x1
+ 1195 002b 50       		.byte	0x50
+ 1196 002c 00000000 		.4byte	0
+ 1197 0030 00000000 		.4byte	0
+ 1198              	.LLST2:
+ 1199 0034 06000000 		.4byte	.LVL6
+ 1200 0038 0A000000 		.4byte	.LVL7
+ 1201 003c 0500     		.2byte	0x5
+ 1202 003e 70       		.byte	0x70
+ 1203 003f 00       		.sleb128 0
+ 1204 0040 33       		.byte	0x33
+ 1205 0041 1A       		.byte	0x1a
+ 1206 0042 9F       		.byte	0x9f
+ 1207 0043 0A000000 		.4byte	.LVL7
+ 1208 0047 10000000 		.4byte	.LFE39
+ 1209 004b 0100     		.2byte	0x1
+ 1210 004d 50       		.byte	0x50
+ 1211 004e 00000000 		.4byte	0
+ 1212 0052 00000000 		.4byte	0
+ 1213              	.LLST3:
+ 1214 0056 00000000 		.4byte	.LVL12
+ 1215 005a 07000000 		.4byte	.LVL13-1
+ 1216 005e 0100     		.2byte	0x1
+ 1217 0060 50       		.byte	0x50
+ 1218 0061 07000000 		.4byte	.LVL13-1
+ 1219 0065 18000000 		.4byte	.LVL17
+ 1220 0069 0100     		.2byte	0x1
+ 1221 006b 54       		.byte	0x54
+ 1222 006c 18000000 		.4byte	.LVL17
+ 1223 0070 1A000000 		.4byte	.LFE33
+ 1224 0074 0400     		.2byte	0x4
+ 1225 0076 F3       		.byte	0xf3
+ 1226 0077 01       		.uleb128 0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 30
+
+
+ 1227 0078 50       		.byte	0x50
+ 1228 0079 9F       		.byte	0x9f
+ 1229 007a 00000000 		.4byte	0
+ 1230 007e 00000000 		.4byte	0
+ 1231              		.section	.debug_aranges,"",%progbits
+ 1232 0000 7C000000 		.4byte	0x7c
+ 1233 0004 0200     		.2byte	0x2
+ 1234 0006 00000000 		.4byte	.Ldebug_info0
+ 1235 000a 04       		.byte	0x4
+ 1236 000b 00       		.byte	0
+ 1237 000c 0000     		.2byte	0
+ 1238 000e 0000     		.2byte	0
+ 1239 0010 00000000 		.4byte	.LFB36
+ 1240 0014 0C000000 		.4byte	.LFE36-.LFB36
+ 1241 0018 00000000 		.4byte	.LFB37
+ 1242 001c 0C000000 		.4byte	.LFE37-.LFB37
+ 1243 0020 00000000 		.4byte	.LFB38
+ 1244 0024 20000000 		.4byte	.LFE38-.LFB38
+ 1245 0028 00000000 		.4byte	.LFB39
+ 1246 002c 10000000 		.4byte	.LFE39-.LFB39
+ 1247 0030 00000000 		.4byte	.LFB40
+ 1248 0034 0C000000 		.4byte	.LFE40-.LFB40
+ 1249 0038 00000000 		.4byte	.LFB41
+ 1250 003c 10000000 		.4byte	.LFE41-.LFB41
+ 1251 0040 00000000 		.4byte	.LFB42
+ 1252 0044 0C000000 		.4byte	.LFE42-.LFB42
+ 1253 0048 00000000 		.4byte	.LFB32
+ 1254 004c 1C000000 		.4byte	.LFE32-.LFB32
+ 1255 0050 00000000 		.4byte	.LFB33
+ 1256 0054 1A000000 		.4byte	.LFE33-.LFB33
+ 1257 0058 00000000 		.4byte	.LFB34
+ 1258 005c 14000000 		.4byte	.LFE34-.LFB34
+ 1259 0060 00000000 		.4byte	.LFB43
+ 1260 0064 0C000000 		.4byte	.LFE43-.LFB43
+ 1261 0068 00000000 		.4byte	.LFB44
+ 1262 006c 0C000000 		.4byte	.LFE44-.LFB44
+ 1263 0070 00000000 		.4byte	.LFB35
+ 1264 0074 12000000 		.4byte	.LFE35-.LFB35
+ 1265 0078 00000000 		.4byte	0
+ 1266 007c 00000000 		.4byte	0
+ 1267              		.section	.debug_ranges,"",%progbits
+ 1268              	.Ldebug_ranges0:
+ 1269 0000 00000000 		.4byte	.LFB36
+ 1270 0004 0C000000 		.4byte	.LFE36
+ 1271 0008 00000000 		.4byte	.LFB37
+ 1272 000c 0C000000 		.4byte	.LFE37
+ 1273 0010 00000000 		.4byte	.LFB38
+ 1274 0014 20000000 		.4byte	.LFE38
+ 1275 0018 00000000 		.4byte	.LFB39
+ 1276 001c 10000000 		.4byte	.LFE39
+ 1277 0020 00000000 		.4byte	.LFB40
+ 1278 0024 0C000000 		.4byte	.LFE40
+ 1279 0028 00000000 		.4byte	.LFB41
+ 1280 002c 10000000 		.4byte	.LFE41
+ 1281 0030 00000000 		.4byte	.LFB42
+ 1282 0034 0C000000 		.4byte	.LFE42
+ 1283 0038 00000000 		.4byte	.LFB32
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 31
+
+
+ 1284 003c 1C000000 		.4byte	.LFE32
+ 1285 0040 00000000 		.4byte	.LFB33
+ 1286 0044 1A000000 		.4byte	.LFE33
+ 1287 0048 00000000 		.4byte	.LFB34
+ 1288 004c 14000000 		.4byte	.LFE34
+ 1289 0050 00000000 		.4byte	.LFB43
+ 1290 0054 0C000000 		.4byte	.LFE43
+ 1291 0058 00000000 		.4byte	.LFB44
+ 1292 005c 0C000000 		.4byte	.LFE44
+ 1293 0060 00000000 		.4byte	.LFB35
+ 1294 0064 12000000 		.4byte	.LFE35
+ 1295 0068 00000000 		.4byte	0
+ 1296 006c 00000000 		.4byte	0
+ 1297              		.section	.debug_line,"",%progbits
+ 1298              	.Ldebug_line0:
+ 1299 0000 51010000 		.section	.debug_str,"MS",%progbits,1
+ 1299      02005400 
+ 1299      00000201 
+ 1299      FB0E0D00 
+ 1299      01010101 
+ 1300              	.LASF14:
+ 1301 0000 72656733 		.ascii	"reg32\000"
+ 1301      3200
+ 1302              	.LASF42:
+ 1303 0006 43795261 		.ascii	"CyRamVectors\000"
+ 1303      6D566563 
+ 1303      746F7273 
+ 1303      00
+ 1304              	.LASF40:
+ 1305 0013 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\HW"
+ 1305      49545C4D 
+ 1305      6963726F 
+ 1305      636F6E74 
+ 1305      726F6C6C 
+ 1306 0043 362D204D 		.ascii	"6- MotorControll\\MotorControll.cydsn\000"
+ 1306      6F746F72 
+ 1306      436F6E74 
+ 1306      726F6C6C 
+ 1306      5C4D6F74 
+ 1307              	.LASF12:
+ 1308 0068 646F7562 		.ascii	"double\000"
+ 1308      6C6500
+ 1309              	.LASF19:
+ 1310 006f 44697265 		.ascii	"DirectionInt_SetPriority\000"
+ 1310      6374696F 
+ 1310      6E496E74 
+ 1310      5F536574 
+ 1310      5072696F 
+ 1311              	.LASF18:
+ 1312 0088 44697265 		.ascii	"DirectionInt_SetVector\000"
+ 1312      6374696F 
+ 1312      6E496E74 
+ 1312      5F536574 
+ 1312      56656374 
+ 1313              	.LASF38:
+ 1314 009f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1314      43313120 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 32
+
+
+ 1314      352E342E 
+ 1314      31203230 
+ 1314      31363036 
+ 1315 00d2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1315      20726576 
+ 1315      6973696F 
+ 1315      6E203233 
+ 1315      37373135 
+ 1316 0105 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1316      66756E63 
+ 1316      74696F6E 
+ 1316      2D736563 
+ 1316      74696F6E 
+ 1317              	.LASF11:
+ 1318 012d 666C6F61 		.ascii	"float\000"
+ 1318      7400
+ 1319              	.LASF9:
+ 1320 0133 75696E74 		.ascii	"uint8\000"
+ 1320      3800
+ 1321              	.LASF1:
+ 1322 0139 756E7369 		.ascii	"unsigned char\000"
+ 1322      676E6564 
+ 1322      20636861 
+ 1322      7200
+ 1323              	.LASF36:
+ 1324 0147 64634D6F 		.ascii	"dcMotorControll\000"
+ 1324      746F7243 
+ 1324      6F6E7472 
+ 1324      6F6C6C00 
+ 1325              	.LASF22:
+ 1326 0157 696E7465 		.ascii	"interruptState\000"
+ 1326      72727570 
+ 1326      74537461 
+ 1326      746500
+ 1327              	.LASF39:
+ 1328 0166 47656E65 		.ascii	"Generated_Source\\PSoC4\\DirectionInt.c\000"
+ 1328      72617465 
+ 1328      645F536F 
+ 1328      75726365 
+ 1328      5C50536F 
+ 1329              	.LASF3:
+ 1330 018c 73686F72 		.ascii	"short unsigned int\000"
+ 1330      7420756E 
+ 1330      7369676E 
+ 1330      65642069 
+ 1330      6E7400
+ 1331              	.LASF33:
+ 1332 019f 44697265 		.ascii	"DirectionInt_Interrupt\000"
+ 1332      6374696F 
+ 1332      6E496E74 
+ 1332      5F496E74 
+ 1332      65727275 
+ 1333              	.LASF21:
+ 1334 01b6 7072696F 		.ascii	"priority\000"
+ 1334      72697479 
+ 1334      00
+ 1335              	.LASF5:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 33
+
+
+ 1336 01bf 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1336      20756E73 
+ 1336      69676E65 
+ 1336      6420696E 
+ 1336      7400
+ 1337              	.LASF32:
+ 1338 01d1 44697265 		.ascii	"DirectionInt_ClearPending\000"
+ 1338      6374696F 
+ 1338      6E496E74 
+ 1338      5F436C65 
+ 1338      61725065 
+ 1339              	.LASF10:
+ 1340 01eb 75696E74 		.ascii	"uint32\000"
+ 1340      333200
+ 1341              	.LASF34:
+ 1342 01f2 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1342      74657243 
+ 1342      72697469 
+ 1342      63616C53 
+ 1342      65637469 
+ 1343              	.LASF8:
+ 1344 0209 756E7369 		.ascii	"unsigned int\000"
+ 1344      676E6564 
+ 1344      20696E74 
+ 1344      00
+ 1345              	.LASF26:
+ 1346 0216 44697265 		.ascii	"DirectionInt_Enable\000"
+ 1346      6374696F 
+ 1346      6E496E74 
+ 1346      5F456E61 
+ 1346      626C6500 
+ 1347              	.LASF7:
+ 1348 022a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1348      206C6F6E 
+ 1348      6720756E 
+ 1348      7369676E 
+ 1348      65642069 
+ 1349              	.LASF20:
+ 1350 0241 61646472 		.ascii	"address\000"
+ 1350      65737300 
+ 1351              	.LASF24:
+ 1352 0249 44697265 		.ascii	"DirectionInt_GetVector\000"
+ 1352      6374696F 
+ 1352      6E496E74 
+ 1352      5F476574 
+ 1352      56656374 
+ 1353              	.LASF15:
+ 1354 0260 63796973 		.ascii	"cyisraddress\000"
+ 1354      72616464 
+ 1354      72657373 
+ 1354      00
+ 1355              	.LASF31:
+ 1356 026d 44697265 		.ascii	"DirectionInt_SetPending\000"
+ 1356      6374696F 
+ 1356      6E496E74 
+ 1356      5F536574 
+ 1356      50656E64 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 34
+
+
+ 1357              	.LASF17:
+ 1358 0285 73697A65 		.ascii	"sizetype\000"
+ 1358      74797065 
+ 1358      00
+ 1359              	.LASF6:
+ 1360 028e 6C6F6E67 		.ascii	"long long int\000"
+ 1360      206C6F6E 
+ 1360      6720696E 
+ 1360      7400
+ 1361              	.LASF13:
+ 1362 029c 63686172 		.ascii	"char\000"
+ 1362      00
+ 1363              	.LASF30:
+ 1364 02a1 44697265 		.ascii	"DirectionInt_Stop\000"
+ 1364      6374696F 
+ 1364      6E496E74 
+ 1364      5F53746F 
+ 1364      7000
+ 1365              	.LASF41:
+ 1366 02b3 44697265 		.ascii	"DirectionInt_GetPriority\000"
+ 1366      6374696F 
+ 1366      6E496E74 
+ 1366      5F476574 
+ 1366      5072696F 
+ 1367              	.LASF2:
+ 1368 02cc 73686F72 		.ascii	"short int\000"
+ 1368      7420696E 
+ 1368      7400
+ 1369              	.LASF28:
+ 1370 02d6 44697265 		.ascii	"DirectionInt_Start\000"
+ 1370      6374696F 
+ 1370      6E496E74 
+ 1370      5F537461 
+ 1370      727400
+ 1371              	.LASF29:
+ 1372 02e9 44697265 		.ascii	"DirectionInt_StartEx\000"
+ 1372      6374696F 
+ 1372      6E496E74 
+ 1372      5F537461 
+ 1372      72744578 
+ 1373              	.LASF35:
+ 1374 02fe 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1374      69744372 
+ 1374      69746963 
+ 1374      616C5365 
+ 1374      6374696F 
+ 1375              	.LASF23:
+ 1376 0314 7072696F 		.ascii	"priorityOffset\000"
+ 1376      72697479 
+ 1376      4F666673 
+ 1376      657400
+ 1377              	.LASF4:
+ 1378 0323 6C6F6E67 		.ascii	"long int\000"
+ 1378      20696E74 
+ 1378      00
+ 1379              	.LASF16:
+ 1380 032c 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccBe9eLh.s 			page 35
+
+
+ 1380      20646F75 
+ 1380      626C6500 
+ 1381              	.LASF0:
+ 1382 0338 7369676E 		.ascii	"signed char\000"
+ 1382      65642063 
+ 1382      68617200 
+ 1383              	.LASF25:
+ 1384 0344 44697265 		.ascii	"DirectionInt_GetState\000"
+ 1384      6374696F 
+ 1384      6E496E74 
+ 1384      5F476574 
+ 1384      53746174 
+ 1385              	.LASF37:
+ 1386 035a 43794465 		.ascii	"CyDelay\000"
+ 1386      6C617900 
+ 1387              	.LASF27:
+ 1388 0362 44697265 		.ascii	"DirectionInt_Disable\000"
+ 1388      6374696F 
+ 1388      6E496E74 
+ 1388      5F446973 
+ 1388      61626C65 
+ 1389              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MotorControll-000\MotorControll\Source Files\main.c">
+<ExpandedNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\TopDesign</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Pins</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Analog</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Clocks</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Interrupts</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\System</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Directives</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Flash Security</v>
+<v>MotorControll-000\MotorControll\Header Files</v>
+<v>MotorControll-000\MotorControll\Header Files\cyapicallbacks.h</v>
+<v>MotorControll-000\MotorControll\Source Files</v>
+<v>MotorControll-000\MotorControll\Source Files\main.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\DirectionInt</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\StepperInterrupt</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\TopDesign</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Pins</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Analog</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Clocks</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Interrupts</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\System</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Directives</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Flash Security</v>
+<v>MotorControll-000\MotorControll\Header Files</v>
+<v>MotorControll-000\MotorControll\Header Files\cyapicallbacks.h</v>
+<v>MotorControll-000\MotorControll\Source Files</v>
+<v>MotorControll-000\MotorControll\Source Files\main.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Centroid_LL.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Centroid_LL.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Configuration.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Control.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Control.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Filter.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Filter.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_INT.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Processing.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Processing.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_RegisterMap.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Sensing.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Sensing.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_SensingCSD_LL.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_SensingCSD_LL.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_SmartSense_LL.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Structure.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Structure.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Tuner.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense\CapSense_Tuner.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\CapSense_ISR</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\Clock_2</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\cy_boot</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\cy_lfclk</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\DC_PWM</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\dcMotorOut</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\DirectionInt</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\DirectionInt\DirectionInt.c</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\DirectionInt\DirectionInt.h</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\Enable</v>
+<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\G_LED</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\API</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\PSoC4</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\PSoC5</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>MotorControll-000\MotorControll\TopDesign</v>
+<v>MotorControll-000\MotorControll\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\API</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\PSoC4</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\PSoC5</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>MotorControll-000\MotorControll\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>MotorControll-000\MotorControll\TopDesign</v>
+<v>MotorControll-000\MotorControll\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\CortexM0</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Centroid_LL.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Control.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Filter.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_ISR.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Processing.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Sensing.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSD_LL.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Structure.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Tuner.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\DC_PWM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\DC_PWM_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\dcMotorOut.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\dcMotorOut_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\DirectionInt.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Enable.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Enable_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Latch.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Latch_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_PWM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_PWM_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\LEDB.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\LEDB_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\mosiOut.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\mosiOut_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ReversePin.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ReversePin_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\sclkOut.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\sclkOut_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SERVO_PWM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SERVO_PWM_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\servoOut.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\servoOut_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SPIM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SPIM_INT.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SPIM_IntClock.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SPIM_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Stepper_Timer.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Stepper_Timer_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\StepperInterrupt.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.elf</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.hex</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.map</v>
+<v>MotorControll-000\MotorControll\MotorControll.gpdsc</v>
+<v>MotorControll-000\MotorControll\MotorControll.rpt</v>
+<v>MotorControll-000\MotorControll\MotorControll_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\CortexM0</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Centroid_LL.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Control.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Filter.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_ISR.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Processing.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Sensing.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SensingCSD_LL.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Structure.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_Tuner.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\DC_PWM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\DC_PWM_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\dcMotorOut.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\dcMotorOut_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\DirectionInt.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Enable.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Enable_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Latch.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Latch_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_PWM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_PWM_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\LEDB.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\LEDB_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\mosiOut.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\mosiOut_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ReversePin.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ReversePin_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\sclkOut.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\sclkOut_PM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SERVO_PWM.lst</v>
+<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SERVO_PWM_PM.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\PSoC 4 Architecture TRM</v>
+<v>MotorControll-000\MotorControll\PSoC 4200 Family Datasheet</v>
+<v>MotorControll-000\MotorControll\System Reference Guides</v>
+<v>MotorControll-000\MotorControll\System Reference Guides\cy_boot_v5_80</v>
+<v>MotorControll-000\MotorControll\System Reference Guides\cy_lfclk_v1_20</v>
+<v>MotorControll-000\MotorControll\CapSense_P4_v5_0.pdf</v>
+<v>MotorControll-000\MotorControll\cy_clock_v2_20.pdf</v>
+<v>MotorControll-000\MotorControll\cy_constant_v1_0</v>
+<v>MotorControll-000\MotorControll\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>MotorControll-000\MotorControll\cy_isr_v1_70</v>
+<v>MotorControll-000\MotorControll\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>MotorControll-000\MotorControll\cy_pins_v2_20</v>
+<v>MotorControll-000\MotorControll\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>MotorControll-000\MotorControll\SPI_Master_v2_50.pdf</v>
+<v>MotorControll-000\MotorControll\TCPWM_P4_v2_10</v>
+<v>MotorControll-000\MotorControll\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\PSoC 4 Architecture TRM</v>
+<v>MotorControll-000\MotorControll\PSoC 4200 Family Datasheet</v>
+<v>MotorControll-000\MotorControll\System Reference Guides</v>
+<v>MotorControll-000\MotorControll\System Reference Guides\cy_boot_v5_80</v>
+<v>MotorControll-000\MotorControll\System Reference Guides\cy_lfclk_v1_20</v>
+<v>MotorControll-000\MotorControll\CapSense_P4_v5_0.pdf</v>
+<v>MotorControll-000\MotorControll\cy_clock_v2_20.pdf</v>
+<v>MotorControll-000\MotorControll\cy_constant_v1_0</v>
+<v>MotorControll-000\MotorControll\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>MotorControll-000\MotorControll\cy_isr_v1_70</v>
+<v>MotorControll-000\MotorControll\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>MotorControll-000\MotorControll\cy_pins_v2_20</v>
+<v>MotorControll-000\MotorControll\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>MotorControll-000\MotorControll\SPI_Master_v2_50.pdf</v>
+<v>MotorControll-000\MotorControll\TCPWM_P4_v2_10</v>
+<v>MotorControll-000\MotorControll\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\main.c" />
+<name v=".\MotorControll.cydwr" />
+<name v=".\Generated_Source\PSoC4\DirectionInt.c" />
+<name v=".\Generated_Source\PSoC4\StepperInterrupt.c" />
+<name v=".\Generated_Source\PSoC4\CapSense_Processing.c" />
+<name v=".\Generated_Source\PSoC4\cytypes.h" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1503, 751" SelectedTabbedMdiWindow="927de655-9a22-4c3f-905c-5c17d791c00e"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\TopDesign\TopDesign.cysch" Guid="9c238b84-0714-4143-87a8-666487ff0f14" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\main.c" Guid="e4980c79-21ff-4b60-bf6d-85988d64701b" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\MotorControll.cydwr" Guid="927de655-9a22-4c3f-905c-5c17d791c00e" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\DirectionInt.c" Guid="ae900be0-9390-4f40-a661-339d22254fd2" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\StepperInterrupt.c" Guid="dd5de0b0-7df0-4030-af64-e47e3e342d51" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\CapSense_Processing.c" Guid="0cad75f2-0f74-4919-8482-430ed3ab06f2" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\cytypes.h" Guid="59fb7180-36aa-473f-bea0-45890428d7e6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

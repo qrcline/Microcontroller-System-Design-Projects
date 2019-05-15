@@ -1,0 +1,3644 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"GLCD_SPIM_UDB.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.GLCD_SPIM_UDB_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	GLCD_SPIM_UDB_Enable
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	GLCD_SPIM_UDB_Enable, %function
+  25              	GLCD_SPIM_UDB_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC4\\GLCD_SPIM_UDB.c"
+   1:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * File Name: GLCD_SPIM_UDB.c
+   3:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Version 2.40
+   4:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+   5:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Description:
+   6:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  This file provides all API functionality of the SPI Master component.
+   7:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+   8:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Note:
+   9:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+  10:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+  11:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  18:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** #include "GLCD_SPIM_UDB_PVT.h"
+  19:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  20:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+  21:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     volatile uint16 GLCD_SPIM_UDB_txBuffer[GLCD_SPIM_UDB_TX_BUFFER_SIZE] = {0u};
+  22:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     volatile uint8 GLCD_SPIM_UDB_txBufferFull;
+  23:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     volatile uint8 GLCD_SPIM_UDB_txBufferRead;
+  24:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     volatile uint8 GLCD_SPIM_UDB_txBufferWrite;
+  25:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+  26:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  27:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+  28:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     volatile uint16 GLCD_SPIM_UDB_rxBuffer[GLCD_SPIM_UDB_RX_BUFFER_SIZE] = {0u};
+  29:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     volatile uint8 GLCD_SPIM_UDB_rxBufferFull;
+  30:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     volatile uint8 GLCD_SPIM_UDB_rxBufferRead;
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 2
+
+
+  31:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     volatile uint8 GLCD_SPIM_UDB_rxBufferWrite;
+  32:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** #endif /* (GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+  33:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  34:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** uint8 GLCD_SPIM_UDB_initVar = 0u;
+  35:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  36:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** volatile uint8 GLCD_SPIM_UDB_swStatusTx;
+  37:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** volatile uint8 GLCD_SPIM_UDB_swStatusRx;
+  38:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  39:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  40:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+  41:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_Init
+  42:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+  43:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+  44:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+  45:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Inits/Restores default SPIM configuration provided with customizer.
+  46:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+  47:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+  48:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+  49:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+  50:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+  51:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+  52:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+  53:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+  54:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  When this function is called it initializes all of the necessary parameters
+  55:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  for execution. i.e. setting the initial interrupt mask, configuring the
+  56:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  interrupt service routine, configuring the bit-counter parameters and
+  57:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  clearing the FIFO and Status Register.
+  58:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+  59:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+  60:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+  61:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+  62:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+  63:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_Init(void) 
+  64:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+  65:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Initialize the Bit counter */
+  66:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_COUNTER_PERIOD_REG = GLCD_SPIM_UDB_BITCTR_INIT;
+  67:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  68:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Init TX ISR  */
+  69:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(0u != GLCD_SPIM_UDB_INTERNAL_TX_INT_ENABLED)
+  70:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CyIntDisable         (GLCD_SPIM_UDB_TX_ISR_NUMBER);
+  71:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CyIntSetPriority     (GLCD_SPIM_UDB_TX_ISR_NUMBER,  GLCD_SPIM_UDB_TX_ISR_PRIORITY);
+  72:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         (void) CyIntSetVector(GLCD_SPIM_UDB_TX_ISR_NUMBER, &GLCD_SPIM_UDB_TX_ISR);
+  73:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (0u != GLCD_SPIM_UDB_INTERNAL_TX_INT_ENABLED) */
+  74:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  75:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Init RX ISR  */
+  76:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(0u != GLCD_SPIM_UDB_INTERNAL_RX_INT_ENABLED)
+  77:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CyIntDisable         (GLCD_SPIM_UDB_RX_ISR_NUMBER);
+  78:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CyIntSetPriority     (GLCD_SPIM_UDB_RX_ISR_NUMBER,  GLCD_SPIM_UDB_RX_ISR_PRIORITY);
+  79:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         (void) CyIntSetVector(GLCD_SPIM_UDB_RX_ISR_NUMBER, &GLCD_SPIM_UDB_RX_ISR);
+  80:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (0u != GLCD_SPIM_UDB_INTERNAL_RX_INT_ENABLED) */
+  81:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  82:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Clear any stray data from the RX and TX FIFO */
+  83:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_ClearFIFO();
+  84:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  85:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+  86:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_rxBufferFull  = 0u;
+  87:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_rxBufferRead  = 0u;
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 3
+
+
+  88:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_rxBufferWrite = 0u;
+  89:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+  90:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  91:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+  92:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_txBufferFull  = 0u;
+  93:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_txBufferRead  = 0u;
+  94:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_txBufferWrite = 0u;
+  95:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+  96:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+  97:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     (void) GLCD_SPIM_UDB_ReadTxStatus(); /* Clear Tx status and swStatusTx */
+  98:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     (void) GLCD_SPIM_UDB_ReadRxStatus(); /* Clear Rx status and swStatusRx */
+  99:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 100:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Configure TX and RX interrupt mask */
+ 101:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_TX_STATUS_MASK_REG = GLCD_SPIM_UDB_TX_INIT_INTERRUPTS_MASK;
+ 102:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_RX_STATUS_MASK_REG = GLCD_SPIM_UDB_RX_INIT_INTERRUPTS_MASK;
+ 103:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 104:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 105:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 106:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 107:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_Enable
+ 108:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 109:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 110:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 111:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enable SPIM component.
+ 112:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 113:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 114:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 115:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 116:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 117:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 118:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 119:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 120:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_Enable(void) 
+ 121:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+  28              		.loc 1 121 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+ 122:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 enableInterrupts;
+ 123:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 124:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     enableInterrupts = CyEnterCriticalSection();
+  36              		.loc 1 124 0
+  37 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  38              	.LVL0:
+ 125:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_COUNTER_CONTROL_REG |= GLCD_SPIM_UDB_CNTR_ENABLE;
+  39              		.loc 1 125 0
+  40 0006 0B4A     		ldr	r2, .L2
+  41 0008 1178     		ldrb	r1, [r2]
+  42 000a 2023     		movs	r3, #32
+  43 000c 0B43     		orrs	r3, r1
+  44 000e DBB2     		uxtb	r3, r3
+  45 0010 1370     		strb	r3, [r2]
+ 126:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_TX_STATUS_ACTL_REG  |= GLCD_SPIM_UDB_INT_ENABLE;
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 4
+
+
+  46              		.loc 1 126 0
+  47 0012 0949     		ldr	r1, .L2+4
+  48 0014 0A78     		ldrb	r2, [r1]
+  49 0016 1023     		movs	r3, #16
+  50 0018 1A43     		orrs	r2, r3
+  51 001a D2B2     		uxtb	r2, r2
+  52 001c 0A70     		strb	r2, [r1]
+ 127:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_RX_STATUS_ACTL_REG  |= GLCD_SPIM_UDB_INT_ENABLE;
+  53              		.loc 1 127 0
+  54 001e 074A     		ldr	r2, .L2+8
+  55 0020 1178     		ldrb	r1, [r2]
+  56 0022 0B43     		orrs	r3, r1
+  57 0024 DBB2     		uxtb	r3, r3
+  58 0026 1370     		strb	r3, [r2]
+ 128:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     CyExitCriticalSection(enableInterrupts);
+  59              		.loc 1 128 0
+  60 0028 FFF7FEFF 		bl	CyExitCriticalSection
+  61              	.LVL1:
+ 129:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 130:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(0u != GLCD_SPIM_UDB_INTERNAL_CLOCK)
+ 131:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_IntClock_Enable();
+  62              		.loc 1 131 0
+  63 002c FFF7FEFF 		bl	GLCD_SPIM_UDB_IntClock_Start
+  64              	.LVL2:
+ 132:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (0u != GLCD_SPIM_UDB_INTERNAL_CLOCK) */
+ 133:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 134:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_EnableTxInt();
+ 135:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_EnableRxInt();
+ 136:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+  65              		.loc 1 136 0
+  66              		@ sp needed
+  67 0030 10BD     		pop	{r4, pc}
+  68              	.L3:
+  69 0032 C046     		.align	2
+  70              	.L2:
+  71 0034 93000F40 		.word	1074725011
+  72 0038 90000F40 		.word	1074725008
+  73 003c 92000F40 		.word	1074725010
+  74              		.cfi_endproc
+  75              	.LFE1:
+  76              		.size	GLCD_SPIM_UDB_Enable, .-GLCD_SPIM_UDB_Enable
+  77              		.section	.text.GLCD_SPIM_UDB_Stop,"ax",%progbits
+  78              		.align	2
+  79              		.global	GLCD_SPIM_UDB_Stop
+  80              		.code	16
+  81              		.thumb_func
+  82              		.type	GLCD_SPIM_UDB_Stop, %function
+  83              	GLCD_SPIM_UDB_Stop:
+  84              	.LFB3:
+ 137:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 138:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 139:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 140:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_Start
+ 141:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 142:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 143:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 144:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Initialize and Enable the SPI Master component.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 5
+
+
+ 145:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 146:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 147:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 148:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 149:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 150:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 151:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 152:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 153:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_initVar - used to check initial configuration, modified on
+ 154:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  first function call.
+ 155:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 156:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 157:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enable the clock input to enable operation.
+ 158:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 159:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+ 160:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+ 161:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 162:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 163:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_Start(void) 
+ 164:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 165:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     if(0u == GLCD_SPIM_UDB_initVar)
+ 166:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 167:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_Init();
+ 168:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_initVar = 1u;
+ 169:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     }
+ 170:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 171:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_Enable();
+ 172:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 173:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 174:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 175:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 176:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_Stop
+ 177:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 178:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 179:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 180:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Disable the SPI Master component.
+ 181:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 182:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 183:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 184:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 185:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 186:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 187:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 188:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 189:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Disable the clock input to enable operation.
+ 190:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 191:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 192:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_Stop(void) 
+ 193:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+  85              		.loc 1 193 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89 0000 10B5     		push	{r4, lr}
+  90              		.cfi_def_cfa_offset 8
+  91              		.cfi_offset 4, -8
+  92              		.cfi_offset 14, -4
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 6
+
+
+ 194:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 enableInterrupts;
+ 195:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 196:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     enableInterrupts = CyEnterCriticalSection();
+  93              		.loc 1 196 0
+  94 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  95              	.LVL3:
+ 197:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_TX_STATUS_ACTL_REG &= ((uint8) ~GLCD_SPIM_UDB_INT_ENABLE);
+  96              		.loc 1 197 0
+  97 0006 074A     		ldr	r2, .L5
+  98 0008 1378     		ldrb	r3, [r2]
+  99 000a 1021     		movs	r1, #16
+ 100 000c 8B43     		bics	r3, r1
+ 101 000e 1370     		strb	r3, [r2]
+ 198:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_RX_STATUS_ACTL_REG &= ((uint8) ~GLCD_SPIM_UDB_INT_ENABLE);
+ 102              		.loc 1 198 0
+ 103 0010 054A     		ldr	r2, .L5+4
+ 104 0012 1378     		ldrb	r3, [r2]
+ 105 0014 8B43     		bics	r3, r1
+ 106 0016 1370     		strb	r3, [r2]
+ 199:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     CyExitCriticalSection(enableInterrupts);
+ 107              		.loc 1 199 0
+ 108 0018 FFF7FEFF 		bl	CyExitCriticalSection
+ 109              	.LVL4:
+ 200:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 201:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(0u != GLCD_SPIM_UDB_INTERNAL_CLOCK)
+ 202:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_IntClock_Disable();
+ 110              		.loc 1 202 0
+ 111 001c FFF7FEFF 		bl	GLCD_SPIM_UDB_IntClock_Stop
+ 112              	.LVL5:
+ 203:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (0u != GLCD_SPIM_UDB_INTERNAL_CLOCK) */
+ 204:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 205:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_DisableTxInt();
+ 206:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_DisableRxInt();
+ 207:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 113              		.loc 1 207 0
+ 114              		@ sp needed
+ 115 0020 10BD     		pop	{r4, pc}
+ 116              	.L6:
+ 117 0022 C046     		.align	2
+ 118              	.L5:
+ 119 0024 90000F40 		.word	1074725008
+ 120 0028 92000F40 		.word	1074725010
+ 121              		.cfi_endproc
+ 122              	.LFE3:
+ 123              		.size	GLCD_SPIM_UDB_Stop, .-GLCD_SPIM_UDB_Stop
+ 124              		.section	.text.GLCD_SPIM_UDB_EnableTxInt,"ax",%progbits
+ 125              		.align	2
+ 126              		.global	GLCD_SPIM_UDB_EnableTxInt
+ 127              		.code	16
+ 128              		.thumb_func
+ 129              		.type	GLCD_SPIM_UDB_EnableTxInt, %function
+ 130              	GLCD_SPIM_UDB_EnableTxInt:
+ 131              	.LFB4:
+ 208:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 209:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 210:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 211:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_EnableTxInt
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 7
+
+
+ 212:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 213:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 214:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 215:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enable internal Tx interrupt generation.
+ 216:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 217:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 218:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 219:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 220:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 221:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 222:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 223:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 224:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enable the internal Tx interrupt output -or- the interrupt component itself.
+ 225:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 226:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 227:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_EnableTxInt(void) 
+ 228:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 132              		.loc 1 228 0
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ 136              		@ link register save eliminated.
+ 229:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(0u != GLCD_SPIM_UDB_INTERNAL_TX_INT_ENABLED)
+ 230:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CyIntEnable(GLCD_SPIM_UDB_TX_ISR_NUMBER);
+ 231:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (0u != GLCD_SPIM_UDB_INTERNAL_TX_INT_ENABLED) */
+ 232:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 137              		.loc 1 232 0
+ 138              		@ sp needed
+ 139 0000 7047     		bx	lr
+ 140              		.cfi_endproc
+ 141              	.LFE4:
+ 142              		.size	GLCD_SPIM_UDB_EnableTxInt, .-GLCD_SPIM_UDB_EnableTxInt
+ 143 0002 C046     		.section	.text.GLCD_SPIM_UDB_EnableRxInt,"ax",%progbits
+ 144              		.align	2
+ 145              		.global	GLCD_SPIM_UDB_EnableRxInt
+ 146              		.code	16
+ 147              		.thumb_func
+ 148              		.type	GLCD_SPIM_UDB_EnableRxInt, %function
+ 149              	GLCD_SPIM_UDB_EnableRxInt:
+ 150              	.LFB5:
+ 233:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 234:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 235:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 236:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_EnableRxInt
+ 237:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 238:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 239:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 240:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enable internal Rx interrupt generation.
+ 241:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 242:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 243:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 244:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 245:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 246:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 247:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 248:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 249:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enable the internal Rx interrupt output -or- the interrupt component itself.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 8
+
+
+ 250:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 251:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 252:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_EnableRxInt(void) 
+ 253:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 151              		.loc 1 253 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		@ link register save eliminated.
+ 254:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(0u != GLCD_SPIM_UDB_INTERNAL_RX_INT_ENABLED)
+ 255:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CyIntEnable(GLCD_SPIM_UDB_RX_ISR_NUMBER);
+ 256:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (0u != GLCD_SPIM_UDB_INTERNAL_RX_INT_ENABLED) */
+ 257:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 156              		.loc 1 257 0
+ 157              		@ sp needed
+ 158 0000 7047     		bx	lr
+ 159              		.cfi_endproc
+ 160              	.LFE5:
+ 161              		.size	GLCD_SPIM_UDB_EnableRxInt, .-GLCD_SPIM_UDB_EnableRxInt
+ 162 0002 C046     		.section	.text.GLCD_SPIM_UDB_DisableTxInt,"ax",%progbits
+ 163              		.align	2
+ 164              		.global	GLCD_SPIM_UDB_DisableTxInt
+ 165              		.code	16
+ 166              		.thumb_func
+ 167              		.type	GLCD_SPIM_UDB_DisableTxInt, %function
+ 168              	GLCD_SPIM_UDB_DisableTxInt:
+ 169              	.LFB6:
+ 258:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 259:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 260:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 261:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_DisableTxInt
+ 262:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 263:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 264:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 265:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Disable internal Tx interrupt generation.
+ 266:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 267:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 268:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 269:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 270:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 271:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 272:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 273:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 274:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Disable the internal Tx interrupt output -or- the interrupt component itself.
+ 275:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 276:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 277:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_DisableTxInt(void) 
+ 278:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 170              		.loc 1 278 0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              		@ link register save eliminated.
+ 279:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(0u != GLCD_SPIM_UDB_INTERNAL_TX_INT_ENABLED)
+ 280:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CyIntDisable(GLCD_SPIM_UDB_TX_ISR_NUMBER);
+ 281:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (0u != GLCD_SPIM_UDB_INTERNAL_TX_INT_ENABLED) */
+ 282:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 9
+
+
+ 175              		.loc 1 282 0
+ 176              		@ sp needed
+ 177 0000 7047     		bx	lr
+ 178              		.cfi_endproc
+ 179              	.LFE6:
+ 180              		.size	GLCD_SPIM_UDB_DisableTxInt, .-GLCD_SPIM_UDB_DisableTxInt
+ 181 0002 C046     		.section	.text.GLCD_SPIM_UDB_DisableRxInt,"ax",%progbits
+ 182              		.align	2
+ 183              		.global	GLCD_SPIM_UDB_DisableRxInt
+ 184              		.code	16
+ 185              		.thumb_func
+ 186              		.type	GLCD_SPIM_UDB_DisableRxInt, %function
+ 187              	GLCD_SPIM_UDB_DisableRxInt:
+ 188              	.LFB7:
+ 283:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 284:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 285:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 286:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_DisableRxInt
+ 287:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 288:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 289:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 290:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Disable internal Rx interrupt generation.
+ 291:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 292:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 293:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 294:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 295:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 296:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 297:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 298:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 299:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Disable the internal Rx interrupt output -or- the interrupt component itself.
+ 300:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 301:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 302:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_DisableRxInt(void) 
+ 303:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 189              		.loc 1 303 0
+ 190              		.cfi_startproc
+ 191              		@ args = 0, pretend = 0, frame = 0
+ 192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 193              		@ link register save eliminated.
+ 304:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(0u != GLCD_SPIM_UDB_INTERNAL_RX_INT_ENABLED)
+ 305:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CyIntDisable(GLCD_SPIM_UDB_RX_ISR_NUMBER);
+ 306:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (0u != GLCD_SPIM_UDB_INTERNAL_RX_INT_ENABLED) */
+ 307:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 194              		.loc 1 307 0
+ 195              		@ sp needed
+ 196 0000 7047     		bx	lr
+ 197              		.cfi_endproc
+ 198              	.LFE7:
+ 199              		.size	GLCD_SPIM_UDB_DisableRxInt, .-GLCD_SPIM_UDB_DisableRxInt
+ 200 0002 C046     		.section	.text.GLCD_SPIM_UDB_SetTxInterruptMode,"ax",%progbits
+ 201              		.align	2
+ 202              		.global	GLCD_SPIM_UDB_SetTxInterruptMode
+ 203              		.code	16
+ 204              		.thumb_func
+ 205              		.type	GLCD_SPIM_UDB_SetTxInterruptMode, %function
+ 206              	GLCD_SPIM_UDB_SetTxInterruptMode:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 10
+
+
+ 207              	.LFB8:
+ 308:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 309:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 310:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 311:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_SetTxInterruptMode
+ 312:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 313:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 314:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 315:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Configure which status bits trigger an interrupt event.
+ 316:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 317:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 318:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  intSrc: An or'd combination of the desired status bit masks (defined in the
+ 319:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  header file).
+ 320:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 321:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 322:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 323:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 324:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 325:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enables the output of specific status bits to the interrupt controller.
+ 326:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 327:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 328:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_SetTxInterruptMode(uint8 intSrc) 
+ 329:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 208              		.loc 1 329 0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              		@ link register save eliminated.
+ 213              	.LVL6:
+ 330:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_TX_STATUS_MASK_REG = intSrc;
+ 214              		.loc 1 330 0
+ 215 0000 014B     		ldr	r3, .L12
+ 216 0002 1870     		strb	r0, [r3]
+ 331:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 217              		.loc 1 331 0
+ 218              		@ sp needed
+ 219 0004 7047     		bx	lr
+ 220              	.L13:
+ 221 0006 C046     		.align	2
+ 222              	.L12:
+ 223 0008 80000F40 		.word	1074724992
+ 224              		.cfi_endproc
+ 225              	.LFE8:
+ 226              		.size	GLCD_SPIM_UDB_SetTxInterruptMode, .-GLCD_SPIM_UDB_SetTxInterruptMode
+ 227              		.section	.text.GLCD_SPIM_UDB_SetRxInterruptMode,"ax",%progbits
+ 228              		.align	2
+ 229              		.global	GLCD_SPIM_UDB_SetRxInterruptMode
+ 230              		.code	16
+ 231              		.thumb_func
+ 232              		.type	GLCD_SPIM_UDB_SetRxInterruptMode, %function
+ 233              	GLCD_SPIM_UDB_SetRxInterruptMode:
+ 234              	.LFB9:
+ 332:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 333:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 334:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 335:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_SetRxInterruptMode
+ 336:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 11
+
+
+ 337:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 338:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 339:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Configure which status bits trigger an interrupt event.
+ 340:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 341:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 342:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  intSrc: An or'd combination of the desired status bit masks (defined in the
+ 343:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  header file).
+ 344:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 345:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 346:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 347:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 348:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 349:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enables the output of specific status bits to the interrupt controller.
+ 350:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 351:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 352:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_SetRxInterruptMode(uint8 intSrc) 
+ 353:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 235              		.loc 1 353 0
+ 236              		.cfi_startproc
+ 237              		@ args = 0, pretend = 0, frame = 0
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 239              		@ link register save eliminated.
+ 240              	.LVL7:
+ 354:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_RX_STATUS_MASK_REG  = intSrc;
+ 241              		.loc 1 354 0
+ 242 0000 014B     		ldr	r3, .L15
+ 243 0002 1870     		strb	r0, [r3]
+ 355:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 244              		.loc 1 355 0
+ 245              		@ sp needed
+ 246 0004 7047     		bx	lr
+ 247              	.L16:
+ 248 0006 C046     		.align	2
+ 249              	.L15:
+ 250 0008 82000F40 		.word	1074724994
+ 251              		.cfi_endproc
+ 252              	.LFE9:
+ 253              		.size	GLCD_SPIM_UDB_SetRxInterruptMode, .-GLCD_SPIM_UDB_SetRxInterruptMode
+ 254              		.section	.text.GLCD_SPIM_UDB_ReadTxStatus,"ax",%progbits
+ 255              		.align	2
+ 256              		.global	GLCD_SPIM_UDB_ReadTxStatus
+ 257              		.code	16
+ 258              		.thumb_func
+ 259              		.type	GLCD_SPIM_UDB_ReadTxStatus, %function
+ 260              	GLCD_SPIM_UDB_ReadTxStatus:
+ 261              	.LFB10:
+ 356:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 357:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 358:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 359:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_ReadTxStatus
+ 360:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 361:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 362:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 363:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Read the Tx status register for the component.
+ 364:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 365:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 366:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 12
+
+
+ 367:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 368:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 369:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Contents of the Tx status register.
+ 370:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 371:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 372:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_swStatusTx - used to store in software status register,
+ 373:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  modified every function call - resets to zero.
+ 374:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 375:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 376:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Allows the user and the API to read the Tx status register for error
+ 377:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  detection and flow control.
+ 378:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 379:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 380:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear Tx status register of the component.
+ 381:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 382:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+ 383:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+ 384:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 385:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 386:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** uint8 GLCD_SPIM_UDB_ReadTxStatus(void) 
+ 387:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 262              		.loc 1 387 0
+ 263              		.cfi_startproc
+ 264              		@ args = 0, pretend = 0, frame = 0
+ 265              		@ frame_needed = 0, uses_anonymous_args = 0
+ 266              		@ link register save eliminated.
+ 388:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 tmpStatus;
+ 389:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 390:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+ 391:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Disable TX interrupt to protect global veriables */
+ 392:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableTxInt();
+ 393:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 394:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus = GLCD_SPIM_UDB_GET_STATUS_TX(GLCD_SPIM_UDB_swStatusTx);
+ 395:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_swStatusTx = 0u;
+ 396:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 397:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableTxInt();
+ 398:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 399:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #else
+ 400:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 401:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus = GLCD_SPIM_UDB_TX_STATUS_REG;
+ 267              		.loc 1 401 0
+ 268 0000 014B     		ldr	r3, .L18
+ 269 0002 1878     		ldrb	r0, [r3]
+ 270 0004 C0B2     		uxtb	r0, r0
+ 271              	.LVL8:
+ 402:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 403:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+ 404:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 405:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     return(tmpStatus);
+ 406:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 272              		.loc 1 406 0
+ 273              		@ sp needed
+ 274 0006 7047     		bx	lr
+ 275              	.L19:
+ 276              		.align	2
+ 277              	.L18:
+ 278 0008 60000F40 		.word	1074724960
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 13
+
+
+ 279              		.cfi_endproc
+ 280              	.LFE10:
+ 281              		.size	GLCD_SPIM_UDB_ReadTxStatus, .-GLCD_SPIM_UDB_ReadTxStatus
+ 282              		.section	.text.GLCD_SPIM_UDB_ReadRxStatus,"ax",%progbits
+ 283              		.align	2
+ 284              		.global	GLCD_SPIM_UDB_ReadRxStatus
+ 285              		.code	16
+ 286              		.thumb_func
+ 287              		.type	GLCD_SPIM_UDB_ReadRxStatus, %function
+ 288              	GLCD_SPIM_UDB_ReadRxStatus:
+ 289              	.LFB11:
+ 407:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 408:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 409:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 410:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_ReadRxStatus
+ 411:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 412:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 413:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 414:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Read the Rx status register for the component.
+ 415:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 416:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 417:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 418:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 419:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 420:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Contents of the Rx status register.
+ 421:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 422:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 423:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_swStatusRx - used to store in software Rx status register,
+ 424:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  modified every function call - resets to zero.
+ 425:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 426:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 427:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Allows the user and the API to read the Rx status register for error
+ 428:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  detection and flow control.
+ 429:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 430:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 431:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear Rx status register of the component.
+ 432:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 433:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+ 434:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+ 435:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 436:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 437:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** uint8 GLCD_SPIM_UDB_ReadRxStatus(void) 
+ 438:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 290              		.loc 1 438 0
+ 291              		.cfi_startproc
+ 292              		@ args = 0, pretend = 0, frame = 0
+ 293              		@ frame_needed = 0, uses_anonymous_args = 0
+ 294              		@ link register save eliminated.
+ 439:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 tmpStatus;
+ 440:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 441:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+ 442:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Disable RX interrupt to protect global veriables */
+ 443:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableRxInt();
+ 444:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 445:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus = GLCD_SPIM_UDB_GET_STATUS_RX(GLCD_SPIM_UDB_swStatusRx);
+ 446:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_swStatusRx = 0u;
+ 447:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 14
+
+
+ 448:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableRxInt();
+ 449:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 450:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #else
+ 451:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 452:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus = GLCD_SPIM_UDB_RX_STATUS_REG;
+ 295              		.loc 1 452 0
+ 296 0000 014B     		ldr	r3, .L21
+ 297 0002 1878     		ldrb	r0, [r3]
+ 298 0004 C0B2     		uxtb	r0, r0
+ 299              	.LVL9:
+ 453:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 454:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+ 455:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 456:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     return(tmpStatus);
+ 457:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 300              		.loc 1 457 0
+ 301              		@ sp needed
+ 302 0006 7047     		bx	lr
+ 303              	.L22:
+ 304              		.align	2
+ 305              	.L21:
+ 306 0008 62000F40 		.word	1074724962
+ 307              		.cfi_endproc
+ 308              	.LFE11:
+ 309              		.size	GLCD_SPIM_UDB_ReadRxStatus, .-GLCD_SPIM_UDB_ReadRxStatus
+ 310              		.section	.text.GLCD_SPIM_UDB_WriteTxData,"ax",%progbits
+ 311              		.align	2
+ 312              		.global	GLCD_SPIM_UDB_WriteTxData
+ 313              		.code	16
+ 314              		.thumb_func
+ 315              		.type	GLCD_SPIM_UDB_WriteTxData, %function
+ 316              	GLCD_SPIM_UDB_WriteTxData:
+ 317              	.LFB12:
+ 458:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 459:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 460:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 461:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_WriteTxData
+ 462:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 463:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 464:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 465:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Write a byte of data to be sent across the SPI.
+ 466:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 467:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 468:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  txDataByte: The data value to send across the SPI.
+ 469:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 470:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 471:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 472:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 473:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 474:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_txBufferWrite - used for the account of the bytes which
+ 475:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been written down in the TX software buffer, modified every function
+ 476:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  call if TX Software Buffer is used.
+ 477:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_txBufferRead - used for the account of the bytes which
+ 478:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been read from the TX software buffer.
+ 479:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_txBuffer[GLCD_SPIM_UDB_TX_BUFFER_SIZE] - used to store
+ 480:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  data to sending, modified every function call if TX Software Buffer is used.
+ 481:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 15
+
+
+ 482:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 483:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Allows the user to transmit any byte of data in a single transfer.
+ 484:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 485:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 486:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  If this function is called again before the previous byte is finished then
+ 487:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  the next byte will be appended to the transfer with no time between
+ 488:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  the byte transfers. Clear Tx status register of the component.
+ 489:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 490:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+ 491:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+ 492:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 493:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 494:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_WriteTxData(uint16 txData) 
+ 495:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 318              		.loc 1 495 0
+ 319              		.cfi_startproc
+ 320              		@ args = 0, pretend = 0, frame = 0
+ 321              		@ frame_needed = 0, uses_anonymous_args = 0
+ 322              		@ link register save eliminated.
+ 323              	.LVL10:
+ 324              	.L24:
+ 496:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+ 497:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 498:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         uint8 tempStatus;
+ 499:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         uint8 tmpTxBufferRead;
+ 500:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 501:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Block if TX buffer is FULL: don't overwrite */
+ 502:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         do
+ 503:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 504:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             tmpTxBufferRead = GLCD_SPIM_UDB_txBufferRead;
+ 505:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             if(0u == tmpTxBufferRead)
+ 506:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             {
+ 507:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 tmpTxBufferRead = (GLCD_SPIM_UDB_TX_BUFFER_SIZE - 1u);
+ 508:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             }
+ 509:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             else
+ 510:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             {
+ 511:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 tmpTxBufferRead--;
+ 512:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             }
+ 513:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 514:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }while(tmpTxBufferRead == GLCD_SPIM_UDB_txBufferWrite);
+ 515:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 516:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Disable TX interrupt to protect global veriables */
+ 517:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableTxInt();
+ 518:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 519:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tempStatus = GLCD_SPIM_UDB_GET_STATUS_TX(GLCD_SPIM_UDB_swStatusTx);
+ 520:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_swStatusTx = tempStatus;
+ 521:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 522:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 523:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         if((GLCD_SPIM_UDB_txBufferRead == GLCD_SPIM_UDB_txBufferWrite) &&
+ 524:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****            (0u != (GLCD_SPIM_UDB_swStatusTx & GLCD_SPIM_UDB_STS_TX_FIFO_NOT_FULL)))
+ 525:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 526:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             /* Add directly to the TX FIFO */
+ 527:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             CY_SET_REG16(GLCD_SPIM_UDB_TXDATA_PTR, txData);
+ 528:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 529:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         else
+ 530:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 531:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             /* Add to the TX software buffer */
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 16
+
+
+ 532:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             GLCD_SPIM_UDB_txBufferWrite++;
+ 533:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             if(GLCD_SPIM_UDB_txBufferWrite >= GLCD_SPIM_UDB_TX_BUFFER_SIZE)
+ 534:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             {
+ 535:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 GLCD_SPIM_UDB_txBufferWrite = 0u;
+ 536:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             }
+ 537:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 538:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             if(GLCD_SPIM_UDB_txBufferWrite == GLCD_SPIM_UDB_txBufferRead)
+ 539:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             {
+ 540:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 GLCD_SPIM_UDB_txBufferRead++;
+ 541:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 if(GLCD_SPIM_UDB_txBufferRead >= GLCD_SPIM_UDB_TX_BUFFER_SIZE)
+ 542:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 {
+ 543:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                     GLCD_SPIM_UDB_txBufferRead = 0u;
+ 544:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 }
+ 545:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 GLCD_SPIM_UDB_txBufferFull = 1u;
+ 546:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             }
+ 547:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 548:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             GLCD_SPIM_UDB_txBuffer[GLCD_SPIM_UDB_txBufferWrite] = txData;
+ 549:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 550:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             GLCD_SPIM_UDB_TX_STATUS_MASK_REG |= GLCD_SPIM_UDB_STS_TX_FIFO_NOT_FULL;
+ 551:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 552:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 553:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableTxInt();
+ 554:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 555:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #else
+ 556:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 557:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         while(0u == (GLCD_SPIM_UDB_TX_STATUS_REG & GLCD_SPIM_UDB_STS_TX_FIFO_NOT_FULL))
+ 325              		.loc 1 557 0 discriminator 1
+ 326 0000 034B     		ldr	r3, .L25
+ 327 0002 1B78     		ldrb	r3, [r3]
+ 328 0004 5B07     		lsls	r3, r3, #29
+ 329 0006 FBD5     		bpl	.L24
+ 558:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 559:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             ; /* Wait for room in FIFO */
+ 560:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 561:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 562:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Put byte in TX FIFO */
+ 563:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         CY_SET_REG16(GLCD_SPIM_UDB_TXDATA_PTR, txData);
+ 330              		.loc 1 563 0
+ 331 0008 024B     		ldr	r3, .L25+4
+ 332 000a 1880     		strh	r0, [r3]
+ 564:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 565:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+ 566:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 333              		.loc 1 566 0
+ 334              		@ sp needed
+ 335 000c 7047     		bx	lr
+ 336              	.L26:
+ 337 000e C046     		.align	2
+ 338              	.L25:
+ 339 0010 60000F40 		.word	1074724960
+ 340 0014 84100F40 		.word	1074729092
+ 341              		.cfi_endproc
+ 342              	.LFE12:
+ 343              		.size	GLCD_SPIM_UDB_WriteTxData, .-GLCD_SPIM_UDB_WriteTxData
+ 344              		.section	.text.GLCD_SPIM_UDB_ReadRxData,"ax",%progbits
+ 345              		.align	2
+ 346              		.global	GLCD_SPIM_UDB_ReadRxData
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 17
+
+
+ 347              		.code	16
+ 348              		.thumb_func
+ 349              		.type	GLCD_SPIM_UDB_ReadRxData, %function
+ 350              	GLCD_SPIM_UDB_ReadRxData:
+ 351              	.LFB13:
+ 567:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 568:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 569:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 570:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_ReadRxData
+ 571:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 572:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 573:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 574:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Read the next byte of data received across the SPI.
+ 575:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 576:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 577:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 578:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 579:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 580:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  The next byte of data read from the FIFO.
+ 581:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 582:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 583:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_rxBufferWrite - used for the account of the bytes which
+ 584:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been written down in the RX software buffer.
+ 585:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_rxBufferRead - used for the account of the bytes which
+ 586:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been read from the RX software buffer, modified every function
+ 587:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  call if RX Software Buffer is used.
+ 588:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_rxBuffer[GLCD_SPIM_UDB_RX_BUFFER_SIZE] - used to store
+ 589:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  received data.
+ 590:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 591:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 592:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Allows the user to read a byte of data received.
+ 593:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 594:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 595:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Will return invalid data if the FIFO is empty. The user should Call
+ 596:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GetRxBufferSize() and if it returns a non-zero value then it is safe to call
+ 597:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  ReadByte() function.
+ 598:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 599:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+ 600:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+ 601:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 602:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 603:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** uint16 GLCD_SPIM_UDB_ReadRxData(void) 
+ 604:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 352              		.loc 1 604 0
+ 353              		.cfi_startproc
+ 354              		@ args = 0, pretend = 0, frame = 0
+ 355              		@ frame_needed = 0, uses_anonymous_args = 0
+ 356              		@ link register save eliminated.
+ 605:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint16 rxData;
+ 606:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 607:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+ 608:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 609:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Disable RX interrupt to protect global veriables */
+ 610:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableRxInt();
+ 611:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 612:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         if(GLCD_SPIM_UDB_rxBufferRead != GLCD_SPIM_UDB_rxBufferWrite)
+ 613:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 18
+
+
+ 614:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             if(0u == GLCD_SPIM_UDB_rxBufferFull)
+ 615:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             {
+ 616:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 GLCD_SPIM_UDB_rxBufferRead++;
+ 617:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 if(GLCD_SPIM_UDB_rxBufferRead >= GLCD_SPIM_UDB_RX_BUFFER_SIZE)
+ 618:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 {
+ 619:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                     GLCD_SPIM_UDB_rxBufferRead = 0u;
+ 620:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 }
+ 621:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             }
+ 622:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             else
+ 623:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             {
+ 624:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                 GLCD_SPIM_UDB_rxBufferFull = 0u;
+ 625:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             }
+ 626:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 627:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 628:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         rxData = GLCD_SPIM_UDB_rxBuffer[GLCD_SPIM_UDB_rxBufferRead];
+ 629:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 630:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableRxInt();
+ 631:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 632:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #else
+ 633:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 634:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         rxData = CY_GET_REG16(GLCD_SPIM_UDB_RXDATA_PTR);
+ 357              		.loc 1 634 0
+ 358 0000 014B     		ldr	r3, .L28
+ 359 0002 1888     		ldrh	r0, [r3]
+ 360 0004 80B2     		uxth	r0, r0
+ 361              	.LVL11:
+ 635:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 636:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+ 637:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 638:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     return(rxData);
+ 639:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 362              		.loc 1 639 0
+ 363              		@ sp needed
+ 364 0006 7047     		bx	lr
+ 365              	.L29:
+ 366              		.align	2
+ 367              	.L28:
+ 368 0008 A4100F40 		.word	1074729124
+ 369              		.cfi_endproc
+ 370              	.LFE13:
+ 371              		.size	GLCD_SPIM_UDB_ReadRxData, .-GLCD_SPIM_UDB_ReadRxData
+ 372              		.section	.text.GLCD_SPIM_UDB_GetRxBufferSize,"ax",%progbits
+ 373              		.align	2
+ 374              		.global	GLCD_SPIM_UDB_GetRxBufferSize
+ 375              		.code	16
+ 376              		.thumb_func
+ 377              		.type	GLCD_SPIM_UDB_GetRxBufferSize, %function
+ 378              	GLCD_SPIM_UDB_GetRxBufferSize:
+ 379              	.LFB14:
+ 640:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 641:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 642:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 643:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_GetRxBufferSize
+ 644:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 645:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 646:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 647:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Returns the number of bytes/words of data currently held in the RX buffer.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 19
+
+
+ 648:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  If RX Software Buffer not used then function return 0 if FIFO empty or 1 if
+ 649:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  FIFO not empty. In another case function return size of RX Software Buffer.
+ 650:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 651:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 652:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 653:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 654:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 655:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Integer count of the number of bytes/words in the RX buffer.
+ 656:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 657:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 658:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_rxBufferWrite - used for the account of the bytes which
+ 659:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been written down in the RX software buffer.
+ 660:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_rxBufferRead - used for the account of the bytes which
+ 661:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been read from the RX software buffer.
+ 662:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 663:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 664:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear status register of the component.
+ 665:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 666:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 667:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** uint8 GLCD_SPIM_UDB_GetRxBufferSize(void) 
+ 668:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 380              		.loc 1 668 0
+ 381              		.cfi_startproc
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 669:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 size;
+ 670:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 671:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+ 672:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 673:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Disable RX interrupt to protect global veriables */
+ 674:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableRxInt();
+ 675:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 676:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         if(GLCD_SPIM_UDB_rxBufferRead == GLCD_SPIM_UDB_rxBufferWrite)
+ 677:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 678:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = 0u;
+ 679:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 680:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         else if(GLCD_SPIM_UDB_rxBufferRead < GLCD_SPIM_UDB_rxBufferWrite)
+ 681:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 682:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = (GLCD_SPIM_UDB_rxBufferWrite - GLCD_SPIM_UDB_rxBufferRead);
+ 683:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 684:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         else
+ 685:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 686:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = (GLCD_SPIM_UDB_RX_BUFFER_SIZE - GLCD_SPIM_UDB_rxBufferRead) + GLCD_SPIM_UDB_rxBu
+ 687:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 688:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 689:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableRxInt();
+ 690:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 691:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #else
+ 692:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 693:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* We can only know if there is data in the RX FIFO */
+ 694:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         size = (0u != (GLCD_SPIM_UDB_RX_STATUS_REG & GLCD_SPIM_UDB_STS_RX_FIFO_NOT_EMPTY)) ? 1u : 0
+ 385              		.loc 1 694 0
+ 386 0000 034B     		ldr	r3, .L33
+ 387 0002 1B78     		ldrb	r3, [r3]
+ 388 0004 9B06     		lsls	r3, r3, #26
+ 389 0006 01D5     		bpl	.L32
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 20
+
+
+ 390 0008 0120     		movs	r0, #1
+ 391 000a 00E0     		b	.L31
+ 392              	.L32:
+ 393 000c 0020     		movs	r0, #0
+ 394              	.L31:
+ 395              	.LVL12:
+ 695:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 696:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+ 697:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 698:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     return(size);
+ 699:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 396              		.loc 1 699 0 discriminator 4
+ 397              		@ sp needed
+ 398 000e 7047     		bx	lr
+ 399              	.L34:
+ 400              		.align	2
+ 401              	.L33:
+ 402 0010 62000F40 		.word	1074724962
+ 403              		.cfi_endproc
+ 404              	.LFE14:
+ 405              		.size	GLCD_SPIM_UDB_GetRxBufferSize, .-GLCD_SPIM_UDB_GetRxBufferSize
+ 406              		.section	.text.GLCD_SPIM_UDB_GetTxBufferSize,"ax",%progbits
+ 407              		.align	2
+ 408              		.global	GLCD_SPIM_UDB_GetTxBufferSize
+ 409              		.code	16
+ 410              		.thumb_func
+ 411              		.type	GLCD_SPIM_UDB_GetTxBufferSize, %function
+ 412              	GLCD_SPIM_UDB_GetTxBufferSize:
+ 413              	.LFB15:
+ 700:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 701:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 702:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 703:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_GetTxBufferSize
+ 704:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 705:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 706:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 707:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Returns the number of bytes/words of data currently held in the TX buffer.
+ 708:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  If TX Software Buffer not used then function return 0 - if FIFO empty, 1 - if
+ 709:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  FIFO not full, 4 - if FIFO full. In another case function return size of TX
+ 710:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Software Buffer.
+ 711:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 712:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 713:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 714:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 715:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 716:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Integer count of the number of bytes/words in the TX buffer.
+ 717:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 718:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 719:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_txBufferWrite - used for the account of the bytes which
+ 720:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been written down in the TX software buffer.
+ 721:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_txBufferRead - used for the account of the bytes which
+ 722:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been read from the TX software buffer.
+ 723:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 724:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 725:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear status register of the component.
+ 726:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 727:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 21
+
+
+ 728:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** uint8  GLCD_SPIM_UDB_GetTxBufferSize(void) 
+ 729:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 414              		.loc 1 729 0
+ 415              		.cfi_startproc
+ 416              		@ args = 0, pretend = 0, frame = 0
+ 417              		@ frame_needed = 0, uses_anonymous_args = 0
+ 418              		@ link register save eliminated.
+ 730:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 size;
+ 731:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 732:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+ 733:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Disable TX interrupt to protect global veriables */
+ 734:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableTxInt();
+ 735:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 736:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         if(GLCD_SPIM_UDB_txBufferRead == GLCD_SPIM_UDB_txBufferWrite)
+ 737:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 738:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = 0u;
+ 739:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 740:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         else if(GLCD_SPIM_UDB_txBufferRead < GLCD_SPIM_UDB_txBufferWrite)
+ 741:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 742:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = (GLCD_SPIM_UDB_txBufferWrite - GLCD_SPIM_UDB_txBufferRead);
+ 743:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 744:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         else
+ 745:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 746:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = (GLCD_SPIM_UDB_TX_BUFFER_SIZE - GLCD_SPIM_UDB_txBufferRead) + GLCD_SPIM_UDB_txBu
+ 747:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 748:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 749:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableTxInt();
+ 750:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 751:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #else
+ 752:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 753:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         size = GLCD_SPIM_UDB_TX_STATUS_REG;
+ 419              		.loc 1 753 0
+ 420 0000 064B     		ldr	r3, .L39
+ 421 0002 1B78     		ldrb	r3, [r3]
+ 422 0004 DBB2     		uxtb	r3, r3
+ 423              	.LVL13:
+ 754:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 755:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         if(0u != (size & GLCD_SPIM_UDB_STS_TX_FIFO_EMPTY))
+ 424              		.loc 1 755 0
+ 425 0006 9A07     		lsls	r2, r3, #30
+ 426 0008 03D4     		bmi	.L37
+ 756:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 757:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = 0u;
+ 758:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 759:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         else if(0u != (size & GLCD_SPIM_UDB_STS_TX_FIFO_NOT_FULL))
+ 427              		.loc 1 759 0
+ 428 000a 5B07     		lsls	r3, r3, #29
+ 429 000c 03D5     		bpl	.L38
+ 430              	.LVL14:
+ 760:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 761:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = 1u;
+ 431              		.loc 1 761 0
+ 432 000e 0120     		movs	r0, #1
+ 433 0010 02E0     		b	.L36
+ 434              	.LVL15:
+ 435              	.L37:
+ 757:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 22
+
+
+ 436              		.loc 1 757 0
+ 437 0012 0020     		movs	r0, #0
+ 438 0014 00E0     		b	.L36
+ 439              	.LVL16:
+ 440              	.L38:
+ 762:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 763:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         else
+ 764:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         {
+ 765:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****             size = GLCD_SPIM_UDB_FIFO_SIZE;
+ 441              		.loc 1 765 0
+ 442 0016 0420     		movs	r0, #4
+ 443              	.L36:
+ 444              	.LVL17:
+ 766:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         }
+ 767:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 768:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+ 769:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 770:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     return(size);
+ 771:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 445              		.loc 1 771 0
+ 446              		@ sp needed
+ 447 0018 7047     		bx	lr
+ 448              	.L40:
+ 449 001a C046     		.align	2
+ 450              	.L39:
+ 451 001c 60000F40 		.word	1074724960
+ 452              		.cfi_endproc
+ 453              	.LFE15:
+ 454              		.size	GLCD_SPIM_UDB_GetTxBufferSize, .-GLCD_SPIM_UDB_GetTxBufferSize
+ 455              		.section	.text.GLCD_SPIM_UDB_ClearRxBuffer,"ax",%progbits
+ 456              		.align	2
+ 457              		.global	GLCD_SPIM_UDB_ClearRxBuffer
+ 458              		.code	16
+ 459              		.thumb_func
+ 460              		.type	GLCD_SPIM_UDB_ClearRxBuffer, %function
+ 461              	GLCD_SPIM_UDB_ClearRxBuffer:
+ 462              	.LFB16:
+ 772:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 773:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 774:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 775:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_ClearRxBuffer
+ 776:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 777:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 778:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 779:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear the RX RAM buffer by setting the read and write pointers both to zero.
+ 780:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 781:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 782:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 783:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 784:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 785:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 786:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 787:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 788:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_rxBufferWrite - used for the account of the bytes which
+ 789:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been written down in the RX software buffer, modified every function
+ 790:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  call - resets to zero.
+ 791:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_rxBufferRead - used for the account of the bytes which
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 23
+
+
+ 792:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been read from the RX software buffer, modified every function call -
+ 793:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  resets to zero.
+ 794:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 795:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 796:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Setting the pointers to zero makes the system believe there is no data to
+ 797:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  read and writing will resume at address 0 overwriting any data that may have
+ 798:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  remained in the RAM.
+ 799:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 800:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 801:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Any received data not read from the RAM buffer will be lost when overwritten.
+ 802:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 803:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+ 804:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+ 805:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 806:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 807:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_ClearRxBuffer(void) 
+ 808:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 463              		.loc 1 808 0
+ 464              		.cfi_startproc
+ 465              		@ args = 0, pretend = 0, frame = 0
+ 466              		@ frame_needed = 0, uses_anonymous_args = 0
+ 467              		@ link register save eliminated.
+ 809:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Clear Hardware RX FIFO */
+ 810:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     while(0u !=(GLCD_SPIM_UDB_RX_STATUS_REG & GLCD_SPIM_UDB_STS_RX_FIFO_NOT_EMPTY))
+ 468              		.loc 1 810 0
+ 469 0000 01E0     		b	.L42
+ 470              	.L43:
+ 811:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 812:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         (void) CY_GET_REG16(GLCD_SPIM_UDB_RXDATA_PTR);
+ 471              		.loc 1 812 0
+ 472 0002 034B     		ldr	r3, .L44
+ 473 0004 1B88     		ldrh	r3, [r3]
+ 474              	.L42:
+ 810:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 475              		.loc 1 810 0
+ 476 0006 034B     		ldr	r3, .L44+4
+ 477 0008 1B78     		ldrb	r3, [r3]
+ 478 000a 9B06     		lsls	r3, r3, #26
+ 479 000c F9D4     		bmi	.L43
+ 813:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     }
+ 814:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 815:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+ 816:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Disable RX interrupt to protect global veriables */
+ 817:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableRxInt();
+ 818:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 819:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_rxBufferFull  = 0u;
+ 820:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_rxBufferRead  = 0u;
+ 821:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_rxBufferWrite = 0u;
+ 822:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 823:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableRxInt();
+ 824:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+ 825:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 480              		.loc 1 825 0
+ 481              		@ sp needed
+ 482 000e 7047     		bx	lr
+ 483              	.L45:
+ 484              		.align	2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 24
+
+
+ 485              	.L44:
+ 486 0010 A4100F40 		.word	1074729124
+ 487 0014 62000F40 		.word	1074724962
+ 488              		.cfi_endproc
+ 489              	.LFE16:
+ 490              		.size	GLCD_SPIM_UDB_ClearRxBuffer, .-GLCD_SPIM_UDB_ClearRxBuffer
+ 491              		.section	.text.GLCD_SPIM_UDB_ClearTxBuffer,"ax",%progbits
+ 492              		.align	2
+ 493              		.global	GLCD_SPIM_UDB_ClearTxBuffer
+ 494              		.code	16
+ 495              		.thumb_func
+ 496              		.type	GLCD_SPIM_UDB_ClearTxBuffer, %function
+ 497              	GLCD_SPIM_UDB_ClearTxBuffer:
+ 498              	.LFB17:
+ 826:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 827:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 828:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 829:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_ClearTxBuffer
+ 830:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 831:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 832:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 833:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear the TX RAM buffer by setting the read and write pointers both to zero.
+ 834:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 835:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 836:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 837:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 838:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 839:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 840:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 841:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+ 842:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_txBufferWrite - used for the account of the bytes which
+ 843:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been written down in the TX software buffer, modified every function
+ 844:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  call - resets to zero.
+ 845:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_txBufferRead - used for the account of the bytes which
+ 846:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  have been read from the TX software buffer, modified every function call -
+ 847:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  resets to zero.
+ 848:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 849:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ 850:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Setting the pointers to zero makes the system believe there is no data to
+ 851:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  read and writing will resume at address 0 overwriting any data that may have
+ 852:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  remained in the RAM.
+ 853:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 854:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 855:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Any data not yet transmitted from the RAM buffer will be lost when
+ 856:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  overwritten.
+ 857:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 858:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+ 859:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+ 860:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 861:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 862:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_ClearTxBuffer(void) 
+ 863:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 499              		.loc 1 863 0
+ 500              		.cfi_startproc
+ 501              		@ args = 0, pretend = 0, frame = 0
+ 502              		@ frame_needed = 0, uses_anonymous_args = 0
+ 503 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 25
+
+
+ 504              		.cfi_def_cfa_offset 8
+ 505              		.cfi_offset 4, -8
+ 506              		.cfi_offset 14, -4
+ 864:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 enableInterrupts;
+ 865:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 866:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     enableInterrupts = CyEnterCriticalSection();
+ 507              		.loc 1 866 0
+ 508 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 509              	.LVL18:
+ 867:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Clear TX FIFO */
+ 868:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_AUX_CONTROL_DP0_REG |= ((uint8)  GLCD_SPIM_UDB_TX_FIFO_CLR);
+ 510              		.loc 1 868 0
+ 511 0006 0A49     		ldr	r1, .L47
+ 512 0008 0A78     		ldrb	r2, [r1]
+ 513 000a 0124     		movs	r4, #1
+ 514 000c 0123     		movs	r3, #1
+ 515 000e 1A43     		orrs	r2, r3
+ 516 0010 D2B2     		uxtb	r2, r2
+ 517 0012 0A70     		strb	r2, [r1]
+ 869:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_AUX_CONTROL_DP0_REG &= ((uint8) ~GLCD_SPIM_UDB_TX_FIFO_CLR);
+ 518              		.loc 1 869 0
+ 519 0014 0A78     		ldrb	r2, [r1]
+ 520 0016 A243     		bics	r2, r4
+ 521 0018 0A70     		strb	r2, [r1]
+ 870:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 871:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_USE_SECOND_DATAPATH)
+ 872:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Clear TX FIFO for 2nd Datapath */
+ 873:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_AUX_CONTROL_DP1_REG |= ((uint8)  GLCD_SPIM_UDB_TX_FIFO_CLR);
+ 522              		.loc 1 873 0
+ 523 001a 064A     		ldr	r2, .L47+4
+ 524 001c 1178     		ldrb	r1, [r2]
+ 525 001e 0B43     		orrs	r3, r1
+ 526 0020 DBB2     		uxtb	r3, r3
+ 527 0022 1370     		strb	r3, [r2]
+ 874:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_AUX_CONTROL_DP1_REG &= ((uint8) ~GLCD_SPIM_UDB_TX_FIFO_CLR);
+ 528              		.loc 1 874 0
+ 529 0024 1378     		ldrb	r3, [r2]
+ 530 0026 A343     		bics	r3, r4
+ 531 0028 1370     		strb	r3, [r2]
+ 875:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_USE_SECOND_DATAPATH) */
+ 876:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     CyExitCriticalSection(enableInterrupts);
+ 532              		.loc 1 876 0
+ 533 002a FFF7FEFF 		bl	CyExitCriticalSection
+ 534              	.LVL19:
+ 877:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 878:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED)
+ 879:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Disable TX interrupt to protect global veriables */
+ 880:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableTxInt();
+ 881:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 882:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_txBufferFull  = 0u;
+ 883:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_txBufferRead  = 0u;
+ 884:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_txBufferWrite = 0u;
+ 885:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 886:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Buffer is EMPTY: disable TX FIFO NOT FULL interrupt */
+ 887:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_TX_STATUS_MASK_REG &= ((uint8) ~GLCD_SPIM_UDB_STS_TX_FIFO_NOT_FULL);
+ 888:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 889:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableTxInt();
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 26
+
+
+ 890:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED) */
+ 891:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 535              		.loc 1 891 0
+ 536              		@ sp needed
+ 537 002e 10BD     		pop	{r4, pc}
+ 538              	.L48:
+ 539              		.align	2
+ 540              	.L47:
+ 541 0030 92000F40 		.word	1074725010
+ 542 0034 93000F40 		.word	1074725011
+ 543              		.cfi_endproc
+ 544              	.LFE17:
+ 545              		.size	GLCD_SPIM_UDB_ClearTxBuffer, .-GLCD_SPIM_UDB_ClearTxBuffer
+ 546              		.section	.text.GLCD_SPIM_UDB_PutArray,"ax",%progbits
+ 547              		.align	2
+ 548              		.global	GLCD_SPIM_UDB_PutArray
+ 549              		.code	16
+ 550              		.thumb_func
+ 551              		.type	GLCD_SPIM_UDB_PutArray, %function
+ 552              	GLCD_SPIM_UDB_PutArray:
+ 553              	.LFB18:
+ 892:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 893:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 894:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** #if(0u != GLCD_SPIM_UDB_BIDIRECTIONAL_MODE)
+ 895:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /*******************************************************************************
+ 896:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     * Function Name: GLCD_SPIM_UDB_TxEnable
+ 897:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     ********************************************************************************
+ 898:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *
+ 899:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     * Summary:
+ 900:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *  If the SPI master is configured to use a single bi-directional pin then this
+ 901:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *  will set the bi-directional pin to transmit.
+ 902:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *
+ 903:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     * Parameters:
+ 904:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *  None.
+ 905:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *
+ 906:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     * Return:
+ 907:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *  None.
+ 908:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *
+ 909:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *******************************************************************************/
+ 910:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     void GLCD_SPIM_UDB_TxEnable(void) 
+ 911:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 912:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_CONTROL_REG |= GLCD_SPIM_UDB_CTRL_TX_SIGNAL_EN;
+ 913:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     }
+ 914:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 915:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 916:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /*******************************************************************************
+ 917:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     * Function Name: GLCD_SPIM_UDB_TxDisable
+ 918:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     ********************************************************************************
+ 919:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *
+ 920:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     * Summary:
+ 921:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *  If the SPI master is configured to use a single bi-directional pin then this
+ 922:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *  will set the bi-directional pin to receive.
+ 923:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *
+ 924:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     * Parameters:
+ 925:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *  None.
+ 926:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *
+ 927:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     * Return:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 27
+
+
+ 928:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *  None.
+ 929:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *
+ 930:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     *******************************************************************************/
+ 931:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     void GLCD_SPIM_UDB_TxDisable(void) 
+ 932:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 933:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_CONTROL_REG &= ((uint8) ~GLCD_SPIM_UDB_CTRL_TX_SIGNAL_EN);
+ 934:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     }
+ 935:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 936:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** #endif /* (0u != GLCD_SPIM_UDB_BIDIRECTIONAL_MODE) */
+ 937:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 938:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 939:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 940:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_PutArray
+ 941:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 942:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 943:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 944:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Write available data from ROM/RAM to the TX buffer while space is available
+ 945:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  in the TX buffer. Keep trying until all data is passed to the TX buffer.
+ 946:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 947:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 948:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  *buffer: Pointer to the location in RAM containing the data to send
+ 949:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  byteCount: The number of bytes to move to the transmit buffer.
+ 950:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 951:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 952:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 953:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 954:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 955:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Will stay in this routine until all data has been sent.  May get locked in
+ 956:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  this loop if data is not being initiated by the master if there is not
+ 957:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  enough room in the TX FIFO.
+ 958:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 959:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+ 960:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+ 961:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 962:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 963:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_PutArray(const uint16 buffer[], uint8 byteCount)
+ 964:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****                                                                           
+ 965:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 554              		.loc 1 965 0
+ 555              		.cfi_startproc
+ 556              		@ args = 0, pretend = 0, frame = 0
+ 557              		@ frame_needed = 0, uses_anonymous_args = 0
+ 558              	.LVL20:
+ 559 0000 70B5     		push	{r4, r5, r6, lr}
+ 560              		.cfi_def_cfa_offset 16
+ 561              		.cfi_offset 4, -16
+ 562              		.cfi_offset 5, -12
+ 563              		.cfi_offset 6, -8
+ 564              		.cfi_offset 14, -4
+ 565 0002 0600     		movs	r6, r0
+ 566 0004 0C00     		movs	r4, r1
+ 567              	.LVL21:
+ 966:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 bufIndex;
+ 967:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 968:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     bufIndex = 0u;
+ 568              		.loc 1 968 0
+ 569 0006 0025     		movs	r5, #0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 28
+
+
+ 969:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 970:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     while(byteCount > 0u)
+ 570              		.loc 1 970 0
+ 571 0008 07E0     		b	.L50
+ 572              	.LVL22:
+ 573              	.L51:
+ 971:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 972:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_WriteTxData(buffer[bufIndex]);
+ 574              		.loc 1 972 0
+ 575 000a 6B00     		lsls	r3, r5, #1
+ 576 000c F05A     		ldrh	r0, [r6, r3]
+ 577 000e FFF7FEFF 		bl	GLCD_SPIM_UDB_WriteTxData
+ 578              	.LVL23:
+ 973:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         bufIndex++;
+ 579              		.loc 1 973 0
+ 580 0012 0135     		adds	r5, r5, #1
+ 581              	.LVL24:
+ 582 0014 EDB2     		uxtb	r5, r5
+ 583              	.LVL25:
+ 974:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         byteCount--;
+ 584              		.loc 1 974 0
+ 585 0016 013C     		subs	r4, r4, #1
+ 586              	.LVL26:
+ 587 0018 E4B2     		uxtb	r4, r4
+ 588              	.LVL27:
+ 589              	.L50:
+ 970:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 590              		.loc 1 970 0
+ 591 001a 002C     		cmp	r4, #0
+ 592 001c F5D1     		bne	.L51
+ 975:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     }
+ 976:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 593              		.loc 1 976 0
+ 594              		@ sp needed
+ 595              	.LVL28:
+ 596              	.LVL29:
+ 597              	.LVL30:
+ 598 001e 70BD     		pop	{r4, r5, r6, pc}
+ 599              		.cfi_endproc
+ 600              	.LFE18:
+ 601              		.size	GLCD_SPIM_UDB_PutArray, .-GLCD_SPIM_UDB_PutArray
+ 602              		.section	.text.GLCD_SPIM_UDB_ClearFIFO,"ax",%progbits
+ 603              		.align	2
+ 604              		.global	GLCD_SPIM_UDB_ClearFIFO
+ 605              		.code	16
+ 606              		.thumb_func
+ 607              		.type	GLCD_SPIM_UDB_ClearFIFO, %function
+ 608              	GLCD_SPIM_UDB_ClearFIFO:
+ 609              	.LFB19:
+ 977:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 978:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 979:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+ 980:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_ClearFIFO
+ 981:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+ 982:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 983:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+ 984:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear the RX and TX FIFO's of all data for a fresh start.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 29
+
+
+ 985:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 986:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+ 987:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 988:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 989:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+ 990:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+ 991:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 992:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+ 993:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear status register of the component.
+ 994:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+ 995:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+ 996:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_ClearFIFO(void) 
+ 997:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 610              		.loc 1 997 0
+ 611              		.cfi_startproc
+ 612              		@ args = 0, pretend = 0, frame = 0
+ 613              		@ frame_needed = 0, uses_anonymous_args = 0
+ 614 0000 10B5     		push	{r4, lr}
+ 615              		.cfi_def_cfa_offset 8
+ 616              		.cfi_offset 4, -8
+ 617              		.cfi_offset 14, -4
+ 998:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 enableInterrupts;
+ 999:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1000:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Clear Hardware RX FIFO */
+1001:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     while(0u !=(GLCD_SPIM_UDB_RX_STATUS_REG & GLCD_SPIM_UDB_STS_RX_FIFO_NOT_EMPTY))
+ 618              		.loc 1 1001 0
+ 619 0002 01E0     		b	.L53
+ 620              	.L54:
+1002:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+1003:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         (void) CY_GET_REG16(GLCD_SPIM_UDB_RXDATA_PTR);
+ 621              		.loc 1 1003 0
+ 622 0004 0E4B     		ldr	r3, .L55
+ 623 0006 1B88     		ldrh	r3, [r3]
+ 624              	.L53:
+1001:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 625              		.loc 1 1001 0
+ 626 0008 0E4B     		ldr	r3, .L55+4
+ 627 000a 1B78     		ldrb	r3, [r3]
+ 628 000c 9B06     		lsls	r3, r3, #26
+ 629 000e F9D4     		bmi	.L54
+1004:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     }
+1005:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1006:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     enableInterrupts = CyEnterCriticalSection();
+ 630              		.loc 1 1006 0
+ 631 0010 FFF7FEFF 		bl	CyEnterCriticalSection
+ 632              	.LVL31:
+1007:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Clear TX FIFO */
+1008:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_AUX_CONTROL_DP0_REG |= ((uint8)  GLCD_SPIM_UDB_TX_FIFO_CLR);
+ 633              		.loc 1 1008 0
+ 634 0014 0C49     		ldr	r1, .L55+8
+ 635 0016 0A78     		ldrb	r2, [r1]
+ 636 0018 0124     		movs	r4, #1
+ 637 001a 0123     		movs	r3, #1
+ 638 001c 1A43     		orrs	r2, r3
+ 639 001e D2B2     		uxtb	r2, r2
+ 640 0020 0A70     		strb	r2, [r1]
+1009:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_AUX_CONTROL_DP0_REG &= ((uint8) ~GLCD_SPIM_UDB_TX_FIFO_CLR);
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 30
+
+
+ 641              		.loc 1 1009 0
+ 642 0022 0A78     		ldrb	r2, [r1]
+ 643 0024 A243     		bics	r2, r4
+ 644 0026 0A70     		strb	r2, [r1]
+1010:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1011:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_USE_SECOND_DATAPATH)
+1012:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         /* Clear TX FIFO for 2nd Datapath */
+1013:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_AUX_CONTROL_DP1_REG |= ((uint8)  GLCD_SPIM_UDB_TX_FIFO_CLR);
+ 645              		.loc 1 1013 0
+ 646 0028 084A     		ldr	r2, .L55+12
+ 647 002a 1178     		ldrb	r1, [r2]
+ 648 002c 0B43     		orrs	r3, r1
+ 649 002e DBB2     		uxtb	r3, r3
+ 650 0030 1370     		strb	r3, [r2]
+1014:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_AUX_CONTROL_DP1_REG &= ((uint8) ~GLCD_SPIM_UDB_TX_FIFO_CLR);
+ 651              		.loc 1 1014 0
+ 652 0032 1378     		ldrb	r3, [r2]
+ 653 0034 A343     		bics	r3, r4
+ 654 0036 1370     		strb	r3, [r2]
+1015:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_USE_SECOND_DATAPATH) */
+1016:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     CyExitCriticalSection(enableInterrupts);
+ 655              		.loc 1 1016 0
+ 656 0038 FFF7FEFF 		bl	CyExitCriticalSection
+ 657              	.LVL32:
+1017:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 658              		.loc 1 1017 0
+ 659              		@ sp needed
+ 660 003c 10BD     		pop	{r4, pc}
+ 661              	.L56:
+ 662 003e C046     		.align	2
+ 663              	.L55:
+ 664 0040 A4100F40 		.word	1074729124
+ 665 0044 62000F40 		.word	1074724962
+ 666 0048 92000F40 		.word	1074725010
+ 667 004c 93000F40 		.word	1074725011
+ 668              		.cfi_endproc
+ 669              	.LFE19:
+ 670              		.size	GLCD_SPIM_UDB_ClearFIFO, .-GLCD_SPIM_UDB_ClearFIFO
+ 671              		.section	.text.GLCD_SPIM_UDB_Init,"ax",%progbits
+ 672              		.align	2
+ 673              		.global	GLCD_SPIM_UDB_Init
+ 674              		.code	16
+ 675              		.thumb_func
+ 676              		.type	GLCD_SPIM_UDB_Init, %function
+ 677              	GLCD_SPIM_UDB_Init:
+ 678              	.LFB0:
+  64:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     /* Initialize the Bit counter */
+ 679              		.loc 1 64 0
+ 680              		.cfi_startproc
+ 681              		@ args = 0, pretend = 0, frame = 0
+ 682              		@ frame_needed = 0, uses_anonymous_args = 0
+ 683 0000 10B5     		push	{r4, lr}
+ 684              		.cfi_def_cfa_offset 8
+ 685              		.cfi_offset 4, -8
+ 686              		.cfi_offset 14, -4
+  66:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 687              		.loc 1 66 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 31
+
+
+ 688 0002 1122     		movs	r2, #17
+ 689 0004 064B     		ldr	r3, .L58
+ 690 0006 1A70     		strb	r2, [r3]
+  83:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 691              		.loc 1 83 0
+ 692 0008 FFF7FEFF 		bl	GLCD_SPIM_UDB_ClearFIFO
+ 693              	.LVL33:
+  97:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     (void) GLCD_SPIM_UDB_ReadRxStatus(); /* Clear Rx status and swStatusRx */
+ 694              		.loc 1 97 0
+ 695 000c FFF7FEFF 		bl	GLCD_SPIM_UDB_ReadTxStatus
+ 696              	.LVL34:
+  98:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 697              		.loc 1 98 0
+ 698 0010 FFF7FEFF 		bl	GLCD_SPIM_UDB_ReadRxStatus
+ 699              	.LVL35:
+ 101:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_RX_STATUS_MASK_REG = GLCD_SPIM_UDB_RX_INIT_INTERRUPTS_MASK;
+ 700              		.loc 1 101 0
+ 701 0014 0023     		movs	r3, #0
+ 702 0016 034A     		ldr	r2, .L58+4
+ 703 0018 1370     		strb	r3, [r2]
+ 102:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 704              		.loc 1 102 0
+ 705 001a 034A     		ldr	r2, .L58+8
+ 706 001c 1370     		strb	r3, [r2]
+ 103:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 707              		.loc 1 103 0
+ 708              		@ sp needed
+ 709 001e 10BD     		pop	{r4, pc}
+ 710              	.L59:
+ 711              		.align	2
+ 712              	.L58:
+ 713 0020 83000F40 		.word	1074724995
+ 714 0024 80000F40 		.word	1074724992
+ 715 0028 82000F40 		.word	1074724994
+ 716              		.cfi_endproc
+ 717              	.LFE0:
+ 718              		.size	GLCD_SPIM_UDB_Init, .-GLCD_SPIM_UDB_Init
+ 719              		.section	.text.GLCD_SPIM_UDB_Start,"ax",%progbits
+ 720              		.align	2
+ 721              		.global	GLCD_SPIM_UDB_Start
+ 722              		.code	16
+ 723              		.thumb_func
+ 724              		.type	GLCD_SPIM_UDB_Start, %function
+ 725              	GLCD_SPIM_UDB_Start:
+ 726              	.LFB2:
+ 164:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     if(0u == GLCD_SPIM_UDB_initVar)
+ 727              		.loc 1 164 0
+ 728              		.cfi_startproc
+ 729              		@ args = 0, pretend = 0, frame = 0
+ 730              		@ frame_needed = 0, uses_anonymous_args = 0
+ 731 0000 10B5     		push	{r4, lr}
+ 732              		.cfi_def_cfa_offset 8
+ 733              		.cfi_offset 4, -8
+ 734              		.cfi_offset 14, -4
+ 165:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     {
+ 735              		.loc 1 165 0
+ 736 0002 064B     		ldr	r3, .L62
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 32
+
+
+ 737 0004 1B78     		ldrb	r3, [r3]
+ 738 0006 002B     		cmp	r3, #0
+ 739 0008 04D1     		bne	.L61
+ 167:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_initVar = 1u;
+ 740              		.loc 1 167 0
+ 741 000a FFF7FEFF 		bl	GLCD_SPIM_UDB_Init
+ 742              	.LVL36:
+ 168:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     }
+ 743              		.loc 1 168 0
+ 744 000e 0122     		movs	r2, #1
+ 745 0010 024B     		ldr	r3, .L62
+ 746 0012 1A70     		strb	r2, [r3]
+ 747              	.L61:
+ 171:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 748              		.loc 1 171 0
+ 749 0014 FFF7FEFF 		bl	GLCD_SPIM_UDB_Enable
+ 750              	.LVL37:
+ 172:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+ 751              		.loc 1 172 0
+ 752              		@ sp needed
+ 753 0018 10BD     		pop	{r4, pc}
+ 754              	.L63:
+ 755 001a C046     		.align	2
+ 756              	.L62:
+ 757 001c 00000000 		.word	.LANCHOR0
+ 758              		.cfi_endproc
+ 759              	.LFE2:
+ 760              		.size	GLCD_SPIM_UDB_Start, .-GLCD_SPIM_UDB_Start
+ 761              		.section	.text.GLCD_SPIM_UDB_EnableInt,"ax",%progbits
+ 762              		.align	2
+ 763              		.global	GLCD_SPIM_UDB_EnableInt
+ 764              		.code	16
+ 765              		.thumb_func
+ 766              		.type	GLCD_SPIM_UDB_EnableInt, %function
+ 767              	GLCD_SPIM_UDB_EnableInt:
+ 768              	.LFB20:
+1018:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1019:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1020:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /* Following functions are for version Compatibility, they are obsolete.
+1021:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Please do not use it in new projects.
+1022:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** */
+1023:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1024:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1025:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+1026:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_EnableInt
+1027:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+1028:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1029:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+1030:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enable internal interrupt generation.
+1031:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1032:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+1033:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+1034:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1035:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+1036:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+1037:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1038:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 33
+
+
+1039:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enable the internal interrupt output -or- the interrupt component itself.
+1040:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1041:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+1042:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_EnableInt(void) 
+1043:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 769              		.loc 1 1043 0
+ 770              		.cfi_startproc
+ 771              		@ args = 0, pretend = 0, frame = 0
+ 772              		@ frame_needed = 0, uses_anonymous_args = 0
+ 773              		@ link register save eliminated.
+1044:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_EnableRxInt();
+1045:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_EnableTxInt();
+1046:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 774              		.loc 1 1046 0
+ 775              		@ sp needed
+ 776 0000 7047     		bx	lr
+ 777              		.cfi_endproc
+ 778              	.LFE20:
+ 779              		.size	GLCD_SPIM_UDB_EnableInt, .-GLCD_SPIM_UDB_EnableInt
+ 780 0002 C046     		.section	.text.GLCD_SPIM_UDB_DisableInt,"ax",%progbits
+ 781              		.align	2
+ 782              		.global	GLCD_SPIM_UDB_DisableInt
+ 783              		.code	16
+ 784              		.thumb_func
+ 785              		.type	GLCD_SPIM_UDB_DisableInt, %function
+ 786              	GLCD_SPIM_UDB_DisableInt:
+ 787              	.LFB21:
+1047:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1048:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1049:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+1050:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_DisableInt
+1051:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+1052:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1053:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+1054:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Disable internal interrupt generation.
+1055:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1056:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+1057:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+1058:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1059:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+1060:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+1061:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1062:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+1063:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Disable the internal interrupt output -or- the interrupt component itself.
+1064:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1065:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+1066:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_DisableInt(void) 
+1067:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 788              		.loc 1 1067 0
+ 789              		.cfi_startproc
+ 790              		@ args = 0, pretend = 0, frame = 0
+ 791              		@ frame_needed = 0, uses_anonymous_args = 0
+ 792              		@ link register save eliminated.
+1068:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_DisableTxInt();
+1069:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_DisableRxInt();
+1070:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 793              		.loc 1 1070 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 34
+
+
+ 794              		@ sp needed
+ 795 0000 7047     		bx	lr
+ 796              		.cfi_endproc
+ 797              	.LFE21:
+ 798              		.size	GLCD_SPIM_UDB_DisableInt, .-GLCD_SPIM_UDB_DisableInt
+ 799 0002 C046     		.section	.text.GLCD_SPIM_UDB_SetInterruptMode,"ax",%progbits
+ 800              		.align	2
+ 801              		.global	GLCD_SPIM_UDB_SetInterruptMode
+ 802              		.code	16
+ 803              		.thumb_func
+ 804              		.type	GLCD_SPIM_UDB_SetInterruptMode, %function
+ 805              	GLCD_SPIM_UDB_SetInterruptMode:
+ 806              	.LFB22:
+1071:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1072:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1073:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+1074:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_SetInterruptMode
+1075:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+1076:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1077:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+1078:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Configure which status bits trigger an interrupt event.
+1079:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1080:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+1081:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  intSrc: An or'd combination of the desired status bit masks (defined in the
+1082:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  header file).
+1083:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1084:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+1085:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+1086:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1087:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+1088:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Enables the output of specific status bits to the interrupt controller.
+1089:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1090:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+1091:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** void GLCD_SPIM_UDB_SetInterruptMode(uint8 intSrc) 
+1092:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 807              		.loc 1 1092 0
+ 808              		.cfi_startproc
+ 809              		@ args = 0, pretend = 0, frame = 0
+ 810              		@ frame_needed = 0, uses_anonymous_args = 0
+ 811              		@ link register save eliminated.
+ 812              	.LVL38:
+1093:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_TX_STATUS_MASK_REG  = (intSrc & ((uint8) ~GLCD_SPIM_UDB_STS_SPI_IDLE));
+ 813              		.loc 1 1093 0
+ 814 0000 1023     		movs	r3, #16
+ 815 0002 0200     		movs	r2, r0
+ 816 0004 9A43     		bics	r2, r3
+ 817 0006 024B     		ldr	r3, .L67
+ 818 0008 1A70     		strb	r2, [r3]
+1094:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     GLCD_SPIM_UDB_RX_STATUS_MASK_REG  =  intSrc;
+ 819              		.loc 1 1094 0
+ 820 000a 024B     		ldr	r3, .L67+4
+ 821 000c 1870     		strb	r0, [r3]
+1095:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 822              		.loc 1 1095 0
+ 823              		@ sp needed
+ 824 000e 7047     		bx	lr
+ 825              	.L68:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 35
+
+
+ 826              		.align	2
+ 827              	.L67:
+ 828 0010 80000F40 		.word	1074724992
+ 829 0014 82000F40 		.word	1074724994
+ 830              		.cfi_endproc
+ 831              	.LFE22:
+ 832              		.size	GLCD_SPIM_UDB_SetInterruptMode, .-GLCD_SPIM_UDB_SetInterruptMode
+ 833              		.section	.text.GLCD_SPIM_UDB_ReadStatus,"ax",%progbits
+ 834              		.align	2
+ 835              		.global	GLCD_SPIM_UDB_ReadStatus
+ 836              		.code	16
+ 837              		.thumb_func
+ 838              		.type	GLCD_SPIM_UDB_ReadStatus, %function
+ 839              	GLCD_SPIM_UDB_ReadStatus:
+ 840              	.LFB23:
+1096:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1097:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1098:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** /*******************************************************************************
+1099:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Function Name: GLCD_SPIM_UDB_ReadStatus
+1100:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** ********************************************************************************
+1101:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1102:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Summary:
+1103:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Read the status register for the component.
+1104:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1105:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Parameters:
+1106:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  None.
+1107:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1108:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Return:
+1109:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Contents of the status register.
+1110:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1111:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Global variables:
+1112:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  GLCD_SPIM_UDB_swStatus - used to store in software status register,
+1113:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  modified every function call - resets to zero.
+1114:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1115:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Theory:
+1116:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Allows the user and the API to read the status register for error detection
+1117:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  and flow control.
+1118:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1119:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Side Effects:
+1120:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  Clear status register of the component.
+1121:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1122:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** * Reentrant:
+1123:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *  No.
+1124:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *
+1125:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** *******************************************************************************/
+1126:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** uint8 GLCD_SPIM_UDB_ReadStatus(void) 
+1127:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** {
+ 841              		.loc 1 1127 0
+ 842              		.cfi_startproc
+ 843              		@ args = 0, pretend = 0, frame = 0
+ 844              		@ frame_needed = 0, uses_anonymous_args = 0
+ 845              		@ link register save eliminated.
+1128:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     uint8 tmpStatus;
+1129:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1130:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #if(GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED || GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED)
+1131:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1132:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_DisableInt();
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 36
+
+
+1133:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1134:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus  = GLCD_SPIM_UDB_GET_STATUS_RX(GLCD_SPIM_UDB_swStatusRx);
+1135:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus |= GLCD_SPIM_UDB_GET_STATUS_TX(GLCD_SPIM_UDB_swStatusTx);
+1136:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus &= ((uint8) ~GLCD_SPIM_UDB_STS_SPI_IDLE);
+1137:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1138:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_swStatusTx = 0u;
+1139:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_swStatusRx = 0u;
+1140:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1141:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         GLCD_SPIM_UDB_EnableInt();
+1142:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1143:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #else
+1144:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1145:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus  = GLCD_SPIM_UDB_RX_STATUS_REG;
+ 846              		.loc 1 1145 0
+ 847 0000 034B     		ldr	r3, .L70
+ 848 0002 1B78     		ldrb	r3, [r3]
+ 849              	.LVL39:
+1146:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus |= GLCD_SPIM_UDB_TX_STATUS_REG;
+ 850              		.loc 1 1146 0
+ 851 0004 034A     		ldr	r2, .L70+4
+ 852 0006 1078     		ldrb	r0, [r2]
+ 853 0008 1843     		orrs	r0, r3
+ 854              	.LVL40:
+1147:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****         tmpStatus &= ((uint8) ~GLCD_SPIM_UDB_STS_SPI_IDLE);
+ 855              		.loc 1 1147 0
+ 856 000a 1023     		movs	r3, #16
+ 857 000c 9843     		bics	r0, r3
+ 858              	.LVL41:
+1148:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1149:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     #endif /* (GLCD_SPIM_UDB_TX_SOFTWARE_BUF_ENABLED || GLCD_SPIM_UDB_RX_SOFTWARE_BUF_ENABLED) */
+1150:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** 
+1151:Generated_Source\PSoC4/GLCD_SPIM_UDB.c ****     return(tmpStatus);
+1152:Generated_Source\PSoC4/GLCD_SPIM_UDB.c **** }
+ 859              		.loc 1 1152 0
+ 860              		@ sp needed
+ 861 000e 7047     		bx	lr
+ 862              	.L71:
+ 863              		.align	2
+ 864              	.L70:
+ 865 0010 62000F40 		.word	1074724962
+ 866 0014 60000F40 		.word	1074724960
+ 867              		.cfi_endproc
+ 868              	.LFE23:
+ 869              		.size	GLCD_SPIM_UDB_ReadStatus, .-GLCD_SPIM_UDB_ReadStatus
+ 870              		.comm	GLCD_SPIM_UDB_swStatusRx,1,1
+ 871              		.comm	GLCD_SPIM_UDB_swStatusTx,1,1
+ 872              		.global	GLCD_SPIM_UDB_initVar
+ 873              		.bss
+ 874              		.set	.LANCHOR0,. + 0
+ 875              		.type	GLCD_SPIM_UDB_initVar, %object
+ 876              		.size	GLCD_SPIM_UDB_initVar, 1
+ 877              	GLCD_SPIM_UDB_initVar:
+ 878 0000 00       		.space	1
+ 879              		.text
+ 880              	.Letext0:
+ 881              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 882              		.file 3 "Generated_Source\\PSoC4\\CyLib.h"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 37
+
+
+ 883              		.file 4 "Generated_Source\\PSoC4\\GLCD_SPIM_UDB_IntClock.h"
+ 884              		.section	.debug_info,"",%progbits
+ 885              	.Ldebug_info0:
+ 886 0000 D4040000 		.4byte	0x4d4
+ 887 0004 0400     		.2byte	0x4
+ 888 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 889 000a 04       		.byte	0x4
+ 890 000b 01       		.uleb128 0x1
+ 891 000c 55030000 		.4byte	.LASF58
+ 892 0010 0C       		.byte	0xc
+ 893 0011 D7040000 		.4byte	.LASF59
+ 894 0015 7F020000 		.4byte	.LASF60
+ 895 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 896 001d 00000000 		.4byte	0
+ 897 0021 00000000 		.4byte	.Ldebug_line0
+ 898 0025 02       		.uleb128 0x2
+ 899 0026 01       		.byte	0x1
+ 900 0027 06       		.byte	0x6
+ 901 0028 8A040000 		.4byte	.LASF0
+ 902 002c 02       		.uleb128 0x2
+ 903 002d 01       		.byte	0x1
+ 904 002e 08       		.byte	0x8
+ 905 002f F9010000 		.4byte	.LASF1
+ 906 0033 02       		.uleb128 0x2
+ 907 0034 02       		.byte	0x2
+ 908 0035 05       		.byte	0x5
+ 909 0036 2A040000 		.4byte	.LASF2
+ 910 003a 02       		.uleb128 0x2
+ 911 003b 02       		.byte	0x2
+ 912 003c 07       		.byte	0x7
+ 913 003d 67000000 		.4byte	.LASF3
+ 914 0041 02       		.uleb128 0x2
+ 915 0042 04       		.byte	0x4
+ 916 0043 05       		.byte	0x5
+ 917 0044 6B040000 		.4byte	.LASF4
+ 918 0048 02       		.uleb128 0x2
+ 919 0049 04       		.byte	0x4
+ 920 004a 07       		.byte	0x7
+ 921 004b AE010000 		.4byte	.LASF5
+ 922 004f 02       		.uleb128 0x2
+ 923 0050 08       		.byte	0x8
+ 924 0051 05       		.byte	0x5
+ 925 0052 06040000 		.4byte	.LASF6
+ 926 0056 02       		.uleb128 0x2
+ 927 0057 08       		.byte	0x8
+ 928 0058 07       		.byte	0x7
+ 929 0059 72010000 		.4byte	.LASF7
+ 930 005d 03       		.uleb128 0x3
+ 931 005e 04       		.byte	0x4
+ 932 005f 05       		.byte	0x5
+ 933 0060 696E7400 		.ascii	"int\000"
+ 934 0064 02       		.uleb128 0x2
+ 935 0065 04       		.byte	0x4
+ 936 0066 07       		.byte	0x7
+ 937 0067 E2020000 		.4byte	.LASF8
+ 938 006b 04       		.uleb128 0x4
+ 939 006c C0010000 		.4byte	.LASF9
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 38
+
+
+ 940 0070 02       		.byte	0x2
+ 941 0071 E401     		.2byte	0x1e4
+ 942 0073 2C000000 		.4byte	0x2c
+ 943 0077 04       		.uleb128 0x4
+ 944 0078 4B020000 		.4byte	.LASF10
+ 945 007c 02       		.byte	0x2
+ 946 007d E501     		.2byte	0x1e5
+ 947 007f 3A000000 		.4byte	0x3a
+ 948 0083 02       		.uleb128 0x2
+ 949 0084 04       		.byte	0x4
+ 950 0085 04       		.byte	0x4
+ 951 0086 6C010000 		.4byte	.LASF11
+ 952 008a 02       		.uleb128 0x2
+ 953 008b 08       		.byte	0x8
+ 954 008c 04       		.byte	0x4
+ 955 008d 07020000 		.4byte	.LASF12
+ 956 0091 02       		.uleb128 0x2
+ 957 0092 01       		.byte	0x1
+ 958 0093 08       		.byte	0x8
+ 959 0094 22000000 		.4byte	.LASF13
+ 960 0098 04       		.uleb128 0x4
+ 961 0099 A9010000 		.4byte	.LASF14
+ 962 009d 02       		.byte	0x2
+ 963 009e 8E02     		.2byte	0x28e
+ 964 00a0 A4000000 		.4byte	0xa4
+ 965 00a4 05       		.uleb128 0x5
+ 966 00a5 6B000000 		.4byte	0x6b
+ 967 00a9 04       		.uleb128 0x4
+ 968 00aa 00000000 		.4byte	.LASF15
+ 969 00ae 02       		.byte	0x2
+ 970 00af 8F02     		.2byte	0x28f
+ 971 00b1 B5000000 		.4byte	0xb5
+ 972 00b5 05       		.uleb128 0x5
+ 973 00b6 77000000 		.4byte	0x77
+ 974 00ba 02       		.uleb128 0x2
+ 975 00bb 08       		.byte	0x8
+ 976 00bc 04       		.byte	0x4
+ 977 00bd 7E040000 		.4byte	.LASF16
+ 978 00c1 02       		.uleb128 0x2
+ 979 00c2 04       		.byte	0x4
+ 980 00c3 07       		.byte	0x7
+ 981 00c4 FD030000 		.4byte	.LASF17
+ 982 00c8 06       		.uleb128 0x6
+ 983 00c9 AF040000 		.4byte	.LASF18
+ 984 00cd 01       		.byte	0x1
+ 985 00ce 78       		.byte	0x78
+ 986 00cf 00000000 		.4byte	.LFB1
+ 987 00d3 40000000 		.4byte	.LFE1-.LFB1
+ 988 00d7 01       		.uleb128 0x1
+ 989 00d8 9C       		.byte	0x9c
+ 990 00d9 08010000 		.4byte	0x108
+ 991 00dd 07       		.uleb128 0x7
+ 992 00de E8010000 		.4byte	.LASF20
+ 993 00e2 01       		.byte	0x1
+ 994 00e3 7A       		.byte	0x7a
+ 995 00e4 6B000000 		.4byte	0x6b
+ 996 00e8 00000000 		.4byte	.LLST0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 39
+
+
+ 997 00ec 08       		.uleb128 0x8
+ 998 00ed 06000000 		.4byte	.LVL0
+ 999 00f1 AB040000 		.4byte	0x4ab
+ 1000 00f5 08       		.uleb128 0x8
+ 1001 00f6 2C000000 		.4byte	.LVL1
+ 1002 00fa B6040000 		.4byte	0x4b6
+ 1003 00fe 08       		.uleb128 0x8
+ 1004 00ff 30000000 		.4byte	.LVL2
+ 1005 0103 C1040000 		.4byte	0x4c1
+ 1006 0107 00       		.byte	0
+ 1007 0108 06       		.uleb128 0x6
+ 1008 0109 C4040000 		.4byte	.LASF19
+ 1009 010d 01       		.byte	0x1
+ 1010 010e C0       		.byte	0xc0
+ 1011 010f 00000000 		.4byte	.LFB3
+ 1012 0113 2C000000 		.4byte	.LFE3-.LFB3
+ 1013 0117 01       		.uleb128 0x1
+ 1014 0118 9C       		.byte	0x9c
+ 1015 0119 48010000 		.4byte	0x148
+ 1016 011d 07       		.uleb128 0x7
+ 1017 011e E8010000 		.4byte	.LASF20
+ 1018 0122 01       		.byte	0x1
+ 1019 0123 C2       		.byte	0xc2
+ 1020 0124 6B000000 		.4byte	0x6b
+ 1021 0128 13000000 		.4byte	.LLST1
+ 1022 012c 08       		.uleb128 0x8
+ 1023 012d 06000000 		.4byte	.LVL3
+ 1024 0131 AB040000 		.4byte	0x4ab
+ 1025 0135 08       		.uleb128 0x8
+ 1026 0136 1C000000 		.4byte	.LVL4
+ 1027 013a B6040000 		.4byte	0x4b6
+ 1028 013e 08       		.uleb128 0x8
+ 1029 013f 20000000 		.4byte	.LVL5
+ 1030 0143 CC040000 		.4byte	0x4cc
+ 1031 0147 00       		.byte	0
+ 1032 0148 09       		.uleb128 0x9
+ 1033 0149 17050000 		.4byte	.LASF21
+ 1034 014d 01       		.byte	0x1
+ 1035 014e E3       		.byte	0xe3
+ 1036 014f 00000000 		.4byte	.LFB4
+ 1037 0153 02000000 		.4byte	.LFE4-.LFB4
+ 1038 0157 01       		.uleb128 0x1
+ 1039 0158 9C       		.byte	0x9c
+ 1040 0159 09       		.uleb128 0x9
+ 1041 015a 31020000 		.4byte	.LASF22
+ 1042 015e 01       		.byte	0x1
+ 1043 015f FC       		.byte	0xfc
+ 1044 0160 00000000 		.4byte	.LFB5
+ 1045 0164 02000000 		.4byte	.LFE5-.LFB5
+ 1046 0168 01       		.uleb128 0x1
+ 1047 0169 9C       		.byte	0x9c
+ 1048 016a 0A       		.uleb128 0xa
+ 1049 016b 89010000 		.4byte	.LASF23
+ 1050 016f 01       		.byte	0x1
+ 1051 0170 1501     		.2byte	0x115
+ 1052 0172 00000000 		.4byte	.LFB6
+ 1053 0176 02000000 		.4byte	.LFE6-.LFB6
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 40
+
+
+ 1054 017a 01       		.uleb128 0x1
+ 1055 017b 9C       		.byte	0x9c
+ 1056 017c 0A       		.uleb128 0xa
+ 1057 017d EF020000 		.4byte	.LASF24
+ 1058 0181 01       		.byte	0x1
+ 1059 0182 2E01     		.2byte	0x12e
+ 1060 0184 00000000 		.4byte	.LFB7
+ 1061 0188 02000000 		.4byte	.LFE7-.LFB7
+ 1062 018c 01       		.uleb128 0x1
+ 1063 018d 9C       		.byte	0x9c
+ 1064 018e 0B       		.uleb128 0xb
+ 1065 018f 23010000 		.4byte	.LASF25
+ 1066 0193 01       		.byte	0x1
+ 1067 0194 4801     		.2byte	0x148
+ 1068 0196 00000000 		.4byte	.LFB8
+ 1069 019a 0C000000 		.4byte	.LFE8-.LFB8
+ 1070 019e 01       		.uleb128 0x1
+ 1071 019f 9C       		.byte	0x9c
+ 1072 01a0 B3010000 		.4byte	0x1b3
+ 1073 01a4 0C       		.uleb128 0xc
+ 1074 01a5 0E020000 		.4byte	.LASF27
+ 1075 01a9 01       		.byte	0x1
+ 1076 01aa 4801     		.2byte	0x148
+ 1077 01ac 6B000000 		.4byte	0x6b
+ 1078 01b0 01       		.uleb128 0x1
+ 1079 01b1 50       		.byte	0x50
+ 1080 01b2 00       		.byte	0
+ 1081 01b3 0B       		.uleb128 0xb
+ 1082 01b4 4B010000 		.4byte	.LASF26
+ 1083 01b8 01       		.byte	0x1
+ 1084 01b9 6001     		.2byte	0x160
+ 1085 01bb 00000000 		.4byte	.LFB9
+ 1086 01bf 0C000000 		.4byte	.LFE9-.LFB9
+ 1087 01c3 01       		.uleb128 0x1
+ 1088 01c4 9C       		.byte	0x9c
+ 1089 01c5 D8010000 		.4byte	0x1d8
+ 1090 01c9 0C       		.uleb128 0xc
+ 1091 01ca 0E020000 		.4byte	.LASF27
+ 1092 01ce 01       		.byte	0x1
+ 1093 01cf 6001     		.2byte	0x160
+ 1094 01d1 6B000000 		.4byte	0x6b
+ 1095 01d5 01       		.uleb128 0x1
+ 1096 01d6 50       		.byte	0x50
+ 1097 01d7 00       		.byte	0
+ 1098 01d8 0D       		.uleb128 0xd
+ 1099 01d9 CF000000 		.4byte	.LASF29
+ 1100 01dd 01       		.byte	0x1
+ 1101 01de 8201     		.2byte	0x182
+ 1102 01e0 6B000000 		.4byte	0x6b
+ 1103 01e4 00000000 		.4byte	.LFB10
+ 1104 01e8 0C000000 		.4byte	.LFE10-.LFB10
+ 1105 01ec 01       		.uleb128 0x1
+ 1106 01ed 9C       		.byte	0x9c
+ 1107 01ee 01020000 		.4byte	0x201
+ 1108 01f2 0E       		.uleb128 0xe
+ 1109 01f3 74040000 		.4byte	.LASF28
+ 1110 01f7 01       		.byte	0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 41
+
+
+ 1111 01f8 8401     		.2byte	0x184
+ 1112 01fa 6B000000 		.4byte	0x6b
+ 1113 01fe 01       		.uleb128 0x1
+ 1114 01ff 50       		.byte	0x50
+ 1115 0200 00       		.byte	0
+ 1116 0201 0D       		.uleb128 0xd
+ 1117 0202 EA000000 		.4byte	.LASF30
+ 1118 0206 01       		.byte	0x1
+ 1119 0207 B501     		.2byte	0x1b5
+ 1120 0209 6B000000 		.4byte	0x6b
+ 1121 020d 00000000 		.4byte	.LFB11
+ 1122 0211 0C000000 		.4byte	.LFE11-.LFB11
+ 1123 0215 01       		.uleb128 0x1
+ 1124 0216 9C       		.byte	0x9c
+ 1125 0217 2A020000 		.4byte	0x22a
+ 1126 021b 0E       		.uleb128 0xe
+ 1127 021c 74040000 		.4byte	.LASF28
+ 1128 0220 01       		.byte	0x1
+ 1129 0221 B701     		.2byte	0x1b7
+ 1130 0223 6B000000 		.4byte	0x6b
+ 1131 0227 01       		.uleb128 0x1
+ 1132 0228 50       		.byte	0x50
+ 1133 0229 00       		.byte	0
+ 1134 022a 0B       		.uleb128 0xb
+ 1135 022b E3030000 		.4byte	.LASF31
+ 1136 022f 01       		.byte	0x1
+ 1137 0230 EE01     		.2byte	0x1ee
+ 1138 0232 00000000 		.4byte	.LFB12
+ 1139 0236 18000000 		.4byte	.LFE12-.LFB12
+ 1140 023a 01       		.uleb128 0x1
+ 1141 023b 9C       		.byte	0x9c
+ 1142 023c 4F020000 		.4byte	0x24f
+ 1143 0240 0C       		.uleb128 0xc
+ 1144 0241 44000000 		.4byte	.LASF32
+ 1145 0245 01       		.byte	0x1
+ 1146 0246 EE01     		.2byte	0x1ee
+ 1147 0248 77000000 		.4byte	0x77
+ 1148 024c 01       		.uleb128 0x1
+ 1149 024d 50       		.byte	0x50
+ 1150 024e 00       		.byte	0
+ 1151 024f 0D       		.uleb128 0xd
+ 1152 0250 52040000 		.4byte	.LASF33
+ 1153 0254 01       		.byte	0x1
+ 1154 0255 5B02     		.2byte	0x25b
+ 1155 0257 77000000 		.4byte	0x77
+ 1156 025b 00000000 		.4byte	.LFB13
+ 1157 025f 0C000000 		.4byte	.LFE13-.LFB13
+ 1158 0263 01       		.uleb128 0x1
+ 1159 0264 9C       		.byte	0x9c
+ 1160 0265 78020000 		.4byte	0x278
+ 1161 0269 0E       		.uleb128 0xe
+ 1162 026a 44010000 		.4byte	.LASF34
+ 1163 026e 01       		.byte	0x1
+ 1164 026f 5D02     		.2byte	0x25d
+ 1165 0271 77000000 		.4byte	0x77
+ 1166 0275 01       		.uleb128 0x1
+ 1167 0276 50       		.byte	0x50
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 42
+
+
+ 1168 0277 00       		.byte	0
+ 1169 0278 0D       		.uleb128 0xd
+ 1170 0279 05010000 		.4byte	.LASF35
+ 1171 027d 01       		.byte	0x1
+ 1172 027e 9B02     		.2byte	0x29b
+ 1173 0280 6B000000 		.4byte	0x6b
+ 1174 0284 00000000 		.4byte	.LFB14
+ 1175 0288 14000000 		.4byte	.LFE14-.LFB14
+ 1176 028c 01       		.uleb128 0x1
+ 1177 028d 9C       		.byte	0x9c
+ 1178 028e A1020000 		.4byte	0x2a1
+ 1179 0292 0E       		.uleb128 0xe
+ 1180 0293 A4010000 		.4byte	.LASF36
+ 1181 0297 01       		.byte	0x1
+ 1182 0298 9D02     		.2byte	0x29d
+ 1183 029a 6B000000 		.4byte	0x6b
+ 1184 029e 01       		.uleb128 0x1
+ 1185 029f 50       		.byte	0x50
+ 1186 02a0 00       		.byte	0
+ 1187 02a1 0D       		.uleb128 0xd
+ 1188 02a2 B1000000 		.4byte	.LASF37
+ 1189 02a6 01       		.byte	0x1
+ 1190 02a7 D802     		.2byte	0x2d8
+ 1191 02a9 6B000000 		.4byte	0x6b
+ 1192 02ad 00000000 		.4byte	.LFB15
+ 1193 02b1 20000000 		.4byte	.LFE15-.LFB15
+ 1194 02b5 01       		.uleb128 0x1
+ 1195 02b6 9C       		.byte	0x9c
+ 1196 02b7 CC020000 		.4byte	0x2cc
+ 1197 02bb 0F       		.uleb128 0xf
+ 1198 02bc A4010000 		.4byte	.LASF36
+ 1199 02c0 01       		.byte	0x1
+ 1200 02c1 DA02     		.2byte	0x2da
+ 1201 02c3 6B000000 		.4byte	0x6b
+ 1202 02c7 26000000 		.4byte	.LLST2
+ 1203 02cb 00       		.byte	0
+ 1204 02cc 0A       		.uleb128 0xa
+ 1205 02cd 15020000 		.4byte	.LASF38
+ 1206 02d1 01       		.byte	0x1
+ 1207 02d2 2703     		.2byte	0x327
+ 1208 02d4 00000000 		.4byte	.LFB16
+ 1209 02d8 18000000 		.4byte	.LFE16-.LFB16
+ 1210 02dc 01       		.uleb128 0x1
+ 1211 02dd 9C       		.byte	0x9c
+ 1212 02de 0B       		.uleb128 0xb
+ 1213 02df 4B000000 		.4byte	.LASF39
+ 1214 02e3 01       		.byte	0x1
+ 1215 02e4 5E03     		.2byte	0x35e
+ 1216 02e6 00000000 		.4byte	.LFB17
+ 1217 02ea 38000000 		.4byte	.LFE17-.LFB17
+ 1218 02ee 01       		.uleb128 0x1
+ 1219 02ef 9C       		.byte	0x9c
+ 1220 02f0 17030000 		.4byte	0x317
+ 1221 02f4 0F       		.uleb128 0xf
+ 1222 02f5 E8010000 		.4byte	.LASF20
+ 1223 02f9 01       		.byte	0x1
+ 1224 02fa 6003     		.2byte	0x360
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 43
+
+
+ 1225 02fc 6B000000 		.4byte	0x6b
+ 1226 0300 4F000000 		.4byte	.LLST3
+ 1227 0304 08       		.uleb128 0x8
+ 1228 0305 06000000 		.4byte	.LVL18
+ 1229 0309 AB040000 		.4byte	0x4ab
+ 1230 030d 08       		.uleb128 0x8
+ 1231 030e 2E000000 		.4byte	.LVL19
+ 1232 0312 B6040000 		.4byte	0x4b6
+ 1233 0316 00       		.byte	0
+ 1234 0317 0B       		.uleb128 0xb
+ 1235 0318 34040000 		.4byte	.LASF40
+ 1236 031c 01       		.byte	0x1
+ 1237 031d C303     		.2byte	0x3c3
+ 1238 031f 00000000 		.4byte	.LFB18
+ 1239 0323 20000000 		.4byte	.LFE18-.LFB18
+ 1240 0327 01       		.uleb128 0x1
+ 1241 0328 9C       		.byte	0x9c
+ 1242 0329 67030000 		.4byte	0x367
+ 1243 032d 10       		.uleb128 0x10
+ 1244 032e 4B040000 		.4byte	.LASF41
+ 1245 0332 01       		.byte	0x1
+ 1246 0333 C303     		.2byte	0x3c3
+ 1247 0335 67030000 		.4byte	0x367
+ 1248 0339 62000000 		.4byte	.LLST4
+ 1249 033d 10       		.uleb128 0x10
+ 1250 033e DE010000 		.4byte	.LASF42
+ 1251 0342 01       		.byte	0x1
+ 1252 0343 C303     		.2byte	0x3c3
+ 1253 0345 6B000000 		.4byte	0x6b
+ 1254 0349 8E000000 		.4byte	.LLST5
+ 1255 034d 0F       		.uleb128 0xf
+ 1256 034e 33030000 		.4byte	.LASF43
+ 1257 0352 01       		.byte	0x1
+ 1258 0353 C603     		.2byte	0x3c6
+ 1259 0355 6B000000 		.4byte	0x6b
+ 1260 0359 B7000000 		.4byte	.LLST6
+ 1261 035d 08       		.uleb128 0x8
+ 1262 035e 12000000 		.4byte	.LVL23
+ 1263 0362 2A020000 		.4byte	0x22a
+ 1264 0366 00       		.byte	0
+ 1265 0367 11       		.uleb128 0x11
+ 1266 0368 04       		.byte	0x4
+ 1267 0369 6D030000 		.4byte	0x36d
+ 1268 036d 12       		.uleb128 0x12
+ 1269 036e 77000000 		.4byte	0x77
+ 1270 0372 0B       		.uleb128 0xb
+ 1271 0373 C6010000 		.4byte	.LASF44
+ 1272 0377 01       		.byte	0x1
+ 1273 0378 E403     		.2byte	0x3e4
+ 1274 037a 00000000 		.4byte	.LFB19
+ 1275 037e 50000000 		.4byte	.LFE19-.LFB19
+ 1276 0382 01       		.uleb128 0x1
+ 1277 0383 9C       		.byte	0x9c
+ 1278 0384 AB030000 		.4byte	0x3ab
+ 1279 0388 0F       		.uleb128 0xf
+ 1280 0389 E8010000 		.4byte	.LASF20
+ 1281 038d 01       		.byte	0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 44
+
+
+ 1282 038e E603     		.2byte	0x3e6
+ 1283 0390 6B000000 		.4byte	0x6b
+ 1284 0394 E1000000 		.4byte	.LLST7
+ 1285 0398 08       		.uleb128 0x8
+ 1286 0399 14000000 		.4byte	.LVL31
+ 1287 039d AB040000 		.4byte	0x4ab
+ 1288 03a1 08       		.uleb128 0x8
+ 1289 03a2 3C000000 		.4byte	.LVL32
+ 1290 03a6 B6040000 		.4byte	0x4b6
+ 1291 03aa 00       		.byte	0
+ 1292 03ab 06       		.uleb128 0x6
+ 1293 03ac 20030000 		.4byte	.LASF45
+ 1294 03b0 01       		.byte	0x1
+ 1295 03b1 3F       		.byte	0x3f
+ 1296 03b2 00000000 		.4byte	.LFB0
+ 1297 03b6 2C000000 		.4byte	.LFE0-.LFB0
+ 1298 03ba 01       		.uleb128 0x1
+ 1299 03bb 9C       		.byte	0x9c
+ 1300 03bc DC030000 		.4byte	0x3dc
+ 1301 03c0 08       		.uleb128 0x8
+ 1302 03c1 0C000000 		.4byte	.LVL33
+ 1303 03c5 72030000 		.4byte	0x372
+ 1304 03c9 08       		.uleb128 0x8
+ 1305 03ca 10000000 		.4byte	.LVL34
+ 1306 03ce D8010000 		.4byte	0x1d8
+ 1307 03d2 08       		.uleb128 0x8
+ 1308 03d3 14000000 		.4byte	.LVL35
+ 1309 03d7 01020000 		.4byte	0x201
+ 1310 03db 00       		.byte	0
+ 1311 03dc 06       		.uleb128 0x6
+ 1312 03dd 6B020000 		.4byte	.LASF46
+ 1313 03e1 01       		.byte	0x1
+ 1314 03e2 A3       		.byte	0xa3
+ 1315 03e3 00000000 		.4byte	.LFB2
+ 1316 03e7 20000000 		.4byte	.LFE2-.LFB2
+ 1317 03eb 01       		.uleb128 0x1
+ 1318 03ec 9C       		.byte	0x9c
+ 1319 03ed 04040000 		.4byte	0x404
+ 1320 03f1 08       		.uleb128 0x8
+ 1321 03f2 0E000000 		.4byte	.LVL36
+ 1322 03f6 AB030000 		.4byte	0x3ab
+ 1323 03fa 08       		.uleb128 0x8
+ 1324 03fb 18000000 		.4byte	.LVL37
+ 1325 03ff C8000000 		.4byte	0xc8
+ 1326 0403 00       		.byte	0
+ 1327 0404 0A       		.uleb128 0xa
+ 1328 0405 99000000 		.4byte	.LASF47
+ 1329 0409 01       		.byte	0x1
+ 1330 040a 1204     		.2byte	0x412
+ 1331 040c 00000000 		.4byte	.LFB20
+ 1332 0410 02000000 		.4byte	.LFE20-.LFB20
+ 1333 0414 01       		.uleb128 0x1
+ 1334 0415 9C       		.byte	0x9c
+ 1335 0416 0A       		.uleb128 0xa
+ 1336 0417 52020000 		.4byte	.LASF48
+ 1337 041b 01       		.byte	0x1
+ 1338 041c 2A04     		.2byte	0x42a
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 45
+
+
+ 1339 041e 00000000 		.4byte	.LFB21
+ 1340 0422 02000000 		.4byte	.LFE21-.LFB21
+ 1341 0426 01       		.uleb128 0x1
+ 1342 0427 9C       		.byte	0x9c
+ 1343 0428 0B       		.uleb128 0xb
+ 1344 0429 7A000000 		.4byte	.LASF49
+ 1345 042d 01       		.byte	0x1
+ 1346 042e 4304     		.2byte	0x443
+ 1347 0430 00000000 		.4byte	.LFB22
+ 1348 0434 18000000 		.4byte	.LFE22-.LFB22
+ 1349 0438 01       		.uleb128 0x1
+ 1350 0439 9C       		.byte	0x9c
+ 1351 043a 4D040000 		.4byte	0x44d
+ 1352 043e 0C       		.uleb128 0xc
+ 1353 043f 0E020000 		.4byte	.LASF27
+ 1354 0443 01       		.byte	0x1
+ 1355 0444 4304     		.2byte	0x443
+ 1356 0446 6B000000 		.4byte	0x6b
+ 1357 044a 01       		.uleb128 0x1
+ 1358 044b 50       		.byte	0x50
+ 1359 044c 00       		.byte	0
+ 1360 044d 0D       		.uleb128 0xd
+ 1361 044e 3C030000 		.4byte	.LASF50
+ 1362 0452 01       		.byte	0x1
+ 1363 0453 6604     		.2byte	0x466
+ 1364 0455 6B000000 		.4byte	0x6b
+ 1365 0459 00000000 		.4byte	.LFB23
+ 1366 045d 18000000 		.4byte	.LFE23-.LFB23
+ 1367 0461 01       		.uleb128 0x1
+ 1368 0462 9C       		.byte	0x9c
+ 1369 0463 78040000 		.4byte	0x478
+ 1370 0467 0F       		.uleb128 0xf
+ 1371 0468 74040000 		.4byte	.LASF28
+ 1372 046c 01       		.byte	0x1
+ 1373 046d 6804     		.2byte	0x468
+ 1374 046f 6B000000 		.4byte	0x6b
+ 1375 0473 F4000000 		.4byte	.LLST8
+ 1376 0477 00       		.byte	0
+ 1377 0478 13       		.uleb128 0x13
+ 1378 0479 14040000 		.4byte	.LASF51
+ 1379 047d 01       		.byte	0x1
+ 1380 047e 22       		.byte	0x22
+ 1381 047f 6B000000 		.4byte	0x6b
+ 1382 0483 05       		.uleb128 0x5
+ 1383 0484 03       		.byte	0x3
+ 1384 0485 00000000 		.4byte	GLCD_SPIM_UDB_initVar
+ 1385 0489 13       		.uleb128 0x13
+ 1386 048a FE040000 		.4byte	.LASF52
+ 1387 048e 01       		.byte	0x1
+ 1388 048f 24       		.byte	0x24
+ 1389 0490 A4000000 		.4byte	0xa4
+ 1390 0494 05       		.uleb128 0x5
+ 1391 0495 03       		.byte	0x3
+ 1392 0496 00000000 		.4byte	GLCD_SPIM_UDB_swStatusTx
+ 1393 049a 13       		.uleb128 0x13
+ 1394 049b 96040000 		.4byte	.LASF53
+ 1395 049f 01       		.byte	0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 46
+
+
+ 1396 04a0 25       		.byte	0x25
+ 1397 04a1 A4000000 		.4byte	0xa4
+ 1398 04a5 05       		.uleb128 0x5
+ 1399 04a6 03       		.byte	0x3
+ 1400 04a7 00000000 		.4byte	GLCD_SPIM_UDB_swStatusRx
+ 1401 04ab 14       		.uleb128 0x14
+ 1402 04ac CB020000 		.4byte	.LASF54
+ 1403 04b0 CB020000 		.4byte	.LASF54
+ 1404 04b4 03       		.byte	0x3
+ 1405 04b5 E5       		.byte	0xe5
+ 1406 04b6 14       		.uleb128 0x14
+ 1407 04b7 0A030000 		.4byte	.LASF55
+ 1408 04bb 0A030000 		.4byte	.LASF55
+ 1409 04bf 03       		.byte	0x3
+ 1410 04c0 E6       		.byte	0xe6
+ 1411 04c1 14       		.uleb128 0x14
+ 1412 04c2 27000000 		.4byte	.LASF56
+ 1413 04c6 27000000 		.4byte	.LASF56
+ 1414 04ca 04       		.byte	0x4
+ 1415 04cb 23       		.byte	0x23
+ 1416 04cc 14       		.uleb128 0x14
+ 1417 04cd 06000000 		.4byte	.LASF57
+ 1418 04d1 06000000 		.4byte	.LASF57
+ 1419 04d5 04       		.byte	0x4
+ 1420 04d6 27       		.byte	0x27
+ 1421 04d7 00       		.byte	0
+ 1422              		.section	.debug_abbrev,"",%progbits
+ 1423              	.Ldebug_abbrev0:
+ 1424 0000 01       		.uleb128 0x1
+ 1425 0001 11       		.uleb128 0x11
+ 1426 0002 01       		.byte	0x1
+ 1427 0003 25       		.uleb128 0x25
+ 1428 0004 0E       		.uleb128 0xe
+ 1429 0005 13       		.uleb128 0x13
+ 1430 0006 0B       		.uleb128 0xb
+ 1431 0007 03       		.uleb128 0x3
+ 1432 0008 0E       		.uleb128 0xe
+ 1433 0009 1B       		.uleb128 0x1b
+ 1434 000a 0E       		.uleb128 0xe
+ 1435 000b 55       		.uleb128 0x55
+ 1436 000c 17       		.uleb128 0x17
+ 1437 000d 11       		.uleb128 0x11
+ 1438 000e 01       		.uleb128 0x1
+ 1439 000f 10       		.uleb128 0x10
+ 1440 0010 17       		.uleb128 0x17
+ 1441 0011 00       		.byte	0
+ 1442 0012 00       		.byte	0
+ 1443 0013 02       		.uleb128 0x2
+ 1444 0014 24       		.uleb128 0x24
+ 1445 0015 00       		.byte	0
+ 1446 0016 0B       		.uleb128 0xb
+ 1447 0017 0B       		.uleb128 0xb
+ 1448 0018 3E       		.uleb128 0x3e
+ 1449 0019 0B       		.uleb128 0xb
+ 1450 001a 03       		.uleb128 0x3
+ 1451 001b 0E       		.uleb128 0xe
+ 1452 001c 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 47
+
+
+ 1453 001d 00       		.byte	0
+ 1454 001e 03       		.uleb128 0x3
+ 1455 001f 24       		.uleb128 0x24
+ 1456 0020 00       		.byte	0
+ 1457 0021 0B       		.uleb128 0xb
+ 1458 0022 0B       		.uleb128 0xb
+ 1459 0023 3E       		.uleb128 0x3e
+ 1460 0024 0B       		.uleb128 0xb
+ 1461 0025 03       		.uleb128 0x3
+ 1462 0026 08       		.uleb128 0x8
+ 1463 0027 00       		.byte	0
+ 1464 0028 00       		.byte	0
+ 1465 0029 04       		.uleb128 0x4
+ 1466 002a 16       		.uleb128 0x16
+ 1467 002b 00       		.byte	0
+ 1468 002c 03       		.uleb128 0x3
+ 1469 002d 0E       		.uleb128 0xe
+ 1470 002e 3A       		.uleb128 0x3a
+ 1471 002f 0B       		.uleb128 0xb
+ 1472 0030 3B       		.uleb128 0x3b
+ 1473 0031 05       		.uleb128 0x5
+ 1474 0032 49       		.uleb128 0x49
+ 1475 0033 13       		.uleb128 0x13
+ 1476 0034 00       		.byte	0
+ 1477 0035 00       		.byte	0
+ 1478 0036 05       		.uleb128 0x5
+ 1479 0037 35       		.uleb128 0x35
+ 1480 0038 00       		.byte	0
+ 1481 0039 49       		.uleb128 0x49
+ 1482 003a 13       		.uleb128 0x13
+ 1483 003b 00       		.byte	0
+ 1484 003c 00       		.byte	0
+ 1485 003d 06       		.uleb128 0x6
+ 1486 003e 2E       		.uleb128 0x2e
+ 1487 003f 01       		.byte	0x1
+ 1488 0040 3F       		.uleb128 0x3f
+ 1489 0041 19       		.uleb128 0x19
+ 1490 0042 03       		.uleb128 0x3
+ 1491 0043 0E       		.uleb128 0xe
+ 1492 0044 3A       		.uleb128 0x3a
+ 1493 0045 0B       		.uleb128 0xb
+ 1494 0046 3B       		.uleb128 0x3b
+ 1495 0047 0B       		.uleb128 0xb
+ 1496 0048 27       		.uleb128 0x27
+ 1497 0049 19       		.uleb128 0x19
+ 1498 004a 11       		.uleb128 0x11
+ 1499 004b 01       		.uleb128 0x1
+ 1500 004c 12       		.uleb128 0x12
+ 1501 004d 06       		.uleb128 0x6
+ 1502 004e 40       		.uleb128 0x40
+ 1503 004f 18       		.uleb128 0x18
+ 1504 0050 9742     		.uleb128 0x2117
+ 1505 0052 19       		.uleb128 0x19
+ 1506 0053 01       		.uleb128 0x1
+ 1507 0054 13       		.uleb128 0x13
+ 1508 0055 00       		.byte	0
+ 1509 0056 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 48
+
+
+ 1510 0057 07       		.uleb128 0x7
+ 1511 0058 34       		.uleb128 0x34
+ 1512 0059 00       		.byte	0
+ 1513 005a 03       		.uleb128 0x3
+ 1514 005b 0E       		.uleb128 0xe
+ 1515 005c 3A       		.uleb128 0x3a
+ 1516 005d 0B       		.uleb128 0xb
+ 1517 005e 3B       		.uleb128 0x3b
+ 1518 005f 0B       		.uleb128 0xb
+ 1519 0060 49       		.uleb128 0x49
+ 1520 0061 13       		.uleb128 0x13
+ 1521 0062 02       		.uleb128 0x2
+ 1522 0063 17       		.uleb128 0x17
+ 1523 0064 00       		.byte	0
+ 1524 0065 00       		.byte	0
+ 1525 0066 08       		.uleb128 0x8
+ 1526 0067 898201   		.uleb128 0x4109
+ 1527 006a 00       		.byte	0
+ 1528 006b 11       		.uleb128 0x11
+ 1529 006c 01       		.uleb128 0x1
+ 1530 006d 31       		.uleb128 0x31
+ 1531 006e 13       		.uleb128 0x13
+ 1532 006f 00       		.byte	0
+ 1533 0070 00       		.byte	0
+ 1534 0071 09       		.uleb128 0x9
+ 1535 0072 2E       		.uleb128 0x2e
+ 1536 0073 00       		.byte	0
+ 1537 0074 3F       		.uleb128 0x3f
+ 1538 0075 19       		.uleb128 0x19
+ 1539 0076 03       		.uleb128 0x3
+ 1540 0077 0E       		.uleb128 0xe
+ 1541 0078 3A       		.uleb128 0x3a
+ 1542 0079 0B       		.uleb128 0xb
+ 1543 007a 3B       		.uleb128 0x3b
+ 1544 007b 0B       		.uleb128 0xb
+ 1545 007c 27       		.uleb128 0x27
+ 1546 007d 19       		.uleb128 0x19
+ 1547 007e 11       		.uleb128 0x11
+ 1548 007f 01       		.uleb128 0x1
+ 1549 0080 12       		.uleb128 0x12
+ 1550 0081 06       		.uleb128 0x6
+ 1551 0082 40       		.uleb128 0x40
+ 1552 0083 18       		.uleb128 0x18
+ 1553 0084 9742     		.uleb128 0x2117
+ 1554 0086 19       		.uleb128 0x19
+ 1555 0087 00       		.byte	0
+ 1556 0088 00       		.byte	0
+ 1557 0089 0A       		.uleb128 0xa
+ 1558 008a 2E       		.uleb128 0x2e
+ 1559 008b 00       		.byte	0
+ 1560 008c 3F       		.uleb128 0x3f
+ 1561 008d 19       		.uleb128 0x19
+ 1562 008e 03       		.uleb128 0x3
+ 1563 008f 0E       		.uleb128 0xe
+ 1564 0090 3A       		.uleb128 0x3a
+ 1565 0091 0B       		.uleb128 0xb
+ 1566 0092 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 49
+
+
+ 1567 0093 05       		.uleb128 0x5
+ 1568 0094 27       		.uleb128 0x27
+ 1569 0095 19       		.uleb128 0x19
+ 1570 0096 11       		.uleb128 0x11
+ 1571 0097 01       		.uleb128 0x1
+ 1572 0098 12       		.uleb128 0x12
+ 1573 0099 06       		.uleb128 0x6
+ 1574 009a 40       		.uleb128 0x40
+ 1575 009b 18       		.uleb128 0x18
+ 1576 009c 9742     		.uleb128 0x2117
+ 1577 009e 19       		.uleb128 0x19
+ 1578 009f 00       		.byte	0
+ 1579 00a0 00       		.byte	0
+ 1580 00a1 0B       		.uleb128 0xb
+ 1581 00a2 2E       		.uleb128 0x2e
+ 1582 00a3 01       		.byte	0x1
+ 1583 00a4 3F       		.uleb128 0x3f
+ 1584 00a5 19       		.uleb128 0x19
+ 1585 00a6 03       		.uleb128 0x3
+ 1586 00a7 0E       		.uleb128 0xe
+ 1587 00a8 3A       		.uleb128 0x3a
+ 1588 00a9 0B       		.uleb128 0xb
+ 1589 00aa 3B       		.uleb128 0x3b
+ 1590 00ab 05       		.uleb128 0x5
+ 1591 00ac 27       		.uleb128 0x27
+ 1592 00ad 19       		.uleb128 0x19
+ 1593 00ae 11       		.uleb128 0x11
+ 1594 00af 01       		.uleb128 0x1
+ 1595 00b0 12       		.uleb128 0x12
+ 1596 00b1 06       		.uleb128 0x6
+ 1597 00b2 40       		.uleb128 0x40
+ 1598 00b3 18       		.uleb128 0x18
+ 1599 00b4 9742     		.uleb128 0x2117
+ 1600 00b6 19       		.uleb128 0x19
+ 1601 00b7 01       		.uleb128 0x1
+ 1602 00b8 13       		.uleb128 0x13
+ 1603 00b9 00       		.byte	0
+ 1604 00ba 00       		.byte	0
+ 1605 00bb 0C       		.uleb128 0xc
+ 1606 00bc 05       		.uleb128 0x5
+ 1607 00bd 00       		.byte	0
+ 1608 00be 03       		.uleb128 0x3
+ 1609 00bf 0E       		.uleb128 0xe
+ 1610 00c0 3A       		.uleb128 0x3a
+ 1611 00c1 0B       		.uleb128 0xb
+ 1612 00c2 3B       		.uleb128 0x3b
+ 1613 00c3 05       		.uleb128 0x5
+ 1614 00c4 49       		.uleb128 0x49
+ 1615 00c5 13       		.uleb128 0x13
+ 1616 00c6 02       		.uleb128 0x2
+ 1617 00c7 18       		.uleb128 0x18
+ 1618 00c8 00       		.byte	0
+ 1619 00c9 00       		.byte	0
+ 1620 00ca 0D       		.uleb128 0xd
+ 1621 00cb 2E       		.uleb128 0x2e
+ 1622 00cc 01       		.byte	0x1
+ 1623 00cd 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 50
+
+
+ 1624 00ce 19       		.uleb128 0x19
+ 1625 00cf 03       		.uleb128 0x3
+ 1626 00d0 0E       		.uleb128 0xe
+ 1627 00d1 3A       		.uleb128 0x3a
+ 1628 00d2 0B       		.uleb128 0xb
+ 1629 00d3 3B       		.uleb128 0x3b
+ 1630 00d4 05       		.uleb128 0x5
+ 1631 00d5 27       		.uleb128 0x27
+ 1632 00d6 19       		.uleb128 0x19
+ 1633 00d7 49       		.uleb128 0x49
+ 1634 00d8 13       		.uleb128 0x13
+ 1635 00d9 11       		.uleb128 0x11
+ 1636 00da 01       		.uleb128 0x1
+ 1637 00db 12       		.uleb128 0x12
+ 1638 00dc 06       		.uleb128 0x6
+ 1639 00dd 40       		.uleb128 0x40
+ 1640 00de 18       		.uleb128 0x18
+ 1641 00df 9742     		.uleb128 0x2117
+ 1642 00e1 19       		.uleb128 0x19
+ 1643 00e2 01       		.uleb128 0x1
+ 1644 00e3 13       		.uleb128 0x13
+ 1645 00e4 00       		.byte	0
+ 1646 00e5 00       		.byte	0
+ 1647 00e6 0E       		.uleb128 0xe
+ 1648 00e7 34       		.uleb128 0x34
+ 1649 00e8 00       		.byte	0
+ 1650 00e9 03       		.uleb128 0x3
+ 1651 00ea 0E       		.uleb128 0xe
+ 1652 00eb 3A       		.uleb128 0x3a
+ 1653 00ec 0B       		.uleb128 0xb
+ 1654 00ed 3B       		.uleb128 0x3b
+ 1655 00ee 05       		.uleb128 0x5
+ 1656 00ef 49       		.uleb128 0x49
+ 1657 00f0 13       		.uleb128 0x13
+ 1658 00f1 02       		.uleb128 0x2
+ 1659 00f2 18       		.uleb128 0x18
+ 1660 00f3 00       		.byte	0
+ 1661 00f4 00       		.byte	0
+ 1662 00f5 0F       		.uleb128 0xf
+ 1663 00f6 34       		.uleb128 0x34
+ 1664 00f7 00       		.byte	0
+ 1665 00f8 03       		.uleb128 0x3
+ 1666 00f9 0E       		.uleb128 0xe
+ 1667 00fa 3A       		.uleb128 0x3a
+ 1668 00fb 0B       		.uleb128 0xb
+ 1669 00fc 3B       		.uleb128 0x3b
+ 1670 00fd 05       		.uleb128 0x5
+ 1671 00fe 49       		.uleb128 0x49
+ 1672 00ff 13       		.uleb128 0x13
+ 1673 0100 02       		.uleb128 0x2
+ 1674 0101 17       		.uleb128 0x17
+ 1675 0102 00       		.byte	0
+ 1676 0103 00       		.byte	0
+ 1677 0104 10       		.uleb128 0x10
+ 1678 0105 05       		.uleb128 0x5
+ 1679 0106 00       		.byte	0
+ 1680 0107 03       		.uleb128 0x3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 51
+
+
+ 1681 0108 0E       		.uleb128 0xe
+ 1682 0109 3A       		.uleb128 0x3a
+ 1683 010a 0B       		.uleb128 0xb
+ 1684 010b 3B       		.uleb128 0x3b
+ 1685 010c 05       		.uleb128 0x5
+ 1686 010d 49       		.uleb128 0x49
+ 1687 010e 13       		.uleb128 0x13
+ 1688 010f 02       		.uleb128 0x2
+ 1689 0110 17       		.uleb128 0x17
+ 1690 0111 00       		.byte	0
+ 1691 0112 00       		.byte	0
+ 1692 0113 11       		.uleb128 0x11
+ 1693 0114 0F       		.uleb128 0xf
+ 1694 0115 00       		.byte	0
+ 1695 0116 0B       		.uleb128 0xb
+ 1696 0117 0B       		.uleb128 0xb
+ 1697 0118 49       		.uleb128 0x49
+ 1698 0119 13       		.uleb128 0x13
+ 1699 011a 00       		.byte	0
+ 1700 011b 00       		.byte	0
+ 1701 011c 12       		.uleb128 0x12
+ 1702 011d 26       		.uleb128 0x26
+ 1703 011e 00       		.byte	0
+ 1704 011f 49       		.uleb128 0x49
+ 1705 0120 13       		.uleb128 0x13
+ 1706 0121 00       		.byte	0
+ 1707 0122 00       		.byte	0
+ 1708 0123 13       		.uleb128 0x13
+ 1709 0124 34       		.uleb128 0x34
+ 1710 0125 00       		.byte	0
+ 1711 0126 03       		.uleb128 0x3
+ 1712 0127 0E       		.uleb128 0xe
+ 1713 0128 3A       		.uleb128 0x3a
+ 1714 0129 0B       		.uleb128 0xb
+ 1715 012a 3B       		.uleb128 0x3b
+ 1716 012b 0B       		.uleb128 0xb
+ 1717 012c 49       		.uleb128 0x49
+ 1718 012d 13       		.uleb128 0x13
+ 1719 012e 3F       		.uleb128 0x3f
+ 1720 012f 19       		.uleb128 0x19
+ 1721 0130 02       		.uleb128 0x2
+ 1722 0131 18       		.uleb128 0x18
+ 1723 0132 00       		.byte	0
+ 1724 0133 00       		.byte	0
+ 1725 0134 14       		.uleb128 0x14
+ 1726 0135 2E       		.uleb128 0x2e
+ 1727 0136 00       		.byte	0
+ 1728 0137 3F       		.uleb128 0x3f
+ 1729 0138 19       		.uleb128 0x19
+ 1730 0139 3C       		.uleb128 0x3c
+ 1731 013a 19       		.uleb128 0x19
+ 1732 013b 6E       		.uleb128 0x6e
+ 1733 013c 0E       		.uleb128 0xe
+ 1734 013d 03       		.uleb128 0x3
+ 1735 013e 0E       		.uleb128 0xe
+ 1736 013f 3A       		.uleb128 0x3a
+ 1737 0140 0B       		.uleb128 0xb
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 52
+
+
+ 1738 0141 3B       		.uleb128 0x3b
+ 1739 0142 0B       		.uleb128 0xb
+ 1740 0143 00       		.byte	0
+ 1741 0144 00       		.byte	0
+ 1742 0145 00       		.byte	0
+ 1743              		.section	.debug_loc,"",%progbits
+ 1744              	.Ldebug_loc0:
+ 1745              	.LLST0:
+ 1746 0000 06000000 		.4byte	.LVL0
+ 1747 0004 2B000000 		.4byte	.LVL1-1
+ 1748 0008 0100     		.2byte	0x1
+ 1749 000a 50       		.byte	0x50
+ 1750 000b 00000000 		.4byte	0
+ 1751 000f 00000000 		.4byte	0
+ 1752              	.LLST1:
+ 1753 0013 06000000 		.4byte	.LVL3
+ 1754 0017 1B000000 		.4byte	.LVL4-1
+ 1755 001b 0100     		.2byte	0x1
+ 1756 001d 50       		.byte	0x50
+ 1757 001e 00000000 		.4byte	0
+ 1758 0022 00000000 		.4byte	0
+ 1759              	.LLST2:
+ 1760 0026 06000000 		.4byte	.LVL13
+ 1761 002a 0E000000 		.4byte	.LVL14
+ 1762 002e 0100     		.2byte	0x1
+ 1763 0030 53       		.byte	0x53
+ 1764 0031 12000000 		.4byte	.LVL15
+ 1765 0035 16000000 		.4byte	.LVL16
+ 1766 0039 0100     		.2byte	0x1
+ 1767 003b 53       		.byte	0x53
+ 1768 003c 18000000 		.4byte	.LVL17
+ 1769 0040 20000000 		.4byte	.LFE15
+ 1770 0044 0100     		.2byte	0x1
+ 1771 0046 50       		.byte	0x50
+ 1772 0047 00000000 		.4byte	0
+ 1773 004b 00000000 		.4byte	0
+ 1774              	.LLST3:
+ 1775 004f 06000000 		.4byte	.LVL18
+ 1776 0053 2D000000 		.4byte	.LVL19-1
+ 1777 0057 0100     		.2byte	0x1
+ 1778 0059 50       		.byte	0x50
+ 1779 005a 00000000 		.4byte	0
+ 1780 005e 00000000 		.4byte	0
+ 1781              	.LLST4:
+ 1782 0062 00000000 		.4byte	.LVL20
+ 1783 0066 0A000000 		.4byte	.LVL22
+ 1784 006a 0100     		.2byte	0x1
+ 1785 006c 50       		.byte	0x50
+ 1786 006d 0A000000 		.4byte	.LVL22
+ 1787 0071 1E000000 		.4byte	.LVL30
+ 1788 0075 0100     		.2byte	0x1
+ 1789 0077 56       		.byte	0x56
+ 1790 0078 1E000000 		.4byte	.LVL30
+ 1791 007c 20000000 		.4byte	.LFE18
+ 1792 0080 0400     		.2byte	0x4
+ 1793 0082 F3       		.byte	0xf3
+ 1794 0083 01       		.uleb128 0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 53
+
+
+ 1795 0084 50       		.byte	0x50
+ 1796 0085 9F       		.byte	0x9f
+ 1797 0086 00000000 		.4byte	0
+ 1798 008a 00000000 		.4byte	0
+ 1799              	.LLST5:
+ 1800 008e 00000000 		.4byte	.LVL20
+ 1801 0092 0A000000 		.4byte	.LVL22
+ 1802 0096 0100     		.2byte	0x1
+ 1803 0098 51       		.byte	0x51
+ 1804 0099 0A000000 		.4byte	.LVL22
+ 1805 009d 18000000 		.4byte	.LVL26
+ 1806 00a1 0100     		.2byte	0x1
+ 1807 00a3 54       		.byte	0x54
+ 1808 00a4 1A000000 		.4byte	.LVL27
+ 1809 00a8 1E000000 		.4byte	.LVL28
+ 1810 00ac 0100     		.2byte	0x1
+ 1811 00ae 54       		.byte	0x54
+ 1812 00af 00000000 		.4byte	0
+ 1813 00b3 00000000 		.4byte	0
+ 1814              	.LLST6:
+ 1815 00b7 06000000 		.4byte	.LVL21
+ 1816 00bb 0A000000 		.4byte	.LVL22
+ 1817 00bf 0200     		.2byte	0x2
+ 1818 00c1 30       		.byte	0x30
+ 1819 00c2 9F       		.byte	0x9f
+ 1820 00c3 0A000000 		.4byte	.LVL22
+ 1821 00c7 14000000 		.4byte	.LVL24
+ 1822 00cb 0100     		.2byte	0x1
+ 1823 00cd 55       		.byte	0x55
+ 1824 00ce 16000000 		.4byte	.LVL25
+ 1825 00d2 1E000000 		.4byte	.LVL29
+ 1826 00d6 0100     		.2byte	0x1
+ 1827 00d8 55       		.byte	0x55
+ 1828 00d9 00000000 		.4byte	0
+ 1829 00dd 00000000 		.4byte	0
+ 1830              	.LLST7:
+ 1831 00e1 14000000 		.4byte	.LVL31
+ 1832 00e5 3B000000 		.4byte	.LVL32-1
+ 1833 00e9 0100     		.2byte	0x1
+ 1834 00eb 50       		.byte	0x50
+ 1835 00ec 00000000 		.4byte	0
+ 1836 00f0 00000000 		.4byte	0
+ 1837              	.LLST8:
+ 1838 00f4 04000000 		.4byte	.LVL39
+ 1839 00f8 0A000000 		.4byte	.LVL40
+ 1840 00fc 0100     		.2byte	0x1
+ 1841 00fe 53       		.byte	0x53
+ 1842 00ff 0A000000 		.4byte	.LVL40
+ 1843 0103 18000000 		.4byte	.LFE23
+ 1844 0107 0100     		.2byte	0x1
+ 1845 0109 50       		.byte	0x50
+ 1846 010a 00000000 		.4byte	0
+ 1847 010e 00000000 		.4byte	0
+ 1848              		.section	.debug_aranges,"",%progbits
+ 1849 0000 D4000000 		.4byte	0xd4
+ 1850 0004 0200     		.2byte	0x2
+ 1851 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 54
+
+
+ 1852 000a 04       		.byte	0x4
+ 1853 000b 00       		.byte	0
+ 1854 000c 0000     		.2byte	0
+ 1855 000e 0000     		.2byte	0
+ 1856 0010 00000000 		.4byte	.LFB1
+ 1857 0014 40000000 		.4byte	.LFE1-.LFB1
+ 1858 0018 00000000 		.4byte	.LFB3
+ 1859 001c 2C000000 		.4byte	.LFE3-.LFB3
+ 1860 0020 00000000 		.4byte	.LFB4
+ 1861 0024 02000000 		.4byte	.LFE4-.LFB4
+ 1862 0028 00000000 		.4byte	.LFB5
+ 1863 002c 02000000 		.4byte	.LFE5-.LFB5
+ 1864 0030 00000000 		.4byte	.LFB6
+ 1865 0034 02000000 		.4byte	.LFE6-.LFB6
+ 1866 0038 00000000 		.4byte	.LFB7
+ 1867 003c 02000000 		.4byte	.LFE7-.LFB7
+ 1868 0040 00000000 		.4byte	.LFB8
+ 1869 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1870 0048 00000000 		.4byte	.LFB9
+ 1871 004c 0C000000 		.4byte	.LFE9-.LFB9
+ 1872 0050 00000000 		.4byte	.LFB10
+ 1873 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1874 0058 00000000 		.4byte	.LFB11
+ 1875 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1876 0060 00000000 		.4byte	.LFB12
+ 1877 0064 18000000 		.4byte	.LFE12-.LFB12
+ 1878 0068 00000000 		.4byte	.LFB13
+ 1879 006c 0C000000 		.4byte	.LFE13-.LFB13
+ 1880 0070 00000000 		.4byte	.LFB14
+ 1881 0074 14000000 		.4byte	.LFE14-.LFB14
+ 1882 0078 00000000 		.4byte	.LFB15
+ 1883 007c 20000000 		.4byte	.LFE15-.LFB15
+ 1884 0080 00000000 		.4byte	.LFB16
+ 1885 0084 18000000 		.4byte	.LFE16-.LFB16
+ 1886 0088 00000000 		.4byte	.LFB17
+ 1887 008c 38000000 		.4byte	.LFE17-.LFB17
+ 1888 0090 00000000 		.4byte	.LFB18
+ 1889 0094 20000000 		.4byte	.LFE18-.LFB18
+ 1890 0098 00000000 		.4byte	.LFB19
+ 1891 009c 50000000 		.4byte	.LFE19-.LFB19
+ 1892 00a0 00000000 		.4byte	.LFB0
+ 1893 00a4 2C000000 		.4byte	.LFE0-.LFB0
+ 1894 00a8 00000000 		.4byte	.LFB2
+ 1895 00ac 20000000 		.4byte	.LFE2-.LFB2
+ 1896 00b0 00000000 		.4byte	.LFB20
+ 1897 00b4 02000000 		.4byte	.LFE20-.LFB20
+ 1898 00b8 00000000 		.4byte	.LFB21
+ 1899 00bc 02000000 		.4byte	.LFE21-.LFB21
+ 1900 00c0 00000000 		.4byte	.LFB22
+ 1901 00c4 18000000 		.4byte	.LFE22-.LFB22
+ 1902 00c8 00000000 		.4byte	.LFB23
+ 1903 00cc 18000000 		.4byte	.LFE23-.LFB23
+ 1904 00d0 00000000 		.4byte	0
+ 1905 00d4 00000000 		.4byte	0
+ 1906              		.section	.debug_ranges,"",%progbits
+ 1907              	.Ldebug_ranges0:
+ 1908 0000 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 55
+
+
+ 1909 0004 40000000 		.4byte	.LFE1
+ 1910 0008 00000000 		.4byte	.LFB3
+ 1911 000c 2C000000 		.4byte	.LFE3
+ 1912 0010 00000000 		.4byte	.LFB4
+ 1913 0014 02000000 		.4byte	.LFE4
+ 1914 0018 00000000 		.4byte	.LFB5
+ 1915 001c 02000000 		.4byte	.LFE5
+ 1916 0020 00000000 		.4byte	.LFB6
+ 1917 0024 02000000 		.4byte	.LFE6
+ 1918 0028 00000000 		.4byte	.LFB7
+ 1919 002c 02000000 		.4byte	.LFE7
+ 1920 0030 00000000 		.4byte	.LFB8
+ 1921 0034 0C000000 		.4byte	.LFE8
+ 1922 0038 00000000 		.4byte	.LFB9
+ 1923 003c 0C000000 		.4byte	.LFE9
+ 1924 0040 00000000 		.4byte	.LFB10
+ 1925 0044 0C000000 		.4byte	.LFE10
+ 1926 0048 00000000 		.4byte	.LFB11
+ 1927 004c 0C000000 		.4byte	.LFE11
+ 1928 0050 00000000 		.4byte	.LFB12
+ 1929 0054 18000000 		.4byte	.LFE12
+ 1930 0058 00000000 		.4byte	.LFB13
+ 1931 005c 0C000000 		.4byte	.LFE13
+ 1932 0060 00000000 		.4byte	.LFB14
+ 1933 0064 14000000 		.4byte	.LFE14
+ 1934 0068 00000000 		.4byte	.LFB15
+ 1935 006c 20000000 		.4byte	.LFE15
+ 1936 0070 00000000 		.4byte	.LFB16
+ 1937 0074 18000000 		.4byte	.LFE16
+ 1938 0078 00000000 		.4byte	.LFB17
+ 1939 007c 38000000 		.4byte	.LFE17
+ 1940 0080 00000000 		.4byte	.LFB18
+ 1941 0084 20000000 		.4byte	.LFE18
+ 1942 0088 00000000 		.4byte	.LFB19
+ 1943 008c 50000000 		.4byte	.LFE19
+ 1944 0090 00000000 		.4byte	.LFB0
+ 1945 0094 2C000000 		.4byte	.LFE0
+ 1946 0098 00000000 		.4byte	.LFB2
+ 1947 009c 20000000 		.4byte	.LFE2
+ 1948 00a0 00000000 		.4byte	.LFB20
+ 1949 00a4 02000000 		.4byte	.LFE20
+ 1950 00a8 00000000 		.4byte	.LFB21
+ 1951 00ac 02000000 		.4byte	.LFE21
+ 1952 00b0 00000000 		.4byte	.LFB22
+ 1953 00b4 18000000 		.4byte	.LFE22
+ 1954 00b8 00000000 		.4byte	.LFB23
+ 1955 00bc 18000000 		.4byte	.LFE23
+ 1956 00c0 00000000 		.4byte	0
+ 1957 00c4 00000000 		.4byte	0
+ 1958              		.section	.debug_line,"",%progbits
+ 1959              	.Ldebug_line0:
+ 1960 0000 6C020000 		.section	.debug_str,"MS",%progbits,1
+ 1960      02007100 
+ 1960      00000201 
+ 1960      FB0E0D00 
+ 1960      01010101 
+ 1961              	.LASF15:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 56
+
+
+ 1962 0000 72656731 		.ascii	"reg16\000"
+ 1962      3600
+ 1963              	.LASF57:
+ 1964 0006 474C4344 		.ascii	"GLCD_SPIM_UDB_IntClock_Stop\000"
+ 1964      5F535049 
+ 1964      4D5F5544 
+ 1964      425F496E 
+ 1964      74436C6F 
+ 1965              	.LASF13:
+ 1966 0022 63686172 		.ascii	"char\000"
+ 1966      00
+ 1967              	.LASF56:
+ 1968 0027 474C4344 		.ascii	"GLCD_SPIM_UDB_IntClock_Start\000"
+ 1968      5F535049 
+ 1968      4D5F5544 
+ 1968      425F496E 
+ 1968      74436C6F 
+ 1969              	.LASF32:
+ 1970 0044 74784461 		.ascii	"txData\000"
+ 1970      746100
+ 1971              	.LASF39:
+ 1972 004b 474C4344 		.ascii	"GLCD_SPIM_UDB_ClearTxBuffer\000"
+ 1972      5F535049 
+ 1972      4D5F5544 
+ 1972      425F436C 
+ 1972      65617254 
+ 1973              	.LASF3:
+ 1974 0067 73686F72 		.ascii	"short unsigned int\000"
+ 1974      7420756E 
+ 1974      7369676E 
+ 1974      65642069 
+ 1974      6E7400
+ 1975              	.LASF49:
+ 1976 007a 474C4344 		.ascii	"GLCD_SPIM_UDB_SetInterruptMode\000"
+ 1976      5F535049 
+ 1976      4D5F5544 
+ 1976      425F5365 
+ 1976      74496E74 
+ 1977              	.LASF47:
+ 1978 0099 474C4344 		.ascii	"GLCD_SPIM_UDB_EnableInt\000"
+ 1978      5F535049 
+ 1978      4D5F5544 
+ 1978      425F456E 
+ 1978      61626C65 
+ 1979              	.LASF37:
+ 1980 00b1 474C4344 		.ascii	"GLCD_SPIM_UDB_GetTxBufferSize\000"
+ 1980      5F535049 
+ 1980      4D5F5544 
+ 1980      425F4765 
+ 1980      74547842 
+ 1981              	.LASF29:
+ 1982 00cf 474C4344 		.ascii	"GLCD_SPIM_UDB_ReadTxStatus\000"
+ 1982      5F535049 
+ 1982      4D5F5544 
+ 1982      425F5265 
+ 1982      61645478 
+ 1983              	.LASF30:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 57
+
+
+ 1984 00ea 474C4344 		.ascii	"GLCD_SPIM_UDB_ReadRxStatus\000"
+ 1984      5F535049 
+ 1984      4D5F5544 
+ 1984      425F5265 
+ 1984      61645278 
+ 1985              	.LASF35:
+ 1986 0105 474C4344 		.ascii	"GLCD_SPIM_UDB_GetRxBufferSize\000"
+ 1986      5F535049 
+ 1986      4D5F5544 
+ 1986      425F4765 
+ 1986      74527842 
+ 1987              	.LASF25:
+ 1988 0123 474C4344 		.ascii	"GLCD_SPIM_UDB_SetTxInterruptMode\000"
+ 1988      5F535049 
+ 1988      4D5F5544 
+ 1988      425F5365 
+ 1988      74547849 
+ 1989              	.LASF34:
+ 1990 0144 72784461 		.ascii	"rxData\000"
+ 1990      746100
+ 1991              	.LASF26:
+ 1992 014b 474C4344 		.ascii	"GLCD_SPIM_UDB_SetRxInterruptMode\000"
+ 1992      5F535049 
+ 1992      4D5F5544 
+ 1992      425F5365 
+ 1992      74527849 
+ 1993              	.LASF11:
+ 1994 016c 666C6F61 		.ascii	"float\000"
+ 1994      7400
+ 1995              	.LASF7:
+ 1996 0172 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1996      206C6F6E 
+ 1996      6720756E 
+ 1996      7369676E 
+ 1996      65642069 
+ 1997              	.LASF23:
+ 1998 0189 474C4344 		.ascii	"GLCD_SPIM_UDB_DisableTxInt\000"
+ 1998      5F535049 
+ 1998      4D5F5544 
+ 1998      425F4469 
+ 1998      7361626C 
+ 1999              	.LASF36:
+ 2000 01a4 73697A65 		.ascii	"size\000"
+ 2000      00
+ 2001              	.LASF14:
+ 2002 01a9 72656738 		.ascii	"reg8\000"
+ 2002      00
+ 2003              	.LASF5:
+ 2004 01ae 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2004      20756E73 
+ 2004      69676E65 
+ 2004      6420696E 
+ 2004      7400
+ 2005              	.LASF9:
+ 2006 01c0 75696E74 		.ascii	"uint8\000"
+ 2006      3800
+ 2007              	.LASF44:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 58
+
+
+ 2008 01c6 474C4344 		.ascii	"GLCD_SPIM_UDB_ClearFIFO\000"
+ 2008      5F535049 
+ 2008      4D5F5544 
+ 2008      425F436C 
+ 2008      65617246 
+ 2009              	.LASF42:
+ 2010 01de 62797465 		.ascii	"byteCount\000"
+ 2010      436F756E 
+ 2010      7400
+ 2011              	.LASF20:
+ 2012 01e8 656E6162 		.ascii	"enableInterrupts\000"
+ 2012      6C65496E 
+ 2012      74657272 
+ 2012      75707473 
+ 2012      00
+ 2013              	.LASF1:
+ 2014 01f9 756E7369 		.ascii	"unsigned char\000"
+ 2014      676E6564 
+ 2014      20636861 
+ 2014      7200
+ 2015              	.LASF12:
+ 2016 0207 646F7562 		.ascii	"double\000"
+ 2016      6C6500
+ 2017              	.LASF27:
+ 2018 020e 696E7453 		.ascii	"intSrc\000"
+ 2018      726300
+ 2019              	.LASF38:
+ 2020 0215 474C4344 		.ascii	"GLCD_SPIM_UDB_ClearRxBuffer\000"
+ 2020      5F535049 
+ 2020      4D5F5544 
+ 2020      425F436C 
+ 2020      65617252 
+ 2021              	.LASF22:
+ 2022 0231 474C4344 		.ascii	"GLCD_SPIM_UDB_EnableRxInt\000"
+ 2022      5F535049 
+ 2022      4D5F5544 
+ 2022      425F456E 
+ 2022      61626C65 
+ 2023              	.LASF10:
+ 2024 024b 75696E74 		.ascii	"uint16\000"
+ 2024      313600
+ 2025              	.LASF48:
+ 2026 0252 474C4344 		.ascii	"GLCD_SPIM_UDB_DisableInt\000"
+ 2026      5F535049 
+ 2026      4D5F5544 
+ 2026      425F4469 
+ 2026      7361626C 
+ 2027              	.LASF46:
+ 2028 026b 474C4344 		.ascii	"GLCD_SPIM_UDB_Start\000"
+ 2028      5F535049 
+ 2028      4D5F5544 
+ 2028      425F5374 
+ 2028      61727400 
+ 2029              	.LASF60:
+ 2030 027f 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\HW"
+ 2030      49545C4D 
+ 2030      6963726F 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 59
+
+
+ 2030      636F6E74 
+ 2030      726F6C6C 
+ 2031 02af 352D4D69 		.ascii	"5-MiniScope\\MiniScope.cydsn\000"
+ 2031      6E695363 
+ 2031      6F70655C 
+ 2031      4D696E69 
+ 2031      53636F70 
+ 2032              	.LASF54:
+ 2033 02cb 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2033      74657243 
+ 2033      72697469 
+ 2033      63616C53 
+ 2033      65637469 
+ 2034              	.LASF8:
+ 2035 02e2 756E7369 		.ascii	"unsigned int\000"
+ 2035      676E6564 
+ 2035      20696E74 
+ 2035      00
+ 2036              	.LASF24:
+ 2037 02ef 474C4344 		.ascii	"GLCD_SPIM_UDB_DisableRxInt\000"
+ 2037      5F535049 
+ 2037      4D5F5544 
+ 2037      425F4469 
+ 2037      7361626C 
+ 2038              	.LASF55:
+ 2039 030a 43794578 		.ascii	"CyExitCriticalSection\000"
+ 2039      69744372 
+ 2039      69746963 
+ 2039      616C5365 
+ 2039      6374696F 
+ 2040              	.LASF45:
+ 2041 0320 474C4344 		.ascii	"GLCD_SPIM_UDB_Init\000"
+ 2041      5F535049 
+ 2041      4D5F5544 
+ 2041      425F496E 
+ 2041      697400
+ 2042              	.LASF43:
+ 2043 0333 62756649 		.ascii	"bufIndex\000"
+ 2043      6E646578 
+ 2043      00
+ 2044              	.LASF50:
+ 2045 033c 474C4344 		.ascii	"GLCD_SPIM_UDB_ReadStatus\000"
+ 2045      5F535049 
+ 2045      4D5F5544 
+ 2045      425F5265 
+ 2045      61645374 
+ 2046              	.LASF58:
+ 2047 0355 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2047      43313120 
+ 2047      352E342E 
+ 2047      31203230 
+ 2047      31363036 
+ 2048 0388 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 2048      20726576 
+ 2048      6973696F 
+ 2048      6E203233 
+ 2048      37373135 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 60
+
+
+ 2049 03bb 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2049      66756E63 
+ 2049      74696F6E 
+ 2049      2D736563 
+ 2049      74696F6E 
+ 2050              	.LASF31:
+ 2051 03e3 474C4344 		.ascii	"GLCD_SPIM_UDB_WriteTxData\000"
+ 2051      5F535049 
+ 2051      4D5F5544 
+ 2051      425F5772 
+ 2051      69746554 
+ 2052              	.LASF17:
+ 2053 03fd 73697A65 		.ascii	"sizetype\000"
+ 2053      74797065 
+ 2053      00
+ 2054              	.LASF6:
+ 2055 0406 6C6F6E67 		.ascii	"long long int\000"
+ 2055      206C6F6E 
+ 2055      6720696E 
+ 2055      7400
+ 2056              	.LASF51:
+ 2057 0414 474C4344 		.ascii	"GLCD_SPIM_UDB_initVar\000"
+ 2057      5F535049 
+ 2057      4D5F5544 
+ 2057      425F696E 
+ 2057      69745661 
+ 2058              	.LASF2:
+ 2059 042a 73686F72 		.ascii	"short int\000"
+ 2059      7420696E 
+ 2059      7400
+ 2060              	.LASF40:
+ 2061 0434 474C4344 		.ascii	"GLCD_SPIM_UDB_PutArray\000"
+ 2061      5F535049 
+ 2061      4D5F5544 
+ 2061      425F5075 
+ 2061      74417272 
+ 2062              	.LASF41:
+ 2063 044b 62756666 		.ascii	"buffer\000"
+ 2063      657200
+ 2064              	.LASF33:
+ 2065 0452 474C4344 		.ascii	"GLCD_SPIM_UDB_ReadRxData\000"
+ 2065      5F535049 
+ 2065      4D5F5544 
+ 2065      425F5265 
+ 2065      61645278 
+ 2066              	.LASF4:
+ 2067 046b 6C6F6E67 		.ascii	"long int\000"
+ 2067      20696E74 
+ 2067      00
+ 2068              	.LASF28:
+ 2069 0474 746D7053 		.ascii	"tmpStatus\000"
+ 2069      74617475 
+ 2069      7300
+ 2070              	.LASF16:
+ 2071 047e 6C6F6E67 		.ascii	"long double\000"
+ 2071      20646F75 
+ 2071      626C6500 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccpTt8Rj.s 			page 61
+
+
+ 2072              	.LASF0:
+ 2073 048a 7369676E 		.ascii	"signed char\000"
+ 2073      65642063 
+ 2073      68617200 
+ 2074              	.LASF53:
+ 2075 0496 474C4344 		.ascii	"GLCD_SPIM_UDB_swStatusRx\000"
+ 2075      5F535049 
+ 2075      4D5F5544 
+ 2075      425F7377 
+ 2075      53746174 
+ 2076              	.LASF18:
+ 2077 04af 474C4344 		.ascii	"GLCD_SPIM_UDB_Enable\000"
+ 2077      5F535049 
+ 2077      4D5F5544 
+ 2077      425F456E 
+ 2077      61626C65 
+ 2078              	.LASF19:
+ 2079 04c4 474C4344 		.ascii	"GLCD_SPIM_UDB_Stop\000"
+ 2079      5F535049 
+ 2079      4D5F5544 
+ 2079      425F5374 
+ 2079      6F7000
+ 2080              	.LASF59:
+ 2081 04d7 47656E65 		.ascii	"Generated_Source\\PSoC4\\GLCD_SPIM_UDB.c\000"
+ 2081      72617465 
+ 2081      645F536F 
+ 2081      75726365 
+ 2081      5C50536F 
+ 2082              	.LASF52:
+ 2083 04fe 474C4344 		.ascii	"GLCD_SPIM_UDB_swStatusTx\000"
+ 2083      5F535049 
+ 2083      4D5F5544 
+ 2083      425F7377 
+ 2083      53746174 
+ 2084              	.LASF21:
+ 2085 0517 474C4344 		.ascii	"GLCD_SPIM_UDB_EnableTxInt\000"
+ 2085      5F535049 
+ 2085      4D5F5544 
+ 2085      425F456E 
+ 2085      61626C65 
+ 2086              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

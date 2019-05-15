@@ -1,0 +1,2159 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"StepperInterrupt.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.StepperInterrupt_Interrupt,"ax",%progbits
+  20              		.align	2
+  21              		.global	StepperInterrupt_Interrupt
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	StepperInterrupt_Interrupt, %function
+  25              	StepperInterrupt_Interrupt:
+  26              	.LFB35:
+  27              		.file 1 "Generated_Source\\PSoC4\\StepperInterrupt.c"
+   1:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/StepperInterrupt.c **** * File Name: StepperInterrupt.c  
+   3:Generated_Source\PSoC4/StepperInterrupt.c **** * Version 1.70
+   4:Generated_Source\PSoC4/StepperInterrupt.c **** *
+   5:Generated_Source\PSoC4/StepperInterrupt.c **** *  Description:
+   6:Generated_Source\PSoC4/StepperInterrupt.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC4/StepperInterrupt.c **** *
+   8:Generated_Source\PSoC4/StepperInterrupt.c **** *
+   9:Generated_Source\PSoC4/StepperInterrupt.c **** *  Note:
+  10:Generated_Source\PSoC4/StepperInterrupt.c **** *
+  11:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/StepperInterrupt.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/StepperInterrupt.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC4/StepperInterrupt.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC4/StepperInterrupt.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  18:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  19:Generated_Source\PSoC4/StepperInterrupt.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC4/StepperInterrupt.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC4/StepperInterrupt.c **** #include <StepperInterrupt.h>
+  22:Generated_Source\PSoC4/StepperInterrupt.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  24:Generated_Source\PSoC4/StepperInterrupt.c **** #if !defined(StepperInterrupt__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  26:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+  27:Generated_Source\PSoC4/StepperInterrupt.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************/
+  29:Generated_Source\PSoC4/StepperInterrupt.c **** /* `#START StepperInterrupt_intc` */
+  30:Generated_Source\PSoC4/StepperInterrupt.c ****     #include "project.h"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 2
+
+
+  31:Generated_Source\PSoC4/StepperInterrupt.c ****     extern void stepperMotorControl(); 
+  32:Generated_Source\PSoC4/StepperInterrupt.c ****     extern int step;
+  33:Generated_Source\PSoC4/StepperInterrupt.c ****     extern int steps[];
+  34:Generated_Source\PSoC4/StepperInterrupt.c ****     
+  35:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  36:Generated_Source\PSoC4/StepperInterrupt.c **** /* `#END` */
+  37:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  38:Generated_Source\PSoC4/StepperInterrupt.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  39:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  40:Generated_Source\PSoC4/StepperInterrupt.c **** /* Declared in startup, used to set unused interrupts to. */
+  41:Generated_Source\PSoC4/StepperInterrupt.c **** CY_ISR_PROTO(IntDefaultHandler);
+  42:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  43:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  44:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+  45:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_Start
+  46:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+  47:Generated_Source\PSoC4/StepperInterrupt.c **** *
+  48:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+  49:Generated_Source\PSoC4/StepperInterrupt.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  50:Generated_Source\PSoC4/StepperInterrupt.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  51:Generated_Source\PSoC4/StepperInterrupt.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  52:Generated_Source\PSoC4/StepperInterrupt.c **** *  interrupt controller.
+  53:Generated_Source\PSoC4/StepperInterrupt.c **** *
+  54:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:  
+  55:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+  56:Generated_Source\PSoC4/StepperInterrupt.c **** *
+  57:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+  58:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+  59:Generated_Source\PSoC4/StepperInterrupt.c **** *
+  60:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+  61:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_Start(void)
+  62:Generated_Source\PSoC4/StepperInterrupt.c **** {
+  63:Generated_Source\PSoC4/StepperInterrupt.c ****     /* For all we know the interrupt is active. */
+  64:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_Disable();
+  65:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  66:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Set the ISR to point to the StepperInterrupt Interrupt. */
+  67:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_SetVector(&StepperInterrupt_Interrupt);
+  68:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  69:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Set the priority. */
+  70:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_SetPriority((uint8)StepperInterrupt_INTC_PRIOR_NUMBER);
+  71:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  72:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Enable it. */
+  73:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_Enable();
+  74:Generated_Source\PSoC4/StepperInterrupt.c **** }
+  75:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  76:Generated_Source\PSoC4/StepperInterrupt.c **** 
+  77:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+  78:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_StartEx
+  79:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+  80:Generated_Source\PSoC4/StepperInterrupt.c **** *
+  81:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+  82:Generated_Source\PSoC4/StepperInterrupt.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  83:Generated_Source\PSoC4/StepperInterrupt.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  84:Generated_Source\PSoC4/StepperInterrupt.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  85:Generated_Source\PSoC4/StepperInterrupt.c **** *  the interrupt to the interrupt controller.
+  86:Generated_Source\PSoC4/StepperInterrupt.c **** *  
+  87:Generated_Source\PSoC4/StepperInterrupt.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 3
+
+
+  88:Generated_Source\PSoC4/StepperInterrupt.c **** *  used to provide consistent definition across compilers:
+  89:Generated_Source\PSoC4/StepperInterrupt.c **** *  
+  90:Generated_Source\PSoC4/StepperInterrupt.c **** *  Function definition example:
+  91:Generated_Source\PSoC4/StepperInterrupt.c **** *   CY_ISR(MyISR)
+  92:Generated_Source\PSoC4/StepperInterrupt.c **** *   {
+  93:Generated_Source\PSoC4/StepperInterrupt.c **** *   }
+  94:Generated_Source\PSoC4/StepperInterrupt.c **** *   Function prototype example:
+  95:Generated_Source\PSoC4/StepperInterrupt.c **** *   CY_ISR_PROTO(MyISR);
+  96:Generated_Source\PSoC4/StepperInterrupt.c **** *
+  97:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:  
+  98:Generated_Source\PSoC4/StepperInterrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  99:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 100:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 101:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 102:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 103:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 104:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_StartEx(cyisraddress address)
+ 105:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 106:Generated_Source\PSoC4/StepperInterrupt.c ****     /* For all we know the interrupt is active. */
+ 107:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_Disable();
+ 108:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 109:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Set the ISR to point to the StepperInterrupt Interrupt. */
+ 110:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_SetVector(address);
+ 111:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 112:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Set the priority. */
+ 113:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_SetPriority((uint8)StepperInterrupt_INTC_PRIOR_NUMBER);
+ 114:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 115:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Enable it. */
+ 116:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_Enable();
+ 117:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 118:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 119:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 120:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 121:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_Stop
+ 122:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 123:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 124:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 125:Generated_Source\PSoC4/StepperInterrupt.c **** *   Disables and removes the interrupt.
+ 126:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 127:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:  
+ 128:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 129:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 130:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 131:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 132:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 133:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 134:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_Stop(void)
+ 135:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 136:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Disable this interrupt. */
+ 137:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_Disable();
+ 138:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 139:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Set the ISR to point to the passive one. */
+ 140:Generated_Source\PSoC4/StepperInterrupt.c ****     StepperInterrupt_SetVector(&IntDefaultHandler);
+ 141:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 142:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 143:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 144:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 4
+
+
+ 145:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_Interrupt
+ 146:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 147:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 148:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 149:Generated_Source\PSoC4/StepperInterrupt.c **** *   The default Interrupt Service Routine for StepperInterrupt.
+ 150:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 151:Generated_Source\PSoC4/StepperInterrupt.c **** *   Add custom code between the START and END comments to keep the next version
+ 152:Generated_Source\PSoC4/StepperInterrupt.c **** *   of this file from over-writing your code.
+ 153:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 154:Generated_Source\PSoC4/StepperInterrupt.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 155:Generated_Source\PSoC4/StepperInterrupt.c **** *   your own separate ISR through ISR_StartEx().
+ 156:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 157:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:  
+ 158:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 159:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 160:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 161:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 162:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 163:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 164:Generated_Source\PSoC4/StepperInterrupt.c **** CY_ISR(StepperInterrupt_Interrupt)
+ 165:Generated_Source\PSoC4/StepperInterrupt.c **** {
+  28              		.loc 1 165 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+ 166:Generated_Source\PSoC4/StepperInterrupt.c ****     #ifdef StepperInterrupt_INTERRUPT_INTERRUPT_CALLBACK
+ 167:Generated_Source\PSoC4/StepperInterrupt.c ****         StepperInterrupt_Interrupt_InterruptCallback();
+ 168:Generated_Source\PSoC4/StepperInterrupt.c ****     #endif /* StepperInterrupt_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 169:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 170:Generated_Source\PSoC4/StepperInterrupt.c ****     /*  Place your Interrupt code here. */
+ 171:Generated_Source\PSoC4/StepperInterrupt.c ****     /* `#START StepperInterrupt_Interrupt` */
+ 172:Generated_Source\PSoC4/StepperInterrupt.c ****     
+ 173:Generated_Source\PSoC4/StepperInterrupt.c ****     
+ 174:Generated_Source\PSoC4/StepperInterrupt.c ****     stepperMotorControl();
+  36              		.loc 1 174 0
+  37 0002 FFF7FEFF 		bl	stepperMotorControl
+  38              	.LVL0:
+ 175:Generated_Source\PSoC4/StepperInterrupt.c ****     step++;
+  39              		.loc 1 175 0
+  40 0006 064A     		ldr	r2, .L3
+  41 0008 1368     		ldr	r3, [r2]
+  42 000a 0133     		adds	r3, r3, #1
+  43 000c 1360     		str	r3, [r2]
+ 176:Generated_Source\PSoC4/StepperInterrupt.c ****     if(step>3)
+  44              		.loc 1 176 0
+  45 000e 032B     		cmp	r3, #3
+  46 0010 02DD     		ble	.L2
+ 177:Generated_Source\PSoC4/StepperInterrupt.c ****     {
+ 178:Generated_Source\PSoC4/StepperInterrupt.c ****         step=0;
+  47              		.loc 1 178 0
+  48 0012 0022     		movs	r2, #0
+  49 0014 024B     		ldr	r3, .L3
+  50 0016 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 5
+
+
+  51              	.L2:
+ 179:Generated_Source\PSoC4/StepperInterrupt.c ****     }
+ 180:Generated_Source\PSoC4/StepperInterrupt.c ****     Stepper_Timer_ClearInterrupt(Stepper_Timer_INTR_MASK_TC);
+  52              		.loc 1 180 0
+  53 0018 0120     		movs	r0, #1
+  54 001a FFF7FEFF 		bl	Stepper_Timer_ClearInterrupt
+  55              	.LVL1:
+ 181:Generated_Source\PSoC4/StepperInterrupt.c ****     
+ 182:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 183:Generated_Source\PSoC4/StepperInterrupt.c ****     /* `#END` */
+ 184:Generated_Source\PSoC4/StepperInterrupt.c **** }
+  56              		.loc 1 184 0
+  57              		@ sp needed
+  58 001e 10BD     		pop	{r4, pc}
+  59              	.L4:
+  60              		.align	2
+  61              	.L3:
+  62 0020 00000000 		.word	step
+  63              		.cfi_endproc
+  64              	.LFE35:
+  65              		.size	StepperInterrupt_Interrupt, .-StepperInterrupt_Interrupt
+  66              		.section	.text.StepperInterrupt_SetVector,"ax",%progbits
+  67              		.align	2
+  68              		.global	StepperInterrupt_SetVector
+  69              		.code	16
+  70              		.thumb_func
+  71              		.type	StepperInterrupt_SetVector, %function
+  72              	StepperInterrupt_SetVector:
+  73              	.LFB36:
+ 185:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 186:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 187:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 188:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_SetVector
+ 189:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 190:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 191:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 192:Generated_Source\PSoC4/StepperInterrupt.c **** *   Change the ISR vector for the Interrupt. Note calling StepperInterrupt_Start
+ 193:Generated_Source\PSoC4/StepperInterrupt.c **** *   will override any effect this method would have had. To set the vector 
+ 194:Generated_Source\PSoC4/StepperInterrupt.c **** *   before the component has been started use StepperInterrupt_StartEx instead.
+ 195:Generated_Source\PSoC4/StepperInterrupt.c **** * 
+ 196:Generated_Source\PSoC4/StepperInterrupt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 197:Generated_Source\PSoC4/StepperInterrupt.c **** *   used to provide consistent definition across compilers:
+ 198:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 199:Generated_Source\PSoC4/StepperInterrupt.c **** *   Function definition example:
+ 200:Generated_Source\PSoC4/StepperInterrupt.c **** *   CY_ISR(MyISR)
+ 201:Generated_Source\PSoC4/StepperInterrupt.c **** *   {
+ 202:Generated_Source\PSoC4/StepperInterrupt.c **** *   }
+ 203:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 204:Generated_Source\PSoC4/StepperInterrupt.c **** *   Function prototype example:
+ 205:Generated_Source\PSoC4/StepperInterrupt.c **** *     CY_ISR_PROTO(MyISR);
+ 206:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 207:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 208:Generated_Source\PSoC4/StepperInterrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 209:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 210:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 211:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 212:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 6
+
+
+ 213:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 214:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_SetVector(cyisraddress address)
+ 215:Generated_Source\PSoC4/StepperInterrupt.c **** {
+  74              		.loc 1 215 0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              		@ link register save eliminated.
+  79              	.LVL2:
+ 216:Generated_Source\PSoC4/StepperInterrupt.c ****     CyRamVectors[CYINT_IRQ_BASE + StepperInterrupt__INTC_NUMBER] = address;
+  80              		.loc 1 216 0
+  81 0000 8023     		movs	r3, #128
+  82 0002 014A     		ldr	r2, .L6
+  83 0004 D050     		str	r0, [r2, r3]
+ 217:Generated_Source\PSoC4/StepperInterrupt.c **** }
+  84              		.loc 1 217 0
+  85              		@ sp needed
+  86 0006 7047     		bx	lr
+  87              	.L7:
+  88              		.align	2
+  89              	.L6:
+  90 0008 00000000 		.word	CyRamVectors
+  91              		.cfi_endproc
+  92              	.LFE36:
+  93              		.size	StepperInterrupt_SetVector, .-StepperInterrupt_SetVector
+  94              		.section	.text.StepperInterrupt_GetVector,"ax",%progbits
+  95              		.align	2
+  96              		.global	StepperInterrupt_GetVector
+  97              		.code	16
+  98              		.thumb_func
+  99              		.type	StepperInterrupt_GetVector, %function
+ 100              	StepperInterrupt_GetVector:
+ 101              	.LFB37:
+ 218:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 219:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 220:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 221:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_GetVector
+ 222:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 223:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 224:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 225:Generated_Source\PSoC4/StepperInterrupt.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 226:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 227:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 228:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 229:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 230:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 231:Generated_Source\PSoC4/StepperInterrupt.c **** *   Address of the ISR in the interrupt vector table.
+ 232:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 233:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 234:Generated_Source\PSoC4/StepperInterrupt.c **** cyisraddress StepperInterrupt_GetVector(void)
+ 235:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 102              		.loc 1 235 0
+ 103              		.cfi_startproc
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106              		@ link register save eliminated.
+ 236:Generated_Source\PSoC4/StepperInterrupt.c ****     return CyRamVectors[CYINT_IRQ_BASE + StepperInterrupt__INTC_NUMBER];
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 7
+
+
+ 107              		.loc 1 236 0
+ 108 0000 8023     		movs	r3, #128
+ 109 0002 014A     		ldr	r2, .L9
+ 110 0004 D058     		ldr	r0, [r2, r3]
+ 237:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 111              		.loc 1 237 0
+ 112              		@ sp needed
+ 113 0006 7047     		bx	lr
+ 114              	.L10:
+ 115              		.align	2
+ 116              	.L9:
+ 117 0008 00000000 		.word	CyRamVectors
+ 118              		.cfi_endproc
+ 119              	.LFE37:
+ 120              		.size	StepperInterrupt_GetVector, .-StepperInterrupt_GetVector
+ 121              		.section	.text.StepperInterrupt_SetPriority,"ax",%progbits
+ 122              		.align	2
+ 123              		.global	StepperInterrupt_SetPriority
+ 124              		.code	16
+ 125              		.thumb_func
+ 126              		.type	StepperInterrupt_SetPriority, %function
+ 127              	StepperInterrupt_SetPriority:
+ 128              	.LFB38:
+ 238:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 239:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 240:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 241:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_SetPriority
+ 242:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 243:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 244:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 245:Generated_Source\PSoC4/StepperInterrupt.c **** *   Sets the Priority of the Interrupt. 
+ 246:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 247:Generated_Source\PSoC4/StepperInterrupt.c **** *   Note calling StepperInterrupt_Start or StepperInterrupt_StartEx will 
+ 248:Generated_Source\PSoC4/StepperInterrupt.c **** *   override any effect this API would have had. This API should only be called
+ 249:Generated_Source\PSoC4/StepperInterrupt.c **** *   after StepperInterrupt_Start or StepperInterrupt_StartEx has been called. 
+ 250:Generated_Source\PSoC4/StepperInterrupt.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 251:Generated_Source\PSoC4/StepperInterrupt.c **** *   Interrupt Editor.
+ 252:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 253:Generated_Source\PSoC4/StepperInterrupt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 254:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 255:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 256:Generated_Source\PSoC4/StepperInterrupt.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 257:Generated_Source\PSoC4/StepperInterrupt.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 258:Generated_Source\PSoC4/StepperInterrupt.c **** *             PSoC 4: Priority is from 0 to 3.
+ 259:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 260:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 261:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 262:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 263:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 264:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_SetPriority(uint8 priority)
+ 265:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 129              		.loc 1 265 0
+ 130              		.cfi_startproc
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133              	.LVL3:
+ 134 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 8
+
+
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 4, -8
+ 137              		.cfi_offset 14, -4
+ 138 0002 0400     		movs	r4, r0
+ 139              	.LVL4:
+ 266:Generated_Source\PSoC4/StepperInterrupt.c **** 	uint8 interruptState;
+ 267:Generated_Source\PSoC4/StepperInterrupt.c ****     uint32 priorityOffset = ((StepperInterrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 268:Generated_Source\PSoC4/StepperInterrupt.c ****     
+ 269:Generated_Source\PSoC4/StepperInterrupt.c **** 	interruptState = CyEnterCriticalSection();
+ 140              		.loc 1 269 0
+ 141 0004 FFF7FEFF 		bl	CyEnterCriticalSection
+ 142              	.LVL5:
+ 270:Generated_Source\PSoC4/StepperInterrupt.c ****     *StepperInterrupt_INTC_PRIOR = (*StepperInterrupt_INTC_PRIOR & (uint32)(~StepperInterrupt__INTC
+ 143              		.loc 1 270 0
+ 144 0008 044A     		ldr	r2, .L12
+ 145 000a 1368     		ldr	r3, [r2]
+ 146 000c C021     		movs	r1, #192
+ 147 000e 8B43     		bics	r3, r1
+ 271:Generated_Source\PSoC4/StepperInterrupt.c ****                                     ((uint32)priority << priorityOffset);
+ 148              		.loc 1 271 0
+ 149 0010 A401     		lsls	r4, r4, #6
+ 270:Generated_Source\PSoC4/StepperInterrupt.c ****     *StepperInterrupt_INTC_PRIOR = (*StepperInterrupt_INTC_PRIOR & (uint32)(~StepperInterrupt__INTC
+ 150              		.loc 1 270 0
+ 151 0012 1C43     		orrs	r4, r3
+ 152 0014 1460     		str	r4, [r2]
+ 272:Generated_Source\PSoC4/StepperInterrupt.c **** 	CyExitCriticalSection(interruptState);
+ 153              		.loc 1 272 0
+ 154 0016 FFF7FEFF 		bl	CyExitCriticalSection
+ 155              	.LVL6:
+ 273:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 156              		.loc 1 273 0
+ 157              		@ sp needed
+ 158 001a 10BD     		pop	{r4, pc}
+ 159              	.L13:
+ 160              		.align	2
+ 161              	.L12:
+ 162 001c 10E400E0 		.word	-536812528
+ 163              		.cfi_endproc
+ 164              	.LFE38:
+ 165              		.size	StepperInterrupt_SetPriority, .-StepperInterrupt_SetPriority
+ 166              		.section	.text.StepperInterrupt_GetPriority,"ax",%progbits
+ 167              		.align	2
+ 168              		.global	StepperInterrupt_GetPriority
+ 169              		.code	16
+ 170              		.thumb_func
+ 171              		.type	StepperInterrupt_GetPriority, %function
+ 172              	StepperInterrupt_GetPriority:
+ 173              	.LFB39:
+ 274:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 275:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 276:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 277:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_GetPriority
+ 278:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 279:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 280:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 281:Generated_Source\PSoC4/StepperInterrupt.c **** *   Gets the Priority of the Interrupt.
+ 282:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 9
+
+
+ 283:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 284:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 285:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 286:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 287:Generated_Source\PSoC4/StepperInterrupt.c **** *   Priority of the interrupt, 0 being the highest priority
+ 288:Generated_Source\PSoC4/StepperInterrupt.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 289:Generated_Source\PSoC4/StepperInterrupt.c **** *    PSoC 4: Priority is from 0 to 3.
+ 290:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 291:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 292:Generated_Source\PSoC4/StepperInterrupt.c **** uint8 StepperInterrupt_GetPriority(void)
+ 293:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 174              		.loc 1 293 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 179              	.LVL7:
+ 294:Generated_Source\PSoC4/StepperInterrupt.c ****     uint32 priority;
+ 295:Generated_Source\PSoC4/StepperInterrupt.c **** 	uint32 priorityOffset = ((StepperInterrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 296:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 297:Generated_Source\PSoC4/StepperInterrupt.c ****     priority = (*StepperInterrupt_INTC_PRIOR & StepperInterrupt__INTC_PRIOR_MASK) >> priorityOffset
+ 180              		.loc 1 297 0
+ 181 0000 024B     		ldr	r3, .L15
+ 182 0002 1868     		ldr	r0, [r3]
+ 183 0004 8009     		lsrs	r0, r0, #6
+ 184              	.LVL8:
+ 298:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 299:Generated_Source\PSoC4/StepperInterrupt.c ****     return (uint8)priority;
+ 185              		.loc 1 299 0
+ 186 0006 0323     		movs	r3, #3
+ 187 0008 1840     		ands	r0, r3
+ 188              	.LVL9:
+ 300:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 189              		.loc 1 300 0
+ 190              		@ sp needed
+ 191 000a 7047     		bx	lr
+ 192              	.L16:
+ 193              		.align	2
+ 194              	.L15:
+ 195 000c 10E400E0 		.word	-536812528
+ 196              		.cfi_endproc
+ 197              	.LFE39:
+ 198              		.size	StepperInterrupt_GetPriority, .-StepperInterrupt_GetPriority
+ 199              		.section	.text.StepperInterrupt_Enable,"ax",%progbits
+ 200              		.align	2
+ 201              		.global	StepperInterrupt_Enable
+ 202              		.code	16
+ 203              		.thumb_func
+ 204              		.type	StepperInterrupt_Enable, %function
+ 205              	StepperInterrupt_Enable:
+ 206              	.LFB40:
+ 301:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 302:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 303:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 304:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_Enable
+ 305:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 306:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 10
+
+
+ 307:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 308:Generated_Source\PSoC4/StepperInterrupt.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 309:Generated_Source\PSoC4/StepperInterrupt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 310:Generated_Source\PSoC4/StepperInterrupt.c **** *   function, which sets the vector and the priority, has been called.
+ 311:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 312:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 313:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 314:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 315:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 316:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 317:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 318:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 319:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_Enable(void)
+ 320:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 207              		.loc 1 320 0
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 211              		@ link register save eliminated.
+ 321:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Enable the general interrupt. */
+ 322:Generated_Source\PSoC4/StepperInterrupt.c ****     *StepperInterrupt_INTC_SET_EN = StepperInterrupt__INTC_MASK;
+ 212              		.loc 1 322 0
+ 213 0000 8022     		movs	r2, #128
+ 214 0002 5202     		lsls	r2, r2, #9
+ 215 0004 014B     		ldr	r3, .L18
+ 216 0006 1A60     		str	r2, [r3]
+ 323:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 217              		.loc 1 323 0
+ 218              		@ sp needed
+ 219 0008 7047     		bx	lr
+ 220              	.L19:
+ 221 000a C046     		.align	2
+ 222              	.L18:
+ 223 000c 00E100E0 		.word	-536813312
+ 224              		.cfi_endproc
+ 225              	.LFE40:
+ 226              		.size	StepperInterrupt_Enable, .-StepperInterrupt_Enable
+ 227              		.section	.text.StepperInterrupt_GetState,"ax",%progbits
+ 228              		.align	2
+ 229              		.global	StepperInterrupt_GetState
+ 230              		.code	16
+ 231              		.thumb_func
+ 232              		.type	StepperInterrupt_GetState, %function
+ 233              	StepperInterrupt_GetState:
+ 234              	.LFB41:
+ 324:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 325:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 326:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 327:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_GetState
+ 328:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 329:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 330:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 331:Generated_Source\PSoC4/StepperInterrupt.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 332:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 333:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 334:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 335:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 11
+
+
+ 336:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 337:Generated_Source\PSoC4/StepperInterrupt.c **** *   1 if enabled, 0 if disabled.
+ 338:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 339:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 340:Generated_Source\PSoC4/StepperInterrupt.c **** uint8 StepperInterrupt_GetState(void)
+ 341:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 235              		.loc 1 341 0
+ 236              		.cfi_startproc
+ 237              		@ args = 0, pretend = 0, frame = 0
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 239              		@ link register save eliminated.
+ 342:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Get the state of the general interrupt. */
+ 343:Generated_Source\PSoC4/StepperInterrupt.c ****     return ((*StepperInterrupt_INTC_SET_EN & (uint32)StepperInterrupt__INTC_MASK) != 0u) ? 1u:0u;
+ 240              		.loc 1 343 0
+ 241 0000 034B     		ldr	r3, .L23
+ 242 0002 1B68     		ldr	r3, [r3]
+ 243 0004 DB03     		lsls	r3, r3, #15
+ 244 0006 01D5     		bpl	.L22
+ 245 0008 0120     		movs	r0, #1
+ 246 000a 00E0     		b	.L21
+ 247              	.L22:
+ 248 000c 0020     		movs	r0, #0
+ 249              	.L21:
+ 344:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 250              		.loc 1 344 0 discriminator 4
+ 251              		@ sp needed
+ 252 000e 7047     		bx	lr
+ 253              	.L24:
+ 254              		.align	2
+ 255              	.L23:
+ 256 0010 00E100E0 		.word	-536813312
+ 257              		.cfi_endproc
+ 258              	.LFE41:
+ 259              		.size	StepperInterrupt_GetState, .-StepperInterrupt_GetState
+ 260              		.section	.text.StepperInterrupt_Disable,"ax",%progbits
+ 261              		.align	2
+ 262              		.global	StepperInterrupt_Disable
+ 263              		.code	16
+ 264              		.thumb_func
+ 265              		.type	StepperInterrupt_Disable, %function
+ 266              	StepperInterrupt_Disable:
+ 267              	.LFB42:
+ 345:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 346:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 347:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 348:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_Disable
+ 349:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 350:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 351:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 352:Generated_Source\PSoC4/StepperInterrupt.c **** *   Disables the Interrupt in the interrupt controller.
+ 353:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 354:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 355:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 356:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 357:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 358:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 359:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 12
+
+
+ 360:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 361:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_Disable(void)
+ 362:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 268              		.loc 1 362 0
+ 269              		.cfi_startproc
+ 270              		@ args = 0, pretend = 0, frame = 0
+ 271              		@ frame_needed = 0, uses_anonymous_args = 0
+ 272              		@ link register save eliminated.
+ 363:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Disable the general interrupt. */
+ 364:Generated_Source\PSoC4/StepperInterrupt.c ****     *StepperInterrupt_INTC_CLR_EN = StepperInterrupt__INTC_MASK;
+ 273              		.loc 1 364 0
+ 274 0000 8022     		movs	r2, #128
+ 275 0002 5202     		lsls	r2, r2, #9
+ 276 0004 014B     		ldr	r3, .L26
+ 277 0006 1A60     		str	r2, [r3]
+ 365:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 278              		.loc 1 365 0
+ 279              		@ sp needed
+ 280 0008 7047     		bx	lr
+ 281              	.L27:
+ 282 000a C046     		.align	2
+ 283              	.L26:
+ 284 000c 80E100E0 		.word	-536813184
+ 285              		.cfi_endproc
+ 286              	.LFE42:
+ 287              		.size	StepperInterrupt_Disable, .-StepperInterrupt_Disable
+ 288              		.section	.text.StepperInterrupt_Start,"ax",%progbits
+ 289              		.align	2
+ 290              		.global	StepperInterrupt_Start
+ 291              		.code	16
+ 292              		.thumb_func
+ 293              		.type	StepperInterrupt_Start, %function
+ 294              	StepperInterrupt_Start:
+ 295              	.LFB32:
+  62:Generated_Source\PSoC4/StepperInterrupt.c ****     /* For all we know the interrupt is active. */
+ 296              		.loc 1 62 0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300 0000 10B5     		push	{r4, lr}
+ 301              		.cfi_def_cfa_offset 8
+ 302              		.cfi_offset 4, -8
+ 303              		.cfi_offset 14, -4
+  64:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 304              		.loc 1 64 0
+ 305 0002 FFF7FEFF 		bl	StepperInterrupt_Disable
+ 306              	.LVL10:
+  67:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 307              		.loc 1 67 0
+ 308 0006 0448     		ldr	r0, .L29
+ 309 0008 FFF7FEFF 		bl	StepperInterrupt_SetVector
+ 310              	.LVL11:
+  70:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 311              		.loc 1 70 0
+ 312 000c 0320     		movs	r0, #3
+ 313 000e FFF7FEFF 		bl	StepperInterrupt_SetPriority
+ 314              	.LVL12:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 13
+
+
+  73:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 315              		.loc 1 73 0
+ 316 0012 FFF7FEFF 		bl	StepperInterrupt_Enable
+ 317              	.LVL13:
+  74:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 318              		.loc 1 74 0
+ 319              		@ sp needed
+ 320 0016 10BD     		pop	{r4, pc}
+ 321              	.L30:
+ 322              		.align	2
+ 323              	.L29:
+ 324 0018 00000000 		.word	StepperInterrupt_Interrupt
+ 325              		.cfi_endproc
+ 326              	.LFE32:
+ 327              		.size	StepperInterrupt_Start, .-StepperInterrupt_Start
+ 328              		.section	.text.StepperInterrupt_StartEx,"ax",%progbits
+ 329              		.align	2
+ 330              		.global	StepperInterrupt_StartEx
+ 331              		.code	16
+ 332              		.thumb_func
+ 333              		.type	StepperInterrupt_StartEx, %function
+ 334              	StepperInterrupt_StartEx:
+ 335              	.LFB33:
+ 105:Generated_Source\PSoC4/StepperInterrupt.c ****     /* For all we know the interrupt is active. */
+ 336              		.loc 1 105 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              	.LVL14:
+ 341 0000 10B5     		push	{r4, lr}
+ 342              		.cfi_def_cfa_offset 8
+ 343              		.cfi_offset 4, -8
+ 344              		.cfi_offset 14, -4
+ 345 0002 0400     		movs	r4, r0
+ 107:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 346              		.loc 1 107 0
+ 347 0004 FFF7FEFF 		bl	StepperInterrupt_Disable
+ 348              	.LVL15:
+ 110:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 349              		.loc 1 110 0
+ 350 0008 2000     		movs	r0, r4
+ 351 000a FFF7FEFF 		bl	StepperInterrupt_SetVector
+ 352              	.LVL16:
+ 113:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 353              		.loc 1 113 0
+ 354 000e 0320     		movs	r0, #3
+ 355 0010 FFF7FEFF 		bl	StepperInterrupt_SetPriority
+ 356              	.LVL17:
+ 116:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 357              		.loc 1 116 0
+ 358 0014 FFF7FEFF 		bl	StepperInterrupt_Enable
+ 359              	.LVL18:
+ 117:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 360              		.loc 1 117 0
+ 361              		@ sp needed
+ 362              	.LVL19:
+ 363 0018 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 14
+
+
+ 364              		.cfi_endproc
+ 365              	.LFE33:
+ 366              		.size	StepperInterrupt_StartEx, .-StepperInterrupt_StartEx
+ 367 001a C046     		.section	.text.StepperInterrupt_Stop,"ax",%progbits
+ 368              		.align	2
+ 369              		.global	StepperInterrupt_Stop
+ 370              		.code	16
+ 371              		.thumb_func
+ 372              		.type	StepperInterrupt_Stop, %function
+ 373              	StepperInterrupt_Stop:
+ 374              	.LFB34:
+ 135:Generated_Source\PSoC4/StepperInterrupt.c ****     /* Disable this interrupt. */
+ 375              		.loc 1 135 0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379 0000 10B5     		push	{r4, lr}
+ 380              		.cfi_def_cfa_offset 8
+ 381              		.cfi_offset 4, -8
+ 382              		.cfi_offset 14, -4
+ 137:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 383              		.loc 1 137 0
+ 384 0002 FFF7FEFF 		bl	StepperInterrupt_Disable
+ 385              	.LVL20:
+ 140:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 386              		.loc 1 140 0
+ 387 0006 0248     		ldr	r0, .L33
+ 388 0008 FFF7FEFF 		bl	StepperInterrupt_SetVector
+ 389              	.LVL21:
+ 141:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 390              		.loc 1 141 0
+ 391              		@ sp needed
+ 392 000c 10BD     		pop	{r4, pc}
+ 393              	.L34:
+ 394 000e C046     		.align	2
+ 395              	.L33:
+ 396 0010 00000000 		.word	IntDefaultHandler
+ 397              		.cfi_endproc
+ 398              	.LFE34:
+ 399              		.size	StepperInterrupt_Stop, .-StepperInterrupt_Stop
+ 400              		.section	.text.StepperInterrupt_SetPending,"ax",%progbits
+ 401              		.align	2
+ 402              		.global	StepperInterrupt_SetPending
+ 403              		.code	16
+ 404              		.thumb_func
+ 405              		.type	StepperInterrupt_SetPending, %function
+ 406              	StepperInterrupt_SetPending:
+ 407              	.LFB43:
+ 366:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 367:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 368:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 369:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_SetPending
+ 370:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 371:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 372:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 373:Generated_Source\PSoC4/StepperInterrupt.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 374:Generated_Source\PSoC4/StepperInterrupt.c **** *   generating the interrupt.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 15
+
+
+ 375:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 376:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 377:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 378:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 379:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 380:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 381:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 382:Generated_Source\PSoC4/StepperInterrupt.c **** * Side Effects:
+ 383:Generated_Source\PSoC4/StepperInterrupt.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 384:Generated_Source\PSoC4/StepperInterrupt.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 385:Generated_Source\PSoC4/StepperInterrupt.c **** *   interrupts).
+ 386:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 387:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 388:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_SetPending(void)
+ 389:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 408              		.loc 1 389 0
+ 409              		.cfi_startproc
+ 410              		@ args = 0, pretend = 0, frame = 0
+ 411              		@ frame_needed = 0, uses_anonymous_args = 0
+ 412              		@ link register save eliminated.
+ 390:Generated_Source\PSoC4/StepperInterrupt.c ****     *StepperInterrupt_INTC_SET_PD = StepperInterrupt__INTC_MASK;
+ 413              		.loc 1 390 0
+ 414 0000 8022     		movs	r2, #128
+ 415 0002 5202     		lsls	r2, r2, #9
+ 416 0004 014B     		ldr	r3, .L36
+ 417 0006 1A60     		str	r2, [r3]
+ 391:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 418              		.loc 1 391 0
+ 419              		@ sp needed
+ 420 0008 7047     		bx	lr
+ 421              	.L37:
+ 422 000a C046     		.align	2
+ 423              	.L36:
+ 424 000c 00E200E0 		.word	-536813056
+ 425              		.cfi_endproc
+ 426              	.LFE43:
+ 427              		.size	StepperInterrupt_SetPending, .-StepperInterrupt_SetPending
+ 428              		.section	.text.StepperInterrupt_ClearPending,"ax",%progbits
+ 429              		.align	2
+ 430              		.global	StepperInterrupt_ClearPending
+ 431              		.code	16
+ 432              		.thumb_func
+ 433              		.type	StepperInterrupt_ClearPending, %function
+ 434              	StepperInterrupt_ClearPending:
+ 435              	.LFB44:
+ 392:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 393:Generated_Source\PSoC4/StepperInterrupt.c **** 
+ 394:Generated_Source\PSoC4/StepperInterrupt.c **** /*******************************************************************************
+ 395:Generated_Source\PSoC4/StepperInterrupt.c **** * Function Name: StepperInterrupt_ClearPending
+ 396:Generated_Source\PSoC4/StepperInterrupt.c **** ********************************************************************************
+ 397:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 398:Generated_Source\PSoC4/StepperInterrupt.c **** * Summary:
+ 399:Generated_Source\PSoC4/StepperInterrupt.c **** *   Clears a pending interrupt in the interrupt controller.
+ 400:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 401:Generated_Source\PSoC4/StepperInterrupt.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 402:Generated_Source\PSoC4/StepperInterrupt.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 403:Generated_Source\PSoC4/StepperInterrupt.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 16
+
+
+ 404:Generated_Source\PSoC4/StepperInterrupt.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 405:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 406:Generated_Source\PSoC4/StepperInterrupt.c **** * Parameters:
+ 407:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 408:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 409:Generated_Source\PSoC4/StepperInterrupt.c **** * Return:
+ 410:Generated_Source\PSoC4/StepperInterrupt.c **** *   None
+ 411:Generated_Source\PSoC4/StepperInterrupt.c **** *
+ 412:Generated_Source\PSoC4/StepperInterrupt.c **** *******************************************************************************/
+ 413:Generated_Source\PSoC4/StepperInterrupt.c **** void StepperInterrupt_ClearPending(void)
+ 414:Generated_Source\PSoC4/StepperInterrupt.c **** {
+ 436              		.loc 1 414 0
+ 437              		.cfi_startproc
+ 438              		@ args = 0, pretend = 0, frame = 0
+ 439              		@ frame_needed = 0, uses_anonymous_args = 0
+ 440              		@ link register save eliminated.
+ 415:Generated_Source\PSoC4/StepperInterrupt.c ****     *StepperInterrupt_INTC_CLR_PD = StepperInterrupt__INTC_MASK;
+ 441              		.loc 1 415 0
+ 442 0000 8022     		movs	r2, #128
+ 443 0002 5202     		lsls	r2, r2, #9
+ 444 0004 014B     		ldr	r3, .L39
+ 445 0006 1A60     		str	r2, [r3]
+ 416:Generated_Source\PSoC4/StepperInterrupt.c **** }
+ 446              		.loc 1 416 0
+ 447              		@ sp needed
+ 448 0008 7047     		bx	lr
+ 449              	.L40:
+ 450 000a C046     		.align	2
+ 451              	.L39:
+ 452 000c 80E200E0 		.word	-536812928
+ 453              		.cfi_endproc
+ 454              	.LFE44:
+ 455              		.size	StepperInterrupt_ClearPending, .-StepperInterrupt_ClearPending
+ 456              		.text
+ 457              	.Letext0:
+ 458              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 459              		.file 3 "Generated_Source\\PSoC4\\Stepper_Timer.h"
+ 460              		.file 4 "Generated_Source\\PSoC4/CyLib.h"
+ 461              		.section	.debug_info,"",%progbits
+ 462              	.Ldebug_info0:
+ 463 0000 44030000 		.4byte	0x344
+ 464 0004 0400     		.2byte	0x4
+ 465 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 466 000a 04       		.byte	0x4
+ 467 000b 01       		.uleb128 0x1
+ 468 000c 28020000 		.4byte	.LASF40
+ 469 0010 0C       		.byte	0xc
+ 470 0011 A3030000 		.4byte	.LASF41
+ 471 0015 61000000 		.4byte	.LASF42
+ 472 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 473 001d 00000000 		.4byte	0
+ 474 0021 00000000 		.4byte	.Ldebug_line0
+ 475 0025 02       		.uleb128 0x2
+ 476 0026 01       		.byte	0x1
+ 477 0027 06       		.byte	0x6
+ 478 0028 7E030000 		.4byte	.LASF0
+ 479 002c 02       		.uleb128 0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 17
+
+
+ 480 002d 01       		.byte	0x1
+ 481 002e 08       		.byte	0x8
+ 482 002f 26010000 		.4byte	.LASF1
+ 483 0033 02       		.uleb128 0x2
+ 484 0034 02       		.byte	0x2
+ 485 0035 05       		.byte	0x5
+ 486 0036 AB010000 		.4byte	.LASF2
+ 487 003a 02       		.uleb128 0x2
+ 488 003b 02       		.byte	0x2
+ 489 003c 07       		.byte	0x7
+ 490 003d 70010000 		.4byte	.LASF3
+ 491 0041 02       		.uleb128 0x2
+ 492 0042 04       		.byte	0x4
+ 493 0043 05       		.byte	0x5
+ 494 0044 69030000 		.4byte	.LASF4
+ 495 0048 02       		.uleb128 0x2
+ 496 0049 04       		.byte	0x4
+ 497 004a 07       		.byte	0x7
+ 498 004b 5E010000 		.4byte	.LASF5
+ 499 004f 02       		.uleb128 0x2
+ 500 0050 08       		.byte	0x8
+ 501 0051 05       		.byte	0x5
+ 502 0052 F3020000 		.4byte	.LASF6
+ 503 0056 02       		.uleb128 0x2
+ 504 0057 08       		.byte	0x8
+ 505 0058 07       		.byte	0x7
+ 506 0059 E8010000 		.4byte	.LASF7
+ 507 005d 03       		.uleb128 0x3
+ 508 005e 04       		.byte	0x4
+ 509 005f 05       		.byte	0x5
+ 510 0060 696E7400 		.ascii	"int\000"
+ 511 0064 02       		.uleb128 0x2
+ 512 0065 04       		.byte	0x4
+ 513 0066 07       		.byte	0x7
+ 514 0067 D3010000 		.4byte	.LASF8
+ 515 006b 04       		.uleb128 0x4
+ 516 006c 3E030000 		.4byte	.LASF9
+ 517 0070 02       		.byte	0x2
+ 518 0071 E401     		.2byte	0x1e4
+ 519 0073 2C000000 		.4byte	0x2c
+ 520 0077 04       		.uleb128 0x4
+ 521 0078 B5010000 		.4byte	.LASF10
+ 522 007c 02       		.byte	0x2
+ 523 007d E601     		.2byte	0x1e6
+ 524 007f 48000000 		.4byte	0x48
+ 525 0083 02       		.uleb128 0x2
+ 526 0084 04       		.byte	0x4
+ 527 0085 04       		.byte	0x4
+ 528 0086 20010000 		.4byte	.LASF11
+ 529 008a 02       		.uleb128 0x2
+ 530 008b 08       		.byte	0x8
+ 531 008c 04       		.byte	0x4
+ 532 008d A4010000 		.4byte	.LASF12
+ 533 0091 02       		.uleb128 0x2
+ 534 0092 01       		.byte	0x1
+ 535 0093 08       		.byte	0x8
+ 536 0094 01030000 		.4byte	.LASF13
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 18
+
+
+ 537 0098 04       		.uleb128 0x4
+ 538 0099 00000000 		.4byte	.LASF14
+ 539 009d 02       		.byte	0x2
+ 540 009e 9002     		.2byte	0x290
+ 541 00a0 A4000000 		.4byte	0xa4
+ 542 00a4 05       		.uleb128 0x5
+ 543 00a5 77000000 		.4byte	0x77
+ 544 00a9 04       		.uleb128 0x4
+ 545 00aa 1B020000 		.4byte	.LASF15
+ 546 00ae 02       		.byte	0x2
+ 547 00af A002     		.2byte	0x2a0
+ 548 00b1 B5000000 		.4byte	0xb5
+ 549 00b5 06       		.uleb128 0x6
+ 550 00b6 04       		.byte	0x4
+ 551 00b7 BB000000 		.4byte	0xbb
+ 552 00bb 07       		.uleb128 0x7
+ 553 00bc 02       		.uleb128 0x2
+ 554 00bd 08       		.byte	0x8
+ 555 00be 04       		.byte	0x4
+ 556 00bf 72030000 		.4byte	.LASF16
+ 557 00c3 02       		.uleb128 0x2
+ 558 00c4 04       		.byte	0x4
+ 559 00c5 07       		.byte	0x7
+ 560 00c6 D4020000 		.4byte	.LASF17
+ 561 00ca 08       		.uleb128 0x8
+ 562 00cb 34010000 		.4byte	.LASF18
+ 563 00cf 01       		.byte	0x1
+ 564 00d0 A4       		.byte	0xa4
+ 565 00d1 00000000 		.4byte	.LFB35
+ 566 00d5 24000000 		.4byte	.LFE35-.LFB35
+ 567 00d9 01       		.uleb128 0x1
+ 568 00da 9C       		.byte	0x9c
+ 569 00db F8000000 		.4byte	0xf8
+ 570 00df 09       		.uleb128 0x9
+ 571 00e0 06000000 		.4byte	.LVL0
+ 572 00e4 1A030000 		.4byte	0x31a
+ 573 00e8 0A       		.uleb128 0xa
+ 574 00e9 1E000000 		.4byte	.LVL1
+ 575 00ed 25030000 		.4byte	0x325
+ 576 00f1 0B       		.uleb128 0xb
+ 577 00f2 01       		.uleb128 0x1
+ 578 00f3 50       		.byte	0x50
+ 579 00f4 01       		.uleb128 0x1
+ 580 00f5 31       		.byte	0x31
+ 581 00f6 00       		.byte	0
+ 582 00f7 00       		.byte	0
+ 583 00f8 08       		.uleb128 0x8
+ 584 00f9 06030000 		.4byte	.LASF19
+ 585 00fd 01       		.byte	0x1
+ 586 00fe D6       		.byte	0xd6
+ 587 00ff 00000000 		.4byte	.LFB36
+ 588 0103 0C000000 		.4byte	.LFE36-.LFB36
+ 589 0107 01       		.uleb128 0x1
+ 590 0108 9C       		.byte	0x9c
+ 591 0109 1B010000 		.4byte	0x11b
+ 592 010d 0C       		.uleb128 0xc
+ 593 010e E0010000 		.4byte	.LASF21
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 19
+
+
+ 594 0112 01       		.byte	0x1
+ 595 0113 D6       		.byte	0xd6
+ 596 0114 A9000000 		.4byte	0xa9
+ 597 0118 01       		.uleb128 0x1
+ 598 0119 50       		.byte	0x50
+ 599 011a 00       		.byte	0
+ 600 011b 0D       		.uleb128 0xd
+ 601 011c 05010000 		.4byte	.LASF25
+ 602 0120 01       		.byte	0x1
+ 603 0121 EA       		.byte	0xea
+ 604 0122 A9000000 		.4byte	0xa9
+ 605 0126 00000000 		.4byte	.LFB37
+ 606 012a 0C000000 		.4byte	.LFE37-.LFB37
+ 607 012e 01       		.uleb128 0x1
+ 608 012f 9C       		.byte	0x9c
+ 609 0130 0E       		.uleb128 0xe
+ 610 0131 44000000 		.4byte	.LASF20
+ 611 0135 01       		.byte	0x1
+ 612 0136 0801     		.2byte	0x108
+ 613 0138 00000000 		.4byte	.LFB38
+ 614 013c 20000000 		.4byte	.LFE38-.LFB38
+ 615 0140 01       		.uleb128 0x1
+ 616 0141 9C       		.byte	0x9c
+ 617 0142 86010000 		.4byte	0x186
+ 618 0146 0F       		.uleb128 0xf
+ 619 0147 83010000 		.4byte	.LASF22
+ 620 014b 01       		.byte	0x1
+ 621 014c 0801     		.2byte	0x108
+ 622 014e 6B000000 		.4byte	0x6b
+ 623 0152 00000000 		.4byte	.LLST0
+ 624 0156 10       		.uleb128 0x10
+ 625 0157 4F010000 		.4byte	.LASF23
+ 626 015b 01       		.byte	0x1
+ 627 015c 0A01     		.2byte	0x10a
+ 628 015e 6B000000 		.4byte	0x6b
+ 629 0162 21000000 		.4byte	.LLST1
+ 630 0166 11       		.uleb128 0x11
+ 631 0167 5A030000 		.4byte	.LASF24
+ 632 016b 01       		.byte	0x1
+ 633 016c 0B01     		.2byte	0x10b
+ 634 016e 77000000 		.4byte	0x77
+ 635 0172 06       		.byte	0x6
+ 636 0173 09       		.uleb128 0x9
+ 637 0174 08000000 		.4byte	.LVL5
+ 638 0178 31030000 		.4byte	0x331
+ 639 017c 09       		.uleb128 0x9
+ 640 017d 1A000000 		.4byte	.LVL6
+ 641 0181 3C030000 		.4byte	0x33c
+ 642 0185 00       		.byte	0
+ 643 0186 12       		.uleb128 0x12
+ 644 0187 21030000 		.4byte	.LASF43
+ 645 018b 01       		.byte	0x1
+ 646 018c 2401     		.2byte	0x124
+ 647 018e 6B000000 		.4byte	0x6b
+ 648 0192 00000000 		.4byte	.LFB39
+ 649 0196 10000000 		.4byte	.LFE39-.LFB39
+ 650 019a 01       		.uleb128 0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 20
+
+
+ 651 019b 9C       		.byte	0x9c
+ 652 019c BE010000 		.4byte	0x1be
+ 653 01a0 10       		.uleb128 0x10
+ 654 01a1 83010000 		.4byte	.LASF22
+ 655 01a5 01       		.byte	0x1
+ 656 01a6 2601     		.2byte	0x126
+ 657 01a8 77000000 		.4byte	0x77
+ 658 01ac 34000000 		.4byte	.LLST2
+ 659 01b0 11       		.uleb128 0x11
+ 660 01b1 5A030000 		.4byte	.LASF24
+ 661 01b5 01       		.byte	0x1
+ 662 01b6 2701     		.2byte	0x127
+ 663 01b8 77000000 		.4byte	0x77
+ 664 01bc 06       		.byte	0x6
+ 665 01bd 00       		.byte	0
+ 666 01be 13       		.uleb128 0x13
+ 667 01bf 8C010000 		.4byte	.LASF27
+ 668 01c3 01       		.byte	0x1
+ 669 01c4 3F01     		.2byte	0x13f
+ 670 01c6 00000000 		.4byte	.LFB40
+ 671 01ca 10000000 		.4byte	.LFE40-.LFB40
+ 672 01ce 01       		.uleb128 0x1
+ 673 01cf 9C       		.byte	0x9c
+ 674 01d0 14       		.uleb128 0x14
+ 675 01d1 1D000000 		.4byte	.LASF26
+ 676 01d5 01       		.byte	0x1
+ 677 01d6 5401     		.2byte	0x154
+ 678 01d8 6B000000 		.4byte	0x6b
+ 679 01dc 00000000 		.4byte	.LFB41
+ 680 01e0 14000000 		.4byte	.LFE41-.LFB41
+ 681 01e4 01       		.uleb128 0x1
+ 682 01e5 9C       		.byte	0x9c
+ 683 01e6 13       		.uleb128 0x13
+ 684 01e7 8A030000 		.4byte	.LASF28
+ 685 01eb 01       		.byte	0x1
+ 686 01ec 6901     		.2byte	0x169
+ 687 01ee 00000000 		.4byte	.LFB42
+ 688 01f2 10000000 		.4byte	.LFE42-.LFB42
+ 689 01f6 01       		.uleb128 0x1
+ 690 01f7 9C       		.byte	0x9c
+ 691 01f8 08       		.uleb128 0x8
+ 692 01f9 06000000 		.4byte	.LASF29
+ 693 01fd 01       		.byte	0x1
+ 694 01fe 3D       		.byte	0x3d
+ 695 01ff 00000000 		.4byte	.LFB32
+ 696 0203 1C000000 		.4byte	.LFE32-.LFB32
+ 697 0207 01       		.uleb128 0x1
+ 698 0208 9C       		.byte	0x9c
+ 699 0209 4A020000 		.4byte	0x24a
+ 700 020d 09       		.uleb128 0x9
+ 701 020e 06000000 		.4byte	.LVL10
+ 702 0212 E6010000 		.4byte	0x1e6
+ 703 0216 15       		.uleb128 0x15
+ 704 0217 0C000000 		.4byte	.LVL11
+ 705 021b F8000000 		.4byte	0xf8
+ 706 021f 2D020000 		.4byte	0x22d
+ 707 0223 0B       		.uleb128 0xb
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 21
+
+
+ 708 0224 01       		.uleb128 0x1
+ 709 0225 50       		.byte	0x50
+ 710 0226 05       		.uleb128 0x5
+ 711 0227 03       		.byte	0x3
+ 712 0228 00000000 		.4byte	StepperInterrupt_Interrupt
+ 713 022c 00       		.byte	0
+ 714 022d 15       		.uleb128 0x15
+ 715 022e 12000000 		.4byte	.LVL12
+ 716 0232 30010000 		.4byte	0x130
+ 717 0236 40020000 		.4byte	0x240
+ 718 023a 0B       		.uleb128 0xb
+ 719 023b 01       		.uleb128 0x1
+ 720 023c 50       		.byte	0x50
+ 721 023d 01       		.uleb128 0x1
+ 722 023e 33       		.byte	0x33
+ 723 023f 00       		.byte	0
+ 724 0240 09       		.uleb128 0x9
+ 725 0241 16000000 		.4byte	.LVL13
+ 726 0245 BE010000 		.4byte	0x1be
+ 727 0249 00       		.byte	0
+ 728 024a 08       		.uleb128 0x8
+ 729 024b EC000000 		.4byte	.LASF30
+ 730 024f 01       		.byte	0x1
+ 731 0250 68       		.byte	0x68
+ 732 0251 00000000 		.4byte	.LFB33
+ 733 0255 1A000000 		.4byte	.LFE33-.LFB33
+ 734 0259 01       		.uleb128 0x1
+ 735 025a 9C       		.byte	0x9c
+ 736 025b A8020000 		.4byte	0x2a8
+ 737 025f 16       		.uleb128 0x16
+ 738 0260 E0010000 		.4byte	.LASF21
+ 739 0264 01       		.byte	0x1
+ 740 0265 68       		.byte	0x68
+ 741 0266 A9000000 		.4byte	0xa9
+ 742 026a 56000000 		.4byte	.LLST3
+ 743 026e 09       		.uleb128 0x9
+ 744 026f 08000000 		.4byte	.LVL15
+ 745 0273 E6010000 		.4byte	0x1e6
+ 746 0277 15       		.uleb128 0x15
+ 747 0278 0E000000 		.4byte	.LVL16
+ 748 027c F8000000 		.4byte	0xf8
+ 749 0280 8B020000 		.4byte	0x28b
+ 750 0284 0B       		.uleb128 0xb
+ 751 0285 01       		.uleb128 0x1
+ 752 0286 50       		.byte	0x50
+ 753 0287 02       		.uleb128 0x2
+ 754 0288 74       		.byte	0x74
+ 755 0289 00       		.sleb128 0
+ 756 028a 00       		.byte	0
+ 757 028b 15       		.uleb128 0x15
+ 758 028c 14000000 		.4byte	.LVL17
+ 759 0290 30010000 		.4byte	0x130
+ 760 0294 9E020000 		.4byte	0x29e
+ 761 0298 0B       		.uleb128 0xb
+ 762 0299 01       		.uleb128 0x1
+ 763 029a 50       		.byte	0x50
+ 764 029b 01       		.uleb128 0x1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 22
+
+
+ 765 029c 33       		.byte	0x33
+ 766 029d 00       		.byte	0
+ 767 029e 09       		.uleb128 0x9
+ 768 029f 18000000 		.4byte	.LVL18
+ 769 02a3 BE010000 		.4byte	0x1be
+ 770 02a7 00       		.byte	0
+ 771 02a8 08       		.uleb128 0x8
+ 772 02a9 DD020000 		.4byte	.LASF31
+ 773 02ad 01       		.byte	0x1
+ 774 02ae 86       		.byte	0x86
+ 775 02af 00000000 		.4byte	.LFB34
+ 776 02b3 14000000 		.4byte	.LFE34-.LFB34
+ 777 02b7 01       		.uleb128 0x1
+ 778 02b8 9C       		.byte	0x9c
+ 779 02b9 D0020000 		.4byte	0x2d0
+ 780 02bd 09       		.uleb128 0x9
+ 781 02be 06000000 		.4byte	.LVL20
+ 782 02c2 E6010000 		.4byte	0x1e6
+ 783 02c6 09       		.uleb128 0x9
+ 784 02c7 0C000000 		.4byte	.LVL21
+ 785 02cb F8000000 		.4byte	0xf8
+ 786 02cf 00       		.byte	0
+ 787 02d0 13       		.uleb128 0x13
+ 788 02d1 FF010000 		.4byte	.LASF32
+ 789 02d5 01       		.byte	0x1
+ 790 02d6 8401     		.2byte	0x184
+ 791 02d8 00000000 		.4byte	.LFB43
+ 792 02dc 10000000 		.4byte	.LFE43-.LFB43
+ 793 02e0 01       		.uleb128 0x1
+ 794 02e1 9C       		.byte	0x9c
+ 795 02e2 13       		.uleb128 0x13
+ 796 02e3 B6020000 		.4byte	.LASF33
+ 797 02e7 01       		.byte	0x1
+ 798 02e8 9D01     		.2byte	0x19d
+ 799 02ea 00000000 		.4byte	.LFB44
+ 800 02ee 10000000 		.4byte	.LFE44-.LFB44
+ 801 02f2 01       		.uleb128 0x1
+ 802 02f3 9C       		.byte	0x9c
+ 803 02f4 17       		.uleb128 0x17
+ 804 02f5 D3000000 		.4byte	.LASF34
+ 805 02f9 01       		.byte	0x1
+ 806 02fa 20       		.byte	0x20
+ 807 02fb 5D000000 		.4byte	0x5d
+ 808 02ff 18       		.uleb128 0x18
+ 809 0300 A9000000 		.4byte	0xa9
+ 810 0304 0F030000 		.4byte	0x30f
+ 811 0308 19       		.uleb128 0x19
+ 812 0309 C3000000 		.4byte	0xc3
+ 813 030d 2F       		.byte	0x2f
+ 814 030e 00       		.byte	0
+ 815 030f 17       		.uleb128 0x17
+ 816 0310 37000000 		.4byte	.LASF35
+ 817 0314 01       		.byte	0x1
+ 818 0315 26       		.byte	0x26
+ 819 0316 FF020000 		.4byte	0x2ff
+ 820 031a 1A       		.uleb128 0x1a
+ 821 031b D8000000 		.4byte	.LASF36
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 23
+
+
+ 822 031f D8000000 		.4byte	.LASF36
+ 823 0323 01       		.byte	0x1
+ 824 0324 1F       		.byte	0x1f
+ 825 0325 1B       		.uleb128 0x1b
+ 826 0326 B6000000 		.4byte	.LASF37
+ 827 032a B6000000 		.4byte	.LASF37
+ 828 032e 03       		.byte	0x3
+ 829 032f 4701     		.2byte	0x147
+ 830 0331 1A       		.uleb128 0x1a
+ 831 0332 BC010000 		.4byte	.LASF38
+ 832 0336 BC010000 		.4byte	.LASF38
+ 833 033a 04       		.byte	0x4
+ 834 033b E5       		.byte	0xe5
+ 835 033c 1A       		.uleb128 0x1a
+ 836 033d 44030000 		.4byte	.LASF39
+ 837 0341 44030000 		.4byte	.LASF39
+ 838 0345 04       		.byte	0x4
+ 839 0346 E6       		.byte	0xe6
+ 840 0347 00       		.byte	0
+ 841              		.section	.debug_abbrev,"",%progbits
+ 842              	.Ldebug_abbrev0:
+ 843 0000 01       		.uleb128 0x1
+ 844 0001 11       		.uleb128 0x11
+ 845 0002 01       		.byte	0x1
+ 846 0003 25       		.uleb128 0x25
+ 847 0004 0E       		.uleb128 0xe
+ 848 0005 13       		.uleb128 0x13
+ 849 0006 0B       		.uleb128 0xb
+ 850 0007 03       		.uleb128 0x3
+ 851 0008 0E       		.uleb128 0xe
+ 852 0009 1B       		.uleb128 0x1b
+ 853 000a 0E       		.uleb128 0xe
+ 854 000b 55       		.uleb128 0x55
+ 855 000c 17       		.uleb128 0x17
+ 856 000d 11       		.uleb128 0x11
+ 857 000e 01       		.uleb128 0x1
+ 858 000f 10       		.uleb128 0x10
+ 859 0010 17       		.uleb128 0x17
+ 860 0011 00       		.byte	0
+ 861 0012 00       		.byte	0
+ 862 0013 02       		.uleb128 0x2
+ 863 0014 24       		.uleb128 0x24
+ 864 0015 00       		.byte	0
+ 865 0016 0B       		.uleb128 0xb
+ 866 0017 0B       		.uleb128 0xb
+ 867 0018 3E       		.uleb128 0x3e
+ 868 0019 0B       		.uleb128 0xb
+ 869 001a 03       		.uleb128 0x3
+ 870 001b 0E       		.uleb128 0xe
+ 871 001c 00       		.byte	0
+ 872 001d 00       		.byte	0
+ 873 001e 03       		.uleb128 0x3
+ 874 001f 24       		.uleb128 0x24
+ 875 0020 00       		.byte	0
+ 876 0021 0B       		.uleb128 0xb
+ 877 0022 0B       		.uleb128 0xb
+ 878 0023 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 24
+
+
+ 879 0024 0B       		.uleb128 0xb
+ 880 0025 03       		.uleb128 0x3
+ 881 0026 08       		.uleb128 0x8
+ 882 0027 00       		.byte	0
+ 883 0028 00       		.byte	0
+ 884 0029 04       		.uleb128 0x4
+ 885 002a 16       		.uleb128 0x16
+ 886 002b 00       		.byte	0
+ 887 002c 03       		.uleb128 0x3
+ 888 002d 0E       		.uleb128 0xe
+ 889 002e 3A       		.uleb128 0x3a
+ 890 002f 0B       		.uleb128 0xb
+ 891 0030 3B       		.uleb128 0x3b
+ 892 0031 05       		.uleb128 0x5
+ 893 0032 49       		.uleb128 0x49
+ 894 0033 13       		.uleb128 0x13
+ 895 0034 00       		.byte	0
+ 896 0035 00       		.byte	0
+ 897 0036 05       		.uleb128 0x5
+ 898 0037 35       		.uleb128 0x35
+ 899 0038 00       		.byte	0
+ 900 0039 49       		.uleb128 0x49
+ 901 003a 13       		.uleb128 0x13
+ 902 003b 00       		.byte	0
+ 903 003c 00       		.byte	0
+ 904 003d 06       		.uleb128 0x6
+ 905 003e 0F       		.uleb128 0xf
+ 906 003f 00       		.byte	0
+ 907 0040 0B       		.uleb128 0xb
+ 908 0041 0B       		.uleb128 0xb
+ 909 0042 49       		.uleb128 0x49
+ 910 0043 13       		.uleb128 0x13
+ 911 0044 00       		.byte	0
+ 912 0045 00       		.byte	0
+ 913 0046 07       		.uleb128 0x7
+ 914 0047 15       		.uleb128 0x15
+ 915 0048 00       		.byte	0
+ 916 0049 27       		.uleb128 0x27
+ 917 004a 19       		.uleb128 0x19
+ 918 004b 00       		.byte	0
+ 919 004c 00       		.byte	0
+ 920 004d 08       		.uleb128 0x8
+ 921 004e 2E       		.uleb128 0x2e
+ 922 004f 01       		.byte	0x1
+ 923 0050 3F       		.uleb128 0x3f
+ 924 0051 19       		.uleb128 0x19
+ 925 0052 03       		.uleb128 0x3
+ 926 0053 0E       		.uleb128 0xe
+ 927 0054 3A       		.uleb128 0x3a
+ 928 0055 0B       		.uleb128 0xb
+ 929 0056 3B       		.uleb128 0x3b
+ 930 0057 0B       		.uleb128 0xb
+ 931 0058 27       		.uleb128 0x27
+ 932 0059 19       		.uleb128 0x19
+ 933 005a 11       		.uleb128 0x11
+ 934 005b 01       		.uleb128 0x1
+ 935 005c 12       		.uleb128 0x12
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 25
+
+
+ 936 005d 06       		.uleb128 0x6
+ 937 005e 40       		.uleb128 0x40
+ 938 005f 18       		.uleb128 0x18
+ 939 0060 9742     		.uleb128 0x2117
+ 940 0062 19       		.uleb128 0x19
+ 941 0063 01       		.uleb128 0x1
+ 942 0064 13       		.uleb128 0x13
+ 943 0065 00       		.byte	0
+ 944 0066 00       		.byte	0
+ 945 0067 09       		.uleb128 0x9
+ 946 0068 898201   		.uleb128 0x4109
+ 947 006b 00       		.byte	0
+ 948 006c 11       		.uleb128 0x11
+ 949 006d 01       		.uleb128 0x1
+ 950 006e 31       		.uleb128 0x31
+ 951 006f 13       		.uleb128 0x13
+ 952 0070 00       		.byte	0
+ 953 0071 00       		.byte	0
+ 954 0072 0A       		.uleb128 0xa
+ 955 0073 898201   		.uleb128 0x4109
+ 956 0076 01       		.byte	0x1
+ 957 0077 11       		.uleb128 0x11
+ 958 0078 01       		.uleb128 0x1
+ 959 0079 31       		.uleb128 0x31
+ 960 007a 13       		.uleb128 0x13
+ 961 007b 00       		.byte	0
+ 962 007c 00       		.byte	0
+ 963 007d 0B       		.uleb128 0xb
+ 964 007e 8A8201   		.uleb128 0x410a
+ 965 0081 00       		.byte	0
+ 966 0082 02       		.uleb128 0x2
+ 967 0083 18       		.uleb128 0x18
+ 968 0084 9142     		.uleb128 0x2111
+ 969 0086 18       		.uleb128 0x18
+ 970 0087 00       		.byte	0
+ 971 0088 00       		.byte	0
+ 972 0089 0C       		.uleb128 0xc
+ 973 008a 05       		.uleb128 0x5
+ 974 008b 00       		.byte	0
+ 975 008c 03       		.uleb128 0x3
+ 976 008d 0E       		.uleb128 0xe
+ 977 008e 3A       		.uleb128 0x3a
+ 978 008f 0B       		.uleb128 0xb
+ 979 0090 3B       		.uleb128 0x3b
+ 980 0091 0B       		.uleb128 0xb
+ 981 0092 49       		.uleb128 0x49
+ 982 0093 13       		.uleb128 0x13
+ 983 0094 02       		.uleb128 0x2
+ 984 0095 18       		.uleb128 0x18
+ 985 0096 00       		.byte	0
+ 986 0097 00       		.byte	0
+ 987 0098 0D       		.uleb128 0xd
+ 988 0099 2E       		.uleb128 0x2e
+ 989 009a 00       		.byte	0
+ 990 009b 3F       		.uleb128 0x3f
+ 991 009c 19       		.uleb128 0x19
+ 992 009d 03       		.uleb128 0x3
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 26
+
+
+ 993 009e 0E       		.uleb128 0xe
+ 994 009f 3A       		.uleb128 0x3a
+ 995 00a0 0B       		.uleb128 0xb
+ 996 00a1 3B       		.uleb128 0x3b
+ 997 00a2 0B       		.uleb128 0xb
+ 998 00a3 27       		.uleb128 0x27
+ 999 00a4 19       		.uleb128 0x19
+ 1000 00a5 49       		.uleb128 0x49
+ 1001 00a6 13       		.uleb128 0x13
+ 1002 00a7 11       		.uleb128 0x11
+ 1003 00a8 01       		.uleb128 0x1
+ 1004 00a9 12       		.uleb128 0x12
+ 1005 00aa 06       		.uleb128 0x6
+ 1006 00ab 40       		.uleb128 0x40
+ 1007 00ac 18       		.uleb128 0x18
+ 1008 00ad 9742     		.uleb128 0x2117
+ 1009 00af 19       		.uleb128 0x19
+ 1010 00b0 00       		.byte	0
+ 1011 00b1 00       		.byte	0
+ 1012 00b2 0E       		.uleb128 0xe
+ 1013 00b3 2E       		.uleb128 0x2e
+ 1014 00b4 01       		.byte	0x1
+ 1015 00b5 3F       		.uleb128 0x3f
+ 1016 00b6 19       		.uleb128 0x19
+ 1017 00b7 03       		.uleb128 0x3
+ 1018 00b8 0E       		.uleb128 0xe
+ 1019 00b9 3A       		.uleb128 0x3a
+ 1020 00ba 0B       		.uleb128 0xb
+ 1021 00bb 3B       		.uleb128 0x3b
+ 1022 00bc 05       		.uleb128 0x5
+ 1023 00bd 27       		.uleb128 0x27
+ 1024 00be 19       		.uleb128 0x19
+ 1025 00bf 11       		.uleb128 0x11
+ 1026 00c0 01       		.uleb128 0x1
+ 1027 00c1 12       		.uleb128 0x12
+ 1028 00c2 06       		.uleb128 0x6
+ 1029 00c3 40       		.uleb128 0x40
+ 1030 00c4 18       		.uleb128 0x18
+ 1031 00c5 9742     		.uleb128 0x2117
+ 1032 00c7 19       		.uleb128 0x19
+ 1033 00c8 01       		.uleb128 0x1
+ 1034 00c9 13       		.uleb128 0x13
+ 1035 00ca 00       		.byte	0
+ 1036 00cb 00       		.byte	0
+ 1037 00cc 0F       		.uleb128 0xf
+ 1038 00cd 05       		.uleb128 0x5
+ 1039 00ce 00       		.byte	0
+ 1040 00cf 03       		.uleb128 0x3
+ 1041 00d0 0E       		.uleb128 0xe
+ 1042 00d1 3A       		.uleb128 0x3a
+ 1043 00d2 0B       		.uleb128 0xb
+ 1044 00d3 3B       		.uleb128 0x3b
+ 1045 00d4 05       		.uleb128 0x5
+ 1046 00d5 49       		.uleb128 0x49
+ 1047 00d6 13       		.uleb128 0x13
+ 1048 00d7 02       		.uleb128 0x2
+ 1049 00d8 17       		.uleb128 0x17
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 27
+
+
+ 1050 00d9 00       		.byte	0
+ 1051 00da 00       		.byte	0
+ 1052 00db 10       		.uleb128 0x10
+ 1053 00dc 34       		.uleb128 0x34
+ 1054 00dd 00       		.byte	0
+ 1055 00de 03       		.uleb128 0x3
+ 1056 00df 0E       		.uleb128 0xe
+ 1057 00e0 3A       		.uleb128 0x3a
+ 1058 00e1 0B       		.uleb128 0xb
+ 1059 00e2 3B       		.uleb128 0x3b
+ 1060 00e3 05       		.uleb128 0x5
+ 1061 00e4 49       		.uleb128 0x49
+ 1062 00e5 13       		.uleb128 0x13
+ 1063 00e6 02       		.uleb128 0x2
+ 1064 00e7 17       		.uleb128 0x17
+ 1065 00e8 00       		.byte	0
+ 1066 00e9 00       		.byte	0
+ 1067 00ea 11       		.uleb128 0x11
+ 1068 00eb 34       		.uleb128 0x34
+ 1069 00ec 00       		.byte	0
+ 1070 00ed 03       		.uleb128 0x3
+ 1071 00ee 0E       		.uleb128 0xe
+ 1072 00ef 3A       		.uleb128 0x3a
+ 1073 00f0 0B       		.uleb128 0xb
+ 1074 00f1 3B       		.uleb128 0x3b
+ 1075 00f2 05       		.uleb128 0x5
+ 1076 00f3 49       		.uleb128 0x49
+ 1077 00f4 13       		.uleb128 0x13
+ 1078 00f5 1C       		.uleb128 0x1c
+ 1079 00f6 0B       		.uleb128 0xb
+ 1080 00f7 00       		.byte	0
+ 1081 00f8 00       		.byte	0
+ 1082 00f9 12       		.uleb128 0x12
+ 1083 00fa 2E       		.uleb128 0x2e
+ 1084 00fb 01       		.byte	0x1
+ 1085 00fc 3F       		.uleb128 0x3f
+ 1086 00fd 19       		.uleb128 0x19
+ 1087 00fe 03       		.uleb128 0x3
+ 1088 00ff 0E       		.uleb128 0xe
+ 1089 0100 3A       		.uleb128 0x3a
+ 1090 0101 0B       		.uleb128 0xb
+ 1091 0102 3B       		.uleb128 0x3b
+ 1092 0103 05       		.uleb128 0x5
+ 1093 0104 27       		.uleb128 0x27
+ 1094 0105 19       		.uleb128 0x19
+ 1095 0106 49       		.uleb128 0x49
+ 1096 0107 13       		.uleb128 0x13
+ 1097 0108 11       		.uleb128 0x11
+ 1098 0109 01       		.uleb128 0x1
+ 1099 010a 12       		.uleb128 0x12
+ 1100 010b 06       		.uleb128 0x6
+ 1101 010c 40       		.uleb128 0x40
+ 1102 010d 18       		.uleb128 0x18
+ 1103 010e 9742     		.uleb128 0x2117
+ 1104 0110 19       		.uleb128 0x19
+ 1105 0111 01       		.uleb128 0x1
+ 1106 0112 13       		.uleb128 0x13
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 28
+
+
+ 1107 0113 00       		.byte	0
+ 1108 0114 00       		.byte	0
+ 1109 0115 13       		.uleb128 0x13
+ 1110 0116 2E       		.uleb128 0x2e
+ 1111 0117 00       		.byte	0
+ 1112 0118 3F       		.uleb128 0x3f
+ 1113 0119 19       		.uleb128 0x19
+ 1114 011a 03       		.uleb128 0x3
+ 1115 011b 0E       		.uleb128 0xe
+ 1116 011c 3A       		.uleb128 0x3a
+ 1117 011d 0B       		.uleb128 0xb
+ 1118 011e 3B       		.uleb128 0x3b
+ 1119 011f 05       		.uleb128 0x5
+ 1120 0120 27       		.uleb128 0x27
+ 1121 0121 19       		.uleb128 0x19
+ 1122 0122 11       		.uleb128 0x11
+ 1123 0123 01       		.uleb128 0x1
+ 1124 0124 12       		.uleb128 0x12
+ 1125 0125 06       		.uleb128 0x6
+ 1126 0126 40       		.uleb128 0x40
+ 1127 0127 18       		.uleb128 0x18
+ 1128 0128 9742     		.uleb128 0x2117
+ 1129 012a 19       		.uleb128 0x19
+ 1130 012b 00       		.byte	0
+ 1131 012c 00       		.byte	0
+ 1132 012d 14       		.uleb128 0x14
+ 1133 012e 2E       		.uleb128 0x2e
+ 1134 012f 00       		.byte	0
+ 1135 0130 3F       		.uleb128 0x3f
+ 1136 0131 19       		.uleb128 0x19
+ 1137 0132 03       		.uleb128 0x3
+ 1138 0133 0E       		.uleb128 0xe
+ 1139 0134 3A       		.uleb128 0x3a
+ 1140 0135 0B       		.uleb128 0xb
+ 1141 0136 3B       		.uleb128 0x3b
+ 1142 0137 05       		.uleb128 0x5
+ 1143 0138 27       		.uleb128 0x27
+ 1144 0139 19       		.uleb128 0x19
+ 1145 013a 49       		.uleb128 0x49
+ 1146 013b 13       		.uleb128 0x13
+ 1147 013c 11       		.uleb128 0x11
+ 1148 013d 01       		.uleb128 0x1
+ 1149 013e 12       		.uleb128 0x12
+ 1150 013f 06       		.uleb128 0x6
+ 1151 0140 40       		.uleb128 0x40
+ 1152 0141 18       		.uleb128 0x18
+ 1153 0142 9742     		.uleb128 0x2117
+ 1154 0144 19       		.uleb128 0x19
+ 1155 0145 00       		.byte	0
+ 1156 0146 00       		.byte	0
+ 1157 0147 15       		.uleb128 0x15
+ 1158 0148 898201   		.uleb128 0x4109
+ 1159 014b 01       		.byte	0x1
+ 1160 014c 11       		.uleb128 0x11
+ 1161 014d 01       		.uleb128 0x1
+ 1162 014e 31       		.uleb128 0x31
+ 1163 014f 13       		.uleb128 0x13
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 29
+
+
+ 1164 0150 01       		.uleb128 0x1
+ 1165 0151 13       		.uleb128 0x13
+ 1166 0152 00       		.byte	0
+ 1167 0153 00       		.byte	0
+ 1168 0154 16       		.uleb128 0x16
+ 1169 0155 05       		.uleb128 0x5
+ 1170 0156 00       		.byte	0
+ 1171 0157 03       		.uleb128 0x3
+ 1172 0158 0E       		.uleb128 0xe
+ 1173 0159 3A       		.uleb128 0x3a
+ 1174 015a 0B       		.uleb128 0xb
+ 1175 015b 3B       		.uleb128 0x3b
+ 1176 015c 0B       		.uleb128 0xb
+ 1177 015d 49       		.uleb128 0x49
+ 1178 015e 13       		.uleb128 0x13
+ 1179 015f 02       		.uleb128 0x2
+ 1180 0160 17       		.uleb128 0x17
+ 1181 0161 00       		.byte	0
+ 1182 0162 00       		.byte	0
+ 1183 0163 17       		.uleb128 0x17
+ 1184 0164 34       		.uleb128 0x34
+ 1185 0165 00       		.byte	0
+ 1186 0166 03       		.uleb128 0x3
+ 1187 0167 0E       		.uleb128 0xe
+ 1188 0168 3A       		.uleb128 0x3a
+ 1189 0169 0B       		.uleb128 0xb
+ 1190 016a 3B       		.uleb128 0x3b
+ 1191 016b 0B       		.uleb128 0xb
+ 1192 016c 49       		.uleb128 0x49
+ 1193 016d 13       		.uleb128 0x13
+ 1194 016e 3F       		.uleb128 0x3f
+ 1195 016f 19       		.uleb128 0x19
+ 1196 0170 3C       		.uleb128 0x3c
+ 1197 0171 19       		.uleb128 0x19
+ 1198 0172 00       		.byte	0
+ 1199 0173 00       		.byte	0
+ 1200 0174 18       		.uleb128 0x18
+ 1201 0175 01       		.uleb128 0x1
+ 1202 0176 01       		.byte	0x1
+ 1203 0177 49       		.uleb128 0x49
+ 1204 0178 13       		.uleb128 0x13
+ 1205 0179 01       		.uleb128 0x1
+ 1206 017a 13       		.uleb128 0x13
+ 1207 017b 00       		.byte	0
+ 1208 017c 00       		.byte	0
+ 1209 017d 19       		.uleb128 0x19
+ 1210 017e 21       		.uleb128 0x21
+ 1211 017f 00       		.byte	0
+ 1212 0180 49       		.uleb128 0x49
+ 1213 0181 13       		.uleb128 0x13
+ 1214 0182 2F       		.uleb128 0x2f
+ 1215 0183 0B       		.uleb128 0xb
+ 1216 0184 00       		.byte	0
+ 1217 0185 00       		.byte	0
+ 1218 0186 1A       		.uleb128 0x1a
+ 1219 0187 2E       		.uleb128 0x2e
+ 1220 0188 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 30
+
+
+ 1221 0189 3F       		.uleb128 0x3f
+ 1222 018a 19       		.uleb128 0x19
+ 1223 018b 3C       		.uleb128 0x3c
+ 1224 018c 19       		.uleb128 0x19
+ 1225 018d 6E       		.uleb128 0x6e
+ 1226 018e 0E       		.uleb128 0xe
+ 1227 018f 03       		.uleb128 0x3
+ 1228 0190 0E       		.uleb128 0xe
+ 1229 0191 3A       		.uleb128 0x3a
+ 1230 0192 0B       		.uleb128 0xb
+ 1231 0193 3B       		.uleb128 0x3b
+ 1232 0194 0B       		.uleb128 0xb
+ 1233 0195 00       		.byte	0
+ 1234 0196 00       		.byte	0
+ 1235 0197 1B       		.uleb128 0x1b
+ 1236 0198 2E       		.uleb128 0x2e
+ 1237 0199 00       		.byte	0
+ 1238 019a 3F       		.uleb128 0x3f
+ 1239 019b 19       		.uleb128 0x19
+ 1240 019c 3C       		.uleb128 0x3c
+ 1241 019d 19       		.uleb128 0x19
+ 1242 019e 6E       		.uleb128 0x6e
+ 1243 019f 0E       		.uleb128 0xe
+ 1244 01a0 03       		.uleb128 0x3
+ 1245 01a1 0E       		.uleb128 0xe
+ 1246 01a2 3A       		.uleb128 0x3a
+ 1247 01a3 0B       		.uleb128 0xb
+ 1248 01a4 3B       		.uleb128 0x3b
+ 1249 01a5 05       		.uleb128 0x5
+ 1250 01a6 00       		.byte	0
+ 1251 01a7 00       		.byte	0
+ 1252 01a8 00       		.byte	0
+ 1253              		.section	.debug_loc,"",%progbits
+ 1254              	.Ldebug_loc0:
+ 1255              	.LLST0:
+ 1256 0000 00000000 		.4byte	.LVL3
+ 1257 0004 07000000 		.4byte	.LVL5-1
+ 1258 0008 0100     		.2byte	0x1
+ 1259 000a 50       		.byte	0x50
+ 1260 000b 07000000 		.4byte	.LVL5-1
+ 1261 000f 20000000 		.4byte	.LFE38
+ 1262 0013 0400     		.2byte	0x4
+ 1263 0015 F3       		.byte	0xf3
+ 1264 0016 01       		.uleb128 0x1
+ 1265 0017 50       		.byte	0x50
+ 1266 0018 9F       		.byte	0x9f
+ 1267 0019 00000000 		.4byte	0
+ 1268 001d 00000000 		.4byte	0
+ 1269              	.LLST1:
+ 1270 0021 08000000 		.4byte	.LVL5
+ 1271 0025 19000000 		.4byte	.LVL6-1
+ 1272 0029 0100     		.2byte	0x1
+ 1273 002b 50       		.byte	0x50
+ 1274 002c 00000000 		.4byte	0
+ 1275 0030 00000000 		.4byte	0
+ 1276              	.LLST2:
+ 1277 0034 06000000 		.4byte	.LVL8
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 31
+
+
+ 1278 0038 0A000000 		.4byte	.LVL9
+ 1279 003c 0500     		.2byte	0x5
+ 1280 003e 70       		.byte	0x70
+ 1281 003f 00       		.sleb128 0
+ 1282 0040 33       		.byte	0x33
+ 1283 0041 1A       		.byte	0x1a
+ 1284 0042 9F       		.byte	0x9f
+ 1285 0043 0A000000 		.4byte	.LVL9
+ 1286 0047 10000000 		.4byte	.LFE39
+ 1287 004b 0100     		.2byte	0x1
+ 1288 004d 50       		.byte	0x50
+ 1289 004e 00000000 		.4byte	0
+ 1290 0052 00000000 		.4byte	0
+ 1291              	.LLST3:
+ 1292 0056 00000000 		.4byte	.LVL14
+ 1293 005a 07000000 		.4byte	.LVL15-1
+ 1294 005e 0100     		.2byte	0x1
+ 1295 0060 50       		.byte	0x50
+ 1296 0061 07000000 		.4byte	.LVL15-1
+ 1297 0065 18000000 		.4byte	.LVL19
+ 1298 0069 0100     		.2byte	0x1
+ 1299 006b 54       		.byte	0x54
+ 1300 006c 18000000 		.4byte	.LVL19
+ 1301 0070 1A000000 		.4byte	.LFE33
+ 1302 0074 0400     		.2byte	0x4
+ 1303 0076 F3       		.byte	0xf3
+ 1304 0077 01       		.uleb128 0x1
+ 1305 0078 50       		.byte	0x50
+ 1306 0079 9F       		.byte	0x9f
+ 1307 007a 00000000 		.4byte	0
+ 1308 007e 00000000 		.4byte	0
+ 1309              		.section	.debug_aranges,"",%progbits
+ 1310 0000 7C000000 		.4byte	0x7c
+ 1311 0004 0200     		.2byte	0x2
+ 1312 0006 00000000 		.4byte	.Ldebug_info0
+ 1313 000a 04       		.byte	0x4
+ 1314 000b 00       		.byte	0
+ 1315 000c 0000     		.2byte	0
+ 1316 000e 0000     		.2byte	0
+ 1317 0010 00000000 		.4byte	.LFB35
+ 1318 0014 24000000 		.4byte	.LFE35-.LFB35
+ 1319 0018 00000000 		.4byte	.LFB36
+ 1320 001c 0C000000 		.4byte	.LFE36-.LFB36
+ 1321 0020 00000000 		.4byte	.LFB37
+ 1322 0024 0C000000 		.4byte	.LFE37-.LFB37
+ 1323 0028 00000000 		.4byte	.LFB38
+ 1324 002c 20000000 		.4byte	.LFE38-.LFB38
+ 1325 0030 00000000 		.4byte	.LFB39
+ 1326 0034 10000000 		.4byte	.LFE39-.LFB39
+ 1327 0038 00000000 		.4byte	.LFB40
+ 1328 003c 10000000 		.4byte	.LFE40-.LFB40
+ 1329 0040 00000000 		.4byte	.LFB41
+ 1330 0044 14000000 		.4byte	.LFE41-.LFB41
+ 1331 0048 00000000 		.4byte	.LFB42
+ 1332 004c 10000000 		.4byte	.LFE42-.LFB42
+ 1333 0050 00000000 		.4byte	.LFB32
+ 1334 0054 1C000000 		.4byte	.LFE32-.LFB32
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 32
+
+
+ 1335 0058 00000000 		.4byte	.LFB33
+ 1336 005c 1A000000 		.4byte	.LFE33-.LFB33
+ 1337 0060 00000000 		.4byte	.LFB34
+ 1338 0064 14000000 		.4byte	.LFE34-.LFB34
+ 1339 0068 00000000 		.4byte	.LFB43
+ 1340 006c 10000000 		.4byte	.LFE43-.LFB43
+ 1341 0070 00000000 		.4byte	.LFB44
+ 1342 0074 10000000 		.4byte	.LFE44-.LFB44
+ 1343 0078 00000000 		.4byte	0
+ 1344 007c 00000000 		.4byte	0
+ 1345              		.section	.debug_ranges,"",%progbits
+ 1346              	.Ldebug_ranges0:
+ 1347 0000 00000000 		.4byte	.LFB35
+ 1348 0004 24000000 		.4byte	.LFE35
+ 1349 0008 00000000 		.4byte	.LFB36
+ 1350 000c 0C000000 		.4byte	.LFE36
+ 1351 0010 00000000 		.4byte	.LFB37
+ 1352 0014 0C000000 		.4byte	.LFE37
+ 1353 0018 00000000 		.4byte	.LFB38
+ 1354 001c 20000000 		.4byte	.LFE38
+ 1355 0020 00000000 		.4byte	.LFB39
+ 1356 0024 10000000 		.4byte	.LFE39
+ 1357 0028 00000000 		.4byte	.LFB40
+ 1358 002c 10000000 		.4byte	.LFE40
+ 1359 0030 00000000 		.4byte	.LFB41
+ 1360 0034 14000000 		.4byte	.LFE41
+ 1361 0038 00000000 		.4byte	.LFB42
+ 1362 003c 10000000 		.4byte	.LFE42
+ 1363 0040 00000000 		.4byte	.LFB32
+ 1364 0044 1C000000 		.4byte	.LFE32
+ 1365 0048 00000000 		.4byte	.LFB33
+ 1366 004c 1A000000 		.4byte	.LFE33
+ 1367 0050 00000000 		.4byte	.LFB34
+ 1368 0054 14000000 		.4byte	.LFE34
+ 1369 0058 00000000 		.4byte	.LFB43
+ 1370 005c 10000000 		.4byte	.LFE43
+ 1371 0060 00000000 		.4byte	.LFB44
+ 1372 0064 10000000 		.4byte	.LFE44
+ 1373 0068 00000000 		.4byte	0
+ 1374 006c 00000000 		.4byte	0
+ 1375              		.section	.debug_line,"",%progbits
+ 1376              	.Ldebug_line0:
+ 1377 0000 70010000 		.section	.debug_str,"MS",%progbits,1
+ 1377      02006B00 
+ 1377      00000201 
+ 1377      FB0E0D00 
+ 1377      01010101 
+ 1378              	.LASF14:
+ 1379 0000 72656733 		.ascii	"reg32\000"
+ 1379      3200
+ 1380              	.LASF29:
+ 1381 0006 53746570 		.ascii	"StepperInterrupt_Start\000"
+ 1381      70657249 
+ 1381      6E746572 
+ 1381      72757074 
+ 1381      5F537461 
+ 1382              	.LASF26:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 33
+
+
+ 1383 001d 53746570 		.ascii	"StepperInterrupt_GetState\000"
+ 1383      70657249 
+ 1383      6E746572 
+ 1383      72757074 
+ 1383      5F476574 
+ 1384              	.LASF35:
+ 1385 0037 43795261 		.ascii	"CyRamVectors\000"
+ 1385      6D566563 
+ 1385      746F7273 
+ 1385      00
+ 1386              	.LASF20:
+ 1387 0044 53746570 		.ascii	"StepperInterrupt_SetPriority\000"
+ 1387      70657249 
+ 1387      6E746572 
+ 1387      72757074 
+ 1387      5F536574 
+ 1388              	.LASF42:
+ 1389 0061 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\HW"
+ 1389      49545C4D 
+ 1389      6963726F 
+ 1389      636F6E74 
+ 1389      726F6C6C 
+ 1390 0091 362D204D 		.ascii	"6- MotorControll\\MotorControll.cydsn\000"
+ 1390      6F746F72 
+ 1390      436F6E74 
+ 1390      726F6C6C 
+ 1390      5C4D6F74 
+ 1391              	.LASF37:
+ 1392 00b6 53746570 		.ascii	"Stepper_Timer_ClearInterrupt\000"
+ 1392      7065725F 
+ 1392      54696D65 
+ 1392      725F436C 
+ 1392      65617249 
+ 1393              	.LASF34:
+ 1394 00d3 73746570 		.ascii	"step\000"
+ 1394      00
+ 1395              	.LASF36:
+ 1396 00d8 73746570 		.ascii	"stepperMotorControl\000"
+ 1396      7065724D 
+ 1396      6F746F72 
+ 1396      436F6E74 
+ 1396      726F6C00 
+ 1397              	.LASF30:
+ 1398 00ec 53746570 		.ascii	"StepperInterrupt_StartEx\000"
+ 1398      70657249 
+ 1398      6E746572 
+ 1398      72757074 
+ 1398      5F537461 
+ 1399              	.LASF25:
+ 1400 0105 53746570 		.ascii	"StepperInterrupt_GetVector\000"
+ 1400      70657249 
+ 1400      6E746572 
+ 1400      72757074 
+ 1400      5F476574 
+ 1401              	.LASF11:
+ 1402 0120 666C6F61 		.ascii	"float\000"
+ 1402      7400
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 34
+
+
+ 1403              	.LASF1:
+ 1404 0126 756E7369 		.ascii	"unsigned char\000"
+ 1404      676E6564 
+ 1404      20636861 
+ 1404      7200
+ 1405              	.LASF18:
+ 1406 0134 53746570 		.ascii	"StepperInterrupt_Interrupt\000"
+ 1406      70657249 
+ 1406      6E746572 
+ 1406      72757074 
+ 1406      5F496E74 
+ 1407              	.LASF23:
+ 1408 014f 696E7465 		.ascii	"interruptState\000"
+ 1408      72727570 
+ 1408      74537461 
+ 1408      746500
+ 1409              	.LASF5:
+ 1410 015e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1410      20756E73 
+ 1410      69676E65 
+ 1410      6420696E 
+ 1410      7400
+ 1411              	.LASF3:
+ 1412 0170 73686F72 		.ascii	"short unsigned int\000"
+ 1412      7420756E 
+ 1412      7369676E 
+ 1412      65642069 
+ 1412      6E7400
+ 1413              	.LASF22:
+ 1414 0183 7072696F 		.ascii	"priority\000"
+ 1414      72697479 
+ 1414      00
+ 1415              	.LASF27:
+ 1416 018c 53746570 		.ascii	"StepperInterrupt_Enable\000"
+ 1416      70657249 
+ 1416      6E746572 
+ 1416      72757074 
+ 1416      5F456E61 
+ 1417              	.LASF12:
+ 1418 01a4 646F7562 		.ascii	"double\000"
+ 1418      6C6500
+ 1419              	.LASF2:
+ 1420 01ab 73686F72 		.ascii	"short int\000"
+ 1420      7420696E 
+ 1420      7400
+ 1421              	.LASF10:
+ 1422 01b5 75696E74 		.ascii	"uint32\000"
+ 1422      333200
+ 1423              	.LASF38:
+ 1424 01bc 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1424      74657243 
+ 1424      72697469 
+ 1424      63616C53 
+ 1424      65637469 
+ 1425              	.LASF8:
+ 1426 01d3 756E7369 		.ascii	"unsigned int\000"
+ 1426      676E6564 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 35
+
+
+ 1426      20696E74 
+ 1426      00
+ 1427              	.LASF21:
+ 1428 01e0 61646472 		.ascii	"address\000"
+ 1428      65737300 
+ 1429              	.LASF7:
+ 1430 01e8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1430      206C6F6E 
+ 1430      6720756E 
+ 1430      7369676E 
+ 1430      65642069 
+ 1431              	.LASF32:
+ 1432 01ff 53746570 		.ascii	"StepperInterrupt_SetPending\000"
+ 1432      70657249 
+ 1432      6E746572 
+ 1432      72757074 
+ 1432      5F536574 
+ 1433              	.LASF15:
+ 1434 021b 63796973 		.ascii	"cyisraddress\000"
+ 1434      72616464 
+ 1434      72657373 
+ 1434      00
+ 1435              	.LASF40:
+ 1436 0228 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1436      43313120 
+ 1436      352E342E 
+ 1436      31203230 
+ 1436      31363036 
+ 1437 025b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1437      20726576 
+ 1437      6973696F 
+ 1437      6E203233 
+ 1437      37373135 
+ 1438 028e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1438      66756E63 
+ 1438      74696F6E 
+ 1438      2D736563 
+ 1438      74696F6E 
+ 1439              	.LASF33:
+ 1440 02b6 53746570 		.ascii	"StepperInterrupt_ClearPending\000"
+ 1440      70657249 
+ 1440      6E746572 
+ 1440      72757074 
+ 1440      5F436C65 
+ 1441              	.LASF17:
+ 1442 02d4 73697A65 		.ascii	"sizetype\000"
+ 1442      74797065 
+ 1442      00
+ 1443              	.LASF31:
+ 1444 02dd 53746570 		.ascii	"StepperInterrupt_Stop\000"
+ 1444      70657249 
+ 1444      6E746572 
+ 1444      72757074 
+ 1444      5F53746F 
+ 1445              	.LASF6:
+ 1446 02f3 6C6F6E67 		.ascii	"long long int\000"
+ 1446      206C6F6E 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccSJuUmf.s 			page 36
+
+
+ 1446      6720696E 
+ 1446      7400
+ 1447              	.LASF13:
+ 1448 0301 63686172 		.ascii	"char\000"
+ 1448      00
+ 1449              	.LASF19:
+ 1450 0306 53746570 		.ascii	"StepperInterrupt_SetVector\000"
+ 1450      70657249 
+ 1450      6E746572 
+ 1450      72757074 
+ 1450      5F536574 
+ 1451              	.LASF43:
+ 1452 0321 53746570 		.ascii	"StepperInterrupt_GetPriority\000"
+ 1452      70657249 
+ 1452      6E746572 
+ 1452      72757074 
+ 1452      5F476574 
+ 1453              	.LASF9:
+ 1454 033e 75696E74 		.ascii	"uint8\000"
+ 1454      3800
+ 1455              	.LASF39:
+ 1456 0344 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1456      69744372 
+ 1456      69746963 
+ 1456      616C5365 
+ 1456      6374696F 
+ 1457              	.LASF24:
+ 1458 035a 7072696F 		.ascii	"priorityOffset\000"
+ 1458      72697479 
+ 1458      4F666673 
+ 1458      657400
+ 1459              	.LASF4:
+ 1460 0369 6C6F6E67 		.ascii	"long int\000"
+ 1460      20696E74 
+ 1460      00
+ 1461              	.LASF16:
+ 1462 0372 6C6F6E67 		.ascii	"long double\000"
+ 1462      20646F75 
+ 1462      626C6500 
+ 1463              	.LASF0:
+ 1464 037e 7369676E 		.ascii	"signed char\000"
+ 1464      65642063 
+ 1464      68617200 
+ 1465              	.LASF28:
+ 1466 038a 53746570 		.ascii	"StepperInterrupt_Disable\000"
+ 1466      70657249 
+ 1466      6E746572 
+ 1466      72757074 
+ 1466      5F446973 
+ 1467              	.LASF41:
+ 1468 03a3 47656E65 		.ascii	"Generated_Source\\PSoC4\\StepperInterrupt.c\000"
+ 1468      72617465 
+ 1468      645F536F 
+ 1468      75726365 
+ 1468      5C50536F 
+ 1469              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

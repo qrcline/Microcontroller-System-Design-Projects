@@ -1,0 +1,6 @@
+D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\MotorControll.cyprj|0c4c05ca-0a41-42c6-b96a-8342cb94498a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|474f12cf-07f2-4368-82c6-6c3e8985a127
+C:\Users\quint\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|e4971804-c029-440c-a54d-a20154ea0bc9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|54ea780f-bfdb-4f5e-9365-d6e1ef2d808b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f3ca1bec-a88a-4b64-b6e2-eeb07fe195cc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|73750a6c-8e04-43c1-866f-74a7c2b28bba

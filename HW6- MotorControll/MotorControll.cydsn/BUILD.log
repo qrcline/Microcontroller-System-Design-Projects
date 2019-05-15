@@ -1,0 +1,33 @@
+--------------- Build Started: 05/14/2019 18:54:40 Project: MotorControll, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
+main.c: In function 'main':
+main.c:88:10: warning: unused variable 'mystring' [-Wunused-variable]
+     char mystring[4];
+          ^
+main.c:87:15: warning: unused variable 'freqMax' [-Wunused-variable]
+     const int freqMax=300; 
+               ^
+main.c:86:15: warning: unused variable 'freqMin' [-Wunused-variable]
+     const int freqMin=50;
+               ^
+main.c:85:9: warning: unused variable 'freqPeriod' [-Wunused-variable]
+     int freqPeriod=50;
+         ^
+main.c:84:9: warning: unused variable 'freqRaw' [-Wunused-variable]
+     int freqRaw=50; 
+         ^
+main.c:83:9: warning: unused variable 'joyX' [-Wunused-variable]
+     int joyX=0; 
+         ^
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\MotorControll.a .\CortexM0\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\G_LED.o .\CortexM0\ARM_GCC_541\Debug\G_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_2.o .\CortexM0\ARM_GCC_541\Debug\LEDB.o .\CortexM0\ARM_GCC_541\Debug\LEDB_PM.o .\CortexM0\ARM_GCC_541\Debug\LED_PWM.o .\CortexM0\ARM_GCC_541\Debug\LED_PWM_PM.o .\CortexM0\ARM_GCC_541\Debug\CapSense_Control.o .\CortexM0\ARM_GCC_541\Debug\CapSense_Processing.o .\CortexM0\ARM_GCC_541\Debug\CapSense_Structure.o .\CortexM0\ARM_GCC_541\Debug\CapSense_Tuner.o .\CortexM0\ARM_GCC_541\Debug\CapSense_Filter.o .\CortexM0\ARM_GCC_541\Debug\CapSense_Sensing.o .\CortexM0\ARM_GCC_541\Debug\CapSense_INT.o .\CortexM0\ARM_GCC_541\Debug\CapSense_SensingCSD_LL.o .\CortexM0\ARM_GCC_541\Debug\CapSense_Centroid_LL.o .\CortexM0\ARM_GCC_541\Debug\CapSense_ISR.o .\CortexM0\ARM_GCC_541\Debug\DC_PWM.o .\CortexM0\ARM_GCC_541\Debug\DC_PWM_PM.o .\CortexM0\ARM_GCC_541\Debug\SERVO_PWM.o .\CortexM0\ARM_GCC_541\Debug\SERVO_PWM_PM.o .\CortexM0\ARM_GCC_541\Debug\dcMotorOut.o .\CortexM0\ARM_GCC_541\Debug\dcMotorOut_PM.o .\CortexM0\ARM_GCC_541\Debug\Stepper_Timer.o .\CortexM0\ARM_GCC_541\Debug\Stepper_Timer_PM.o .\CortexM0\ARM_GCC_541\Debug\mosiOut.o .\CortexM0\ARM_GCC_541\Debug\mosiOut_PM.o .\CortexM0\ARM_GCC_541\Debug\sclkOut.o .\CortexM0\ARM_GCC_541\Debug\sclkOut_PM.o .\CortexM0\ARM_GCC_541\Debug\StepperInterrupt.o .\CortexM0\ARM_GCC_541\Debug\servoOut.o .\CortexM0\ARM_GCC_541\Debug\servoOut_PM.o .\CortexM0\ARM_GCC_541\Debug\SPIM.o .\CortexM0\ARM_GCC_541\Debug\SPIM_PM.o .\CortexM0\ARM_GCC_541\Debug\SPIM_INT.o .\CortexM0\ARM_GCC_541\Debug\Enable.o .\CortexM0\ARM_GCC_541\Debug\Enable_PM.o .\CortexM0\ARM_GCC_541\Debug\Latch.o .\CortexM0\ARM_GCC_541\Debug\Latch_PM.o .\CortexM0\ARM_GCC_541\Debug\ReversePin.o .\CortexM0\ARM_GCC_541\Debug\ReversePin_PM.o .\CortexM0\ARM_GCC_541\Debug\DirectionInt.o .\CortexM0\ARM_GCC_541\Debug\SPIM_IntClock.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\MotorControll.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\CortexM0\ARM_GCC_541\Debug\MotorControll.elf" .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\MotorControll.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CapSense_P4_v5_0\PSoC4\Library\Capsense_P4Library_GCC.a" -mcpu=cortex-m0 -mthumb -l m -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/MotorControll.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\CortexM0\ARM_GCC_541\Debug\MotorControll.elf" --flash_row_size 128 --flash_size 32768 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S "D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\CortexM0\ARM_GCC_541\Debug\MotorControll.elf"
+Flash used: 10798 of 32768 bytes (33.0%).
+SRAM used: 1784 of 4096 bytes (43.6%). Stack: 1024 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 05/14/2019 18:54:42 ---------------

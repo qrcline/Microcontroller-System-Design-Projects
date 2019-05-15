@@ -1,0 +1,2113 @@
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"StickButton_Interrupt.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.StickButton_Interrupt_SetVector,"ax",%progbits
+  20              		.align	2
+  21              		.global	StickButton_Interrupt_SetVector
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	StickButton_Interrupt_SetVector, %function
+  25              	StickButton_Interrupt_SetVector:
+  26              	.LFB37:
+  27              		.file 1 "Generated_Source\\PSoC4\\StickButton_Interrupt.c"
+   1:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/StickButton_Interrupt.c **** * File Name: StickButton_Interrupt.c  
+   3:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Version 1.70
+   4:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+   5:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  Description:
+   6:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+   8:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+   9:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  Note:
+  10:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+  11:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/StickButton_Interrupt.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC4/StickButton_Interrupt.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC4/StickButton_Interrupt.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  18:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  19:Generated_Source\PSoC4/StickButton_Interrupt.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC4/StickButton_Interrupt.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC4/StickButton_Interrupt.c **** #include <StickButton_Interrupt.h>
+  22:Generated_Source\PSoC4/StickButton_Interrupt.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  24:Generated_Source\PSoC4/StickButton_Interrupt.c **** #if !defined(StickButton_Interrupt__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  26:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+  27:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************/
+  29:Generated_Source\PSoC4/StickButton_Interrupt.c **** /* `#START StickButton_Interrupt_intc` */
+  30:Generated_Source\PSoC4/StickButton_Interrupt.c **** #include "project.h"
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 2
+
+
+  31:Generated_Source\PSoC4/StickButton_Interrupt.c **** #include <stdio.h>
+  32:Generated_Source\PSoC4/StickButton_Interrupt.c **** #define PUSHED 0
+  33:Generated_Source\PSoC4/StickButton_Interrupt.c **** extern int count; 
+  34:Generated_Source\PSoC4/StickButton_Interrupt.c **** extern char mystring[20];
+  35:Generated_Source\PSoC4/StickButton_Interrupt.c **** /* `#END` */
+  36:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  37:Generated_Source\PSoC4/StickButton_Interrupt.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  38:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  39:Generated_Source\PSoC4/StickButton_Interrupt.c **** /* Declared in startup, used to set unused interrupts to. */
+  40:Generated_Source\PSoC4/StickButton_Interrupt.c **** CY_ISR_PROTO(IntDefaultHandler);
+  41:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  42:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  43:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+  44:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_Start
+  45:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+  46:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+  47:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+  48:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  49:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  50:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  51:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  interrupt controller.
+  52:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+  53:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:  
+  54:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+  55:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+  56:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+  57:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+  58:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+  59:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+  60:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_Start(void)
+  61:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+  62:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* For all we know the interrupt is active. */
+  63:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_Disable();
+  64:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  65:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Set the ISR to point to the StickButton_Interrupt Interrupt. */
+  66:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_SetVector(&StickButton_Interrupt_Interrupt);
+  67:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  68:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Set the priority. */
+  69:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_SetPriority((uint8)StickButton_Interrupt_INTC_PRIOR_NUMBER);
+  70:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  71:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Enable it. */
+  72:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_Enable();
+  73:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+  74:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  75:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+  76:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+  77:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_StartEx
+  78:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+  79:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+  80:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+  81:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  82:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  83:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  84:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  the interrupt to the interrupt controller.
+  85:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  
+  86:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  87:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  used to provide consistent definition across compilers:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 3
+
+
+  88:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  
+  89:Generated_Source\PSoC4/StickButton_Interrupt.c **** *  Function definition example:
+  90:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   CY_ISR(MyISR)
+  91:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   {
+  92:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   }
+  93:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Function prototype example:
+  94:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   CY_ISR_PROTO(MyISR);
+  95:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+  96:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:  
+  97:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  98:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+  99:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 100:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 101:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 102:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 103:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_StartEx(cyisraddress address)
+ 104:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 105:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* For all we know the interrupt is active. */
+ 106:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_Disable();
+ 107:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 108:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Set the ISR to point to the StickButton_Interrupt Interrupt. */
+ 109:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_SetVector(address);
+ 110:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 111:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Set the priority. */
+ 112:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_SetPriority((uint8)StickButton_Interrupt_INTC_PRIOR_NUMBER);
+ 113:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 114:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Enable it. */
+ 115:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_Enable();
+ 116:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 117:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 118:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 119:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 120:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_Stop
+ 121:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 122:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 123:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 124:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Disables and removes the interrupt.
+ 125:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 126:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:  
+ 127:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 128:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 129:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 130:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 131:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 132:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 133:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_Stop(void)
+ 134:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 135:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Disable this interrupt. */
+ 136:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_Disable();
+ 137:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 138:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Set the ISR to point to the passive one. */
+ 139:Generated_Source\PSoC4/StickButton_Interrupt.c ****     StickButton_Interrupt_SetVector(&IntDefaultHandler);
+ 140:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 141:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 142:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 143:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 144:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_Interrupt
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 4
+
+
+ 145:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 146:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 147:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 148:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   The default Interrupt Service Routine for StickButton_Interrupt.
+ 149:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 150:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Add custom code between the START and END comments to keep the next version
+ 151:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   of this file from over-writing your code.
+ 152:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 153:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 154:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   your own separate ISR through ISR_StartEx().
+ 155:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 156:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:  
+ 157:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 158:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 159:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 160:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 161:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 162:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 163:Generated_Source\PSoC4/StickButton_Interrupt.c **** CY_ISR(StickButton_Interrupt_Interrupt)
+ 164:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 165:Generated_Source\PSoC4/StickButton_Interrupt.c ****     #ifdef StickButton_Interrupt_INTERRUPT_INTERRUPT_CALLBACK
+ 166:Generated_Source\PSoC4/StickButton_Interrupt.c ****         StickButton_Interrupt_Interrupt_InterruptCallback();
+ 167:Generated_Source\PSoC4/StickButton_Interrupt.c ****     #endif /* StickButton_Interrupt_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 168:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 169:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /*  Place your Interrupt code here. */
+ 170:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* `#START StickButton_Interrupt_Interrupt` */
+ 171:Generated_Source\PSoC4/StickButton_Interrupt.c ****     
+ 172:Generated_Source\PSoC4/StickButton_Interrupt.c ****     //When the joystick is pushed set the count to 0
+ 173:Generated_Source\PSoC4/StickButton_Interrupt.c ****     //This does not update the screen
+ 174:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 175:Generated_Source\PSoC4/StickButton_Interrupt.c ****             StickButton_Interrupt_ClearPending(); 
+ 176:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* `#END` */
+ 177:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 178:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 179:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 180:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 181:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_SetVector
+ 182:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 183:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 184:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 185:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Change the ISR vector for the Interrupt. Note calling StickButton_Interrupt_Start
+ 186:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   will override any effect this method would have had. To set the vector 
+ 187:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   before the component has been started use StickButton_Interrupt_StartEx instead.
+ 188:Generated_Source\PSoC4/StickButton_Interrupt.c **** * 
+ 189:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 190:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   used to provide consistent definition across compilers:
+ 191:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 192:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Function definition example:
+ 193:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   CY_ISR(MyISR)
+ 194:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   {
+ 195:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   }
+ 196:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 197:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Function prototype example:
+ 198:Generated_Source\PSoC4/StickButton_Interrupt.c **** *     CY_ISR_PROTO(MyISR);
+ 199:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 200:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ 201:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 5
+
+
+ 202:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 203:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 204:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 205:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 206:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 207:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_SetVector(cyisraddress address)
+ 208:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+  28              		.loc 1 208 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+ 209:Generated_Source\PSoC4/StickButton_Interrupt.c ****     CyRamVectors[CYINT_IRQ_BASE + StickButton_Interrupt__INTC_NUMBER] = address;
+  34              		.loc 1 209 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 D864     		str	r0, [r3, #76]
+ 210:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+  37              		.loc 1 210 0
+  38              		@ sp needed
+  39 0004 7047     		bx	lr
+  40              	.L3:
+  41 0006 C046     		.align	2
+  42              	.L2:
+  43 0008 00000000 		.word	CyRamVectors
+  44              		.cfi_endproc
+  45              	.LFE37:
+  46              		.size	StickButton_Interrupt_SetVector, .-StickButton_Interrupt_SetVector
+  47              		.section	.text.StickButton_Interrupt_GetVector,"ax",%progbits
+  48              		.align	2
+  49              		.global	StickButton_Interrupt_GetVector
+  50              		.code	16
+  51              		.thumb_func
+  52              		.type	StickButton_Interrupt_GetVector, %function
+  53              	StickButton_Interrupt_GetVector:
+  54              	.LFB38:
+ 211:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 212:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 213:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 214:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_GetVector
+ 215:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 216:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 217:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 218:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 219:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 220:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ 221:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 222:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 223:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 224:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Address of the ISR in the interrupt vector table.
+ 225:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 226:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 227:Generated_Source\PSoC4/StickButton_Interrupt.c **** cyisraddress StickButton_Interrupt_GetVector(void)
+ 228:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+  55              		.loc 1 228 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 6
+
+
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+ 229:Generated_Source\PSoC4/StickButton_Interrupt.c ****     return CyRamVectors[CYINT_IRQ_BASE + StickButton_Interrupt__INTC_NUMBER];
+  60              		.loc 1 229 0
+  61 0000 014B     		ldr	r3, .L5
+  62 0002 D86C     		ldr	r0, [r3, #76]
+ 230:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+  63              		.loc 1 230 0
+  64              		@ sp needed
+  65 0004 7047     		bx	lr
+  66              	.L6:
+  67 0006 C046     		.align	2
+  68              	.L5:
+  69 0008 00000000 		.word	CyRamVectors
+  70              		.cfi_endproc
+  71              	.LFE38:
+  72              		.size	StickButton_Interrupt_GetVector, .-StickButton_Interrupt_GetVector
+  73              		.section	.text.StickButton_Interrupt_SetPriority,"ax",%progbits
+  74              		.align	2
+  75              		.global	StickButton_Interrupt_SetPriority
+  76              		.code	16
+  77              		.thumb_func
+  78              		.type	StickButton_Interrupt_SetPriority, %function
+  79              	StickButton_Interrupt_SetPriority:
+  80              	.LFB39:
+ 231:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 232:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 233:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 234:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_SetPriority
+ 235:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 236:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 237:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 238:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Sets the Priority of the Interrupt. 
+ 239:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 240:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Note calling StickButton_Interrupt_Start or StickButton_Interrupt_StartEx will 
+ 241:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   override any effect this API would have had. This API should only be called
+ 242:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   after StickButton_Interrupt_Start or StickButton_Interrupt_StartEx has been called. 
+ 243:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 244:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Interrupt Editor.
+ 245:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 246:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 247:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 248:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ 249:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 250:Generated_Source\PSoC4/StickButton_Interrupt.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 251:Generated_Source\PSoC4/StickButton_Interrupt.c **** *             PSoC 4: Priority is from 0 to 3.
+ 252:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 253:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 254:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 255:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 256:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 257:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_SetPriority(uint8 priority)
+ 258:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+  81              		.loc 1 258 0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 7
+
+
+  85              	.LVL1:
+  86 0000 10B5     		push	{r4, lr}
+  87              		.cfi_def_cfa_offset 8
+  88              		.cfi_offset 4, -8
+  89              		.cfi_offset 14, -4
+  90 0002 0400     		movs	r4, r0
+  91              	.LVL2:
+ 259:Generated_Source\PSoC4/StickButton_Interrupt.c **** 	uint8 interruptState;
+ 260:Generated_Source\PSoC4/StickButton_Interrupt.c ****     uint32 priorityOffset = ((StickButton_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 261:Generated_Source\PSoC4/StickButton_Interrupt.c ****     
+ 262:Generated_Source\PSoC4/StickButton_Interrupt.c **** 	interruptState = CyEnterCriticalSection();
+  92              		.loc 1 262 0
+  93 0004 FFF7FEFF 		bl	CyEnterCriticalSection
+  94              	.LVL3:
+ 263:Generated_Source\PSoC4/StickButton_Interrupt.c ****     *StickButton_Interrupt_INTC_PRIOR = (*StickButton_Interrupt_INTC_PRIOR & (uint32)(~StickButton_
+  95              		.loc 1 263 0
+  96 0008 044A     		ldr	r2, .L8
+  97 000a 1368     		ldr	r3, [r2]
+  98 000c 9B00     		lsls	r3, r3, #2
+  99 000e 9B08     		lsrs	r3, r3, #2
+ 264:Generated_Source\PSoC4/StickButton_Interrupt.c ****                                     ((uint32)priority << priorityOffset);
+ 100              		.loc 1 264 0
+ 101 0010 A407     		lsls	r4, r4, #30
+ 263:Generated_Source\PSoC4/StickButton_Interrupt.c ****     *StickButton_Interrupt_INTC_PRIOR = (*StickButton_Interrupt_INTC_PRIOR & (uint32)(~StickButton_
+ 102              		.loc 1 263 0
+ 103 0012 1C43     		orrs	r4, r3
+ 104 0014 1460     		str	r4, [r2]
+ 265:Generated_Source\PSoC4/StickButton_Interrupt.c **** 	CyExitCriticalSection(interruptState);
+ 105              		.loc 1 265 0
+ 106 0016 FFF7FEFF 		bl	CyExitCriticalSection
+ 107              	.LVL4:
+ 266:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 108              		.loc 1 266 0
+ 109              		@ sp needed
+ 110 001a 10BD     		pop	{r4, pc}
+ 111              	.L9:
+ 112              		.align	2
+ 113              	.L8:
+ 114 001c 00E400E0 		.word	-536812544
+ 115              		.cfi_endproc
+ 116              	.LFE39:
+ 117              		.size	StickButton_Interrupt_SetPriority, .-StickButton_Interrupt_SetPriority
+ 118              		.section	.text.StickButton_Interrupt_GetPriority,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	StickButton_Interrupt_GetPriority
+ 121              		.code	16
+ 122              		.thumb_func
+ 123              		.type	StickButton_Interrupt_GetPriority, %function
+ 124              	StickButton_Interrupt_GetPriority:
+ 125              	.LFB40:
+ 267:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 268:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 269:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 270:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_GetPriority
+ 271:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 272:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 273:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 8
+
+
+ 274:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Gets the Priority of the Interrupt.
+ 275:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 276:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ 277:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 278:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 279:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 280:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Priority of the interrupt, 0 being the highest priority
+ 281:Generated_Source\PSoC4/StickButton_Interrupt.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 282:Generated_Source\PSoC4/StickButton_Interrupt.c **** *    PSoC 4: Priority is from 0 to 3.
+ 283:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 284:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 285:Generated_Source\PSoC4/StickButton_Interrupt.c **** uint8 StickButton_Interrupt_GetPriority(void)
+ 286:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 126              		.loc 1 286 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 131              	.LVL5:
+ 287:Generated_Source\PSoC4/StickButton_Interrupt.c ****     uint32 priority;
+ 288:Generated_Source\PSoC4/StickButton_Interrupt.c **** 	uint32 priorityOffset = ((StickButton_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 289:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 290:Generated_Source\PSoC4/StickButton_Interrupt.c ****     priority = (*StickButton_Interrupt_INTC_PRIOR & StickButton_Interrupt__INTC_PRIOR_MASK) >> prio
+ 132              		.loc 1 290 0
+ 133 0000 014B     		ldr	r3, .L11
+ 134 0002 1868     		ldr	r0, [r3]
+ 135              	.LVL6:
+ 291:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 292:Generated_Source\PSoC4/StickButton_Interrupt.c ****     return (uint8)priority;
+ 136              		.loc 1 292 0
+ 137 0004 800F     		lsrs	r0, r0, #30
+ 138              	.LVL7:
+ 293:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 139              		.loc 1 293 0
+ 140              		@ sp needed
+ 141 0006 7047     		bx	lr
+ 142              	.L12:
+ 143              		.align	2
+ 144              	.L11:
+ 145 0008 00E400E0 		.word	-536812544
+ 146              		.cfi_endproc
+ 147              	.LFE40:
+ 148              		.size	StickButton_Interrupt_GetPriority, .-StickButton_Interrupt_GetPriority
+ 149              		.section	.text.StickButton_Interrupt_Enable,"ax",%progbits
+ 150              		.align	2
+ 151              		.global	StickButton_Interrupt_Enable
+ 152              		.code	16
+ 153              		.thumb_func
+ 154              		.type	StickButton_Interrupt_Enable, %function
+ 155              	StickButton_Interrupt_Enable:
+ 156              	.LFB41:
+ 294:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 295:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 296:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 297:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_Enable
+ 298:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 299:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 9
+
+
+ 300:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 301:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 302:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 303:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   function, which sets the vector and the priority, has been called.
+ 304:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 305:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ 306:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 307:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 308:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 309:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 310:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 311:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 312:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_Enable(void)
+ 313:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 157              		.loc 1 313 0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161              		@ link register save eliminated.
+ 314:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Enable the general interrupt. */
+ 315:Generated_Source\PSoC4/StickButton_Interrupt.c ****     *StickButton_Interrupt_INTC_SET_EN = StickButton_Interrupt__INTC_MASK;
+ 162              		.loc 1 315 0
+ 163 0000 0822     		movs	r2, #8
+ 164 0002 014B     		ldr	r3, .L14
+ 165 0004 1A60     		str	r2, [r3]
+ 316:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 166              		.loc 1 316 0
+ 167              		@ sp needed
+ 168 0006 7047     		bx	lr
+ 169              	.L15:
+ 170              		.align	2
+ 171              	.L14:
+ 172 0008 00E100E0 		.word	-536813312
+ 173              		.cfi_endproc
+ 174              	.LFE41:
+ 175              		.size	StickButton_Interrupt_Enable, .-StickButton_Interrupt_Enable
+ 176              		.section	.text.StickButton_Interrupt_GetState,"ax",%progbits
+ 177              		.align	2
+ 178              		.global	StickButton_Interrupt_GetState
+ 179              		.code	16
+ 180              		.thumb_func
+ 181              		.type	StickButton_Interrupt_GetState, %function
+ 182              	StickButton_Interrupt_GetState:
+ 183              	.LFB42:
+ 317:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 318:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 319:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 320:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_GetState
+ 321:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 322:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 323:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 324:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 325:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 326:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ 327:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 328:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 329:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 10
+
+
+ 330:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   1 if enabled, 0 if disabled.
+ 331:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 332:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 333:Generated_Source\PSoC4/StickButton_Interrupt.c **** uint8 StickButton_Interrupt_GetState(void)
+ 334:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 184              		.loc 1 334 0
+ 185              		.cfi_startproc
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              		@ link register save eliminated.
+ 335:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Get the state of the general interrupt. */
+ 336:Generated_Source\PSoC4/StickButton_Interrupt.c ****     return ((*StickButton_Interrupt_INTC_SET_EN & (uint32)StickButton_Interrupt__INTC_MASK) != 0u) 
+ 189              		.loc 1 336 0
+ 190 0000 034B     		ldr	r3, .L19
+ 191 0002 1B68     		ldr	r3, [r3]
+ 192 0004 1B07     		lsls	r3, r3, #28
+ 193 0006 01D5     		bpl	.L18
+ 194 0008 0120     		movs	r0, #1
+ 195 000a 00E0     		b	.L17
+ 196              	.L18:
+ 197 000c 0020     		movs	r0, #0
+ 198              	.L17:
+ 337:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 199              		.loc 1 337 0 discriminator 4
+ 200              		@ sp needed
+ 201 000e 7047     		bx	lr
+ 202              	.L20:
+ 203              		.align	2
+ 204              	.L19:
+ 205 0010 00E100E0 		.word	-536813312
+ 206              		.cfi_endproc
+ 207              	.LFE42:
+ 208              		.size	StickButton_Interrupt_GetState, .-StickButton_Interrupt_GetState
+ 209              		.section	.text.StickButton_Interrupt_Disable,"ax",%progbits
+ 210              		.align	2
+ 211              		.global	StickButton_Interrupt_Disable
+ 212              		.code	16
+ 213              		.thumb_func
+ 214              		.type	StickButton_Interrupt_Disable, %function
+ 215              	StickButton_Interrupt_Disable:
+ 216              	.LFB43:
+ 338:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 339:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 340:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 341:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_Disable
+ 342:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 343:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 344:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 345:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Disables the Interrupt in the interrupt controller.
+ 346:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 347:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ 348:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 349:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 350:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 351:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 352:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 353:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 11
+
+
+ 354:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_Disable(void)
+ 355:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 217              		.loc 1 355 0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221              		@ link register save eliminated.
+ 356:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Disable the general interrupt. */
+ 357:Generated_Source\PSoC4/StickButton_Interrupt.c ****     *StickButton_Interrupt_INTC_CLR_EN = StickButton_Interrupt__INTC_MASK;
+ 222              		.loc 1 357 0
+ 223 0000 0822     		movs	r2, #8
+ 224 0002 014B     		ldr	r3, .L22
+ 225 0004 1A60     		str	r2, [r3]
+ 358:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 226              		.loc 1 358 0
+ 227              		@ sp needed
+ 228 0006 7047     		bx	lr
+ 229              	.L23:
+ 230              		.align	2
+ 231              	.L22:
+ 232 0008 80E100E0 		.word	-536813184
+ 233              		.cfi_endproc
+ 234              	.LFE43:
+ 235              		.size	StickButton_Interrupt_Disable, .-StickButton_Interrupt_Disable
+ 236              		.section	.text.StickButton_Interrupt_Start,"ax",%progbits
+ 237              		.align	2
+ 238              		.global	StickButton_Interrupt_Start
+ 239              		.code	16
+ 240              		.thumb_func
+ 241              		.type	StickButton_Interrupt_Start, %function
+ 242              	StickButton_Interrupt_Start:
+ 243              	.LFB33:
+  61:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* For all we know the interrupt is active. */
+ 244              		.loc 1 61 0
+ 245              		.cfi_startproc
+ 246              		@ args = 0, pretend = 0, frame = 0
+ 247              		@ frame_needed = 0, uses_anonymous_args = 0
+ 248 0000 10B5     		push	{r4, lr}
+ 249              		.cfi_def_cfa_offset 8
+ 250              		.cfi_offset 4, -8
+ 251              		.cfi_offset 14, -4
+  63:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 252              		.loc 1 63 0
+ 253 0002 FFF7FEFF 		bl	StickButton_Interrupt_Disable
+ 254              	.LVL8:
+  66:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 255              		.loc 1 66 0
+ 256 0006 0448     		ldr	r0, .L25
+ 257 0008 FFF7FEFF 		bl	StickButton_Interrupt_SetVector
+ 258              	.LVL9:
+  69:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 259              		.loc 1 69 0
+ 260 000c 0320     		movs	r0, #3
+ 261 000e FFF7FEFF 		bl	StickButton_Interrupt_SetPriority
+ 262              	.LVL10:
+  72:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 263              		.loc 1 72 0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 12
+
+
+ 264 0012 FFF7FEFF 		bl	StickButton_Interrupt_Enable
+ 265              	.LVL11:
+  73:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 266              		.loc 1 73 0
+ 267              		@ sp needed
+ 268 0016 10BD     		pop	{r4, pc}
+ 269              	.L26:
+ 270              		.align	2
+ 271              	.L25:
+ 272 0018 00000000 		.word	StickButton_Interrupt_Interrupt
+ 273              		.cfi_endproc
+ 274              	.LFE33:
+ 275              		.size	StickButton_Interrupt_Start, .-StickButton_Interrupt_Start
+ 276              		.section	.text.StickButton_Interrupt_StartEx,"ax",%progbits
+ 277              		.align	2
+ 278              		.global	StickButton_Interrupt_StartEx
+ 279              		.code	16
+ 280              		.thumb_func
+ 281              		.type	StickButton_Interrupt_StartEx, %function
+ 282              	StickButton_Interrupt_StartEx:
+ 283              	.LFB34:
+ 104:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* For all we know the interrupt is active. */
+ 284              		.loc 1 104 0
+ 285              		.cfi_startproc
+ 286              		@ args = 0, pretend = 0, frame = 0
+ 287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288              	.LVL12:
+ 289 0000 10B5     		push	{r4, lr}
+ 290              		.cfi_def_cfa_offset 8
+ 291              		.cfi_offset 4, -8
+ 292              		.cfi_offset 14, -4
+ 293 0002 0400     		movs	r4, r0
+ 106:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 294              		.loc 1 106 0
+ 295 0004 FFF7FEFF 		bl	StickButton_Interrupt_Disable
+ 296              	.LVL13:
+ 109:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 297              		.loc 1 109 0
+ 298 0008 2000     		movs	r0, r4
+ 299 000a FFF7FEFF 		bl	StickButton_Interrupt_SetVector
+ 300              	.LVL14:
+ 112:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 301              		.loc 1 112 0
+ 302 000e 0320     		movs	r0, #3
+ 303 0010 FFF7FEFF 		bl	StickButton_Interrupt_SetPriority
+ 304              	.LVL15:
+ 115:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 305              		.loc 1 115 0
+ 306 0014 FFF7FEFF 		bl	StickButton_Interrupt_Enable
+ 307              	.LVL16:
+ 116:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 308              		.loc 1 116 0
+ 309              		@ sp needed
+ 310              	.LVL17:
+ 311 0018 10BD     		pop	{r4, pc}
+ 312              		.cfi_endproc
+ 313              	.LFE34:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 13
+
+
+ 314              		.size	StickButton_Interrupt_StartEx, .-StickButton_Interrupt_StartEx
+ 315 001a C046     		.section	.text.StickButton_Interrupt_Stop,"ax",%progbits
+ 316              		.align	2
+ 317              		.global	StickButton_Interrupt_Stop
+ 318              		.code	16
+ 319              		.thumb_func
+ 320              		.type	StickButton_Interrupt_Stop, %function
+ 321              	StickButton_Interrupt_Stop:
+ 322              	.LFB35:
+ 134:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* Disable this interrupt. */
+ 323              		.loc 1 134 0
+ 324              		.cfi_startproc
+ 325              		@ args = 0, pretend = 0, frame = 0
+ 326              		@ frame_needed = 0, uses_anonymous_args = 0
+ 327 0000 10B5     		push	{r4, lr}
+ 328              		.cfi_def_cfa_offset 8
+ 329              		.cfi_offset 4, -8
+ 330              		.cfi_offset 14, -4
+ 136:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 331              		.loc 1 136 0
+ 332 0002 FFF7FEFF 		bl	StickButton_Interrupt_Disable
+ 333              	.LVL18:
+ 139:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 334              		.loc 1 139 0
+ 335 0006 0248     		ldr	r0, .L29
+ 336 0008 FFF7FEFF 		bl	StickButton_Interrupt_SetVector
+ 337              	.LVL19:
+ 140:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 338              		.loc 1 140 0
+ 339              		@ sp needed
+ 340 000c 10BD     		pop	{r4, pc}
+ 341              	.L30:
+ 342 000e C046     		.align	2
+ 343              	.L29:
+ 344 0010 00000000 		.word	IntDefaultHandler
+ 345              		.cfi_endproc
+ 346              	.LFE35:
+ 347              		.size	StickButton_Interrupt_Stop, .-StickButton_Interrupt_Stop
+ 348              		.section	.text.StickButton_Interrupt_SetPending,"ax",%progbits
+ 349              		.align	2
+ 350              		.global	StickButton_Interrupt_SetPending
+ 351              		.code	16
+ 352              		.thumb_func
+ 353              		.type	StickButton_Interrupt_SetPending, %function
+ 354              	StickButton_Interrupt_SetPending:
+ 355              	.LFB44:
+ 359:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 360:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 361:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 362:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_SetPending
+ 363:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 364:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 365:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 366:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 367:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   generating the interrupt.
+ 368:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 369:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 14
+
+
+ 370:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 371:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 372:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 373:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 374:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 375:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Side Effects:
+ 376:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 377:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 378:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   interrupts).
+ 379:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 380:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 381:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_SetPending(void)
+ 382:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 356              		.loc 1 382 0
+ 357              		.cfi_startproc
+ 358              		@ args = 0, pretend = 0, frame = 0
+ 359              		@ frame_needed = 0, uses_anonymous_args = 0
+ 360              		@ link register save eliminated.
+ 383:Generated_Source\PSoC4/StickButton_Interrupt.c ****     *StickButton_Interrupt_INTC_SET_PD = StickButton_Interrupt__INTC_MASK;
+ 361              		.loc 1 383 0
+ 362 0000 0822     		movs	r2, #8
+ 363 0002 014B     		ldr	r3, .L32
+ 364 0004 1A60     		str	r2, [r3]
+ 384:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 365              		.loc 1 384 0
+ 366              		@ sp needed
+ 367 0006 7047     		bx	lr
+ 368              	.L33:
+ 369              		.align	2
+ 370              	.L32:
+ 371 0008 00E200E0 		.word	-536813056
+ 372              		.cfi_endproc
+ 373              	.LFE44:
+ 374              		.size	StickButton_Interrupt_SetPending, .-StickButton_Interrupt_SetPending
+ 375              		.section	.text.StickButton_Interrupt_ClearPending,"ax",%progbits
+ 376              		.align	2
+ 377              		.global	StickButton_Interrupt_ClearPending
+ 378              		.code	16
+ 379              		.thumb_func
+ 380              		.type	StickButton_Interrupt_ClearPending, %function
+ 381              	StickButton_Interrupt_ClearPending:
+ 382              	.LFB45:
+ 385:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 386:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 387:Generated_Source\PSoC4/StickButton_Interrupt.c **** /*******************************************************************************
+ 388:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Function Name: StickButton_Interrupt_ClearPending
+ 389:Generated_Source\PSoC4/StickButton_Interrupt.c **** ********************************************************************************
+ 390:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 391:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Summary:
+ 392:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Clears a pending interrupt in the interrupt controller.
+ 393:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 394:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 395:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 396:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 397:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 398:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 399:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Parameters:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 15
+
+
+ 400:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 401:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 402:Generated_Source\PSoC4/StickButton_Interrupt.c **** * Return:
+ 403:Generated_Source\PSoC4/StickButton_Interrupt.c **** *   None
+ 404:Generated_Source\PSoC4/StickButton_Interrupt.c **** *
+ 405:Generated_Source\PSoC4/StickButton_Interrupt.c **** *******************************************************************************/
+ 406:Generated_Source\PSoC4/StickButton_Interrupt.c **** void StickButton_Interrupt_ClearPending(void)
+ 407:Generated_Source\PSoC4/StickButton_Interrupt.c **** {
+ 383              		.loc 1 407 0
+ 384              		.cfi_startproc
+ 385              		@ args = 0, pretend = 0, frame = 0
+ 386              		@ frame_needed = 0, uses_anonymous_args = 0
+ 387              		@ link register save eliminated.
+ 408:Generated_Source\PSoC4/StickButton_Interrupt.c ****     *StickButton_Interrupt_INTC_CLR_PD = StickButton_Interrupt__INTC_MASK;
+ 388              		.loc 1 408 0
+ 389 0000 0822     		movs	r2, #8
+ 390 0002 014B     		ldr	r3, .L35
+ 391 0004 1A60     		str	r2, [r3]
+ 409:Generated_Source\PSoC4/StickButton_Interrupt.c **** }
+ 392              		.loc 1 409 0
+ 393              		@ sp needed
+ 394 0006 7047     		bx	lr
+ 395              	.L36:
+ 396              		.align	2
+ 397              	.L35:
+ 398 0008 80E200E0 		.word	-536812928
+ 399              		.cfi_endproc
+ 400              	.LFE45:
+ 401              		.size	StickButton_Interrupt_ClearPending, .-StickButton_Interrupt_ClearPending
+ 402              		.section	.text.StickButton_Interrupt_Interrupt,"ax",%progbits
+ 403              		.align	2
+ 404              		.global	StickButton_Interrupt_Interrupt
+ 405              		.code	16
+ 406              		.thumb_func
+ 407              		.type	StickButton_Interrupt_Interrupt, %function
+ 408              	StickButton_Interrupt_Interrupt:
+ 409              	.LFB36:
+ 164:Generated_Source\PSoC4/StickButton_Interrupt.c ****     #ifdef StickButton_Interrupt_INTERRUPT_INTERRUPT_CALLBACK
+ 410              		.loc 1 164 0
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414 0000 10B5     		push	{r4, lr}
+ 415              		.cfi_def_cfa_offset 8
+ 416              		.cfi_offset 4, -8
+ 417              		.cfi_offset 14, -4
+ 175:Generated_Source\PSoC4/StickButton_Interrupt.c ****     /* `#END` */
+ 418              		.loc 1 175 0
+ 419 0002 FFF7FEFF 		bl	StickButton_Interrupt_ClearPending
+ 420              	.LVL20:
+ 177:Generated_Source\PSoC4/StickButton_Interrupt.c **** 
+ 421              		.loc 1 177 0
+ 422              		@ sp needed
+ 423 0006 10BD     		pop	{r4, pc}
+ 424              		.cfi_endproc
+ 425              	.LFE36:
+ 426              		.size	StickButton_Interrupt_Interrupt, .-StickButton_Interrupt_Interrupt
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 16
+
+
+ 427              		.comm	GLCD_FONT8x16,1552,4
+ 428              		.text
+ 429              	.Letext0:
+ 430              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 431              		.file 3 "Generated_Source\\PSoC4\\GLCD.h"
+ 432              		.file 4 "Generated_Source\\PSoC4/CyLib.h"
+ 433              		.section	.debug_info,"",%progbits
+ 434              	.Ldebug_info0:
+ 435 0000 44030000 		.4byte	0x344
+ 436 0004 0400     		.2byte	0x4
+ 437 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 438 000a 04       		.byte	0x4
+ 439 000b 01       		.uleb128 0x1
+ 440 000c 31020000 		.4byte	.LASF38
+ 441 0010 0C       		.byte	0xc
+ 442 0011 E9020000 		.4byte	.LASF39
+ 443 0015 E4010000 		.4byte	.LASF40
+ 444 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 445 001d 00000000 		.4byte	0
+ 446 0021 00000000 		.4byte	.Ldebug_line0
+ 447 0025 02       		.uleb128 0x2
+ 448 0026 01       		.byte	0x1
+ 449 0027 06       		.byte	0x6
+ 450 0028 91030000 		.4byte	.LASF0
+ 451 002c 02       		.uleb128 0x2
+ 452 002d 01       		.byte	0x1
+ 453 002e 08       		.byte	0x8
+ 454 002f E4000000 		.4byte	.LASF1
+ 455 0033 02       		.uleb128 0x2
+ 456 0034 02       		.byte	0x2
+ 457 0035 05       		.byte	0x5
+ 458 0036 83010000 		.4byte	.LASF2
+ 459 003a 02       		.uleb128 0x2
+ 460 003b 02       		.byte	0x2
+ 461 003c 07       		.byte	0x7
+ 462 003d AD000000 		.4byte	.LASF3
+ 463 0041 02       		.uleb128 0x2
+ 464 0042 04       		.byte	0x4
+ 465 0043 05       		.byte	0x5
+ 466 0044 60030000 		.4byte	.LASF4
+ 467 0048 02       		.uleb128 0x2
+ 468 0049 04       		.byte	0x4
+ 469 004a 07       		.byte	0x7
+ 470 004b 41010000 		.4byte	.LASF5
+ 471 004f 02       		.uleb128 0x2
+ 472 0050 08       		.byte	0x8
+ 473 0051 05       		.byte	0x5
+ 474 0052 C8020000 		.4byte	.LASF6
+ 475 0056 02       		.uleb128 0x2
+ 476 0057 08       		.byte	0x8
+ 477 0058 07       		.byte	0x7
+ 478 0059 C0010000 		.4byte	.LASF7
+ 479 005d 03       		.uleb128 0x3
+ 480 005e 04       		.byte	0x4
+ 481 005f 05       		.byte	0x5
+ 482 0060 696E7400 		.ascii	"int\000"
+ 483 0064 02       		.uleb128 0x2
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 17
+
+
+ 484 0065 04       		.byte	0x4
+ 485 0066 07       		.byte	0x7
+ 486 0067 AB010000 		.4byte	.LASF8
+ 487 006b 04       		.uleb128 0x4
+ 488 006c 35030000 		.4byte	.LASF9
+ 489 0070 02       		.byte	0x2
+ 490 0071 E401     		.2byte	0x1e4
+ 491 0073 2C000000 		.4byte	0x2c
+ 492 0077 04       		.uleb128 0x4
+ 493 0078 8D010000 		.4byte	.LASF10
+ 494 007c 02       		.byte	0x2
+ 495 007d E601     		.2byte	0x1e6
+ 496 007f 48000000 		.4byte	0x48
+ 497 0083 02       		.uleb128 0x2
+ 498 0084 04       		.byte	0x4
+ 499 0085 04       		.byte	0x4
+ 500 0086 DE000000 		.4byte	.LASF11
+ 501 008a 02       		.uleb128 0x2
+ 502 008b 08       		.byte	0x8
+ 503 008c 04       		.byte	0x4
+ 504 008d 9D030000 		.4byte	.LASF12
+ 505 0091 02       		.uleb128 0x2
+ 506 0092 01       		.byte	0x1
+ 507 0093 08       		.byte	0x8
+ 508 0094 E4020000 		.4byte	.LASF13
+ 509 0098 04       		.uleb128 0x4
+ 510 0099 7D010000 		.4byte	.LASF14
+ 511 009d 02       		.byte	0x2
+ 512 009e 9002     		.2byte	0x290
+ 513 00a0 A4000000 		.4byte	0xa4
+ 514 00a4 05       		.uleb128 0x5
+ 515 00a5 77000000 		.4byte	0x77
+ 516 00a9 04       		.uleb128 0x4
+ 517 00aa D7010000 		.4byte	.LASF15
+ 518 00ae 02       		.byte	0x2
+ 519 00af A002     		.2byte	0x2a0
+ 520 00b1 B5000000 		.4byte	0xb5
+ 521 00b5 06       		.uleb128 0x6
+ 522 00b6 04       		.byte	0x4
+ 523 00b7 BB000000 		.4byte	0xbb
+ 524 00bb 07       		.uleb128 0x7
+ 525 00bc 02       		.uleb128 0x2
+ 526 00bd 08       		.byte	0x8
+ 527 00be 04       		.byte	0x4
+ 528 00bf 85030000 		.4byte	.LASF16
+ 529 00c3 02       		.uleb128 0x2
+ 530 00c4 04       		.byte	0x4
+ 531 00c5 07       		.byte	0x7
+ 532 00c6 BF020000 		.4byte	.LASF17
+ 533 00ca 08       		.uleb128 0x8
+ 534 00cb A4030000 		.4byte	.LASF18
+ 535 00cf 01       		.byte	0x1
+ 536 00d0 CF       		.byte	0xcf
+ 537 00d1 00000000 		.4byte	.LFB37
+ 538 00d5 0C000000 		.4byte	.LFE37-.LFB37
+ 539 00d9 01       		.uleb128 0x1
+ 540 00da 9C       		.byte	0x9c
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 18
+
+
+ 541 00db ED000000 		.4byte	0xed
+ 542 00df 09       		.uleb128 0x9
+ 543 00e0 B8010000 		.4byte	.LASF20
+ 544 00e4 01       		.byte	0x1
+ 545 00e5 CF       		.byte	0xcf
+ 546 00e6 A9000000 		.4byte	0xa9
+ 547 00ea 01       		.uleb128 0x1
+ 548 00eb 50       		.byte	0x50
+ 549 00ec 00       		.byte	0
+ 550 00ed 0A       		.uleb128 0xa
+ 551 00ee F2000000 		.4byte	.LASF24
+ 552 00f2 01       		.byte	0x1
+ 553 00f3 E3       		.byte	0xe3
+ 554 00f4 A9000000 		.4byte	0xa9
+ 555 00f8 00000000 		.4byte	.LFB38
+ 556 00fc 0C000000 		.4byte	.LFE38-.LFB38
+ 557 0100 01       		.uleb128 0x1
+ 558 0101 9C       		.byte	0x9c
+ 559 0102 0B       		.uleb128 0xb
+ 560 0103 00000000 		.4byte	.LASF19
+ 561 0107 01       		.byte	0x1
+ 562 0108 0101     		.2byte	0x101
+ 563 010a 00000000 		.4byte	.LFB39
+ 564 010e 20000000 		.4byte	.LFE39-.LFB39
+ 565 0112 01       		.uleb128 0x1
+ 566 0113 9C       		.byte	0x9c
+ 567 0114 58010000 		.4byte	0x158
+ 568 0118 0C       		.uleb128 0xc
+ 569 0119 74010000 		.4byte	.LASF21
+ 570 011d 01       		.byte	0x1
+ 571 011e 0101     		.2byte	0x101
+ 572 0120 6B000000 		.4byte	0x6b
+ 573 0124 00000000 		.4byte	.LLST0
+ 574 0128 0D       		.uleb128 0xd
+ 575 0129 32010000 		.4byte	.LASF22
+ 576 012d 01       		.byte	0x1
+ 577 012e 0301     		.2byte	0x103
+ 578 0130 6B000000 		.4byte	0x6b
+ 579 0134 21000000 		.4byte	.LLST1
+ 580 0138 0E       		.uleb128 0xe
+ 581 0139 51030000 		.4byte	.LASF23
+ 582 013d 01       		.byte	0x1
+ 583 013e 0401     		.2byte	0x104
+ 584 0140 77000000 		.4byte	0x77
+ 585 0144 1E       		.byte	0x1e
+ 586 0145 0F       		.uleb128 0xf
+ 587 0146 08000000 		.4byte	.LVL3
+ 588 014a 31030000 		.4byte	0x331
+ 589 014e 0F       		.uleb128 0xf
+ 590 014f 1A000000 		.4byte	.LVL4
+ 591 0153 3C030000 		.4byte	0x33c
+ 592 0157 00       		.byte	0
+ 593 0158 10       		.uleb128 0x10
+ 594 0159 70000000 		.4byte	.LASF41
+ 595 015d 01       		.byte	0x1
+ 596 015e 1D01     		.2byte	0x11d
+ 597 0160 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 19
+
+
+ 598 0164 00000000 		.4byte	.LFB40
+ 599 0168 0C000000 		.4byte	.LFE40-.LFB40
+ 600 016c 01       		.uleb128 0x1
+ 601 016d 9C       		.byte	0x9c
+ 602 016e 90010000 		.4byte	0x190
+ 603 0172 0D       		.uleb128 0xd
+ 604 0173 74010000 		.4byte	.LASF21
+ 605 0177 01       		.byte	0x1
+ 606 0178 1F01     		.2byte	0x11f
+ 607 017a 77000000 		.4byte	0x77
+ 608 017e 34000000 		.4byte	.LLST2
+ 609 0182 0E       		.uleb128 0xe
+ 610 0183 51030000 		.4byte	.LASF23
+ 611 0187 01       		.byte	0x1
+ 612 0188 2001     		.2byte	0x120
+ 613 018a 77000000 		.4byte	0x77
+ 614 018e 1E       		.byte	0x1e
+ 615 018f 00       		.byte	0
+ 616 0190 11       		.uleb128 0x11
+ 617 0191 18030000 		.4byte	.LASF26
+ 618 0195 01       		.byte	0x1
+ 619 0196 3801     		.2byte	0x138
+ 620 0198 00000000 		.4byte	.LFB41
+ 621 019c 0C000000 		.4byte	.LFE41-.LFB41
+ 622 01a0 01       		.uleb128 0x1
+ 623 01a1 9C       		.byte	0x9c
+ 624 01a2 12       		.uleb128 0x12
+ 625 01a3 C4030000 		.4byte	.LASF25
+ 626 01a7 01       		.byte	0x1
+ 627 01a8 4D01     		.2byte	0x14d
+ 628 01aa 6B000000 		.4byte	0x6b
+ 629 01ae 00000000 		.4byte	.LFB42
+ 630 01b2 14000000 		.4byte	.LFE42-.LFB42
+ 631 01b6 01       		.uleb128 0x1
+ 632 01b7 9C       		.byte	0x9c
+ 633 01b8 11       		.uleb128 0x11
+ 634 01b9 22000000 		.4byte	.LASF27
+ 635 01bd 01       		.byte	0x1
+ 636 01be 6201     		.2byte	0x162
+ 637 01c0 00000000 		.4byte	.LFB43
+ 638 01c4 0C000000 		.4byte	.LFE43-.LFB43
+ 639 01c8 01       		.uleb128 0x1
+ 640 01c9 9C       		.byte	0x9c
+ 641 01ca 08       		.uleb128 0x8
+ 642 01cb 69030000 		.4byte	.LASF28
+ 643 01cf 01       		.byte	0x1
+ 644 01d0 3C       		.byte	0x3c
+ 645 01d1 00000000 		.4byte	.LFB33
+ 646 01d5 1C000000 		.4byte	.LFE33-.LFB33
+ 647 01d9 01       		.uleb128 0x1
+ 648 01da 9C       		.byte	0x9c
+ 649 01db 1C020000 		.4byte	0x21c
+ 650 01df 0F       		.uleb128 0xf
+ 651 01e0 06000000 		.4byte	.LVL8
+ 652 01e4 B8010000 		.4byte	0x1b8
+ 653 01e8 13       		.uleb128 0x13
+ 654 01e9 0C000000 		.4byte	.LVL9
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 20
+
+
+ 655 01ed CA000000 		.4byte	0xca
+ 656 01f1 FF010000 		.4byte	0x1ff
+ 657 01f5 14       		.uleb128 0x14
+ 658 01f6 01       		.uleb128 0x1
+ 659 01f7 50       		.byte	0x50
+ 660 01f8 05       		.uleb128 0x5
+ 661 01f9 03       		.byte	0x3
+ 662 01fa 00000000 		.4byte	StickButton_Interrupt_Interrupt
+ 663 01fe 00       		.byte	0
+ 664 01ff 13       		.uleb128 0x13
+ 665 0200 12000000 		.4byte	.LVL10
+ 666 0204 02010000 		.4byte	0x102
+ 667 0208 12020000 		.4byte	0x212
+ 668 020c 14       		.uleb128 0x14
+ 669 020d 01       		.uleb128 0x1
+ 670 020e 50       		.byte	0x50
+ 671 020f 01       		.uleb128 0x1
+ 672 0210 33       		.byte	0x33
+ 673 0211 00       		.byte	0
+ 674 0212 0F       		.uleb128 0xf
+ 675 0213 16000000 		.4byte	.LVL11
+ 676 0217 90010000 		.4byte	0x190
+ 677 021b 00       		.byte	0
+ 678 021c 08       		.uleb128 0x8
+ 679 021d C0000000 		.4byte	.LASF29
+ 680 0221 01       		.byte	0x1
+ 681 0222 67       		.byte	0x67
+ 682 0223 00000000 		.4byte	.LFB34
+ 683 0227 1A000000 		.4byte	.LFE34-.LFB34
+ 684 022b 01       		.uleb128 0x1
+ 685 022c 9C       		.byte	0x9c
+ 686 022d 7A020000 		.4byte	0x27a
+ 687 0231 15       		.uleb128 0x15
+ 688 0232 B8010000 		.4byte	.LASF20
+ 689 0236 01       		.byte	0x1
+ 690 0237 67       		.byte	0x67
+ 691 0238 A9000000 		.4byte	0xa9
+ 692 023c 56000000 		.4byte	.LLST3
+ 693 0240 0F       		.uleb128 0xf
+ 694 0241 08000000 		.4byte	.LVL13
+ 695 0245 B8010000 		.4byte	0x1b8
+ 696 0249 13       		.uleb128 0x13
+ 697 024a 0E000000 		.4byte	.LVL14
+ 698 024e CA000000 		.4byte	0xca
+ 699 0252 5D020000 		.4byte	0x25d
+ 700 0256 14       		.uleb128 0x14
+ 701 0257 01       		.uleb128 0x1
+ 702 0258 50       		.byte	0x50
+ 703 0259 02       		.uleb128 0x2
+ 704 025a 74       		.byte	0x74
+ 705 025b 00       		.sleb128 0
+ 706 025c 00       		.byte	0
+ 707 025d 13       		.uleb128 0x13
+ 708 025e 14000000 		.4byte	.LVL15
+ 709 0262 02010000 		.4byte	0x102
+ 710 0266 70020000 		.4byte	0x270
+ 711 026a 14       		.uleb128 0x14
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 21
+
+
+ 712 026b 01       		.uleb128 0x1
+ 713 026c 50       		.byte	0x50
+ 714 026d 01       		.uleb128 0x1
+ 715 026e 33       		.byte	0x33
+ 716 026f 00       		.byte	0
+ 717 0270 0F       		.uleb128 0xf
+ 718 0271 18000000 		.4byte	.LVL16
+ 719 0275 90010000 		.4byte	0x190
+ 720 0279 00       		.byte	0
+ 721 027a 08       		.uleb128 0x8
+ 722 027b 92000000 		.4byte	.LASF30
+ 723 027f 01       		.byte	0x1
+ 724 0280 85       		.byte	0x85
+ 725 0281 00000000 		.4byte	.LFB35
+ 726 0285 14000000 		.4byte	.LFE35-.LFB35
+ 727 0289 01       		.uleb128 0x1
+ 728 028a 9C       		.byte	0x9c
+ 729 028b A2020000 		.4byte	0x2a2
+ 730 028f 0F       		.uleb128 0xf
+ 731 0290 06000000 		.4byte	.LVL18
+ 732 0294 B8010000 		.4byte	0x1b8
+ 733 0298 0F       		.uleb128 0xf
+ 734 0299 0C000000 		.4byte	.LVL19
+ 735 029d CA000000 		.4byte	0xca
+ 736 02a1 00       		.byte	0
+ 737 02a2 11       		.uleb128 0x11
+ 738 02a3 53010000 		.4byte	.LASF31
+ 739 02a7 01       		.byte	0x1
+ 740 02a8 7D01     		.2byte	0x17d
+ 741 02aa 00000000 		.4byte	.LFB44
+ 742 02ae 0C000000 		.4byte	.LFE44-.LFB44
+ 743 02b2 01       		.uleb128 0x1
+ 744 02b3 9C       		.byte	0x9c
+ 745 02b4 11       		.uleb128 0x11
+ 746 02b5 4D000000 		.4byte	.LASF32
+ 747 02b9 01       		.byte	0x1
+ 748 02ba 9601     		.2byte	0x196
+ 749 02bc 00000000 		.4byte	.LFB45
+ 750 02c0 0C000000 		.4byte	.LFE45-.LFB45
+ 751 02c4 01       		.uleb128 0x1
+ 752 02c5 9C       		.byte	0x9c
+ 753 02c6 08       		.uleb128 0x8
+ 754 02c7 12010000 		.4byte	.LASF33
+ 755 02cb 01       		.byte	0x1
+ 756 02cc A3       		.byte	0xa3
+ 757 02cd 00000000 		.4byte	.LFB36
+ 758 02d1 08000000 		.4byte	.LFE36-.LFB36
+ 759 02d5 01       		.uleb128 0x1
+ 760 02d6 9C       		.byte	0x9c
+ 761 02d7 E5020000 		.4byte	0x2e5
+ 762 02db 0F       		.uleb128 0xf
+ 763 02dc 06000000 		.4byte	.LVL20
+ 764 02e0 B4020000 		.4byte	0x2b4
+ 765 02e4 00       		.byte	0
+ 766 02e5 16       		.uleb128 0x16
+ 767 02e6 FB020000 		.4byte	0x2fb
+ 768 02ea FB020000 		.4byte	0x2fb
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 22
+
+
+ 769 02ee 17       		.uleb128 0x17
+ 770 02ef C3000000 		.4byte	0xc3
+ 771 02f3 60       		.byte	0x60
+ 772 02f4 17       		.uleb128 0x17
+ 773 02f5 C3000000 		.4byte	0xc3
+ 774 02f9 0F       		.byte	0xf
+ 775 02fa 00       		.byte	0
+ 776 02fb 18       		.uleb128 0x18
+ 777 02fc 6B000000 		.4byte	0x6b
+ 778 0300 19       		.uleb128 0x19
+ 779 0301 D6020000 		.4byte	.LASF34
+ 780 0305 03       		.byte	0x3
+ 781 0306 42       		.byte	0x42
+ 782 0307 11030000 		.4byte	0x311
+ 783 030b 05       		.uleb128 0x5
+ 784 030c 03       		.byte	0x3
+ 785 030d 00000000 		.4byte	GLCD_FONT8x16
+ 786 0311 18       		.uleb128 0x18
+ 787 0312 E5020000 		.4byte	0x2e5
+ 788 0316 16       		.uleb128 0x16
+ 789 0317 A9000000 		.4byte	0xa9
+ 790 031b 26030000 		.4byte	0x326
+ 791 031f 17       		.uleb128 0x17
+ 792 0320 C3000000 		.4byte	0xc3
+ 793 0324 2F       		.byte	0x2f
+ 794 0325 00       		.byte	0
+ 795 0326 1A       		.uleb128 0x1a
+ 796 0327 40000000 		.4byte	.LASF35
+ 797 032b 01       		.byte	0x1
+ 798 032c 25       		.byte	0x25
+ 799 032d 16030000 		.4byte	0x316
+ 800 0331 1B       		.uleb128 0x1b
+ 801 0332 94010000 		.4byte	.LASF36
+ 802 0336 94010000 		.4byte	.LASF36
+ 803 033a 04       		.byte	0x4
+ 804 033b E5       		.byte	0xe5
+ 805 033c 1B       		.uleb128 0x1b
+ 806 033d 3B030000 		.4byte	.LASF37
+ 807 0341 3B030000 		.4byte	.LASF37
+ 808 0345 04       		.byte	0x4
+ 809 0346 E6       		.byte	0xe6
+ 810 0347 00       		.byte	0
+ 811              		.section	.debug_abbrev,"",%progbits
+ 812              	.Ldebug_abbrev0:
+ 813 0000 01       		.uleb128 0x1
+ 814 0001 11       		.uleb128 0x11
+ 815 0002 01       		.byte	0x1
+ 816 0003 25       		.uleb128 0x25
+ 817 0004 0E       		.uleb128 0xe
+ 818 0005 13       		.uleb128 0x13
+ 819 0006 0B       		.uleb128 0xb
+ 820 0007 03       		.uleb128 0x3
+ 821 0008 0E       		.uleb128 0xe
+ 822 0009 1B       		.uleb128 0x1b
+ 823 000a 0E       		.uleb128 0xe
+ 824 000b 55       		.uleb128 0x55
+ 825 000c 17       		.uleb128 0x17
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 23
+
+
+ 826 000d 11       		.uleb128 0x11
+ 827 000e 01       		.uleb128 0x1
+ 828 000f 10       		.uleb128 0x10
+ 829 0010 17       		.uleb128 0x17
+ 830 0011 00       		.byte	0
+ 831 0012 00       		.byte	0
+ 832 0013 02       		.uleb128 0x2
+ 833 0014 24       		.uleb128 0x24
+ 834 0015 00       		.byte	0
+ 835 0016 0B       		.uleb128 0xb
+ 836 0017 0B       		.uleb128 0xb
+ 837 0018 3E       		.uleb128 0x3e
+ 838 0019 0B       		.uleb128 0xb
+ 839 001a 03       		.uleb128 0x3
+ 840 001b 0E       		.uleb128 0xe
+ 841 001c 00       		.byte	0
+ 842 001d 00       		.byte	0
+ 843 001e 03       		.uleb128 0x3
+ 844 001f 24       		.uleb128 0x24
+ 845 0020 00       		.byte	0
+ 846 0021 0B       		.uleb128 0xb
+ 847 0022 0B       		.uleb128 0xb
+ 848 0023 3E       		.uleb128 0x3e
+ 849 0024 0B       		.uleb128 0xb
+ 850 0025 03       		.uleb128 0x3
+ 851 0026 08       		.uleb128 0x8
+ 852 0027 00       		.byte	0
+ 853 0028 00       		.byte	0
+ 854 0029 04       		.uleb128 0x4
+ 855 002a 16       		.uleb128 0x16
+ 856 002b 00       		.byte	0
+ 857 002c 03       		.uleb128 0x3
+ 858 002d 0E       		.uleb128 0xe
+ 859 002e 3A       		.uleb128 0x3a
+ 860 002f 0B       		.uleb128 0xb
+ 861 0030 3B       		.uleb128 0x3b
+ 862 0031 05       		.uleb128 0x5
+ 863 0032 49       		.uleb128 0x49
+ 864 0033 13       		.uleb128 0x13
+ 865 0034 00       		.byte	0
+ 866 0035 00       		.byte	0
+ 867 0036 05       		.uleb128 0x5
+ 868 0037 35       		.uleb128 0x35
+ 869 0038 00       		.byte	0
+ 870 0039 49       		.uleb128 0x49
+ 871 003a 13       		.uleb128 0x13
+ 872 003b 00       		.byte	0
+ 873 003c 00       		.byte	0
+ 874 003d 06       		.uleb128 0x6
+ 875 003e 0F       		.uleb128 0xf
+ 876 003f 00       		.byte	0
+ 877 0040 0B       		.uleb128 0xb
+ 878 0041 0B       		.uleb128 0xb
+ 879 0042 49       		.uleb128 0x49
+ 880 0043 13       		.uleb128 0x13
+ 881 0044 00       		.byte	0
+ 882 0045 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 24
+
+
+ 883 0046 07       		.uleb128 0x7
+ 884 0047 15       		.uleb128 0x15
+ 885 0048 00       		.byte	0
+ 886 0049 27       		.uleb128 0x27
+ 887 004a 19       		.uleb128 0x19
+ 888 004b 00       		.byte	0
+ 889 004c 00       		.byte	0
+ 890 004d 08       		.uleb128 0x8
+ 891 004e 2E       		.uleb128 0x2e
+ 892 004f 01       		.byte	0x1
+ 893 0050 3F       		.uleb128 0x3f
+ 894 0051 19       		.uleb128 0x19
+ 895 0052 03       		.uleb128 0x3
+ 896 0053 0E       		.uleb128 0xe
+ 897 0054 3A       		.uleb128 0x3a
+ 898 0055 0B       		.uleb128 0xb
+ 899 0056 3B       		.uleb128 0x3b
+ 900 0057 0B       		.uleb128 0xb
+ 901 0058 27       		.uleb128 0x27
+ 902 0059 19       		.uleb128 0x19
+ 903 005a 11       		.uleb128 0x11
+ 904 005b 01       		.uleb128 0x1
+ 905 005c 12       		.uleb128 0x12
+ 906 005d 06       		.uleb128 0x6
+ 907 005e 40       		.uleb128 0x40
+ 908 005f 18       		.uleb128 0x18
+ 909 0060 9742     		.uleb128 0x2117
+ 910 0062 19       		.uleb128 0x19
+ 911 0063 01       		.uleb128 0x1
+ 912 0064 13       		.uleb128 0x13
+ 913 0065 00       		.byte	0
+ 914 0066 00       		.byte	0
+ 915 0067 09       		.uleb128 0x9
+ 916 0068 05       		.uleb128 0x5
+ 917 0069 00       		.byte	0
+ 918 006a 03       		.uleb128 0x3
+ 919 006b 0E       		.uleb128 0xe
+ 920 006c 3A       		.uleb128 0x3a
+ 921 006d 0B       		.uleb128 0xb
+ 922 006e 3B       		.uleb128 0x3b
+ 923 006f 0B       		.uleb128 0xb
+ 924 0070 49       		.uleb128 0x49
+ 925 0071 13       		.uleb128 0x13
+ 926 0072 02       		.uleb128 0x2
+ 927 0073 18       		.uleb128 0x18
+ 928 0074 00       		.byte	0
+ 929 0075 00       		.byte	0
+ 930 0076 0A       		.uleb128 0xa
+ 931 0077 2E       		.uleb128 0x2e
+ 932 0078 00       		.byte	0
+ 933 0079 3F       		.uleb128 0x3f
+ 934 007a 19       		.uleb128 0x19
+ 935 007b 03       		.uleb128 0x3
+ 936 007c 0E       		.uleb128 0xe
+ 937 007d 3A       		.uleb128 0x3a
+ 938 007e 0B       		.uleb128 0xb
+ 939 007f 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 25
+
+
+ 940 0080 0B       		.uleb128 0xb
+ 941 0081 27       		.uleb128 0x27
+ 942 0082 19       		.uleb128 0x19
+ 943 0083 49       		.uleb128 0x49
+ 944 0084 13       		.uleb128 0x13
+ 945 0085 11       		.uleb128 0x11
+ 946 0086 01       		.uleb128 0x1
+ 947 0087 12       		.uleb128 0x12
+ 948 0088 06       		.uleb128 0x6
+ 949 0089 40       		.uleb128 0x40
+ 950 008a 18       		.uleb128 0x18
+ 951 008b 9742     		.uleb128 0x2117
+ 952 008d 19       		.uleb128 0x19
+ 953 008e 00       		.byte	0
+ 954 008f 00       		.byte	0
+ 955 0090 0B       		.uleb128 0xb
+ 956 0091 2E       		.uleb128 0x2e
+ 957 0092 01       		.byte	0x1
+ 958 0093 3F       		.uleb128 0x3f
+ 959 0094 19       		.uleb128 0x19
+ 960 0095 03       		.uleb128 0x3
+ 961 0096 0E       		.uleb128 0xe
+ 962 0097 3A       		.uleb128 0x3a
+ 963 0098 0B       		.uleb128 0xb
+ 964 0099 3B       		.uleb128 0x3b
+ 965 009a 05       		.uleb128 0x5
+ 966 009b 27       		.uleb128 0x27
+ 967 009c 19       		.uleb128 0x19
+ 968 009d 11       		.uleb128 0x11
+ 969 009e 01       		.uleb128 0x1
+ 970 009f 12       		.uleb128 0x12
+ 971 00a0 06       		.uleb128 0x6
+ 972 00a1 40       		.uleb128 0x40
+ 973 00a2 18       		.uleb128 0x18
+ 974 00a3 9742     		.uleb128 0x2117
+ 975 00a5 19       		.uleb128 0x19
+ 976 00a6 01       		.uleb128 0x1
+ 977 00a7 13       		.uleb128 0x13
+ 978 00a8 00       		.byte	0
+ 979 00a9 00       		.byte	0
+ 980 00aa 0C       		.uleb128 0xc
+ 981 00ab 05       		.uleb128 0x5
+ 982 00ac 00       		.byte	0
+ 983 00ad 03       		.uleb128 0x3
+ 984 00ae 0E       		.uleb128 0xe
+ 985 00af 3A       		.uleb128 0x3a
+ 986 00b0 0B       		.uleb128 0xb
+ 987 00b1 3B       		.uleb128 0x3b
+ 988 00b2 05       		.uleb128 0x5
+ 989 00b3 49       		.uleb128 0x49
+ 990 00b4 13       		.uleb128 0x13
+ 991 00b5 02       		.uleb128 0x2
+ 992 00b6 17       		.uleb128 0x17
+ 993 00b7 00       		.byte	0
+ 994 00b8 00       		.byte	0
+ 995 00b9 0D       		.uleb128 0xd
+ 996 00ba 34       		.uleb128 0x34
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 26
+
+
+ 997 00bb 00       		.byte	0
+ 998 00bc 03       		.uleb128 0x3
+ 999 00bd 0E       		.uleb128 0xe
+ 1000 00be 3A       		.uleb128 0x3a
+ 1001 00bf 0B       		.uleb128 0xb
+ 1002 00c0 3B       		.uleb128 0x3b
+ 1003 00c1 05       		.uleb128 0x5
+ 1004 00c2 49       		.uleb128 0x49
+ 1005 00c3 13       		.uleb128 0x13
+ 1006 00c4 02       		.uleb128 0x2
+ 1007 00c5 17       		.uleb128 0x17
+ 1008 00c6 00       		.byte	0
+ 1009 00c7 00       		.byte	0
+ 1010 00c8 0E       		.uleb128 0xe
+ 1011 00c9 34       		.uleb128 0x34
+ 1012 00ca 00       		.byte	0
+ 1013 00cb 03       		.uleb128 0x3
+ 1014 00cc 0E       		.uleb128 0xe
+ 1015 00cd 3A       		.uleb128 0x3a
+ 1016 00ce 0B       		.uleb128 0xb
+ 1017 00cf 3B       		.uleb128 0x3b
+ 1018 00d0 05       		.uleb128 0x5
+ 1019 00d1 49       		.uleb128 0x49
+ 1020 00d2 13       		.uleb128 0x13
+ 1021 00d3 1C       		.uleb128 0x1c
+ 1022 00d4 0B       		.uleb128 0xb
+ 1023 00d5 00       		.byte	0
+ 1024 00d6 00       		.byte	0
+ 1025 00d7 0F       		.uleb128 0xf
+ 1026 00d8 898201   		.uleb128 0x4109
+ 1027 00db 00       		.byte	0
+ 1028 00dc 11       		.uleb128 0x11
+ 1029 00dd 01       		.uleb128 0x1
+ 1030 00de 31       		.uleb128 0x31
+ 1031 00df 13       		.uleb128 0x13
+ 1032 00e0 00       		.byte	0
+ 1033 00e1 00       		.byte	0
+ 1034 00e2 10       		.uleb128 0x10
+ 1035 00e3 2E       		.uleb128 0x2e
+ 1036 00e4 01       		.byte	0x1
+ 1037 00e5 3F       		.uleb128 0x3f
+ 1038 00e6 19       		.uleb128 0x19
+ 1039 00e7 03       		.uleb128 0x3
+ 1040 00e8 0E       		.uleb128 0xe
+ 1041 00e9 3A       		.uleb128 0x3a
+ 1042 00ea 0B       		.uleb128 0xb
+ 1043 00eb 3B       		.uleb128 0x3b
+ 1044 00ec 05       		.uleb128 0x5
+ 1045 00ed 27       		.uleb128 0x27
+ 1046 00ee 19       		.uleb128 0x19
+ 1047 00ef 49       		.uleb128 0x49
+ 1048 00f0 13       		.uleb128 0x13
+ 1049 00f1 11       		.uleb128 0x11
+ 1050 00f2 01       		.uleb128 0x1
+ 1051 00f3 12       		.uleb128 0x12
+ 1052 00f4 06       		.uleb128 0x6
+ 1053 00f5 40       		.uleb128 0x40
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 27
+
+
+ 1054 00f6 18       		.uleb128 0x18
+ 1055 00f7 9742     		.uleb128 0x2117
+ 1056 00f9 19       		.uleb128 0x19
+ 1057 00fa 01       		.uleb128 0x1
+ 1058 00fb 13       		.uleb128 0x13
+ 1059 00fc 00       		.byte	0
+ 1060 00fd 00       		.byte	0
+ 1061 00fe 11       		.uleb128 0x11
+ 1062 00ff 2E       		.uleb128 0x2e
+ 1063 0100 00       		.byte	0
+ 1064 0101 3F       		.uleb128 0x3f
+ 1065 0102 19       		.uleb128 0x19
+ 1066 0103 03       		.uleb128 0x3
+ 1067 0104 0E       		.uleb128 0xe
+ 1068 0105 3A       		.uleb128 0x3a
+ 1069 0106 0B       		.uleb128 0xb
+ 1070 0107 3B       		.uleb128 0x3b
+ 1071 0108 05       		.uleb128 0x5
+ 1072 0109 27       		.uleb128 0x27
+ 1073 010a 19       		.uleb128 0x19
+ 1074 010b 11       		.uleb128 0x11
+ 1075 010c 01       		.uleb128 0x1
+ 1076 010d 12       		.uleb128 0x12
+ 1077 010e 06       		.uleb128 0x6
+ 1078 010f 40       		.uleb128 0x40
+ 1079 0110 18       		.uleb128 0x18
+ 1080 0111 9742     		.uleb128 0x2117
+ 1081 0113 19       		.uleb128 0x19
+ 1082 0114 00       		.byte	0
+ 1083 0115 00       		.byte	0
+ 1084 0116 12       		.uleb128 0x12
+ 1085 0117 2E       		.uleb128 0x2e
+ 1086 0118 00       		.byte	0
+ 1087 0119 3F       		.uleb128 0x3f
+ 1088 011a 19       		.uleb128 0x19
+ 1089 011b 03       		.uleb128 0x3
+ 1090 011c 0E       		.uleb128 0xe
+ 1091 011d 3A       		.uleb128 0x3a
+ 1092 011e 0B       		.uleb128 0xb
+ 1093 011f 3B       		.uleb128 0x3b
+ 1094 0120 05       		.uleb128 0x5
+ 1095 0121 27       		.uleb128 0x27
+ 1096 0122 19       		.uleb128 0x19
+ 1097 0123 49       		.uleb128 0x49
+ 1098 0124 13       		.uleb128 0x13
+ 1099 0125 11       		.uleb128 0x11
+ 1100 0126 01       		.uleb128 0x1
+ 1101 0127 12       		.uleb128 0x12
+ 1102 0128 06       		.uleb128 0x6
+ 1103 0129 40       		.uleb128 0x40
+ 1104 012a 18       		.uleb128 0x18
+ 1105 012b 9742     		.uleb128 0x2117
+ 1106 012d 19       		.uleb128 0x19
+ 1107 012e 00       		.byte	0
+ 1108 012f 00       		.byte	0
+ 1109 0130 13       		.uleb128 0x13
+ 1110 0131 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 28
+
+
+ 1111 0134 01       		.byte	0x1
+ 1112 0135 11       		.uleb128 0x11
+ 1113 0136 01       		.uleb128 0x1
+ 1114 0137 31       		.uleb128 0x31
+ 1115 0138 13       		.uleb128 0x13
+ 1116 0139 01       		.uleb128 0x1
+ 1117 013a 13       		.uleb128 0x13
+ 1118 013b 00       		.byte	0
+ 1119 013c 00       		.byte	0
+ 1120 013d 14       		.uleb128 0x14
+ 1121 013e 8A8201   		.uleb128 0x410a
+ 1122 0141 00       		.byte	0
+ 1123 0142 02       		.uleb128 0x2
+ 1124 0143 18       		.uleb128 0x18
+ 1125 0144 9142     		.uleb128 0x2111
+ 1126 0146 18       		.uleb128 0x18
+ 1127 0147 00       		.byte	0
+ 1128 0148 00       		.byte	0
+ 1129 0149 15       		.uleb128 0x15
+ 1130 014a 05       		.uleb128 0x5
+ 1131 014b 00       		.byte	0
+ 1132 014c 03       		.uleb128 0x3
+ 1133 014d 0E       		.uleb128 0xe
+ 1134 014e 3A       		.uleb128 0x3a
+ 1135 014f 0B       		.uleb128 0xb
+ 1136 0150 3B       		.uleb128 0x3b
+ 1137 0151 0B       		.uleb128 0xb
+ 1138 0152 49       		.uleb128 0x49
+ 1139 0153 13       		.uleb128 0x13
+ 1140 0154 02       		.uleb128 0x2
+ 1141 0155 17       		.uleb128 0x17
+ 1142 0156 00       		.byte	0
+ 1143 0157 00       		.byte	0
+ 1144 0158 16       		.uleb128 0x16
+ 1145 0159 01       		.uleb128 0x1
+ 1146 015a 01       		.byte	0x1
+ 1147 015b 49       		.uleb128 0x49
+ 1148 015c 13       		.uleb128 0x13
+ 1149 015d 01       		.uleb128 0x1
+ 1150 015e 13       		.uleb128 0x13
+ 1151 015f 00       		.byte	0
+ 1152 0160 00       		.byte	0
+ 1153 0161 17       		.uleb128 0x17
+ 1154 0162 21       		.uleb128 0x21
+ 1155 0163 00       		.byte	0
+ 1156 0164 49       		.uleb128 0x49
+ 1157 0165 13       		.uleb128 0x13
+ 1158 0166 2F       		.uleb128 0x2f
+ 1159 0167 0B       		.uleb128 0xb
+ 1160 0168 00       		.byte	0
+ 1161 0169 00       		.byte	0
+ 1162 016a 18       		.uleb128 0x18
+ 1163 016b 26       		.uleb128 0x26
+ 1164 016c 00       		.byte	0
+ 1165 016d 49       		.uleb128 0x49
+ 1166 016e 13       		.uleb128 0x13
+ 1167 016f 00       		.byte	0
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 29
+
+
+ 1168 0170 00       		.byte	0
+ 1169 0171 19       		.uleb128 0x19
+ 1170 0172 34       		.uleb128 0x34
+ 1171 0173 00       		.byte	0
+ 1172 0174 03       		.uleb128 0x3
+ 1173 0175 0E       		.uleb128 0xe
+ 1174 0176 3A       		.uleb128 0x3a
+ 1175 0177 0B       		.uleb128 0xb
+ 1176 0178 3B       		.uleb128 0x3b
+ 1177 0179 0B       		.uleb128 0xb
+ 1178 017a 49       		.uleb128 0x49
+ 1179 017b 13       		.uleb128 0x13
+ 1180 017c 3F       		.uleb128 0x3f
+ 1181 017d 19       		.uleb128 0x19
+ 1182 017e 02       		.uleb128 0x2
+ 1183 017f 18       		.uleb128 0x18
+ 1184 0180 00       		.byte	0
+ 1185 0181 00       		.byte	0
+ 1186 0182 1A       		.uleb128 0x1a
+ 1187 0183 34       		.uleb128 0x34
+ 1188 0184 00       		.byte	0
+ 1189 0185 03       		.uleb128 0x3
+ 1190 0186 0E       		.uleb128 0xe
+ 1191 0187 3A       		.uleb128 0x3a
+ 1192 0188 0B       		.uleb128 0xb
+ 1193 0189 3B       		.uleb128 0x3b
+ 1194 018a 0B       		.uleb128 0xb
+ 1195 018b 49       		.uleb128 0x49
+ 1196 018c 13       		.uleb128 0x13
+ 1197 018d 3F       		.uleb128 0x3f
+ 1198 018e 19       		.uleb128 0x19
+ 1199 018f 3C       		.uleb128 0x3c
+ 1200 0190 19       		.uleb128 0x19
+ 1201 0191 00       		.byte	0
+ 1202 0192 00       		.byte	0
+ 1203 0193 1B       		.uleb128 0x1b
+ 1204 0194 2E       		.uleb128 0x2e
+ 1205 0195 00       		.byte	0
+ 1206 0196 3F       		.uleb128 0x3f
+ 1207 0197 19       		.uleb128 0x19
+ 1208 0198 3C       		.uleb128 0x3c
+ 1209 0199 19       		.uleb128 0x19
+ 1210 019a 6E       		.uleb128 0x6e
+ 1211 019b 0E       		.uleb128 0xe
+ 1212 019c 03       		.uleb128 0x3
+ 1213 019d 0E       		.uleb128 0xe
+ 1214 019e 3A       		.uleb128 0x3a
+ 1215 019f 0B       		.uleb128 0xb
+ 1216 01a0 3B       		.uleb128 0x3b
+ 1217 01a1 0B       		.uleb128 0xb
+ 1218 01a2 00       		.byte	0
+ 1219 01a3 00       		.byte	0
+ 1220 01a4 00       		.byte	0
+ 1221              		.section	.debug_loc,"",%progbits
+ 1222              	.Ldebug_loc0:
+ 1223              	.LLST0:
+ 1224 0000 00000000 		.4byte	.LVL1
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 30
+
+
+ 1225 0004 07000000 		.4byte	.LVL3-1
+ 1226 0008 0100     		.2byte	0x1
+ 1227 000a 50       		.byte	0x50
+ 1228 000b 07000000 		.4byte	.LVL3-1
+ 1229 000f 20000000 		.4byte	.LFE39
+ 1230 0013 0400     		.2byte	0x4
+ 1231 0015 F3       		.byte	0xf3
+ 1232 0016 01       		.uleb128 0x1
+ 1233 0017 50       		.byte	0x50
+ 1234 0018 9F       		.byte	0x9f
+ 1235 0019 00000000 		.4byte	0
+ 1236 001d 00000000 		.4byte	0
+ 1237              	.LLST1:
+ 1238 0021 08000000 		.4byte	.LVL3
+ 1239 0025 19000000 		.4byte	.LVL4-1
+ 1240 0029 0100     		.2byte	0x1
+ 1241 002b 50       		.byte	0x50
+ 1242 002c 00000000 		.4byte	0
+ 1243 0030 00000000 		.4byte	0
+ 1244              	.LLST2:
+ 1245 0034 04000000 		.4byte	.LVL6
+ 1246 0038 06000000 		.4byte	.LVL7
+ 1247 003c 0500     		.2byte	0x5
+ 1248 003e 70       		.byte	0x70
+ 1249 003f 00       		.sleb128 0
+ 1250 0040 4E       		.byte	0x4e
+ 1251 0041 25       		.byte	0x25
+ 1252 0042 9F       		.byte	0x9f
+ 1253 0043 06000000 		.4byte	.LVL7
+ 1254 0047 0C000000 		.4byte	.LFE40
+ 1255 004b 0100     		.2byte	0x1
+ 1256 004d 50       		.byte	0x50
+ 1257 004e 00000000 		.4byte	0
+ 1258 0052 00000000 		.4byte	0
+ 1259              	.LLST3:
+ 1260 0056 00000000 		.4byte	.LVL12
+ 1261 005a 07000000 		.4byte	.LVL13-1
+ 1262 005e 0100     		.2byte	0x1
+ 1263 0060 50       		.byte	0x50
+ 1264 0061 07000000 		.4byte	.LVL13-1
+ 1265 0065 18000000 		.4byte	.LVL17
+ 1266 0069 0100     		.2byte	0x1
+ 1267 006b 54       		.byte	0x54
+ 1268 006c 18000000 		.4byte	.LVL17
+ 1269 0070 1A000000 		.4byte	.LFE34
+ 1270 0074 0400     		.2byte	0x4
+ 1271 0076 F3       		.byte	0xf3
+ 1272 0077 01       		.uleb128 0x1
+ 1273 0078 50       		.byte	0x50
+ 1274 0079 9F       		.byte	0x9f
+ 1275 007a 00000000 		.4byte	0
+ 1276 007e 00000000 		.4byte	0
+ 1277              		.section	.debug_aranges,"",%progbits
+ 1278 0000 7C000000 		.4byte	0x7c
+ 1279 0004 0200     		.2byte	0x2
+ 1280 0006 00000000 		.4byte	.Ldebug_info0
+ 1281 000a 04       		.byte	0x4
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 31
+
+
+ 1282 000b 00       		.byte	0
+ 1283 000c 0000     		.2byte	0
+ 1284 000e 0000     		.2byte	0
+ 1285 0010 00000000 		.4byte	.LFB37
+ 1286 0014 0C000000 		.4byte	.LFE37-.LFB37
+ 1287 0018 00000000 		.4byte	.LFB38
+ 1288 001c 0C000000 		.4byte	.LFE38-.LFB38
+ 1289 0020 00000000 		.4byte	.LFB39
+ 1290 0024 20000000 		.4byte	.LFE39-.LFB39
+ 1291 0028 00000000 		.4byte	.LFB40
+ 1292 002c 0C000000 		.4byte	.LFE40-.LFB40
+ 1293 0030 00000000 		.4byte	.LFB41
+ 1294 0034 0C000000 		.4byte	.LFE41-.LFB41
+ 1295 0038 00000000 		.4byte	.LFB42
+ 1296 003c 14000000 		.4byte	.LFE42-.LFB42
+ 1297 0040 00000000 		.4byte	.LFB43
+ 1298 0044 0C000000 		.4byte	.LFE43-.LFB43
+ 1299 0048 00000000 		.4byte	.LFB33
+ 1300 004c 1C000000 		.4byte	.LFE33-.LFB33
+ 1301 0050 00000000 		.4byte	.LFB34
+ 1302 0054 1A000000 		.4byte	.LFE34-.LFB34
+ 1303 0058 00000000 		.4byte	.LFB35
+ 1304 005c 14000000 		.4byte	.LFE35-.LFB35
+ 1305 0060 00000000 		.4byte	.LFB44
+ 1306 0064 0C000000 		.4byte	.LFE44-.LFB44
+ 1307 0068 00000000 		.4byte	.LFB45
+ 1308 006c 0C000000 		.4byte	.LFE45-.LFB45
+ 1309 0070 00000000 		.4byte	.LFB36
+ 1310 0074 08000000 		.4byte	.LFE36-.LFB36
+ 1311 0078 00000000 		.4byte	0
+ 1312 007c 00000000 		.4byte	0
+ 1313              		.section	.debug_ranges,"",%progbits
+ 1314              	.Ldebug_ranges0:
+ 1315 0000 00000000 		.4byte	.LFB37
+ 1316 0004 0C000000 		.4byte	.LFE37
+ 1317 0008 00000000 		.4byte	.LFB38
+ 1318 000c 0C000000 		.4byte	.LFE38
+ 1319 0010 00000000 		.4byte	.LFB39
+ 1320 0014 20000000 		.4byte	.LFE39
+ 1321 0018 00000000 		.4byte	.LFB40
+ 1322 001c 0C000000 		.4byte	.LFE40
+ 1323 0020 00000000 		.4byte	.LFB41
+ 1324 0024 0C000000 		.4byte	.LFE41
+ 1325 0028 00000000 		.4byte	.LFB42
+ 1326 002c 14000000 		.4byte	.LFE42
+ 1327 0030 00000000 		.4byte	.LFB43
+ 1328 0034 0C000000 		.4byte	.LFE43
+ 1329 0038 00000000 		.4byte	.LFB33
+ 1330 003c 1C000000 		.4byte	.LFE33
+ 1331 0040 00000000 		.4byte	.LFB34
+ 1332 0044 1A000000 		.4byte	.LFE34
+ 1333 0048 00000000 		.4byte	.LFB35
+ 1334 004c 14000000 		.4byte	.LFE35
+ 1335 0050 00000000 		.4byte	.LFB44
+ 1336 0054 0C000000 		.4byte	.LFE44
+ 1337 0058 00000000 		.4byte	.LFB45
+ 1338 005c 0C000000 		.4byte	.LFE45
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 32
+
+
+ 1339 0060 00000000 		.4byte	.LFB36
+ 1340 0064 08000000 		.4byte	.LFE36
+ 1341 0068 00000000 		.4byte	0
+ 1342 006c 00000000 		.4byte	0
+ 1343              		.section	.debug_line,"",%progbits
+ 1344              	.Ldebug_line0:
+ 1345 0000 68010000 		.section	.debug_str,"MS",%progbits,1
+ 1345      02006700 
+ 1345      00000201 
+ 1345      FB0E0D00 
+ 1345      01010101 
+ 1346              	.LASF19:
+ 1347 0000 53746963 		.ascii	"StickButton_Interrupt_SetPriority\000"
+ 1347      6B427574 
+ 1347      746F6E5F 
+ 1347      496E7465 
+ 1347      72727570 
+ 1348              	.LASF27:
+ 1349 0022 53746963 		.ascii	"StickButton_Interrupt_Disable\000"
+ 1349      6B427574 
+ 1349      746F6E5F 
+ 1349      496E7465 
+ 1349      72727570 
+ 1350              	.LASF35:
+ 1351 0040 43795261 		.ascii	"CyRamVectors\000"
+ 1351      6D566563 
+ 1351      746F7273 
+ 1351      00
+ 1352              	.LASF32:
+ 1353 004d 53746963 		.ascii	"StickButton_Interrupt_ClearPending\000"
+ 1353      6B427574 
+ 1353      746F6E5F 
+ 1353      496E7465 
+ 1353      72727570 
+ 1354              	.LASF41:
+ 1355 0070 53746963 		.ascii	"StickButton_Interrupt_GetPriority\000"
+ 1355      6B427574 
+ 1355      746F6E5F 
+ 1355      496E7465 
+ 1355      72727570 
+ 1356              	.LASF30:
+ 1357 0092 53746963 		.ascii	"StickButton_Interrupt_Stop\000"
+ 1357      6B427574 
+ 1357      746F6E5F 
+ 1357      496E7465 
+ 1357      72727570 
+ 1358              	.LASF3:
+ 1359 00ad 73686F72 		.ascii	"short unsigned int\000"
+ 1359      7420756E 
+ 1359      7369676E 
+ 1359      65642069 
+ 1359      6E7400
+ 1360              	.LASF29:
+ 1361 00c0 53746963 		.ascii	"StickButton_Interrupt_StartEx\000"
+ 1361      6B427574 
+ 1361      746F6E5F 
+ 1361      496E7465 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 33
+
+
+ 1361      72727570 
+ 1362              	.LASF11:
+ 1363 00de 666C6F61 		.ascii	"float\000"
+ 1363      7400
+ 1364              	.LASF1:
+ 1365 00e4 756E7369 		.ascii	"unsigned char\000"
+ 1365      676E6564 
+ 1365      20636861 
+ 1365      7200
+ 1366              	.LASF24:
+ 1367 00f2 53746963 		.ascii	"StickButton_Interrupt_GetVector\000"
+ 1367      6B427574 
+ 1367      746F6E5F 
+ 1367      496E7465 
+ 1367      72727570 
+ 1368              	.LASF33:
+ 1369 0112 53746963 		.ascii	"StickButton_Interrupt_Interrupt\000"
+ 1369      6B427574 
+ 1369      746F6E5F 
+ 1369      496E7465 
+ 1369      72727570 
+ 1370              	.LASF22:
+ 1371 0132 696E7465 		.ascii	"interruptState\000"
+ 1371      72727570 
+ 1371      74537461 
+ 1371      746500
+ 1372              	.LASF5:
+ 1373 0141 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1373      20756E73 
+ 1373      69676E65 
+ 1373      6420696E 
+ 1373      7400
+ 1374              	.LASF31:
+ 1375 0153 53746963 		.ascii	"StickButton_Interrupt_SetPending\000"
+ 1375      6B427574 
+ 1375      746F6E5F 
+ 1375      496E7465 
+ 1375      72727570 
+ 1376              	.LASF21:
+ 1377 0174 7072696F 		.ascii	"priority\000"
+ 1377      72697479 
+ 1377      00
+ 1378              	.LASF14:
+ 1379 017d 72656733 		.ascii	"reg32\000"
+ 1379      3200
+ 1380              	.LASF2:
+ 1381 0183 73686F72 		.ascii	"short int\000"
+ 1381      7420696E 
+ 1381      7400
+ 1382              	.LASF10:
+ 1383 018d 75696E74 		.ascii	"uint32\000"
+ 1383      333200
+ 1384              	.LASF36:
+ 1385 0194 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1385      74657243 
+ 1385      72697469 
+ 1385      63616C53 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 34
+
+
+ 1385      65637469 
+ 1386              	.LASF8:
+ 1387 01ab 756E7369 		.ascii	"unsigned int\000"
+ 1387      676E6564 
+ 1387      20696E74 
+ 1387      00
+ 1388              	.LASF20:
+ 1389 01b8 61646472 		.ascii	"address\000"
+ 1389      65737300 
+ 1390              	.LASF7:
+ 1391 01c0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1391      206C6F6E 
+ 1391      6720756E 
+ 1391      7369676E 
+ 1391      65642069 
+ 1392              	.LASF15:
+ 1393 01d7 63796973 		.ascii	"cyisraddress\000"
+ 1393      72616464 
+ 1393      72657373 
+ 1393      00
+ 1394              	.LASF40:
+ 1395 01e4 443A5C47 		.ascii	"D:\\GIT\\Microcontroller System Design Projects\\Hw"
+ 1395      49545C4D 
+ 1395      6963726F 
+ 1395      636F6E74 
+ 1395      726F6C6C 
+ 1396 0214 34204265 		.ascii	"4 Beat Meter\\BeatMeter.cydsn\000"
+ 1396      6174204D 
+ 1396      65746572 
+ 1396      5C426561 
+ 1396      744D6574 
+ 1397              	.LASF38:
+ 1398 0231 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1398      43313120 
+ 1398      352E342E 
+ 1398      31203230 
+ 1398      31363036 
+ 1399 0264 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1399      20726576 
+ 1399      6973696F 
+ 1399      6E203233 
+ 1399      37373135 
+ 1400 0297 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1400      66756E63 
+ 1400      74696F6E 
+ 1400      2D736563 
+ 1400      74696F6E 
+ 1401              	.LASF17:
+ 1402 02bf 73697A65 		.ascii	"sizetype\000"
+ 1402      74797065 
+ 1402      00
+ 1403              	.LASF6:
+ 1404 02c8 6C6F6E67 		.ascii	"long long int\000"
+ 1404      206C6F6E 
+ 1404      6720696E 
+ 1404      7400
+ 1405              	.LASF34:
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 35
+
+
+ 1406 02d6 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 1406      5F464F4E 
+ 1406      54387831 
+ 1406      3600
+ 1407              	.LASF13:
+ 1408 02e4 63686172 		.ascii	"char\000"
+ 1408      00
+ 1409              	.LASF39:
+ 1410 02e9 47656E65 		.ascii	"Generated_Source\\PSoC4\\StickButton_Interrupt.c\000"
+ 1410      72617465 
+ 1410      645F536F 
+ 1410      75726365 
+ 1410      5C50536F 
+ 1411              	.LASF26:
+ 1412 0318 53746963 		.ascii	"StickButton_Interrupt_Enable\000"
+ 1412      6B427574 
+ 1412      746F6E5F 
+ 1412      496E7465 
+ 1412      72727570 
+ 1413              	.LASF9:
+ 1414 0335 75696E74 		.ascii	"uint8\000"
+ 1414      3800
+ 1415              	.LASF37:
+ 1416 033b 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1416      69744372 
+ 1416      69746963 
+ 1416      616C5365 
+ 1416      6374696F 
+ 1417              	.LASF23:
+ 1418 0351 7072696F 		.ascii	"priorityOffset\000"
+ 1418      72697479 
+ 1418      4F666673 
+ 1418      657400
+ 1419              	.LASF4:
+ 1420 0360 6C6F6E67 		.ascii	"long int\000"
+ 1420      20696E74 
+ 1420      00
+ 1421              	.LASF28:
+ 1422 0369 53746963 		.ascii	"StickButton_Interrupt_Start\000"
+ 1422      6B427574 
+ 1422      746F6E5F 
+ 1422      496E7465 
+ 1422      72727570 
+ 1423              	.LASF16:
+ 1424 0385 6C6F6E67 		.ascii	"long double\000"
+ 1424      20646F75 
+ 1424      626C6500 
+ 1425              	.LASF0:
+ 1426 0391 7369676E 		.ascii	"signed char\000"
+ 1426      65642063 
+ 1426      68617200 
+ 1427              	.LASF12:
+ 1428 039d 646F7562 		.ascii	"double\000"
+ 1428      6C6500
+ 1429              	.LASF18:
+ 1430 03a4 53746963 		.ascii	"StickButton_Interrupt_SetVector\000"
+ 1430      6B427574 
+ARM GAS  C:\Users\quint\AppData\Local\Temp\ccgrFT9V.s 			page 36
+
+
+ 1430      746F6E5F 
+ 1430      496E7465 
+ 1430      72727570 
+ 1431              	.LASF25:
+ 1432 03c4 53746963 		.ascii	"StickButton_Interrupt_GetState\000"
+ 1432      6B427574 
+ 1432      746F6E5F 
+ 1432      496E7465 
+ 1432      72727570 
+ 1433              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
