@@ -18,224 +18,209 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MiniScope-000\MiniScope\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MiniScope-000\MotorControll\TopDesign">
 <ExpandedNodeIds>
 <v>MiniScope-000</v>
-<v>MiniScope-000\MiniScope</v>
-<v>MiniScope-000\MiniScope\TopDesign</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Pins</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Analog</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Clocks</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Interrupts</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\System</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Directives</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Flash Security</v>
-<v>MiniScope-000\MiniScope\Header Files</v>
-<v>MiniScope-000\MiniScope\Header Files\cyapicallbacks.h</v>
-<v>MiniScope-000\MiniScope\Source Files</v>
-<v>MiniScope-000\MiniScope\Source Files\main.c</v>
-<v>MiniScope-000\MiniScope\Generated_Source</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\A_Interrupt</v>
+<v>MiniScope-000\MotorControll</v>
+<v>MiniScope-000\MotorControll\TopDesign</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Pins</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Analog</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Clocks</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Interrupts</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\System</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Directives</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Flash Security</v>
+<v>MiniScope-000\MotorControll\Header Files</v>
+<v>MiniScope-000\MotorControll\Header Files\cyapicallbacks.h</v>
+<v>MiniScope-000\MotorControll\Source Files</v>
+<v>MiniScope-000\MotorControll\Source Files\main.c</v>
+<v>MiniScope-000\MotorControll\Generated_Source</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\A_Interrupt</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\CapSense_1_ISR</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>MiniScope-000</v>
-<v>MiniScope-000\MiniScope</v>
-<v>MiniScope-000\MiniScope\TopDesign</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Pins</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Analog</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Clocks</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Interrupts</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\System</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Directives</v>
-<v>MiniScope-000\MiniScope\MiniScope.cydwr\Flash Security</v>
-<v>MiniScope-000\MiniScope\Header Files</v>
-<v>MiniScope-000\MiniScope\Header Files\cyapicallbacks.h</v>
-<v>MiniScope-000\MiniScope\Source Files</v>
-<v>MiniScope-000\MiniScope\Source Files\main.c</v>
-<v>MiniScope-000\MiniScope\Generated_Source</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\A_Interrupt</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\A_Interrupt\A_Interrupt.c</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\A_Interrupt\A_Interrupt.h</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\ADCInput</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\ADCInput_intClock</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\ADCInput_IRQ</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\B_LED</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\Backlight</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\Clock_1</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cy_boot</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cy_lfclk</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\G_LED</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\GLCD</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\GLCD_MOSI</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\GLCD_Reset</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\GLCD_SCLK</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\GLCD_SPIM_UDB</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\GLCD_SPIM_UDB_IntClock</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\GLCD_SS</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\JoyX</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\JoyY</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\R_LED</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\Timer_1</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cycodeshareexport.ld</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cycodeshareimport.ld</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cycodeshareimport.scat</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cydevice_trm.h</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cydisabledsheets.h</v>
-<v>MiniScope-000\MiniScope\Generated_Source\PSoC4\cyfitter.h</v>
+<v>MiniScope-000\MotorControll</v>
+<v>MiniScope-000\MotorControll\TopDesign</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Pins</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Analog</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Clocks</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Interrupts</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\System</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Directives</v>
+<v>MiniScope-000\MotorControll\MotorControll.cydwr\Flash Security</v>
+<v>MiniScope-000\MotorControll\Header Files</v>
+<v>MiniScope-000\MotorControll\Header Files\cyapicallbacks.h</v>
+<v>MiniScope-000\MotorControll\Source Files</v>
+<v>MiniScope-000\MotorControll\Source Files\main.c</v>
+<v>MiniScope-000\MotorControll\Generated_Source</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\A_Interrupt</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\A_Interrupt\A_Interrupt.c</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\A_Interrupt\A_Interrupt.h</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\ADCInput</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\ADCInput_intClock</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\ADCInput_IRQ</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\B_LED</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\Backlight</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\CapSense_1</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\CapSense_1_ISR</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\CapSense_1_ISR\CapSense_1_ISR.c</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\CapSense_1_ISR\CapSense_1_ISR.h</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\Clock_1</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cy_boot</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cy_lfclk</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\G_LED</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\JoyX</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\JoyY</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\R_LED</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\Timer_1</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cyfitter.h</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>MiniScope-000\MotorControll\Generated_Source\PSoC4\cyfittergnu.inc</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MiniScope-000">
 <ExpandedNodeIds>
 <v>MiniScope-000</v>
-<v>MiniScope-000\MiniScope</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\API</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\API\GLCD.c</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\API\GLCD.h</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\PSoC4</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\PSoC5</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
-<v>MiniScope-000\MiniScope\TopDesign</v>
-<v>MiniScope-000\MiniScope\TopDesign\TopDesign.cysch</v>
+<v>MiniScope-000\MotorControll</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\API</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\PSoC4</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\PSoC5</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>MiniScope-000\MotorControll\TopDesign</v>
+<v>MiniScope-000\MotorControll\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>MiniScope-000</v>
-<v>MiniScope-000\MiniScope</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\API</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\API\GLCD.c</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\API\GLCD.h</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\PSoC4</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\PSoC5</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
-<v>MiniScope-000\MiniScope\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
-<v>MiniScope-000\MiniScope\TopDesign</v>
-<v>MiniScope-000\MiniScope\TopDesign\TopDesign.cysch</v>
+<v>MiniScope-000\MotorControll</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\API</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\PSoC4</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\PSoC5</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>MiniScope-000\MotorControll\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>MiniScope-000\MotorControll\TopDesign</v>
+<v>MiniScope-000\MotorControll\TopDesign\TopDesign.cysch</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MiniScope-000">
 <ExpandedNodeIds>
 <v>MiniScope-000</v>
-<v>MiniScope-000\MiniScope</v>
-<v>MiniScope-000\MiniScope\CortexM0</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Interrupt.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_INT.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_intClock.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_IRQ.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\MiniScope.elf</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\MiniScope.hex</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\MiniScope.map</v>
-<v>MiniScope-000\MiniScope\MiniScope.gpdsc</v>
-<v>MiniScope-000\MiniScope\MiniScope.rpt</v>
-<v>MiniScope-000\MiniScope\MiniScope_timing.html</v>
+<v>MiniScope-000\MotorControll</v>
+<v>MiniScope-000\MotorControll\CortexM0</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Interrupt.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_INT.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_intClock.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_IRQ.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.elf</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.hex</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.map</v>
+<v>MiniScope-000\MotorControll\MotorControll.gpdsc</v>
+<v>MiniScope-000\MotorControll\MotorControll.rpt</v>
+<v>MiniScope-000\MotorControll\MotorControll_timing.html</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>MiniScope-000</v>
-<v>MiniScope-000\MiniScope</v>
-<v>MiniScope-000\MiniScope\CortexM0</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Interrupt.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_INT.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_intClock.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_IRQ.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\MiniScope.elf</v>
-<v>MiniScope-000\MiniScope\CortexM0\ARM_GCC_541\Debug\MiniScope.hex</v>
+<v>MiniScope-000\MotorControll</v>
+<v>MiniScope-000\MotorControll\CortexM0</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Interrupt.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_INT.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_intClock.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_IRQ.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\ADCInput_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyX_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\JoyY_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.elf</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.hex</v>
+<v>MiniScope-000\MotorControll\CortexM0\ARM_GCC_541\Debug\MotorControll.map</v>
+<v>MiniScope-000\MotorControll\MotorControll.gpdsc</v>
+<v>MiniScope-000\MotorControll\MotorControll.rpt</v>
+<v>MiniScope-000\MotorControll\MotorControll_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -243,38 +228,38 @@
 <v>Datasheet</v>
 </TreeKeysV2>
 <TreeStatesV2>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MiniScope-000">
 <ExpandedNodeIds>
 <v>MiniScope-000</v>
-<v>MiniScope-000\MiniScope</v>
-<v>MiniScope-000\MiniScope\PSoC 4 Architecture TRM</v>
-<v>MiniScope-000\MiniScope\PSoC 4200 Family Datasheet</v>
-<v>MiniScope-000\MiniScope\System Reference Guides</v>
-<v>MiniScope-000\MiniScope\System Reference Guides\cy_boot_v5_80</v>
-<v>MiniScope-000\MiniScope\System Reference Guides\cy_lfclk_v1_20</v>
-<v>MiniScope-000\MiniScope\ADC_SAR_SEQ_P4_v2_50.pdf</v>
-<v>MiniScope-000\MiniScope\cy_clock_v2_20.pdf</v>
-<v>MiniScope-000\MiniScope\cy_isr_v1_70.pdf</v>
-<v>MiniScope-000\MiniScope\cy_pins_v2_20</v>
-<v>MiniScope-000\MiniScope\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>MiniScope-000\MiniScope\ColorLcdShield.pdf</v>
-<v>MiniScope-000\MiniScope\TCPWM_P4_v2_10.pdf</v>
+<v>MiniScope-000\MotorControll</v>
+<v>MiniScope-000\MotorControll\PSoC 4 Architecture TRM</v>
+<v>MiniScope-000\MotorControll\PSoC 4200 Family Datasheet</v>
+<v>MiniScope-000\MotorControll\System Reference Guides</v>
+<v>MiniScope-000\MotorControll\System Reference Guides\cy_boot_v5_80</v>
+<v>MiniScope-000\MotorControll\System Reference Guides\cy_lfclk_v1_20</v>
+<v>MiniScope-000\MotorControll\ADC_SAR_SEQ_P4_v2_50.pdf</v>
+<v>MiniScope-000\MotorControll\CapSense_P4_v5_0.pdf</v>
+<v>MiniScope-000\MotorControll\cy_clock_v2_20.pdf</v>
+<v>MiniScope-000\MotorControll\cy_isr_v1_70.pdf</v>
+<v>MiniScope-000\MotorControll\cy_pins_v2_20</v>
+<v>MiniScope-000\MotorControll\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>MiniScope-000\MotorControll\TCPWM_P4_v2_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>MiniScope-000</v>
-<v>MiniScope-000\MiniScope</v>
-<v>MiniScope-000\MiniScope\PSoC 4 Architecture TRM</v>
-<v>MiniScope-000\MiniScope\PSoC 4200 Family Datasheet</v>
-<v>MiniScope-000\MiniScope\System Reference Guides</v>
-<v>MiniScope-000\MiniScope\System Reference Guides\cy_boot_v5_80</v>
-<v>MiniScope-000\MiniScope\System Reference Guides\cy_lfclk_v1_20</v>
-<v>MiniScope-000\MiniScope\ADC_SAR_SEQ_P4_v2_50.pdf</v>
-<v>MiniScope-000\MiniScope\cy_clock_v2_20.pdf</v>
-<v>MiniScope-000\MiniScope\cy_isr_v1_70.pdf</v>
-<v>MiniScope-000\MiniScope\cy_pins_v2_20</v>
-<v>MiniScope-000\MiniScope\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>MiniScope-000\MiniScope\ColorLcdShield.pdf</v>
-<v>MiniScope-000\MiniScope\TCPWM_P4_v2_10.pdf</v>
+<v>MiniScope-000\MotorControll</v>
+<v>MiniScope-000\MotorControll\PSoC 4 Architecture TRM</v>
+<v>MiniScope-000\MotorControll\PSoC 4200 Family Datasheet</v>
+<v>MiniScope-000\MotorControll\System Reference Guides</v>
+<v>MiniScope-000\MotorControll\System Reference Guides\cy_boot_v5_80</v>
+<v>MiniScope-000\MotorControll\System Reference Guides\cy_lfclk_v1_20</v>
+<v>MiniScope-000\MotorControll\ADC_SAR_SEQ_P4_v2_50.pdf</v>
+<v>MiniScope-000\MotorControll\CapSense_P4_v5_0.pdf</v>
+<v>MiniScope-000\MotorControll\cy_clock_v2_20.pdf</v>
+<v>MiniScope-000\MotorControll\cy_isr_v1_70.pdf</v>
+<v>MiniScope-000\MotorControll\cy_pins_v2_20</v>
+<v>MiniScope-000\MotorControll\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>MiniScope-000\MotorControll\TCPWM_P4_v2_10.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -284,10 +269,11 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\main.c" />
-<name v=".\Generated_Source\PSoC4\A_Interrupt.c" />
-<name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\cyapicallbacks.h" />
+<name v="..\..\HW6- MotorControll\MotorControll.cydsn\main.c" />
+<name v="..\..\HW6- MotorControll\MotorControll.cydsn\cyapicallbacks.h" />
+<name v="..\..\HW6- MotorControll\MotorControll.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\..\HW6- MotorControll\MotorControll.cydsn\MotorControll.cydwr" />
+<name v="..\..\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\A_Interrupt.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -295,7 +281,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1315, 751" SelectedTabbedMdiWindow="8ea6a3f0-9fc5-42f4-b999-2b7d9b418921"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\main.c" Guid="8ea6a3f0-9fc5-42f4-b999-2b7d9b418921" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\Generated_Source\PSoC4\A_Interrupt.c" Guid="3165a974-9ebf-4aea-8f2c-3a5f646f1aac" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\TopDesign\TopDesign.cysch" Guid="b8aed384-049f-4bb3-a1c0-1b1fcf0e6c48" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\cyapicallbacks.h" Guid="d4f5f411-65bb-4b98-aae2-42589b233aef" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1315, 751" SelectedTabbedMdiWindow="7d54ab4f-9b41-459f-a99b-747b48f8ae5c"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\main.c" Guid="e7acc26d-de80-4576-bd1d-7c234abddd45" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\cyapicallbacks.h" Guid="5eae44be-2db8-49a4-bae3-39dd14c063be" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\TopDesign\TopDesign.cysch" Guid="7d54ab4f-9b41-459f-a99b-747b48f8ae5c" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\MotorControll.cydwr" Guid="402b7b3b-5fd1-4d2a-8f9f-107c959d5b87" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\A_Interrupt.c" Guid="8af1171e-8501-4528-934a-78ba7e96f440" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -1,4 +1,4 @@
---------------- Rebuild Started: 04/23/2019 21:04:28 Project: BeatMeter, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Rebuild Started: 05/08/2019 13:27:24 Project: MiniScope, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\main.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\cymetadata.o"
@@ -6,21 +6,7 @@ Deleting file ".\CortexM0\ARM_GCC_541\Debug\GLCD.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\GLCD_Font.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\Backlight.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\Backlight_PM.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\A_Button.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\A_Button_PM.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\A_Interrupt.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\B_Button.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\B_Button_PM.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\B_Interrupt.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\C_Button.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\C_Button_PM.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\C_Interrupt.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\D_Button.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\D_Button_PM.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\D_Interrupt.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\StickButton.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\StickButton_PM.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\StickButton_Interrupt.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\GLCD_Reset.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_PM.o"
@@ -46,18 +32,25 @@ Deleting file ".\CortexM0\ARM_GCC_541\Debug\B_LED_PM.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\Timer_1.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\Timer_1_PM.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\Clock_1.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\PWM_1.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\PWM_1_PM.o"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\BeatMeter.hex"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\BeatMeter.elf"
-Deleting file ".\CortexM0\ARM_GCC_541\Debug\BeatMeter.map"
-Deleting file ".\BeatMeter.cycdx"
-Deleting file ".\BeatMeter.svd"
-Deleting file ".\BeatMeter.rpt"
-Deleting file ".\BeatMeter_timing.html"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\JoyX.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\JoyX_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\JoyY.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\JoyY_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\ADCInput.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\ADCInput_PM.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\ADCInput_INT.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\ADCInput_IRQ.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\ADCInput_intClock.o"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\MiniScope.hex"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\MiniScope.elf"
+Deleting file ".\CortexM0\ARM_GCC_541\Debug\MiniScope.map"
+Deleting file ".\MiniScope.cycdx"
+Deleting file ".\MiniScope.svd"
+Deleting file ".\MiniScope.rpt"
+Deleting file ".\MiniScope_timing.html"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.P"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\.deps\SOURCE_ASM__ARM_GCC_GENERIC.P"
-cydsfit.exe -.appdatapath "C:\Users\quint\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\BeatMeter.cyprj" -d CY8C4245AXI-483 -s "D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+cydsfit.exe -.appdatapath "C:\Users\quint\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\MiniScope.cyprj" -d CY8C4245AXI-483 -s "D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 HDL Generation...
 Synthesis...
@@ -74,35 +67,13 @@ API Generation...
 Dependency Generation...
 Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
-main.c: In function 'main':
-main.c:47:6: warning: implicit declaration of function 'C_Interrupt_ClearPending' [-Wimplicit-function-declaration]
-      C_Interrupt_ClearPending();
-      ^
-main.c:48:6: warning: implicit declaration of function 'C_Interrupt_Start' [-Wimplicit-function-declaration]
-      C_Interrupt_Start();
-      ^
-main.c:49:6: warning: implicit declaration of function 'D_Interrupt_ClearPending' [-Wimplicit-function-declaration]
-      D_Interrupt_ClearPending();
-      ^
-main.c:50:6: warning: implicit declaration of function 'D_Interrupt_Start' [-Wimplicit-function-declaration]
-      D_Interrupt_Start();
-      ^
-main.c:51:6: warning: implicit declaration of function 'StickButton_Interrupt_ClearPending' [-Wimplicit-function-declaration]
-      StickButton_Interrupt_ClearPending();
-      ^
-main.c:52:6: warning: implicit declaration of function 'StickButton_Interrupt_Start' [-Wimplicit-function-declaration]
-      StickButton_Interrupt_Start();
-      ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cymetadata.c -o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/GLCD.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\GLCD.c -o .\CortexM0\ARM_GCC_541\Debug\GLCD.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/GLCD_Font.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\GLCD_Font.c -o .\CortexM0\ARM_GCC_541\Debug\GLCD_Font.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Backlight.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Backlight.c -o .\CortexM0\ARM_GCC_541\Debug\Backlight.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Backlight_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Backlight_PM.c -o .\CortexM0\ARM_GCC_541\Debug\Backlight_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/A_Button.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\A_Button.c -o .\CortexM0\ARM_GCC_541\Debug\A_Button.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/A_Button_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\A_Button_PM.c -o .\CortexM0\ARM_GCC_541\Debug\A_Button_PM.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/A_Interrupt.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\A_Interrupt.c -o .\CortexM0\ARM_GCC_541\Debug\A_Interrupt.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/B_Interrupt.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\B_Interrupt.c -o .\CortexM0\ARM_GCC_541\Debug\B_Interrupt.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/GLCD_Reset.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\GLCD_Reset.c -o .\CortexM0\ARM_GCC_541\Debug\GLCD_Reset.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/GLCD_SPIM_UDB.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\GLCD_SPIM_UDB.c -o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/GLCD_SPIM_UDB_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\GLCD_SPIM_UDB_PM.c -o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_PM.o
@@ -127,19 +98,24 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Timer_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Timer_1.c -o .\CortexM0\ARM_GCC_541\Debug\Timer_1.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Timer_1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Timer_1_PM.c -o .\CortexM0\ARM_GCC_541\Debug\Timer_1_PM.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Clock_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Clock_1.c -o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PWM_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\PWM_1.c -o .\CortexM0\ARM_GCC_541\Debug\PWM_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PWM_1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\PWM_1_PM.c -o .\CortexM0\ARM_GCC_541\Debug\PWM_1_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/JoyX.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\JoyX.c -o .\CortexM0\ARM_GCC_541\Debug\JoyX.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/JoyX_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\JoyX_PM.c -o .\CortexM0\ARM_GCC_541\Debug\JoyX_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/JoyY.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\JoyY.c -o .\CortexM0\ARM_GCC_541\Debug\JoyY.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/JoyY_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\JoyY_PM.c -o .\CortexM0\ARM_GCC_541\Debug\JoyY_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ADCInput.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\ADCInput.c -o .\CortexM0\ARM_GCC_541\Debug\ADCInput.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ADCInput_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\ADCInput_PM.c -o .\CortexM0\ARM_GCC_541\Debug\ADCInput_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ADCInput_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\ADCInput_INT.c -o .\CortexM0\ARM_GCC_541\Debug\ADCInput_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ADCInput_IRQ.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\ADCInput_IRQ.c -o .\CortexM0\ARM_GCC_541\Debug\ADCInput_IRQ.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/ADCInput_intClock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\ADCInput_intClock.c -o .\CortexM0\ARM_GCC_541\Debug\ADCInput_intClock.o
 arm-none-eabi-as.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=.\CortexM0\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC4\CyBootAsmGnu.s
-arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\BeatMeter.a .\CortexM0\ARM_GCC_541\Debug\GLCD.o .\CortexM0\ARM_GCC_541\Debug\GLCD_Font.o .\CortexM0\ARM_GCC_541\Debug\Backlight.o .\CortexM0\ARM_GCC_541\Debug\Backlight_PM.o .\CortexM0\ARM_GCC_541\Debug\A_Button.o .\CortexM0\ARM_GCC_541\Debug\A_Button_PM.o .\CortexM0\ARM_GCC_541\Debug\A_Interrupt.o .\CortexM0\ARM_GCC_541\Debug\B_Interrupt.o .\CortexM0\ARM_GCC_541\Debug\GLCD_Reset.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_PM.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_INT.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SCLK.o .\CortexM0\ARM_GCC_541\Debug\GLCD_MOSI.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SS.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_IntClock.o .\CortexM0\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\R_LED.o .\CortexM0\ARM_GCC_541\Debug\R_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\G_LED.o .\CortexM0\ARM_GCC_541\Debug\G_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\B_LED.o .\CortexM0\ARM_GCC_541\Debug\B_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\Timer_1.o .\CortexM0\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o .\CortexM0\ARM_GCC_541\Debug\PWM_1.o .\CortexM0\ARM_GCC_541\Debug\PWM_1_PM.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
-arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\BeatMeter.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o "D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn\CortexM0\ARM_GCC_541\Debug\BeatMeter.elf" .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\BeatMeter.a -mcpu=cortex-m0 -mthumb -l m -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/BeatMeter.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
-.\CortexM0\ARM_GCC_541\Debug\main.o: In function `main':
-D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn/main.c:47: undefined reference to `C_Interrupt_ClearPending'
-D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn/main.c:48: undefined reference to `C_Interrupt_Start'
-D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn/main.c:49: undefined reference to `D_Interrupt_ClearPending'
-D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn/main.c:50: undefined reference to `D_Interrupt_Start'
-D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn/main.c:51: undefined reference to `StickButton_Interrupt_ClearPending'
-D:\GIT\Microcontroller System Design Projects\Hw4 Beat Meter\BeatMeter.cydsn/main.c:52: undefined reference to `StickButton_Interrupt_Start'
-collect2.exe: error: ld returned 1 exit status
-The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
---------------- Rebuild Failed: 04/23/2019 21:04:44 ---------------
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\MiniScope.a .\CortexM0\ARM_GCC_541\Debug\GLCD.o .\CortexM0\ARM_GCC_541\Debug\GLCD_Font.o .\CortexM0\ARM_GCC_541\Debug\Backlight.o .\CortexM0\ARM_GCC_541\Debug\Backlight_PM.o .\CortexM0\ARM_GCC_541\Debug\A_Interrupt.o .\CortexM0\ARM_GCC_541\Debug\GLCD_Reset.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_PM.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_INT.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SCLK.o .\CortexM0\ARM_GCC_541\Debug\GLCD_MOSI.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SS.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_IntClock.o .\CortexM0\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\R_LED.o .\CortexM0\ARM_GCC_541\Debug\R_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\G_LED.o .\CortexM0\ARM_GCC_541\Debug\G_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\B_LED.o .\CortexM0\ARM_GCC_541\Debug\B_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\Timer_1.o .\CortexM0\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o .\CortexM0\ARM_GCC_541\Debug\JoyX.o .\CortexM0\ARM_GCC_541\Debug\JoyX_PM.o .\CortexM0\ARM_GCC_541\Debug\JoyY.o .\CortexM0\ARM_GCC_541\Debug\JoyY_PM.o .\CortexM0\ARM_GCC_541\Debug\ADCInput.o .\CortexM0\ARM_GCC_541\Debug\ADCInput_PM.o .\CortexM0\ARM_GCC_541\Debug\ADCInput_INT.o .\CortexM0\ARM_GCC_541\Debug\ADCInput_IRQ.o .\CortexM0\ARM_GCC_541\Debug\ADCInput_intClock.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\MiniScope.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\CortexM0\ARM_GCC_541\Debug\MiniScope.elf" .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\MiniScope.a -mcpu=cortex-m0 -mthumb -l m -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/MiniScope.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\CortexM0\ARM_GCC_541\Debug\MiniScope.elf" --flash_row_size 128 --flash_size 32768 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S "D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\CortexM0\ARM_GCC_541\Debug\MiniScope.elf"
+Flash used: 12902 of 32768 bytes (39.4%).
+SRAM used: 1576 of 4096 bytes (38.5%). Stack: 1024 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 05/08/2019 13:27:49 ---------------

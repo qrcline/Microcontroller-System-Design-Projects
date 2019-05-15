@@ -1,6 +1,16 @@
---------------- Build Started: 05/06/2019 17:02:46 Project: MiniScope, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 05/08/2019 13:40:47 Project: MiniScope, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
+main.c: In function 'main':
+main.c:22:15: warning: unused variable 'freqMax' [-Wunused-variable]
+     const int freqMax=300; 
+               ^
+main.c:21:15: warning: unused variable 'freqMin' [-Wunused-variable]
+     const int freqMin=50;
+               ^
+main.c:20:9: warning: unused variable 'freqPeriod' [-Wunused-variable]
+     int freqPeriod=50;
+         ^
 arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_541\Debug\MiniScope.a .\CortexM0\ARM_GCC_541\Debug\GLCD.o .\CortexM0\ARM_GCC_541\Debug\GLCD_Font.o .\CortexM0\ARM_GCC_541\Debug\Backlight.o .\CortexM0\ARM_GCC_541\Debug\Backlight_PM.o .\CortexM0\ARM_GCC_541\Debug\A_Interrupt.o .\CortexM0\ARM_GCC_541\Debug\GLCD_Reset.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_PM.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_INT.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SCLK.o .\CortexM0\ARM_GCC_541\Debug\GLCD_MOSI.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SS.o .\CortexM0\ARM_GCC_541\Debug\GLCD_SPIM_UDB_IntClock.o .\CortexM0\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0\ARM_GCC_541\Debug\CyFlash.o .\CortexM0\ARM_GCC_541\Debug\CyLib.o .\CortexM0\ARM_GCC_541\Debug\cyPm.o .\CortexM0\ARM_GCC_541\Debug\cyutils.o .\CortexM0\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0\ARM_GCC_541\Debug\R_LED.o .\CortexM0\ARM_GCC_541\Debug\R_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\G_LED.o .\CortexM0\ARM_GCC_541\Debug\G_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\B_LED.o .\CortexM0\ARM_GCC_541\Debug\B_LED_PM.o .\CortexM0\ARM_GCC_541\Debug\Timer_1.o .\CortexM0\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM0\ARM_GCC_541\Debug\Clock_1.o .\CortexM0\ARM_GCC_541\Debug\JoyX.o .\CortexM0\ARM_GCC_541\Debug\JoyX_PM.o .\CortexM0\ARM_GCC_541\Debug\JoyY.o .\CortexM0\ARM_GCC_541\Debug\JoyY_PM.o .\CortexM0\ARM_GCC_541\Debug\ADCInput.o .\CortexM0\ARM_GCC_541\Debug\ADCInput_PM.o .\CortexM0\ARM_GCC_541\Debug\ADCInput_INT.o .\CortexM0\ARM_GCC_541\Debug\ADCInput_IRQ.o .\CortexM0\ARM_GCC_541\Debug\ADCInput_intClock.o .\CortexM0\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_541\Debug\MiniScope.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o "D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\CortexM0\ARM_GCC_541\Debug\MiniScope.elf" .\CortexM0\ARM_GCC_541\Debug\main.o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_541\Debug\cymetadata.o .\CortexM0\ARM_GCC_541\Debug\Cm0Start.o .\CortexM0\ARM_GCC_541\Debug\MiniScope.a -mcpu=cortex-m0 -mthumb -l m -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_541\Debug/MiniScope.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
@@ -9,6 +19,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "D:\GIT\Microcontroller System Design Projects\HW5-MiniScope\MiniScope.cydsn\CortexM0\ARM_GCC_541\Debug\MiniScope.elf"
-Flash used: 9454 of 32768 bytes (28.9%).
-SRAM used: 1584 of 4096 bytes (38.7%). Stack: 1024 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/06/2019 17:02:47 ---------------
+Flash used: 12894 of 32768 bytes (39.3%).
+SRAM used: 1576 of 4096 bytes (38.5%). Stack: 1024 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 05/08/2019 13:40:48 ---------------

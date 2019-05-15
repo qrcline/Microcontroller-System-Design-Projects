@@ -2,7 +2,7 @@
 --	Conversion of MiniScope.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon May 06 14:56:12 2019
+--	Wed May 08 13:33:14 2019
 --
 
 USE cypress.cypress.all;
@@ -1720,7 +1720,7 @@ Clock_1:cy_clock_v1_0
 		id=>"1245a697-ce1e-457d-bf36-d96c07288ef1",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"1000000000000",
+		period=>"100000000000",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>Net_122,

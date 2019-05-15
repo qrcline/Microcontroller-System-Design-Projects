@@ -29,13 +29,8 @@
 /* `#START A_Interrupt_intc` */
     
 #include "project.h"
-#include <stdio.h>
-#define PUSHED 0
+
 extern int xPos; 
-extern int yPos; 
-
-
-extern char mystring[20];
 
 /* `#END` */
 
@@ -173,33 +168,17 @@ CY_ISR(A_Interrupt_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START A_Interrupt_Interrupt` */
-    CyGlobalIntDisable;
-            //Sample ADCInput channel 1 for Y
-            char mystring[20];
-            if(xPos==131)
-            {
-             
-                GLCD_Clear(GLCD_BLACK);
-            
-                xPos=0; 
-            }
+
+    
+           
             if(ADCInput_IsEndConversion(ADCInput_RETURN_STATUS))
             {
-             yPos= ADCInput_GetResult16(1);
-             yPos=((yPos*-90)/2047)+100; 
-            GLCD_Pixel(yPos,xPos,GLCD_BLUE);
-            xPos++; 
+            GLCD_Pixel(((ADCInput_GetResult16(1)*-0.044)+100),xPos++,GLCD_BLUE);    //Print the pixel to the screen
+           // xPos++;                             //Increment the xposition
             }
-            //sprintf(mystring," ",xPos); 
-           //GLCD_PrintString(mystring,65 , 65, GLCD_WHITE, GLCD_BLUE);
-           
-            
-
-       
             Timer_1_ClearInterrupt(Timer_1_INTR_MASK_TC);
-            A_Interrupt_ClearPending(); //Needed to make other interrupts work
-            Timer_1_WriteCounter(0);
-            CyGlobalIntEnable; 
+            //A_Interrupt_ClearPending(); //Needed to make other interrupts work
+
    
 
     /* `#END` */
