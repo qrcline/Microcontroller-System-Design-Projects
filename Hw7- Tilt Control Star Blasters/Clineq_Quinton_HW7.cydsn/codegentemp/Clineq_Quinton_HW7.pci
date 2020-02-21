@@ -1,0 +1,19 @@
+# Clineq_Quinton_HW7
+# 2019-05-22 05:07:49Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "\GLCD:Reset(0)\" iocell 3 1
+set_io "\GLCD:SCLK(0)\" iocell 3 6
+set_io "\GLCD:MOSI(0)\" iocell 3 4
+set_io "\GLCD:SS(0)\" iocell 0 6
+set_io "Backlight(0)" iocell 3 0
+set_io "R_LED(0)" iocell 1 6
+set_io "G_LED(0)" iocell 0 2
+set_io "B_LED(0)" iocell 0 3
+set_io "\I2C:sda(0)\" iocell 4 1
+set_io "\I2C:scl(0)\" iocell 4 0
+set_io "Tap_Input(0)" iocell 1 0

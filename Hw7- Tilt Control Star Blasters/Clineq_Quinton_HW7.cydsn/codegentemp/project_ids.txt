@@ -1,0 +1,6 @@
+D:\GIT\Microcontroller System Design Projects\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\Clineq_Quinton_HW7.cyprj|943c8412-f04d-4d1f-9738-0a1c9d8d0521
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|fe7c6a26-4264-45dc-a216-7b6a6c9289e6
+C:\Users\quint\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|564cac0e-da32-4197-93f3-edb15d45e9b9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|5b4b2aea-509b-4bff-b369-2103bebfaae1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|5b480228-0534-4451-a2c9-efcbc11c256d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|08663c8e-3621-4407-a10f-4e19e1911ad5

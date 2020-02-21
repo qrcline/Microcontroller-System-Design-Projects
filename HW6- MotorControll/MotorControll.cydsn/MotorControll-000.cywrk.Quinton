@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MotorControll-000\MotorControll\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="MotorControll-000\MotorControll\TopDesign">
 <ExpandedNodeIds>
 <v>MotorControll-000</v>
 <v>MotorControll-000\MotorControll</v>
@@ -42,6 +42,11 @@
 <v>MotorControll-000\MotorControll\Generated_Source\PSoC4\StepperInterrupt</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>MotorControll-000</v>
+<v>MotorControll-000\MotorControll</v>
+<v>MotorControll-000\MotorControll\TopDesign</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr</v>
+<v>MotorControll-000\MotorControll\MotorControll.cydwr\Pins</v>
 <v>MotorControll-000\MotorControll\MotorControll.cydwr\Analog</v>
 <v>MotorControll-000\MotorControll\MotorControll.cydwr\Clocks</v>
 <v>MotorControll-000\MotorControll\MotorControll.cydwr\Interrupts</v>
@@ -87,12 +92,6 @@
 <v>MotorControll-000\MotorControll\Generated_Source\PSoC4\DirectionInt\DirectionInt.h</v>
 <v>MotorControll-000\MotorControll\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
 <v>MotorControll-000\MotorControll\Generated_Source\PSoC4\Enable</v>
-<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\G_LED</v>
-<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\Latch</v>
-<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\LED_PWM</v>
-<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\LEDB</v>
-<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\mosiOut</v>
-<v>MotorControll-000\MotorControll\Generated_Source\PSoC4\ReversePin</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -251,7 +250,6 @@
 <v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\sclkOut.lst</v>
 <v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\sclkOut_PM.lst</v>
 <v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SERVO_PWM.lst</v>
-<v>MotorControll-000\MotorControll\CortexM0\ARM_GCC_541\Debug\Listing Files\SERVO_PWM_PM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -322,7 +320,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1390, 751" SelectedTabbedMdiWindow="e4980c79-21ff-4b60-bf6d-85988d64701b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\TopDesign\TopDesign.cysch" Guid="9c238b84-0714-4143-87a8-666487ff0f14" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\main.c" Guid="e4980c79-21ff-4b60-bf6d-85988d64701b" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\MotorControll.cydwr" Guid="927de655-9a22-4c3f-905c-5c17d791c00e" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\DirectionInt.c" Guid="ae900be0-9390-4f40-a661-339d22254fd2" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\StepperInterrupt.c" Guid="dd5de0b0-7df0-4030-af64-e47e3e342d51" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\CapSense_Processing.c" Guid="0cad75f2-0f74-4919-8482-430ed3ab06f2" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\cytypes.h" Guid="59fb7180-36aa-473f-bea0-45890428d7e6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1573, 755" SelectedTabbedMdiWindow="e4980c79-21ff-4b60-bf6d-85988d64701b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\TopDesign\TopDesign.cysch" Guid="9c238b84-0714-4143-87a8-666487ff0f14" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\main.c" Guid="e4980c79-21ff-4b60-bf6d-85988d64701b" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\MotorControll.cydwr" Guid="927de655-9a22-4c3f-905c-5c17d791c00e" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\DirectionInt.c" Guid="ae900be0-9390-4f40-a661-339d22254fd2" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\StepperInterrupt.c" Guid="dd5de0b0-7df0-4030-af64-e47e3e342d51" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\CapSense_Processing.c" Guid="0cad75f2-0f74-4919-8482-430ed3ab06f2" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW6- MotorControll\MotorControll.cydsn\Generated_Source\PSoC4\cytypes.h" Guid="59fb7180-36aa-473f-bea0-45890428d7e6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

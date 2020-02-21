@@ -18,184 +18,230 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Clineq_Quinton_HW2-000\Clineq_Quinton_HW2">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\accData\accData.c">
 <ExpandedNodeIds>
 <v>Clineq_Quinton_HW2-000</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\TopDesign</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Pins</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Analog</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Clocks</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Interrupts</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\System</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Directives</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Flash Security</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Header Files</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Header Files\cyapicallbacks.h</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Source Files</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Source Files\main.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\TopDesign</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Pins</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Analog</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Clocks</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Interrupts</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\System</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Directives</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Flash Security</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Header Files</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Header Files\cyapicallbacks.h</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Source Files</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Source Files\main.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\accData</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\tapInterrupt</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Clineq_Quinton_HW2-000</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\TopDesign</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Pins</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Analog</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Clocks</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Interrupts</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\System</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Directives</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.cydwr\Flash Security</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Header Files</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Header Files\cyapicallbacks.h</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Source Files</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Source Files\main.c</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Generated_Source</v>
-</VisibleNodeIds>
-</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Clineq_Quinton_HW2-000\Clineq_Quinton_HW2">
-<ExpandedNodeIds>
-<v>Clineq_Quinton_HW2-000</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\API</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\API\GLCD.c</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\API\GLCD.h</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\PSoC4</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\PSoC5</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\TopDesign</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\TopDesign\TopDesign.cysch</v>
-</ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Clineq_Quinton_HW2-000</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\API</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\API\GLCD.c</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\API\GLCD.h</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\PSoC4</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\PSoC5</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\TopDesign</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\TopDesign\TopDesign.cysch</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\TopDesign</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Pins</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Analog</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Clocks</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Interrupts</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\System</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Directives</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.cydwr\Flash Security</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Header Files</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Header Files\cyapicallbacks.h</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Source Files</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Source Files\main.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\accData</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\accData\accData.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\accData\accData.h</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\B_LED</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\Backlight</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\Clock_1</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\cy_boot</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\G_LED</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\GLCD</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\GLCD_MOSI</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\GLCD_Reset</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\GLCD_SCLK</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\GLCD_SPIM_UDB</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\GLCD_SPIM_UDB_IntClock</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\GLCD_SS</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\I2C</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\I2C_SCB_IRQ</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\I2C_SCBCLK</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\I2C_scl</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\I2C_sda</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\R_LED</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\Tap_Input</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\tapInterrupt</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\tapInterrupt\tapInterrupt.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\tapInterrupt\tapInterrupt.h</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\Timer</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Generated_Source\PSoC4\cydevice_trm.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>Clineq_Quinton_HW2-000</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Joystick_button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Joystick_button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.elf</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.hex</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.map</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.gpdsc</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.rpt</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2_timing.html</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\API</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\PSoC4</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\PSoC5</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\TopDesign</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Clineq_Quinton_HW2-000</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\A_Button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_Button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\C_Button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\D_Button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Joystick_button.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\Joystick_button_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.elf</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.hex</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW2.map</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.gpdsc</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\Clineq_Quinton_HW2.rpt</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\API</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\PSoC4</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\PSoC5</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\TopDesign</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Clineq_Quinton_HW2-000</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\accData.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_BOOT.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_I2C.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_I2C_BOOT.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_I2C_INT.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_I2C_SLAVE.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_SCB_IRQ.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_SCBCLK.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_scl.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_scl_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_sda.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_sda_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Tap_Input.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Tap_Input_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\tapInterrupt.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW7.elf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW7.hex</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Clineq_Quinton_HW7.map</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.gpdsc</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7.rpt</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\Clineq_Quinton_HW7_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Clineq_Quinton_HW2-000</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\accData.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\B_LED_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\G_LED_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_BOOT.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_I2C.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_I2C_BOOT.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_I2C_INT.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_I2C_SLAVE.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_SCB_IRQ.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_SCBCLK.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_scl.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_scl_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_sda.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\I2C_sda_PM.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\CortexM0\ARM_GCC_541\Debug\Listing Files\R_LED.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -206,27 +252,37 @@
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>Clineq_Quinton_HW2-000</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\PSoC 4 Architecture TRM</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\PSoC 4200 Family Datasheet</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\System Reference Guides</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\System Reference Guides\cy_boot_v5_70</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\System Reference Guides\cy_lfclk_v1_20</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\cy_pins_v2_20</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\ColorLcdShield.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\PSoC 4 Architecture TRM</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\PSoC 4200 Family Datasheet</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\System Reference Guides</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\System Reference Guides\cy_boot_v5_70</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_clock_v2_20.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_isr_v1_70</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_pins_v2_20</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SCB_P4_v4_0.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\ColorLcdShield.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\TCPWM_P4_v2_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Clineq_Quinton_HW2-000</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\PSoC 4 Architecture TRM</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\PSoC 4200 Family Datasheet</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\System Reference Guides</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\System Reference Guides\cy_boot_v5_70</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\System Reference Guides\cy_lfclk_v1_20</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\cy_pins_v2_20</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW2\ColorLcdShield.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\PSoC 4 Architecture TRM</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\PSoC 4200 Family Datasheet</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\System Reference Guides</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\System Reference Guides\cy_boot_v5_70</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_clock_v2_20.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_isr_v1_70</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_pins_v2_20</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\SCB_P4_v4_0.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\ColorLcdShield.pdf</v>
+<v>Clineq_Quinton_HW2-000\Clineq_Quinton_HW7\TCPWM_P4_v2_10.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -236,9 +292,11 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Clineq_Quinton_HW2.cydwr" />
-<name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\main.c" />
+<name v="..\..\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\main.c" />
+<name v="..\..\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\..\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\Clineq_Quinton_HW7.cydwr" />
+<name v="..\..\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\Generated_Source\PSoC4\accData.c" />
+<name v="..\..\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\Generated_Source\PSoC4\tapInterrupt.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -246,7 +304,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1315, 751" SelectedTabbedMdiWindow="98bba25c-47b1-4c9c-96c1-b1a75054ac04"><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\Clineq_Quinton_HW2.cydwr" Guid="6b4c6851-a6fd-4915-a7a6-0232e75b8630" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\TopDesign\TopDesign.cysch" Guid="98bba25c-47b1-4c9c-96c1-b1a75054ac04" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\HW-2- SpaceINveader\Clineq_Quinton_HW2.cydsn\main.c" Guid="b1f8af9a-5665-43ed-8d33-15c01592349c" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="623, 742" SelectedTabbedMdiWindow="b6bae793-d0c2-4916-937e-7e9e1c95b686"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7a59b775-7c3b-4e0d-b91d-4667595797ce" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\main.c" Guid="b4f140b7-cb9c-4299-9e83-b5c52f72fd87" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\TopDesign\TopDesign.cysch" Guid="883f9ccb-8970-42f9-9538-74e5dbeb50fc" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\Clineq_Quinton_HW7.cydwr" Guid="413b9b74-65d7-4a58-9b3f-333daf5961c9" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\Generated_Source\PSoC4\accData.c" Guid="b6bae793-d0c2-4916-937e-7e9e1c95b686" /><DocumentWindow Key="D:\GIT\Microcontroller System Design Projects\Hw7- Tilt Control Star Blasters\Clineq_Quinton_HW7.cydsn\Generated_Source\PSoC4\tapInterrupt.c" Guid="179b1ab4-e391-49f2-aff6-8a8a80856db7" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
